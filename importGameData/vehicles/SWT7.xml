@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="attachableCombineCutterFruitPreparer">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>SWT 7</name>
+        <specs>
+            <combination>Cana Trans 600</combination>
+            <neededPower>100</neededPower>
+            <workingWidth>1</workingWidth>
+        </specs>
+        <functions>
+            <function>$l10n_function_combine</function>
+        </functions>
+        <image>$data/vehicles/lizard/SWT7/store_SWT7.png</image>
+        <price>45000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>LIZARD</brand>
+        <category>sugarCaneHarvesting</category>
+        <shopTranslationOffset>0 -0.184 0</shopTranslationOffset>
+        <shopRotationOffset>-1 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>1408352</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>237450</indexBufferMemoryUsage>
+        <textureMemoryUsage>5942136</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_combine</typeDesc>
+        <filename>$data/vehicles/lizard/SWT7/SWT7.i3d</filename>
+        <size width="4.5" length="11" lengthOffset="-1" widthOffset="0.7"/>
+        <components>
+            <component centerOfMass="0.4 0.3 0.05" solverIterationCount="20" mass="3000"/>
+        </components>
+        <speedLimit value="10" />
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/trelleborg/AW305/300_80R15_3.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.5" repr="wheelLeft" forcePointRatio="0.5" initialCompression="40" suspTravel="0.1" spring="60" damper="20" rotationDamping="0.001" />
+                        <wheelChock/>
+                        <wheelChock isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/AW305/300_80R15_3.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.1" repr="wheelRight" forcePointRatio="0.5" initialCompression="40" suspTravel="0.1" spring="60" damper="20" rotationDamping="0.001" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+            <wheelConfiguration name="$l10n_configuration_valueWheelBroad" price="700">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/400_55R17_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.5" repr="wheelLeft" forcePointRatio="0.5" initialCompression="40" suspTravel="0.1" spring="60" damper="20" rotationDamping="0.001" />
+                        <wheelChock/>
+                        <wheelChock isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/400_55R17_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.2" repr="wheelRight" forcePointRatio="0.5" initialCompression="40" suspTravel="0.1" spring="60" damper="20" rotationDamping="0.001" />
+                    </wheel>
+                </wheels>
+                <objectChange node="wheelLeft"  translationActive="1.32 -0.08 0.569" />
+                <objectChange node="wheelRight" translationActive="-1.32 -0.08 0.569" />
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <hubs>
+            <hub linkNode="wheelLeft"  filename="$data/shared/wheels/hubs/hub_n6_1.xml" isLeft="true"  scale="0.152 0.152 0.152" />
+            <hub linkNode="wheelRight" filename="$data/shared/wheels/hubs/hub_n6_1.xml" isLeft="false" scale="0.152 0.152 0.152" />
+        </hubs>
+    </wheels>
+
+    <rimColorConfigurations useDefaultColors="true" price="300"/>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint jointType="trailer" attacherHeight="1.1" node="inputAttacherJoint" ptoAboveAttacher="false" allowsLowering="true"/>
+        </inputAttacherJoints>
+        <support animationName="moveSupport"/>
+        <brakeForce>0.8</brakeForce>
+        <airConsumer usage="0.3" />
+    </attachable>
+
+    <attacherJoints>
+        <attacherJointConfigurations>
+            <attacherJointConfiguration name="$l10n_configuration_valueDefault" price="0" >
+                <attacherJoint node="trailerAttacherJointBack" jointType="trailer"    allowsJointLimitMovement="false" allowsLowering="false" lowerRotLimit="10 120 50" lowerTransLimit="0 0 0" canTurnOnImplement="false" >
+                    <schema position="1 0" rotation="0" invertX="false" />
+                </attacherJoint>
+                <attacherJoint node="trailerAttacherJointBackLow" jointType="trailerLow" allowsJointLimitMovement="false" allowsLowering="false" lowerRotLimit="10 120 50" lowerTransLimit="0 0 0" canTurnOnImplement="false" >
+                    <schema position="1 0" rotation="0" invertX="false" />
+                </attacherJoint>
+            </attacherJointConfiguration>
+        </attacherJointConfigurations>
+
+        <sounds>
+            <attach template="ATTACH_01" />
+        </sounds>
+    </attacherJoints>
+
+    <powerTakeOffs>
+        <input inputAttacherJointIndices="1" inputNode="ptoInput" detachNode="ptoDetachNode" aboveAttacher="false" />
+    </powerTakeOffs>
+
+    <!-- recommended horsepower by manufacturer: 100 -->
+    <powerConsumer ptoRpm="540" neededMinPtoPower="30" neededMaxPtoPower="30" />
+
+    <lights>
+        <sharedLight linkNode="rear3ChamberLightLeft" filename="$data/shared/assets/lights/lizard/rear4ChamberLight_01_left.xml" />
+        <sharedLight linkNode="rear3ChamberLightRight" filename="$data/shared/assets/lights/lizard/rear4ChamberLight_01_right.xml" />
+
+        <realLights>
+            <high>
+                <light node="backLightHighLeft" lightTypes="0" />
+                <light node="backLightHighRight" lightTypes="0" />
+                <turnLightLeft node="turnLightLeftBack" />
+                <turnLightRight node="turnLightRightBack" />
+                <brakeLight node="backLightHighLeft" />
+                <brakeLight node="backLightHighRight" />
+            </high>
+        </realLights>
+    </lights>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundReferenceNode" threshold="0.3"/>
+        <groundReferenceNode node="fruitPreparerGroundReferenceNode" threshold="1"/>
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="cutter" functionName="processCutterArea" >
+            <area startNode="workAreaCutterStart" widthNode="workAreaCutterWidth" heightNode="workAreaCutterHeight" />
+            <groundReferenceNode index="1"/>
+        </workArea>
+        <workArea type="fruitPreparer" functionName="processFruitPreparerArea" >
+            <area startNode="workAreaFruitPreparerStart" widthNode="workAreaFruitPreparerWidth" heightNode="workAreaFruitPreparerHeight" />
+            <groundReferenceNode index="2"/>
+            <fruitPreparer dropWorkAreaIndex="3"/>
+        </workArea>
+
+        <workArea type="auxiliary" >
+            <area startNode="fruitPreparerDropAreaStart" widthNode="fruitPreparerDropAreaWidth" heightNode="fruitPreparerDropAreaHeight" />
+        </workArea>
+    </workAreas>
+
+    <workParticles>
+        <particle>
+            <node node="effectParticleEmitterFruitLeft"  refNodeIndex="2" particleType="PREPARE_FRUIT" fillType="sugarCane" worldSpace="false" emitCountScale="2.0"/>
+            <node node="effectParticleEmitterFruitRight" refNodeIndex="2" particleType="PREPARE_FRUIT" fillType="sugarCane" worldSpace="false" emitCountScale="2.0"/>
+        </particle>
+    </workParticles>
+
+    <foldable>
+        <foldingParts startAnimTime="0.0" turnOnFoldDirection="1" foldMiddleAnimTime="0.51" foldMiddleDirection="-1" turnOnFoldMaxLimit="1.0" turnOnFoldMinLimit="0.5">
+            <foldingPart animationName="folding" speedScale="1" />
+        </foldingParts>
+    </foldable>
+
+    <animations>
+        <animation name="folding">
+            <part node="drawbar_vis"    startTime="0" endTime="2"   startRot="0 0 0" endRot="0 18 0"/>
+            <part node="cutterArmLower"  startTime="0" endTime="2"   startRot="-30.275 0 0" endRot="-40 0 0"/>
+            <part node="axis"    startTime="2" endTime="4"   startRot="30 0 0" endRot="0 0 0"/>
+        </animation>
+
+        <animation name="moveSupport">
+            <part node="axis" startTime="0" endTime="0.7" requiredAnimation="folding" requiredAnimationRange="0 0.99" startRot="30 0 0" endRot="-30 0 0"/>
+            <part node="axis" startTime="0" endTime="0.7" requiredAnimation="folding" requiredAnimationRange="1 1"    startRot="0 0 0" endRot="-30 0 0"/>
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="drawbar_vis" playSound="true" >
+                <inputAttacherJoint value="true" />
+            </movingTool>
+            <movingTool node="axis" wheelIndices="1 2" playSound="true" >
+            </movingTool>
+            <movingTool node="pipe_rot">
+                <rotation rotSpeed="0" rotAcceleration="0" rotMax="90" rotMin="-90" rotationAxis="2" />
+                <dependentMovingTool node="separatorRot">
+                    <rotationBasedLimits>
+                        <limit rotation="-90"    rotMax="0"    rotMin="0" />
+                        <limit rotation="-40"    rotMax="0"    rotMin="0" />
+                        <limit rotation="-19.9"  rotMax="-90"    rotMin="-90" />
+                        <limit rotation="19.9"  rotMax="-90"    rotMin="-90" />
+                        <limit rotation="40"    rotMax="0"    rotMin="0" />
+                        <limit rotation="90"    rotMax="0"    rotMin="0" />
+                    </rotationBasedLimits>
+                </dependentMovingTool>
+            </movingTool>
+            <movingTool node="separatorRot">
+                <rotation rotSpeed="0" rotAcceleration="0" rotMax="90" rotMin="-90" rotationAxis="2" />
+            </movingTool>
+            <movingTool node="cutterArmLower" >
+                <dependentPart node="cutter" />
+                <dependentPart node="hydraulicCutterArmLower" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="cutter" referencePoint="cutterArmUpper_ref" localReferencePoint="cutterArmUpper" referenceFrame="cutter_refFrame" >
+                <dependentPart node="cutterArmUpper" />
+            </movingPart>
+            <movingPart node="cutterArmUpper" referencePoint="cutterArmUpper_ref" referenceFrame="cutterArmUpper_ref" />
+            <movingPart node="hydraulicCutterArmLower" referencePoint="hydraulicCutterArmLowerRef" referenceFrame="hydraulicCutterArmLowerRef" >
+                <translatingPart node="hydraulicCutterArmLowerPunch" />
+            </movingPart>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="lizardSWT7_main_component1"/>
+        </sounds>
+    </cylindered>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                 <fillUnits>
+                    <fillUnit unit="$l10n_unit_literShort" fillTypes="sugarCane" showOnHud="false"/>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <pipe unloadInfoIndex="1">
+        <dischargeNode index="1" />
+        <states num="2" unloading="1 2" autoAiming="2"/>
+        <pipeNodes>
+            <pipeNode node="pipe_rot" rotationSpeeds="0 25 0" autoAimYRotation="true" autoAimInvertZ="true">
+                <state1 rotation="0 0 0"/>
+                <state2 rotation="0 0 0"/>
+            </pipeNode>
+        </pipeNodes>
+
+        <unloadingTriggers>
+            <unloadingTrigger node="trailerTrigger" />
+        </unloadingTriggers>
+    </pipe>
+
+    <combine fillUnitIndex="1" allowThreshingDuringRain="false">
+        <swath available="false"/>
+        <chopper available="false"/>
+
+        <sounds>
+            <start template="HARVESTER_TOOL_START" linkNode="lizardSWT7_main_component1" />
+            <work template="HARVESTER_TOOL_WORK" linkNode="lizardSWT7_main_component1" />
+            <stop template="HARVESTER_TOOL_STOP" linkNode="lizardSWT7_main_component1" />
+        </sounds>
+
+        <folding allowWhileThreshing="false" />
+
+        <animationNodes>
+            <animationNode node="feederRight" rotSpeed="-600" rotAxis="3" turnOnFadeTime="4" turnOffFadeTime="3" />
+            <animationNode node="feederLeft" rotSpeed="600" rotAxis="3" turnOnFadeTime="4" turnOffFadeTime="3" />
+            <animationNode node="feederBladeRight" rotSpeed="600" rotAxis="2" turnOnFadeTime="4" turnOffFadeTime="3" />
+            <animationNode node="feederBladeLeft" rotSpeed="-600" rotAxis="2" turnOnFadeTime="4" turnOffFadeTime="3" />
+            <animationNode node="feederDrumRight" rotSpeed="600" rotAxis="2" turnOnFadeTime="4" turnOffFadeTime="3" />
+            <animationNode node="feederDrumLeft" rotSpeed="-600" rotAxis="2" turnOnFadeTime="4" turnOffFadeTime="3" />
+            <animationNode node="feederDrumBack" rotSpeed="600" rotAxis="1" turnOnFadeTime="4" turnOffFadeTime="3" />
+            <animationNode node="separatorFender" rotSpeed="600" rotAxis="2" turnOnFadeTime="4" turnOffFadeTime="3" />
+            <animationNode node="rotatingPart01" rotSpeed="-600" rotAxis="2" turnOnFadeTime="4" turnOffFadeTime="3" />
+            <animationNode node="rotatingPart02" rotSpeed="600" rotAxis="2" turnOnFadeTime="4" turnOffFadeTime="3" />
+        </animationNodes>
+    </combine>
+
+    <fruitPreparer fruitType="sugarCane">
+        <sounds>
+            <work template="DEFOLIATOR_01" linkNode="0>" />
+        </sounds>
+    </fruitPreparer>
+
+    <cutter fruitTypes="sugarCane">
+        <testAreas>
+            <testArea startNode="cutterTestAreaLeftStart" widthNode="cutterTestAreaLeftWidth" heightNode="cutterTestAreaLeftHeight" />
+            <testArea startNode="cutterTestAreaMiddleStart" widthNode="cutterTestAreaMiddleWidth" heightNode="cutterTestAreaMiddleHeight" />
+            <testArea startNode="cutterTestAreaRightStart" widthNode="cutterTestAreaRightWidth" heightNode="cutterTestAreaRightHeight" />
+        </testAreas>
+        <effect>
+            <effectNode linkNode="centerEffectLinkNode" speedScale="0.0018" inverted="true" lengthAndRadius="2.5 1.3 2 3" isThreshing="false" effectType="CENTER" changeSpeedScale="0.01" />
+        </effect>
+        <fillEffect>
+            <effectNode effectClass="ParticleEffect" effectNode="cleaningDustEffectLinkNode" particleType="CLEANING_DUST" emitCountScale="2.0"/>
+        </fillEffect>
+    </cutter>
+
+    <dischargeable>
+        <dischargeNode node="dischargeNode" emptySpeed="610" fillUnitIndex="1" maxDistance="8">
+            <info width="0.4" length="0.4" />
+
+            <effects>
+                <effectNode effectClass="ParticleEffect" effectNode="effectParticleEmitterUnloading" particleType="UNLOADING" emitCountScale="2" delay="0" lifespan="0.125"/>
+                <effectNode effectClass="ParticleEffect" effectNode="effectParticleEmitterChop" particleType="chopper" worldSpace="true" emitCountScale="0.5"/>
+            </effects>
+        </dischargeNode>
+    </dischargeable>
+
+    <ai>
+        <areaMarkers leftNode="aiAreaMarkerStart" rightNode="aiAreaMarkerWidth" backNode="aiAreaMarkerHeight" />
+        <sizeMarkers leftNode="aiSizeMarkerLeft" rightNode="aiSizeMarkerRight" backNode="aiSizeMarkerBack" />
+        <collisionTrigger node="aiCollisionTrigger" />
+        <needsLowering value="true"/>
+        <allowTurnBackward value="false" />
+        <turningRadiusLimitation radius="8" />
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-1.25" maxX="1.50" minZ="-1.6" maxZ="1.6 " yOffset="0.6" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="lizardSWT7_mat" baseNode="lizardSWT7_vis">
+            <shaderParameter name="colorMat1" value="SHARED_YELLOW1"/>
+        </material>
+        <material name="lizardSWT7Design_mat" baseNode="lizardSWT7_designVis">
+            <shaderParameter name="colorMat0" value="SHARED_YELLOW1"/>
+        </material>
+    </baseMaterial>
+
+    <baseMaterialConfigurations useDefaultColors="true" price="300">
+        <baseMaterialConfiguration color="0.190 0.290 0.060 1"/>
+        <material name="lizardSWT7_mat" shaderParameter="colorMat1" />
+    </baseMaterialConfigurations>
+
+    <designMaterialConfigurations useDefaultColors="true" price="300">
+        <designMaterialConfiguration color="0.970 0.520 0.003 1"/>
+        <material name="lizardSWT7Design_mat" shaderParameter="colorMat0" />
+    </designMaterialConfigurations>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="lizardSWT7_main_component1" node="0>" />
+        <i3dMapping id="lizardSWT7_vis" node="0>0" />
+        <i3dMapping id="axis" node="0>0|0" />
+        <i3dMapping id="wheelLeft" node="0>0|0|0" />
+        <i3dMapping id="wheelRight" node="0>0|0|1" />
+        <i3dMapping id="drawbar_vis" node="0>0|1" />
+        <i3dMapping id="inputAttacherJoint" node="0>0|1|0" />
+        <i3dMapping id="ptoInput" node="0>0|1|1" />
+        <i3dMapping id="ptoDetachNode" node="0>0|1|2" />
+        <i3dMapping id="drawbar_designVis" node="0>0|1|3" />
+        <i3dMapping id="attacherJoints" node="0>0|2" />
+        <i3dMapping id="trailerAttacherJointBack" node="0>0|2|0|0" />
+        <i3dMapping id="trailerAttacherJointBackLow" node="0>0|2|0|1" />
+        <i3dMapping id="rear3ChamberLightLeft" node="0>0|3|0|0" />
+        <i3dMapping id="rear3ChamberLightRight" node="0>0|3|0|1" />
+        <i3dMapping id="backLightHighLeft" node="0>0|3|1" />
+        <i3dMapping id="backLightHighRight" node="0>0|3|2" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|3|3" />
+        <i3dMapping id="turnLightRightBack" node="0>0|3|4" />
+        <i3dMapping id="cutterArmUpper_ref" node="0>0|4|0" />
+        <i3dMapping id="cutterArmLower" node="0>0|4|1" />
+        <i3dMapping id="cutter" node="0>0|4|1|0" />
+        <i3dMapping id="cutterArmUpper" node="0>0|4|1|0|0" />
+        <i3dMapping id="rotatingPart01" node="0>0|4|1|0|1|0|0" />
+        <i3dMapping id="rotatingPart02" node="0>0|4|1|0|1|1|0" />
+        <i3dMapping id="effectParticleEmitterFruitLeft" node="0>0|4|1|0|1|2|0" />
+        <i3dMapping id="workAreaFruitPreparerStart" node="0>0|4|1|0|2|0" />
+        <i3dMapping id="workAreaFruitPreparerWidth" node="0>0|4|1|0|2|1" />
+        <i3dMapping id="workAreaFruitPreparerHeight" node="0>0|4|1|0|2|2" />
+        <i3dMapping id="fruitPreparerGroundReferenceNode" node="0>0|4|1|0|2|3" />
+        <i3dMapping id="fruitPreparerGroundReferenceNodeLeft" node="0>0|4|1|0|2|4" />
+        <i3dMapping id="fruitPreparerGroundReferenceNodeRight" node="0>0|4|1|0|2|5" />
+        <i3dMapping id="cutter_designVis" node="0>0|4|1|0|3" />
+        <i3dMapping id="hydraulicCutterArmLowerRef" node="0>0|4|1|1" />
+        <i3dMapping id="hydraulicCutterArmLower" node="0>0|4|2" />
+        <i3dMapping id="hydraulicCutterArmLowerPunch" node="0>0|4|2|0" />
+        <i3dMapping id="cutter_refFrame" node="0>0|4|3" />
+        <i3dMapping id="feederRight" node="0>0|4|4|0|0" />
+        <i3dMapping id="feederLeft" node="0>0|4|4|1|0" />
+        <i3dMapping id="feederBladeRight" node="0>0|4|4|2|0" />
+        <i3dMapping id="feederBladeLeft" node="0>0|4|4|3|0" />
+        <i3dMapping id="feederDrumRight" node="0>0|4|4|4" />
+        <i3dMapping id="feederDrumLeft" node="0>0|4|4|5" />
+        <i3dMapping id="feederDrumBack" node="0>0|4|4|6" />
+        <i3dMapping id="pipe_rot" node="0>0|4|5|0" />
+        <i3dMapping id="separatorFender" node="0>0|4|5|0|0|0" />
+        <i3dMapping id="separatorRot" node="0>0|4|5|0|1" />
+        <i3dMapping id="effectParticleEmitterChop" node="0>0|4|5|0|1|0|0" />
+        <i3dMapping id="dischargeNode" node="0>0|4|5|0|2" />
+        <i3dMapping id="pipe_vis" node="0>0|4|5|0|3" />
+        <i3dMapping id="pipe_designVis" node="0>0|4|5|0|4" />
+        <i3dMapping id="effectParticleEmitterUnloading" node="0>0|4|5|0|6|0" />
+        <i3dMapping id="effectParticleEmitterFruitRight" node="0>0|4|6" />
+        <i3dMapping id="centerEffectLinkNode" node="0>0|5|0" />
+        <i3dMapping id="threshingEffectLinkNode" node="0>0|5|1" />
+        <i3dMapping id="cleaningDustEffectLinkNode" node="0>0|5|2" />
+        <i3dMapping id="groundReferenceNode" node="0>0|6|0" />
+        <i3dMapping id="workAreaCutterStart" node="0>0|6|1|0" />
+        <i3dMapping id="workAreaCutterWidth" node="0>0|6|1|1" />
+        <i3dMapping id="workAreaCutterHeight" node="0>0|6|1|2" />
+        <i3dMapping id="aiAreaMarkerStart" node="0>0|7|0|0" />
+        <i3dMapping id="aiAreaMarkerWidth" node="0>0|7|0|1" />
+        <i3dMapping id="aiAreaMarkerHeight" node="0>0|7|0|2" />
+        <i3dMapping id="aiSizeMarkerLeft" node="0>0|7|1|0" />
+        <i3dMapping id="aiSizeMarkerRight" node="0>0|7|1|1" />
+        <i3dMapping id="aiSizeMarkerBack" node="0>0|7|1|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|7|2" />
+        <i3dMapping id="trailerTrigger" node="0>0|7|3" />
+        <i3dMapping id="cutterTestAreaLeftStart" node="0>0|8|0" />
+        <i3dMapping id="cutterTestAreaLeftWidth" node="0>0|8|0|0" />
+        <i3dMapping id="cutterTestAreaLeftHeight" node="0>0|8|0|1" />
+        <i3dMapping id="cutterTestAreaMiddleStart" node="0>0|8|1" />
+        <i3dMapping id="cutterTestAreaMiddleWidth" node="0>0|8|1|0" />
+        <i3dMapping id="cutterTestAreaMiddleHeight" node="0>0|8|1|1" />
+        <i3dMapping id="cutterTestAreaRightStart" node="0>0|8|2" />
+        <i3dMapping id="cutterTestAreaRightWidth" node="0>0|8|2|0" />
+        <i3dMapping id="cutterTestAreaRightHeight" node="0>0|8|2|1" />
+        <i3dMapping id="fruitPreparerDropAreaStart" node="0>0|9|0" />
+        <i3dMapping id="fruitPreparerDropAreaWidth" node="0>0|9|1" />
+        <i3dMapping id="fruitPreparerDropAreaHeight" node="0>0|9|2" />
+        <i3dMapping id="lizardSWT7_designVis" node="0>2|0" />
+    </i3dMappings>
+</vehicle>

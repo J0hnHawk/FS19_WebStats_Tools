@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable>
+    <storeData>
+        <name>$l10n_shopItem_farmSiloLarge</name>
+        <functions>
+            <function>$l10n_function_farmSilo</function>
+        </functions>
+        <specs>
+            <capacity>200000</capacity>
+            <fillTypes>wheat maize barley canola</fillTypes>
+        </specs>
+        <image>$data/placeables/mapBase/farmSilo/store_farmSilo.png</image>
+        <price>20000</price>
+        <lifetime>1000</lifetime>
+        <rotation>0</rotation>
+        <brand>LIZARD</brand>
+        <species>placeable</species>
+        <category>placeableMisc</category>
+        <vertexBufferMemoryUsage>628916</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>78582</indexBufferMemoryUsage>
+        <textureMemoryUsage>128</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <placeableType>silo</placeableType>
+    <filename>$data/placeables/mapBase/farmSilo/farmSilo.i3d</filename>
+    <placement testSizeX="17" testSizeZ="10" sizeX="4" sizeZ="3" useRandomYRotation="false" useManualYRotation="true" />
+
+    <loadingStation stationName="FarmSilo" appearsOnPDA="false" storageRadius="10" fillSoundIdentifier="fillSound01">
+        <loadTrigger triggerNode="1|0|0|0" fillLitersPerSecond="2000" dischargeNode="1|0|0|1">
+            <effectNode effectNode="1|0|0|2|0" materialType="unloading" materialTypeId="3" fadeTime="0.5" />
+            <effectNode effectNode="1|0|0|2|1" materialType="smoke"     materialTypeId="1" fadeTime="0.5" />
+        </loadTrigger>
+    </loadingStation>
+
+    <unloadingStation stationName="FarmSilo" appearsOnPDA="true" storageRadius="20">
+        <unloadTrigger exactFillRootNode="0|0|0" />
+    </unloadingStation>
+
+    <storages>
+        <storage node="2|0" fillTypeCategories="farmsilo" capacityPerFillType="200000" />
+    </storages>
+
+</placeable>

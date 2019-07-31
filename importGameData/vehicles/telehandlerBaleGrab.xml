@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="baleGrab">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>$l10n_shopItem_telehandlerBaleGrab</name>
+        <specs>
+            <combination>9407 S, MLA-T, MLT</combination>
+        </specs>
+        <image>$data/vehicles/magsi/telehandlerBaleGrab/store_magsiTelehandlerBaleGrab.png</image>
+        <price>3300</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>MAGSI</brand>
+        <category>teleLoaders</category>
+        <vertexBufferMemoryUsage>107632</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>18060</indexBufferMemoryUsage>
+        <textureMemoryUsage>4205368</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_telehandlerTool</typeDesc>
+        <filename>$data/vehicles/magsi/telehandlerBaleGrab/telehandlerBaleGrab.i3d</filename>
+        <size width="1.5" length="2"/>
+        <supportsPickUp>false</supportsPickUp>
+        <components>
+            <component centerOfMass="0 0.1 0" solverIterationCount="20" mass="200" />
+            <component solverIterationCount="15" mass="50" />
+            <component solverIterationCount="15" mass="50" />
+            <joint component1="1" component2="2" node="leftGrabJoint" rotLimit="0 0 0" transLimit="0 0 0" rotLimitSpring="0 180 0" rotLimitDamping="0 10 0" rotLimitForceLimit="-1 10 -1" />
+            <joint component1="1" component2="3" node="rightGrabJoint" rotLimit="0 0 0" transLimit="0 0 0" rotLimitSpring="0 180 0" rotLimitDamping="0 10 0" rotLimitForceLimit="-1 10 -1" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="telehandler" />
+        </inputAttacherJoints>
+    </attachable>
+
+    <baleGrab triggerNode="dynamicMountTrigger" rootNode="0>" jointNode="dynamicMountTrigger" jointType="TYPE_AUTO_ATTACH_XYZ" forceAcceleration="30" grabRefComponentJointIndex1="0" grabRefComponentJointIndex2="1" rotDiffThreshold1="4" rotDiffThreshold2="-4" />
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="rightGrabJoint" playSound="true">
+                <controls axis="AXIS_FRONTLOADER_TOOL2" invertAxis="true" mouseSpeedFactor="0.3" iconName="GRABBER_OPEN_CLOSE" />
+                <rotation rotationAxis="2" rotSpeed="70" rotAcceleration="250" rotMax="0" rotMin="-45" />
+                <componentJoint index="2" anchorActor="0" />
+                <dependentMovingTool node="leftGrabJoint" speedScale="-1" />
+            </movingTool>
+            <movingTool node="leftGrabJoint" playSound="true">
+                <rotation rotationAxis="2" rotSpeed="70" rotAcceleration="250" rotMax="45" rotMin="0" />
+                <componentJoint index="1" anchorActor="0" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="leftGrabArm" referencePoint="leftGrabArmRef" referenceFrame="leftGrabArmRef" limitedAxis="2" isActiveDirty="true" >
+                <dependentPart node="hydraulicGrab" />
+            </movingPart>
+            <movingPart node="rightGrabArm" referencePoint="rightGrabArmRef" referenceFrame="rightGrabArmRef" limitedAxis="2" isActiveDirty="true" >
+                <dependentPart node="hydraulicGrab" />
+            </movingPart>
+            <movingPart node="hydraulicGrab" referencePoint="hydraulicGrabRef" referenceFrame="hydraulicGrabRef" >
+                <translatingPart node="hydraulicGrabPunch" />
+            </movingPart>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="2" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="attacherJoint" node="0>0" />
+        <i3dMapping id="leftGrabJoint" node="0>1" />
+        <i3dMapping id="rightGrabJoint" node="0>2" />
+        <i3dMapping id="dynamicMountTrigger" node="0>3" />
+        <i3dMapping id="leftGrabArm" node="0>4|1" />
+        <i3dMapping id="hydraulicGrab" node="0>4|1|0" />
+        <i3dMapping id="hydraulicGrabPunch" node="0>4|1|0|0" />
+        <i3dMapping id="rightGrabArm" node="0>4|2" />
+        <i3dMapping id="hydraulicGrabRef" node="0>4|2|0" />
+        <i3dMapping id="leftGrabArmRef" node="1>0" />
+        <i3dMapping id="rightGrabArmRef" node="2>0" />
+    </i3dMappings>
+</vehicle>

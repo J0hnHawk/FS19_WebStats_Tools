@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<vehicle type="cutter">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>300FP</name>
+        <specs>
+            <workingWidth>3.0</workingWidth>
+            <combination>FR 780</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_cutterForage</function>
+        </functions>
+        <image>$data/vehicles/newHolland/pp273/store_pp273.png</image>
+        <price>20000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>NEWHOLLAND</brand>
+        <category>forageHarvesterCutters</category>
+        <shopTranslationOffset>0 -0.026 0</shopTranslationOffset>
+        <shopRotationOffset>2.5 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>808388</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>120828</indexBufferMemoryUsage>
+        <textureMemoryUsage>8038928</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_pickup</typeDesc>
+        <filename>$data/vehicles/newHolland/pp273/pp273.i3d</filename>
+        <size width="3.5" length="2.5"/>
+        <speedLimit value="20"/>
+        <components>
+            <component centerOfMass="0 0.5 0" solverIterationCount="10" mass="1489"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/trelleborg/T510/18x8_50R8.xml" isLeft="true">
+                        <physics restLoad="0.5" repr="leftWheel"  driveNode="wheel2" forcePointRatio="0.23" brakeFactor="0" initialCompression="75" suspTravel="0.1" spring="10" damper="40" rotationDamping="0.0002" versatileYRot="true" frictionScale="0.5"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T510/18x8_50R8.xml" isLeft="false">
+                        <physics restLoad="0.5" repr="rightWheel" driveNode="wheel1" forcePointRatio="0.23" brakeFactor="0" initialCompression="75" suspTravel="0.1" spring="10" damper="40" rotationDamping="0.0002" versatileYRot="true" frictionScale="0.5"/>
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <hubs>
+            <hub linkNode="wheel2"  filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.19 0.15 0.15" offset="0.01" />
+            <hub linkNode="wheel2"  filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.19 0.15 0.15" offset="0.01" />
+            <hub linkNode="wheel1"  filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.19 0.15 0.15" offset="0.01" />
+            <hub linkNode="wheel1"  filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.19 0.15 0.15" offset="0.01" />
+        </hubs>
+    </wheels>
+
+    <speedRotatingParts>
+        <speedRotatingPart node="backWheel" wheelIndex="2" onlyActiveWhenLowered="true" />
+        <speedRotatingPart node="topDrum1" radius="0.19" groundReferenceNodeIndex="1" onlyActiveWhenLowered="true"/>
+        <speedRotatingPart node="topDrum2" radius="0.19" groundReferenceNodeIndex="1" onlyActiveWhenActive="true" onlyActiveWhenLowered="true"/>
+    </speedRotatingParts>
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="cutterHarvester" forceSelectionOnAttach="false">
+                <heightNode node="groundReferenceNode"/>
+                <distanceToGround lower="0.2" upper="1.4"/>
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+        <support animationName="moveSupport"/>
+        <brakeForce>0.2</brakeForce>
+    </attachable>
+
+    <powerTakeOffs>
+        <input inputNode="pto" inputAttacherJointIndices="1" aboveAttacher="true" ptoName="LEFT_PTO"/>
+    </powerTakeOffs>
+
+    <powerConsumer ptoRpm="540" neededMaxPtoPower="50"/>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundReferenceNode" threshold="0.2" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="cutter" functionName="processPickupCutterArea" disableBackwards="false" >
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight" />
+            <groundReferenceNode index="1" />
+            <folding minLimit="0" maxLimit="0.1" />
+        </workArea>
+    </workAreas>
+
+    <lights>
+        <sharedLight linkNode="yellowRound_02_1"              filename="$data/shared/assets/reflectors/lizard/yellowRound_02.xml" />
+        <sharedLight linkNode="yellowRound_02_2"              filename="$data/shared/assets/reflectors/lizard/yellowRound_02.xml" />
+    </lights>
+
+    <foldable>
+        <foldingParts startMoveDirection="1" turnOnFoldMaxLimit="0.5" turnOnFoldMinLimit="0">
+            <foldingPart animationName="folding" speedScale="1.2" />
+        </foldingParts>
+    </foldable>
+
+    <animations>
+        <animation name="folding">
+            <part node="leftWheelArm"   startTime="0" endTime="2" startRot="0 40 0" endRot="0 0 0"/>
+            <part node="rightWheelArm"   startTime="0" endTime="2" startRot="0 -40 0" endRot="0 0 0"/>
+            <part node="rotGroupLeftArm" startTime="0" endTime="2" startRot="0 -40 0" endRot="0 0 0"/>
+            <part node="rotGroupRightArm" startTime="0" endTime="2" startRot="0 40 0" endRot="0 0 0"/>
+        </animation>
+
+        <!-- move support wheel down/up -->
+        <animation name="moveSupport">
+            <part node="supportCol" startTime="0"    endTime="1"    startTrans="0 0.818 -0.469" endTrans="0 0.258 -0.469" />
+            <part node="supportArmsDetached" startTime="0"    endTime="0.05" visibility="false" />
+            <part node="supportArmsAttached" startTime="0"    endTime="0.05" visibility="true" />
+            <part node="supportArmsDetached" startTime="0.05" endTime="0.1"  visibility="true" />
+            <part node="supportArmsAttached" startTime="0.05" endTime="0.1"  visibility="false" />
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="leftWheelArm" wheelIndices="1" playSound="true" >
+                <dependentPart node="hydraulicLeftWheelArm" />
+            </movingTool>
+            <movingTool node="rightWheelArm" wheelIndices="2" playSound="true" >
+                <dependentPart node="hydraulicRightWheelArm" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="rightBar" referencePoint="rightBarRef" referenceFrame="rightBarRefFrame" scaleZ="true" isActiveDirty="true" />
+            <movingPart node="leftBar" referencePoint="leftBarRef" referenceFrame="leftBarRefFrame" scaleZ="true" isActiveDirty="true" />
+
+            <movingPart node="hydraulicLeftWheelArm" referencePoint="hydraulicLeftWheelArmRef" referenceFrame="pp273_main_component1">
+                <translatingPart node="hydraulicLeftWheelArmPunch" />
+            </movingPart>
+            <movingPart node="hydraulicRightWheelArm" referencePoint="hydraulicRightWheelArmRef" referenceFrame="pp273_main_component1">
+                <translatingPart node="hydraulicRightWheelArmPunch" />
+            </movingPart>
+        </movingParts>
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="pp273_main_component1"/>
+        </sounds>
+    </cylindered>
+
+    <dynamicMount forceLimitScale="1" />
+
+    <cutter fruitTypeCategories="pickup" fruitTypeConverter="forageHarvester" useWindrowed="true">
+        <fillEffect>
+            <effectNode effectClass="MorphPositionEffect" effectNode="pickupEffect"    materialType="pickup" materialTypeId="1" delay="0" fadeTime="0.5" speed="0.9" scrollLength="1.5" scrollSpeed="2"/>
+            <effectNode effectClass="ParticleEffect"      effectNode="emitShape_straw" particleType="PICKUP" useCuttingWidth="false" emitCountScale="6" worldSpace="false"/>
+            <effectNode effectClass="ParticleEffect"      effectNode="emitShape_smoke" particleType="SMOKE"  useCuttingWidth="false" emitCountScale="1"/>
+        </fillEffect>
+        <animationNodes>
+
+            <animationNode node="mainDrum" rotAxis="1" rotSpeed="800"  turnOnFadeTime="2" turnOffFadeTime="4"/>
+            <animationNode node="spikeDrum" rotAxis="1" rotSpeed="-600" turnOnFadeTime="2" turnOffFadeTime="4"/>
+        </animationNodes>
+    </cutter>
+
+    <turnOnVehicle turnedOnByAttacherVehicle="true" turnOffIfNotAllowed="true"/>
+
+    <foliageBending>
+        <bendingNode minX="-1.60" maxX="1.60" minZ="-0.7" maxZ="0.6" yOffset="0.3" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="pp273_mat" baseNode="pp273">
+            <shaderParameter name="colorMat0" value="NEWHOLLAND_YELLOW1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="pp273_main_component1" node="0>" />
+        <i3dMapping id="pp273" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0|0" />
+        <i3dMapping id="pto" node="0>0|0|1" />
+        <i3dMapping id="supportArmsDetached" node="0>0|0|2|0" />
+        <i3dMapping id="supportArmsAttached" node="0>0|0|2|1" />
+        <i3dMapping id="supportCol" node="0>0|0|2|2" />
+        <i3dMapping id="leftWheelArm" node="0>0|1|0" />
+        <i3dMapping id="rotGroupLeftArm" node="0>0|1|0|0" />
+        <i3dMapping id="leftWheel" node="0>0|1|0|0|0" />
+        <i3dMapping id="wheel2" node="0>0|1|0|0|0|0" />
+        <i3dMapping id="leftBar" node="0>0|1|0|0|0|1" />
+        <i3dMapping id="leftBarRefFrame" node="0>0|1|0|0|0|2" />
+        <i3dMapping id="leftBarRef" node="0>0|1|0|0|1" />
+        <i3dMapping id="hydraulicLeftWheelArmRef" node="0>0|1|0|1" />
+        <i3dMapping id="rightWheelArm" node="0>0|1|1" />
+        <i3dMapping id="rotGroupRightArm" node="0>0|1|1|0" />
+        <i3dMapping id="rightWheel" node="0>0|1|1|0|0" />
+        <i3dMapping id="wheel1" node="0>0|1|1|0|0|0" />
+        <i3dMapping id="rightBar" node="0>0|1|1|0|0|1" />
+        <i3dMapping id="rightBarRefFrame" node="0>0|1|1|0|0|2" />
+        <i3dMapping id="rightBarRef" node="0>0|1|1|0|1" />
+        <i3dMapping id="hydraulicRightWheelArmRef" node="0>0|1|1|1" />
+        <i3dMapping id="mainDrum" node="0>0|1|2|0" />
+        <i3dMapping id="topDrum1" node="0>0|1|2|1" />
+        <i3dMapping id="topDrum2" node="0>0|1|2|2" />
+        <i3dMapping id="spikeDrum" node="0>0|1|2|3" />
+        <i3dMapping id="backWheel" node="0>0|1|3" />
+        <i3dMapping id="hydraulicLeftWheelArm" node="0>0|2|0" />
+        <i3dMapping id="hydraulicLeftWheelArmPunch" node="0>0|2|0|0" />
+        <i3dMapping id="hydraulicRightWheelArm" node="0>0|2|1" />
+        <i3dMapping id="hydraulicRightWheelArmPunch" node="0>0|2|1|0" />
+        <i3dMapping id="workAreaStart" node="0>0|3|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|3|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|3|2" />
+        <i3dMapping id="groundReferenceNode" node="0>0|3|3" />
+        <i3dMapping id="yellowRound_02_1" node="0>0|5|0" />
+        <i3dMapping id="yellowRound_02_2" node="0>0|5|1" />
+        <i3dMapping id="pickupEffect" node="0>0|6|0" />
+        <i3dMapping id="emitShape_straw" node="0>0|6|1" />
+        <i3dMapping id="emitShape_smoke" node="0>0|6|2" />
+        <i3dMapping id="emitShape_strawFalling" node="0>0|6|3" />
+    </i3dMappings>
+</vehicle>

@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="shovel">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>MF 3012</name>
+        <specs>
+            <combination>SWT 7</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_sugarCaneTrailer</function>
+        </functions>
+        <image>$data/vehicles/masseyFerguson/MF3012/store_mf3012.png</image>
+        <price>42000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>MASSEYFERGUSON</brand>
+        <category>sugarCaneHarvesting</category>
+        <shopTranslationOffset>0 0.125 0</shopTranslationOffset>
+        <shopRotationOffset>2.5 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>721576</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>126492</indexBufferMemoryUsage>
+        <textureMemoryUsage>4380216</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_tipper</typeDesc>
+        <filename>$data/vehicles/masseyFerguson/MF3012/mf3012.i3d</filename>
+        <size width="4.5" length="7.5" lengthOffset="0.8"/>
+        <components>
+            <component centerOfMass="0 0.7 0.5" solverIterationCount="10" mass="4100" />
+            <component centerOfMass="0 0.0 0.0" solverIterationCount="10" mass="2500" />
+            <joint component1="1" component2="2" node="componentJoint_axis" rotLimit="8 0 0" transLimit="0 0 0"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+        <forcedMapHotspotType>Trailer</forcedMapHotspotType>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0" brand="TRELLEBORG">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/600_55R26_5.xml" isLeft="true" hasParticles="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.8" repr="wheelFrontLeft" forcePointRatio="0.3" initialCompression="25" suspTravel="0.07" spring="75" damper="20" rotationDamping="0.001"/>
+                        <wheelChock parkingNode="wheelChock01" />
+                        <wheelChock parkingNode="wheelChock02" isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/600_55R26_5.xml" isLeft="false" hasParticles="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.8" repr="wheelFrontRight" forcePointRatio="0.3" initialCompression="25" suspTravel="0.07" spring="75" damper="20" rotationDamping="0.001"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/600_55R26_5.xml" isLeft="true" hasTireTracks="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.6" repr="wheelBackLeft" forcePointRatio="0.3" initialCompression="25" suspTravel="0.07" spring="75" damper="20" rotationDamping="0.001"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/600_55R26_5.xml" isLeft="false" hasTireTracks="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.6" repr="wheelBackRight" forcePointRatio="0.3" initialCompression="25" suspTravel="0.07" spring="75" damper="20" rotationDamping="0.001"/>
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+            <wheelConfiguration name="$l10n_configuration_valueWheelBroad" price="750" brand="TRELLEBORG">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/710_40R22_5.xml" isLeft="true" hasParticles="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.8" repr="wheelFrontLeft" forcePointRatio="0.3" initialCompression="25" suspTravel="0.07" spring="75" damper="20" rotationDamping="0.001"/>
+                        <wheelChock parkingNode="wheelChock01" />
+                        <wheelChock parkingNode="wheelChock02" isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/710_40R22_5.xml" isLeft="false" hasParticles="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.8" repr="wheelFrontRight" forcePointRatio="0.3" initialCompression="25" suspTravel="0.07" spring="75" damper="20" rotationDamping="0.001"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/710_40R22_5.xml" isLeft="true" hasTireTracks="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.6" repr="wheelBackLeft" forcePointRatio="0.3" initialCompression="25" suspTravel="0.07" spring="75" damper="20" rotationDamping="0.001"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/710_40R22_5.xml" isLeft="false" hasTireTracks="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.6" repr="wheelBackRight" forcePointRatio="0.3" initialCompression="25" suspTravel="0.07" spring="75" damper="20" rotationDamping="0.001"/>
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="2900" brand="MICHELIN">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/michelin/cargoXBib/600_55R26_5.xml" isLeft="true" hasParticles="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.8" repr="wheelFrontLeft" forcePointRatio="0.3" initialCompression="25" suspTravel="0.07" spring="75" damper="20" rotationDamping="0.001"/>
+                        <wheelChock parkingNode="wheelChock01" />
+                        <wheelChock parkingNode="wheelChock02" isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/michelin/cargoXBib/600_55R26_5.xml" isLeft="false" hasParticles="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.8" repr="wheelFrontRight" forcePointRatio="0.3" initialCompression="25" suspTravel="0.07" spring="75" damper="20" rotationDamping="0.001"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/michelin/cargoXBib/600_55R26_5.xml" isLeft="true" hasTireTracks="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.6" repr="wheelBackLeft" forcePointRatio="0.3" initialCompression="25" suspTravel="0.07" spring="75" damper="20" rotationDamping="0.001"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/michelin/cargoXBib/600_55R26_5.xml" isLeft="false" hasTireTracks="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.6" repr="wheelBackRight" forcePointRatio="0.3" initialCompression="25" suspTravel="0.07" spring="75" damper="20" rotationDamping="0.001"/>
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+            <wheelConfiguration name="$l10n_configuration_valueWheelBroad" price="4000" brand="MICHELIN">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/michelin/cargoXBib/710_45R22_5.xml" isLeft="true" hasParticles="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.8" repr="wheelFrontLeft" forcePointRatio="0.3" initialCompression="25" suspTravel="0.07" spring="75" damper="20" rotationDamping="0.001"/>
+                        <wheelChock parkingNode="wheelChock01" />
+                        <wheelChock parkingNode="wheelChock02" isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/michelin/cargoXBib/710_45R22_5.xml" isLeft="false" hasParticles="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.8" repr="wheelFrontRight" forcePointRatio="0.3" initialCompression="25" suspTravel="0.07" spring="75" damper="20" rotationDamping="0.001"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/michelin/cargoXBib/710_45R22_5.xml" isLeft="true" hasTireTracks="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.6" repr="wheelBackLeft" forcePointRatio="0.3" initialCompression="25" suspTravel="0.07" spring="75" damper="20" rotationDamping="0.001"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/michelin/cargoXBib/710_45R22_5.xml" isLeft="false" hasTireTracks="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.6" repr="wheelBackRight" forcePointRatio="0.3" initialCompression="25" suspTravel="0.07" spring="75" damper="20" rotationDamping="0.001"/>
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <rimColor>MASSEYFERGUSON_GREY_5</rimColor>
+
+        <hubs>
+            <color0>SHARED_GREY5</color0>
+            <color1>SHARED_GREY5</color1>
+            <hub linkNode="wheelFrontLeft"  filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="true"  scale="0.335 0.335 0.335" />
+            <hub linkNode="wheelBackLeft"  filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="true"  scale="0.335 0.335 0.335" />
+            <hub linkNode="wheelFrontRight" filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="false" scale="0.335 0.335 0.335" />
+            <hub linkNode="wheelBackRight" filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="false" scale="0.335 0.335 0.335" />
+        </hubs>
+    </wheels>
+
+    <dynamicallyLoadedParts>
+        <dynamicallyLoadedPart node="0" linkNode="chockSupport01" filename="$data/shared/assets/wheelChocks/wheelChockSupport01.i3d"/>
+        <dynamicallyLoadedPart node="0" linkNode="chockSupport02" filename="$data/shared/assets/wheelChocks/wheelChockSupport01.i3d"/>
+    </dynamicallyLoadedParts>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="trailerLow" attacherHeight="0.65"/>
+        </inputAttacherJoints>
+        <support animationName="moveSupport"/>
+        <brakeForce>1</brakeForce>
+    </attachable>
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn01"  length="0.5" diameter="0.02" straighteningFactor="0.5">
+           <objectChange node="hydraulicIn01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut01" length="0.5" diameter="0.02" straighteningFactor="0.5">
+            <objectChange node="hydraulicOut01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn02"  length="0.5" diameter="0.02" straighteningFactor="0.5">
+           <objectChange node="hydraulicIn02_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+    </connectionHoses>
+
+    <attacherJoints>
+        <attacherJoint node="trailerAttacherJoint" jointType="trailerLow" lowerRotLimit="10 80 80" upperRotationOffset="0" allowsJointLimitMovement="false" canTurnOnImplement="false">
+            <schema position="1 0" rotation="0" invertX="false"/>
+        </attacherJoint>
+
+        <sounds>
+            <attach template="ATTACH_01" linkNode="0>" />
+        </sounds>
+    </attacherJoints>
+
+    <lights>
+        <sharedLight linkNode="backlightLeft"      filename="$data/shared/assets/lights/lizard/rearMultipointLight_02_left.xml" />
+        <sharedLight linkNode="backlightRight"     filename="$data/shared/assets/lights/lizard/rearMultipointLight_02_right.xml" />
+        <sharedLight linkNode="sideMarker01"       filename="$data/shared/assets/lights/lizard/sideMarker_04Orange.xml" />
+        <sharedLight linkNode="sideMarker02"       filename="$data/shared/assets/lights/lizard/sideMarker_04Orange.xml" />
+        <sharedLight linkNode="sideMarker03"       filename="$data/shared/assets/lights/lizard/sideMarker_04Orange.xml" />
+        <sharedLight linkNode="sideMarker04"       filename="$data/shared/assets/lights/lizard/sideMarker_04Orange.xml" />
+        <realLights>
+            <low>
+                <light node="backLightsLow" lightTypes="0 3"/>
+            </low>
+            <high>
+                <light node="backLightsHigh1" lightTypes="0 3"/>
+                <turnLightLeft node="turnLightLeftBack"/>
+                <turnLightRight node="turnLightRightBack"/>
+                <brakeLight node="backLightsHigh1"/>
+                <reverseLight node="reverseLight"/>
+            </high>
+        </realLights>
+    </lights>
+
+    <animations>
+        <animation name="moveSupport">
+            <part node="support_rot" startTime="0" endTime="0.2" startRot="0 0 0" endRot="-90 0 0"/>
+            <part node="support_vis" startTime="0.00" endTime="0.01" visibility="true"/>
+            <part node="support_vis" startTime="0.01" endTime="0.02" visibility="false"/>
+            <part node="support_vis" startTime="0.18" endTime="0.19" visibility="false"/>
+            <part node="support_vis" startTime="0.19" endTime="0.20" visibility="false"/>
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="cageLift">
+                <controls axis="AXIS_FRONTLOADER_ARM" invertAxis="false" mouseSpeedFactor="1.0" iconName="FRONTLOADER_ARM_ROTATE"/>
+                <translation transSpeed="0.5" transAcceleration="5" transMax="1.8" transMin="0.0" translationAxis="2" startTrans="0"/>
+                <dependentMovingTool node="cageBody" minRotLimits="-120 -80" maxRotLimits="0 0"/>
+                <dependentPart node="hydraulicCageLift"/>
+            </movingTool>
+            <movingTool node="cageBody">
+                <controls axis="AXIS_FRONTLOADER_TOOL" invertAxis="true" mouseSpeedFactor="0.6" iconName="FRONTLOADER_ARM_ROTATE_TOOL"/>
+                <rotation rotSpeed="25" rotAcceleration="100" rotMax="0" rotMin="-120" rotationAxis="3" startRot="0"/>
+                <dependentPart node="hydraulicCageBody"/>
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="axis" referencePoint="axis_ref" referenceFrame="axis_ref" isActiveDirty="true"/>
+            <movingPart node="hydraulicCageLift" referencePoint="hydraulicCageLift_ref" referenceFrame="hydraulicCageLift_ref" playSound="true">
+                <translatingPart node="hydraulicCageBody_push"/>
+            </movingPart>
+            <movingPart node="hydraulicCageBody" referencePoint="hydraulicCageBody_ref" referenceFrame="hydraulicCageBody_ref" playSound="true">
+                <translatingPart node="hydraulicCageLift_push"/>
+            </movingPart>
+            <movingPart node="dischargeInfoNodeRot" referenceFrame="0>" isActiveDirty="true"/>
+            <movingPart node="shovelParticlesAndEffects" referenceFrame="particleRef" isActiveDirty="true"/>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <fillUnit unit="$l10n_unit_literShort" fillTypeCategories="silageTrailer" capacity="28000">
+                        <exactFillRootNode node="exactFillRootNode"/>
+                        <autoAimTargetNode node="fillAutoAimTargetNode" startZ="1.7" endZ="-1.8" invert="false" fillUnitIndex="1" startPercentage="25"/>
+                    </fillUnit>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <fillVolume>
+        <fillVolumeConfigurations>
+            <fillVolumeConfiguration>
+                <volumes>
+                    <volume node="fillVolume" fillUnitIndex="1" allSidePlanes="true" maxAllowedHeapAngle="60"/>
+                </volumes>
+            </fillVolumeConfiguration>
+        </fillVolumeConfigurations>
+
+        <unloadInfos>
+            <unloadInfo>
+                <node node="fillVolumeUnloadInfoNode" width="1.6" length="0.6"/>
+            </unloadInfo>
+        </unloadInfos>
+    </fillVolume>
+
+    <dischargeable>
+        <dischargeNode node="dischargeInfoNode" fillUnitIndex="1" emptySpeed="3900">
+            <info width="4" length="1.0" yOffset="1"/>
+            <effects>
+                <effectNode effectClass="TipEffect">
+                    <effectNode effectNode="emitterShape" effectClass="ParticleEffect"/>
+                    <effectNode effectNode="grainNorm" materialType="unloading" materialTypeId="3" fadeTime="0.5"/>
+                </effectNode>
+
+                <effectNode effectNode="smokeNorm" materialType="smoke" materialTypeId="1" fadeTime="0.5"/>
+            </effects>
+        </dischargeNode>
+    </dischargeable>
+
+    <shovel>
+        <shovelNode node="shovelTipReferenceNode" fillUnitIndex="1" width="2.4" length="0.5" />
+        <dischargeInfo node="shovelTipReferenceNode" minSpeedAngle="50" maxSpeedAngle="120" />
+    </shovel>
+
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4"/>
+
+    <foliageBending>
+        <bendingNode minX="-2.0" maxX="1.7" minZ="-2.5" maxZ="2.9 " yOffset="0.8" />
+    </foliageBending>
+
+    <tipOccluder>
+        <occlusionArea start="start" width="width" height="height"/>
+    </tipOccluder>
+
+    <baseMaterial>
+        <material name="mf3012_mat" baseNode="mf3012_vis">
+            <shaderParameter name="colorMat0" value="CARUELLENICOLAS_BLACK1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="3" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="mf3012_main_component1" node="0>" />
+        <i3dMapping id="attacherJoint" node="0>0|0|0" />
+        <i3dMapping id="trailerAttacherJoint" node="0>0|0|1" />
+        <i3dMapping id="support_rot" node="0>0|0|2|0" />
+        <i3dMapping id="support_vis" node="0>0|0|2|1" />
+        <i3dMapping id="hydraulicIn01" node="0>0|0|3|0" />
+        <i3dMapping id="hydraulicIn01_detached" node="0>0|0|3|0|0" />
+        <i3dMapping id="hydraulicOut01" node="0>0|0|3|1" />
+        <i3dMapping id="hydraulicOut01_detached" node="0>0|0|3|1|0" />
+        <i3dMapping id="hydraulicIn02" node="0>0|0|3|2" />
+        <i3dMapping id="hydraulicIn02_detached" node="0>0|0|3|2|0" />
+        <i3dMapping id="chockSupport01" node="0>0|0|4|0" />
+        <i3dMapping id="chockSupport02" node="0>0|0|4|1" />
+        <i3dMapping id="wheelChock01" node="0>0|0|4|2" />
+        <i3dMapping id="wheelChock02" node="0>0|0|4|3" />
+        <i3dMapping id="axis" node="0>0|1|0" />
+        <i3dMapping id="cageLift" node="0>0|1|1|0" />
+        <i3dMapping id="cageBody" node="0>0|1|1|0|0|0" />
+        <i3dMapping id="hydraulicCageBody_ref" node="0>0|1|1|0|0|0|0" />
+        <i3dMapping id="fillVolume" node="0>0|1|1|0|0|0|1|0" />
+        <i3dMapping id="fillVolumeUnloadInfoNode" node="0>0|1|1|0|0|0|1|1" />
+        <i3dMapping id="dischargeInfoNodeRot" node="0>0|1|1|0|0|0|1|2" />
+        <i3dMapping id="dischargeInfoNode" node="0>0|1|1|0|0|0|1|2|0" />
+        <i3dMapping id="shovelTipReferenceNode" node="0>0|1|1|0|0|0|2|0" />
+        <i3dMapping id="exactFillRootNode" node="0>0|1|1|0|0|0|3" />
+        <i3dMapping id="fillAutoAimTargetNode" node="0>0|1|1|0|0|0|4" />
+        <i3dMapping id="shovelParticlesAndEffects" node="0>0|1|1|0|0|0|5" />
+        <i3dMapping id="effectNodeRot" node="0>0|1|1|0|0|0|5|0" />
+        <i3dMapping id="emitterShape" node="0>0|1|1|0|0|0|5|0|0" />
+        <i3dMapping id="grainNorm" node="0>0|1|1|0|0|0|5|0|1" />
+        <i3dMapping id="smokeNorm" node="0>0|1|1|0|0|0|5|0|2" />
+        <i3dMapping id="hydraulicCageBody" node="0>0|1|1|0|1" />
+        <i3dMapping id="hydraulicCageLift_push" node="0>0|1|1|0|1|0" />
+        <i3dMapping id="hydraulicCageLift_ref" node="0>0|1|1|0|2" />
+        <i3dMapping id="hydraulicCageLift" node="0>0|1|1|1" />
+        <i3dMapping id="hydraulicCageBody_push" node="0>0|1|1|1|0" />
+        <i3dMapping id="turnLightRightBack" node="0>0|2|0" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|2|1" />
+        <i3dMapping id="backLightsHigh1" node="0>0|2|2" />
+        <i3dMapping id="backLightsLow" node="0>0|2|3" />
+        <i3dMapping id="reverseLight" node="0>0|2|4" />
+        <i3dMapping id="backlightLeft" node="0>0|2|5|0" />
+        <i3dMapping id="backlightRight" node="0>0|2|5|1" />
+        <i3dMapping id="sideMarker01" node="0>0|2|5|2" />
+        <i3dMapping id="sideMarker02" node="0>0|2|5|3" />
+        <i3dMapping id="sideMarker03" node="0>0|2|5|4" />
+        <i3dMapping id="sideMarker04" node="0>0|2|5|5" />
+        <i3dMapping id="start" node="0>0|3|0" />
+        <i3dMapping id="width" node="0>0|3|1" />
+        <i3dMapping id="height" node="0>0|3|2" />
+        <i3dMapping id="mf3012_vis" node="0>0|4|1" />
+        <i3dMapping id="componentJoint_axis" node="0>0|7" />
+        <i3dMapping id="particleRef" node="0>0|8" />
+        <i3dMapping id="wheelFrontLeft" node="1>0|0" />
+        <i3dMapping id="wheelFrontRight" node="1>0|1" />
+        <i3dMapping id="wheelBackLeft" node="1>0|2" />
+        <i3dMapping id="wheelBackRight" node="1>0|3" />
+        <i3dMapping id="axis_ref" node="1>1" />
+    </i3dMappings>
+</vehicle>

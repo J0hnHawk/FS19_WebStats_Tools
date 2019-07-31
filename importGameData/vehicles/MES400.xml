@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="leveler">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>MES 400</name>
+        <specs>
+            <workingWidth>4.0</workingWidth>
+        </specs>
+        <functions>
+            <function>$l10n_function_leveler</function>
+        </functions>
+        <image>$data/vehicles/holaras/MES400/store_MES400.png</image>
+        <price>6800</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>HOLARAS</brand>
+        <category>leveler</category>
+        <shopHeight>3</shopHeight>
+        <vertexBufferMemoryUsage>250116</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>36900</indexBufferMemoryUsage>
+        <textureMemoryUsage>6204328</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_leveler</typeDesc>
+        <filename>$data/vehicles/holaras/MES400/MES400.i3d</filename>
+        <size width="3.2" length="1.5" lengthOffset="-0.45"/>
+        <components>
+            <component centerOfMass="0 0.3 -0.3" solverIterationCount="20" mass="1350" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJointConfigurations>
+            <inputAttacherJointConfiguration name="$l10n_configuration_inputAttacher3Point" price="0">
+                <inputAttacherJoint node="attacherJointBottomArm" topReferenceNode="attacherJointTopArm" jointType="implement" isControllable="true" lowerRotLimitScale="0 0 0" upperRotLimitScale="0 0 0" lowerTransLimitScale="0 0 0" upperTransLimitScale="0 0 0" upperRotationOffset="0" >
+                    <distanceToGround lower="0.52" upper="2" />
+                </inputAttacherJoint>
+                <objectChange node="threePointHitch" visibilityActive="true"  visibilityInactive="false"/>
+            </inputAttacherJointConfiguration>
+            <inputAttacherJointConfiguration name="$l10n_configuration_inputAttacherWheelLoader" price="0">
+                <inputAttacherJoint node="attacherJointWheelLoader" jointType="wheelLoader" />
+                <objectChange node="twoPointHitch" visibilityActive="true"  visibilityInactive="false"/>
+            </inputAttacherJointConfiguration>
+        </inputAttacherJointConfigurations>
+    </attachable>
+
+    <attacherJointControl maxTiltAngle="25">
+        <control controlFunction="controlAttacherJointHeight" controlAxis="AXIS_HYDRAULICATTACHER1" invertControlAxis="true" mouseSpeedFactor="0.3" iconName="IMPLEMENT_ATTACHER_TRANS" />
+        <control controlFunction="controlAttacherJointTilt"   controlAxis="AXIS_HYDRAULICATTACHER2" invertControlAxis="true" mouseSpeedFactor="0.3" iconName="IMPLEMENT_ATTACHER_ROTX" />
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>" />
+        </sounds>
+    </attacherJointControl>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="leftArm">
+                <dependentPart node="hydraulicLeftArm" />
+            </movingTool>
+            <movingTool node="rightArm">
+                <dependentPart node="hydraulicRightArm" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="hydraulicLeftArm" referencePoint="hydraulicLeftArmRef" referenceFrame="MES400_main_component1" playSound="true">
+                <translatingPart node="hydraulicLeftArmPunch" />
+            </movingPart>
+            <movingPart node="hydraulicRightArm" referencePoint="hydraulicRightArmRef" referenceFrame="MES400_main_component1" playSound="true">
+                <translatingPart node="hydraulicRightArmPunch" />
+            </movingPart>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="MES400_main_component1"/>
+        </sounds>
+    </cylindered>
+
+    <foldable>
+        <foldingParts startMoveDirection="1" >
+            <foldingPart animationName="folding" speedScale="1" />
+        </foldingParts>
+    </foldable>
+
+    <animations>
+        <animation name="folding">
+            <part node="leftArm" startTime="0.0" endTime="3.0" startRot="0 20 0" endRot="0 115 0" />
+            <part node="rightArm" startTime="0.0" endTime="3.0" startRot="0 -20 0" endRot="0 -115 0" />
+        </animation>
+    </animations>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits allowFoldingWhileFilled="false">
+                    <fillUnit unit="$l10n_unit_literShort" fillTypeCategories="bulk windrow" capacity="6000" showInShop="false"/>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <leveler pickUpDirection="1" fillUnitIndex="1" >
+        <levelerNode node="pickUpCenter" width="2.9" minDropWidth="1.0" maxDropWidth="2.4" minDropHeight="0.02" maxDropHeight="1.167" minDropDirOffset="0.6" maxDropDirOffset="0.6" foldMinLimit="0" foldMaxLimit="0.1"/>
+
+        <effects>
+            <effectNode effectNode="mesh" effectClass="LevelerEffect" materialType="leveler" materialTypeId="1" fadeTime="0.5" speed="-1" maxHeight="1.167" />
+        </effects>
+    </leveler>
+
+    <foliageBending>
+        <bendingNode minX="-1.5" maxX="1.5"  minZ="-0.6" maxZ="0.2" yOffset="0.1" />
+        <bendingNode minX="0.0"  maxX="1.0"  minZ="-0.1" maxZ="0.6" yOffset="-0.5" node="leftArm" />
+        <bendingNode minX="-1.0" maxX="0.0"  minZ="-0.1" maxZ="0.6" yOffset="-0.5" node="rightArm" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="holarasMES400_mat" baseNode="holarasMES400_vis">
+            <shaderParameter name="colorMat0" value="HOLARAS_RED"/>
+        </material>
+        <material name="threePointHitch_mat" baseNode="threePointHitch">
+            <shaderParameter name="colorMat0" value="HOLARAS_RED"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="MES400_main_component1" node="0>" />
+        <i3dMapping id="holarasMES400_vis" node="0>0" />
+        <i3dMapping id="attacherJointWheelLoader" node="0>0|0|0" />
+        <i3dMapping id="attacherJointBottomArm" node="0>0|0|1" />
+        <i3dMapping id="attacherJointTopArm" node="0>0|0|2" />
+        <i3dMapping id="leftArm" node="0>0|1" />
+        <i3dMapping id="hydraulicLeftArmRef" node="0>0|1|0" />
+        <i3dMapping id="rightArm" node="0>0|2" />
+        <i3dMapping id="hydraulicRightArmRef" node="0>0|2|0" />
+        <i3dMapping id="hydraulicLeftArm" node="0>0|3|0" />
+        <i3dMapping id="hydraulicLeftArmPunch" node="0>0|3|0|0" />
+        <i3dMapping id="hydraulicRightArm" node="0>0|3|1" />
+        <i3dMapping id="hydraulicRightArmPunch" node="0>0|3|1|0" />
+        <i3dMapping id="pickUpCenter" node="0>0|4" />
+        <i3dMapping id="mesh" node="0>0|5|0" />
+        <i3dMapping id="twoPointHitch" node="0>3" />
+        <i3dMapping id="threePointHitch" node="0>4" />
+    </i3dMappings>
+</vehicle>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable>
+    <storeData>
+        <name>$l10n_animalPen_cow</name>
+        <image>$data/placeables/animalHusbandry/store_husbandryCowSmall.png</image>
+        <price>100000</price>
+        <functions>
+            <function>$l10n_function_animalPenCow</function>
+        </functions>
+        <lifetime>1000</lifetime>
+        <dailyUpkeep>100</dailyUpkeep>
+        <rotation>0</rotation>
+        <brand>Lizard</brand>
+        <species>placeable</species>
+        <category>animalpens</category>
+        <vertexBufferMemoryUsage>937232</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>115950</indexBufferMemoryUsage>
+        <textureMemoryUsage>25116168</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <placeableType>husbandry</placeableType>
+    <filename>data/placeables/animalHusbandry/husbandryCowSmall.i3d</filename>
+    <placement testSizeX="36.0" testSizeZ="36.0" sizeX="30" sizeZ="30" useRandomYRotation="false" useManualYRotation="true" placementRotationSnapAngle="90" placementPositionSnapSize="0.5" placementPositionSnapOffset="0.25"/>
+
+    <clearAreas>
+        <clearArea startNode="0|10|0" widthNode="0|10|0|0" heightNode="0|10|0|1"/>
+    </clearAreas>
+
+    <leveling requireLeveling="true" maxSmoothDistance="10" maxSlope="75" maxEdgeAngle="30">
+        <levelAreas>
+            <levelArea startNode="0|11|0" widthNode="0|11|0|0" heightNode="0|11|0|1" groundType="grass"/>
+            <levelArea startNode="0|11|1" widthNode="0|11|1|0" heightNode="0|11|1|1" groundType="dirt"/>
+            <levelArea startNode="0|11|2" widthNode="0|11|2|0" heightNode="0|11|2|1" groundType="asphalt"/>
+            <levelArea startNode="0|11|3" widthNode="0|11|3|0" heightNode="0|11|3|1" groundType="dirt"/>
+            <levelArea startNode="0|11|4" widthNode="0|11|4|0" heightNode="0|11|4|1" groundType="dirt"/>
+            <levelArea startNode="0|11|5" widthNode="0|11|5|0" heightNode="0|11|5|1" groundType="dirt"/>
+            <levelArea startNode="0|11|6" widthNode="0|11|6|0" heightNode="0|11|6|1" groundType="dirt"/>
+            <levelArea startNode="0|11|7" widthNode="0|11|7|0" heightNode="0|11|7|1" groundType="dirt"/>
+        </levelAreas>
+        <rampAreas> <!-- Deprecated! no longer used in script -->
+            <rampArea maxSlope="75" rootNode="0|12|0" startNode="0|12|0" widthNode="0|12|0|0" heightNode="0|12|0|1" groundType="grass"/>
+            <rampArea maxSlope="75" rootNode="0|12|1" startNode="0|12|1" widthNode="0|12|1|0" heightNode="0|12|1|1" groundType="grass"/>
+            <rampArea maxSlope="75" rootNode="0|12|2" startNode="0|12|2" widthNode="0|12|2|0" heightNode="0|12|2|1" groundType="grass"/>
+            <rampArea maxSlope="75" rootNode="0|12|3" startNode="0|12|3" widthNode="0|12|3|0" heightNode="0|12|3|1" groundType="grass"/>
+        </rampAreas>
+    </leveling>
+
+    <foliageAreas>
+        <foliageArea fruitType="grass" rootNode="0|13|0" />
+    </foliageAreas>
+
+    <triggerMarkers>
+        <triggerMarker node="0|14" />
+    </triggerMarkers>
+
+    <hotspots>
+        <hotspot name="Cow barn" fullName="$l10n_animals_cowPasture" imageName="COW_BARN" hidable="true" category="CATEGORY_TRIGGERS" />
+    </hotspots>
+
+    <animatedObjects>
+        <animatedObject saveId="gate_01" >
+            <animation duration="1.5">
+                <part node="0|9|1|0|0">
+                    <keyFrame time="0.0" rotation="0 0 0"/>
+                    <keyFrame time="1.0" rotation="0 -120 0"/>
+                </part>
+                <part node="0|9|1|0|1">
+                    <keyFrame time="0.0" rotation="0 0 0"/>
+                    <keyFrame time="1.0" rotation="0 120 0"/>
+                </part>
+            </animation>
+            <controls triggerNode="0|15" posAction="ACTIVATE_HANDTOOL" posText="action_openGate" negText="action_closeGate" />
+            <sounds>
+                <moving file="data/sounds/prefab/gate/gate_loop.wav" loops="0" linkNode="0|9|1|0" volume="0.8" radius="25" innerRadius="3" fadeOut="0.25"/>
+                <posEnd file="data/sounds/prefab/gate/gate_opened.wav" linkNode="0|9|1|0" volume="0.8" radius="25" innerRadius="3" />
+                <negEnd file="data/sounds/prefab/gate/gate_closed.wav" linkNode="0|9|1|0" volume="0.8" radius="25" innerRadius="3" />
+            </sounds>
+        </animatedObject>
+    </animatedObjects>
+
+    <husbandry saveId="Animals_COW" hasStatistics="false">
+        <modules>
+            <module name="animals">
+                <config type="COW" navmeshNode="0|8" animalLoadTriggerNode="0|0" maxNumAnimals="50" husbandryFileName="$dataS/character/cowAnimalHusbandry.xml" placementRaycastDistance="2.0" carryingCapacity="50" rideableDeliveryStartNode="0|6|0" rideableDeliveryWidthNode="0|6|0|0" rideableDeliveryHeightNode="0|6|0|0" />
+            </module>
+            <module name="food">
+                <config node="0|1|0" exactFillRootNode="0" baleTriggerNode="3" animalPlacesNode="1" >
+                    <fillPlane node="0|1|1" minY="0.125" maxY="0.4" colorChange="true" />
+                </config>
+            </module>
+            <module name="water">
+                <config node="0|2|0" exactFillRootNode="0" fillTypes="WATER" acceptedToolTypes="undefined trailer">
+                    <fillPlane node="0|2|1" minY="0.06" maxY="0.275" colorChange="true" />
+                </config>
+            </module>
+            <module name="liquidManure">
+                <config node="0|3|0" fillTypes="LIQUIDMANURE" triggerNode="0">
+                    <fillPlane node="0|3|0|1" minY="0.02" maxY="0.5" />
+                </config>
+            </module>
+            <module name="manure">
+                <config startNode="0|4|1|0" widthNode="0|4|1|0|0" heightNode="0|4|1|0|1" fillType="MANURE"/>
+            </module>
+            <module name="foodSpillage">
+                <config fillType="SILAGE">
+                    <area startNode="0|1|0|2|0" widthNode="0|1|0|2|0|0" heightNode="0|1|0|2|0|1" />
+                    <area startNode="0|1|0|2|1" widthNode="0|1|0|2|1|0" heightNode="0|1|0|2|1|1" />
+                    <area startNode="0|1|0|2|2" widthNode="0|1|0|2|2|0" heightNode="0|1|0|2|2|1" />
+                    <area startNode="0|1|0|2|3" widthNode="0|1|0|2|3|0" heightNode="0|1|0|2|3|1" />
+                </config>
+            </module>
+            <module name="milk">
+                <config node="0|7" fillTypes="MILK" triggerNode="0" />
+            </module>
+            <module name="straw">
+                <config node="0|5" exactFillRootNode="0" fillTypes="STRAW">
+                    <fillPlane node="0|5|1" minY="-0.27" maxY="0.0" colorChange="false" />
+                </config>
+            </module>
+        </modules>
+        <placementRaycast distance="2" />
+    </husbandry>
+
+    <tipOcclusionUpdateArea sizeX="52" sizeZ="55" />
+
+</placeable>

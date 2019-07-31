@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="logGrab">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>$l10n_shopItem_skidSteerLogFork</name>
+        <specs>
+            <combination>L218, C232</combination>
+        </specs>
+        <image>data/vehicles/paladin/utilityGrapple/store_utilityGrapple.png</image>
+        <price>2000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>PALADIN</brand>
+        <category>skidSteers</category>
+        <vertexBufferMemoryUsage>423904</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>68196</indexBufferMemoryUsage>
+        <textureMemoryUsage>1747744</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_frontloaderTool</typeDesc>
+        <filename>$data/vehicles/paladin/utilityGrapple/utilityGrapple.i3d</filename>
+        <size width="2" length="1.5"/>
+        <components>
+            <component centerOfMass="0 0.2 0" solverIterationCount="10" mass="235" />
+            <component solverIterationCount="10" mass="150" />
+            <joint component1="1" component2="2" node="grabJoint" rotLimit="0 0 0" transLimit="0 0 0" rotLimitSpring="300 0 0" rotLimitDamping="30 0 0" rotLimitForceLimit="10 -1 -1" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="skidSteer" />
+        </inputAttacherJoints>
+    </attachable>
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn01"  length="1.8" diameter="0.015" straighteningFactor="2" isTwoPointHose="true">
+           <objectChange node="hydraulicIn01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut01" length="1.8" diameter="0.015" straighteningFactor="2" isTwoPointHose="true">
+           <objectChange node="hydraulicOut01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+    </connectionHoses>
+
+    <logGrab jointNode="0>" jointRoot="0>">
+        <trigger node="dynamicMountTrigger" />
+        <grab componentJoint="1" axis="3" rotationOffsetThreshold="10" rotationOffsetTime="1000"/>
+    </logGrab>
+
+    <cylindered>
+        <movingTools>
+            <!-- Left Arm -->
+            <movingTool node="grabJoint" playSound="true" >
+                <controls axis="AXIS_FRONTLOADER_TOOL2" invertAxis="true" mouseSpeedFactor="0.5" iconName="TOOL_OPEN_CLOSE" />
+                <rotation rotationAxis="1" rotSpeed="70" rotAcceleration="250" rotMax="45" rotMin="-45" />
+                <componentJoint index="1" anchorActor="0" />
+                <dependentPart node="grapple" />
+            </movingTool>
+        </movingTools>
+        <movingParts>
+            <movingPart node="grapple" referencePoint="grappleRef" referenceFrame="grappleRef" limitedAxis="1" isActiveDirty="true">
+                <dependentPart node="grappleHydraulic" />
+            </movingPart>
+            <movingPart node="grappleHydraulic" referencePoint="grappleHydraulicRef" referenceFrame="grappleHydraulicRef" >
+                <translatingPart node="grappleHydraulicPunch" />
+            </movingPart>
+        </movingParts>
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <baseMaterial>
+        <material name="utilityGrapple_mat" baseNode="utilityGrapple_vis">
+            <shaderParameter name="colorMat0" value="PALADIN_GREY"/>
+        </material>
+    </baseMaterial>
+
+    <baseMaterialConfigurations price="200" useDefaultColors="false">
+        <baseMaterialConfiguration color="PALADIN_GREY"/>
+        <baseMaterialConfiguration color="PALADIN_RED"/>
+        <material name="utilityGrapple_mat" shaderParameter="colorMat0" />
+    </baseMaterialConfigurations>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="utilityGrappe_main_component1" node="0>" />
+        <i3dMapping id="utilityGrapple_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0" />
+        <i3dMapping id="dynamicMountTrigger" node="0>0|1" />
+        <i3dMapping id="hydraulicIn01" node="0>0|2|0" />
+        <i3dMapping id="hydraulicIn01_detached" node="0>0|2|0|0" />
+        <i3dMapping id="hydraulicOut01" node="0>0|2|1" />
+        <i3dMapping id="hydraulicOut01_detached" node="0>0|2|1|0" />
+        <i3dMapping id="grabJoint" node="0>0|3" />
+        <i3dMapping id="grapple" node="0>0|4|0|0" />
+        <i3dMapping id="grappleHydraulicRef" node="0>0|4|0|0|0" />
+        <i3dMapping id="grappleHydraulic" node="0>0|5|0" />
+        <i3dMapping id="grappleHydraulicPunch" node="0>0|5|0|0" />
+        <i3dMapping id="utilityGrappe_grapple_component2" node="1>" />
+        <i3dMapping id="grappleRef" node="1>0" />
+    </i3dMappings>
+</vehicle>

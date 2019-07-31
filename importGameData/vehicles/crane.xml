@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="crane">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Crane</name>
+        <image>$data/vehicles/lizard/crane/store_crane.png</image>
+        <canBeSold>false</canBeSold>
+        <showInStore>false</showInStore>
+        <price>0</price>
+        <lifetime>0</lifetime>
+        <rotation>0</rotation>
+        <brand>LIZARD</brand>
+        <category>misc</category>
+        <vertexBufferMemoryUsage>1270608</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>148992</indexBufferMemoryUsage>
+        <textureMemoryUsage>11709504</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_tractor</typeDesc>
+        <filename>$data/vehicles/lizard/crane/crane.i3d</filename>
+        <size width="3" length="4.5" />
+        <components>
+            <component centerOfMass="0 1 -0.4" solverIterationCount="20" mass="15000" />
+            <component centerOfMass="0 0.0 0"  solverIterationCount="20" mass="2000" />
+            <component centerOfMass="0 0.0 0"  solverIterationCount="20" mass="1000" />
+            <component centerOfMass="0 0.0 0"  solverIterationCount="20" mass="1000" />
+            <joint component1="1" component2="2" node="clawJoint"      rotLimit="0 0 0" transLimit="0 0 0" />
+            <joint component1="2" component2="3" node="clawLeftJoint"  rotLimit="0 0 0" transLimit="0 0 0" rotLimitSpring="0 30 0" rotLimitDamping="0 30 0" rotLimitForceLimit="-1 20 -1" />
+            <joint component1="2" component2="4" node="clawRightJoint" rotLimit="0 0 0" transLimit="0 0 0" rotLimitSpring="0 30 0" rotLimitDamping="0 30 0" rotLimitForceLimit="-1 20 -1" />
+
+            <collisionPair component1="1" component2="3" enabled="false" />
+            <collisionPair component1="1" component2="4" enabled="false" />
+            <collisionPair component1="3" component2="4" enabled="false" />
+        </components>
+    </base>
+
+    <enterable isTabbable="false" >
+        <enterReferenceNode node="enterReferencePoint" />
+        <exitPoint node="exitPoint" />
+
+        <cameras>
+            <camera node="outdoorCamera" rotatable="true" rotateNode="outdoorCameraTarget" limit="true" useWorldXZRotation="true" rotMinX="-1.4" rotMaxX="1" transMin="4" transMax="40" />
+            <camera node="indoorCamera" rotatable="true" limit="true" rotMinX="-1.1" rotMaxX="0.4" transMin="0" transMax="0" useMirror="true" isInside="true" shadowFocusBox="shadowFocusBox" />
+        </cameras>
+
+        <characterNode node="characterNode" cameraMinDistance="1.5" spineRotation="-90 0 90" >
+            <target ikChain="rightFoot" targetNode="rightFoot" />
+            <target ikChain="leftFoot"  targetNode="leftFoot" />
+            <target ikChain="rightArm"  targetNode="rightHand" />
+            <target ikChain="leftArm"   targetNode="leftHand" />
+        </characterNode>
+    </enterable>
+
+    <lights>
+        <states>
+            <state lightTypes="0" />
+        </states>
+        <realLights>
+            <low>
+                <light node="lightLow" lightTypes="0" />
+            </low>
+            <high>
+                <light node="lightHigh" lightTypes="0" />
+                <light node="envLight1" lightTypes="0" />
+            </high>
+        </realLights>
+
+        <sounds>
+            <switchLight template="SWITCH_01" linkNode="0>" />
+            <turnLight template="SWITCH_TURNLIGHT" linkNode="0>" />
+        </sounds>
+    </lights>
+
+    <lights>
+        <low>
+            <light                       decoration="1>1|0|0"   lightTypes="0" />
+            <light realLight="1>1|0|1"                          lightTypes="0" />
+        </low>
+        <high>
+            <light                       decoration="1>1|0|0"   lightTypes="0" />
+            <light realLight="1>1|0|2"                          lightTypes="0" />
+        </high>
+        <states>
+            <state lightTypes="0" />
+        </states>
+    </lights>
+
+    <animations>
+        <animation name="adjustComponentJoint">
+            <part componentJointIndex="1" startTime="0" endTime="10" startTransMinLimit="0 -0.0 0" endTransMinLimit="0 -10 0" startTransMaxLimit="0 0 0"  endTransMaxLimit="0 0 0" />
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="craneMovingFrame" playSound="true">
+                <controls axis="AXIS_FRONTLOADER_TOOL" invertAxis="true" mouseSpeedFactor="1.0" iconName="FRONTLOADER_ARM_ROTATE" />
+                <translation translationAxis="3" transSpeed="2.5" transAcceleration="8" transMax="20" transMin="-20" startTrans="-14.5" />
+                <componentJoint index="1" />
+            </movingTool>
+            <movingTool node="clawMover" playSound="true" >
+                <controls axis="AXIS_FRONTLOADER_ARM" invertAxis="true" mouseSpeedFactor="1.0" iconName="FRONTLOADER_ARM_ROTATE" />
+                <translation translationAxis="1" transSpeed="2" transAcceleration="10" transMax="5.7" transMin="-5.7" startTrans="0.415" />
+                <componentJoint index="1" />
+            </movingTool>
+            <movingTool node="clawJoint" playSound="true" >
+                <controls axis="AXIS_FRONTLOADER_ARM2" invertAxis="true" mouseSpeedFactor="1.0" iconName="FRONTLOADER_ARM_ROTATE" />
+                <animation animSpeed="0.15" animAcceleration="3.0" animName="adjustComponentJoint" />
+            </movingTool>
+
+            <movingTool node="clawLeftJoint" playSound="true" >
+                <controls axis="AXIS_CRANE_TOOL" invertAxis="true" mouseSpeedFactor="1.0" iconName="GRABBER_OPEN_CLOSE" />
+                <rotation rotationAxis="3" rotSpeed="80" rotAcceleration="640" rotMax="100" rotMin="0" />
+                <componentJoint index="2" />
+                <dependentMovingTool node="clawRightJoint" speedScale="1" />
+            </movingTool>
+            <movingTool node="clawRightJoint" playSound="true" >
+                <rotation rotationAxis="3" rotSpeed="-80" rotAcceleration="640" rotMax="0" rotMin="-100" />
+                <componentJoint index="3" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="grabLeft" referencePoint="grabLeftRef" referenceFrame="grabLeftRefFrame" isActiveDirty="true" limitedAxis="3">
+                <dependentPart node="hydraulicGrab" />
+                <dependentPart node="grabArm1" />
+                <dependentPart node="grabArm2" />
+                <dependentPart node="rope1" />
+                <dependentPart node="rope2" />
+            </movingPart>
+            <movingPart node="grabRight" referencePoint="grabRightRef" referenceFrame="grabRightRefFrame" isActiveDirty="true" limitedAxis="3"/>
+
+            <movingPart node="hydraulicGrab" referencePoint="hydraulicGrabRef" referenceFrame="craneHook" >
+                <translatingPart node="hydraulicGrabPunch" />
+            </movingPart>
+            <movingPart node="grabArm1" referencePoint="grabArm1Ref" referenceFrame="craneHook" />
+            <movingPart node="grabArm2" referencePoint="grabArm2Ref" referenceFrame="craneHook" />
+            <movingPart node="rope1" referencePoint="rope1Ref" referenceFrame="rope1Ref" scaleZ="true" />
+            <movingPart node="rope2" referencePoint="rope2Ref" referenceFrame="rope2Ref" scaleZ="true" />
+        </movingParts>
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <i3dMappings>
+        <i3dMapping id="craneMovingFrame" node="0>0" />
+        <i3dMapping id="outdoorCameraTarget" node="0>0|0|0" />
+        <i3dMapping id="outdoorCamera" node="0>0|0|0|0" />
+        <i3dMapping id="indoorCamera" node="0>0|0|1" />
+        <i3dMapping id="lightLow" node="0>0|1|0" />
+        <i3dMapping id="lightHigh" node="0>0|1|1" />
+        <i3dMapping id="characterNode" node="0>0|2|0" />
+        <i3dMapping id="rightFoot" node="0>0|2|1" />
+        <i3dMapping id="leftFoot" node="0>0|2|2" />
+        <i3dMapping id="rightHand" node="0>0|2|3" />
+        <i3dMapping id="leftHand" node="0>0|2|4" />
+        <i3dMapping id="clawMover" node="0>0|3" />
+        <i3dMapping id="clawJoint" node="0>0|3|0" />
+        <i3dMapping id="rope1Ref" node="0>0|3|1" />
+        <i3dMapping id="rope2Ref" node="0>0|3|2" />
+        <i3dMapping id="shadowFocusBox" node="0>0|4" />
+        <i3dMapping id="enterReferencePoint" node="0>1" />
+        <i3dMapping id="exitPoint" node="0>2" />
+        <i3dMapping id="envLight1" node="0>3|0" />
+        <i3dMapping id="envLight2" node="0>3|0|0" />
+        <i3dMapping id="envLight3" node="0>3|0|1" />
+        <i3dMapping id="envLight4" node="0>3|0|2" />
+        <i3dMapping id="envLight5" node="0>3|0|3" />
+        <i3dMapping id="envLight6" node="0>3|0|4" />
+        <i3dMapping id="envLight7" node="0>3|0|5" />
+        <i3dMapping id="envLight8" node="0>3|0|6" />
+        <i3dMapping id="envLight9" node="0>3|0|7" />
+        <i3dMapping id="envLight10" node="0>3|0|8" />
+        <i3dMapping id="craneHook" node="1>0" />
+        <i3dMapping id="grabRotate" node="1>0|0" />
+        <i3dMapping id="clawLeftJoint" node="1>0|0|0" />
+        <i3dMapping id="clawRightJoint" node="1>0|0|1" />
+        <i3dMapping id="grabLeft" node="1>0|0|2" />
+        <i3dMapping id="hydraulicGrab" node="1>0|0|2|0" />
+        <i3dMapping id="hydraulicGrabPunch" node="1>0|0|2|0|0" />
+        <i3dMapping id="grabArm1" node="1>0|0|2|1" />
+        <i3dMapping id="grabArm2" node="1>0|0|2|2" />
+        <i3dMapping id="grabRight" node="1>0|0|3" />
+        <i3dMapping id="hydraulicGrabRef" node="1>0|0|3|0" />
+        <i3dMapping id="grabArm1Ref" node="1>0|0|3|1" />
+        <i3dMapping id="grabArm2Ref" node="1>0|0|3|2" />
+        <i3dMapping id="grabLeftRefFrame" node="1>0|0|4" />
+        <i3dMapping id="grabRightRefFrame" node="1>0|0|5" />
+        <i3dMapping id="rope1" node="1>0|1" />
+        <i3dMapping id="rope2" node="1>0|2" />
+        <i3dMapping id="grabLeftRef" node="2>0" />
+        <i3dMapping id="grabRightRef" node="3>0" />
+    </i3dMappings>
+</vehicle>

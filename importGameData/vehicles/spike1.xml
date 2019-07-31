@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="implementDynamicMountAttacher">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>$l10n_shopItem_frontloaderBaleFork</name>
+        <specs>
+            <combination>L218, C232</combination>
+        </specs>
+        <image>$data/vehicles/warzee/spike1/store_spike1.png</image>
+        <price>600</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>WARZEE</brand>
+        <category>skidSteers</category>
+        <vertexBufferMemoryUsage>72384</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>11316</indexBufferMemoryUsage>
+        <textureMemoryUsage>6302520</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_frontloaderTool</typeDesc>
+        <filename>$data/vehicles/warzee/spike1/spike1.i3d</filename>
+        <size width="1.5" length="1.5"/>
+        <supportsPickUp>false</supportsPickUp>
+        <components>
+            <component centerOfMass="0 0.2 -0.4" solverIterationCount="10" mass="200" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="skidSteer" />
+        </inputAttacherJoints>
+    </attachable>
+
+    <attacherJoints>
+        <attacherJoint node="attacherJointTool" jointType="loaderFork" allowsJointLimitMovement="false" allowsLowering="false" rotLimitSpring="7500 7500 7500" rotLimitDamping="2 2 2" transLimitSpring="7500 7500 7500" transLimitDamping="5 5 5" >
+            <schema position="1 0" rotation="0" invertX="false" />
+        </attacherJoint>
+
+        <sounds>
+            <attach template="ATTACH_01" linkNode="spike1_main_component1" />
+        </sounds>
+    </attacherJoints>
+
+    <dynamicMountAttacher node="spike1_main_component1">
+        <mountCollisionMask node="colBack01" collisionMask="134225920" />
+        <mountCollisionMask node="colBack02" collisionMask="134225920" />
+    </dynamicMountAttacher>
+
+    <baseMaterial>
+        <material name="warzeeTools_mat" baseNode="spike1_vis">
+            <shaderParameter name="colorMat0" value="WARZEE_YELLOW"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="2" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="spike1_main_component1" node="0>" />
+        <i3dMapping id="spike1_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0" />
+        <i3dMapping id="attacherJointTool" node="0>0|1" />
+        <i3dMapping id="dynamicMountTriggerRight" node="0>1|0" />
+        <i3dMapping id="dynamicMountTriggerLeft" node="0>1|1" />
+        <i3dMapping id="colBack01" node="0>1|2" />
+        <i3dMapping id="colBack02" node="0>1|3" />
+    </i3dMappings>
+</vehicle>

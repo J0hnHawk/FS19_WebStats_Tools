@@ -1,0 +1,410 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="tedder">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Fanex 604</name>
+        <specs>
+            <workingWidth>6.05</workingWidth>
+            <neededPower>60</neededPower>
+        </specs>
+        <functions>
+            <function>$l10n_function_tedder</function>
+        </functions>
+        <image>data/vehicles/vicon/viconFanex604/store_viconFanex604.png</image>
+        <price>11000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>VICON</brand>
+        <category>tedders</category>
+        <shopTranslationOffset>0 -0.05 0</shopTranslationOffset>
+        <shopRotationOffset>10.75 0 0</shopRotationOffset>
+        <shopHeight>3</shopHeight>
+        <vertexBufferMemoryUsage>1039688</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>156684</indexBufferMemoryUsage>
+        <textureMemoryUsage>6990648</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_tedder</typeDesc>
+        <filename>data/vehicles/vicon/viconFanex604/viconFanex604.i3d</filename>
+        <size width="3" length="2.5" />
+        <speedLimit value="19" />
+        <components>
+            <component centerOfMass="0 0.35 0" solverIterationCount="10" mass="447" />
+            <component centerOfMass="0 0 0.1" solverIterationCount="10" mass="223" />
+            <joint component1="1" component2="2" node="componentJoint01" rotLimit="0 0 0" transLimit="0 0 0" /> <!-- rotLimitSpring="0.5 0.5 0.5" rotLimitDamping="2 2 2" /-->
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" rootNode="viconFanex604_attachFrame_component2" jointType="implement" topReferenceNode="topReferenceNode">
+                <distanceToGround lower="0.5" upper="1" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+        <lowerAnimation name="lowerAnimation" />
+        <support animationName="moveSupport" />
+        <brakeForce>0.01</brakeForce>
+    </attachable>
+
+    <powerTakeOffs>
+        <input inputAttacherJointIndices="1" detachNode="ptoDetachNode" inputNode="ptoInputNode" aboveAttacher="true" />
+    </powerTakeOffs>
+
+    <lights>
+        <sharedLight linkNode="backlightLeft" filename="$data/shared/assets/lights/lizard/rear2ChamberLight_01_left.xml" />
+        <sharedLight linkNode="backlightRight" filename="$data/shared/assets/lights/lizard/rear2ChamberLight_01_right.xml" />
+        <realLights>
+            <high>
+                <light node="backLightsHigh1" lightTypes="0" />
+                <turnLightLeft node="turnLightLeftBack" />
+                <turnLightRight node="turnLightRightBack" />
+                <brakeLight node="backLightsHigh1" />
+            </high>
+        </realLights>
+    </lights>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel>
+                        <physics restLoad="0.3" repr="wheelLeft"        forcePointRatio="0.3" initialCompression="12" radius="0.2" width="0.16" suspTravel="0.1" spring="10" damper="10" frictionScale="1.5" mass="0.1" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.3" repr="wheelRight"       forcePointRatio="0.3" initialCompression="12" radius="0.2" width="0.16" suspTravel="0.1" spring="10" damper="10" frictionScale="1.5" mass="0.1" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.3" repr="wheelLeft2Dummy"  forcePointRatio="0.3" initialCompression="12" radius="0.2" width="0.16" suspTravel="0.1" spring="10" damper="10" frictionScale="1.5" mass="0.1" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.3" repr="wheelRight2Dummy" forcePointRatio="0.3" initialCompression="12" radius="0.2" width="0.16" suspTravel="0.1" spring="10" damper="10" frictionScale="1.5" mass="0.1" isSynchronized="false"/>
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <hubs>
+            <hub linkNode="wheelLeftDummy"  filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.13 0.142 0.142" />
+            <hub linkNode="wheelLeft1"      filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.13 0.142 0.142" />
+            <hub linkNode="wheelLeft2"      filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.13 0.142 0.142" />
+            <hub linkNode="wheelRightDummy" filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.13 0.142 0.142" />
+            <hub linkNode="wheelRight1"     filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.13 0.142 0.142" />
+            <hub linkNode="wheelRight2"     filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.13 0.142 0.142" />
+        </hubs>
+
+        <dynamicallyLoadedWheels>
+            <dynamicallyLoadedWheel linkNode="wheelLeftDummy"   filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false"/>
+            <dynamicallyLoadedWheel linkNode="wheelLeft1"       filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true"/>
+            <dynamicallyLoadedWheel linkNode="wheelLeft2"       filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false"/>
+            <dynamicallyLoadedWheel linkNode="wheelRightDummy"  filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true"/>
+            <dynamicallyLoadedWheel linkNode="wheelRight1"      filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false"/>
+            <dynamicallyLoadedWheel linkNode="wheelRight2"      filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true"/>
+        </dynamicallyLoadedWheels>
+    </wheels>
+
+    <powerConsumer ptoRpm="450" neededMinPtoPower="5" neededMaxPtoPower="15" />
+
+    <speedRotatingParts>
+        <speedRotatingPart node="wheelLeftDummy"    radius="0.167" foldMinLimit="0" foldMaxLimit="0.04" groundReferenceNodeIndex="1" />
+        <speedRotatingPart node="wheelLeft1"        radius="0.167" foldMinLimit="0" foldMaxLimit="0.04" groundReferenceNodeIndex="1" />
+        <speedRotatingPart node="wheelLeft2"        radius="0.167" foldMinLimit="0" foldMaxLimit="0.02" groundReferenceNodeIndex="1" />
+        <speedRotatingPart node="wheelRightDummy"   radius="0.167" foldMinLimit="0" foldMaxLimit="0.02" groundReferenceNodeIndex="1" />
+        <speedRotatingPart node="wheelRight1"       radius="0.167" foldMinLimit="0" foldMaxLimit="0.04" groundReferenceNodeIndex="1" />
+        <speedRotatingPart node="wheelRight2"       radius="0.167" foldMinLimit="0" foldMaxLimit="0.02" groundReferenceNodeIndex="1" />
+    </speedRotatingParts>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="viconFanex604_main_component1" threshold="0.3" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="tedder" functionName="processTedderArea" preprocessFunctionName="preprocessTedderArea" disableBackwards="true" >
+            <area startNode="workAreaMiddleStart" widthNode="workAreaMiddleWidth" heightNode="workAreaMiddleHeight" />
+            <groundReferenceNode index="1" />
+            <folding minLimit="0" maxLimit="0.1" />
+            <tedder dropWindrowWorkAreaIndex="4"/>
+        </workArea>
+        <workArea type="tedder" functionName="processTedderArea" preprocessFunctionName="preprocessTedderArea" disableBackwards="true" >
+            <area startNode="workAreaLeftStart" widthNode="workAreaLeftWidth" heightNode="workAreaLeftHeight" />
+            <groundReferenceNode index="1" />
+            <folding minLimit="0" maxLimit="0.1" />
+            <tedder dropWindrowWorkAreaIndex="5"/>
+        </workArea>
+        <workArea type="tedder" functionName="processTedderArea" preprocessFunctionName="preprocessTedderArea" disableBackwards="true" >
+            <area startNode="workAreaRightStart" widthNode="workAreaRightWidth" heightNode="workAreaRightHeight" />
+            <groundReferenceNode index="1" />
+            <folding minLimit="0" maxLimit="0.1" />
+            <tedder dropWindrowWorkAreaIndex="6"/>
+        </workArea>
+
+        <workArea type="auxiliary" >
+            <area startNode="dropAreaMiddleStart" widthNode="dropAreaMiddleWidth" heightNode="dropAreaMiddleHeight" />
+        </workArea>
+        <workArea type="auxiliary" >
+            <area startNode="dropAreaLeftStart" widthNode="dropAreaLeftWidth" heightNode="dropAreaLeftHeight" />
+        </workArea>
+        <workArea type="auxiliary" >
+            <area startNode="dropAreaRightStart" widthNode="dropAreaRightWidth" heightNode="dropAreaRightHeight" />
+        </workArea>
+    </workAreas>
+
+    <foldable>
+        <foldingParts startMoveDirection="1" turnOnFoldMaxLimit="0.2" turnOnFoldMinLimit="0">
+            <foldingPart animationName="folding" speedScale="0.7" />
+        </foldingParts>
+    </foldable>
+
+    <animations>
+        <!-- move support wheel down/up -->
+        <animation name="moveSupport">
+            <part node="supportColRot"  startTime="0" endTime="0.4" startTrans="0 0.6 -0.634"     endTrans="0 0.314 -0.634" />
+            <part node="supportArm"     startTime="0" endTime="0.4" startTrans="0.383 0.220 -0.184" endTrans="0.383 -0.145 -0.184" />
+            <part node="supportArmBack" startTime="0" endTime="0.4" startRot="0 0 0"                endRot="0 0 91.982" />
+        </animation>
+
+        <animation name="folding">
+            <!-- arms -->
+            <part node="leftOuterArm"   startTime="0" endTime="0.5" startRot="0 0 0" endRot="0 0 15" />
+            <part node="leftArm"        startTime="0.5" endTime="3.5" startRot="0 0 0" endRot="0 0 90" />
+            <part node="rightOuterArm"  startTime="0.5" endTime="1" startRot="0 0 0" endRot="0 0 -15" />
+            <part node="rightArm"       startTime="1" endTime="4" startRot="0 0 0" endRot="0 0 -90" />
+            <!-- locks -->
+            <part node="lockLeft"   startTime="4" endTime="4.2" startRot="0 0 15" endRot="0 0 0" />
+            <part node="lockRight"  startTime="4" endTime="4.2" startRot="0 0 -15" endRot="0 0 0" />
+            <!-- damper -->
+            <part node="dummyArmLeft"   startTime="2.6" endTime="3.5" startRot="0 0 63.2" endRot="0 0 90" />
+            <part node="dummyArmRight"  startTime="3.1" endTime="4" startRot="0 0 -63.2" endRot="0 0 -90" />
+        </animation>
+
+        <animation name="lowerAnimation">
+            <part startTime="1" endTime="2" componentJointIndex="1" startRotLimit="0 0 0" endRotLimit="0 16 0" />
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <!-- arm left-->
+            <movingTool node="leftOuterArm" wheelIndices="3">
+                <dependentPart node="hydraulicArmLeft" />
+            </movingTool>
+            <movingTool node="leftArm" wheelIndices="3">
+                <dependentPart node="hydraulicArmLeft" />
+                <dependentPart node="leftArmPto2" />
+            </movingTool>
+            <!-- arm right-->
+            <movingTool node="rightOuterArm" wheelIndices="4">
+                <dependentPart node="hydraulicArmRight" />
+            </movingTool>
+            <movingTool node="rightArm" wheelIndices="4">
+                <dependentPart node="hydraulicArmRight" />
+                <dependentPart node="rightArmPto2" />
+            </movingTool>
+            <!-- damper -->
+            <movingTool node="dummyArmLeft" >
+                <dependentPart node="damperLeftArm" />
+            </movingTool>
+            <movingTool node="dummyArmRight" >
+                <dependentPart node="damperRightArm" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <!-- hydraulic -->
+            <movingPart node="hydraulicArmLeft" referencePoint="hydraulicArmLeftRef" referenceFrame="hydraulicArmLeftRef" playSound="true">
+                <translatingPart node="hydraulicArmLeftPunch" />
+            </movingPart>
+            <movingPart node="hydraulicArmRight" referencePoint="hydraulicArmRightRef" referenceFrame="hydraulicArmRightRef" playSound="true">
+                <translatingPart node="hydraulicArmRightPunch" />
+            </movingPart>
+            <!-- damper -->
+            <movingPart node="damperLeftArm" referencePoint="damperLeftArmRef" referenceFrame="viconFanex604_main_component1">
+                <translatingPart node="damperLeftArmSpringPart" />
+                <dependentPart node="damperLeftArmSpring" />
+            </movingPart>
+            <movingPart node="damperLeftArmSpring" referencePoint="damperLeftArmSpringPart" referenceFrame="viconFanex604_main_component1" scaleZ="true" />
+            <movingPart node="damperRightArm" referencePoint="damperRightArmRef" referenceFrame="viconFanex604_main_component1">
+                <translatingPart node="damperRightArmSpringPart" />
+                <dependentPart node="damperRightArmSpring" />
+            </movingPart>
+            <movingPart node="damperRightArmSpring" referencePoint="damperRightArmSpringPart" referenceFrame="viconFanex604_main_component1" scaleZ="true" />
+            <!-- damper attacher -->
+            <movingPart node="damperLeft" referencePoint="damperLeftRef" referenceFrame="viconFanex604_main_component1" isActiveDirty="true" >
+                <translatingPart node="damperLeftPunch" />
+                <dependentPart node="damperLeftSpring" />
+            </movingPart>
+            <movingPart node="damperLeftSpring" referencePoint="damperLeftPunch" referenceFrame="viconFanex604_main_component1" scaleZ="true" />
+            <movingPart node="damperRight" referencePoint="damperRightRef" referenceFrame="viconFanex604_main_component1" isActiveDirty="true">
+                <translatingPart node="damperRightPunch" />
+                <dependentPart node="damperRightSpring" />
+            </movingPart>
+            <movingPart node="damperRightSpring" referencePoint="damperRightPunch" referenceFrame="viconFanex604_main_component1" scaleZ="true" />
+            <!-- pto -->
+            <movingPart node="leftArmPto2" referencePoint="leftArmPto" referenceFrame="viconFanex604_main_component1" />
+            <movingPart node="rightArmPto2" referencePoint="rightArmPto" referenceFrame="viconFanex604_main_component1" />
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="viconFanex604_main_component1"/>
+        </sounds>
+    </cylindered>
+
+    <tedder fillTypeConverter="TEDDER">
+        <animationNodes>
+            <animationNode node="rotorLeft3"             rotSpeed="-800" turnOnFadeTime="1" turnOffFadeTime="3"/>
+            <animationNode node="rotorLeft2"               rotSpeed="800"  turnOnFadeTime="1" turnOffFadeTime="3"/>
+            <animationNode node="rotorLeft1"               rotSpeed="-800" turnOnFadeTime="1" turnOffFadeTime="3"/>
+            <animationNode node="rotorRight1"               rotSpeed="800"  turnOnFadeTime="1" turnOffFadeTime="3"/>
+            <animationNode node="rotorRight2"               rotSpeed="-800" turnOnFadeTime="1" turnOffFadeTime="3"/>
+            <animationNode node="rotorRight3"             rotSpeed="800"  turnOnFadeTime="1" turnOffFadeTime="3"/>
+            <animationNode node="leftArmPto1"  rotAxis="1" rotSpeed="600"  turnOnFadeTime="1" turnOffFadeTime="3"/>
+            <animationNode node="leftArmPto"   rotAxis="1" rotSpeed="600"  turnOnFadeTime="1" turnOffFadeTime="3"/>
+            <animationNode node="rightArmPto1"  rotAxis="1" rotSpeed="-600" turnOnFadeTime="1" turnOffFadeTime="3"/>
+            <animationNode node="rightArmPto"   rotAxis="1" rotSpeed="-600" turnOnFadeTime="1" turnOffFadeTime="3"/>
+        </animationNodes>
+
+        <effects>
+            <effect workAreaIndex="1">
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShapeMiddle" particleType="TEDDER" />
+            </effect>
+            <effect workAreaIndex="2">
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShapeLeft" particleType="TEDDER" />
+            </effect>
+            <effect workAreaIndex="3">
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShapeRight" particleType="TEDDER" />
+            </effect>
+        </effects>
+    </tedder>
+
+    <turnOnVehicle turnOffIfNotAllowed="true">
+        <sounds>
+            <work template="DEFAULT_TEDDER" linkNode="viconFanex604_main_component1" />
+        </sounds>
+    </turnOnVehicle>
+
+    <ai>
+        <needsLowering value="true" />
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack" />
+        <collisionTrigger node="aiCollisionTrigger" />
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-1.3" maxX="1.3" minZ="-0.8" maxZ="0.8 " yOffset="0.8" />
+        <bendingNode minX="-0.7" maxX="1.5" minZ="-0.5" maxZ="0.9 " yOffset="0.0" node="leftOuterArm" />
+        <bendingNode minX="-1.5" maxX="0.7" minZ="-0.5" maxZ="0.9 " yOffset="0.0" node="rightOuterArm" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="viconFanex604_mat" baseNode="vicon_vis">
+            <shaderParameter name="colorMat0" value="VICON_RED1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="viconFanex604_main_component1" node="0>" />
+        <i3dMapping id="vicon_vis" node="0>0" />
+        <i3dMapping id="ptoInputNode" node="0>0|0|0" />
+        <i3dMapping id="ptoDetachNode" node="0>0|0|1" />
+        <i3dMapping id="supportArmBack" node="0>0|0|2|0|0" />
+        <i3dMapping id="supportColRot" node="0>0|0|2|1" />
+        <i3dMapping id="wheelLeft" node="0>0|1|0" />
+        <i3dMapping id="wheelRight" node="0>0|1|1" />
+        <i3dMapping id="wheelLeftDummy" node="0>0|1|2" />
+        <i3dMapping id="wheelRightDummy" node="0>0|1|3" />
+        <i3dMapping id="backlightLeft" node="0>0|2|0|0" />
+        <i3dMapping id="backlightRight" node="0>0|2|0|1" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|2|1" />
+        <i3dMapping id="turnLightRightBack" node="0>0|2|2" />
+        <i3dMapping id="backLightsHigh1" node="0>0|2|3" />
+        <i3dMapping id="rotorLeft1" node="0>0|3|0|0" />
+        <i3dMapping id="rotorRight1" node="0>0|3|0|1" />
+        <i3dMapping id="leftArm" node="0>0|3|1" />
+        <i3dMapping id="wheelLeft1" node="0>0|3|1|0" />
+        <i3dMapping id="leftOuterArm" node="0>0|3|1|1" />
+        <i3dMapping id="wheelLeft2" node="0>0|3|1|1|0" />
+        <i3dMapping id="rotorLeft3" node="0>0|3|1|1|1" />
+        <i3dMapping id="hydraulicArmLeftRef" node="0>0|3|1|1|2" />
+        <i3dMapping id="wheelLeft2Dummy" node="0>0|3|1|1|3" />
+        <i3dMapping id="emitterShapeLeft" node="0>0|3|1|1|4|0" />
+        <i3dMapping id="rotorLeft2" node="0>0|3|1|2" />
+        <i3dMapping id="leftArmPto" node="0>0|3|1|3" />
+        <i3dMapping id="rightArm" node="0>0|3|2" />
+        <i3dMapping id="wheelRight1" node="0>0|3|2|0" />
+        <i3dMapping id="rightOuterArm" node="0>0|3|2|1" />
+        <i3dMapping id="wheelRight2" node="0>0|3|2|1|0" />
+        <i3dMapping id="rotorRight3" node="0>0|3|2|1|1" />
+        <i3dMapping id="hydraulicArmRightRef" node="0>0|3|2|1|2" />
+        <i3dMapping id="wheelRight2Dummy" node="0>0|3|2|1|3" />
+        <i3dMapping id="emitterShapeRight" node="0>0|3|2|1|4|0" />
+        <i3dMapping id="rotorRight2" node="0>0|3|2|2" />
+        <i3dMapping id="rightArmPto" node="0>0|3|2|3" />
+        <i3dMapping id="damperLeftArm" node="0>0|3|3" />
+        <i3dMapping id="damperLeftArmSpringPart" node="0>0|3|3|0" />
+        <i3dMapping id="damperLeftArmSpring" node="0>0|3|3|1" />
+        <i3dMapping id="damperRightArm" node="0>0|3|4" />
+        <i3dMapping id="damperRightArmSpringPart" node="0>0|3|4|0" />
+        <i3dMapping id="damperRightArmSpring" node="0>0|3|4|1" />
+        <i3dMapping id="lockLeft" node="0>0|3|5" />
+        <i3dMapping id="lockRight" node="0>0|3|6" />
+        <i3dMapping id="leftArmPto1" node="0>0|3|7|0" />
+        <i3dMapping id="leftArmPto2" node="0>0|3|7|0|0" />
+        <i3dMapping id="rightArmPto1" node="0>0|3|7|1" />
+        <i3dMapping id="rightArmPto2" node="0>0|3|7|1|0" />
+        <i3dMapping id="hydraulicArmLeft" node="0>0|4|0" />
+        <i3dMapping id="hydraulicArmLeftPunch" node="0>0|4|0|0" />
+        <i3dMapping id="hydraulicArmRight" node="0>0|4|1" />
+        <i3dMapping id="hydraulicArmRightPunch" node="0>0|4|1|0" />
+        <i3dMapping id="workAreaMiddleStart" node="0>0|5|0|0" />
+        <i3dMapping id="workAreaMiddleWidth" node="0>0|5|0|1" />
+        <i3dMapping id="workAreaMiddleHeight" node="0>0|5|0|2" />
+        <i3dMapping id="workAreaLeftStart" node="0>0|5|1|0" />
+        <i3dMapping id="workAreaLeftWidth" node="0>0|5|1|1" />
+        <i3dMapping id="workAreaLeftHeight" node="0>0|5|1|2" />
+        <i3dMapping id="workAreaRightStart" node="0>0|5|2|0" />
+        <i3dMapping id="workAreaRightWidth" node="0>0|5|2|1" />
+        <i3dMapping id="workAreaRightHeight" node="0>0|5|2|2" />
+        <i3dMapping id="dropAreaMiddleStart" node="0>0|6|0|0" />
+        <i3dMapping id="dropAreaMiddleWidth" node="0>0|6|0|1" />
+        <i3dMapping id="dropAreaMiddleHeight" node="0>0|6|0|2" />
+        <i3dMapping id="dropAreaLeftStart" node="0>0|6|1|0" />
+        <i3dMapping id="dropAreaLeftWidth" node="0>0|6|1|1" />
+        <i3dMapping id="dropAreaLeftHeight" node="0>0|6|1|2" />
+        <i3dMapping id="dropAreaRightStart" node="0>0|6|2|0" />
+        <i3dMapping id="dropAreaRightWidth" node="0>0|6|2|1" />
+        <i3dMapping id="dropAreaRightHeight" node="0>0|6|2|2" />
+        <i3dMapping id="dummyArmLeft" node="0>0|7|0" />
+        <i3dMapping id="damperLeftArmRef" node="0>0|7|0|0" />
+        <i3dMapping id="dummyArmRight" node="0>0|7|1" />
+        <i3dMapping id="damperRightArmRef" node="0>0|7|1|0" />
+        <i3dMapping id="damperLeftRef" node="0>0|8" />
+        <i3dMapping id="damperRightRef" node="0>0|9" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|10|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|10|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|10|0|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|10|1" />
+        <i3dMapping id="emitterShapeMiddle" node="0>0|11|0" />
+        <i3dMapping id="viconFanex604_attachFrame_component2" node="1>" />
+        <i3dMapping id="attacherJoint" node="1>0|0" />
+        <i3dMapping id="topReferenceNode" node="1>0|1" />
+        <i3dMapping id="supportArm" node="1>0|2" />
+        <i3dMapping id="damperLeft" node="1>0|3" />
+        <i3dMapping id="damperLeftPunch" node="1>0|3|0" />
+        <i3dMapping id="damperLeftSpring" node="1>0|3|1" />
+        <i3dMapping id="damperRight" node="1>0|4" />
+        <i3dMapping id="damperRightPunch" node="1>0|4|0" />
+        <i3dMapping id="damperRightSpring" node="1>0|4|1" />
+        <i3dMapping id="componentJoint01" node="1>1" />
+    </i3dMappings>
+</vehicle>

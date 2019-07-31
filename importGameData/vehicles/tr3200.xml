@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="treeSaw_attacherJointControl">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>TR3200</name>
+        <specs>
+            <neededPower>60</neededPower>
+        </specs>
+        <functions>
+            <function>$l10n_function_treeSaw</function>
+        </functions>
+        <image>$data/vehicles/dfm/tr3200/store_tr3200.png</image>
+        <price>5400</price>
+        <lifetime>600</lifetime>
+        <rotation>180</rotation>
+        <brand>DFM</brand>
+        <category>wood</category>
+        <shopRotationOffset>0 180 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>157664</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>23148</indexBufferMemoryUsage>
+        <textureMemoryUsage>6815888</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_treeSaw</typeDesc>
+        <filename>$data/vehicles/dfm/tr3200/tr3200.i3d</filename>
+        <size width="2" length="2" />
+        <components>
+            <component centerOfMass="0 0 0" solverIterationCount="20" mass="340" />
+            <component solverIterationCount="20" mass="25" />
+            <joint component1="1" component2="2" node="componentJoint" rotLimit="0 0 0" transLimit="0 0 0" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <powerConsumer ptoRpm="540" neededMinPtoPower="22" neededMaxPtoPower="22"/>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="implement" topReferenceNode="topReferenceNode" isControllable="true" lowerRotLimitScale="0 0 0" lowerRotationOffset="-3">
+                <distanceToGround lower="0.2" upper="1.8" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+    </attachable>
+
+    <powerTakeOffs>
+        <input inputAttacherJointIndices="1" inputNode="ptoInputNode" aboveAttacher="true" filename="$data/shared/assets/powerTakeOffs/walterscheidWWZ.xml" />
+    </powerTakeOffs>
+
+    <attacherJointControl>
+        <control controlFunction="controlAttacherJointHeight" controlAxis="AXIS_HYDRAULICATTACHER1" invertControlAxis="true" mouseSpeedFactor="0.3" iconName="IMPLEMENT_ATTACHER_TRANS"/>
+        <control controlFunction="controlAttacherJointTilt"   controlAxis="AXIS_HYDRAULICATTACHER2" invertControlAxis="true" mouseSpeedFactor="0.3" iconName="IMPLEMENT_ATTACHER_ROTX"/>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>" />
+        </sounds>
+    </attacherJointControl>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="componentJoint" playSound="true" >
+                <controls axis="AXIS_FRONTLOADER_TOOL2" invertAxis="false" mouseSpeedFactor="0.5" iconName="TOOL_OPEN_CLOSE" />
+                <rotation rotationAxis="1" rotSpeed="70" rotAcceleration="250" rotMax="15" rotMin="-60" />
+                <componentJoint index="1" anchorActor="0" />
+                <dependentPart node="clawHydraulic" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="clawHydraulic" referencePoint="clawHydraulicRef" referenceFrame="dfmTR3200_main_component1" >
+                <translatingPart node="clawHydraulicPunch" />
+            </movingPart>
+
+            <movingPart node="claw" referencePoint="clawReferenceNode" referenceFrame="clawRefFrame" isActiveDirty="true" limitedAxis="1">
+                <dependentPart node="clawHydraulic" />
+            </movingPart>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="dfmTR3200_main_component1"/>
+        </sounds>
+    </cylindered>
+
+    <treeSaw>
+        <cutNode node="cutNode" sizeY="1" sizeZ="0.7" />
+        <effects>
+            <effectNode effectClass="ParticleEffect" effectNode="woodChipsEmitter1" particleType="CRUSHER_WOOD" emitCountScale="500"/>
+            <effectNode effectClass="ParticleEffect" effectNode="woodDustEmitter1" particleType="CRUSHER_WOOD" emitCountScale="220"/>
+        </effects>
+        <animationNodes>
+            <animationNode node="sawBlade" rotAxis="2" rotSpeed="-800" turnOnFadeTime="1" turnOffFadeTime="2" />
+        </animationNodes>
+        <sounds>
+            <cut template="DEFAULT_HYDRAULIC_SAW_CUT" linkNode="dfmTR3200_main_component1" />
+        </sounds>
+    </treeSaw>
+
+    <turnOnVehicle>
+        <sounds>
+            <start template="DEFAULT_HYDRAULIC_SAW_START" linkNode="dfmTR3200_main_component1" />
+            <work template="DEFAULT_HYDRAULIC_SAW_IDLE" linkNode="dfmTR3200_main_component1" />
+            <stop template="DEFAULT_HYDRAULIC_SAW_STOP" linkNode="dfmTR3200_main_component1" />
+        </sounds>
+    </turnOnVehicle>
+
+    <logGrab jointNode="0>" jointRoot="0>">
+        <trigger node="dynamicMountTrigger" />
+        <grab componentJoint="1" axis="3" rotationOffsetThreshold="10" rotationOffsetTime="1000"/>
+    </logGrab>
+
+    <foliageBending>
+        <bendingNode minX="-0.5" maxX="0.5" minZ="-1.0" maxZ="0.4" yOffset="0.1" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="dfmTools_mat" baseNode="dfmTR3200_vis">
+            <shaderParameter name="colorMat0" value="DFM_GREEN1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="dfmTR3200_main_component1" node="0>" />
+        <i3dMapping id="dfmTR3200_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0" />
+        <i3dMapping id="topReferenceNode" node="0>0|1" />
+        <i3dMapping id="ptoInputNode" node="0>0|2" />
+        <i3dMapping id="componentJoint" node="0>0|3" />
+        <i3dMapping id="clawHydraulic" node="0>0|4" />
+        <i3dMapping id="clawHydraulicPunch" node="0>0|4|0" />
+        <i3dMapping id="sawBlade" node="0>0|5" />
+        <i3dMapping id="cutNode" node="0>0|6" />
+        <i3dMapping id="woodChipsEmitter1" node="0>0|7|0" />
+        <i3dMapping id="woodDustEmitter1" node="0>0|7|1" />
+        <i3dMapping id="claw" node="0>0|8" />
+        <i3dMapping id="clawHydraulicRef" node="0>0|8|0" />
+        <i3dMapping id="clawRefFrame" node="0>0|9" />
+        <i3dMapping id="dynamicMountTrigger" node="0>0|10" />
+        <i3dMapping id="clawReferenceNode" node="1>0" />
+    </i3dMappings>
+</vehicle>

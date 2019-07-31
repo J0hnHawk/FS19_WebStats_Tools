@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable>
+    <storeData>
+        <name>HDS 9/18-4 M</name>
+        <functions>
+            <function>$l10n_function_highPressureWasher</function>
+        </functions>
+        <image>$data/placeables/highPressureWasher/kaercher/store_kaercherHDS918-4M.png</image>
+        <price>4500</price>
+        <dailyUpkeep>5</dailyUpkeep>
+        <lifetime>1000</lifetime>
+        <rotation>0</rotation>
+        <brand>KAERCHER</brand>
+        <species>placeable</species>
+        <category>placeableMisc</category>
+        <vertexBufferMemoryUsage>462328</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>93600</indexBufferMemoryUsage>
+        <textureMemoryUsage>7187264</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <placeableType>highPressureWasher</placeableType>
+    <filename>$data/placeables/highPressureWasher/kaercher/kaercherHDS918-4M.i3d</filename>
+    <placement testSizeX="1" testSizeZ="1" sizeX="1.5" sizeZ="1.5" useRandomYRotation="false" useManualYRotation="true" alignToWorldY="false" pos1Node="1" pos2Node="2" pos3Node="3"/>
+
+    <highPressureWasher>
+        <handtool filename="$data/firstPerson/highPressureWasherLances/kaercher/hds9184MLance.xml" />
+        <lance node="0|0|0" />
+        <sounds>
+            <compressor template="PRESSURE_WASHER_RUN_01" linkNode="0" />
+            <switch template="PRESSURE_WASHER_SWITCH_01" linkNode="0|0|0|1" />
+        </sounds>
+    </highPressureWasher>
+
+    <tipOcclusionUpdateArea sizeX="2" sizeZ="2" />
+    <clearAreas>
+        <clearArea startNode="5|0" widthNode="5|1" heightNode="5|2"/>
+    </clearAreas>
+
+    <baseMaterial>
+        <material name="kaercherHDS918_4M_mat" baseNode="kaercherHDS918">
+            <shaderParameter name="colorMat1" value="KAERCHER_YELLOW2"/>
+            <shaderParameter name="colorMat2" value="KAERCHER_RED"/>
+            <shaderParameter name="colorMat3" value="KAERCHER_YELLOW1"/>
+        </material>
+    </baseMaterial>
+</placeable>

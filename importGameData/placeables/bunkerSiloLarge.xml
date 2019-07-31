@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable>
+    <storeData>
+        <name>$l10n_bunkerSiloLarge</name>
+        <specs>
+            <fillTypes>chaff grass</fillTypes>
+        </specs>
+        <image>$data/placeables/bunkerSilo/store_bunkerSiloLarge.png</image>
+        <price>45000</price>
+        <dailyUpkeep>80</dailyUpkeep>
+        <lifetime>1000</lifetime>
+        <rotation>0</rotation>
+        <brand>LIZARD</brand>
+        <species>placeable</species>
+        <category>silos</category>
+        <vertexBufferMemoryUsage>25056</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>2160</indexBufferMemoryUsage>
+        <textureMemoryUsage>1572968</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <placeableType>bunkerSiloPlaceable</placeableType>
+    <filename>$data/placeables/bunkerSilo/bunkerSiloLarge.i3d</filename>
+    <placement testSizeX="13" testSizeZ="60" sizeX="14" sizeZ="58" useRandomYRotation="false" useManualYRotation="true" placementPositionSnapSize="1" placementRotationSnapAngle="90"/>
+
+    <bunkerSilos>
+        <bunkerSilo acceptedFillTypes="chaff grass_windrow dryGrass_windrow" inputFillType="chaff" outputFillType="silage" fermentingHours="6" distanceToCompactedFillLevel="100" openingLength="5" >
+            <area startNode="1|0" widthNode="1|1" heightNode="1|2" />
+            <interactionTrigger node="0" />
+        </bunkerSilo>
+    </bunkerSilos>
+
+    <clearAreas>
+        <clearArea startNode="2|0" widthNode="2|1" heightNode="2|2"/>
+    </clearAreas>
+
+    <leveling requireLeveling="true" maxSmoothDistance="10" maxSlope="75" maxEdgeAngle="30">
+        <levelAreas>
+            <levelArea startNode="3|0" widthNode="3|1" heightNode="3|2" groundType="concrete"/>
+        </levelAreas>
+    </leveling>
+
+    <tipOcclusionUpdateArea sizeX="14" sizeZ="60" />
+
+</placeable>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable>
+    <storeData>
+        <name>$l10n_shopItem_doghouse</name>
+        <image>data/placeables/doghouse/store_doghouse.png</image>
+        <price>2500</price>
+        <functions>
+            <function>$l10n_function_dogHouse</function>
+        </functions>
+        <lifetime>1000</lifetime>
+        <dailyUpkeep>5</dailyUpkeep>
+        <rotation>0</rotation>
+        <brand>Lizard</brand>
+        <species>placeable</species>
+        <category>animalpens</category>
+        <vertexBufferMemoryUsage>82784</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>13524</indexBufferMemoryUsage>
+        <textureMemoryUsage>1048696</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <placeableType>doghouse</placeableType>
+    <filename>data/placeables/doghouse/doghouse.i3d</filename>
+    <placement testSizeX="7.5" testSizeZ="10" sizeX="3" sizeZ="3" useRandomYRotation="false" useManualYRotation="true" />
+
+    <tipOcclusionUpdateArea sizeX="8" sizeZ="11" />
+
+    <dogHouse>
+        <dog node="0" xmlFilename="dataS/character/dog/dog.xml" />
+        <ball node="1" filename="$data/objects/dogBall/dogBall.i3d" />
+        <playerInteractionTrigger node="3"/>
+        <bowl eatLocationNode="2" foodNode="2|0" />
+        <nameplate node="4" />
+    </dogHouse>
+
+    <clearAreas>
+        <clearArea startNode="5|0" widthNode="5|1" heightNode="5|2"/>
+    </clearAreas>
+
+    <leveling requireLeveling="true" maxSmoothDistance="10" maxSlope="75" maxEdgeAngle="30">
+        <levelAreas>
+            <levelArea startNode="6|0" widthNode="6|1" heightNode="6|2" groundType="dirt"/>
+        </levelAreas>
+    </leveling>
+
+</placeable>

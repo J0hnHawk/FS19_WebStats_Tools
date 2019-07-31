@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="logGrab">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>$l10n_shopItem_telehandlerLogFork</name>
+        <specs>
+            <combination>9407 S, MLA-T, MLT</combination>
+        </specs>
+        <image>$data/vehicles/magsi/telehandlerLogFork/store_magsiTelehandlerLogFork.png</image>
+        <price>3400</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>MAGSI</brand>
+        <category>teleLoaders</category>
+        <vertexBufferMemoryUsage>48736</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>6750</indexBufferMemoryUsage>
+        <textureMemoryUsage>4197176</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_telehandlerTool</typeDesc>
+        <filename>$data/vehicles/magsi/telehandlerLogFork/telehandlerLogFork.i3d</filename>
+        <size width="1.5" length="2"/>
+        <components>
+            <component centerOfMass="0 0.2 0" solverIterationCount="10" mass="140" />
+            <component solverIterationCount="10" mass="450" />
+            <joint component1="1" component2="2" node="grabJoint" rotLimit="0 0 0" transLimit="0 0 0" rotLimitSpring="300 0 0" rotLimitDamping="30 0 0" rotLimitForceLimit="10 -1 -1" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="telehandler" />
+        </inputAttacherJoints>
+    </attachable>
+
+    <logGrab jointNode="0>" jointRoot="0>">
+        <trigger node="dynamicMountTrigger" />
+        <grab componentJoint="1" axis="3" rotationOffsetThreshold="10" rotationOffsetTime="1000"/>
+    </logGrab>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="grabJoint" playSound="true" >
+                <controls axis="AXIS_FRONTLOADER_TOOL2" invertAxis="true" mouseSpeedFactor="0.3" iconName="TOOL_OPEN_CLOSE" />
+                <rotation rotationAxis="1" rotSpeed="70" rotAcceleration="250" rotMax="25" rotMin="-70" />
+                <componentJoint index="1" anchorActor="0" />
+                <dependentPart node="grab" />
+            </movingTool>
+        </movingTools>
+        <movingParts>
+            <movingPart node="grab" referencePoint="grabRef" referenceFrame="grabJoint" limitedAxis="1" isActiveDirty="true">
+                <dependentPart node="hydraulic" />
+            </movingPart>
+            <movingPart node="hydraulic" referencePoint="hydraulicRef" referenceFrame="hydraulicFrame" >
+                <translatingPart node="hydraulicPunch" />
+            </movingPart>
+        </movingParts>
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="2" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="attacherJoint" node="0>0" />
+        <i3dMapping id="grabJoint" node="0>1" />
+        <i3dMapping id="logFork_vis" node="0>2" />
+        <i3dMapping id="hydraulic" node="0>2|0" />
+        <i3dMapping id="hydraulicPunch" node="0>2|0|0" />
+        <i3dMapping id="hydraulicFrame" node="0>2|1" />
+        <i3dMapping id="grab" node="0>2|2" />
+        <i3dMapping id="hydraulicRef" node="0>2|2|0" />
+        <i3dMapping id="dynamicMountTrigger" node="0>2|3" />
+        <i3dMapping id="grabRef" node="1>0" />
+    </i3dMappings>
+</vehicle>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle>
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>DE250 SSL</name>
+        <specs>
+            <combination>L218, C232</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_feederBale</function>
+        </functions>
+        <image>$data/vehicles/warzee/de250/store_de250_skidSteer.png</image>
+        <bundleElements>
+            <bundleElement>
+                <xmlFilename>$data/vehicles/warzee/spike1/spike1.xml</xmlFilename>
+                <offset>0.295 0.059 0.36</offset>
+                <yRotation>180</yRotation>
+            </bundleElement>
+            <bundleElement>
+                <xmlFilename>$data/vehicles/warzee/de250/de250.xml</xmlFilename>
+                <offset>0 0 0</offset>
+                <yRotation>0</yRotation>
+            </bundleElement>
+        </bundleElements>
+        <attacherInfo>
+            <attach bundleElement0="1" bundleElement1="2" attacherJointIndex="1" inputAttacherJointIndex="2" />
+        </attacherInfo>
+        <brand>WARZEE</brand>
+        <rotation>0</rotation>
+        <category>animals</category>
+        <vertexBufferMemoryUsage>0</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>0</indexBufferMemoryUsage>
+        <textureMemoryUsage>0</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <size width="6" length="6" />
+    </base>
+</vehicle>

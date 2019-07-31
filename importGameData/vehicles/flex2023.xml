@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="manureSpreader">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>FLEX 23</name>
+        <specs>
+            <neededPower>180</neededPower>
+            <workingWidth>24.0</workingWidth>
+        </specs>
+        <functions>
+            <function>$l10n_function_manureSpreader</function>
+        </functions>
+        <image>data/vehicles/samsonAgro/flex2023/store_flex2023.png</image>
+        <price>85000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>SAMSONAGRO</brand>
+        <category>manureSpreaders</category>
+        <shopTranslationOffset>0 0.05 0</shopTranslationOffset>
+        <shopRotationOffset>0.902 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>1766184</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>302736</indexBufferMemoryUsage>
+        <textureMemoryUsage>23418144</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_manureSpreader</typeDesc>
+        <filename>data/vehicles/samsonAgro/flex2023/flex2023.i3d</filename>
+        <size width="3.5" length="10"/>
+        <speedLimit value="20" />
+        <components>
+            <component centerOfMass="0 0.85 -0.7" solverIterationCount="10" mass="7200" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/650_65R30_5.xml" isLeft="true" >
+                        <physics tipOcclusionAreaGroupId="1" restLoad="2.1" repr="wheelFrontLeft"  forcePointRatio="0.5" initialCompression="10" suspTravel="0.25" spring="35" damper="50" />
+                        <wheelChock parkingNode="wheelChock1Parking" />
+                        <wheelChock parkingNode="wheelChock2Parking" isInverted="true" />
+                        <tire isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/650_65R30_5.xml" isLeft="false" >
+                        <physics tipOcclusionAreaGroupId="2" restLoad="2.1" repr="wheelFrontRight" forcePointRatio="0.5" initialCompression="10" suspTravel="0.25" spring="35" damper="50" />
+                        <tire isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/600_50R22_5.xml" isLeft="true" hasParticles="true" >
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.6" repr="axisLeftBack"  driveNode="wheelBackLeft"  forcePointRatio="0.5" initialCompression="35" suspTravel="0.25" spring="35" damper="50" />
+                        <steeringAxle scale="-0.3" rotMax="20" rotMin="-20" />
+                        <tire isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/600_50R22_5.xml" isLeft="false" hasParticles="true" >
+                        <physics tipOcclusionAreaGroupId="2" restLoad="1.6" repr="axisRightBack" driveNode="wheelBackRight" forcePointRatio="0.5" initialCompression="35" suspTravel="0.25" spring="35" damper="50" />
+                        <steeringAxle scale="-0.3" rotMax="20" rotMin="-20" />
+                        <tire isInverted="true" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <hubs>
+            <color0>SAMSONAGRO_GREEN</color0>
+            <color1>SAMSONAGRO_GREEN</color1>
+            <hub linkNode="wheelFrontLeft"  filename="$data/shared/wheels/hubs/hub_n8_6.xml" isLeft="true"  scale="0.335 0.335 0.335" />
+            <hub linkNode="wheelFrontRight" filename="$data/shared/wheels/hubs/hub_n8_6.xml" isLeft="false" scale="0.335 0.335 0.335" />
+            <hub linkNode="wheelBackLeft"   filename="$data/shared/wheels/hubs/hub_n8_6.xml" isLeft="true"  scale="0.335 0.335 0.335" />
+            <hub linkNode="wheelBackRight"  filename="$data/shared/wheels/hubs/hub_n8_6.xml" isLeft="false" scale="0.335 0.335 0.335" />
+        </hubs>
+    </wheels>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="trailerLow" attacherHeight="0.76" steeringBarLeftNode="steeringBarLeft"/>
+        </inputAttacherJoints>
+        <steeringAxleAngleScale startSpeed="0" endSpeed="90" backwards="true" />
+        <support animationName="moveSupport" />
+        <brakeForce>0.8</brakeForce>
+    </attachable>
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn01"  length="1" diameter="0.02">
+            <objectChange node="hydraulicIn01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut01" length="1" diameter="0.02">
+            <objectChange node="hydraulicOut01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn02"  length="1" diameter="0.02">
+            <objectChange node="hydraulicIn02_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+    </connectionHoses>
+
+    <powerTakeOffs>
+        <input inputAttacherJointIndices="1" inputNode="pto" aboveAttacher="true" detachNode="ptoDetachNode"/>
+    </powerTakeOffs>
+
+    <powerConsumer ptoRpm="450" neededMaxPtoPower="30"/>
+
+    <lights>
+        <sharedLight linkNode="workLight01"    filename="$data/shared/assets/lights/lizard/workingLightOval_02.xml" />
+        <sharedLight linkNode="backlightLeft"  filename="$data/shared/assets/lights/lizard/rearMultipointLight_02_left.xml" />
+        <sharedLight linkNode="backlightRight" filename="$data/shared/assets/lights/lizard/rearMultipointLight_02_right.xml" />
+        <sharedLight linkNode="bigTriangle"    filename="$data/shared/assets/reflectors/lizard/bigTriangle.xml" />
+        <sharedLight linkNode="triangleLeft"   filename="$data/shared/assets/reflectors/lizard/redTriangle_01.xml" />
+        <sharedLight linkNode="triangleLeft2"  filename="$data/shared/assets/reflectors/lizard/redTriangle_01.xml" />
+        <sharedLight linkNode="triangleRight"  filename="$data/shared/assets/reflectors/lizard/redTriangle_01.xml" />
+        <sharedLight linkNode="triangleRight2" filename="$data/shared/assets/reflectors/lizard/redTriangle_01.xml" />
+        <sharedLight linkNode="sideMarker01"   filename="$data/shared/assets/lights/lizard/sideMarker_07Orange.xml" />
+        <sharedLight linkNode="sideMarker02"   filename="$data/shared/assets/lights/lizard/sideMarker_07Orange.xml" />
+        <sharedLight linkNode="sideMarker03"   filename="$data/shared/assets/lights/lizard/sideMarker_07Orange.xml" />
+        <sharedLight linkNode="sideMarker04"   filename="$data/shared/assets/lights/lizard/sideMarker_07Orange.xml" />
+        <sharedLight linkNode="sideMarker05"   filename="$data/shared/assets/lights/lizard/sideMarker_07Orange.xml" />
+        <sharedLight linkNode="sideMarker06"   filename="$data/shared/assets/lights/lizard/sideMarker_07Orange.xml" />
+        <sharedLight linkNode="sideMarker07"   filename="$data/shared/assets/lights/lizard/sideMarker_07Orange.xml" />
+        <sharedLight linkNode="sideMarker08"   filename="$data/shared/assets/lights/lizard/sideMarker_07Orange.xml" />
+        <sharedLight linkNode="sideMarker09"   filename="$data/shared/assets/reflectors/lizard/yellowRound_01.xml" />
+        <sharedLight linkNode="sideMarker10"   filename="$data/shared/assets/reflectors/lizard/yellowRound_01.xml" />
+        <sharedLight linkNode="markerWhite01"  filename="$data/shared/assets/reflectors/lizard/whiteRound_01.xml" />
+        <sharedLight linkNode="markerWhite02"  filename="$data/shared/assets/reflectors/lizard/whiteRound_01.xml" />
+        <sharedLight linkNode="markerWhite03"  filename="$data/shared/assets/reflectors/lizard/whiteRound_01.xml" />
+        <sharedLight linkNode="markerWhite04"  filename="$data/shared/assets/reflectors/lizard/whiteRound_01.xml" />
+        <sharedLight linkNode="markerWhite04"  filename="$data/shared/assets/reflectors/lizard/whiteRound_01.xml" />
+        <realLights>
+            <high>
+                <light node="backLightsHigh1" lightTypes="0"/>
+                <light node="backLightsHigh3" lightTypes="0"/>
+                <turnLightLeft node="turnLightLeftBack" />
+                <turnLightRight node="turnLightRightBack" />
+                <brakeLight node="backLightsHigh1" />
+                <brakeLight node="backLightsHigh3" />
+                <reverseLight node="reverseLight" />
+            </high>
+        </realLights>
+    </lights>
+
+    <workAreas>
+        <workArea type="sprayer" functionName="processSprayerArea" disableBackwards="false" requiresGroundContact="false" >
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight" />
+        </workArea>
+    </workAreas>
+
+    <sprayer fillUnitIndex="1" unloadInfoIndex="1" loadInfoIndex="1">
+        <usageScales workingWidth="24" scale="1" />
+        <effects>
+            <effectNode                              effectNode="manureEffect"  materialType="spreader" materialTypeId="1" />
+            <effectNode effectClass="ParticleEffect" effectNode="manureEmitter" particleType="SPREADER" worldSpace="false"/>
+            <effectNode effectClass="ParticleEffect" effectNode="smokeEmitter"  particleType="SPREADER_SMOKE" worldSpace="false"/>
+        </effects>
+        <animationNodes>
+            <animationNode node="chainGear"   rotAxis="1" rotSpeed="-180" turnOnFadeTime="2" turnOffFadeTime="2"/>
+            <animationNode node="backDrumLeft"   rotAxis="2" rotSpeed="-1200" turnOnFadeTime="1" turnOffFadeTime="2"/>
+            <animationNode node="backDrumRight"  rotAxis="2" rotSpeed="1200"  turnOnFadeTime="1" turnOffFadeTime="2"/>
+            <animationNode node="backDrumTop"    rotAxis="1" rotSpeed="800"   turnOnFadeTime="1" turnOffFadeTime="2"/>
+            <animationNode node="backDrumBottom" rotAxis="1" rotSpeed="-800"  turnOnFadeTime="1" turnOffFadeTime="2"/>
+            <animationNode class="ScrollingAnimation" node="beltChain" scrollSpeed="0.3" />
+            <animationNode class="ScrollingAnimation" node="beltFloor" scrollSpeed="0.3" />
+        </animationNodes>
+    </sprayer>
+
+    <foldable>
+        <foldingParts startAnimTime="1" turnOnFoldDirection="-1" turnOnFoldMinLimit="0" turnOnFoldMaxLimit="0.5">
+            <foldingPart animationName="openBackDoor" speedScale="1" />
+        </foldingParts>
+    </foldable>
+
+    <animations>
+        <animation name="openBackDoor">
+            <part node="backDoor"          startTime="0" endTime="2" startTrans="0 1.4 0" endTrans="0 0 0"/>
+            <part node="backDoorIndicator" startTime="0" endTime="2" startTrans="-0.614 1.907 6.043" endTrans="-0.092 1.907 6.043" />
+        </animation>
+        <animation name="moveSupport">
+            <part node="supportCol"     startTime="0"    endTime="0.1"  startTrans="0 0.65 0" endTrans="0 0 0" />
+            <part node="supportArm"     startTime="0"    endTime="0.15" startRot="0 0 90"     endRot="0 0 0" />
+            <part node="supportArmPart" startTime="0.15" endTime="0.25"  startTrans="0 0.26 0" endTrans="0 0 0" />
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="backDoor" playSound="true" />
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="steeringBarLeft" referencePoint="steeringBarLeftRodRef" localReferencePoint="steeringBarLeftRod" referenceFrame="steeringBarLeftRefFrame" >
+                <dependentPart node="steeringBarLeftRod" />
+                <dependentPart node="steeringBarHydraulic" />
+            </movingPart>
+            <movingPart node="steeringBarLeftRod" referencePoint="steeringBarLeftRodRef" referenceFrame="samsonFlex2023_main_component1" />
+            <movingPart node="steeringBarHydraulic" referencePoint="steeringBarHydraulicRef" referenceFrame="steeringBarHydraulicRef" isActiveDirty="true">
+                <translatingPart node="steeringBarHydraulicPunch" />
+            </movingPart>
+            <movingPart node="steeringBar" referencePoint="steeringBarRef" referenceFrame="steeringBarRef" isActiveDirty="true"/>
+            <movingPart node="steeringAxisHydraulic" referencePoint="steeringAxisHydraulicRef" referenceFrame="steeringAxisHydraulicRef" isActiveDirty="true">
+                <translatingPart node="steeringAxisHydraulicPunch" />
+            </movingPart>
+        </movingParts>
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration name="$l10n_configuration_valueDefault" price="0" >
+                <fillUnits>
+                    <fillUnit unit="$l10n_unit_literShort" fillTypeCategories="manureSpreader" capacity="22900">
+                        <exactFillRootNode node="exactFillRootNode" />
+                    </fillUnit>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <fillVolume>
+        <fillVolumeConfigurations>
+            <fillVolumeConfiguration name="$l10n_configuration_valueDefault" price="0" >
+                <volumes>
+                    <volume node="fillVolume" maxDelta="1.5" maxAllowedHeapAngle="25" fillUnitIndex="1"/>
+                </volumes>
+            </fillVolumeConfiguration>
+        </fillVolumeConfigurations>
+
+        <unloadInfos>
+            <unloadInfo>
+                <node node="unloadNode" width="1.4" length="1.0" />
+            </unloadInfo>
+        </unloadInfos>
+    </fillVolume>
+
+    <turnOnVehicle turnOffIfNotAllowed="true" >
+        <sounds>
+            <work template="DEFAULT_MANURE_SPREADER_02" pitchOffset="0.90" linkNode="0>" />
+        </sounds>
+    </turnOnVehicle>
+
+    <ai>
+        <needsLowering value="false" />
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack" />
+        <sizeMarkers leftNode="aiSizeMarkerLeft" rightNode="aiSizeMarkerRight" backNode="aiSizeMarkerBack" />
+        <allowTurnBackward value="false" />
+        <toolReverserDirectionNode node="aiSizeMarkerBack" />
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-1.45" maxX="1.45" minZ="-4.6" maxZ="3.5 " yOffset="0.6" />
+    </foliageBending>
+
+    <tipOccluder>
+        <occlusionArea start="tipOcclusionStart" width="tipOcclusionWidth" height="tipOcclusionHeight" />
+    </tipOccluder>
+
+    <baseMaterial>
+        <material name="flex2023_mat" baseNode="samson_vis">
+            <shaderParameter name="colorMat0" value="SAMSONAGRO_GREEN"/>
+            <shaderParameter name="colorMat1" value="SAMSONAGRO_YELLOWPTO"/>
+            <shaderParameter name="colorMat2" value="SAMSONAGRO_BLUE"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="samsonFlex2023_main_component1" node="0>" />
+        <i3dMapping id="samson_vis" node="0>0" />
+        <i3dMapping id="supportArm" node="0>0|0|0|0" />
+        <i3dMapping id="supportArmPart" node="0>0|0|0|0|0" />
+        <i3dMapping id="supportCol" node="0>0|0|0|1" />
+        <i3dMapping id="ptoDetachNode" node="0>0|0|1" />
+        <i3dMapping id="pto" node="0>0|0|2" />
+        <i3dMapping id="attacherJoint" node="0>0|0|3" />
+        <i3dMapping id="steeringBarLeft" node="0>0|0|4" />
+        <i3dMapping id="steeringBarLeftRod" node="0>0|0|4|0" />
+        <i3dMapping id="steeringBarLeftRodRef" node="0>0|0|4|0|0" />
+        <i3dMapping id="steeringBarHydraulicRef" node="0>0|0|4|1" />
+        <i3dMapping id="steeringBarLeftRefFrame" node="0>0|0|5" />
+        <i3dMapping id="hydraulicIn02" node="0>0|0|6|0" />
+        <i3dMapping id="hydraulicIn02_detached" node="0>0|0|6|0|0" />
+        <i3dMapping id="hydraulicOut01" node="0>0|0|6|1" />
+        <i3dMapping id="hydraulicOut01_detached" node="0>0|0|6|1|0" />
+        <i3dMapping id="hydraulicIn01" node="0>0|0|6|2" />
+        <i3dMapping id="hydraulicIn01_detached" node="0>0|0|6|2|0" />
+        <i3dMapping id="wheelChock1Parking" node="0>0|0|7|0" />
+        <i3dMapping id="wheelChock2Parking" node="0>0|0|7|1" />
+        <i3dMapping id="wheelFrontLeft" node="0>0|1|0" />
+        <i3dMapping id="wheelFrontRight" node="0>0|1|1" />
+        <i3dMapping id="axisLeftBack" node="0>0|1|2|0" />
+        <i3dMapping id="wheelBackLeft" node="0>0|1|2|0|0|0" />
+        <i3dMapping id="steeringBar" node="0>0|1|2|0|2" />
+        <i3dMapping id="axisRightBack" node="0>0|1|3|0" />
+        <i3dMapping id="wheelBackRight" node="0>0|1|3|0|0|0" />
+        <i3dMapping id="steeringAxisHydraulic" node="0>0|1|3|0|1" />
+        <i3dMapping id="steeringAxisHydraulicPunch" node="0>0|1|3|0|1|0" />
+        <i3dMapping id="steeringBarRef" node="0>0|1|3|0|3" />
+        <i3dMapping id="triangleLeft" node="0>0|2|0|0" />
+        <i3dMapping id="triangleRight" node="0>0|2|0|1" />
+        <i3dMapping id="triangleRight2" node="0>0|2|0|2" />
+        <i3dMapping id="triangleLeft2" node="0>0|2|0|3" />
+        <i3dMapping id="bigTriangle" node="0>0|2|0|4" />
+        <i3dMapping id="backlightLeft" node="0>0|2|0|5" />
+        <i3dMapping id="backlightRight" node="0>0|2|0|6" />
+        <i3dMapping id="workLight01" node="0>0|2|0|7" />
+        <i3dMapping id="sideMarker01" node="0>0|2|0|8" />
+        <i3dMapping id="sideMarker02" node="0>0|2|0|9" />
+        <i3dMapping id="sideMarker03" node="0>0|2|0|10" />
+        <i3dMapping id="sideMarker04" node="0>0|2|0|11" />
+        <i3dMapping id="sideMarker05" node="0>0|2|0|12" />
+        <i3dMapping id="sideMarker06" node="0>0|2|0|13" />
+        <i3dMapping id="sideMarker07" node="0>0|2|0|14" />
+        <i3dMapping id="sideMarker08" node="0>0|2|0|15" />
+        <i3dMapping id="sideMarker09" node="0>0|2|0|16" />
+        <i3dMapping id="sideMarker10" node="0>0|2|0|17" />
+        <i3dMapping id="markerWhite01" node="0>0|2|0|18" />
+        <i3dMapping id="markerWhite02" node="0>0|2|0|19" />
+        <i3dMapping id="markerWhite03" node="0>0|2|0|20" />
+        <i3dMapping id="markerWhite04" node="0>0|2|0|21" />
+        <i3dMapping id="backLightsHigh1" node="0>0|2|1" />
+        <i3dMapping id="backLightsHigh3" node="0>0|2|2" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|2|3" />
+        <i3dMapping id="turnLightRightBack" node="0>0|2|4" />
+        <i3dMapping id="reverseLight" node="0>0|2|5" />
+        <i3dMapping id="exactFillRootNode" node="0>0|3|0" />
+        <i3dMapping id="fillVolume" node="0>0|3|1" />
+        <i3dMapping id="unloadNode" node="0>0|3|2" />
+        <i3dMapping id="backDrumTop" node="0>0|4|0|0" />
+        <i3dMapping id="backDrumBottom" node="0>0|4|0|1" />
+        <i3dMapping id="backDrumLeft" node="0>0|4|0|2" />
+        <i3dMapping id="backDrumRight" node="0>0|4|0|3" />
+        <i3dMapping id="backDoor" node="0>0|4|1|0" />
+        <i3dMapping id="backDoorIndicator" node="0>0|4|1|1" />
+        <i3dMapping id="beltChain" node="0>0|4|2|0" />
+        <i3dMapping id="beltFloor" node="0>0|4|2|1" />
+        <i3dMapping id="chainGear" node="0>0|4|3" />
+        <i3dMapping id="steeringBarHydraulic" node="0>0|5|0" />
+        <i3dMapping id="steeringBarHydraulicPunch" node="0>0|5|0|0" />
+        <i3dMapping id="steeringAxisHydraulicRef" node="0>0|5|1" />
+        <i3dMapping id="workAreaStart" node="0>0|6|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|6|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|6|2" />
+        <i3dMapping id="manureEffect" node="0>0|7|0" />
+        <i3dMapping id="manureEmitter" node="0>0|7|1" />
+        <i3dMapping id="smokeEmitter" node="0>0|7|2" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|8|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|8|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|8|0|2" />
+        <i3dMapping id="aiSizeMarkerLeft" node="0>0|8|1|0" />
+        <i3dMapping id="aiSizeMarkerRight" node="0>0|8|1|1" />
+        <i3dMapping id="aiSizeMarkerBack" node="0>0|8|1|2" />
+        <i3dMapping id="tipOcclusionStart" node="0>0|9|0" />
+        <i3dMapping id="tipOcclusionWidth" node="0>0|9|1" />
+        <i3dMapping id="tipOcclusionHeight" node="0>0|9|2" />
+    </i3dMappings>
+</vehicle>

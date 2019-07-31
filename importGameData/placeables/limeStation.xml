@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable>
+    <storeData>
+        <name>$l10n_shopItem_limeStation</name>
+        <image>$data/placeables/limeStation/store_buyingStation.png</image>
+        <price>1</price>
+        <canBeSold>false</canBeSold>
+        <showInStore>false</showInStore>
+        <lifetime>1000</lifetime>
+        <rotation>0</rotation>
+        <brand>LIZARD</brand>
+        <species>placeable</species>
+        <category>placeableMisc</category>
+        <vertexBufferMemoryUsage>136260</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>18876</indexBufferMemoryUsage>
+        <textureMemoryUsage>9087776</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <placeableType>buyingStation</placeableType>
+    <filename>$data/placeables/limeStation/limeStation.i3d</filename>
+    <placement testSizeX="17" testSizeZ="10" sizeX="4" sizeZ="3" useRandomYRotation="false" useManualYRotation="true" />
+
+    <buyingStation stationName="$l10n_shopItem_limeStation" appearsOnPDA="true" storageRadius="0" fillSoundIdentifier="fillSound01">
+        <loadTrigger triggerNode="0|0" fillLitersPerSecond="500" infiniteCapacity="true" />
+        <fillType name="lime" priceScale="0.8" />
+    </buyingStation>
+
+</placeable>

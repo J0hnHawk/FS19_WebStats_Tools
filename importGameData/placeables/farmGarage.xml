@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable>
+    <storeData>
+        <name>$l10n_shopItem_farmGarage</name>
+        <functions>
+            <function>$l10n_function_decoration</function>
+        </functions>
+        <image>$data/placeables/mapDE/farmBuildings/store_farmGarage.png</image>
+        <price>15000</price>
+        <dailyUpkeep>25</dailyUpkeep>
+        <lifetime>1000</lifetime>
+        <rotation>0</rotation>
+        <brand>LIZARD</brand>
+        <species>placeable</species>
+        <category>decoration</category>
+        <vertexBufferMemoryUsage>1152</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>144</indexBufferMemoryUsage>
+        <textureMemoryUsage>128</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <placeableType>placeable</placeableType>
+    <filename>data/placeables/mapDE/farmBuildings/farmGarage.i3d</filename>
+    <placement testSizeX="18" testSizeZ="17" sizeX="13" sizeZ="12" useRandomYRotation="false" useManualYRotation="true" />
+
+    <tipOcclusionUpdateArea sizeX="13" sizeZ="12" />
+
+    <clearAreas>
+        <clearArea startNode="1|0" widthNode="1|0|0" heightNode="1|0|1"/>
+    </clearAreas>
+
+    <leveling requireLeveling="true" maxSmoothDistance="10" maxSlope="75" maxEdgeAngle="30">
+        <levelAreas>
+            <levelArea startNode="2|0" widthNode="2|0|0" heightNode="2|0|1" groundType="asphalt"/>
+        </levelAreas>
+        <rampAreas> <!-- Deprecated! no longer used in script -->
+            <rampArea maxSlope="75" rootNode="3|0" startNode="3|0" widthNode="3|0|0" heightNode="3|0|1" />
+            <rampArea maxSlope="75" rootNode="3|1" startNode="3|1" widthNode="3|1|0" heightNode="3|1|1" />
+            <rampArea maxSlope="75" rootNode="3|2" startNode="3|2" widthNode="3|2|0" heightNode="3|2|1" />
+            <rampArea maxSlope="75" rootNode="3|3" startNode="3|3" widthNode="3|3|0" heightNode="3|3|1" />
+        </rampAreas>
+    </leveling>
+</placeable>

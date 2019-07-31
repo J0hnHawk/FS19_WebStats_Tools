@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable>
+    <storeData>
+        <name>Easy Shed 2</name>
+        <functions>
+            <function>$l10n_function_decoration</function>
+        </functions>
+        <image>data/placeables/sheds/store_easyShed02.png</image>
+        <price>22000</price>
+        <dailyUpkeep>20</dailyUpkeep>
+        <lifetime>1000</lifetime>
+        <rotation>0</rotation>
+        <brand>EASYSHEDS</brand>
+        <species>placeable</species>
+        <category>sheds</category>
+        <vertexBufferMemoryUsage>688180</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>60126</indexBufferMemoryUsage>
+        <textureMemoryUsage>5942096</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <placeableType>placeable</placeableType>
+    <filename>data/placeables/sheds/easyShed02.i3d</filename>
+    <placement testSizeX="31.5" testSizeZ="42" sizeX="31.5" sizeZ="42" useRandomYRotation="false" useManualYRotation="true" />
+
+    <clearAreas>
+        <clearArea startNode="1|0" widthNode="1|0|0" heightNode="1|0|1"/>
+    </clearAreas>
+
+    <leveling requireLeveling="true" maxSmoothDistance="10" maxSlope="75" maxEdgeAngle="30">
+        <levelAreas>
+            <levelArea startNode="1|0" widthNode="1|0|0" heightNode="1|0|1" groundType="asphalt"/>
+        </levelAreas>
+    </leveling>
+    
+    <tipOcclusionUpdateArea sizeX="35" sizeZ="45" />
+    
+</placeable>

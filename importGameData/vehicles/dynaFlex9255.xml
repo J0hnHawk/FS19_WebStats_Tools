@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="cutter">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>DynaFlex 9255</name>
+        <specs>
+            <workingWidth>12</workingWidth>
+            <combination>IDEAL</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_cutter</function>
+        </functions>
+        <image>$data/vehicles/agco/dynaFlex9255/store_dynaFlex9255.png</image>
+        <price>78000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>AGCO</brand>
+        <category>cutters</category>
+        <shopTranslationOffset>0 -0.1 0</shopTranslationOffset>
+        <shopRotationOffset>6 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>4832484</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>1202352</indexBufferMemoryUsage>
+        <textureMemoryUsage>17301776</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_cutter</typeDesc>
+        <filename>$data/vehicles/agco/dynaFlex9255/dynaFlex9255.i3d</filename>
+        <size width="14" length="3.5" lengthOffset="0" />
+        <speedLimit value="10" />
+        <components>
+            <component centerOfMass="0 0.2 -0.2" solverIterationCount="10" mass="3300" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <lights>
+        <defaultLights>
+            <defaultLight shaderNode="lightSelfIllum01" lightTypes="0" intensity="10"/>
+            <defaultLight shaderNode="lightSelfIllum02" lightTypes="0" intensity="10"/>
+        </defaultLights>
+    </lights>
+
+    <powerConsumer ptoRpm="540" neededMaxPtoPower="130"/>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="dynaFlex9255_main_component1" threshold="0.4" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="cutter" functionName="processCutterArea" >
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight" />
+            <groundReferenceNode index="1" />
+        </workArea>
+    </workAreas>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="cutter" >
+                <heightNode node="heightNode" />
+                <distanceToGround lower="0.45" upper="2" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+
+        <support animationName="moveSupport" />
+    </attachable>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="reelMove" playSound="true" >
+                <controls axis="AXIS_CUTTER_REEL" invertAxis="true" mouseSpeedFactor="0.9" iconName="REEL_TRANSLATE_X" />
+                <translation transSpeed="0.1" transAcceleration="10" transMax="1.31" transMin="0.92" translationAxis="3" startTrans="1.2"/>
+                <dependentPart node="moveHydraulics" />
+            </movingTool>
+
+            <movingTool node="reelRot" playSound="true" >
+                <controls axis="AXIS_CUTTER_REEL2" invertAxis="true" mouseSpeedFactor="0.9" iconName="REEL_TRANSLATE_Y" />
+                <rotation rotSpeed="5" rotAcceleration="40" rotMax="10" rotMin="-20" startRot="-19"/>
+                <dependentPart node="reelRotHydraulics" />
+                <dependentPart node="reelRotHydraulicsSafetyLock" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <!-- reel arm hydraulics -->
+            <movingPart node="reelRotHydraulics" referencePoint="reelRotHydraulicsRef" referenceFrame="reelRotHydraulicsRef" >
+                <translatingPart node="reelRotHydraulicsPunch" />
+            </movingPart>
+            <movingPart node="reelRotHydraulicsSafetyLock" referencePoint="referencePointSafetyLock" referenceFrame="referencePointSafetyLock" />
+
+            <!-- reel mover hydraulics -->
+            <movingPart node="moveHydraulics" referencePoint="moveHydraulicsRef" referenceFrame="moveHydraulicsRef" >
+                <translatingPart node="moveHydraulicsPunch" />
+            </movingPart>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="dynaFlex9255_main_component1"/>
+        </sounds>
+    </cylindered>
+
+    <animations>
+        <animation name="moveSupport">
+            <part node="autoDockCover" startTime="0" endTime="0.25"  startRot="0 -98.102 0" endRot="0 0 0" />
+        </animation>
+
+        <animation name="turnedOnAnimation_spikes" looping="true">
+            <part node="reel" startTime="0.0" endTime="1.99999"  startRot="0 0 0" endRot="360 0 0" />
+            <part node="reel" startTime="1.99999" endTime="2.0"  startRot="360 0 0" endRot="0 0 0" />
+
+            <part node="spike01" startTime="0.0" endTime="0.333"  startRot="34.513 179.973 0.002" endRot="59.427 179.973 0.002" />
+            <part node="spike01" startTime="0.333" endTime="0.644"  startRot="59.427 179.973 0.002" endRot="105.791 179.973 0.002" />
+            <part node="spike01" startTime="0.644" endTime="0.978"  startRot="105.791 179.973 0.002" endRot="135.081 179.973 0.002" />
+            <part node="spike01" startTime="0.978" endTime="1.311"  startRot="135.081 179.973 0.002" endRot="88.124 179.973 0.002" />
+            <part node="spike01" startTime="1.311" endTime="1.644"  startRot="88.124 179.973 0.002" endRot="52.447 179.973 0.002" />
+            <part node="spike01" startTime="1.644" endTime="2.0"  startRot="52.447 179.973 0.002" endRot="34.513 179.973 0.002" />
+            <part node="spike01OrientationArm" startTime="0.0" endTime="0.333"  startRot="-70.605 0.023 -0.014" endRot="-98.04 0.023 -0.014" />
+            <part node="spike01OrientationArm" startTime="0.333" endTime="0.644"  startRot="-98.04 0.023 -0.014" endRot="-133.802 0.023 -0.014" />
+            <part node="spike01OrientationArm" startTime="0.644" endTime="0.978"  startRot="-133.802 0.023 -0.014" endRot="-157.451 0.023 -0.014" />
+            <part node="spike01OrientationArm" startTime="0.978" endTime="1.311"  startRot="-157.451 0.023 -0.014" endRot="-123.028 0.023 -0.014" />
+            <part node="spike01OrientationArm" startTime="1.311" endTime="1.644"  startRot="-123.028 0.023 -0.014" endRot="-89.968 0.023 -0.014" />
+            <part node="spike01OrientationArm" startTime="1.644" endTime="2.0"  startRot="-89.968 0.023 -0.014" endRot="-70.605 0.023 -0.014" />
+
+            <part node="spike02" startTime="0.0" endTime="0.333"  startRot="172.016 0.024 -179.998" endRot="228.847 0.024 -179.998" />
+            <part node="spike02" startTime="0.333" endTime="0.644"  startRot="228.847 0.024 -179.998" endRot="249.678 0.024 -179.998" />
+            <part node="spike02" startTime="0.644" endTime="0.978"  startRot="249.678 0.024 -179.998" endRot="206.931 0.024 -179.998" />
+            <part node="spike02" startTime="0.978" endTime="1.311"  startRot="206.931 0.024 -179.998" endRot="160.544 0.024 -179.998" />
+            <part node="spike02" startTime="1.311" endTime="1.644"  startRot="160.544 0.024 -179.998" endRot="148.442 0.024 -179.998" />
+            <part node="spike02" startTime="1.644" endTime="2.0"  startRot="148.442 0.024 -179.998" endRot="172.016 0.024 -179.998" />
+            <part node="spike02OrientationArm" startTime="0.0" endTime="0.333"  startRot="-90.031 0.024 0.005" endRot="-139.69 0.024 0.005" />
+            <part node="spike02OrientationArm" startTime="0.333" endTime="0.644"  startRot="-139.69 0.024 0.005" endRot="-151.342 0.024 0.005" />
+            <part node="spike02OrientationArm" startTime="0.644" endTime="0.978"  startRot="-151.342 0.024 0.005" endRot="-121.567 0.024 0.005" />
+            <part node="spike02OrientationArm" startTime="0.978" endTime="1.311"  startRot="-121.567 0.024 0.005" endRot="-78.056 0.024 0.005" />
+            <part node="spike02OrientationArm" startTime="1.311" endTime="1.644"  startRot="-78.056 0.024 0.005" endRot="-64.52 0.024 0.005" />
+            <part node="spike02OrientationArm" startTime="1.644" endTime="2.0"  startRot="-64.52 0.024 0.005" endRot="-90.031 0.024 0.005" />
+
+            <part node="spike03" startTime="0.0" endTime="0.333"  startRot="168.494 0.025 -179.998" endRot="201.386 0.025 -179.998" />
+            <part node="spike03" startTime="0.333" endTime="0.644"  startRot="201.386 0.025 -179.998" endRot="143.842 0.025 -179.998" />
+            <part node="spike03" startTime="0.644" endTime="0.978"  startRot="143.842 0.025 -179.998" endRot="105.381 0.025 -179.998" />
+            <part node="spike03" startTime="0.978" endTime="1.311"  startRot="105.381 0.025 -179.998" endRot="92.621 0.025 -179.998" />
+            <part node="spike03" startTime="1.311" endTime="1.644"  startRot="92.621 0.025 -179.998" endRot="115.166 0.025 -179.998" />
+            <part node="spike03" startTime="1.644" endTime="2.0"  startRot="115.166 0.025 -179.998" endRot="168.494 0.025 -179.998" />
+            <part node="spike03OrientationArm" startTime="0.0" endTime="0.333"  startRot="-138.196 0.024 0.006" endRot="-162.153 0.024 0.006" />
+            <part node="spike03OrientationArm" startTime="0.333" endTime="0.644"  startRot="-162.153 0.024 0.006" endRot="-117.451 0.024 0.006" />
+            <part node="spike03OrientationArm" startTime="0.644" endTime="0.978"  startRot="-117.451 0.024 0.006" endRot="-83.788 0.024 0.006" />
+            <part node="spike03OrientationArm" startTime="0.978" endTime="1.311"  startRot="-83.788 0.024 0.006" endRot="-68.69 0.024 0.006" />
+            <part node="spike03OrientationArm" startTime="1.311" endTime="1.644"  startRot="-68.69 0.024 0.006" endRot="-92.85 0.024 0.006" />
+            <part node="spike03OrientationArm" startTime="1.644" endTime="2.0"  startRot="-92.85 0.024 0.006" endRot="-138.196 0.024 0.006" />
+
+            <part node="spike04" startTime="0.0" endTime="0.333"  startRot="27.034 -0.025 179.999" endRot="-13.945 -0.025 179.999" />
+            <part node="spike04" startTime="0.333" endTime="0.644"  startRot="-13.945 -0.025 179.999" endRot="-33.199 -0.025 179.999" />
+            <part node="spike04" startTime="0.644" endTime="0.978"  startRot="-33.199 -0.025 179.999" endRot="-2.648 -0.025 179.999" />
+            <part node="spike04" startTime="0.978" endTime="1.311"  startRot="-2.648 -0.025 179.999" endRot="55.269 -0.025 179.999" />
+            <part node="spike04" startTime="1.311" endTime="1.644"  startRot="55.269 -0.025 179.999" endRot="73.616 -0.025 179.999" />
+            <part node="spike04" startTime="1.644" endTime="2.0"  startRot="73.616 -0.025 179.999" endRot="27.034 -0.025 179.999" />
+            <part node="spike04OrientationArm" startTime="0.0" endTime="0.333"  startRot="-121.326 0.025 -0.011" endRot="-84.435 0.025 -0.011" />
+            <part node="spike04OrientationArm" startTime="0.333" endTime="0.644"  startRot="-84.435 0.025 -0.011" endRot="-60.426 0.025 -0.011" />
+            <part node="spike04OrientationArm" startTime="0.644" endTime="0.978"  startRot="-60.426 0.025 -0.011" endRot="-95.616 0.025 -0.011" />
+            <part node="spike04OrientationArm" startTime="0.978" endTime="1.311"  startRot="-95.616 0.025 -0.011" endRot="-144.755 0.025 -0.011" />
+            <part node="spike04OrientationArm" startTime="1.311" endTime="1.644"  startRot="-144.755 0.025 -0.011" endRot="-156.764 0.025 -0.011" />
+            <part node="spike04OrientationArm" startTime="1.644" endTime="2.0"  startRot="-156.764 0.025 -0.011" endRot="-121.326 0.025 -0.011" />
+
+            <part node="spike05" startTime="0.0" endTime="0.333"  startRot="134.477 0.036 -179.998" endRot="89.096 -0.025 -179.999" />
+            <part node="spike05" startTime="0.333" endTime="0.644"  startRot="89.096 -0.025 -179.999" endRot="43.654 -0.025 -179.999" />
+            <part node="spike05" startTime="0.644" endTime="0.978"  startRot="43.654 -0.025 -179.999" endRot="35.749 -0.025 -179.999" />
+            <part node="spike05" startTime="0.978" endTime="1.311"  startRot="35.749 -0.025 -179.999" endRot="61.467 -0.025 -179.999" />
+            <part node="spike05" startTime="1.311" endTime="1.644"  startRot="61.467 -0.025 -179.999" endRot="110.849 -0.025 -179.999" />
+            <part node="spike05" startTime="1.644" endTime="2.0"  startRot="110.849 -0.025 -179.999" endRot="134.477 0.036 -179.998" />
+            <part node="spike05OrientationArm" startTime="0.0" endTime="0.333"  startRot="-157.051 0.024 0.028" endRot="-124.225 0.024 0.028" />
+            <part node="spike05OrientationArm" startTime="0.333" endTime="0.644"  startRot="-124.225 0.024 0.028" endRot="-79.203 0.024 0.028" />
+            <part node="spike05OrientationArm" startTime="0.644" endTime="0.978"  startRot="-79.203 0.024 0.028" endRot="-72.849 0.024 0.028" />
+            <part node="spike05OrientationArm" startTime="0.978" endTime="1.311"  startRot="-72.849 0.024 0.028" endRot="-100.391 0.024 0.028" />
+            <part node="spike05OrientationArm" startTime="1.311" endTime="1.644"  startRot="-100.391 0.024 0.028" endRot="-140.541 0.024 0.028" />
+            <part node="spike05OrientationArm" startTime="1.644" endTime="2.0"  startRot="-140.541 0.024 0.028" endRot="-157.051 0.024 0.028" />
+
+            <part node="spike06" startTime="0.0" endTime="0.333"  startRot="-72.999 -0.102 179.994" endRot="-89.45 -0.102 179.994" />
+            <part node="spike06" startTime="0.333" endTime="0.644"  startRot="-89.45 -0.102 179.994" endRot="-69.752 -0.102 179.994" />
+            <part node="spike06" startTime="0.644" endTime="0.978"  startRot="-69.752 -0.102 179.994" endRot="-8.596 -0.102 179.994" />
+            <part node="spike06" startTime="0.978" endTime="1.311"  startRot="-8.596 -0.102 179.994" endRot="17.823 -0.102 179.994" />
+            <part node="spike06" startTime="1.311" endTime="1.644"  startRot="17.823 -0.102 179.994" endRot="-32.401 -0.102 179.994" />
+            <part node="spike06" startTime="1.644" endTime="2.0"  startRot="-32.401 -0.102 179.994" endRot="-72.999 -0.102 179.994" />
+            <part node="spike06OrientationArm" startTime="0.0" endTime="0.333"  startRot="-85.138 0.024 0.1" endRot="-67.51 0.024 0.1" />
+            <part node="spike06OrientationArm" startTime="0.333" endTime="0.644"  startRot="-67.51 0.024 0.1" endRot="-87.467 0.024 0.1" />
+            <part node="spike06OrientationArm" startTime="0.644" endTime="0.978"  startRot="-87.467 0.024 0.1" endRot="-141.447 0.024 0.1" />
+            <part node="spike06OrientationArm" startTime="0.978" endTime="1.311"  startRot="-141.447 0.024 0.1" endRot="-160.41 0.024 0.1" />
+            <part node="spike06OrientationArm" startTime="1.311" endTime="1.644"  startRot="-160.41 0.024 0.1" endRot="-121.78 0.024 0.1" />
+            <part node="spike06OrientationArm" startTime="1.644" endTime="2.0"  startRot="-121.78 0.024 0.1" endRot="-85.138 0.024 0.1" />
+        </animation>
+
+        <animation name="turnedOnAnimation_blades" looping="true">
+            <part node="blades" startTime="0.0" endTime="0.5"  startTrans="0.03 0.282 0.730"  endTrans="-0.03 0.282 0.730" />
+            <part node="blades" startTime="0.5" endTime="1.0"  startTrans="-0.03 0.282 0.730" endTrans="0.03 0.282 0.730" />
+        </animation>
+    </animations>
+
+    <dynamicMount forceLimitScale="1" />
+
+    <cutter fruitTypeCategories="grainHeader">
+        <animationNodes>
+            <animationNode node="mainDrum" rotAxis="1" rotSpeed="1000"  turnOnFadeTime="2" turnOffFadeTime="3"/>
+            <animationNode class="ScrollingAnimation" node="outerBelts" scrollSpeed="-1.25" turnOnFadeTime="2" turnOffFadeTime="2"/>
+            <animationNode class="ScrollingAnimation" node="innerBelt"  scrollSpeed="-0.75" turnOnFadeTime="2" turnOffFadeTime="2"/>
+        </animationNodes>
+
+        <testAreas>
+            <testArea startNode="testArea1Start" widthNode="testArea1Width" heightNode="testArea1Height" />
+            <testArea startNode="testArea2Start" widthNode="testArea2Width" heightNode="testArea2Height" />
+            <testArea startNode="testArea3Start" widthNode="testArea3Width" heightNode="testArea3Height" />
+            <testArea startNode="testArea4Start" widthNode="testArea4Width" heightNode="testArea4Height" />
+            <testArea startNode="testArea5Start" widthNode="testArea5Width" heightNode="testArea5Height" />
+            <testArea startNode="testArea6Start" widthNode="testArea6Width" heightNode="testArea6Height" />
+            <testArea startNode="testArea7Start" widthNode="testArea7Width" heightNode="testArea7Height" />
+            <testArea startNode="testArea8Start" widthNode="testArea8Width" heightNode="testArea8Height" />
+            <testArea startNode="testArea9Start" widthNode="testArea9Width" heightNode="testArea9Height" />
+        </testAreas>
+
+        <effect>
+            <effectNode linkNode="center" speedScale="0.0018"                             effectType="CENTER" changeSpeedScale="0.01" supportScaling="true" />
+            <effectNode linkNode="left"   speedScale="0.0013" lengthAndRadius="4.7 1 1 1" effectType="LEFT"  useInterpolation="true" minOffset="6" />
+            <effectNode linkNode="right"  speedScale="0.0013" lengthAndRadius="4.7 1 1 1" effectType="RIGHT" useInterpolation="true" minOffset="6" useMaxValue="true" />
+        </effect>
+
+        <fillEffect>
+            <effectNode effectClass="ParticleEffect" effectNode="smokeEmitter" particleType="SMOKE" emitCountScale="0.1" worldSpace="false" useCuttingWidth="false"/>
+        </fillEffect>
+    </cutter>
+
+    <turnOnVehicle turnedOnByAttacherVehicle="true">
+        <turnedOnAnimation name="turnedOnAnimation_spikes" speedScale="1.25" turnOnFadeTime="2" turnOffFadeTime="3"/>
+        <turnedOnAnimation name="turnedOnAnimation_blades" speedScale="10" turnOnFadeTime="2" turnOffFadeTime="3"/>
+    </turnOnVehicle>
+
+    <ai>
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack" />
+        <sizeMarkers leftNode="sizeMarkerLeft" rightNode="sizeMarkerRight" backNode="sizeMarkerBack" />
+        <collisionTrigger node="aiCollisionTrigger" />
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-6.5" maxX="6.5" minZ="-1.2" maxZ="0.8" yOffset="0.2" />
+    </foliageBending>
+
+    <designConfigurations>
+        <designConfiguration name="Fendt" price="0">
+            <objectChange node="decals_mf"          visibilityActive="false"/>
+            <objectChange node="decals_fendt"       visibilityActive="true"/>
+            <objectChange node="decals_challenger"  visibilityActive="false"/>
+        </designConfiguration>
+        <designConfiguration name="Massey Ferguson" price="0">
+            <objectChange node="decals_mf"          visibilityActive="true"/>
+            <objectChange node="decals_fendt"       visibilityActive="false"/>
+            <objectChange node="decals_challenger"  visibilityActive="false"/>
+        </designConfiguration>
+        <designConfiguration name="Challenger" price="0">
+            <objectChange node="decals_mf"          visibilityActive="false"/>
+            <objectChange node="decals_fendt"       visibilityActive="false"/>
+            <objectChange node="decals_challenger"  visibilityActive="true"/>
+        </designConfiguration>
+    </designConfigurations>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="dynaFlex9255_main_component1" node="0>" />
+        <i3dMapping id="dynaFlex9255_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0" />
+        <i3dMapping id="heightNode" node="0>0|0|0" />
+        <i3dMapping id="mainDrum" node="0>0|1|0" />
+        <i3dMapping id="reelRot" node="0>0|1|1" />
+        <i3dMapping id="reelMove" node="0>0|1|1|0" />
+        <i3dMapping id="reel" node="0>0|1|1|0|0" />
+        <i3dMapping id="spike01" node="0>0|1|1|0|0|0" />
+        <i3dMapping id="spike01OrientationArm" node="0>0|1|1|0|0|0|0" />
+        <i3dMapping id="spike02" node="0>0|1|1|0|0|1" />
+        <i3dMapping id="spike02OrientationArm" node="0>0|1|1|0|0|1|0" />
+        <i3dMapping id="spike03" node="0>0|1|1|0|0|2" />
+        <i3dMapping id="spike03OrientationArm" node="0>0|1|1|0|0|2|0" />
+        <i3dMapping id="spike04" node="0>0|1|1|0|0|3" />
+        <i3dMapping id="spike04OrientationArm" node="0>0|1|1|0|0|3|0" />
+        <i3dMapping id="spike05" node="0>0|1|1|0|0|4" />
+        <i3dMapping id="spike05OrientationArm" node="0>0|1|1|0|0|4|0" />
+        <i3dMapping id="spike06" node="0>0|1|1|0|0|5" />
+        <i3dMapping id="spike06OrientationArm" node="0>0|1|1|0|0|5|0" />
+        <i3dMapping id="moveHydraulicsRef" node="0>0|1|1|0|1" />
+        <i3dMapping id="moveHydraulics" node="0>0|1|1|1" />
+        <i3dMapping id="moveHydraulicsPunch" node="0>0|1|1|1|0" />
+        <i3dMapping id="reelRotHydraulicsRef" node="0>0|1|1|2" />
+        <i3dMapping id="referencePointSafetyLock" node="0>0|1|1|3|0" />
+        <i3dMapping id="reelRotHydraulics" node="0>0|1|2" />
+        <i3dMapping id="reelRotHydraulicsPunch" node="0>0|1|2|0" />
+        <i3dMapping id="reelRotHydraulicsSafetyLock" node="0>0|1|2|0|0" />
+        <i3dMapping id="autoDockCover" node="0>0|1|3" />
+        <i3dMapping id="outerBelts" node="0>0|1|4" />
+        <i3dMapping id="innerBelt" node="0>0|1|5" />
+        <i3dMapping id="blades" node="0>0|1|6" />
+        <i3dMapping id="decals_mf" node="0>0|2|0" />
+        <i3dMapping id="decals_fendt" node="0>0|2|1" />
+        <i3dMapping id="decals_challenger" node="0>0|2|2" />
+        <i3dMapping id="center" node="0>0|3|0|0" />
+        <i3dMapping id="left" node="0>0|3|0|1" />
+        <i3dMapping id="right" node="0>0|3|0|2" />
+        <i3dMapping id="testArea1Start" node="0>0|3|1|0" />
+        <i3dMapping id="testArea1Width" node="0>0|3|1|0|0" />
+        <i3dMapping id="testArea1Height" node="0>0|3|1|0|1" />
+        <i3dMapping id="testArea2Start" node="0>0|3|1|1" />
+        <i3dMapping id="testArea2Width" node="0>0|3|1|1|0" />
+        <i3dMapping id="testArea2Height" node="0>0|3|1|1|1" />
+        <i3dMapping id="testArea3Start" node="0>0|3|1|2" />
+        <i3dMapping id="testArea3Width" node="0>0|3|1|2|0" />
+        <i3dMapping id="testArea3Height" node="0>0|3|1|2|1" />
+        <i3dMapping id="testArea4Start" node="0>0|3|1|3" />
+        <i3dMapping id="testArea4Width" node="0>0|3|1|3|0" />
+        <i3dMapping id="testArea4Height" node="0>0|3|1|3|1" />
+        <i3dMapping id="testArea5Start" node="0>0|3|1|4" />
+        <i3dMapping id="testArea5Width" node="0>0|3|1|4|0" />
+        <i3dMapping id="testArea5Height" node="0>0|3|1|4|1" />
+        <i3dMapping id="testArea6Start" node="0>0|3|1|5" />
+        <i3dMapping id="testArea6Width" node="0>0|3|1|5|0" />
+        <i3dMapping id="testArea6Height" node="0>0|3|1|5|1" />
+        <i3dMapping id="testArea7Start" node="0>0|3|1|6" />
+        <i3dMapping id="testArea7Width" node="0>0|3|1|6|0" />
+        <i3dMapping id="testArea7Height" node="0>0|3|1|6|1" />
+        <i3dMapping id="testArea8Start" node="0>0|3|1|7" />
+        <i3dMapping id="testArea8Width" node="0>0|3|1|7|0" />
+        <i3dMapping id="testArea8Height" node="0>0|3|1|7|1" />
+        <i3dMapping id="testArea9Start" node="0>0|3|1|8" />
+        <i3dMapping id="testArea9Width" node="0>0|3|1|8|0" />
+        <i3dMapping id="testArea9Height" node="0>0|3|1|8|1" />
+        <i3dMapping id="smokeEmitter" node="0>0|3|2" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|4|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|4|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|4|0|2" />
+        <i3dMapping id="sizeMarkerLeft" node="0>0|4|1|0" />
+        <i3dMapping id="sizeMarkerRight" node="0>0|4|1|1" />
+        <i3dMapping id="sizeMarkerBack" node="0>0|4|1|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|4|2" />
+        <i3dMapping id="workAreaStart" node="0>0|5|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|5|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|5|2" />
+        <i3dMapping id="lightSelfIllum01" node="0>0|6|0|0" />
+        <i3dMapping id="lightSelfIllum02" node="0>0|6|0|1" />
+        <i3dMapping id="collisions" node="0>2" />
+    </i3dMappings>
+</vehicle>

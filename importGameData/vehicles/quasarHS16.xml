@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<vehicle type="cutter">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Quasar HS16</name>
+        <specs>
+            <workingWidth>12.0</workingWidth>
+            <combination>9240, CR10.90, IDEAL</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_cutter</function>
+        </functions>
+        <image>$data/vehicles/capello/quasarHS16/store_quasarHS16.png</image>
+        <price>90000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>CAPELLO</brand>
+        <category>cornHeaders</category>
+        <shopTranslationOffset>0 -0.125 0</shopTranslationOffset>
+        <shopRotationOffset>7.5 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>1833232</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>244326</indexBufferMemoryUsage>
+        <textureMemoryUsage>6466360</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_cutter</typeDesc>
+        <filename>$data/vehicles/capello/quasarHS16/quasarHS16.i3d</filename>
+        <size width="7" length="4"/>
+        <speedLimit value="10"/>
+        <components>
+            <component centerOfMass="0 0.3 0" mass="5000" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="cutter">
+                <heightNode node="heightNode" />
+                <distanceToGround lower="0.8" upper="1.6" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+        <support animationName="moveSupport"/>
+    </attachable>
+
+    <powerTakeOffs>
+        <input inputNode="ptoLeft"  inputAttacherJointIndices="1" aboveAttacher="true" ptoName="LEFT_PTO"/>
+        <input inputNode="ptoRight" inputAttacherJointIndices="1" aboveAttacher="true" ptoName="RIGHT_PTO"/>
+    </powerTakeOffs>
+
+    <powerConsumer ptoRpm="540" neededMaxPtoPower="210"/>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundReferenceNode" threshold="0.6" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="cutter" functionName="processCutterArea" >
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight" />
+            <groundReferenceNode index="1" />
+            <chopperArea index="2" />
+        </workArea>
+        <workArea type="auxiliary" >
+            <area startNode="workAreaStrawStart" widthNode="workAreaStrawWidth" heightNode="workAreaStrawHeight" />
+        </workArea>
+    </workAreas>
+
+    <foldable>
+        <foldingParts startMoveDirection="1" turnOnFoldMinLimit="0" turnOnFoldMaxLimit="0.1">
+            <foldingPart animationName="folding" speedScale="1"/>
+        </foldingParts>
+    </foldable>
+
+    <turnOnVehicle turnOffIfNotAllowed="true" turnedOnByAttacherVehicle="true"/>
+
+    <animations>
+        <animation name="folding">
+            <part node="leftFoldingPart" startTime="0" endTime="1" startRot="0 0 0" endRot="0 0 40"/>
+            <part node="rightFoldingPart" startTime="0" endTime="1" startRot="0 0 0" endRot="0 0 -40"/>
+            <part node="leftFold" startTime="1.4" endTime="8.4" startRot="0 0 0" endRot="0 0 180"/>
+            <part node="rightFold" startTime="1" endTime="8" startRot="0 0 0" endRot="0 0 -180"/>
+        </animation>
+        <animation name="moveSupport">
+            <part node="support" startTime="0" duration="0.5" startTrans="0.001 0.501 -1.028" endTrans="0.001 0.322 -1.028"/>
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="leftFold" playSound="true">
+                <dependentPart node="foldingArmLeft"/>
+            </movingTool>
+            <movingTool node="rightFold" playSound="true">
+                <dependentPart node="foldingArmRight"/>
+            </movingTool>
+            <movingTool node="leftFoldingPart" playSound="true">
+                <dependentPart node="hydraulicLeftFoldingPart"/>
+            </movingTool>
+            <movingTool node="rightFoldingPart" playSound="true">
+                <dependentPart node="hydraulicRightFoldingPart"/>
+            </movingTool>
+        </movingTools>
+        <movingParts>
+            <movingPart node="foldingArmLeft" referencePoint="foldingArmLeftRef" localReferencePoint="foldingArm2Left" referenceFrame="foldingArmleftRefFrame">
+                <dependentPart node="foldingArm2Left"/>
+                <dependentPart node="hydraulicFoldingArmLeft"/>
+            </movingPart>
+            <movingPart node="foldingArm2Left" referencePoint="foldingArmLeftRef" referenceFrame="foldingArmLeftRef" scaleZ="true"/>
+            <movingPart node="hydraulicFoldingArmLeft" referencePoint="hydraulicFoldingArmLeftRef" referenceFrame="hydraulicFoldingArmLeftRef">
+                <translatingPart node="hydraulicFoldingArmLeftPunch"/>
+            </movingPart>
+            <movingPart node="foldingArmRight" referencePoint="foldingArmRightRef" localReferencePoint="foldingArmRight2" referenceFrame="foldingArmRightRefFrame">
+                <dependentPart node="foldingArmRight2"/>
+                <dependentPart node="hydraulicFoldingArmRight"/>
+            </movingPart>
+            <movingPart node="foldingArmRight2" referencePoint="foldingArmRightRef" referenceFrame="foldingArmRightRef" scaleZ="true"/>
+            <movingPart node="hydraulicFoldingArmRight" referencePoint="hydraulicFoldingArmRightRef" referenceFrame="hydraulicFoldingArmRightRef">
+                <translatingPart node="hydraulicFoldingArmRightPunch"/>
+            </movingPart>
+            <movingPart node="hydraulicLeftFoldingPart" referencePoint="hydraulicLeftFoldingPartRef" referenceFrame="quasarHS16_main_component1" scaleZ="true"/>
+            <movingPart node="hydraulicRightFoldingPart" referencePoint="hydraulicRightFoldingPartRef" referenceFrame="quasarHS16_main_component1" scaleZ="true"/>
+        </movingParts>
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <cutter fruitTypeCategories="maizeHeader">
+        <testAreas>
+            <testArea startNode="testAreaStart1" widthNode="testAreaWidth1" heightNode="testAreaHeight1"/>
+            <testArea startNode="testAreaStart2" widthNode="testAreaWidth2" heightNode="testAreaHeight2"/>
+            <testArea startNode="testAreaStart3" widthNode="testAreaWidth3" heightNode="testAreaHeight3"/>
+            <testArea startNode="testAreaStart4" widthNode="testAreaWidth4" heightNode="testAreaHeight4"/>
+            <testArea startNode="testAreaStart5" widthNode="testAreaWidth5" heightNode="testAreaHeight5"/>
+            <testArea startNode="testAreaStart6" widthNode="testAreaWidth6" heightNode="testAreaHeight6"/>
+            <testArea startNode="testAreaStart7" widthNode="testAreaWidth7" heightNode="testAreaHeight7"/>
+            <testArea startNode="testAreaStart8" widthNode="testAreaWidth8" heightNode="testAreaHeight8"/>
+            <testArea startNode="testAreaStart9" widthNode="testAreaWidth9" heightNode="testAreaHeight9"/>
+            <testArea startNode="testAreaStart10" widthNode="testAreaWidth10" heightNode="testAreaHeight10"/>
+            <testArea startNode="testAreaStart11" widthNode="testAreaWidth11" heightNode="testAreaHeight11"/>
+            <testArea startNode="testAreaStart12" widthNode="testAreaWidth12" heightNode="testAreaHeight12"/>
+            <testArea startNode="testAreaStart13" widthNode="testAreaWidth13" heightNode="testAreaHeight13"/>
+            <testArea startNode="testAreaStart14" widthNode="testAreaWidth14" heightNode="testAreaHeight14"/>
+            <testArea startNode="testAreaStart15" widthNode="testAreaWidth15" heightNode="testAreaHeight15"/>
+            <testArea startNode="testAreaStart16" widthNode="testAreaWidth16" heightNode="testAreaHeight16"/>
+        </testAreas>
+        <effect>
+            <effectNode linkNode="effectCenter" inverted="true" speedScale="0.00180" lengthAndRadius="1 3.8 0.5 3.5" effectType="CENTER" changeSpeedScale="0.01"/>
+            <effectNode linkNode="effectLeft" inverted="true" speedScale="0.00085" lengthAndRadius="5 1 1 1" effectType="LEFT" useInterpolation="true" minOffset="7"/>
+            <effectNode linkNode="effectRight" inverted="true" speedScale="0.00085" lengthAndRadius="5 1 1 1" effectType="RIGHT" useInterpolation="true" minOffset="7" useMaxValue="true"/>
+        </effect>
+        <fillEffect>
+            <effectNode effectClass="ParticleEffect" effectNode="effectParticles" particleType="CUTTER_CHOPPER" />
+            <effectNode effectClass="ParticleEffect" effectNode="smokeEmitter" particleType="SMOKE" emitCountScale="0.1" worldSpace="false" useCuttingWidth="false"/>
+        </fillEffect>
+        <animationNodes>
+            <animationNode node="drumMain" rotSpeed="600" rotAxis="1" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="drumLeft" rotSpeed="600" rotAxis="1" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="drumRight" rotSpeed="600" rotAxis="1" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="outerRotorLeft" rotSpeed="600" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="outerRotorRight" rotSpeed="-600" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotor5" rotSpeed="800" rotAxis="2" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotor6" rotSpeed="800" rotAxis="2" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotor7" rotSpeed="800" rotAxis="2" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotor8" rotSpeed="800" rotAxis="2" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotor9" rotSpeed="800" rotAxis="2" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotor10" rotSpeed="800" rotAxis="2" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotor11" rotSpeed="800" rotAxis="2" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotor12" rotSpeed="800" rotAxis="2" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotor13" rotSpeed="800" rotAxis="2" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotor14" rotSpeed="800" rotAxis="2" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotor15" rotSpeed="800" rotAxis="2" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotor16" rotSpeed="800" rotAxis="2" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotor1" rotSpeed="800" rotAxis="2" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotor2" rotSpeed="800" rotAxis="2" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotor3" rotSpeed="800" rotAxis="2" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotor4" rotSpeed="800" rotAxis="2" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor10" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor9" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor12" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor11" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor14" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor13" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor16" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor15" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor18" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor17" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor20" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor19" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor22" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor21" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor24" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor23" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor26" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor25" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor28" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor27" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor30" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor29" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor32" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor31" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor1" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor2" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor3" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor4" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor6" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor5" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor8" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="upperRotor7" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+
+            <animationNode node="chainsRight" rotSpeed="200" rotAxis="1" turnOnFadeTime="1" turnOffFadeTime="1" shaderComponentScale="1 0 0 0" shaderParameterName="offsetUV" />
+            <animationNode node="chains2Right" rotSpeed="100" rotAxis="1" turnOnFadeTime="1" turnOffFadeTime="1" shaderComponentScale="1 0 0 0" shaderParameterName="offsetUV" />
+            <animationNode node="chainsMain" rotSpeed="200" rotAxis="1" turnOnFadeTime="1" turnOffFadeTime="1" shaderComponentScale="1 0 0 0" shaderParameterName="offsetUV" />
+            <animationNode node="chains2Main" rotSpeed="100" rotAxis="1" turnOnFadeTime="1" turnOffFadeTime="1" shaderComponentScale="1 0 0 0" shaderParameterName="offsetUV" />
+            <animationNode node="chainsLeft" rotSpeed="200" rotAxis="1" turnOnFadeTime="1" turnOffFadeTime="1" shaderComponentScale="1 0 0 0" shaderParameterName="offsetUV" />
+            <animationNode node="chains2Left" rotSpeed="100" rotAxis="1" turnOnFadeTime="1" turnOffFadeTime="1" shaderComponentScale="1 0 0 0" shaderParameterName="offsetUV" />
+
+        </animationNodes>
+    </cutter>
+
+    <ai>
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack"/>
+        <collisionTrigger node="aiCollisionTrigger"/>
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-3.1" maxX="3.1" minZ="-1.2" maxZ="0.5" yOffset="0.2" />
+        <bendingNode minX="0" maxX="3.1" minZ="0.2" maxZ="1.8" yOffset="-0.67" node="leftFold" />
+        <bendingNode minX="-3.1" maxX="0" minZ="0.2" maxZ="1.8" yOffset="-0.67" node="rightFold" />
+    </foliageBending>
+
+    <dynamicMount forceLimitScale="1"/>
+
+    <baseMaterialConfigurations useDefaultColors="true" price="1200">
+        <baseMaterialConfiguration color="CAPELLO_RED1"/>
+        <material name="capelloQuasar_mat" shaderParameter="colorMat0" />
+    </baseMaterialConfigurations>
+
+    <baseMaterial>
+        <material name="capelloQuasar_mat" baseNode="capello_vis">
+            <shaderParameter name="colorMat0" value="CAPELLO_RED1"/>
+            <shaderParameter name="colorMat1" value="CAPELLO_BLACK1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="quasarHS16_main_component1" node="0>" />
+        <i3dMapping id="capello_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0" />
+        <i3dMapping id="heightNode" node="0>0|0|0" />
+        <i3dMapping id="ptoLeft" node="0>0|1" />
+        <i3dMapping id="ptoRight" node="0>0|2" />
+        <i3dMapping id="support" node="0>0|3" />
+        <i3dMapping id="drumMain" node="0>0|4" />
+        <i3dMapping id="rotor5" node="0>0|5|0" />
+        <i3dMapping id="rotor6" node="0>0|5|1" />
+        <i3dMapping id="rotor7" node="0>0|5|2" />
+        <i3dMapping id="rotor8" node="0>0|5|3" />
+        <i3dMapping id="rotor9" node="0>0|5|4" />
+        <i3dMapping id="rotor10" node="0>0|5|5" />
+        <i3dMapping id="rotor11" node="0>0|5|6" />
+        <i3dMapping id="rotor12" node="0>0|5|7" />
+        <i3dMapping id="upperRotor10" node="0>0|6|0" />
+        <i3dMapping id="upperRotor9" node="0>0|6|1" />
+        <i3dMapping id="upperRotor12" node="0>0|6|2" />
+        <i3dMapping id="upperRotor11" node="0>0|6|3" />
+        <i3dMapping id="upperRotor14" node="0>0|6|4" />
+        <i3dMapping id="upperRotor13" node="0>0|6|5" />
+        <i3dMapping id="upperRotor16" node="0>0|6|6" />
+        <i3dMapping id="upperRotor15" node="0>0|6|7" />
+        <i3dMapping id="upperRotor18" node="0>0|6|8" />
+        <i3dMapping id="upperRotor17" node="0>0|6|9" />
+        <i3dMapping id="upperRotor20" node="0>0|6|10" />
+        <i3dMapping id="upperRotor19" node="0>0|6|11" />
+        <i3dMapping id="upperRotor22" node="0>0|6|12" />
+        <i3dMapping id="upperRotor21" node="0>0|6|13" />
+        <i3dMapping id="upperRotor24" node="0>0|6|14" />
+        <i3dMapping id="upperRotor23" node="0>0|6|15" />
+        <i3dMapping id="leftFold" node="0>0|7|0" />
+        <i3dMapping id="drumLeft" node="0>0|7|0|0" />
+        <i3dMapping id="rotor13" node="0>0|7|0|1|0" />
+        <i3dMapping id="rotor14" node="0>0|7|0|1|1" />
+        <i3dMapping id="rotor15" node="0>0|7|0|1|2" />
+        <i3dMapping id="rotor16" node="0>0|7|0|1|3" />
+        <i3dMapping id="upperRotor26" node="0>0|7|0|2|0" />
+        <i3dMapping id="upperRotor25" node="0>0|7|0|2|1" />
+        <i3dMapping id="upperRotor28" node="0>0|7|0|2|2" />
+        <i3dMapping id="upperRotor27" node="0>0|7|0|2|3" />
+        <i3dMapping id="upperRotor30" node="0>0|7|0|2|4" />
+        <i3dMapping id="upperRotor29" node="0>0|7|0|2|5" />
+        <i3dMapping id="upperRotor32" node="0>0|7|0|2|6" />
+        <i3dMapping id="upperRotor31" node="0>0|7|0|2|7" />
+        <i3dMapping id="outerRotorLeft" node="0>0|7|0|3|0" />
+        <i3dMapping id="foldingArmLeftRef" node="0>0|7|0|4" />
+        <i3dMapping id="foldingArmleftRefFrame" node="0>0|7|0|5" />
+        <i3dMapping id="chainsLeft" node="0>0|7|0|6" />
+        <i3dMapping id="chains2Left" node="0>0|7|0|7" />
+        <i3dMapping id="rightFold" node="0>0|7|1" />
+        <i3dMapping id="drumRight" node="0>0|7|1|0" />
+        <i3dMapping id="rotor1" node="0>0|7|1|1|0" />
+        <i3dMapping id="rotor2" node="0>0|7|1|1|1" />
+        <i3dMapping id="rotor3" node="0>0|7|1|1|2" />
+        <i3dMapping id="rotor4" node="0>0|7|1|1|3" />
+        <i3dMapping id="upperRotor1" node="0>0|7|1|2|0" />
+        <i3dMapping id="upperRotor2" node="0>0|7|1|2|1" />
+        <i3dMapping id="upperRotor3" node="0>0|7|1|2|2" />
+        <i3dMapping id="upperRotor4" node="0>0|7|1|2|3" />
+        <i3dMapping id="upperRotor6" node="0>0|7|1|2|4" />
+        <i3dMapping id="upperRotor5" node="0>0|7|1|2|5" />
+        <i3dMapping id="upperRotor8" node="0>0|7|1|2|6" />
+        <i3dMapping id="upperRotor7" node="0>0|7|1|2|7" />
+        <i3dMapping id="outerRotorRight" node="0>0|7|1|3|0" />
+        <i3dMapping id="foldingArmRightRef" node="0>0|7|1|4" />
+        <i3dMapping id="foldingArmRightRefFrame" node="0>0|7|1|5" />
+        <i3dMapping id="chainsRight" node="0>0|7|1|6" />
+        <i3dMapping id="chains2Right" node="0>0|7|1|7" />
+        <i3dMapping id="foldingArmLeft" node="0>0|7|2" />
+        <i3dMapping id="foldingArm2Left" node="0>0|7|2|0" />
+        <i3dMapping id="hydraulicFoldingArmLeftRef" node="0>0|7|2|1" />
+        <i3dMapping id="hydraulicFoldingArmLeft" node="0>0|7|3" />
+        <i3dMapping id="hydraulicFoldingArmLeftPunch" node="0>0|7|3|0" />
+        <i3dMapping id="foldingArmRight" node="0>0|7|4" />
+        <i3dMapping id="foldingArmRight2" node="0>0|7|4|0" />
+        <i3dMapping id="hydraulicFoldingArmRightRef" node="0>0|7|4|1" />
+        <i3dMapping id="hydraulicFoldingArmRight" node="0>0|7|5" />
+        <i3dMapping id="hydraulicFoldingArmRightPunch" node="0>0|7|5|0" />
+        <i3dMapping id="leftFoldingPart" node="0>0|8|0" />
+        <i3dMapping id="hydraulicLeftFoldingPartRef" node="0>0|8|0|0" />
+        <i3dMapping id="hydraulicLeftFoldingPart" node="0>0|8|1" />
+        <i3dMapping id="rightFoldingPart" node="0>0|9|0" />
+        <i3dMapping id="hydraulicRightFoldingPartRef" node="0>0|9|0|0" />
+        <i3dMapping id="hydraulicRightFoldingPart" node="0>0|9|1" />
+        <i3dMapping id="chainsMain" node="0>0|10" />
+        <i3dMapping id="chains2Main" node="0>0|11" />
+        <i3dMapping id="workAreaStart" node="0>0|12|0|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|12|0|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|12|0|2" />
+        <i3dMapping id="groundReferenceNode" node="0>0|12|1" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|13|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|13|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|13|0|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|13|1" />
+        <i3dMapping id="effectCenter" node="0>0|14|0|0" />
+        <i3dMapping id="effectLeft" node="0>0|14|0|1" />
+        <i3dMapping id="effectRight" node="0>0|14|0|2" />
+        <i3dMapping id="smokeEmitter" node="0>0|14|0|3" />
+        <i3dMapping id="effectParticles" node="0>0|14|0|4" />
+        <i3dMapping id="workAreaStrawStart" node="0>0|14|0|4|0|0" />
+        <i3dMapping id="workAreaStrawWidth" node="0>0|14|0|4|0|1" />
+        <i3dMapping id="workAreaStrawHeight" node="0>0|14|0|4|0|2" />
+        <i3dMapping id="testAreaStart1" node="0>0|14|1|0" />
+        <i3dMapping id="testAreaWidth1" node="0>0|14|1|0|0" />
+        <i3dMapping id="testAreaHeight1" node="0>0|14|1|0|1" />
+        <i3dMapping id="testAreaStart2" node="0>0|14|1|1" />
+        <i3dMapping id="testAreaWidth2" node="0>0|14|1|1|0" />
+        <i3dMapping id="testAreaHeight2" node="0>0|14|1|1|1" />
+        <i3dMapping id="testAreaStart3" node="0>0|14|1|2" />
+        <i3dMapping id="testAreaWidth3" node="0>0|14|1|2|0" />
+        <i3dMapping id="testAreaHeight3" node="0>0|14|1|2|1" />
+        <i3dMapping id="testAreaStart4" node="0>0|14|1|3" />
+        <i3dMapping id="testAreaWidth4" node="0>0|14|1|3|0" />
+        <i3dMapping id="testAreaHeight4" node="0>0|14|1|3|1" />
+        <i3dMapping id="testAreaStart5" node="0>0|14|1|4" />
+        <i3dMapping id="testAreaWidth5" node="0>0|14|1|4|0" />
+        <i3dMapping id="testAreaHeight5" node="0>0|14|1|4|1" />
+        <i3dMapping id="testAreaStart6" node="0>0|14|1|5" />
+        <i3dMapping id="testAreaWidth6" node="0>0|14|1|5|0" />
+        <i3dMapping id="testAreaHeight6" node="0>0|14|1|5|1" />
+        <i3dMapping id="testAreaStart7" node="0>0|14|1|6" />
+        <i3dMapping id="testAreaWidth7" node="0>0|14|1|6|0" />
+        <i3dMapping id="testAreaHeight7" node="0>0|14|1|6|1" />
+        <i3dMapping id="testAreaStart8" node="0>0|14|1|7" />
+        <i3dMapping id="testAreaWidth8" node="0>0|14|1|7|0" />
+        <i3dMapping id="testAreaHeight8" node="0>0|14|1|7|1" />
+        <i3dMapping id="testAreaStart9" node="0>0|14|1|8" />
+        <i3dMapping id="testAreaWidth9" node="0>0|14|1|8|0" />
+        <i3dMapping id="testAreaHeight9" node="0>0|14|1|8|1" />
+        <i3dMapping id="testAreaStart10" node="0>0|14|1|9" />
+        <i3dMapping id="testAreaWidth10" node="0>0|14|1|9|0" />
+        <i3dMapping id="testAreaHeight10" node="0>0|14|1|9|1" />
+        <i3dMapping id="testAreaStart11" node="0>0|14|1|10" />
+        <i3dMapping id="testAreaWidth11" node="0>0|14|1|10|0" />
+        <i3dMapping id="testAreaHeight11" node="0>0|14|1|10|1" />
+        <i3dMapping id="testAreaStart12" node="0>0|14|1|11" />
+        <i3dMapping id="testAreaWidth12" node="0>0|14|1|11|0" />
+        <i3dMapping id="testAreaHeight12" node="0>0|14|1|11|1" />
+        <i3dMapping id="testAreaStart13" node="0>0|14|1|12" />
+        <i3dMapping id="testAreaWidth13" node="0>0|14|1|12|0" />
+        <i3dMapping id="testAreaHeight13" node="0>0|14|1|12|1" />
+        <i3dMapping id="testAreaStart14" node="0>0|14|1|13" />
+        <i3dMapping id="testAreaWidth14" node="0>0|14|1|13|0" />
+        <i3dMapping id="testAreaHeight14" node="0>0|14|1|13|1" />
+        <i3dMapping id="testAreaStart15" node="0>0|14|1|14" />
+        <i3dMapping id="testAreaWidth15" node="0>0|14|1|14|0" />
+        <i3dMapping id="testAreaHeight15" node="0>0|14|1|14|1" />
+        <i3dMapping id="testAreaStart16" node="0>0|14|1|15" />
+        <i3dMapping id="testAreaWidth16" node="0>0|14|1|15|0" />
+        <i3dMapping id="testAreaHeight16" node="0>0|14|1|15|1" />
+    </i3dMappings>
+</vehicle>

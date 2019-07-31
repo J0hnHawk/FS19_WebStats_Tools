@@ -1,0 +1,493 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="augerWagon">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>HaulMaster</name>
+        <specs>
+            <neededPower>400</neededPower>
+        </specs>
+        <functions>
+            <function>$l10n_function_augerWagon</function>
+        </functions>
+        <image>$data/vehicles/elmersMfg/haulMaster/store_haulMaster.png</image>
+        <price>93000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>ELMERSMFG</brand>
+        <category>augerWagons</category>
+        <shopTranslationOffset>0 -0.141 0</shopTranslationOffset>
+        <shopRotationOffset>-1.03 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>3046004</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>503118</indexBufferMemoryUsage>
+        <textureMemoryUsage>33904440</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_augerWagon</typeDesc>
+        <filename>$data/vehicles/elmersMfg/haulMaster/haulMaster.i3d</filename>
+        <size width="5.5" length="12" lengthOffset="0.5" />
+        <components>
+            <component centerOfMass="0 1.4 0.5" solverIterationCount="10" mass="12000" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <configurationSets>
+        <configurationSet name="1300" >
+            <configuration name="fillVolume"   index="1" />
+            <configuration name="fillUnit"     index="1" />
+        </configurationSet>
+        <configurationSet name="1600" >
+            <configuration name="fillVolume"   index="2" />
+            <configuration name="fillUnit"     index="2" />
+        </configurationSet>
+        <configurationSet name="2000" >
+            <configuration name="fillVolume"   index="3" />
+            <configuration name="fillUnit"     index="3" />
+        </configurationSet>
+    </configurationSets>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels autoRotateBackSpeed="1.7">
+                    <wheel hasTireTracks="true" hasParticles="true">
+                        <physics tipOcclusionAreaGroupId="1" rotSpeed="1" restLoad="3.3" repr="crawlerLeftBackWheelRepr" driveNode="crawlerLeftBackWheelDriveNode"   radius="0.53" width="0.8" mass="0.2" frictionScale="1.5" tireType="crawler" initialCompression="10" suspTravel="0.3" spring="130" damper="50" />
+                        <tire tireTrackAtlasIndex="6" isCareWheel="false" />
+                    </wheel>
+                    <wheel>
+                        <physics tipOcclusionAreaGroupId="1" rotSpeed="1" restLoad="1.9" repr="crawlerLeftFrontWheel"                                                radius="0.53" width="0.8" mass="0.2" frictionScale="0.7" tireType="crawler" initialCompression="25" suspTravel="0.3" spring="130" damper="50" transRatio="1"/>
+                        <tire isCareWheel="false" />
+                    </wheel>
+                    <wheel hasTireTracks="true" hasParticles="true">
+                        <physics tipOcclusionAreaGroupId="1" rotSpeed="1" restLoad="3.3" repr="crawlerRightBackWheelRepr" driveNode="crawlerRightBackWheelDriveNode" radius="0.53" width="0.8" mass="0.2" frictionScale="1.5" tireType="crawler" initialCompression="10" suspTravel="0.3" spring="130" damper="50" />
+                        <tire tireTrackAtlasIndex="6" isCareWheel="false" />
+                    </wheel>
+                    <wheel>
+                        <physics tipOcclusionAreaGroupId="1" rotSpeed="1" restLoad="1.9" repr="crawlerRightFrontWheel"                                               radius="0.53" width="0.8" mass="0.2" frictionScale="0.7" tireType="crawler" initialCompression="25" suspTravel="0.3" spring="130" damper="50" transRatio="1"/>
+                        <tire isCareWheel="false" />
+                    </wheel>
+                </wheels>
+
+                <crawlers>
+                    <crawler filename="$data/shared/wheels/tracks/elmer/mfgHaulmasterTrack.xml" linkNode="crawlerLeftLinkNode"  wheelIndex="1" isLeft="true"/>
+                    <crawler filename="$data/shared/wheels/tracks/elmer/mfgHaulmasterTrack.xml" linkNode="crawlerRightLinkNode" wheelIndex="3" isLeft="false"/>
+                </crawlers>
+            </wheelConfiguration>
+        </wheelConfigurations>
+    </wheels>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="trailerLow" attacherHeight="0.60" />
+        </inputAttacherJoints>
+        <brakeForce>2.1</brakeForce>
+        <support animationName="moveSupport" />
+        <airConsumer usage="0.3" />
+    </attachable>
+
+    <powerTakeOffs>
+        <input inputAttacherJointIndices="1" inputNode="ptoInputNode" aboveAttacher="true" detachNode="ptoDetachNode"/>
+    </powerTakeOffs>
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn01"  length="1.7" diameter="0.02">
+            <objectChange node="hydraulicIn01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut01" length="1.7" diameter="0.02">
+            <objectChange node="hydraulicOut01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn02"  length="1.7" diameter="0.02">
+            <objectChange node="hydraulicIn02_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut02" length="1.7" diameter="0.02">
+            <objectChange node="hydraulicOut02_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn03"  length="1.7" diameter="0.02">
+            <objectChange node="hydraulicIn03_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut03" length="1.7" diameter="0.02">
+            <objectChange node="hydraulicOut03_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+    </connectionHoses>
+
+    <dynamicallyLoadedParts>
+        <dynamicallyLoadedPart node="1|0" linkNode="hydraulicIn01_connector"   filename="$data/shared/connectionHoses/connectors.i3d" />
+        <dynamicallyLoadedPart node="1|0" linkNode="hydraulicOut01_connector"   filename="$data/shared/connectionHoses/connectors.i3d" />
+        <dynamicallyLoadedPart node="1|0" linkNode="hydraulicIn02_connector"   filename="$data/shared/connectionHoses/connectors.i3d" />
+        <dynamicallyLoadedPart node="1|0" linkNode="hydraulicOut02_connector"   filename="$data/shared/connectionHoses/connectors.i3d" />
+        <dynamicallyLoadedPart node="1|0" linkNode="hydraulicIn03_connector"   filename="$data/shared/connectionHoses/connectors.i3d" />
+        <dynamicallyLoadedPart node="1|0" linkNode="hydraulicOut03_connector"   filename="$data/shared/connectionHoses/connectors.i3d" />
+    </dynamicallyLoadedParts>
+
+    <lights>
+        <sharedLight linkNode="backlightLeft" filename="$data/shared/assets/lights/lizard/rear3ChamberLight_05_left.xml" />
+        <sharedLight linkNode="backlightRight" filename="$data/shared/assets/lights/lizard/rear3ChamberLight_05_right.xml" />
+        <sharedLight linkNode="reflectorLight" filename="$data/shared/assets/lights/lizard/sideMarker_06Red.xml" />
+        <realLights>
+            <high>
+                <light node="backLightsHigh1" lightTypes="0" />
+                <light node="backLightsHigh2" lightTypes="0" />
+                <brakeLight node="backLightsHigh1" />
+                <brakeLight node="backLightsHigh2" />
+                <turnLightLeft node="turnLightLeftBack" />
+                <turnLightRight node="turnLightRightBack" />
+                <reverseLight node="reverseLight" />
+            </high>
+        </realLights>
+    </lights>
+
+
+    <animations>
+        <animation name="foldPipe">
+            <part node="augerArm02"   startTime="0" endTime="8" startRot="0 0 173.5" endRot="0 0 0" />
+            <part node="augerArm03"   startTime="0" endTime="8" startRot="0 0 0"     endRot="0 0 0" />
+        </animation>
+
+        <animation name="raycastNodeAnim">
+            <part node="pipeRaycastNode"   startTime="0" endTime="1" startRot="0 0 22" endRot="0 0 -10" />
+        </animation>
+
+        <animation name="moveSupport">
+            <part node="supportFeet"        startTime="0.00" endTime="0.25" startRot="30 0 0" endRot="5 0 0" />
+            <part node="supportCollision"   startTime="0.00" endTime="0.25" startTrans="0 0.6 4.769" endTrans="0 0.252 4.769" />
+        </animation>
+
+        <animation name="toggleCover">
+            <part node="covers_closed" startTime="0"    endTime="0.05" visibility="true" />
+            <part node="covers_closed" startTime="0.05" endTime="0.1"  visibility="false" />
+            <part node="covers_opened" startTime="0"    endTime="0.05" visibility="false" />
+            <part node="covers_opened" startTime="0.05" endTime="0.1"  visibility="true" />
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="augerArm01">
+                <controls axis="AXIS_DOOR_3" invertAxis="false" mouseSpeedFactor="1.2" iconName="PIPE_END_ROTATE" />
+                <rotation rotSpeed="10" rotAcceleration="200" rotMax="0" rotMin="-14.4" startRot="0" rotationAxis="3"/>
+                <dependentPart node="augerArm01Hydraulic" />
+            </movingTool>
+
+            <movingTool node="augerArm03">
+                <controls axis="AXIS_PIPE" invertAxis="false" mouseSpeedFactor="1.2" iconName="PIPE_END_ROTATE" />
+                <rotation rotSpeed="25" rotAcceleration="200" rotMax="25" rotMin="-25" startRot="0" rotationAxis="3"/>
+                <dependentAnimation name="raycastNodeAnim" rotationAxis="3" minValue="-25" maxValue="25"/>
+                <dependentPart node="augerArm03Hydraulic" />
+            </movingTool>
+
+            <movingTool node="supportFeet" playSound="true" >
+                <dependentPart node="supportFeetHydraulic" />
+            </movingTool>
+
+            <movingTool node="augerArm02" playSound="true" >
+                <dependentPart node="augerArm02OrientationArm1" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="supportFeetHydraulic" referencePoint="supportFeetHydraulicRef" referenceFrame="supportFeetHydraulicRef" >
+                <translatingPart node="supportFeetHydraulicPunch" />
+            </movingPart>
+
+            <movingPart node="augerArm01Hydraulic" referencePoint="augerArm01HydraulicRef" referenceFrame="augerArm01HydraulicRef" >
+                <translatingPart node="augerArm01HydraulicPunch" />
+            </movingPart>
+
+            <movingPart node="augerArm02OrientationArm1" localReferencePoint="augerArm02OrientationArm2" referencePoint="augerArm02OrientationArm2Ref" referenceFrame="augerArm02OrientationArm1RefFrame" >
+                <dependentPart node="augerArm02OrientationArm2" />
+                <dependentPart node="augerArm02Hydraulic" />
+            </movingPart>
+            <movingPart node="augerArm02OrientationArm2" referencePoint="augerArm02OrientationArm2Ref" referenceFrame="augerArm02OrientationArm2Ref"/>
+
+            <movingPart node="augerArm02Hydraulic" referencePoint="augerArm02HydraulicRef" referenceFrame="augerArm02HydraulicRef" >
+                <translatingPart node="augerArm02HydraulicPunch" />
+            </movingPart>
+
+            <movingPart node="augerArm03Hydraulic" referencePoint="augerArm03HydraulicRef" referenceFrame="augerArm03HydraulicRef" >
+                <translatingPart node="augerArm03HydraulicPunch" />
+            </movingPart>
+
+            <!-- crawler -->
+            <movingPart node="crawlerLeftLinkNode" referencePoint="crawlerLeftFrontWheel" referenceFrame="crawlerLeftLinkNodeRefFrame" isActiveDirty="true"/>
+            <movingPart node="crawlerRightLinkNode" referencePoint="crawlerRightFrontWheel" referenceFrame="crawlerRightLinkNodeRefFrame" isActiveDirty="true"/>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration price="0" >
+                <fillUnits>
+                    <fillUnit unit="$l10n_unit_literShort" fillTypeCategories="AUGERWAGON" capacity="46000" >
+                        <exactFillRootNode node="exactFillRootNode" />
+                    </fillUnit>
+                </fillUnits>
+                <objectChange node="configuration_1300"  visibilityActive="true"/>
+                <objectChange node="configuration_1600"  visibilityActive="false"/>
+                <objectChange node="configuration_2000"  visibilityActive="false"/>
+
+                <objectChange node="cover_closed_1300"  visibilityActive="true"/>
+                <objectChange node="cover_closed_1600"  visibilityActive="false"/>
+                <objectChange node="cover_closed_2000"  visibilityActive="false"/>
+
+                <objectChange node="cover_opened_1300"  visibilityActive="true"/>
+                <objectChange node="cover_opened_1600"  visibilityActive="false"/>
+                <objectChange node="cover_opened_2000"  visibilityActive="false"/>
+
+                <objectChange node="configuration_1600_col01" compoundChildActive="false" />
+                <objectChange node="configuration_1600_col02" compoundChildActive="false" />
+                <objectChange node="configuration_1600_col03" compoundChildActive="false" />
+
+                <objectChange node="configuration_2000_col01" compoundChildActive="false" />
+                <objectChange node="configuration_2000_col02" compoundChildActive="false" />
+                <objectChange node="configuration_2000_col03" compoundChildActive="false" />
+            </fillUnitConfiguration>
+            <fillUnitConfiguration price="5000" >
+                <fillUnits>
+                    <fillUnit unit="$l10n_unit_literShort" fillTypeCategories="AUGERWAGON" capacity="56000" >
+                        <exactFillRootNode node="exactFillRootNode" />
+                    </fillUnit>
+                </fillUnits>
+                <objectChange node="configuration_1300"  visibilityActive="false"/>
+                <objectChange node="configuration_1600"  visibilityActive="true"/>
+                <objectChange node="configuration_2000"  visibilityActive="false"/>
+
+                <objectChange node="cover_closed_1300"  visibilityActive="false"/>
+                <objectChange node="cover_closed_1600"  visibilityActive="true"/>
+                <objectChange node="cover_closed_2000"  visibilityActive="false"/>
+
+                <objectChange node="cover_opened_1300"  visibilityActive="false"/>
+                <objectChange node="cover_opened_1600"  visibilityActive="true"/>
+                <objectChange node="cover_opened_2000"  visibilityActive="false"/>
+
+                <objectChange node="configuration_1300_col01" compoundChildActive="false" />
+                <objectChange node="configuration_1300_col02" compoundChildActive="false" />
+                <objectChange node="configuration_1300_col03" compoundChildActive="false" />
+
+                <objectChange node="configuration_2000_col01" compoundChildActive="false" />
+                <objectChange node="configuration_2000_col02" compoundChildActive="false" />
+                <objectChange node="configuration_2000_col03" compoundChildActive="false" />
+            </fillUnitConfiguration>
+            <fillUnitConfiguration price="12000" >
+                <fillUnits>
+                    <fillUnit unit="$l10n_unit_literShort" fillTypeCategories="AUGERWAGON" capacity="70000" >
+                        <exactFillRootNode node="exactFillRootNode" />
+                    </fillUnit>
+                </fillUnits>
+                <objectChange node="configuration_1300"  visibilityActive="false"/>
+                <objectChange node="configuration_1600"  visibilityActive="false"/>
+                <objectChange node="configuration_2000"  visibilityActive="true"/>
+
+                <objectChange node="cover_closed_1300"  visibilityActive="false"/>
+                <objectChange node="cover_closed_1600"  visibilityActive="false"/>
+                <objectChange node="cover_closed_2000"  visibilityActive="true"/>
+
+                <objectChange node="cover_opened_1300"  visibilityActive="false"/>
+                <objectChange node="cover_opened_1600"  visibilityActive="false"/>
+                <objectChange node="cover_opened_2000"  visibilityActive="true"/>
+
+                <objectChange node="configuration_1300_col01" compoundChildActive="false" />
+                <objectChange node="configuration_1300_col02" compoundChildActive="false" />
+                <objectChange node="configuration_1300_col03" compoundChildActive="false" />
+
+                <objectChange node="configuration_1600_col01" compoundChildActive="false" />
+                <objectChange node="configuration_1600_col02" compoundChildActive="false" />
+                <objectChange node="configuration_1600_col03" compoundChildActive="false" />
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <fillVolume>
+        <fillVolumeConfigurations>
+            <fillVolumeConfiguration>
+                <volumes>
+                    <volume node="fillVolume_1300" maxDelta="0.2" fillUnitIndex="1" />
+                </volumes>
+            </fillVolumeConfiguration>
+            <fillVolumeConfiguration>
+                <volumes>
+                    <volume node="fillVolume_1600" maxDelta="0.2" fillUnitIndex="1" />
+                </volumes>
+            </fillVolumeConfiguration>
+            <fillVolumeConfiguration>
+                <volumes>
+                    <volume node="fillVolume_2000" maxDelta="0.2" fillUnitIndex="1" />
+                </volumes>
+            </fillVolumeConfiguration>
+        </fillVolumeConfigurations>
+
+        <unloadInfos>
+            <unloadInfo fillVolumeIndex="1" >
+                <node node="unloadInfo" width="0.3" length="0.3" />
+            </unloadInfo>
+        </unloadInfos>
+    </fillVolume>
+
+    <pipe unloadInfoIndex="1">
+        <dischargeNode index="1" />
+        <states num="2" unloading="2" />
+        <animation name="foldPipe" speedScale="1" />
+        <unloadingTriggers>
+            <unloadingTrigger node="trailerTrigger" />
+        </unloadingTriggers>
+    </pipe>
+
+    <dischargeable>
+        <dischargeNode node="pipeRaycastNode" emptySpeed="1000" fillUnitIndex="1" unloadInfoIndex="1" maxDistance="8">
+            <info width="0.3" length="0.3" useRaycastHitPosition="true"/>
+
+            <effects>
+                <effectNode effectClass="PipeEffect" effectNode="pipeEffect"      materialType="pipe"      materialTypeId="1" delay="0" maxBending="0.6" positionUpdateNodes="pipeEffectSmoke" extraDistance="0.5"/>
+                <effectNode                          effectNode="pipeEffectSmoke" materialType="smoke"     materialTypeId="1" delay="0.1" alignToWorldY="true"/>
+            </effects>
+
+            <animationNodes>
+                <animationNode node="augerRotatingPart"    rotSpeed="500"  rotAxis="2" turnOnFadeTime="2" turnOffFadeTime="2" />
+            </animationNodes>
+        </dischargeNode>
+    </dischargeable>
+
+    <cover>
+        <coverConfigurations>
+            <coverConfiguration >
+                <cover openAnimation="toggleCover" fillUnitIndices="1" />
+            </coverConfiguration>
+        </coverConfigurations>
+    </cover>
+
+    <ai>
+        <allowTurnBackward value="false"/>
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-1.0" maxX="1.0" minZ="-3.8" maxZ="4.0 " yOffset="0.6" />
+        <bendingNode minX="-2.4" maxX="2.4" minZ="-4.2" maxZ="4.0 " yOffset="1.8" />
+        <bendingNode minX="-2.4" maxX="2.4" minZ="-2.4" maxZ="1.8 " yOffset="0.6" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="haulMaster_mat" baseNode="haulMaster_vis">
+            <shaderParameter name="colorMat0" value="ELMERSMFG_BLUE1"/>
+        </material>
+    </baseMaterial>
+
+    <baseMaterialConfigurations useDefaultColors="true" price="800">
+        <baseMaterialConfiguration color="ELMERSMFG_BLUE1"/>
+        <material name="haulMaster_mat" shaderParameter="colorMat0" />
+    </baseMaterialConfigurations>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="3" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="haulMaster_main_component1" node="0>" />
+        <i3dMapping id="haulMaster_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0|0" />
+        <i3dMapping id="supportFeet" node="0>0|0|1|0" />
+        <i3dMapping id="supportFeetHydraulicRef" node="0>0|0|1|0|0" />
+        <i3dMapping id="supportFeetHydraulic" node="0>0|0|1|1" />
+        <i3dMapping id="supportFeetHydraulicPunch" node="0>0|0|1|1|0" />
+        <i3dMapping id="supportCollision" node="0>0|0|1|2" />
+        <i3dMapping id="ptoDetachNode" node="0>0|0|2" />
+        <i3dMapping id="crawlerLeftBackWheelRepr" node="0>0|1|0" />
+        <i3dMapping id="crawlerLeftBackWheelDriveNode" node="0>0|1|0|0" />
+        <i3dMapping id="crawlerLeftLinkNode" node="0>0|1|0|0|0" />
+        <i3dMapping id="crawlerLeftLinkNodeRefFrame" node="0>0|1|0|1" />
+        <i3dMapping id="crawlerLeftFrontWheel" node="0>0|1|1" />
+        <i3dMapping id="crawlerRightBackWheelRepr" node="0>0|1|2" />
+        <i3dMapping id="crawlerRightBackWheelDriveNode" node="0>0|1|2|0" />
+        <i3dMapping id="crawlerRightLinkNode" node="0>0|1|2|0|0" />
+        <i3dMapping id="crawlerRightLinkNodeRefFrame" node="0>0|1|2|1" />
+        <i3dMapping id="crawlerRightFrontWheel" node="0>0|1|3" />
+        <i3dMapping id="backlightLeft" node="0>0|2|0|0" />
+        <i3dMapping id="backlightRight" node="0>0|2|0|1" />
+        <i3dMapping id="reflectorLight" node="0>0|2|0|2" />
+        <i3dMapping id="turnLightRightBack" node="0>0|2|1" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|2|2" />
+        <i3dMapping id="backLightsHigh1" node="0>0|2|3" />
+        <i3dMapping id="reverseLight" node="0>0|2|4" />
+        <i3dMapping id="backLightsHigh2" node="0>0|2|5" />
+        <i3dMapping id="augerArm01" node="0>0|3|0" />
+        <i3dMapping id="augerArm02" node="0>0|3|0|0" />
+        <i3dMapping id="augerArm03Hydraulic" node="0>0|3|0|0|0" />
+        <i3dMapping id="augerArm03HydraulicPunch" node="0>0|3|0|0|0|0" />
+        <i3dMapping id="augerArm03" node="0>0|3|0|0|1" />
+        <i3dMapping id="pipeEffect" node="0>0|3|0|0|1|0|0" />
+        <i3dMapping id="pipeEffectSmoke" node="0>0|3|0|0|1|0|1" />
+        <i3dMapping id="pipeRaycastNode" node="0>0|3|0|0|1|1" />
+        <i3dMapping id="dischargeInfo" node="0>0|3|0|0|1|2" />
+        <i3dMapping id="dischargeInfoNode" node="0>0|3|0|0|1|3" />
+        <i3dMapping id="augerArm03HydraulicRef" node="0>0|3|0|0|1|4" />
+        <i3dMapping id="augerArm02OrientationArm2Ref" node="0>0|3|0|0|2" />
+        <i3dMapping id="augerArm02OrientationArm1" node="0>0|3|0|1" />
+        <i3dMapping id="augerArm02OrientationArm2" node="0>0|3|0|1|0" />
+        <i3dMapping id="augerArm02HydraulicRef" node="0>0|3|0|1|1" />
+        <i3dMapping id="augerArm02Hydraulic" node="0>0|3|0|2" />
+        <i3dMapping id="augerArm02HydraulicPunch" node="0>0|3|0|2|0" />
+        <i3dMapping id="ptoInputNode" node="0>0|3|0|3" />
+        <i3dMapping id="connectionHoseArm" node="0>0|3|0|4" />
+        <i3dMapping id="hydraulicIn01" node="0>0|3|0|4|0|0" />
+        <i3dMapping id="hydraulicIn01_detached" node="0>0|3|0|4|0|0|0" />
+        <i3dMapping id="hydraulicIn01_connector" node="0>0|3|0|4|0|0|0|0" />
+        <i3dMapping id="hydraulicOut01" node="0>0|3|0|4|0|1" />
+        <i3dMapping id="hydraulicOut01_detached" node="0>0|3|0|4|0|1|0" />
+        <i3dMapping id="hydraulicOut01_connector" node="0>0|3|0|4|0|1|0|0" />
+        <i3dMapping id="hydraulicIn02" node="0>0|3|0|4|0|2" />
+        <i3dMapping id="hydraulicIn02_detached" node="0>0|3|0|4|0|2|0" />
+        <i3dMapping id="hydraulicIn02_connector" node="0>0|3|0|4|0|2|0|0" />
+        <i3dMapping id="hydraulicOut02" node="0>0|3|0|4|0|3" />
+        <i3dMapping id="hydraulicOut02_detached" node="0>0|3|0|4|0|3|0" />
+        <i3dMapping id="hydraulicOut02_connector" node="0>0|3|0|4|0|3|0|0" />
+        <i3dMapping id="hydraulicIn03" node="0>0|3|0|4|0|4" />
+        <i3dMapping id="hydraulicIn03_detached" node="0>0|3|0|4|0|4|0" />
+        <i3dMapping id="hydraulicIn03_connector" node="0>0|3|0|4|0|4|0|0" />
+        <i3dMapping id="hydraulicOut03" node="0>0|3|0|4|0|5" />
+        <i3dMapping id="hydraulicOut03_detached" node="0>0|3|0|4|0|5|0" />
+        <i3dMapping id="hydraulicOut03_connector" node="0>0|3|0|4|0|5|0|0" />
+        <i3dMapping id="augerArm02SafetyArm" node="0>0|3|0|5" />
+        <i3dMapping id="augerRotatingPart" node="0>0|3|0|6" />
+        <i3dMapping id="augerArm01HydraulicRef" node="0>0|3|0|7" />
+        <i3dMapping id="augerArm02OrientationArm1RefFrame" node="0>0|3|0|8" />
+        <i3dMapping id="augerArm01Hydraulic" node="0>0|3|1" />
+        <i3dMapping id="augerArm01HydraulicPunch" node="0>0|3|1|0" />
+        <i3dMapping id="unloadingSpeedNeedle" node="0>0|3|2" />
+        <i3dMapping id="fillVolume_1300" node="0>0|4|0" />
+        <i3dMapping id="fillVolume_1600" node="0>0|4|1" />
+        <i3dMapping id="fillVolume_2000" node="0>0|4|2" />
+        <i3dMapping id="exactFillRootNode" node="0>0|4|3" />
+        <i3dMapping id="unloadInfo" node="0>0|4|4" />
+        <i3dMapping id="trailerTrigger" node="0>0|4|5" />
+        <i3dMapping id="covers_closed" node="0>0|5|0" />
+        <i3dMapping id="cover_closed_1300" node="0>0|5|0|0" />
+        <i3dMapping id="cover_closed_1600" node="0>0|5|0|1" />
+        <i3dMapping id="cover_closed_2000" node="0>0|5|0|2" />
+        <i3dMapping id="covers_opened" node="0>0|5|1" />
+        <i3dMapping id="cover_opened_1300" node="0>0|5|1|0" />
+        <i3dMapping id="cover_opened_1600" node="0>0|5|1|1" />
+        <i3dMapping id="cover_opened_2000" node="0>0|5|1|2" />
+        <i3dMapping id="configuration_1300" node="0>0|6|0" />
+        <i3dMapping id="configuration_1300_col01" node="0>0|6|0|4" />
+        <i3dMapping id="configuration_1300_col02" node="0>0|6|0|5" />
+        <i3dMapping id="configuration_1300_col03" node="0>0|6|0|6" />
+        <i3dMapping id="configuration_1600" node="0>0|6|1" />
+        <i3dMapping id="configuration_1600_col01" node="0>0|6|1|5" />
+        <i3dMapping id="configuration_1600_col02" node="0>0|6|1|6" />
+        <i3dMapping id="configuration_1600_col03" node="0>0|6|1|7" />
+        <i3dMapping id="configuration_2000" node="0>0|6|2" />
+        <i3dMapping id="configuration_2000_col01" node="0>0|6|2|5" />
+        <i3dMapping id="configuration_2000_col02" node="0>0|6|2|6" />
+        <i3dMapping id="configuration_2000_col03" node="0>0|6|2|7" />
+    </i3dMappings>
+</vehicle>

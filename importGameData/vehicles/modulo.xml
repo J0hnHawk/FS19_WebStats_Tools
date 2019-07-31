@@ -1,0 +1,560 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<vehicle type="manureBarrel">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>MODULO2</name>
+        <specs>
+            <neededPower>150</neededPower>
+            <workingWidth>12.0</workingWidth>
+        </specs>
+        <functions>
+            <function>$l10n_function_slurrySpreader</function>
+        </functions>
+        <image>$data/vehicles/joskin/modulo/store_modulo.png</image>
+        <price>62500</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>JOSKIN</brand>
+        <category>slurryTanks</category>
+        <shopTranslationOffset>0 0.06 0</shopTranslationOffset>
+        <shopRotationOffset>-1 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>3186836</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>469308</indexBufferMemoryUsage>
+        <textureMemoryUsage>13630976</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_manureBarrel</typeDesc>
+        <filename>$data/vehicles/joskin/modulo/modulo.i3d</filename>
+        <size width="3.8" length="10" lengthOffset="0.3"/>
+        <speedLimit value="17"/>
+        <components>
+            <component centerOfMass="0 0.9 0.4" solverIterationCount="10" mass="5002"/>
+            <component centerOfMass="0 0 0" solverIterationCount="10" mass="373"/>
+            <component centerOfMass="0 0 0" solverIterationCount="10" mass="729"/>
+            <component centerOfMass="0 0 0" solverIterationCount="10" mass="729"/>
+            <joint component1="1" component2="2" node="componentJoint1" maxRotDriveForce="0 0 0" rotDriveRotation="0 - -" rotDriveSpring="5 0 0" rotDriveDamping="5 0 0"/>
+            <joint component1="1" component2="3" node="componentJoint2" maxRotDriveForce="0 0 0" rotDriveRotation="0 - -" rotDriveSpring="5 0 0" rotDriveDamping="5 0 0"/>
+            <joint component1="1" component2="4" node="componentJoint3" maxRotDriveForce="0 0 0" rotDriveRotation="0 - -" rotDriveSpring="5 0 0" rotDriveDamping="5 0 0"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0" brand="TRELLEBORG">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinRadial/750_60R30_5.xml" isLeft="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.8" repr="wheelsFrontLeft"  forcePointRatio="0.5" initialCompression="27" suspTravel="0.2" spring="50" damper="50"/>
+                        <wheelChock parkingNode="wheelChock01" />
+                        <wheelChock parkingNode="wheelChock02" isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinRadial/750_60R30_5.xml" isLeft="false">
+                        <physics tipOcclusionAreaGroupId="2" restLoad="1.8" repr="wheelsFrontRight" forcePointRatio="0.5" initialCompression="27" suspTravel="0.2" spring="50" damper="50"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinRadial/750_60R30_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.9" repr="backWheelLeftRepr" driveNode="wheelsBackLeft" forcePointRatio="0.5" initialCompression="10" suspTravel="0.2" spring="50" damper="50"/>
+                        <steeringAxle scale="-0.5" rotMax="30" rotMin="-30"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinRadial/750_60R30_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true">
+                        <physics tipOcclusionAreaGroupId="2" restLoad="1.9" repr="backWheelRightRepr" driveNode="wheelsBackRight" forcePointRatio="0.5" initialCompression="10" suspTravel="0.2" spring="50" damper="50"/>
+                        <steeringAxle scale="-0.5" rotMax="30" rotMin="-30"/>
+                    </wheel>
+
+                    <wheel>
+                        <physics restLoad="0.1" repr="groundContactWheelLeftCenter"  useReprDirection="true" radius="0.27" width="0.3" mass="0.02" brakeFactor="0" initialCompression="50" suspTravel="0.05" spring="10" damper="10" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="groundContactWheelRightCenter" useReprDirection="true" radius="0.27" width="0.3" mass="0.02" brakeFactor="0" initialCompression="50" suspTravel="0.05" spring="10" damper="10" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="groundContactWheelLeftLeft"    useReprDirection="true" radius="0.23" width="0.3" mass="0.02" brakeFactor="0" initialCompression="50" suspTravel="0.05" spring="10" damper="10" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="groundContactWheelCenterLeft"  useReprDirection="true" radius="0.23" width="0.3" mass="0.02" brakeFactor="0" initialCompression="50" suspTravel="0.05" spring="10" damper="10" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="groundContactWheelRightLeft"   useReprDirection="true" radius="0.23" width="0.3" mass="0.02" brakeFactor="0" initialCompression="50" suspTravel="0.05" spring="10" damper="10" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="groundContactWheelLeftRight"   useReprDirection="true" radius="0.23" width="0.3" mass="0.02" brakeFactor="0" initialCompression="50" suspTravel="0.05" spring="10" damper="10" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="groundContactWheelCenterRight" useReprDirection="true" radius="0.23" width="0.3" mass="0.02" brakeFactor="0" initialCompression="50" suspTravel="0.05" spring="10" damper="10" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="groundContactWheelRightRight"  useReprDirection="true" radius="0.23" width="0.3" mass="0.02" brakeFactor="0" initialCompression="50" suspTravel="0.05" spring="10" damper="10" isSynchronized="false"/>
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+            <wheelConfiguration name="$l10n_configuration_valueWheelNarrow" price="500" brand="NOKIAN">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/nokian/TRI2/480_80R34.xml" isLeft="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.7" repr="wheelsFrontLeft"  forcePointRatio="0.5" initialCompression="30" suspTravel="0.2" spring="50" damper="50"/>
+                        <wheelChock parkingNode="wheelChock01" />
+                        <wheelChock parkingNode="wheelChock02" isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/nokian/TRI2/480_80R34.xml" isLeft="false">
+                        <physics tipOcclusionAreaGroupId="2" restLoad="1.7" repr="wheelsFrontRight" forcePointRatio="0.5" initialCompression="30" suspTravel="0.2" spring="50" damper="50"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/nokian/TRI2/480_80R34.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.8" repr="backWheelLeftRepr"  driveNode="wheelsBackLeft"  forcePointRatio="0.5" initialCompression="10" suspTravel="0.2" spring="50" damper="50"/>
+                        <steeringAxle scale="-0.5" rotMax="30" rotMin="-30"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/nokian/TRI2/480_80R34.xml" isLeft="false" hasTireTracks="true" hasParticles="true">
+                        <physics tipOcclusionAreaGroupId="2" restLoad="1.8" repr="backWheelRightRepr" driveNode="wheelsBackRight" forcePointRatio="0.5" initialCompression="10" suspTravel="0.2" spring="50" damper="50"/>
+                        <steeringAxle scale="-0.5" rotMax="30" rotMin="-30"/>
+                    </wheel>
+
+                    <wheel>
+                        <physics restLoad="0.1" repr="groundContactWheelLeftCenter"  useReprDirection="true" radius="0.27" width="0.3" mass="0.02" brakeFactor="0" initialCompression="50" suspTravel="0.05" spring="10" damper="10" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="groundContactWheelRightCenter" useReprDirection="true" radius="0.27" width="0.3" mass="0.02" brakeFactor="0" initialCompression="50" suspTravel="0.05" spring="10" damper="10" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="groundContactWheelLeftLeft"    useReprDirection="true" radius="0.23" width="0.3" mass="0.02" brakeFactor="0" initialCompression="50" suspTravel="0.05" spring="10" damper="10" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="groundContactWheelCenterLeft"  useReprDirection="true" radius="0.23" width="0.3" mass="0.02" brakeFactor="0" initialCompression="50" suspTravel="0.05" spring="10" damper="10" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="groundContactWheelRightLeft"   useReprDirection="true" radius="0.23" width="0.3" mass="0.02" brakeFactor="0" initialCompression="50" suspTravel="0.05" spring="10" damper="10" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="groundContactWheelLeftRight"   useReprDirection="true" radius="0.23" width="0.3" mass="0.02" brakeFactor="0" initialCompression="50" suspTravel="0.05" spring="10" damper="10" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="groundContactWheelCenterRight" useReprDirection="true" radius="0.23" width="0.3" mass="0.02" brakeFactor="0" initialCompression="50" suspTravel="0.05" spring="10" damper="10" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="groundContactWheelRightRight"  useReprDirection="true" radius="0.23" width="0.3" mass="0.02" brakeFactor="0" initialCompression="50" suspTravel="0.05" spring="10" damper="10" isSynchronized="false"/>
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <rimColor>JOSKIN_YELLOW1</rimColor>
+
+        <hubs>
+            <color0>JOSKIN_GREEN1</color0>
+            <color1>JOSKIN_GREEN1</color1>
+            <hub linkNode="wheelsFrontLeft"  filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="true"  scale="0.335 0.335 0.335" />
+            <hub linkNode="wheelsFrontRight" filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="false" scale="0.335 0.335 0.335" />
+            <hub linkNode="wheelsBackLeft"   filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="true"  scale="0.335 0.335 0.335" />
+            <hub linkNode="wheelsBackRight"  filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="false" scale="0.335 0.335 0.335" />
+        </hubs>
+    </wheels>
+
+    <dynamicallyLoadedParts>
+        <dynamicallyLoadedPart node="0" linkNode="chockSupport01" filename="$data/shared/assets/wheelChocks/wheelChockSupport01.i3d"/>
+        <dynamicallyLoadedPart node="0" linkNode="chockSupport02" filename="$data/shared/assets/wheelChocks/wheelChockSupport01.i3d"/>
+    </dynamicallyLoadedParts>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="trailerLow" attacherHeight="0.6"/>
+        </inputAttacherJoints>
+        <support animationName="moveSupport"/>
+        <brakeForce>1.4</brakeForce>
+        <steeringAxleAngleScale startSpeed="0" endSpeed="90" backwards="false"/>
+    </attachable>
+
+    <powerTakeOffs>
+        <input inputNode="ptoInputNode" detachNode="ptoDetachNode" inputAttacherJointIndices="1" aboveAttacher="true"/>
+    </powerTakeOffs>
+
+    <powerConsumer ptoRpm="400" neededMaxPtoPower="10"/>
+
+    <lights>
+        <sharedLight linkNode="rearMultipointLight_03_left"      filename="$data/shared/assets/lights/lizard/rearMultipointLight_03_left.xml" />
+        <sharedLight linkNode="rearMultipointLight_03_right"     filename="$data/shared/assets/lights/lizard/rearMultipointLight_03_right.xml" />
+        <sharedLight linkNode="rearMultipointLight_03_leftBack"  filename="$data/shared/assets/lights/lizard/rearMultipointLight_03_left.xml" />
+        <sharedLight linkNode="rearMultipointLight_03_rightBack" filename="$data/shared/assets/lights/lizard/rearMultipointLight_03_right.xml" />
+        <sharedLight linkNode="yellowRectangle_01_1"             filename="$data/shared/assets/reflectors/lizard/yellowRectangle_01.xml" />
+        <sharedLight linkNode="yellowRectangle_01_2"             filename="$data/shared/assets/reflectors/lizard/yellowRectangle_01.xml" />
+        <sharedLight linkNode="yellowRectangle_01_3"             filename="$data/shared/assets/reflectors/lizard/yellowRectangle_01.xml" />
+        <sharedLight linkNode="yellowRectangle_01_4"             filename="$data/shared/assets/reflectors/lizard/yellowRectangle_01.xml" />
+
+        <realLights>
+            <high>
+                <light node="backLightsHigh" lightTypes="0"/>
+                <light node="workLightBackHigh" lightTypes="1"/>
+                <light node="backLightsHighPendi" lightTypes="0"/>
+                <turnLightLeft node="turnLightLeftBack"/>
+                <turnLightLeft node="turnLightLeftBackPendi"/>
+                <turnLightRight node="turnLightRightBack"/>
+                <turnLightRight node="turnLightRightBackPendi"/>
+                <brakeLight node="backLightsHigh"/>
+                <brakeLight node="backLightsHighPendi"/>
+                <reverseLight node="reverseLight"/>
+                <reverseLight node="reverseLightPendi"/>
+            </high>
+        </realLights>
+
+        <beaconLights>
+            <beaconLight node="beaconLight1" filename="$data/shared/assets/beaconLights/lizard/beaconLight02.xml"/>
+        </beaconLights>
+    </lights>
+
+    <workAreas>
+        <workArea type="sprayer" functionName="processSprayerArea" disableBackwards="false" requiresGroundContact="false" >
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight" />
+        </workArea>
+    </workAreas>
+
+    <sprayer>
+        <usageScales workingWidth="12.0" scale="1" />
+    </sprayer>
+
+    <foldable>
+        <foldingConfigurations>
+            <foldingConfiguration>
+                <foldingParts startMoveDirection="1" foldMiddleAnimTime="0.25" turnOnFoldMaxLimit="0.05" turnOnFoldMinLimit="0" turnOnFoldDirection="-1" >
+                    <foldingPart animationName="folding" speedScale="1" />
+                </foldingParts>
+            </foldingConfiguration>
+        </foldingConfigurations>
+    </foldable>
+
+    <animations>
+        <animation name="moveSupport">
+            <part node="support1" startTime="0.00" endTime="0.30" startRot="90 0 0" endRot="0 0 0"/>
+            <part node="support2" startTime="0.00" endTime="0.30" startTrans="0 0 0" endTrans="0 -0.19 0"/>
+        </animation>
+        <animation name="folding">
+            <part node="lowerLink" startTime="3.00" endTime="6.00" startRot="6.718 0 0" endRot="25 0 0"/>
+            <part node="lowerLink" startTime="7.00" endTime="8.00" startRot="25 0 0" endRot="20 0 0"/>
+            <part node="pendislideMountRoot" startTime="3.00" endTime="6.00" startRot="98.03 0 -180" endRot="116.312 0 -180"/>
+            <part node="pendislideMountRoot" startTime="7.00" endTime="8.00" startRot="116.312 0 -180" endRot="111.312 0 -180"/>
+            <part node="pendislideCenter" startTime="7.00" endTime="8.00" startTrans="0 -0.450 -0.506" endTrans="0 -0.500 -0.506"/>
+            <part node="pendislideCenter" startTime="3.00" endTime="6.00" startTrans="0 -0.904 -0.506" endTrans="0 -0.450 -0.506"/>
+            <part node="pendislideLeft" startTime="3.00" endTime="7.00" startRot="0 0 0" endRot="0 -87 0"/>
+            <part node="pendislideRight" startTime="3.00" endTime="7.00" startRot="0 0 0" endRot="0 87 0"/>
+            <part node="componentJoint1" startTime="2.0" endTime="5.0" startRot="-17 180 0" endRot="-83 180 0"/>
+            <part node="componentJoint2" startTime="2.0" endTime="5.0" startRot="71 0 -180" endRot="7 0 -180"/>
+            <part node="componentJoint3" startTime="2.0" endTime="5.0" startRot="71 0 -180" endRot="7 0 -180"/>
+            <part node="componentJoint1" startTime="0.0" endTime="2.0" startRot="59.24 180 0" endRot="-17 180 0"/>
+            <part node="componentJoint2" startTime="0.0" endTime="2.0" startRot="143.179 0 -180" endRot="71 0 -180"/>
+            <part node="componentJoint3" startTime="0.0" endTime="2.0" startRot="143.105 0 -180" endRot="71 0 -180"/>
+            <part startTime="0.0" endTime="1.0" componentJointIndex="1"/>
+            <part startTime="0.0" endTime="1.0" componentJointIndex="2"/>
+            <part startTime="0.0" endTime="1.0" componentJointIndex="3"/>
+        </animation>
+        <animation name="loadingArmMovement">
+            <part node="loadingArm" startTime="0" endTime="0.8" startRot="0 0 0" endRot="0 0 90"/>
+            <part node="loadingArm" startTime="0.8" endTime="1" startRot="0 0 90" endRot="0 0 110"/>
+            <part node="loadingArm2" startTime="0.8" endTime="1" startRot="0 0 0" endRot="0 0 -20"/>
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="loadingArm"  playSound="true" >
+                <controls axis="AXIS_CRANE_ARM" invertAxis="false" mouseSpeedFactor="0.9" iconName="CRANE_EC_TRANSLATE_Z" />
+                <!-- <rotation rotSpeed="55" rotAcceleration="60" rotMax="105" rotMin="0" rotationAxis="3"/> -->
+                <animation animSpeed="0.3" animAcceleration="1" animName="loadingArmMovement" />
+                <dependentPart node="loadingArmHydraulic" />
+            </movingTool>
+            <!-- attacher -->
+            <movingTool node="lowerLink" playSound="true">
+                <dependentPart node="hydraulicLowerLink" />
+                <dependentPart node="pendislideMountRoot" />
+                <componentJoint index="1" />
+                <componentJoint index="2" />
+                <componentJoint index="3" />
+            </movingTool>
+
+            <!-- center mount -->
+            <movingTool node="pendislideCenter" playSound="true">
+                <dependentPart node="hydraulicPendislideCenter" />
+                <componentJoint index="1" />
+                <componentJoint index="2" />
+                <componentJoint index="3" />
+            </movingTool>
+
+            <!-- arms -->
+            <!-- arm center -->
+            <movingTool node="componentJoint1" playSound="true">
+                <componentJoint index="1" />
+                <componentJoint index="2" />
+                <componentJoint index="3" />
+            </movingTool>
+
+            <movingTool node="pendislideMountRoot" >
+                <dependentPart node="middleArm" />
+                <dependentPart node="topArm" />
+            </movingTool>
+
+            <!-- arm left -->
+            <movingTool node="pendislideLeft" playSound="true">
+                <componentJoint index="2" />
+                <dependentPart node="hydraulicPendislideCenter3"/>
+            </movingTool>
+            <movingTool node="componentJoint2" playSound="true">
+                <componentJoint index="2" />
+            </movingTool>
+
+            <!-- arms right -->
+            <movingTool node="pendislideRight" playSound="true">
+                <componentJoint index="3" />
+                <dependentPart node="hydraulicPendislideCenter4"/>
+            </movingTool>
+            <movingTool node="componentJoint3" playSound="true">
+                <componentJoint index="3" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <!-- attacher -->
+            <movingPart node="hydraulicLowerLink" referencePoint="hydraulicLowerLinkRef" referenceFrame="hydraulicLowerLinkRef" >
+                <translatingPart node="hydraulicLowerLinkPush" />
+            </movingPart>
+            <movingPart node="middleArm" referencePoint="middleArmRef" referenceFrame="middleArmRef" />
+            <movingPart node="topArm" referencePoint="topArmRef1" referenceFrame="topArmRef1" />
+
+            <!-- center mount -->
+            <movingPart node="hydraulicPendislideCenter" referencePoint="hydraulicPendislideCenterRef" referenceFrame="hydraulicPendislideCenterRef" >
+                <translatingPart node="hydraulicPendislideCenterPush" />
+            </movingPart>
+
+            <!-- arms -->
+            <!-- activeDirty parts center -->
+            <movingPart node="pendislideCenterLower" referencePoint="pendislideCenterLowerReferencePoint" referenceFrame="pendislideCenterLowerRefFrame" isActiveDirty="true" limitedAxis="1" >
+                <dependentPart node="hydraulicPendislideCenter1"/>
+                <dependentPart node="hydraulicPendislideCenter2"/>
+            </movingPart>
+            <movingPart node="hydraulicPendislideCenter1" referencePoint="hydraulicPendislideCenter1Ref" referenceFrame="hydraulicPendislideCenterRefFrame" >
+                <translatingPart node="hydraulicPendislideCenter1Push" />
+            </movingPart>
+            <movingPart node="hydraulicPendislideCenter2" referencePoint="hydraulicPendislideCenter2Ref1" referenceFrame="hydraulicPendislideCenterRefFrame" >
+                <translatingPart node="hydraulicPendislideCenter2Push" />
+            </movingPart>
+
+            <!-- activeDirty parts left -->
+            <movingPart node="pendislideLeftLower" referencePoint="pendislideLeftLowerReferencePoint" referenceFrame="pendislideLeftLowerRefFrame" isActiveDirty="true" limitedAxis="1" >
+                <dependentPart node="hydraulicPendislideLeft1"/>
+                <dependentPart node="hydraulicPendislideLeft2"/>
+            </movingPart>
+            <movingPart node="hydraulicPendislideLeft1" referencePoint="hydraulicPendislideLeft1Ref" referenceFrame="hydraulicPendislideLeftRefFrame" >
+                <translatingPart node="hydraulicPendislideLeft1Push" />
+            </movingPart>
+            <movingPart node="hydraulicPendislideLeft2" referencePoint="hydraulicPendislideLef21Ref1" referenceFrame="hydraulicPendislideLeftRefFrame" >
+                <translatingPart node="hydraulicPendislideLeft2Push" />
+            </movingPart>
+
+            <!-- activeDirty parts right -->
+            <movingPart node="pendislideRightLower" referencePoint="pendislideRightLowerReferencePoint" referenceFrame="pendislideRightLowerRefFrame" isActiveDirty="true" limitedAxis="1" >
+                <dependentPart node="hydraulicPendislideRight1"/>
+                <dependentPart node="hydraulicPendislideRight2"/>
+            </movingPart>
+            <movingPart node="hydraulicPendislideRight1" referencePoint="hydraulicPendislideRight1Ref" referenceFrame="hydraulicPendislideRightRefFrame" >
+                <translatingPart node="hydraulicPendislideRight1Push" />
+            </movingPart>
+            <movingPart node="hydraulicPendislideRight2" referencePoint="hydraulicPendislideRight2Ref" referenceFrame="hydraulicPendislideRightRefFrame" >
+                <translatingPart node="hydraulicPendislideRight2Push" />
+            </movingPart>
+
+            <!-- arm center -->
+            <!-- arm left -->
+            <movingPart node="hydraulicPendislideCenter3" referencePoint="hydraulicPendislideCenter3Ref" referenceFrame="hydraulicPendislideCenter3Ref" >
+                <translatingPart node="hydraulicPendislideCenter3Push" />
+            </movingPart>
+
+            <!-- arm right -->
+            <movingPart node="hydraulicPendislideCenter4" referencePoint="hydraulicPendislideCenter4Ref" referenceFrame="hydraulicPendislideCenter4Ref" >
+                <translatingPart node="hydraulicPendislideCenter4Push" />
+            </movingPart>
+
+            <movingPart node="loadingArmHydraulic" referencePoint="loadingArmHydraulicRef" referenceFrame="loadingArmHydraulicRef" >
+                <translatingPart node="loadingArmHydraulicPunch" />
+            </movingPart>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="modulo2_main_component1"/>
+        </sounds>
+    </cylindered>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <fillUnit unit="$l10n_unit_literShort" fillTypeCategories="slurryTank" capacity="15780">
+                        <exactFillRootNode node="exactFillRootNode" />
+                        <measurementNodes>
+                            <measurementNode node="slurryMeasurement1" />
+                        </measurementNodes>
+                    </fillUnit>
+                    <fillTrigger consumePtoPower="true"/>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+
+        <sounds>
+            <fill template="SLURRY_03" linkNode="modulo2_main_component1"/>
+        </sounds>
+    </fillUnit>
+
+    <turnOnVehicle turnOffIfNotAllowed="true">
+        <sounds>
+            <work template="SLURRY_03">
+                <pitch indoor="0.75" outdoor="0.75" />
+            </work>
+        </sounds>
+    </turnOnVehicle>
+
+    <fillTriggerVehicle triggerNode="fillTrigger" fillUnitIndex="1" litersPerSecond="500"/>
+
+    <dischargeable requiresTipOcclusionArea="false">
+        <dischargeNode node="dischargeNode" emptySpeed="500" fillUnitIndex="1" >
+            <info width="1.0" length="0.5" zOffset="0.4" />
+            <trigger node="dischargeTrigger" />
+            <dischargeSound template="SLURRY_03"/>
+        </dischargeNode>
+    </dischargeable>
+
+    <ai>
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack"/>
+        <sizeMarkers leftNode="sizeLeftMarker" rightNode="sizeRightMarker" backNode="sizeBackMarker"/>
+        <allowTurnBackward value="false"/>
+        <toolReverserDirectionNode node="sizeBackMarker"/>
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-1.3" maxX="1.3" minZ="-3.5" maxZ="3.5" yOffset="1" />
+        <bendingNode minX="-1.3" maxX="1.3" minZ="-0.6" maxZ="0.2" yOffset="0.6" node="pendislideCenter"/>
+        <bendingNode minX="0" maxX="4.9" minZ="-0.7" maxZ="0.2" yOffset="-1.1" node="pendislideLeft"/>
+        <bendingNode minX="-4.9" maxX="0" minZ="-0.7" maxZ="0.2" yOffset="-1.1" node="pendislideRight"/>
+    </foliageBending>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="modulo2_main_component1" node="0>" />
+        <i3dMapping id="wheelsFrontLeft" node="0>0|0|0" />
+        <i3dMapping id="wheelsFrontRight" node="0>0|0|1" />
+        <i3dMapping id="backWheelLeftRepr" node="0>0|0|2" />
+        <i3dMapping id="wheelsBackLeft" node="0>0|0|2|0" />
+        <i3dMapping id="backWheelRightRepr" node="0>0|0|3" />
+        <i3dMapping id="wheelsBackRight" node="0>0|0|3|0" />
+        <i3dMapping id="rearMultipointLight_03_left" node="0>0|1|0|0" />
+        <i3dMapping id="rearMultipointLight_03_right" node="0>0|1|0|1" />
+        <i3dMapping id="yellowRectangle_01_1" node="0>0|1|0|2" />
+        <i3dMapping id="yellowRectangle_01_2" node="0>0|1|0|3" />
+        <i3dMapping id="yellowRectangle_01_3" node="0>0|1|0|4" />
+        <i3dMapping id="yellowRectangle_01_4" node="0>0|1|0|5" />
+        <i3dMapping id="workLightBackHigh" node="0>0|1|1" />
+        <i3dMapping id="backLightsHigh" node="0>0|1|2" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|1|3" />
+        <i3dMapping id="turnLightRightBack" node="0>0|1|4" />
+        <i3dMapping id="reverseLight" node="0>0|1|5" />
+        <i3dMapping id="beaconLight1" node="0>0|1|6" />
+        <i3dMapping id="attacherJoint" node="0>0|2|0" />
+        <i3dMapping id="support1" node="0>0|2|1|0" />
+        <i3dMapping id="support2" node="0>0|2|1|0|0" />
+        <i3dMapping id="supportCol" node="0>0|2|1|0|0|0" />
+        <i3dMapping id="ptoInputNode" node="0>0|2|2" />
+        <i3dMapping id="ptoDetachNode" node="0>0|2|3" />
+        <i3dMapping id="chockSupport01" node="0>0|2|4|0" />
+        <i3dMapping id="chockSupport02" node="0>0|2|4|1" />
+        <i3dMapping id="wheelChock01" node="0>0|2|4|2" />
+        <i3dMapping id="wheelChock02" node="0>0|2|4|3" />
+        <i3dMapping id="lowerLink" node="0>0|3|0|0" />
+        <i3dMapping id="pendislideMountRoot" node="0>0|3|0|0|0" />
+        <i3dMapping id="pendislideCenter" node="0>0|3|0|0|0|0|0" />
+        <i3dMapping id="hydraulicPendislideCenterRef" node="0>0|3|0|0|0|0|0|0" />
+        <i3dMapping id="pendislideLeft" node="0>0|3|0|0|0|0|0|1" />
+        <i3dMapping id="pendislideLeftLower" node="0>0|3|0|0|0|0|0|1|0|0" />
+        <i3dMapping id="hydraulicPendislideLeft1Ref" node="0>0|3|0|0|0|0|0|1|0|0|0" />
+        <i3dMapping id="hydraulicPendislideLef21Ref1" node="0>0|3|0|0|0|0|0|1|0|0|1" />
+        <i3dMapping id="componentJoint2" node="0>0|3|0|0|0|0|0|1|0|1" />
+        <i3dMapping id="hydraulicPendislideLeft1" node="0>0|3|0|0|0|0|0|1|1" />
+        <i3dMapping id="hydraulicPendislideLeft1Push" node="0>0|3|0|0|0|0|0|1|1|0" />
+        <i3dMapping id="hydraulicPendislideLeft2" node="0>0|3|0|0|0|0|0|1|2" />
+        <i3dMapping id="hydraulicPendislideLeft2Push" node="0>0|3|0|0|0|0|0|1|2|0" />
+        <i3dMapping id="hydraulicPendislideCenter3Ref" node="0>0|3|0|0|0|0|0|1|3" />
+        <i3dMapping id="hydraulicPendislideLeftRefFrame" node="0>0|3|0|0|0|0|0|1|4" />
+        <i3dMapping id="pendislideLeftLowerRefFrame" node="0>0|3|0|0|0|0|0|1|8" />
+        <i3dMapping id="pendislideRight" node="0>0|3|0|0|0|0|0|2" />
+        <i3dMapping id="pendislideRightLower" node="0>0|3|0|0|0|0|0|2|0|0" />
+        <i3dMapping id="hydraulicPendislideRight1Ref" node="0>0|3|0|0|0|0|0|2|0|0|0" />
+        <i3dMapping id="hydraulicPendislideRight2Ref" node="0>0|3|0|0|0|0|0|2|0|0|1" />
+        <i3dMapping id="componentJoint3" node="0>0|3|0|0|0|0|0|2|0|1" />
+        <i3dMapping id="hydraulicPendislideRight1" node="0>0|3|0|0|0|0|0|2|1" />
+        <i3dMapping id="hydraulicPendislideRight1Push" node="0>0|3|0|0|0|0|0|2|1|0" />
+        <i3dMapping id="hydraulicPendislideRight2" node="0>0|3|0|0|0|0|0|2|2" />
+        <i3dMapping id="hydraulicPendislideRight2Push" node="0>0|3|0|0|0|0|0|2|2|0" />
+        <i3dMapping id="hydraulicPendislideCenter4Ref" node="0>0|3|0|0|0|0|0|2|3" />
+        <i3dMapping id="hydraulicPendislideRightRefFrame" node="0>0|3|0|0|0|0|0|2|4" />
+        <i3dMapping id="pendislideRightLowerRefFrame" node="0>0|3|0|0|0|0|0|2|8" />
+        <i3dMapping id="pendislideCenterLower" node="0>0|3|0|0|0|0|0|3" />
+        <i3dMapping id="rearMultipointLight_03_leftBack" node="0>0|3|0|0|0|0|0|3|0|0" />
+        <i3dMapping id="rearMultipointLight_03_rightBack" node="0>0|3|0|0|0|0|0|3|0|1" />
+        <i3dMapping id="hydraulicPendislideCenter1Ref" node="0>0|3|0|0|0|0|0|3|1" />
+        <i3dMapping id="hydraulicPendislideCenter2Ref1" node="0>0|3|0|0|0|0|0|3|2" />
+        <i3dMapping id="backLightsHighPendi" node="0>0|3|0|0|0|0|0|3|3|0|0" />
+        <i3dMapping id="turnLightLeftBackPendi" node="0>0|3|0|0|0|0|0|3|3|1|0|0" />
+        <i3dMapping id="turnLightRightBackPendi" node="0>0|3|0|0|0|0|0|3|3|1|1|0" />
+        <i3dMapping id="reverseLightPendi" node="0>0|3|0|0|0|0|0|3|3|3|0" />
+        <i3dMapping id="hydraulicPendislideCenter1" node="0>0|3|0|0|0|0|0|4" />
+        <i3dMapping id="hydraulicPendislideCenter1Push" node="0>0|3|0|0|0|0|0|4|0" />
+        <i3dMapping id="hydraulicPendislideCenter2" node="0>0|3|0|0|0|0|0|5" />
+        <i3dMapping id="hydraulicPendislideCenter2Push" node="0>0|3|0|0|0|0|0|5|0" />
+        <i3dMapping id="hydraulicPendislideCenter3" node="0>0|3|0|0|0|0|0|6" />
+        <i3dMapping id="hydraulicPendislideCenter3Push" node="0>0|3|0|0|0|0|0|6|0" />
+        <i3dMapping id="hydraulicPendislideCenter4" node="0>0|3|0|0|0|0|0|7" />
+        <i3dMapping id="hydraulicPendislideCenter4Push" node="0>0|3|0|0|0|0|0|7|0" />
+        <i3dMapping id="componentJoint1" node="0>0|3|0|0|0|0|0|8" />
+        <i3dMapping id="hydraulicPendislideCenterRefFrame" node="0>0|3|0|0|0|0|0|9" />
+        <i3dMapping id="pendislideCenterLowerRefFrame" node="0>0|3|0|0|0|0|0|12" />
+        <i3dMapping id="hydraulicPendislideCenter" node="0>0|3|0|0|0|0|1" />
+        <i3dMapping id="hydraulicPendislideCenterPush" node="0>0|3|0|0|0|0|1|0" />
+        <i3dMapping id="middleArm" node="0>0|3|0|0|0|1" />
+        <i3dMapping id="topArm" node="0>0|3|0|0|0|2" />
+        <i3dMapping id="hydraulicLowerLinkRef" node="0>0|3|0|0|1" />
+        <i3dMapping id="hydraulicLowerLink" node="0>0|3|0|1" />
+        <i3dMapping id="hydraulicLowerLinkPush" node="0>0|3|0|1|0" />
+        <i3dMapping id="middleArmRef" node="0>0|3|0|3" />
+        <i3dMapping id="topArmRef1" node="0>0|3|0|4" />
+        <i3dMapping id="loadingArm" node="0>0|3|1" />
+        <i3dMapping id="loadingArm2" node="0>0|3|1|0|0" />
+        <i3dMapping id="loadingArmHydraulicRef" node="0>0|3|1|1" />
+        <i3dMapping id="loadingArmHydraulic" node="0>0|4|0" />
+        <i3dMapping id="loadingArmHydraulicPunch" node="0>0|4|0|0" />
+        <i3dMapping id="slurryMeasurement1" node="0>0|5|1" />
+        <i3dMapping id="fillTrigger" node="0>0|5|3" />
+        <i3dMapping id="exactFillRootNode" node="0>0|5|4" />
+        <i3dMapping id="dischargeNode" node="0>0|6|0" />
+        <i3dMapping id="dischargeTrigger" node="0>0|6|1" />
+        <i3dMapping id="workAreaStart" node="0>0|7|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|7|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|7|2" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|8|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|8|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|8|0|2" />
+        <i3dMapping id="sizeLeftMarker" node="0>0|8|1|0" />
+        <i3dMapping id="sizeRightMarker" node="0>0|8|1|1" />
+        <i3dMapping id="sizeBackMarker" node="0>0|8|1|2" />
+        <i3dMapping id="pendislideCenterLowerReferencePoint" node="1>0" />
+        <i3dMapping id="groundContactWheelLeftCenter" node="1>1" />
+        <i3dMapping id="groundContactWheelRightCenter" node="1>2" />
+        <i3dMapping id="pendislideLeftLowerReferencePoint" node="2>0" />
+        <i3dMapping id="groundContactWheelLeftLeft" node="2>1" />
+        <i3dMapping id="groundContactWheelCenterLeft" node="2>2" />
+        <i3dMapping id="groundContactWheelRightLeft" node="2>3" />
+        <i3dMapping id="pendislideRightLowerReferencePoint" node="3>0" />
+        <i3dMapping id="groundContactWheelLeftRight" node="3>1" />
+        <i3dMapping id="groundContactWheelCenterRight" node="3>2" />
+        <i3dMapping id="groundContactWheelRightRight" node="3>3" />
+    </i3dMappings>
+</vehicle>

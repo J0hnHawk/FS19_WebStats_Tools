@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="turnOnCultivator">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>HR 4004</name>
+        <specs>
+            <neededPower>100</neededPower>
+            <workingWidth>4</workingWidth>
+            <combination>DC 401, BTF 4000</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_cultivator</function>
+        </functions>
+        <image>$data/vehicles/kuhn/kuhnHR4004/store_kuhnHR4004.png</image>
+        <price>18000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>KUHN</brand>
+        <category>powerHarrows</category>
+        <vertexBufferMemoryUsage>1773248</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>252000</indexBufferMemoryUsage>
+        <textureMemoryUsage>13719240</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_cultivator</typeDesc>
+        <filename>$data/vehicles/kuhn/kuhnHR4004/kuhnHR4004.i3d</filename>
+        <size width="4.8" length="2" lengthOffset="-0.2"/>
+        <speedLimit value="15" />
+        <components>
+            <component centerOfMass="0 0.2 0" solverIterationCount="10" mass="1650" />
+            <component centerOfMass="0 0 0"   solverIterationCount="10" mass="200" />
+            <joint component1="1" component2="2" node="componentJoint" rotLimit="0 0 0" transLimit="0 0.05 0" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <!-- recommended horsepower by manufacturer: 100 - 250 -->
+    <powerConsumer ptoRpm="470" neededMinPtoPower="20" neededMaxPtoPower="20" forceNode="kunhHR4004_main_component1" maxForce="0" />
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels hasSurfaceSounds="false">
+                    <wheel>
+                        <physics restLoad="0.2" repr="backWheel"  radius="0.25" width="4" forcePointRatio="0.3" initialCompression="20" suspTravel="0.05" spring="10" damper="10" mass="0.1" isSynchronized="false"/>
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+    </wheels>
+
+    <lights>
+        <sharedLight linkNode="light01"       filename="$data/shared/assets/lights/lizard/frontLightRectangle_01.xml" />
+        <sharedLight linkNode="light02"       filename="$data/shared/assets/lights/lizard/frontLightRectangle_01.xml" />
+        <realLights>
+            <high>
+                <light node="defaultLightsHigh1" lightTypes="0"/>
+            </high>
+        </realLights>
+    </lights>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundReferenceNode"  threshold="0.1" depthNode="groundReferenceNode" />
+        <groundReferenceNode node="depthNodeLeftMarker"  threshold="0"   depthNode="depthNodeLeftMarker" />
+        <groundReferenceNode node="depthNodeRightMarker" threshold="0"   depthNode="depthNodeRightMarker"/>
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="cultivator" functionName="processCultivatorArea">
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight" />
+            <groundReferenceNode index="1" />
+        </workArea>
+
+        <workArea type="ridgemarker" functionName="processRidgeMarkerArea" disableBackwards="false" needsSetIsTurnedOn="false">
+            <area startNode="ridgeMarkerLeftAreaStart" widthNode="ridgeMarkerLeftAreaWidth" heightNode="ridgeMarkerLeftAreaHeight" />
+            <testArea startNode="ridgeMarkerLeftTestAreaStart" widthNode="ridgeMarkerLeftTestAreaWidth" heightNode="ridgeMarkerLeftTestAreaHeight" />
+            <groundReferenceNode index="2" />
+        </workArea>
+        <workArea type="ridgemarker" functionName="processRidgeMarkerArea" disableBackwards="false" needsSetIsTurnedOn="false">
+            <area startNode="ridgeMarkerRightAreaStart" widthNode="ridgeMarkerRightAreaWidth" heightNode="ridgeMarkerRightAreaHeight" />
+            <testArea startNode="ridgeMarkerRightTestAreaStart" widthNode="ridgeMarkerRightTestAreaWidth" heightNode="ridgeMarkerRightTestAreaHeight" />
+            <groundReferenceNode index="3" />
+        </workArea>
+    </workAreas>
+
+    <cultivator>
+        <sounds>
+            <work template="DEFAULT_CULTIVATOR_WORK" linkNode="0>" />
+        </sounds>
+        <directionNode node="0>" />
+        <onlyActiveWhenLowered value="true"/>
+    </cultivator>
+
+    <turnOnVehicle>
+        <sounds>
+            <start template="STRAWBLOWER_START" />
+            <work template="STRAWBLOWER_WORK" />
+            <stop template="STRAWBLOWER_STOP" />
+        </sounds>
+
+        <animationNodes>
+            <animationNode node="turnOnRotationNode01"  rotSpeed="-2000" rotAxis="2" />
+            <animationNode node="turnOnRotationNode02"  rotSpeed="2000"  rotAxis="2" />
+            <animationNode node="turnOnRotationNode03"  rotSpeed="-2000" rotAxis="2" />
+            <animationNode node="turnOnRotationNode04"  rotSpeed="2000"  rotAxis="2" />
+            <animationNode node="turnOnRotationNode05"  rotSpeed="-2000" rotAxis="2" />
+            <animationNode node="turnOnRotationNode06"  rotSpeed="2000"  rotAxis="2" />
+            <animationNode node="turnOnRotationNode07"  rotSpeed="-2000" rotAxis="2" />
+            <animationNode node="turnOnRotationNode08"  rotSpeed="2000"  rotAxis="2" />
+            <animationNode node="turnOnRotationNode09"  rotSpeed="-2000" rotAxis="2" />
+            <animationNode node="turnOnRotationNode010" rotSpeed="2000"  rotAxis="2" />
+            <animationNode node="turnOnRotationNode011" rotSpeed="-2000" rotAxis="2" />
+            <animationNode node="turnOnRotationNode012" rotSpeed="2000"  rotAxis="2" />
+            <animationNode node="turnOnRotationNode013" rotSpeed="-2000" rotAxis="2" />
+            <animationNode node="turnOnRotationNode014" rotSpeed="2000"  rotAxis="2" />
+        </animationNodes>
+    </turnOnVehicle>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="implement" topReferenceNode="topReferenceNode"   lowerTransLimitScale="0 1 0" upperRotationOffset="12" lowerRotLimitScale="0 0 0" >
+                <distanceToGround lower="0.25" upper="1.3" />
+            </inputAttacherJoint>
+
+        </inputAttacherJoints>
+        <support animationName="moveSupport" />
+    </attachable>
+
+    <powerTakeOffs>
+        <input inputAttacherJointIndices="1" detachNode="ptoDetachNode" inputNode="ptoInputNode" aboveAttacher="true" filename="$data/shared/assets/powerTakeOffs/walterscheidWWZ.xml" />
+        <output attacherJointIndices="1" outputNode="ptoOutputNode" aboveAttacher="true" />
+    </powerTakeOffs>
+
+    <connectionHoses>
+        <skipNode attacherJointIndex="1" inputAttacherJointIndex="1" node="topRightPipeSkipPoint" type="TOOL_CONNECTOR_TOP_RIGHT" length="2" isTwoPointHose="true"/>
+    </connectionHoses>
+
+    <attacherJoints>
+        <attacherJoint node="backAttacherJoint" upperRotationOffset="-5" lowerRotationOffset="-22" lowerTransLimit="0 0.1 0" lockDownTransLimit="false" moveTime="2.5" comboTime="0">
+            <distanceToGround lower="0.07" upper="0.98" />
+            <rotationNode node="rotationNode" lowerRotation="-17 0 0" upperRotation="60 0 0" />
+            <rotationNode2 node="rotationNode2" />
+            <bottomArm rotationNode="bottomArm" translationNode="bottomArm2" referenceNode="referencePoint" zScale="-1" startRotation="60 0 0" />
+            <topArm rotationNode="upperLink" translationNode="translatingPart" referenceNode="translatingPartRef" zScale="1"/>
+            <schema position="1 0" rotation="0" invertX="false" />
+        </attacherJoint>
+        <sounds>
+            <attach template="ATTACH_01" />
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" />
+        </sounds>
+    </attacherJoints>
+
+    <speedRotatingParts>
+        <speedRotatingPart node="backRoll"               radius="0.22" groundReferenceNodeIndex="1" />
+        <speedRotatingPart node="leftRidgeMarkerWheel"   radius="0.2"  groundReferenceNodeIndex="2" />
+        <speedRotatingPart node="rightRidgeMarkerWheel"  radius="0.2"  groundReferenceNodeIndex="3" />
+    </speedRotatingParts>
+
+    <cylindered>
+        <movingTools>
+            <!-- ridge markers -->
+            <movingTool node="ridgeMarkerLeftArm">
+                <dependentPart node="ridgeMarkerLeftArmHydraulic"/>
+            </movingTool>
+            <movingTool node="ridgeMarkerRightArm">
+                <dependentPart node="ridgeMarkerRightArmHydraulic"/>
+            </movingTool>
+        </movingTools>
+
+        <movingParts isActiveDirtyTimeOffset="2">
+            <!-- attachment frame -->
+            <movingPart node="lowerArm" referencePoint="referencePoint" localReferencePoint="backPart" referenceFrame="lowerReferenceFrame" isActiveDirty="true">
+               <dependentPart node="backPart"/>
+               <dependentPart node="topArm"/>
+               <dependentPart node="topArmHydraulics"/>
+               <dependentPart node="movingPartJoint2"/>
+               <dependentPart node="spring"/>
+            </movingPart>
+            <movingPart node="backPart" referencePoint="referencePoint" referenceFrame="backReferenceFrame"/>
+            <movingPart node="topArm" referencePoint="topArmScaleRef" referenceFrame="topArmScaleRef" scaleZ="true"/>
+            <movingPart node="topArmHydraulics" referencePoint="topArmHydraulicsRef" referenceFrame="topArmHydraulicsRef">
+                <translatingPart node="topArmHydraulicsPunch" />
+            </movingPart>
+            <movingPart node="movingPartJoint2" referencePoint="chainReferencePoint" referenceFrame="kunhHR4004_main_component1"/>
+            <movingPart node="spring" referencePoint="movingPartJoint2" referenceFrame="lowerReferenceFrame"/>
+            <movingPart node="scalingPart" referencePoint="scalingPartRef" referenceFrame="scalingPartRef" isActiveDirty="true" scaleZ="true"/>
+
+            <!-- ridge markers -->
+            <movingPart node="ridgeMarkerRightArmHydraulic" referencePoint="ridgeMarkerRightArmHydraulicRef" referenceFrame="ridgeMarkerRightArmHydraulicRef" playSound="true">
+                <translatingPart node="ridgeMarkerRightArmHydraulicPunch" />
+            </movingPart>
+            <movingPart node="ridgeMarkerLeftArmHydraulic" referencePoint="ridgeMarkerLeftArmHydraulicRef" referenceFrame="ridgeMarkerLeftArmHydraulicRef" playSound="true">
+                <translatingPart node="ridgeMarkerLeftArmHydraulicPunch" />
+            </movingPart>
+
+            <movingPart node="backRollArm" referencePoint="backRollArmRef" referenceFrame="referenceFrame" isActiveDirty="true" limitedAxis="1"/>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <animations>
+        <!-- move left arm -->
+        <animation name="leftArm">
+            <part node="ridgeMarkerLeftArm" startTime="0" duration="1.5" startRot="0 0 100" endRot="0 0 -8" />
+        </animation>
+        <!-- move right arm -->
+        <animation name="rightArm">
+            <part node="ridgeMarkerRightArm" startTime="0" duration="1.5" startRot="0 0 -100" endRot="0 0 8" />
+        </animation>
+
+        <animation name="moveSupport">
+            <part node="support" startTime="0" duration="0.2" startTrans="0 0.15 0" endTrans="0 0 0" />
+        </animation>
+    </animations>
+
+    <ridgeMarker onlyActiveWhenLowered="false">
+        <marker animName="leftArm" workAreaIndex="2" />
+        <marker animName="rightArm" workAreaIndex="3" />
+    </ridgeMarker>
+
+    <workParticles>
+        <particleAnimation>
+            <node node="soilAnimation"      refNodeIndex="1" materialType="SOIL" />
+            <node node="soilAnimationLeft"  refNodeIndex="2" materialType="SOIL" maxDepth="-0.05" />
+            <node node="soilAnimationRight" refNodeIndex="3" materialType="SOIL" maxDepth="-0.05" />
+        </particleAnimation>
+
+        <particle>
+            <node node="soilEmitShape"    refNodeIndex="1" particleType="SOIL_CHUNKS" worldSpace="false" />
+            <node node="dustEmitterShape" refNodeIndex="1" particleType="SOIL_SMOKE" emitCountScale="1.0" />
+            <node node="soilEmitShape1"   refNodeIndex="1" particleType="SOIL"  />
+        </particle>
+    </workParticles>
+
+    <ai>
+        <areaMarkers leftNode="left" rightNode="right" backNode="back" />
+        <collisionTrigger node="aiCollisionTrigger" />
+        <needsLowering value="true"/>
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-2.1" maxX="2.1" minZ="-1.0" maxZ="0.7" yOffset="0.6" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="kunhHR4004_mat" baseNode="kunhHR4004_vis">
+            <shaderParameter name="colorMat0" value="KUHN_RED1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="kunhHR4004_main_component1" node="0>" />
+        <i3dMapping id="kunhHR4004_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0|0" />
+        <i3dMapping id="ptoInputNode" node="0>0|0|1" />
+        <i3dMapping id="ptoDetachNode" node="0>0|0|2" />
+        <i3dMapping id="topReferenceNode" node="0>0|0|3" />
+        <i3dMapping id="topArm" node="0>0|1|0|0" />
+        <i3dMapping id="topArmHydraulicsRef" node="0>0|1|0|0|0" />
+        <i3dMapping id="lowerArm" node="0>0|1|0|1" />
+        <i3dMapping id="backPart" node="0>0|1|0|1|0" />
+        <i3dMapping id="topArmScaleRef" node="0>0|1|0|1|0|0" />
+        <i3dMapping id="upperLink" node="0>0|1|0|1|0|1" />
+        <i3dMapping id="translatingPart" node="0>0|1|0|1|0|1|0" />
+        <i3dMapping id="translatingPartRef" node="0>0|1|0|1|0|1|0|0" />
+        <i3dMapping id="scalingPart" node="0>0|1|0|1|0|1|0|1" />
+        <i3dMapping id="scalingPartRef" node="0>0|1|0|1|0|1|1" />
+        <i3dMapping id="movingPartJoint2" node="0>0|1|0|1|0|4" />
+        <i3dMapping id="topArmHydraulics" node="0>0|1|0|2" />
+        <i3dMapping id="topArmHydraulicsPunch" node="0>0|1|0|2|0" />
+        <i3dMapping id="spring" node="0>0|1|0|3|0|0" />
+        <i3dMapping id="rotationNode" node="0>0|1|0|4" />
+        <i3dMapping id="rotationNode2" node="0>0|1|0|4|0" />
+        <i3dMapping id="backAttacherJoint" node="0>0|1|0|4|0|0" />
+        <i3dMapping id="bottomArm" node="0>0|1|0|5" />
+        <i3dMapping id="bottomArm2" node="0>0|1|0|5|0" />
+        <i3dMapping id="referencePoint" node="0>0|1|0|5|0|0" />
+        <i3dMapping id="lowerReferenceFrame" node="0>0|1|0|6" />
+        <i3dMapping id="backReferenceFrame" node="0>0|1|0|7" />
+        <i3dMapping id="chainReferencePoint" node="0>0|1|0|8" />
+        <i3dMapping id="backRollArm" node="0>0|1|1|0" />
+        <i3dMapping id="backRoll" node="0>0|1|1|0|0|0" />
+        <i3dMapping id="componentJoint" node="0>0|1|1|1" />
+        <i3dMapping id="referenceFrame" node="0>0|1|1|2" />
+        <i3dMapping id="ridgeMarkerLeftArm" node="0>0|1|2|0" />
+        <i3dMapping id="ridgeMarkerLeftTestAreaStart" node="0>0|1|2|0|0|0" />
+        <i3dMapping id="ridgeMarkerLeftTestAreaWidth" node="0>0|1|2|0|0|1" />
+        <i3dMapping id="ridgeMarkerLeftTestAreaHeight" node="0>0|1|2|0|0|2" />
+        <i3dMapping id="ridgeMarkerLeftAreaStart" node="0>0|1|2|0|1|0" />
+        <i3dMapping id="ridgeMarkerLeftAreaWidth" node="0>0|1|2|0|1|1" />
+        <i3dMapping id="ridgeMarkerLeftAreaHeight" node="0>0|1|2|0|1|2" />
+        <i3dMapping id="ridgeMarkerLeftArmHydraulicRef" node="0>0|1|2|0|2" />
+        <i3dMapping id="leftRidgeMarkerWheel" node="0>0|1|2|0|3|0" />
+        <i3dMapping id="depthNodeLeftMarker" node="0>0|1|2|0|4" />
+        <i3dMapping id="soilAnimationLeft" node="0>0|1|2|0|5|0" />
+        <i3dMapping id="ridgeMarkerLeftArmHydraulic" node="0>0|1|2|1" />
+        <i3dMapping id="ridgeMarkerLeftArmHydraulicPunch" node="0>0|1|2|1|0" />
+        <i3dMapping id="ridgeMarkerRightArm" node="0>0|1|2|2" />
+        <i3dMapping id="ridgeMarkerRightTestAreaStart" node="0>0|1|2|2|0|0" />
+        <i3dMapping id="ridgeMarkerRightTestAreaWidth" node="0>0|1|2|2|0|1" />
+        <i3dMapping id="ridgeMarkerRightTestAreaHeight" node="0>0|1|2|2|0|2" />
+        <i3dMapping id="ridgeMarkerRightAreaStart" node="0>0|1|2|2|1|0" />
+        <i3dMapping id="ridgeMarkerRightAreaWidth" node="0>0|1|2|2|1|1" />
+        <i3dMapping id="ridgeMarkerRightAreaHeight" node="0>0|1|2|2|1|2" />
+        <i3dMapping id="ridgeMarkerRightArmHydraulicRef" node="0>0|1|2|2|2" />
+        <i3dMapping id="rightRidgeMarkerWheel" node="0>0|1|2|2|3|0" />
+        <i3dMapping id="depthNodeRightMarker" node="0>0|1|2|2|4" />
+        <i3dMapping id="soilAnimationRight" node="0>0|1|2|2|5|0" />
+        <i3dMapping id="ridgeMarkerRightArmHydraulic" node="0>0|1|2|3" />
+        <i3dMapping id="ridgeMarkerRightArmHydraulicPunch" node="0>0|1|2|3|0" />
+        <i3dMapping id="support" node="0>0|1|3" />
+        <i3dMapping id="turnOnRotationNode01" node="0>0|2|0" />
+        <i3dMapping id="turnOnRotationNode02" node="0>0|2|1" />
+        <i3dMapping id="turnOnRotationNode03" node="0>0|2|2" />
+        <i3dMapping id="turnOnRotationNode04" node="0>0|2|3" />
+        <i3dMapping id="turnOnRotationNode05" node="0>0|2|4" />
+        <i3dMapping id="turnOnRotationNode06" node="0>0|2|5" />
+        <i3dMapping id="turnOnRotationNode07" node="0>0|2|6" />
+        <i3dMapping id="turnOnRotationNode08" node="0>0|2|7" />
+        <i3dMapping id="turnOnRotationNode09" node="0>0|2|8" />
+        <i3dMapping id="turnOnRotationNode010" node="0>0|2|9" />
+        <i3dMapping id="turnOnRotationNode011" node="0>0|2|10" />
+        <i3dMapping id="turnOnRotationNode012" node="0>0|2|11" />
+        <i3dMapping id="turnOnRotationNode013" node="0>0|2|12" />
+        <i3dMapping id="turnOnRotationNode014" node="0>0|2|13" />
+        <i3dMapping id="light01" node="0>0|3|0|0" />
+        <i3dMapping id="light02" node="0>0|3|0|1" />
+        <i3dMapping id="defaultLightsHigh1" node="0>0|3|1" />
+        <i3dMapping id="workAreaStart" node="0>0|4|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|4|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|4|2" />
+        <i3dMapping id="groundReferenceNode" node="0>0|4|3" />
+        <i3dMapping id="left" node="0>0|5|0|0" />
+        <i3dMapping id="right" node="0>0|5|0|1" />
+        <i3dMapping id="back" node="0>0|5|0|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|5|1" />
+        <i3dMapping id="soilAnimation" node="0>0|6|0|0" />
+        <i3dMapping id="soilEmitShape" node="0>0|6|0|1" />
+        <i3dMapping id="dustEmitterShape" node="0>0|6|0|2" />
+        <i3dMapping id="soilEmitShape1" node="0>0|6|0|3" />
+        <i3dMapping id="ptoOutputNode" node="0>0|9" />
+        <i3dMapping id="topRightPipeSkipPoint" node="0>0|10" />
+        <i3dMapping id="backRollArmRef" node="1>0" />
+        <i3dMapping id="backWheel" node="1>1" />
+    </i3dMappings>
+</vehicle>

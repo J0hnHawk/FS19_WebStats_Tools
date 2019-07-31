@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="fertilizingSowingMachine">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>ED 3000-C</name>
+        <specs>
+            <neededPower>100</neededPower>
+            <workingWidth>3</workingWidth>
+            <combination>AGCO 1100</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_sowingMachine</function>
+        </functions>
+        <image>$data/vehicles/amazone/amazoneED3000/store_amazoneED3000.png</image>
+        <price>27000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>AMAZONE</brand>
+        <category>planters</category>
+        <shopTranslationOffset>0 -0.115 0</shopTranslationOffset>
+        <shopRotationOffset>0 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>1808800</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>301170</indexBufferMemoryUsage>
+        <textureMemoryUsage>8563768</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_sowingMachine</typeDesc>
+        <filename>$data/vehicles/amazone/amazoneED3000/amazoneED3000.i3d</filename>
+        <size width="4.5" length="3.5" lengthOffset="-0.2"/>
+        <speedLimit value="15" />
+        <components>
+            <component centerOfMass="0 0.7 0" solverIterationCount="10" mass="1810"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels hasSurfaceSounds="false">
+                    <wheel filename="$data/shared/wheels/trelleborg/T421/320_60R12.xml" isLeft="true" >
+                        <physics rotSpeed="0" radius="0.35" restLoad="0.7" repr="wheelLeft"  forcePointRatio="0.3" initialCompression="35" suspTravel="0.03" spring="60" damper="50" rotationDamping="0.003" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T421/320_60R12.xml" isLeft="false" >
+                        <physics rotSpeed="0" radius="0.35" restLoad="0.7" repr="wheelRight" forcePointRatio="0.3" initialCompression="35" suspTravel="0.03" spring="60" damper="50" rotationDamping="0.003" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <rimColor>AMAZONE_ORANGE1</rimColor>
+
+        <hubs>
+            <color0>AMAZONE_GREEN1</color0>
+            <hub linkNode="wheelLeft"  filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.18 0.18 0.18" />
+            <hub linkNode="wheelLeft"  filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.18 0.18 0.18" />
+            <hub linkNode="wheelRight" filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.18 0.18 0.18" />
+            <hub linkNode="wheelRight" filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.18 0.18 0.18" />
+        </hubs>
+    </wheels>
+
+    <powerConsumer ptoRpm="540" neededMinPtoPower="5" neededMaxPtoPower="5" forceNode="amazoneED3000_main_component1" maxForce="10" />
+
+    <lights>
+            <sharedLight linkNode="sideMarker01"       filename="$data/shared/assets/reflectors/lizard/yellowRound_01.xml" />
+            <sharedLight linkNode="sideMarker02"       filename="$data/shared/assets/reflectors/lizard/yellowRound_01.xml" />
+            <sharedLight linkNode="backlightLeft"       filename="$data/shared/assets/lights/lizard/rear3ChamberLight_02_left.xml" />
+            <sharedLight linkNode="backlightRight"       filename="$data/shared/assets/lights/lizard/rear3ChamberLight_02_right.xml" />
+            <sharedLight linkNode="worklight01"       filename="$data/shared/assets/lights/lizard/workingLightSquare_02.xml" />
+            <sharedLight linkNode="worklight02"       filename="$data/shared/assets/lights/lizard/workingLightSquare_02.xml" />
+            <sharedLight linkNode="frontlight01"       filename="$data/shared/assets/lights/lizard/sideMarker_05White.xml" />
+            <sharedLight linkNode="frontlight02"       filename="$data/shared/assets/lights/lizard/sideMarker_05White.xml" />
+        <realLights>
+            <high>
+                <light node="backLightsHigh1" lightTypes="0"/>
+                <light node="workLightBackHigh" lightTypes="1"/>
+                <turnLightLeft node="turnLightLeftBack"/>
+                <turnLightRight node="turnLightRightBack"/>
+                <brakeLight node="backLightsHigh1"/>
+            </high>
+        </realLights>
+    </lights>
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <unloading width="9" offset="0 0 0" />
+                    <fillUnit unit="$l10n_unit_literShort" fillTypes="seeds" capacity="240" > <!-- 60l per seeder unit -->
+                        <exactFillRootNode node="exactFillRootNode_seeds" />
+                    </fillUnit>
+                    <fillUnit unit="$l10n_unit_literShort" fillTypes="fertilizer" capacity="900" >
+                        <exactFillRootNode node="exactFillRootNode_fertilizer" />
+                    </fillUnit>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <fillVolume>
+        <fillVolumeConfigurations>
+            <fillVolumeConfiguration>
+                <volumes>
+                    <volume node="fillVolume" maxDelta="0.0" fillUnitIndex="1" />
+                </volumes>
+            </fillVolumeConfiguration>
+        </fillVolumeConfigurations>
+
+        <unloadInfos>
+            <unloadInfo>
+                <node node="fillVolumeUnloadNode" width="1.3" length="0.1"/>
+            </unloadInfo>
+        </unloadInfos>
+
+        <loadInfos>
+            <loadInfo>
+                <node node="fillVolumeLoadNode1" width="0.15" length="0.15"/>
+            </loadInfo>
+        </loadInfos>
+    </fillVolume>
+
+    <workAreas>
+        <workArea type="sowingMachine" functionName="processSowingMachineArea">
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight" />
+            <groundReferenceNode index="1" />
+        </workArea>
+
+        <workArea type="ridgemarker" functionName="processRidgeMarkerArea" disableBackwards="false" needsSetIsTurnedOn="false" >
+            <area startNode="ridgeMarkerLeftWorkAreaStart" widthNode="ridgeMarkerLeftWorkAreaWidth" heightNode="ridgeMarkerLeftWorkAreaHeight" />
+            <testArea startNode="ridgeMarkerLeftTestAreaStart" widthNode="ridgeMarkerLeftTestAreaWidth" heightNode="ridgeMarkerLeftTestAreaHeight" />
+            <groundReferenceNode index="2" />
+        </workArea>
+
+        <workArea type="ridgemarker" functionName="processRidgeMarkerArea" disableBackwards="false" needsSetIsTurnedOn="false" >
+            <area startNode="ridgeMarkerRightWorkAreaStart" widthNode="ridgeMarkerRightWorkAreaWidth" heightNode="ridgeMarkerRightWorkAreaHeight" />
+            <testArea startNode="ridgeMarkerRightTestAreaStart" widthNode="ridgeMarkerRightTestAreaWidth" heightNode="ridgeMarkerRightTestAreaHeight" />
+            <groundReferenceNode index="3" />
+        </workArea>
+    </workAreas>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="amazoneED3000_main_component1"    threshold="0.1" depthNode="depthNode"/>
+        <groundReferenceNode node="leftMarkerDepthNode"              threshold="0"   depthNode="leftMarkerDepthNode"/>
+        <groundReferenceNode node="rightMarkerDepthNode"             threshold="0"   depthNode="rightMarkerDepthNode"/>
+    </groundReferenceNodes>
+
+    <workParticles>
+        <particleAnimation>
+            <node node="centerAnimation"          refNodeIndex="1" materialType="SOIL" />
+            <node node="leftMarkerSoilAnimation"  refNodeIndex="2" maxDepth="-0.05" materialType="SOIL" />
+            <node node="rightMarkerSoilAnimation" refNodeIndex="3" maxDepth="-0.05" materialType="SOIL" />
+        </particleAnimation>
+
+        <particle>
+            <node node="dustEmitterShape" refNodeIndex="1" particleType="SOIL_SMOKE" />
+            <node node="soilEmitShape01"  refNodeIndex="1" particleType="SOIL" />
+            <node node="soilEmitShape02"  refNodeIndex="1" particleType="SOIL_CHUNKS" worldSpace="false"/>
+        </particle>
+    </workParticles>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="implement" topReferenceNode="topReferenceNode">
+                <distanceToGround lower="0.3" upper="1.0" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+        <brakeForce>0.2</brakeForce>
+    </attachable>
+
+    <speedRotatingParts>
+        <speedRotatingPart shaderNode="discsFront" radius="-0.22" groundReferenceNodeIndex="1" />
+
+        <speedRotatingPart shaderNode="discsFrontInner"   radius="-0.22" groundReferenceNodeIndex="1" />
+        <speedRotatingPart shaderNode="discsMiddle1"   radius="-0.22" groundReferenceNodeIndex="1" />
+
+        <speedRotatingPart shaderNode="discsMiddle2"   radius="-0.22" groundReferenceNodeIndex="1" />
+        <speedRotatingPart shaderNode="discsMiddle3"   radius="-0.22" groundReferenceNodeIndex="1" />
+        <speedRotatingPart shaderNode="discsMiddle4"   radius="-0.22" groundReferenceNodeIndex="1" />
+        <speedRotatingPart shaderNode="discsMiddle5"   radius="-0.22" groundReferenceNodeIndex="1" />
+        <speedRotatingPart shaderNode="discsMiddle6"   radius="-0.22" groundReferenceNodeIndex="1" />
+
+        <speedRotatingPart node="leftMarkerDisc"    radius="-0.20" groundReferenceNodeIndex="2" />
+        <speedRotatingPart node="rightMarkerDisc"   radius="-0.20" groundReferenceNodeIndex="3" />
+    </speedRotatingParts>
+
+    <sowingMachine fillUnitIndex="1" unloadInfoIndex="1" loadInfoIndex="1" >
+        <seedFruitTypeCategories>planter</seedFruitTypeCategories>
+        <needsActivation value="true" />
+
+        <animationNodes>
+            <animationNode node="ptoInternal" rotSpeed="1000" rotAxis="2" />
+        </animationNodes>
+
+        <sounds>
+            <work template="DEFAULT_SOWING_WORK" linkNode="amazoneED3000_main_component1" />
+            <airBlower template="DEFAULT_SOWING_AIR_BLOWER" linkNode="amazoneED3000_main_component1" />
+        </sounds>
+    </sowingMachine>
+
+    <sprayer fillUnitIndex="2" unloadInfoIndex="2" loadInfoIndex="2" >
+        <usageScales workingWidth="3" scale="1" />
+    </sprayer>
+
+    <ridgeMarker>
+        <marker animName="leftArm" workAreaIndex="2"/>
+        <marker animName="rightArm" workAreaIndex="3"/>
+    </ridgeMarker>
+
+    <cylindered>
+        <movingTools>
+            <!-- left arm -->
+            <movingTool node="leftMarker" playSound="true">
+                <dependentPart node="hydraulicLeftMarker" />
+            </movingTool>
+
+            <!-- right arm -->
+            <movingTool node="rightMarker" playSound="true">
+                <dependentPart node="hydraulicRightMarker" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <!-- left arm hydraulic -->
+            <movingPart node="hydraulicLeftMarker" referencePoint="hydraulicLeftMarkerRef" referenceFrame="amazoneED3000_main_component1" useLocalOffset="true" >
+                <translatingPart node="hydraulicLeftMarkerPunch" />
+            </movingPart>
+
+            <!-- right arm hydraulic -->
+            <movingPart node="hydraulicRightMarker" referencePoint="hydraulicRightMarkerRef" referenceFrame="amazoneED3000_main_component1" useLocalOffset="true" >
+                <translatingPart node="hydraulicRightMarkerPunch" />
+            </movingPart>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <animations>
+        <!-- move left arm -->
+        <animation name="leftArm">
+            <part node="leftMarker" startTime="0" duration="1.5" startRot="0 0 0" endRot="0 0 -120.5" />
+        </animation>
+
+        <!-- move right arm -->
+        <animation name="rightArm">
+            <part node="rightMarker" startTime="0" duration="1.5" startRot="-90 0 0" endRot="-90 0 120.5" />
+        </animation>
+
+        <!-- cover -->
+        <animation name="toggleCover">
+            <part node="cover" startTime="0"    endTime="0.05" visibility="true" />
+            <part node="cover" startTime="0.05" endTime="0.1"  visibility="false" />
+        </animation>
+    </animations>
+
+    <cover>
+        <coverConfigurations>
+            <coverConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <cover openAnimation="toggleCover" fillUnitIndices="2" />
+            </coverConfiguration>
+        </coverConfigurations>
+    </cover>
+
+    <ai>
+        <needsLowering value="true" />
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack" />
+        <sizeMarkers leftNode="aiSizeMarkerleft" rightNode="aiSizeMarkerRight" backNode="aiSizeMarkerBack" />
+        <collisionTrigger node="aiCollisionTrigger" />
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-1.5" maxX="1.5" minZ="-1.4" maxZ="0.9" yOffset="0.6" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="amazoneED3000_mat" baseNode="amazoneED3000_vis">
+            <shaderParameter name="colorMat0" value="AMAZONE_GREEN1"/>
+            <shaderParameter name="colorMat1" value="AMAZONE_ORANGE1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="amazoneED3000_main_component1" node="0>" />
+        <i3dMapping id="amazoneED3000_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0|0" />
+        <i3dMapping id="topReferenceNode" node="0>0|0|1" />
+        <i3dMapping id="wheelLeft" node="0>0|1|0" />
+        <i3dMapping id="wheelRight" node="0>0|1|1" />
+        <i3dMapping id="sideMarker01" node="0>0|2|0|0" />
+        <i3dMapping id="sideMarker02" node="0>0|2|0|1" />
+        <i3dMapping id="backlightLeft" node="0>0|2|0|2" />
+        <i3dMapping id="backlightRight" node="0>0|2|0|3" />
+        <i3dMapping id="worklight01" node="0>0|2|0|4" />
+        <i3dMapping id="worklight02" node="0>0|2|0|5" />
+        <i3dMapping id="frontlight01" node="0>0|2|0|6" />
+        <i3dMapping id="frontlight02" node="0>0|2|0|7" />
+        <i3dMapping id="backLightsHigh1" node="0>0|2|1" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|2|2" />
+        <i3dMapping id="turnLightRightBack" node="0>0|2|3" />
+        <i3dMapping id="workLightBackHigh" node="0>0|2|4" />
+        <i3dMapping id="leftMarker" node="0>0|3|0|0" />
+        <i3dMapping id="hydraulicLeftMarkerRef" node="0>0|3|0|0|0" />
+        <i3dMapping id="leftMarkerDisc" node="0>0|3|0|0|1|0" />
+        <i3dMapping id="ridgeMarkerLeftWorkAreaStart" node="0>0|3|0|0|2|0" />
+        <i3dMapping id="ridgeMarkerLeftWorkAreaWidth" node="0>0|3|0|0|2|1" />
+        <i3dMapping id="ridgeMarkerLeftWorkAreaHeight" node="0>0|3|0|0|2|2" />
+        <i3dMapping id="ridgeMarkerLeftTestAreaStart" node="0>0|3|0|0|3|0" />
+        <i3dMapping id="ridgeMarkerLeftTestAreaWidth" node="0>0|3|0|0|3|1" />
+        <i3dMapping id="ridgeMarkerLeftTestAreaHeight" node="0>0|3|0|0|3|2" />
+        <i3dMapping id="leftMarkerSoilAnimation" node="0>0|3|0|0|4|0" />
+        <i3dMapping id="leftMarkerDepthNode" node="0>0|3|0|0|5" />
+        <i3dMapping id="rightMarker" node="0>0|3|0|1" />
+        <i3dMapping id="hydraulicRightMarkerRef" node="0>0|3|0|1|0" />
+        <i3dMapping id="rightMarkerDisc" node="0>0|3|0|1|1|0" />
+        <i3dMapping id="ridgeMarkerRightWorkAreaStart" node="0>0|3|0|1|2|0" />
+        <i3dMapping id="ridgeMarkerRightWorkAreaWidth" node="0>0|3|0|1|2|1" />
+        <i3dMapping id="ridgeMarkerRightWorkAreaHeight" node="0>0|3|0|1|2|2" />
+        <i3dMapping id="ridgeMarkerRightTestAreaStart" node="0>0|3|0|1|3|0" />
+        <i3dMapping id="ridgeMarkerRightTestAreaWidth" node="0>0|3|0|1|3|1" />
+        <i3dMapping id="ridgeMarkerRightTestAreaHeight" node="0>0|3|0|1|3|2" />
+        <i3dMapping id="rightMarkerSoilAnimation" node="0>0|3|0|1|4|0" />
+        <i3dMapping id="rightMarkerDepthNode" node="0>0|3|0|1|5" />
+        <i3dMapping id="hydraulicLeftMarker" node="0>0|3|0|2" />
+        <i3dMapping id="hydraulicLeftMarkerPunch" node="0>0|3|0|2|0" />
+        <i3dMapping id="hydraulicRightMarker" node="0>0|3|0|3" />
+        <i3dMapping id="hydraulicRightMarkerPunch" node="0>0|3|0|3|0" />
+        <i3dMapping id="discsFront" node="0>0|3|1|0" />
+        <i3dMapping id="discsFrontInner" node="0>0|3|1|1" />
+        <i3dMapping id="discsMiddle1" node="0>0|3|1|2" />
+        <i3dMapping id="discsMiddle2" node="0>0|3|1|3" />
+        <i3dMapping id="discsMiddle3" node="0>0|3|1|4" />
+        <i3dMapping id="discsMiddle4" node="0>0|3|1|5" />
+        <i3dMapping id="discsMiddle5" node="0>0|3|1|6" />
+        <i3dMapping id="discsMiddle6" node="0>0|3|1|7" />
+        <i3dMapping id="ptoInternal" node="0>0|3|2|0|0" />
+        <i3dMapping id="fillVolume" node="0>0|4|0" />
+        <i3dMapping id="fillVolumeUnloadNode" node="0>0|4|1" />
+        <i3dMapping id="fillVolumeLoadNode1" node="0>0|4|2" />
+        <i3dMapping id="exactFillRootNode_seeds" node="0>0|4|4" />
+        <i3dMapping id="exactFillRootNode_fertilizer" node="0>0|4|5" />
+        <i3dMapping id="centerAnimation" node="0>0|5|0|0" />
+        <i3dMapping id="soilEmitShape01" node="0>0|5|0|1" />
+        <i3dMapping id="dustEmitterShape" node="0>0|5|0|2" />
+        <i3dMapping id="soilEmitShape02" node="0>0|5|0|3" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|6|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|6|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|6|0|2" />
+        <i3dMapping id="aiSizeMarkerleft" node="0>0|6|1|0" />
+        <i3dMapping id="aiSizeMarkerRight" node="0>0|6|1|1" />
+        <i3dMapping id="aiSizeMarkerBack" node="0>0|6|1|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|6|2" />
+        <i3dMapping id="workAreaStart" node="0>0|7|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|7|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|7|2" />
+        <i3dMapping id="depthNode" node="0>0|7|3" />
+        <i3dMapping id="cover" node="0>0|8|3|0" />
+    </i3dMappings>
+</vehicle>

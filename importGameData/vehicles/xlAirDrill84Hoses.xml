@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<powerTakeOff filename="$data/vehicles/seedHawk/xlAirDrill84/xlAirDrill84Hoses.i3d">
+    <startNode node="0"/>
+    <linkNode node="0|0|0"/>
+</powerTakeOff>

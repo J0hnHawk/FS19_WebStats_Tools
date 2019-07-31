@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="cultivator">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>CULTIMER L 300</name>
+        <specs>
+            <neededPower>120</neededPower>
+            <workingWidth>3.0</workingWidth>
+            <combination>AGCO 1100</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_cultivator</function>
+        </functions>
+        <image>$data/vehicles/kuhn/kuhnCultimerL300/store_kuhnCultimerL300.png</image>
+        <price>16000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>KUHN</brand>
+        <category>cultivators</category>
+        <vertexBufferMemoryUsage>1149284</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>194298</indexBufferMemoryUsage>
+        <textureMemoryUsage>5068432</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_cultivator</typeDesc>
+        <filename>$data/vehicles/kuhn/kuhnCultimerL300/kuhnCultimerL300.i3d</filename>
+        <size width="4" length="4"/>
+        <speedLimit value="15" />
+        <components>
+            <component centerOfMass="0 0.5 0.6" solverIterationCount="10" mass="1962" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels hasSurfaceSounds="false">
+                    <wheel hasParticles="false" >
+                        <physics rotSpeed="0" restLoad="0.6" repr="wheels1" forcePointRatio="0.5" radius="0.28" width="0.3" mass="0.1" initialCompression="30" suspTravel="0.1" spring="15" damper="20" rotationDamping="0.005" isSynchronized="false" />
+                    </wheel>
+                    <wheel hasParticles="false" >
+                        <physics rotSpeed="0" restLoad="0.6" repr="wheels2" forcePointRatio="0.5" radius="0.28" width="0.3" mass="0.1" initialCompression="30" suspTravel="0.1" spring="15" damper="20" rotationDamping="0.005" isSynchronized="false" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+    </wheels>
+
+    <lights>
+        <sharedLight linkNode="rear4ChamberLight_01_left" filename="$data/shared/assets/lights/lizard/rear4ChamberLight_01_left.xml" />
+        <sharedLight linkNode="rear4ChamberLight_01_right" filename="$data/shared/assets/lights/lizard/rear4ChamberLight_01_right.xml" />
+        <sharedLight linkNode="frontLightRectangle_01_1" filename="$data/shared/assets/lights/lizard/frontLightRectangle_01.xml" />
+        <sharedLight linkNode="frontLightRectangle_01_2" filename="$data/shared/assets/lights/lizard/frontLightRectangle_01.xml" />
+        <sharedLight linkNode="sideMarker_04Orange_1" filename="$data/shared/assets/lights/lizard/sideMarker_04Orange.xml" />
+        <sharedLight linkNode="sideMarker_04Orange_2" filename="$data/shared/assets/lights/lizard/sideMarker_04Orange.xml" />
+        <sharedLight linkNode="sideMarker_04Orange_3" filename="$data/shared/assets/lights/lizard/sideMarker_04Orange.xml" />
+        <sharedLight linkNode="sideMarker_04Orange_4" filename="$data/shared/assets/lights/lizard/sideMarker_04Orange.xml" />
+
+        <realLights>
+            <high>
+                <light node="backLightsHigh"        lightTypes="0"/>
+                <brakeLight node="backLightsHigh" />
+                <turnLightLeft node="turnLightLeftBack" />
+                <turnLightRight node="turnLightRightBack" />
+            </high>
+        </realLights>
+    </lights>
+
+    <!-- recommended horsepower by manufacturer: 120 -->
+    <powerConsumer forceNode="cultimerL300_main_component1" forceFactor="0.13" maxForce="15" />
+
+    <speedRotatingParts>
+        <speedRotatingPart node="drum"   radius="0.288" groundReferenceNodeIndex="1" />
+        <speedRotatingPart node="disc1"  radius="0.227" groundReferenceNodeIndex="1" />
+        <speedRotatingPart node="disc2"  radius="0.227" groundReferenceNodeIndex="1" />
+        <speedRotatingPart node="disc3"  radius="0.227" groundReferenceNodeIndex="1" />
+        <speedRotatingPart node="disc7"  radius="0.227" groundReferenceNodeIndex="1" />
+        <speedRotatingPart node="disc8"  radius="0.227" groundReferenceNodeIndex="1" />
+        <speedRotatingPart node="disc9"  radius="0.227" groundReferenceNodeIndex="1" />
+        <speedRotatingPart node="disc19" radius="0.227" groundReferenceNodeIndex="1" />
+        <speedRotatingPart node="disc"   radius="0.227" groundReferenceNodeIndex="1" />
+    </speedRotatingParts>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="cultimerL300_main_component1" threshold="0.1" chargeValue="1" depthNode="depthNode" maxDepth="-0.2" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="cultivator" functionName="processCultivatorArea" >
+            <area startNode="startIndex" widthNode="widthIndex" heightNode="heightIndex" />
+            <groundReferenceNode index="1" />
+            <folding minLimit="0" maxLimit="1.0" />
+        </workArea>
+    </workAreas>
+
+    <workParticles>
+        <particleAnimation>
+            <node node="centerAnimation" refNodeIndex="1" materialType="SOIL" />
+        </particleAnimation>
+        <particle>
+            <node node="soilEmitShape" refNodeIndex="1" particleType="SOIL" worldSpace="false" speedThreshold="6" />
+            <node node="smokeEmitterShape" refNodeIndex="1" particleType="SOIL_SMOKE" speedThreshold="1" />
+            <node node="chunkEmitterShape1" refNodeIndex="1" particleType="SOIL_CHUNKS" worldSpace="false" speedThreshold="9" />
+            <node node="chunkEmitterShape2" refNodeIndex="1" particleType="SOIL_BIG_CHUNKS" worldSpace="false" speedThreshold="11" />
+        </particle>
+    </workParticles>
+
+    <animations>
+        <animation name="moveSupport">
+            <part node="supportCol" startTime="0.0" endTime="0.30" startTrans="0 0.3 0" endTrans="0 0 0" />
+        </animation>
+        <animation name="folding">
+            <part node="discArmLeft" startTime="0" endTime="1.5" startTrans="1.248 0.698 -0.551"  endTrans="0.962 0.698 -0.551"/>
+            <part node="discArmRight" startTime="0" endTime="1.5" startTrans="-1.248 0.698 -0.551" endTrans="-0.962 0.698 -0.551"/>
+        </animation>
+    </animations>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="implement" topReferenceNode="topReferenceNode"   >
+                <distanceToGround lower="0.5" upper="1.8" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+        <support animationName="moveSupport" />
+    </attachable>
+
+    <foldable>
+        <foldingParts startMoveDirection="0" turnOnFoldDirection="-1" loweringMinLimit="0" loweringMaxLimit="0" >
+            <foldingPart animationName="folding" speedScale="1" />
+        </foldingParts>
+    </foldable>
+
+    <cultivator>
+        <sounds>
+            <work template="DEFAULT_CULTIVATOR_WORK" linkNode="cultimerL300_main_component1" />
+        </sounds>
+        <directionNode node="cultimerL300_main_component1" />
+        <onlyActiveWhenLowered value="true"/>
+    </cultivator>
+
+    <ai>
+        <needsLowering value="true" />
+        <areaMarkers leftNode="aiLeftMarker" rightNode="aiRightMarker" backNode="aiBackMarker" />
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-1.6" maxX="1.6" minZ="-2.0" maxZ="2.0" yOffset="0.2" />
+    </foliageBending>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="cultimerL300_main_component1" node="0>" />
+        <i3dMapping id="kuhn_vis" node="0>0" />
+        <i3dMapping id="wheels1" node="0>0|0|0" />
+        <i3dMapping id="wheels2" node="0>0|0|1" />
+        <i3dMapping id="attacherJoint" node="0>0|1|0" />
+        <i3dMapping id="topReferenceNode" node="0>0|1|1" />
+        <i3dMapping id="rear4ChamberLight_01_left" node="0>0|2|0|0" />
+        <i3dMapping id="rear4ChamberLight_01_right" node="0>0|2|0|1" />
+        <i3dMapping id="sideMarker_04Orange_1" node="0>0|2|0|2" />
+        <i3dMapping id="sideMarker_04Orange_2" node="0>0|2|0|3" />
+        <i3dMapping id="sideMarker_04Orange_3" node="0>0|2|0|4" />
+        <i3dMapping id="sideMarker_04Orange_4" node="0>0|2|0|5" />
+        <i3dMapping id="frontLightRectangle_01_1" node="0>0|2|0|6" />
+        <i3dMapping id="frontLightRectangle_01_2" node="0>0|2|0|7" />
+        <i3dMapping id="backLightsHigh" node="0>0|2|1" />
+        <i3dMapping id="turnLightRightBack" node="0>0|2|2" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|2|3" />
+        <i3dMapping id="startIndex" node="0>0|3|0" />
+        <i3dMapping id="widthIndex" node="0>0|3|1" />
+        <i3dMapping id="heightIndex" node="0>0|3|2" />
+        <i3dMapping id="aiLeftMarker" node="0>0|4|0" />
+        <i3dMapping id="aiRightMarker" node="0>0|4|1" />
+        <i3dMapping id="aiBackMarker" node="0>0|4|2" />
+        <i3dMapping id="centerAnimation" node="0>0|5|0|0" />
+        <i3dMapping id="soilEmitShape" node="0>0|5|0|1" />
+        <i3dMapping id="smokeEmitterShape" node="0>0|5|0|2" />
+        <i3dMapping id="chunkEmitterShape1" node="0>0|5|0|3" />
+        <i3dMapping id="chunkEmitterShape2" node="0>0|5|0|4" />
+        <i3dMapping id="depthNode" node="0>0|5|1" />
+        <i3dMapping id="drum" node="0>0|6|0" />
+        <i3dMapping id="disc1" node="0>0|6|1|0" />
+        <i3dMapping id="disc2" node="0>0|6|1|1" />
+        <i3dMapping id="disc3" node="0>0|6|1|2" />
+        <i3dMapping id="disc7" node="0>0|6|2|0" />
+        <i3dMapping id="disc8" node="0>0|6|2|1" />
+        <i3dMapping id="disc9" node="0>0|6|2|2" />
+        <i3dMapping id="discArmLeft" node="0>0|6|3" />
+        <i3dMapping id="disc19" node="0>0|6|3|0|0" />
+        <i3dMapping id="discArmRight" node="0>0|6|4" />
+        <i3dMapping id="disc" node="0>0|6|4|0|0" />
+        <i3dMapping id="supportCol" node="0>0|8" />
+    </i3dMappings>
+</vehicle>

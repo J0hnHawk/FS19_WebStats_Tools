@@ -1,0 +1,1127 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="windrower">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>MERGE MAXX 902</name>
+        <specs>
+            <workingWidth>9.1</workingWidth>
+            <neededPower>140</neededPower>
+            <combination>SB 1000, AGCO 1100</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_windrower</function>
+        </functions>
+        <image>$data/vehicles/kuhn/kuhnMergeMaxx902/store_kuhnMergeMaxx902.png</image>
+        <price>110000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>KUHN</brand>
+        <category>windrowers</category>
+        <shopTranslationOffset>0 0.077 0</shopTranslationOffset>
+        <shopRotationOffset>-0.15 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>3616480</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>886836</indexBufferMemoryUsage>
+        <textureMemoryUsage>8388984</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_merger</typeDesc>
+        <filename>$data/vehicles/kuhn/kuhnMergeMaxx902/kuhnMergeMaxx902.i3d</filename>
+        <size width="4" length="7.5"/>
+        <speedLimit value="23" />
+        <components>
+            <component centerOfMass="0 1 -1.5" solverIterationCount="10" mass="1950" />
+            <component solverIterationCount="10" mass="1250" />
+
+            <component solverIterationCount="10" mass="700" />
+            <component solverIterationCount="10" mass="700" />
+
+            <component solverIterationCount="10" mass="450" />
+            <component centerOfMass="0 0 0.5" solverIterationCount="10" mass="450" />
+            <component centerOfMass="0 0 0.5" solverIterationCount="10" mass="450" />
+
+            <joint component1="1" component2="2" node="componentJoint01" rotLimit="0 70 0" transLimit="0 0 0" />
+            <joint component1="1" component2="3" node="componentJoint02" rotLimit="0 0 0"  transLimit="0 0 0" />
+            <joint component1="1" component2="4" node="componentJoint03" rotLimit="0 0 0"  transLimit="0 0 0" />
+            <joint component1="1" component2="5" node="componentJoint04" rotLimit="0 0 0"  transLimit="0 0 0" />
+            <joint component1="3" component2="6" node="componentJoint05" rotLimit="0 0 0"  transLimit="0 0 0" />
+            <joint component1="4" component2="7" node="componentJoint06" rotLimit="0 0 0"  transLimit="0 0 0" />
+
+            <collisionPair component1="1" component2="6" enabled="false" />
+            <collisionPair component1="1" component2="7" enabled="false" />
+
+            <collisionPair component1="5" component2="6" enabled="false" />
+            <collisionPair component1="5" component2="7" enabled="false" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <powerConsumer ptoRpm="500" neededMinPtoPower="35" neededMaxPtoPower="35"/>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/400_55R22_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics restLoad="1.9" repr="leftWheelRepr"  driveNode="leftWheelDriveNode"  forcePointRatio="0.2"  initialCompression="45" suspTravel="0.12" spring="32" damper="30" frictionScale="1.5" />
+                        <steeringAxle scale="-0.7" rotMax="40" rotMin="-40" />
+                        <wheelChock parkingNode="wheelChockDetached01" filename="$data/shared/assets/wheelChocks/wheelChock02.i3d"/>
+                        <wheelChock parkingNode="wheelChockDetached02" filename="$data/shared/assets/wheelChocks/wheelChock02.i3d" isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/400_55R22_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics restLoad="1.9" repr="rightWheelRepr" driveNode="rightWheelDriveNode" forcePointRatio="0.2"  initialCompression="45" suspTravel="0.12" spring="32" damper="30" frictionScale="1.5" />
+                        <steeringAxle scale="-0.7" rotMax="40" rotMin="-40" />
+                    </wheel>
+
+                    <wheel>
+                        <physics restLoad="0.25" repr="pyhsicalSupportWheel01" radius="0.3" width="0.3" forcePointRatio="0.2" initialCompression="50" suspTravel="0.1" spring="45" damper="40" mass="0.1" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.25" repr="pyhsicalSupportWheel02" radius="0.3" width="0.3" forcePointRatio="0.2" initialCompression="50" suspTravel="0.1" spring="45" damper="40" mass="0.1" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.25" repr="pyhsicalSupportWheel03" radius="0.3" width="0.3" forcePointRatio="0.2" initialCompression="50" suspTravel="0.1" spring="45" damper="40" mass="0.1" isSynchronized="false"/>
+                    </wheel>
+
+                    <wheel>
+                        <physics restLoad="0.25" repr="pyhsicalSupportWheel04" radius="0.3" width="0.3" forcePointRatio="0.2" initialCompression="50" suspTravel="0.1" spring="45" damper="40" mass="0.1" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.25" repr="pyhsicalSupportWheel05" radius="0.3" width="0.3" forcePointRatio="0.2" initialCompression="50" suspTravel="0.1" spring="45" damper="40" mass="0.1" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.25" repr="pyhsicalSupportWheel06" radius="0.3" width="0.3" forcePointRatio="0.2" initialCompression="50" suspTravel="0.1" spring="45" damper="40" mass="0.1" isSynchronized="false"/>
+                    </wheel>
+
+                    <wheel>
+                        <physics restLoad="0.25" repr="pyhsicalSupportWheel07" radius="0.3" width="0.3" forcePointRatio="0.2" initialCompression="50" suspTravel="0.1" spring="45" damper="40" mass="0.1" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.25" repr="pyhsicalSupportWheel08" radius="0.3" width="0.3" forcePointRatio="0.2" initialCompression="50" suspTravel="0.1" spring="45" damper="40" mass="0.1" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.25" repr="pyhsicalSupportWheel09" radius="0.3" width="0.3" forcePointRatio="0.2" initialCompression="50" suspTravel="0.1" spring="45" damper="40" mass="0.1" isSynchronized="false"/>
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <hubs>
+            <color0>KUHN_RED1</color0>
+            <hub linkNode="leftWheelDriveNode"  filename="$data/shared/wheels/hubs/hub_n6_1.xml" isLeft="true"  scale="0.203 0.203 0.203" />
+            <hub linkNode="rightWheelDriveNode" filename="$data/shared/wheels/hubs/hub_n6_1.xml" isLeft="false" scale="0.203 0.203 0.203" />
+        </hubs>
+    </wheels>
+
+
+    <lights>
+        <sharedLight linkNode="backlightLeft" filename="$data/shared/assets/lights/lizard/rear2ChamberLight_01_left.xml" />
+        <sharedLight linkNode="backlightRight" filename="$data/shared/assets/lights/lizard/rear2ChamberLight_01_right.xml" />
+        <sharedLight linkNode="frontlight01" filename="$data/shared/assets/lights/lizard/frontLightRectangle_01.xml" />
+        <sharedLight linkNode="frontlight02" filename="$data/shared/assets/lights/lizard/frontLightRectangle_01.xml" />
+        <sharedLight linkNode="whiteRounde01" filename="$data/shared/assets/reflectors/lizard/whiteRound_01.xml" />
+        <sharedLight linkNode="whiteRounde02" filename="$data/shared/assets/reflectors/lizard/whiteRound_01.xml" />
+        <realLights>
+            <high>
+                <light node="backLightsHigh1"        lightTypes="0"/>
+                <brakeLight node="backLightsHigh1" />
+                <turnLightLeft node="turnLightHighLeft" />
+                <turnLightRight node="turnLightHighRight" />
+            </high>
+        </realLights>
+    </lights>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="implement" rootNode="kuhnMergeMaxx902_attacher_component2" upperRotLimitScale="0 0 1" isDefaultLowered="false" needsLowering="false" allowsLowering="true" lowerFoldMinLimit="0"   lowerFoldMaxLimit="0">
+                <distanceToGround lower="0.72" upper="0.72" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+        <steeringAxleAngleScale backwards="true"/>
+        <support animationName="moveSupport" />
+        <brakeForce>1</brakeForce>
+    </attachable>
+
+    <powerTakeOffs>
+        <input inputAttacherJointIndices="1" detachNode="ptoDetachNode" inputNode="ptoInputNode" aboveAttacher="true" filename="$data/shared/assets/powerTakeOffs/walterscheidWWZ.xml" />
+    </powerTakeOffs>
+
+    <workAreas>
+        <workArea type="windrower" functionName="processWindrowerArea" disableBackwards="false" >
+            <area startNode="workArea01Start" widthNode="workArea01Width" heightNode="workArea01Height" />
+            <groundReferenceNode index="1" />
+            <windrower dropWindrowWorkAreaIndex="3" particleSystemIndex="1" />
+        </workArea>
+        <workArea type="windrower" functionName="processWindrowerArea" disableBackwards="false" >
+            <area startNode="workArea02Start" widthNode="workArea02Width" heightNode="workArea02Height" />
+            <groundReferenceNode index="2" />
+            <windrower dropWindrowWorkAreaIndex="4" particleSystemIndex="1" />
+        </workArea>
+        <workArea type="windrower" functionName="processWindrowerArea" disableBackwards="false" >
+            <area startNode="workArea03Start" widthNode="workArea03Width" heightNode="workArea03Height" />
+            <groundReferenceNode index="3" />
+            <windrower dropWindrowWorkAreaIndex="5" particleSystemIndex="1" />
+        </workArea>
+
+        <workArea type="auxiliary" >
+            <area startNode="dropArea01Start" widthNode="dropArea01Width" heightNode="dropArea01Height" />
+        </workArea>
+        <workArea type="auxiliary" >
+            <area startNode="dropArea02Start" widthNode="dropArea02Width" heightNode="dropArea02Height" />
+        </workArea>
+        <workArea type="auxiliary" >
+            <area startNode="dropArea03Start" widthNode="dropArea03Width" heightNode="dropArea03Height" />
+        </workArea>
+    </workAreas>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundReferenceNode1" threshold="0.1" />
+        <groundReferenceNode node="groundReferenceNode2" threshold="0.1" />
+        <groundReferenceNode node="groundReferenceNode3" threshold="0.1" />
+    </groundReferenceNodes>
+
+    <cylindered>
+        <movingTools>
+            <!-- left arm 2 -->
+            <movingTool node="leftArm2" playSound="true" >
+                <dependentPart node="leftArm2Hydraulic" />
+            </movingTool>
+
+            <!-- right arm 2 -->
+            <movingTool node="rightArm2" playSound="true" >
+                <dependentPart node="rightArm2Hydraulic" />
+            </movingTool>
+
+            <!-- left unit -->
+            <movingTool node="leftUnit" playSound="true" >
+                <dependentPart node="leftUnitBackPart" />
+                <dependentPart node="leftUnitUpperPart" />
+            </movingTool>
+
+            <!-- right unit -->
+            <movingTool node="rightUnit" playSound="true" >
+                <dependentPart node="rightUnitBackPart" />
+                <dependentPart node="rightUnitUpperPart" />
+            </movingTool>
+
+            <!-- middle back part -->
+            <movingTool node="middleUnitBackPlate" playSound="true" >
+                <dependentPart node="middleUnitBackPlateUpperPartOrientation" />
+                <dependentPart node="middleUnitSprings" />
+            </movingTool>
+
+            <movingTool node="componentJoint02" playSound="true" >
+                <componentJoint index="2" />
+            </movingTool>
+            <movingTool node="componentJoint03" playSound="true" >
+                <componentJoint index="3" />
+            </movingTool>
+
+            <movingTool node="componentJoint04" playSound="true" >
+                <componentJoint index="4" />
+            </movingTool>
+
+            <movingTool node="componentJoint05" playSound="true" >
+                <componentJoint index="5" />
+            </movingTool>
+            <movingTool node="componentJoint06" playSound="true" >
+                <componentJoint index="6" />
+            </movingTool>
+
+            <movingTool node="leftArmRotationNode" playSound="true" >
+                <componentJoint index="5" />
+            </movingTool>
+            <movingTool node="rightArmRotationNode" playSound="true" >
+                <componentJoint index="6" />
+            </movingTool>
+
+            <!-- steering -->
+            <movingTool node="rightWheelRepr" wheelIndices="2"/>
+
+            <!-- lock cylinders -->
+            <movingTool node="rightLock" playSound="true" >
+                <dependentPart node="rightLockHydraulic" />
+            </movingTool>
+
+            <movingTool node="leftLock" playSound="true" >
+                <dependentPart node="leftLockHydraulic" />
+            </movingTool>
+
+            <movingTool node="colPart01" wheelIndices="6 7 8"/>
+            <movingTool node="6>1" wheelIndices="9 10 11"/>
+        </movingTools>
+
+        <movingParts isActiveDirtyTimeOffset="2">
+            <!-- attacher block -->
+            <movingPart node="attacherBlock" referencePoint="attacherBlockRef" referenceFrame="kuhnMergeMaxx902_main_component1" isActiveDirty="true" limitedAxis="2">
+                <dependentPart node="steeringFrontOrientation" />
+            </movingPart>
+
+            <!-- left arm 1 -->
+            <movingPart node="leftArm1" referencePoint="leftArm1Ref" referenceFrame="referenceFrameLeft" isActiveDirty="true" limitedAxis="3">
+                <dependentPart node="leftArm1Hydraulic" />
+            </movingPart>
+            <movingPart node="leftArm1Hydraulic" referencePoint="leftArm1HydraulicRef" referenceFrame="leftArm1HydraulicRef">
+                <translatingPart node="leftArm1HydraulicPunch" />
+            </movingPart>
+
+            <!-- right arm 1 -->
+            <movingPart node="rightArm1" referencePoint="rightArm1Ref" referenceFrame="referenceFrameRight" isActiveDirty="true" limitedAxis="3">
+                <dependentPart node="rightArm1Hydraulic" />
+            </movingPart>
+            <movingPart node="rightArm1Hydraulic" referencePoint="rightArm1HydraulicRef" referenceFrame="rightArm1HydraulicRef">
+                <translatingPart node="rightArm1HydraulicPunch" />
+            </movingPart>
+
+            <!-- middle arm -->
+            <movingPart node="middleArm" referencePoint="middleArmRef" referenceFrame="kuhnMergeMaxx902_main_component1" isActiveDirty="true" limitedAxis="1">
+                <dependentPart node="middleUnit" />
+                <dependentPart node="middleArmHydraulic" />
+                <dependentPart node="middleArmOrientation" />
+            </movingPart>
+            <movingPart node="middleUnit" referencePoint="middleUnitRef" referenceFrame="kuhnMergeMaxx902_main_component1" limitedAxis="1"/>
+            <movingPart node="middleArmHydraulic" referencePoint="middleArmHydraulicRef" referenceFrame="middleArmHydraulicRef">
+                <translatingPart node="middleArmHydraulicPunch" />
+            </movingPart>
+            <movingPart node="middleArmOrientation" referencePoint="middleArmOrientationRef" referenceFrame="middleArmOrientationRef" limitedAxis="1"/>
+
+            <!-- left arm 2 -->
+            <movingPart node="leftArm2Hydraulic" referencePoint="leftArm2HydraulicRef" referenceFrame="leftArm2HydraulicRef">
+                <translatingPart node="leftArm2HydraulicPunch" />
+            </movingPart>
+
+            <!-- right arm 2 -->
+            <movingPart node="rightArm2Hydraulic" referencePoint="rightArm2HydraulicRef" referenceFrame="rightArm2HydraulicRef">
+                <translatingPart node="rightArm2HydraulicPunch" />
+            </movingPart>
+
+            <!-- left arm 3 -->
+            <movingPart node="leftArm3" referencePoint="leftArm3Ref" referenceFrame="leftArm3RefFrame" isActiveDirty="true" limitedAxis="1">
+                <dependentPart node="leftArm3Hydraulic" />
+            </movingPart>
+            <movingPart node="leftArm3Hydraulic" referencePoint="leftArm3HydraulicRef" referenceFrame="leftArm3HydraulicRef">
+                <translatingPart node="leftArm3HydraulicPunch" />
+            </movingPart>
+
+            <!-- right arm 3 -->
+            <movingPart node="rightArm3" referencePoint="rightArm3Ref" referenceFrame="rightArm3RefFrame" isActiveDirty="true" limitedAxis="1">
+                <dependentPart node="rightArm3Hydraulic" />
+            </movingPart>
+            <movingPart node="rightArm3Hydraulic" referencePoint="rightArm3HydraulicRef" referenceFrame="rightArm3HydraulicRef">
+                <translatingPart node="rightArm3HydraulicPunch" />
+            </movingPart>
+
+            <!-- left back part -->
+            <movingPart node="leftUnitBackPart" referencePoint="leftUnitBackPartOrientationRef" localReferencePoint="leftUnitBackPartOrientation" referenceFrame="leftUnitBackPartRefFrame">
+                <dependentPart node="leftUnitBackPartOrientation" />
+                <dependentPart node="leftUnitHydraulic" />
+                <dependentPart node="leftUnitBackPlate" />
+            </movingPart>
+            <movingPart node="leftUnitBackPartOrientation" referencePoint="leftUnitBackPartOrientationRef" referenceFrame="leftUnitBackPartOrientationRef" />
+            <movingPart node="leftUnitHydraulic" referencePoint="leftUnitHydraulicRef" referenceFrame="leftUnitHydraulicRef">
+                <translatingPart node="leftUnitHydraulicPunch" />
+            </movingPart>
+
+            <!-- left top part -->
+            <movingPart node="leftUnitUpperPart" referencePoint="leftUnitUpperPartOrientationRef" localReferencePoint="leftUnitUpperPartOrientation" referenceFrame="leftUnitUpperPartRefFrame">
+                <dependentPart node="leftUnitUpperPartOrientation" />
+            </movingPart>
+            <movingPart node="leftUnitUpperPartOrientation" referencePoint="leftUnitUpperPartOrientationRef" referenceFrame="leftUnitUpperPartOrientationRef" />
+
+            <!-- left back plate -->
+            <movingPart node="leftUnitBackPlate" referencePoint="leftUnitBackPlateRef" referenceFrame="leftUnitBackPlateRef" />
+
+            <!-- right back part -->
+            <movingPart node="rightUnitBackPart" referencePoint="rightUnitBackPartOrientationRef" localReferencePoint="rightUnitBackPartOrientation" referenceFrame="rightUnitBackPartRefFrame">
+                <dependentPart node="rightUnitBackPartOrientation" />
+                <dependentPart node="rightUnitHydraulic" />
+                <dependentPart node="rightUnitBackPlate" />
+            </movingPart>
+            <movingPart node="rightUnitBackPartOrientation" referencePoint="rightUnitBackPartOrientationRef" referenceFrame="rightUnitBackPartOrientationRef" />
+            <movingPart node="rightUnitHydraulic" referencePoint="rightUnitHydraulicRef" referenceFrame="rightUnitHydraulicRef">
+                <translatingPart node="rightUnitHydraulicPunch" />
+            </movingPart>
+
+            <!-- right top part -->
+            <movingPart node="rightUnitUpperPart" referencePoint="rightUnitUpperPartOrientationRef" localReferencePoint="rightUnitUpperPartOrientation" referenceFrame="rightUnitUpperPartRefFrame">
+                <dependentPart node="rightUnitUpperPartOrientation" />
+            </movingPart>
+            <movingPart node="rightUnitUpperPartOrientation" referencePoint="rightUnitUpperPartOrientationRef" referenceFrame="rightUnitUpperPartOrientationRef" />
+
+            <!-- right back plate -->
+            <movingPart node="rightUnitBackPlate" referencePoint="rightUnitBackPlateRef" referenceFrame="rightUnitBackPlateRef" />
+
+            <!-- middle top part -->
+            <movingPart node="middleUnitBackPlateUpperPartOrientation" referencePoint="middleUnitBackPlateUpperPartOrientationRef" referenceFrame="middleUnitBackPlateUpperPartOrientationRef" scaleZ="true"/>
+            <movingPart node="middleUnitSprings" referencePoint="middleUnitSpringsRef" referenceFrame="middleUnitSpringsRef" scaleZ="true"/>
+
+            <!-- steering -->
+            <!-- front orientation -->
+            <movingPart node="steeringFrontOrientation" referencePoint="orientationArmRef" localReferencePoint="steeringFrontOrientationArm" referenceFrame="steeringReferenceFrame" >
+                <dependentPart node="steeringFrontOrientationArm" />
+                <dependentPart node="backOrientation" />
+            </movingPart>
+            <movingPart node="steeringFrontOrientationArm" referencePoint="orientationArmRef" referenceFrame="orientationArmRef" />
+
+            <!-- back orientation -->
+            <movingPart node="backOrientation" referencePoint="backOrientationArmRef" localReferencePoint="backOrientationArm" referenceFrame="steeringReferenceFrame">
+                <dependentPart node="backOrientationArm" />
+                <dependentPart node="leftWheelRepr" />
+                <dependentPart node="rightWheelRepr" />
+            </movingPart>
+            <movingPart node="backOrientationArm" referencePoint="backOrientationArmRef" referenceFrame="backOrientationArmRef" />
+
+            <!-- wheels -->
+            <movingPart node="leftWheelOrientationArm" referencePoint="leftWheelOrientationArmRef" referenceFrame="leftWheelOrientationArmRef" isActiveDirty="true"/>
+            <movingPart node="rightWheelOrientationArm" referencePoint="rightWheelOrientationArmRef" referenceFrame="rightWheelOrientationArmRef" isActiveDirty="true"/>
+
+            <!-- lock cylinders -->
+            <movingPart node="leftLockHydraulic" referencePoint="leftLockHydraulicRef" referenceFrame="leftLockHydraulicRef">
+                <translatingPart node="leftLockHydraulicPunch" />
+            </movingPart>
+            <movingPart node="rightLockHydraulic" referencePoint="rightLockHydraulicRef" referenceFrame="rightLockHydraulicRef">
+                <translatingPart node="rightLockHydraulicPunch" />
+            </movingPart>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="kuhnMergeMaxx902_main_component1"/>
+        </sounds>
+    </cylindered>
+
+    <animations>
+        <!-- move support wheel down/up -->
+        <animation name="moveSupport">
+            <part node="supportRot"          startTime="0" duration="0.3" startRot="90 0 0" endRot="0 0 0" />
+            <part node="supportCollision"    startTime="0" duration="0.3" startRot="90 0 0" endRot="0 0 0" />
+            <part componentJointIndex="1"    startTime="0" duration="0.5" startRotLimit="0 60 0" endRotLimit="0 0 0" />
+        </animation>
+
+        <animation name="folding">
+            <part node="componentJoint02" startTime="0" endTime="6"  startRot="0 0 17.183" endRot="0 0 17.183" />
+            <part node="componentJoint03" startTime="0" endTime="6"  startRot="0 0 -17.183" endRot="0 0 -17.183" />
+            <part node="componentJoint05" startTime="0" endTime="6"  startRot="0 0 -13" endRot="0 0 -13" />
+            <part node="componentJoint06" startTime="0" endTime="6"  startRot="0 0 13" endRot="0 0 13" />
+
+            <!-- middle arm -->
+            <part node="componentJoint04" startTime="0" endTime="2" startTrans="0 0.9 -0.772" endTrans="0 1.5 -0.772" />
+            <part componentJointIndex="4" startTime="0"  endTime="2" startTransLimit="0 0.001 0" endTransLimit="0 0 0"/>
+
+            <!-- arm2 -->
+            <part node="leftArm2" startTime="2" endTime="5"  startRot="0 0 0" endRot="0 -90 0" />
+            <part node="rightArm2" startTime="2.5" endTime="5.5"  startRot="0 0 0" endRot="0 90 0" />
+
+            <!-- arm2 components -->
+            <part node="leftArmRotationNode" startTime="2" endTime="5"  startRot="14.182 89 0.542" endRot="0 0 -13.639" />
+            <part node="rightArmRotationNode" startTime="2.5" endTime="5.5"  startRot="14.182 -89 -0.542" endRot="0 0 13.639" />
+
+            <!-- lock -->
+            <part node="leftLock" startTime="5" endTime="5.5"  startRot="0 0 10" endRot="0 0 -15" />
+            <part node="rightLock" startTime="5.5" endTime="6"  startRot="0 0 -10" endRot="0 0 15" />
+
+            <!-- units -->
+            <part node="rightUnit" startTime="0.5" endTime="2.5"  startRot="-90 0 -90" endRot="-180 0 -90" />
+            <part node="leftUnit" startTime="0" endTime="2"  startRot="-90 0 -90" endRot="-180 0 -90" />
+
+            <!-- unit col parts -->
+            <part node="colPart01" startTime="0" endTime="2"  startRot="0 0 0" endRot="-90 0 0" />
+            <part node="6>1" startTime="0.5" endTime="2.5"  startRot="0 0 0" endRot="-90 0 0" />
+            <part node="colPart02" startTime="0" endTime="2"  startRot="0 0 0" endRot="35 0 0" />
+            <part node="6>1|3" startTime="0.5" endTime="2.5"  startRot="0 0 0" endRot="35 0 0" />
+
+            <!-- middle back part -->
+            <part node="middleUnitBackPlate" startTime="0" endTime="2"  startRot="0 0 0" endRot="58 0 0" />
+            <part node="middleUnitBackPlateUpperPart" startTime="0" endTime="2"  startRot="-19 0 0" endRot="-61 0 0" />
+
+            <!-- curtains -->
+            <part node="rightCurtain" startTime="0.5" endTime="2.5"  startRot="-0.0 0.0 -0.0" endRot="-66.0 0.0 -0.0" />
+            <part node="rightCurtainExtendArm1" startTime="0.5" endTime="2.5"  startRot="-0.0 0.0 -0.0" endRot="66.0 0.0 -0.0" />
+            <part node="rightCurtainExtendArm2" startTime="0.5" endTime="2.5"  startRot="-0.0 0.0 -0.0" endRot="66.0 0.0 -0.0" />
+            <part node="rightCurtainExtend" startTime="0.5" endTime="2.5"  startTrans="2.448 0.348 -0.167" endTrans="1.339 0.347 -0.166" />
+
+            <part node="leftCurtainExtendArm2" startTime="0" endTime="2"  startRot="0.0 0.0 0.0" endRot="-66.0 0.0 0.0" />
+            <part node="leftCurtain" startTime="0" endTime="2"  startRot="0.0 0.0 0.0" endRot="66.0 0.0 0.0" />
+            <part node="leftCurtainExtendArm1" startTime="0" endTime="2"  startRot="0.0 0.0 0.0" endRot="-66.0 0.0 0.0" />
+            <part node="leftCurtainExtend" startTime="0" endTime="2"  startTrans="-2.449 0.342 -0.16" endTrans="-1.347 0.343 -0.162" />
+
+            <!-- curtain joints -->
+            <part node="curtainBoneLeftMiddle" startTime="4.8" endTime="5"  startTrans="-0.037 -0.326 -0.055" endTrans="0.044 -0.326 -0.055" />
+            <part node="curtainBoneLeftLeft" startTime="1.8" endTime="2"  startTrans="-0.041 0.263 -0.824" endTrans="-0.127 0.263 -0.824" />
+            <part node="curtainBoneLeftLeft" startTime="1.8" endTime="2"  startRot="142.51 -0.08 -179.93" endRot="141.51 5 -183" />
+
+            <part node="curtainBoneRightMiddle" startTime="5.3" endTime="5.5"  startTrans="-0.039 -0.292 -0.153" endTrans="0 -0.292 -0.153" />
+            <part node="curtainBoneRightLeft" startTime="2.3" endTime="2.5"  startTrans="-0.039 -0.292 0.815" endTrans="-0.127 -0.292 0.815" />
+            <part node="curtainBoneRightLeft" startTime="2.3" endTime="2.5"  startRot="0 0 0" endRot="0 5 0" />
+        </animation>
+
+        <animation name="loweringOuter">
+            <part componentJointIndex="2" startTime="0"  endTime="1" startRotLimit="0 0 0" endRotLimit="0 0 10" />
+            <part componentJointIndex="3" startTime="0"  endTime="1" startRotLimit="0 0 0" endRotLimit="0 0 10" />
+            <part componentJointIndex="5" startTime="0"  endTime="1" startRotLimit="0 0 0" endRotLimit="0 0 10" />
+            <part componentJointIndex="6" startTime="0"  endTime="1" startRotLimit="0 0 0" endRotLimit="0 0 10" />
+
+            <part node="componentJoint02" startTime="0" endTime="1"  startRot="0 0 17.183" endRot="0 0 0" />
+            <part node="componentJoint03" startTime="0" endTime="1"  startRot="0 0 -17.183" endRot="0 0 0" />
+            <part node="componentJoint05" startTime="0" endTime="1"  startRot="0 0 -13" endRot="0 0 0" />
+            <part node="componentJoint06" startTime="0" endTime="1"  startRot="0 0 13" endRot="0 0 0" />
+        </animation>
+
+        <animation name="loweringInner">
+            <part componentJointIndex="4" startTime="0"  endTime="1" startTransLimit="0 0 0" endTransLimit="0 0.45 0"/>
+        </animation>
+
+        <animation name="foldingInner">
+            <part node="componentJoint04" startTime="0" endTime="1"  startTrans="0 0.9 -0.772" endTrans="0 1.5 -0.772" />
+            <part node="middleUnitBackPlate" startTime="0" endTime="1"  startRot="0 0 0" endRot="58 0 0" />
+            <part node="middleUnitBackPlateUpperPart" startTime="0" endTime="1"  startRot="-19 0 0" endRot="-61 0 0" />
+        </animation>
+
+        <animation name="turnOnAnimation" looping="true">
+            <!-- middle pickup -->
+            <part node="middleUnitRakes" startTime="0" endTime="0.999" startRot="0 0 0" endRot="-360 0 0" />
+            <part node="middleUnitRakes" startTime="0.999" endTime="1" startRot="-360 0 0" endRot="0 0 0" />
+
+            <part node="middleUnitRake01" startTime="0.0" endTime="0.167"  startRot="0.0 0.0 0.0" endRot="50.0 0.0 0.0" />
+            <part node="middleUnitRake01" startTime="0.167" endTime="0.5"  startRot="50.0 0.0 0.0" endRot="0.0 0.0 0.0" />
+
+            <part node="middleUnitRake02" startTime="0.0" endTime="0.333"  startRot="-10.0 0.0 0.0" endRot="-60.0 0.0 0.0" />
+            <part node="middleUnitRake02" startTime="0.833" endTime="1.0"  startRot="-60.0 0.0 0.0" endRot="-10.0 0.0 0.0" />
+
+            <part node="middleUnitRake03" startTime="0.667" endTime="0.833"  startRot="-120.0 0.0 0.0" endRot="-70.0 0.0 0.0" />
+            <part node="middleUnitRake03" startTime="0.833" endTime="1.0"  startRot="-70.0 0.0 0.0" endRot="-120.0 0.0 0.0" />
+
+            <part node="middleUnitRake04" startTime="0.5" endTime="0.667"  startRot="-180.0 0.0 0.0" endRot="-130.0 0.0 0.0" />
+            <part node="middleUnitRake04" startTime="0.667" endTime="1.0"  startRot="-130.0 0.0 0.0" endRot="-180.0 0.0 0.0" />
+
+            <part node="middleUnitRake05" startTime="0.333" endTime="0.5"  startRot="120.0 0.0 0.0" endRot="170.0 0.0 0.0" />
+            <part node="middleUnitRake05" startTime="0.5" endTime="0.833"  startRot="170.0 0.0 0.0" endRot="120.0 0.0 0.0" />
+
+            <part node="middleUnitRake06" startTime="0.167" endTime="0.333"  startRot="60.0 0.0 0.0" endRot="110.0 0.0 0.0" />
+            <part node="middleUnitRake06" startTime="0.333" endTime="0.667"  startRot="110.0 0.0 0.0" endRot="60.0 0.0 0.0" />
+
+            <!-- left pickup -->
+            <part node="leftUnitRakes" startTime="0" endTime="0.999" startRot="0 0 0" endRot="-360 0 0" />
+            <part node="leftUnitRakes" startTime="0.999" endTime="1" startRot="-360 0 0" endRot="0 0 0" />
+
+            <part node="leftUnitRake01" startTime="0.0" endTime="0.167"  startRot="0.0 0.0 0.0" endRot="50.0 0.0 0.0" />
+            <part node="leftUnitRake01" startTime="0.167" endTime="0.5"  startRot="50.0 0.0 0.0" endRot="0.0 0.0 0.0" />
+
+            <part node="leftUnitRake02" startTime="0.0" endTime="0.333"  startRot="-10.0 0.0 0.0" endRot="-60.0 0.0 0.0" />
+            <part node="leftUnitRake02" startTime="0.833" endTime="1.0"  startRot="-60.0 0.0 0.0" endRot="-10.0 0.0 0.0" />
+
+            <part node="leftUnitRake03" startTime="0.667" endTime="0.833"  startRot="-120.0 0.0 0.0" endRot="-70.0 0.0 0.0" />
+            <part node="leftUnitRake03" startTime="0.833" endTime="1.0"  startRot="-70.0 0.0 0.0" endRot="-120.0 0.0 0.0" />
+
+            <part node="leftUnitRake04" startTime="0.5" endTime="0.667"  startRot="-180.0 0.0 0.0" endRot="-130.0 0.0 0.0" />
+            <part node="leftUnitRake04" startTime="0.667" endTime="1.0"  startRot="-130.0 0.0 0.0" endRot="-180.0 0.0 0.0" />
+
+            <part node="leftUnitRake05" startTime="0.333" endTime="0.5"  startRot="120.0 0.0 0.0" endRot="170.0 0.0 0.0" />
+            <part node="leftUnitRake05" startTime="0.5" endTime="0.833"  startRot="170.0 0.0 0.0" endRot="120.0 0.0 0.0" />
+
+            <part node="leftUnitRake06" startTime="0.167" endTime="0.333"  startRot="60.0 0.0 0.0" endRot="110.0 0.0 0.0" />
+            <part node="leftUnitRake06" startTime="0.333" endTime="0.667"  startRot="110.0 0.0 0.0" endRot="60.0 0.0 0.0" />
+
+            <!-- right pickup -->
+            <part node="rightUnitRakes" startTime="0" endTime="0.999" startRot="0 0 0" endRot="-360 0 0" />
+            <part node="rightUnitRakes" startTime="0.999" endTime="1" startRot="-360 0 0" endRot="0 0 0" />
+
+            <part node="rightUnitRake01" startTime="0.0" endTime="0.167"  startRot="0.0 0.0 0.0" endRot="50.0 0.0 0.0" />
+            <part node="rightUnitRake01" startTime="0.167" endTime="0.5"  startRot="50.0 0.0 0.0" endRot="0.0 0.0 0.0" />
+
+            <part node="rightUnitRake02" startTime="0.0" endTime="0.333"  startRot="-10.0 0.0 0.0" endRot="-60.0 0.0 0.0" />
+            <part node="rightUnitRake02" startTime="0.833" endTime="1.0"  startRot="-60.0 0.0 0.0" endRot="-10.0 0.0 0.0" />
+
+            <part node="rightUnitRake03" startTime="0.667" endTime="0.833"  startRot="-120.0 0.0 0.0" endRot="-70.0 0.0 0.0" />
+            <part node="rightUnitRake03" startTime="0.833" endTime="1.0"  startRot="-70.0 0.0 0.0" endRot="-120.0 0.0 0.0" />
+
+            <part node="rightUnitRake04" startTime="0.5" endTime="0.667"  startRot="-180.0 0.0 0.0" endRot="-130.0 0.0 0.0" />
+            <part node="rightUnitRake04" startTime="0.667" endTime="1.0"  startRot="-130.0 0.0 0.0" endRot="-180.0 0.0 0.0" />
+
+            <part node="rightUnitRake05" startTime="0.333" endTime="0.5"  startRot="120.0 0.0 0.0" endRot="170.0 0.0 0.0" />
+            <part node="rightUnitRake05" startTime="0.5" endTime="0.833"  startRot="170.0 0.0 0.0" endRot="120.0 0.0 0.0" />
+
+            <part node="rightUnitRake06" startTime="0.167" endTime="0.333"  startRot="60.0 0.0 0.0" endRot="110.0 0.0 0.0" />
+            <part node="rightUnitRake06" startTime="0.333" endTime="0.667"  startRot="110.0 0.0 0.0" endRot="60.0 0.0 0.0" />
+        </animation>
+    </animations>
+
+    <foldable>
+        <foldingParts startMoveDirection="1" turnOnFoldMaxLimit="0" turnOnFoldMinLimit="0" toggleLowerDirection="1">
+            <foldingPart animationName="folding" speedScale="0.6" />
+        </foldingParts>
+    </foldable>
+
+    <workModes foldMaxLimit="0" foldMinLimit="0" allowChangeOnLowered="false">
+        <workMode name="action_workMode_left" inputBindingName="WORKMODE_LEFT">
+            <animationNodes>
+                <animationNode node="leftBelt"   rotSpeed="-100" shaderParameterName="offsetUV" shaderComponentScale="1 0 0 0" turnOnFadeTime="1" turnOffFadeTime="1" />
+                <animationNode node="rightBelt"  rotSpeed="-100" shaderParameterName="offsetUV" shaderComponentScale="1 0 0 0" turnOnFadeTime="1" turnOffFadeTime="1" />
+                <animationNode node="middleBelt" rotSpeed="-100" shaderParameterName="offsetUV" shaderComponentScale="1 0 0 0" turnOnFadeTime="1" turnOffFadeTime="1" />
+            </animationNodes>
+
+            <workAreas>
+                <workArea workAreaIndex="1" dropAreaIndex="5"/>
+                <workArea workAreaIndex="2" dropAreaIndex="5"/>
+                <workArea workAreaIndex="3" dropAreaIndex="5"/>
+            </workAreas>
+
+            <loweringAnimations>
+                <loweringAnimation name="loweringOuter" speed="1"/>
+                <loweringAnimation name="loweringInner" speed="1"/>
+            </loweringAnimations>
+
+            <animation name="foldingInner" speed="-1" stopTime="0"/>
+
+            <windrowerEffect>
+                <effectNode effectClass="WindrowerEffect" effectNode="pickupEffect_fullWidth" materialType="pickup" materialTypeId="1" delay="0" fadeTime="0.2" speed="0.9" scrollLength="1.5" scrollSpeed="2" width="9.1">
+                    <testArea startNode="testArea01Start" widthNode="testArea01Width" heightNode="testArea01Height"/>
+                    <testArea startNode="testArea02Start" widthNode="testArea02Width" heightNode="testArea02Height"/>
+                    <testArea startNode="testArea03Start" widthNode="testArea03Width" heightNode="testArea03Height"/>
+                    <testArea startNode="testArea04Start" widthNode="testArea04Width" heightNode="testArea04Height"/>
+                    <testArea startNode="testArea05Start" widthNode="testArea05Width" heightNode="testArea05Height"/>
+                    <testArea startNode="testArea06Start" widthNode="testArea06Width" heightNode="testArea06Height"/>
+                    <testArea startNode="testArea07Start" widthNode="testArea07Width" heightNode="testArea07Height"/>
+                    <testArea startNode="testArea08Start" widthNode="testArea08Width" heightNode="testArea08Height"/>
+
+                    <particleSystem emitterShape="emitShape_r_l_t1_grass" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_r_l_t2_grass" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_r_l_t3_grass" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_c_l_t4_grass" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_c_l_t5_grass" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_l_l_t6_grass" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_l_l_t7_grass" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_l_l_t8_grass" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+
+                    <particleSystem emitterShape="emitShape_r_l_t1_smoke" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="SMOKE" emitCountScale="1"/>
+                    <particleSystem emitterShape="emitShape_r_l_t2_smoke" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="SMOKE" emitCountScale="1"/>
+                    <particleSystem emitterShape="emitShape_r_l_t3_smoke" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="SMOKE" emitCountScale="1"/>
+                    <particleSystem emitterShape="emitShape_c_l_t4_smoke" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="SMOKE" emitCountScale="1"/>
+                    <particleSystem emitterShape="emitShape_c_l_t5_smoke" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="SMOKE" emitCountScale="1"/>
+                    <particleSystem emitterShape="emitShape_l_l_t6_smoke" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="SMOKE" emitCountScale="1"/>
+                    <particleSystem emitterShape="emitShape_l_l_t7_smoke" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="SMOKE" emitCountScale="1"/>
+                    <particleSystem emitterShape="emitShape_l_l_t8_smoke" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="SMOKE" emitCountScale="1"/>
+                </effectNode>
+                <effectNode effectClass="WindrowerEffect" effectNode="gotoEffect_left" materialType="pickup" materialTypeId="1" delay="0.1" fadeInTime="1.75" fadeOutTime="1.75" speed="0.9" scrollLength="1.5" scrollSpeed="2" width="9.1" unloadDirection="1" dropOffset="1" turnOffRequiredEffect="1">
+                    <testArea startNode="testArea01Start" widthNode="testArea01Width" heightNode="testArea01Height"/>
+                    <testArea startNode="testArea02Start" widthNode="testArea02Width" heightNode="testArea02Height"/>
+                    <testArea startNode="testArea03Start" widthNode="testArea03Width" heightNode="testArea03Height"/>
+                    <testArea startNode="testArea04Start" widthNode="testArea04Width" heightNode="testArea04Height"/>
+                    <testArea startNode="testArea05Start" widthNode="testArea05Width" heightNode="testArea05Height"/>
+                    <testArea startNode="testArea06Start" widthNode="testArea06Width" heightNode="testArea06Height"/>
+                    <testArea startNode="testArea07Start" widthNode="testArea07Width" heightNode="testArea07Height"/>
+                    <testArea startNode="testArea08Start" widthNode="testArea08Width" heightNode="testArea08Height"/>
+
+                    <particleSystem emitterShape="emitShape_r_gl_t1_grass" fadeInRange="0 0.1" fadeOutRange="0.1 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_r_gl_t2_grass" fadeInRange="0 0.2" fadeOutRange="0.2 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_r_gl_t3_grass" fadeInRange="0 0.3" fadeOutRange="0.3 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_c_gl_t4_grass" fadeInRange="0 0.4" fadeOutRange="0.4 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_c_gl_t5_grass" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_l_gl_t6_grass" fadeInRange="0 0.6" fadeOutRange="0.6 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_l_gl_t7_grass" fadeInRange="0 0.7" fadeOutRange="0.7 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_l_gl_t8_grass" fadeInRange="0 0.8" fadeOutRange="0.8 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                </effectNode>
+            </windrowerEffect>
+        </workMode>
+
+        <workMode name="action_workMode_right" inputBindingName="WORKMODE_RIGHT">
+            <animationNodes>
+                <animationNode node="leftBelt"   rotSpeed="100" shaderParameterName="offsetUV" shaderComponentScale="1 0 0 0" turnOnFadeTime="1" turnOffFadeTime="1" />
+                <animationNode node="rightBelt"  rotSpeed="100" shaderParameterName="offsetUV" shaderComponentScale="1 0 0 0" turnOnFadeTime="1" turnOffFadeTime="1" />
+                <animationNode node="middleBelt" rotSpeed="100" shaderParameterName="offsetUV" shaderComponentScale="1 0 0 0" turnOnFadeTime="1" turnOffFadeTime="1" />
+            </animationNodes>
+
+            <workAreas>
+                <workArea workAreaIndex="1" dropAreaIndex="6"/>
+                <workArea workAreaIndex="2" dropAreaIndex="6"/>
+                <workArea workAreaIndex="3" dropAreaIndex="6"/>
+            </workAreas>
+
+            <loweringAnimations>
+                <loweringAnimation name="loweringOuter" speed="1"/>
+                <loweringAnimation name="loweringInner" speed="1"/>
+            </loweringAnimations>
+
+            <animation name="foldingInner" speed="-1" stopTime="0"/>
+
+            <windrowerEffect>
+                <effectNode effectClass="WindrowerEffect" effectNode="pickupEffect_fullWidth" materialType="pickup" materialTypeId="1" delay="0" fadeTime="0.2" speed="0.9" scrollLength="1.5" scrollSpeed="2" width="9.1">
+                    <testArea startNode="testArea01Start" widthNode="testArea01Width" heightNode="testArea01Height"/>
+                    <testArea startNode="testArea02Start" widthNode="testArea02Width" heightNode="testArea02Height"/>
+                    <testArea startNode="testArea03Start" widthNode="testArea03Width" heightNode="testArea03Height"/>
+                    <testArea startNode="testArea04Start" widthNode="testArea04Width" heightNode="testArea04Height"/>
+                    <testArea startNode="testArea05Start" widthNode="testArea05Width" heightNode="testArea05Height"/>
+                    <testArea startNode="testArea06Start" widthNode="testArea06Width" heightNode="testArea06Height"/>
+                    <testArea startNode="testArea07Start" widthNode="testArea07Width" heightNode="testArea07Height"/>
+                    <testArea startNode="testArea08Start" widthNode="testArea08Width" heightNode="testArea08Height"/>
+
+                    <particleSystem emitterShape="emitShape_r_r_t1_grass" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_r_r_t2_grass" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_r_r_t3_grass" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_c_r_t4_grass" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_c_r_t5_grass" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_l_r_t6_grass" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_l_r_t7_grass" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_l_r_t8_grass" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+
+                    <particleSystem emitterShape="emitShape_r_r_t1_smoke" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="SMOKE" emitCountScale="1"/>
+                    <particleSystem emitterShape="emitShape_r_r_t2_smoke" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="SMOKE" emitCountScale="1"/>
+                    <particleSystem emitterShape="emitShape_r_r_t3_smoke" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="SMOKE" emitCountScale="1"/>
+                    <particleSystem emitterShape="emitShape_c_r_t4_smoke" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="SMOKE" emitCountScale="1"/>
+                    <particleSystem emitterShape="emitShape_c_r_t5_smoke" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="SMOKE" emitCountScale="1"/>
+                    <particleSystem emitterShape="emitShape_l_r_t6_smoke" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="SMOKE" emitCountScale="1"/>
+                    <particleSystem emitterShape="emitShape_l_r_t7_smoke" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="SMOKE" emitCountScale="1"/>
+                    <particleSystem emitterShape="emitShape_l_r_t8_smoke" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="SMOKE" emitCountScale="1"/>
+                </effectNode>
+                <effectNode effectClass="WindrowerEffect" effectNode="gotoEffect_right" materialType="pickup" materialTypeId="1" delay="0.1" fadeInTime="1.75" fadeOutTime="1.75" speed="0.9" scrollLength="1.5" scrollSpeed="2" width="9.1" unloadDirection="-1" dropOffset="1" turnOffRequiredEffect="1">
+                    <testArea startNode="testArea01Start" widthNode="testArea01Width" heightNode="testArea01Height"/>
+                    <testArea startNode="testArea02Start" widthNode="testArea02Width" heightNode="testArea02Height"/>
+                    <testArea startNode="testArea03Start" widthNode="testArea03Width" heightNode="testArea03Height"/>
+                    <testArea startNode="testArea04Start" widthNode="testArea04Width" heightNode="testArea04Height"/>
+                    <testArea startNode="testArea05Start" widthNode="testArea05Width" heightNode="testArea05Height"/>
+                    <testArea startNode="testArea06Start" widthNode="testArea06Width" heightNode="testArea06Height"/>
+                    <testArea startNode="testArea07Start" widthNode="testArea07Width" heightNode="testArea07Height"/>
+                    <testArea startNode="testArea08Start" widthNode="testArea08Width" heightNode="testArea08Height"/>
+
+                    <particleSystem emitterShape="emitShape_l_gr_t8_grass" fadeInRange="0 0.1" fadeOutRange="0.1 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_l_gr_t7_grass" fadeInRange="0 0.2" fadeOutRange="0.2 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_l_gr_t6_grass" fadeInRange="0 0.3" fadeOutRange="0.3 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_c_gr_t5_grass" fadeInRange="0 0.4" fadeOutRange="0.4 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_c_gr_t4_grass" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_r_gr_t3_grass" fadeInRange="0 0.6" fadeOutRange="0.6 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_r_gr_t2_grass" fadeInRange="0 0.7" fadeOutRange="0.7 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_r_gr_t1_grass" fadeInRange="0 0.8" fadeOutRange="0.8 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                </effectNode>
+            </windrowerEffect>
+        </workMode>
+
+        <workMode name="action_workMode_middle" inputBindingName="WORKMODE_MIDDLE">
+            <animationNodes>
+                <animationNode node="leftBelt"  rotSpeed="100"  shaderParameterName="offsetUV" shaderComponentScale="1 0 0 0" turnOnFadeTime="1" turnOffFadeTime="1" />
+                <animationNode node="rightBelt" rotSpeed="-100" shaderParameterName="offsetUV" shaderComponentScale="1 0 0 0" turnOnFadeTime="1" turnOffFadeTime="1" />
+            </animationNodes>
+
+            <workAreas>
+                <workArea workAreaIndex="1" dropAreaIndex="0"/>
+                <workArea workAreaIndex="2" dropAreaIndex="4"/>
+                <workArea workAreaIndex="3" dropAreaIndex="4"/>
+            </workAreas>
+
+            <loweringAnimations>
+                <loweringAnimation name="loweringOuter" speed="1"/>
+            </loweringAnimations>
+
+            <animation name="foldingInner" speed="1" stopTime="1" repeatAfterUnfolding="true" repeatStartTime="0"/>
+
+            <windrowerEffect>
+                <effectNode effectClass="WindrowerEffect" effectNode="pickupEffect_left" materialType="pickup" materialTypeId="1" delay="0" fadeTime="0.2" speed="0.9" scrollLength="1.5" scrollSpeed="2" width="3.7" centerOffset="2.7">
+                    <testArea startNode="testArea05Start" widthNode="testArea05Width" heightNode="testArea05Height"/>
+                    <testArea startNode="testArea06Start" widthNode="testArea06Width" heightNode="testArea06Height"/>
+                    <testArea startNode="testArea07Start" widthNode="testArea07Width" heightNode="testArea07Height"/>
+                    <testArea startNode="testArea08Start" widthNode="testArea08Width" heightNode="testArea08Height"/>
+
+                    <particleSystem emitterShape="emitShape_l_c_t6_grass" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_l_c_t7_grass" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_l_c_t8_grass" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+
+                    <particleSystem emitterShape="emitShape_l_c_t6_smoke" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="SMOKE" emitCountScale="1"/>
+                    <particleSystem emitterShape="emitShape_l_c_t7_smoke" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="SMOKE" emitCountScale="1"/>
+                    <particleSystem emitterShape="emitShape_l_c_t8_smoke" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="SMOKE" emitCountScale="1"/>
+                </effectNode>
+                <effectNode effectClass="WindrowerEffect" effectNode="gotoEffect_left_center" materialType="pickup" materialTypeId="1" delay="0.1" fadeInTime="0.5" fadeOutTime="0.5" speed="0.9" scrollLength="1.5" scrollSpeed="2" width="3.7" centerOffset="2.7" unloadDirection="-1" dropOffset="1" turnOffRequiredEffect="1">
+                    <testArea startNode="testArea05Start" widthNode="testArea05Width" heightNode="testArea05Height"/>
+                    <testArea startNode="testArea06Start" widthNode="testArea06Width" heightNode="testArea06Height"/>
+                    <testArea startNode="testArea07Start" widthNode="testArea07Width" heightNode="testArea07Height"/>
+                    <testArea startNode="testArea08Start" widthNode="testArea08Width" heightNode="testArea08Height"/>
+
+                    <particleSystem emitterShape="emitShape_l_gc_t8_grass" fadeInRange="0 0.2" fadeOutRange="0.2 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_l_gc_t7_grass" fadeInRange="0 0.4" fadeOutRange="0.4 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_l_gc_t6_grass" fadeInRange="0 0.6" fadeOutRange="0.6 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_l_gc_t5_grass" fadeInRange="0 0.8" fadeOutRange="0.8 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                </effectNode>
+
+                <effectNode effectClass="WindrowerEffect" effectNode="pickupEffect_center" materialType="pickup" materialTypeId="1" delay="0" fadeTime="0.2" speed="0.9" scrollLength="1.5" scrollSpeed="2" width="3.7" centerOffset="-2.7">
+                    <testArea startNode="testArea01Start" widthNode="testArea01Width" heightNode="testArea01Height"/>
+                    <testArea startNode="testArea02Start" widthNode="testArea02Width" heightNode="testArea02Height"/>
+                    <testArea startNode="testArea03Start" widthNode="testArea03Width" heightNode="testArea03Height"/>
+                    <testArea startNode="testArea04Start" widthNode="testArea04Width" heightNode="testArea04Height"/>
+
+                    <particleSystem emitterShape="emitShape_r_c_t1_grass" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_r_c_t2_grass" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_r_c_t3_grass" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+
+                    <particleSystem emitterShape="emitShape_r_c_t1_smoke" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="SMOKE" emitCountScale="1"/>
+                    <particleSystem emitterShape="emitShape_r_c_t2_smoke" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="SMOKE" emitCountScale="1"/>
+                    <particleSystem emitterShape="emitShape_r_c_t3_smoke" fadeInRange="0 0.5" fadeOutRange="0.5 1" particleType="SMOKE" emitCountScale="1"/>
+                </effectNode>
+                <effectNode effectClass="WindrowerEffect" effectNode="gotoEffect_right_center" materialType="pickup" materialTypeId="1" delay="0.1" fadeInTime="0.5" fadeOutTime="0.5" speed="0.9" scrollLength="1.5" scrollSpeed="2" width="3.7" centerOffset="-2.7" unloadDirection="1" dropOffset="1" turnOffRequiredEffect="3">
+                    <testArea startNode="testArea01Start" widthNode="testArea01Width" heightNode="testArea01Height"/>
+                    <testArea startNode="testArea02Start" widthNode="testArea02Width" heightNode="testArea02Height"/>
+                    <testArea startNode="testArea03Start" widthNode="testArea03Width" heightNode="testArea03Height"/>
+                    <testArea startNode="testArea04Start" widthNode="testArea04Width" heightNode="testArea04Height"/>
+
+                    <particleSystem emitterShape="emitShape_r_gc_t1_grass" fadeInRange="0 0.2" fadeOutRange="0.2 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_r_gc_t2_grass" fadeInRange="0 0.4" fadeOutRange="0.4 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_r_gc_t3_grass" fadeInRange="0 0.6" fadeOutRange="0.6 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                    <particleSystem emitterShape="emitShape_r_gc_t4_grass" fadeInRange="0 0.8" fadeOutRange="0.8 1" particleType="PICKUP" emitCountScale="10" worldSpace="false"/>
+                </effectNode>
+            </windrowerEffect>
+        </workMode>
+    </workModes>
+
+    <speedRotatingParts>
+        <speedRotatingPart node="middleRoller" radius="0.5"  groundReferenceNodeIndex="1" workAreaIndex="1"/>
+        <speedRotatingPart node="leftRoller"   radius="-0.5" groundReferenceNodeIndex="2" workAreaIndex="2"/>
+        <speedRotatingPart node="rightRoller"  radius="-0.5" groundReferenceNodeIndex="3" workAreaIndex="3"/>
+    </speedRotatingParts>
+
+    <turnOnVehicle turnOffIfNotAllowed="true">
+        <turnedOnAnimation name="turnOnAnimation" speedScale="2" turnOnFadeTime="1" turnOffFadeTime="1"/>
+    </turnOnVehicle>
+
+    <windrower limitToLineHeight="true">
+        <sounds>
+            <work template="DEFAULT_TEDDER" linkNode="kuhnMergeMaxx902_main_component1" />
+        </sounds>
+    </windrower>
+
+    <ai>
+        <needsLowering value="true" />
+        <areaMarkers leftNode="aiAreaMarkerLeft" rightNode="aiAreaMarkerRight" backNode="aiAreaMarkerBack" />
+        <sizeMarkers leftNode="aiSizeMarkerLeft" rightNode="aiSizeMarkerRight" backNode="aiSizeMarkerBack" />
+        <collisionTrigger node="aiCollisionTrigger" />
+        <allowTurnBackward value="false" />
+        <toolReverserDirectionNode node="aiSizeMarkerBack" />
+        <turningRadiusLimitation rotationJointNode="componentJoint01" wheelIndicesNode="1 2" />
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-1.5" maxX="1.5" minZ="-3.0" maxZ="2.1" yOffset="0.6" />
+        <bendingNode minX="-1.5" maxX="2.0" minZ="-0.0" maxZ="2.8" yOffset="0.1" node="leftUnit" />
+        <bendingNode minX="-2.0" maxX="1.5" minZ="-0.0" maxZ="2.8" yOffset="0.1" node="rightUnit" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="kuhnGA9531_mat" baseNode="kuhnMergeMaxx902_vis">
+            <shaderParameter name="colorMat0" value="KUHN_RED1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="kuhnMergeMaxx902_main_component1" node="0>" />
+        <i3dMapping id="kuhnMergeMaxx902_vis" node="0>0" />
+        <i3dMapping id="attacherBlock" node="0>0|0|0" />
+        <i3dMapping id="supportRot" node="0>0|0|0|0" />
+        <i3dMapping id="orientationArmRef" node="0>0|0|0|1" />
+        <i3dMapping id="ptoInputNode" node="0>0|0|1" />
+        <i3dMapping id="wheelChockDetached01" node="0>0|0|2|0" />
+        <i3dMapping id="wheelChockDetached02" node="0>0|0|2|1" />
+        <i3dMapping id="ptoDetachNode" node="0>0|0|3" />
+        <i3dMapping id="componentJoint01" node="0>0|1|0" />
+        <i3dMapping id="componentJoint02" node="0>0|1|1" />
+        <i3dMapping id="componentJoint03" node="0>0|1|2" />
+        <i3dMapping id="componentJoint04" node="0>0|1|3" />
+        <i3dMapping id="steeringFrontOrientation" node="0>0|2|0|0" />
+        <i3dMapping id="steeringFrontOrientationArm" node="0>0|2|0|0|0" />
+        <i3dMapping id="backOrientationArmRef" node="0>0|2|0|0|1" />
+        <i3dMapping id="backOrientation" node="0>0|2|0|1" />
+        <i3dMapping id="backOrientationArm" node="0>0|2|0|1|0" />
+        <i3dMapping id="leftWheelOrientationArmRef" node="0>0|2|0|1|1" />
+        <i3dMapping id="rightWheelOrientationArmRef" node="0>0|2|0|1|2" />
+        <i3dMapping id="leftWheelRepr" node="0>0|2|0|2" />
+        <i3dMapping id="leftWheelDriveNode" node="0>0|2|0|2|0" />
+        <i3dMapping id="wheelChocks" node="0>0|2|0|2|1" />
+        <i3dMapping id="leftWheelOrientationArm" node="0>0|2|0|2|2" />
+        <i3dMapping id="rightWheelRepr" node="0>0|2|0|3" />
+        <i3dMapping id="rightWheelDriveNode" node="0>0|2|0|3|0" />
+        <i3dMapping id="rightWheelOrientationArm" node="0>0|2|0|3|1" />
+        <i3dMapping id="steeringReferenceFrame" node="0>0|2|0|4" />
+        <i3dMapping id="leftArm1" node="0>0|2|1|0" />
+        <i3dMapping id="leftArm2" node="0>0|2|1|0|0" />
+        <i3dMapping id="leftArm3" node="0>0|2|1|0|0|0" />
+        <i3dMapping id="leftUnit" node="0>0|2|1|0|0|0|0" />
+        <i3dMapping id="leftUnitBackPart" node="0>0|2|1|0|0|0|0|0" />
+        <i3dMapping id="leftUnitUpperPart" node="0>0|2|1|0|0|0|0|0|0" />
+        <i3dMapping id="leftUnitUpperPartOrientation" node="0>0|2|1|0|0|0|0|0|0|0" />
+        <i3dMapping id="leftRoller" node="0>0|2|1|0|0|0|0|0|0|1" />
+        <i3dMapping id="leftCurtainExtend" node="0>0|2|1|0|0|0|0|0|0|2" />
+        <i3dMapping id="leftCurtainExtendArm1" node="0>0|2|1|0|0|0|0|0|0|2|0" />
+        <i3dMapping id="leftCurtain" node="0>0|2|1|0|0|0|0|0|0|2|0|0" />
+        <i3dMapping id="curtainBoneLeftMiddle" node="0>0|2|1|0|0|0|0|0|0|2|0|0|0" />
+        <i3dMapping id="curtainBoneLeftLeft" node="0>0|2|1|0|0|0|0|0|0|2|0|0|2" />
+        <i3dMapping id="leftCurtainExtendArm2" node="0>0|2|1|0|0|0|0|0|0|2|1" />
+        <i3dMapping id="leftUnitBackPartOrientation" node="0>0|2|1|0|0|0|0|0|1" />
+        <i3dMapping id="leftUnitBackPlateRef" node="0>0|2|1|0|0|0|0|0|2" />
+        <i3dMapping id="leftUnitUpperPartRefFrame" node="0>0|2|1|0|0|0|0|0|3" />
+        <i3dMapping id="leftUnitHydraulic" node="0>0|2|1|0|0|0|0|1" />
+        <i3dMapping id="leftUnitHydraulicPunch" node="0>0|2|1|0|0|0|0|1|0" />
+        <i3dMapping id="leftUnitBackPlate" node="0>0|2|1|0|0|0|0|2" />
+        <i3dMapping id="leftUnitRakes" node="0>0|2|1|0|0|0|0|3" />
+        <i3dMapping id="leftUnitRake01" node="0>0|2|1|0|0|0|0|3|0" />
+        <i3dMapping id="leftUnitRake02" node="0>0|2|1|0|0|0|0|3|1" />
+        <i3dMapping id="leftUnitRake03" node="0>0|2|1|0|0|0|0|3|2" />
+        <i3dMapping id="leftUnitRake04" node="0>0|2|1|0|0|0|0|3|3" />
+        <i3dMapping id="leftUnitRake05" node="0>0|2|1|0|0|0|0|3|4" />
+        <i3dMapping id="leftUnitRake06" node="0>0|2|1|0|0|0|0|3|5" />
+        <i3dMapping id="leftUnitUpperPartOrientationRef" node="0>0|2|1|0|0|0|0|4" />
+        <i3dMapping id="leftUnitBackPartRefFrame" node="0>0|2|1|0|0|0|0|5" />
+        <i3dMapping id="groundReferenceNode2" node="0>0|2|1|0|0|0|0|6" />
+        <i3dMapping id="leftBelt" node="0>0|2|1|0|0|0|0|7" />
+        <i3dMapping id="emitShape_l_l_t6_smoke" node="0>0|2|1|0|0|0|0|8|0|0|0|0" />
+        <i3dMapping id="emitShape_l_l_t6_grass" node="0>0|2|1|0|0|0|0|8|0|0|0|1" />
+        <i3dMapping id="emitShape_l_l_t7_smoke" node="0>0|2|1|0|0|0|0|8|0|0|1|0" />
+        <i3dMapping id="emitShape_l_l_t7_grass" node="0>0|2|1|0|0|0|0|8|0|0|1|1" />
+        <i3dMapping id="emitShape_l_l_t8_smoke" node="0>0|2|1|0|0|0|0|8|0|0|2|0" />
+        <i3dMapping id="emitShape_l_l_t8_grass" node="0>0|2|1|0|0|0|0|8|0|0|2|1" />
+        <i3dMapping id="emitShape_l_r_t6_smoke" node="0>0|2|1|0|0|0|0|8|1|0|0|0" />
+        <i3dMapping id="emitShape_l_r_t6_grass" node="0>0|2|1|0|0|0|0|8|1|0|0|1" />
+        <i3dMapping id="emitShape_l_r_t7_smoke" node="0>0|2|1|0|0|0|0|8|1|0|1|0" />
+        <i3dMapping id="emitShape_l_r_t7_grass" node="0>0|2|1|0|0|0|0|8|1|0|1|1" />
+        <i3dMapping id="emitShape_l_r_t8_smoke" node="0>0|2|1|0|0|0|0|8|1|0|2|0" />
+        <i3dMapping id="emitShape_l_r_t8_grass" node="0>0|2|1|0|0|0|0|8|1|0|2|1" />
+        <i3dMapping id="emitShape_l_c_t6_smoke" node="0>0|2|1|0|0|0|0|8|2|0|0|0" />
+        <i3dMapping id="emitShape_l_c_t6_grass" node="0>0|2|1|0|0|0|0|8|2|0|0|1" />
+        <i3dMapping id="emitShape_l_c_t7_smoke" node="0>0|2|1|0|0|0|0|8|2|0|1|0" />
+        <i3dMapping id="emitShape_l_c_t7_grass" node="0>0|2|1|0|0|0|0|8|2|0|1|1" />
+        <i3dMapping id="emitShape_l_c_t8_smoke" node="0>0|2|1|0|0|0|0|8|2|0|2|0" />
+        <i3dMapping id="emitShape_l_c_t8_grass" node="0>0|2|1|0|0|0|0|8|2|0|2|1" />
+        <i3dMapping id="pickupEffect_left" node="0>0|2|1|0|0|0|0|8|2|1" />
+        <i3dMapping id="emitShape_l_gl_t6_grass" node="0>0|2|1|0|0|0|0|8|3|0|0|0" />
+        <i3dMapping id="emitShape_l_gl_t7_grass" node="0>0|2|1|0|0|0|0|8|3|0|1|0" />
+        <i3dMapping id="emitShape_l_gl_t8_grass" node="0>0|2|1|0|0|0|0|8|3|0|2|0" />
+        <i3dMapping id="emitShape_l_gr_t6_grass" node="0>0|2|1|0|0|0|0|8|4|0|0|0" />
+        <i3dMapping id="emitShape_l_gr_t7_grass" node="0>0|2|1|0|0|0|0|8|4|0|1|0" />
+        <i3dMapping id="emitShape_l_gr_t8_grass" node="0>0|2|1|0|0|0|0|8|4|0|2|0" />
+        <i3dMapping id="emitShape_l_gc_t5_grass" node="0>0|2|1|0|0|0|0|8|5|0|0|0" />
+        <i3dMapping id="emitShape_l_gc_t6_grass" node="0>0|2|1|0|0|0|0|8|5|0|1|0" />
+        <i3dMapping id="emitShape_l_gc_t7_grass" node="0>0|2|1|0|0|0|0|8|5|0|2|0" />
+        <i3dMapping id="emitShape_l_gc_t8_grass" node="0>0|2|1|0|0|0|0|8|5|0|3|0" />
+        <i3dMapping id="gotoEffect_left_center" node="0>0|2|1|0|0|0|0|8|5|1" />
+        <i3dMapping id="workArea02Start" node="0>0|2|1|0|0|0|0|9|0" />
+        <i3dMapping id="workArea02Width" node="0>0|2|1|0|0|0|0|9|1" />
+        <i3dMapping id="workArea02Height" node="0>0|2|1|0|0|0|0|9|2" />
+        <i3dMapping id="leftArm3HydraulicRef" node="0>0|2|1|0|0|0|1" />
+        <i3dMapping id="leftUnitBackPartOrientationRef" node="0>0|2|1|0|0|0|2" />
+        <i3dMapping id="leftUnitHydraulicRef" node="0>0|2|1|0|0|0|3" />
+        <i3dMapping id="leftArm3Hydraulic" node="0>0|2|1|0|0|1" />
+        <i3dMapping id="leftArm3HydraulicPunch" node="0>0|2|1|0|0|1|0" />
+        <i3dMapping id="leftArm2HydraulicRef" node="0>0|2|1|0|0|2" />
+        <i3dMapping id="leftArm3RefFrame" node="0>0|2|1|0|0|3" />
+        <i3dMapping id="leftArm2Hydraulic" node="0>0|2|1|0|1" />
+        <i3dMapping id="leftArm2HydraulicPunch" node="0>0|2|1|0|1|0" />
+        <i3dMapping id="leftArm1HydraulicRef" node="0>0|2|1|0|2" />
+        <i3dMapping id="leftArm1Hydraulic" node="0>0|2|1|1" />
+        <i3dMapping id="leftArm1HydraulicPunch" node="0>0|2|1|1|0" />
+        <i3dMapping id="rightArm1" node="0>0|2|1|2" />
+        <i3dMapping id="rightArm2" node="0>0|2|1|2|0" />
+        <i3dMapping id="rightArm3" node="0>0|2|1|2|0|0" />
+        <i3dMapping id="rightUnit" node="0>0|2|1|2|0|0|0" />
+        <i3dMapping id="rightUnitBackPart" node="0>0|2|1|2|0|0|0|0" />
+        <i3dMapping id="rightUnitUpperPart" node="0>0|2|1|2|0|0|0|0|0" />
+        <i3dMapping id="rightUnitUpperPartOrientation" node="0>0|2|1|2|0|0|0|0|0|0" />
+        <i3dMapping id="rightRoller" node="0>0|2|1|2|0|0|0|0|0|1" />
+        <i3dMapping id="rightCurtainExtend" node="0>0|2|1|2|0|0|0|0|0|2" />
+        <i3dMapping id="rightCurtainExtendArm1" node="0>0|2|1|2|0|0|0|0|0|2|0" />
+        <i3dMapping id="rightCurtain" node="0>0|2|1|2|0|0|0|0|0|2|0|0" />
+        <i3dMapping id="curtainBoneRightLeft" node="0>0|2|1|2|0|0|0|0|0|2|0|0|1" />
+        <i3dMapping id="curtainBoneRightMiddle" node="0>0|2|1|2|0|0|0|0|0|2|0|0|2" />
+        <i3dMapping id="rightCurtainExtendArm2" node="0>0|2|1|2|0|0|0|0|0|2|1" />
+        <i3dMapping id="rightUnitBackPartOrientation" node="0>0|2|1|2|0|0|0|0|1" />
+        <i3dMapping id="rightUnitBackPlateRef" node="0>0|2|1|2|0|0|0|0|2" />
+        <i3dMapping id="rightUnitUpperPartRefFrame" node="0>0|2|1|2|0|0|0|0|3" />
+        <i3dMapping id="rightUnitHydraulic" node="0>0|2|1|2|0|0|0|1" />
+        <i3dMapping id="rightUnitHydraulicPunch" node="0>0|2|1|2|0|0|0|1|0" />
+        <i3dMapping id="rightUnitBackPlate" node="0>0|2|1|2|0|0|0|2" />
+        <i3dMapping id="rightUnitRakes" node="0>0|2|1|2|0|0|0|3" />
+        <i3dMapping id="rightUnitRake01" node="0>0|2|1|2|0|0|0|3|0" />
+        <i3dMapping id="rightUnitRake02" node="0>0|2|1|2|0|0|0|3|1" />
+        <i3dMapping id="rightUnitRake03" node="0>0|2|1|2|0|0|0|3|2" />
+        <i3dMapping id="rightUnitRake04" node="0>0|2|1|2|0|0|0|3|3" />
+        <i3dMapping id="rightUnitRake05" node="0>0|2|1|2|0|0|0|3|4" />
+        <i3dMapping id="rightUnitRake06" node="0>0|2|1|2|0|0|0|3|5" />
+        <i3dMapping id="rightUnitUpperPartOrientationRef" node="0>0|2|1|2|0|0|0|4" />
+        <i3dMapping id="rightUnitBackPartRefFrame" node="0>0|2|1|2|0|0|0|5" />
+        <i3dMapping id="groundReferenceNode3" node="0>0|2|1|2|0|0|0|6" />
+        <i3dMapping id="rightBelt" node="0>0|2|1|2|0|0|0|7" />
+        <i3dMapping id="emitShape_r_l_t1_smoke" node="0>0|2|1|2|0|0|0|8|0|0|0|0" />
+        <i3dMapping id="emitShape_r_l_t1_grass" node="0>0|2|1|2|0|0|0|8|0|0|0|1" />
+        <i3dMapping id="emitShape_r_l_t2_smoke" node="0>0|2|1|2|0|0|0|8|0|0|1|0" />
+        <i3dMapping id="emitShape_r_l_t2_grass" node="0>0|2|1|2|0|0|0|8|0|0|1|1" />
+        <i3dMapping id="emitShape_r_l_t3_smoke" node="0>0|2|1|2|0|0|0|8|0|0|2|0" />
+        <i3dMapping id="emitShape_r_l_t3_grass" node="0>0|2|1|2|0|0|0|8|0|0|2|1" />
+        <i3dMapping id="emitShape_r_r_t1_smoke" node="0>0|2|1|2|0|0|0|8|1|0|0|0" />
+        <i3dMapping id="emitShape_r_r_t1_grass" node="0>0|2|1|2|0|0|0|8|1|0|0|1" />
+        <i3dMapping id="emitShape_r_r_t2_smoke" node="0>0|2|1|2|0|0|0|8|1|0|1|0" />
+        <i3dMapping id="emitShape_r_r_t2_grass" node="0>0|2|1|2|0|0|0|8|1|0|1|1" />
+        <i3dMapping id="emitShape_r_r_t3_smoke" node="0>0|2|1|2|0|0|0|8|1|0|2|0" />
+        <i3dMapping id="emitShape_r_r_t3_grass" node="0>0|2|1|2|0|0|0|8|1|0|2|1" />
+        <i3dMapping id="emitShape_r_c_t1_smoke" node="0>0|2|1|2|0|0|0|8|2|0|0|0" />
+        <i3dMapping id="emitShape_r_c_t1_grass" node="0>0|2|1|2|0|0|0|8|2|0|0|1" />
+        <i3dMapping id="emitShape_r_c_t2_smoke" node="0>0|2|1|2|0|0|0|8|2|0|1|0" />
+        <i3dMapping id="emitShape_r_c_t2_grass" node="0>0|2|1|2|0|0|0|8|2|0|1|1" />
+        <i3dMapping id="emitShape_r_c_t3_grass" node="0>0|2|1|2|0|0|0|8|2|0|2|0" />
+        <i3dMapping id="pickupEffect_center" node="0>0|2|1|2|0|0|0|8|2|1" />
+        <i3dMapping id="emitShape_r_gl_t1_grass" node="0>0|2|1|2|0|0|0|8|3|0|0|0" />
+        <i3dMapping id="emitShape_r_gl_t2_grass" node="0>0|2|1|2|0|0|0|8|3|0|1|0" />
+        <i3dMapping id="emitShape_r_gl_t3_grass" node="0>0|2|1|2|0|0|0|8|3|0|2|0" />
+        <i3dMapping id="emitShape_r_gr_t1_grass" node="0>0|2|1|2|0|0|0|8|4|0|0|0" />
+        <i3dMapping id="emitShape_r_gr_t2_grass" node="0>0|2|1|2|0|0|0|8|4|0|1|0" />
+        <i3dMapping id="emitShape_r_gr_t3_grass" node="0>0|2|1|2|0|0|0|8|4|0|2|0" />
+        <i3dMapping id="emitShape_r_gc_t1_grass" node="0>0|2|1|2|0|0|0|8|5|0|0|0" />
+        <i3dMapping id="emitShape_r_gc_t2_grass" node="0>0|2|1|2|0|0|0|8|5|0|1|0" />
+        <i3dMapping id="emitShape_r_gc_t3_grass" node="0>0|2|1|2|0|0|0|8|5|0|2|0" />
+        <i3dMapping id="emitShape_r_gc_t4_grass" node="0>0|2|1|2|0|0|0|8|5|0|3|0" />
+        <i3dMapping id="gotoEffect_right_center" node="0>0|2|1|2|0|0|0|8|5|1" />
+        <i3dMapping id="workArea03Start" node="0>0|2|1|2|0|0|0|9|0" />
+        <i3dMapping id="workArea03Width" node="0>0|2|1|2|0|0|0|9|1" />
+        <i3dMapping id="workArea03Height" node="0>0|2|1|2|0|0|0|9|2" />
+        <i3dMapping id="rightArm3HydraulicRef" node="0>0|2|1|2|0|0|1" />
+        <i3dMapping id="rightUnitBackPartOrientationRef" node="0>0|2|1|2|0|0|2" />
+        <i3dMapping id="rightUnitHydraulicRef" node="0>0|2|1|2|0|0|3" />
+        <i3dMapping id="rightArm3Hydraulic" node="0>0|2|1|2|0|1" />
+        <i3dMapping id="rightArm3HydraulicPunch" node="0>0|2|1|2|0|1|0" />
+        <i3dMapping id="rightArm2HydraulicRef" node="0>0|2|1|2|0|2" />
+        <i3dMapping id="rightArm3RefFrame" node="0>0|2|1|2|0|3" />
+        <i3dMapping id="rightArm2Hydraulic" node="0>0|2|1|2|1" />
+        <i3dMapping id="rightArm2HydraulicPunch" node="0>0|2|1|2|1|0" />
+        <i3dMapping id="rightArm1HydraulicRef" node="0>0|2|1|2|2" />
+        <i3dMapping id="rightArm1Hydraulic" node="0>0|2|1|3" />
+        <i3dMapping id="rightArm1HydraulicPunch" node="0>0|2|1|3|0" />
+        <i3dMapping id="middleArm" node="0>0|2|1|4" />
+        <i3dMapping id="middleUnit" node="0>0|2|1|4|0" />
+        <i3dMapping id="middleRoller" node="0>0|2|1|4|0|0|0" />
+        <i3dMapping id="middleUnitBackPlate" node="0>0|2|1|4|0|1" />
+        <i3dMapping id="middleUnitBackPlateUpperPart" node="0>0|2|1|4|0|1|0" />
+        <i3dMapping id="middleUnitBackPlateUpperPartOrientation" node="0>0|2|1|4|0|1|0|0" />
+        <i3dMapping id="middleUnitBackPlateUpperPartOrientationRef" node="0>0|2|1|4|0|1|1" />
+        <i3dMapping id="middleUnitSpringsRef" node="0>0|2|1|4|0|1|2" />
+        <i3dMapping id="middleUnitSprings" node="0>0|2|1|4|0|2" />
+        <i3dMapping id="middleUnitRakes" node="0>0|2|1|4|0|3" />
+        <i3dMapping id="middleUnitRake01" node="0>0|2|1|4|0|3|0" />
+        <i3dMapping id="middleUnitRake02" node="0>0|2|1|4|0|3|1" />
+        <i3dMapping id="middleUnitRake03" node="0>0|2|1|4|0|3|2" />
+        <i3dMapping id="middleUnitRake04" node="0>0|2|1|4|0|3|3" />
+        <i3dMapping id="middleUnitRake05" node="0>0|2|1|4|0|3|4" />
+        <i3dMapping id="middleUnitRake06" node="0>0|2|1|4|0|3|5" />
+        <i3dMapping id="middleArmOrientationRef" node="0>0|2|1|4|0|4" />
+        <i3dMapping id="groundReferenceNode1" node="0>0|2|1|4|0|5" />
+        <i3dMapping id="workArea01Start" node="0>0|2|1|4|0|6|0" />
+        <i3dMapping id="workArea01Width" node="0>0|2|1|4|0|6|1" />
+        <i3dMapping id="workArea01Height" node="0>0|2|1|4|0|6|2" />
+        <i3dMapping id="middleBelt" node="0>0|2|1|4|0|7" />
+        <i3dMapping id="middleArmHydraulicRef" node="0>0|2|1|4|1" />
+        <i3dMapping id="middleArmHydraulic" node="0>0|2|1|5" />
+        <i3dMapping id="middleArmHydraulicPunch" node="0>0|2|1|5|0" />
+        <i3dMapping id="middleArmOrientation" node="0>0|2|1|6" />
+        <i3dMapping id="referenceFrameLeft" node="0>0|2|1|7" />
+        <i3dMapping id="referenceFrameRight" node="0>0|2|1|8" />
+        <i3dMapping id="rightLock" node="0>0|2|2|0" />
+        <i3dMapping id="rightLockHydraulic" node="0>0|2|2|0|0" />
+        <i3dMapping id="rightLockHydraulicPunch" node="0>0|2|2|0|0|0" />
+        <i3dMapping id="leftLock" node="0>0|2|2|1" />
+        <i3dMapping id="leftLockHydraulic" node="0>0|2|2|1|0" />
+        <i3dMapping id="leftLockHydraulicPunch" node="0>0|2|2|1|0|0" />
+        <i3dMapping id="rightLockHydraulicRef" node="0>0|2|2|2" />
+        <i3dMapping id="leftLockHydraulicRef" node="0>0|2|2|3" />
+        <i3dMapping id="emitShape_r_c_t3_smoke" node="0>0|2|3" />
+        <i3dMapping id="dropArea01Start" node="0>0|3|0|0" />
+        <i3dMapping id="dropArea01Width" node="0>0|3|0|1" />
+        <i3dMapping id="dropArea01Height" node="0>0|3|0|2" />
+        <i3dMapping id="dropArea02Start" node="0>0|3|1|0" />
+        <i3dMapping id="dropArea02Width" node="0>0|3|1|1" />
+        <i3dMapping id="dropArea02Height" node="0>0|3|1|2" />
+        <i3dMapping id="dropArea03Start" node="0>0|3|2|0" />
+        <i3dMapping id="dropArea03Width" node="0>0|3|2|1" />
+        <i3dMapping id="dropArea03Height" node="0>0|3|2|2" />
+        <i3dMapping id="aiAreaMarkerLeft" node="0>0|4|0|0" />
+        <i3dMapping id="aiAreaMarkerRight" node="0>0|4|0|1" />
+        <i3dMapping id="aiAreaMarkerBack" node="0>0|4|0|2" />
+        <i3dMapping id="aiSizeMarkerLeft" node="0>0|4|1|0" />
+        <i3dMapping id="aiSizeMarkerRight" node="0>0|4|1|1" />
+        <i3dMapping id="aiSizeMarkerBack" node="0>0|4|1|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|4|2" />
+        <i3dMapping id="whiteRounde01" node="0>0|5|0|0" />
+        <i3dMapping id="whiteRounde02" node="0>0|5|0|1" />
+        <i3dMapping id="frontlight02" node="0>0|5|0|2" />
+        <i3dMapping id="frontlight01" node="0>0|5|0|3" />
+        <i3dMapping id="backlightLeft" node="0>0|5|0|4" />
+        <i3dMapping id="backlightRight" node="0>0|5|0|5" />
+        <i3dMapping id="turnLightHighLeft" node="0>0|5|1" />
+        <i3dMapping id="turnLightHighRight" node="0>0|5|2" />
+        <i3dMapping id="backLightsHigh1" node="0>0|5|3" />
+        <i3dMapping id="emitShape_c_l_t4_smoke" node="0>0|6|0|0|0|0|0" />
+        <i3dMapping id="emitShape_c_l_t4_grass" node="0>0|6|0|0|0|0|1" />
+        <i3dMapping id="emitShape_c_l_t5_smoke" node="0>0|6|0|0|0|1|0" />
+        <i3dMapping id="emitShape_c_l_t5_grass" node="0>0|6|0|0|0|1|1" />
+        <i3dMapping id="pickupEffect_fullWidth" node="0>0|6|0|0|1" />
+        <i3dMapping id="emitShape_c_r_t4_smoke" node="0>0|6|0|1|0|0|0" />
+        <i3dMapping id="emitShape_c_r_t4_grass" node="0>0|6|0|1|0|0|1" />
+        <i3dMapping id="emitShape_c_r_t5_smoke" node="0>0|6|0|1|0|1|0" />
+        <i3dMapping id="emitShape_c_r_t5_grass" node="0>0|6|0|1|0|1|1" />
+        <i3dMapping id="emitShape_c_gl_t4_grass" node="0>0|6|0|2|0|0|0" />
+        <i3dMapping id="emitShape_c_gl_t5_grass" node="0>0|6|0|2|0|1|0" />
+        <i3dMapping id="gotoEffect_left" node="0>0|6|0|2|1" />
+        <i3dMapping id="emitShape_c_gr_t4_grass" node="0>0|6|0|3|0|0|0" />
+        <i3dMapping id="emitShape_c_gr_t5_grass" node="0>0|6|0|3|0|1|0" />
+        <i3dMapping id="gotoEffect_right" node="0>0|6|0|3|1" />
+        <i3dMapping id="testArea01Start" node="0>0|6|1|0" />
+        <i3dMapping id="testArea01Width" node="0>0|6|1|0|0" />
+        <i3dMapping id="testArea01Height" node="0>0|6|1|0|1" />
+        <i3dMapping id="testArea02Start" node="0>0|6|1|1" />
+        <i3dMapping id="testArea02Width" node="0>0|6|1|1|0" />
+        <i3dMapping id="testArea02Height" node="0>0|6|1|1|1" />
+        <i3dMapping id="testArea03Start" node="0>0|6|1|2" />
+        <i3dMapping id="testArea03Width" node="0>0|6|1|2|0" />
+        <i3dMapping id="testArea03Height" node="0>0|6|1|2|1" />
+        <i3dMapping id="testArea04Start" node="0>0|6|1|3" />
+        <i3dMapping id="testArea04Width" node="0>0|6|1|3|0" />
+        <i3dMapping id="testArea04Height" node="0>0|6|1|3|1" />
+        <i3dMapping id="testArea05Start" node="0>0|6|1|4" />
+        <i3dMapping id="testArea05Width" node="0>0|6|1|4|0" />
+        <i3dMapping id="testArea05Height" node="0>0|6|1|4|1" />
+        <i3dMapping id="testArea06Start" node="0>0|6|1|5" />
+        <i3dMapping id="testArea06Width" node="0>0|6|1|5|0" />
+        <i3dMapping id="testArea06Height" node="0>0|6|1|5|1" />
+        <i3dMapping id="testArea07Start" node="0>0|6|1|6" />
+        <i3dMapping id="testArea07Width" node="0>0|6|1|6|0" />
+        <i3dMapping id="testArea07Height" node="0>0|6|1|6|1" />
+        <i3dMapping id="testArea08Start" node="0>0|6|1|7" />
+        <i3dMapping id="testArea08Width" node="0>0|6|1|7|0" />
+        <i3dMapping id="testArea08Height" node="0>0|6|1|7|1" />
+        <i3dMapping id="kuhnMergeMaxx902_attacher_component2" node="1>" />
+        <i3dMapping id="attacherJoint" node="1>0" />
+        <i3dMapping id="attacherBlockRef" node="1>1" />
+        <i3dMapping id="supportCollision" node="1>2" />
+        <i3dMapping id="leftArmRotationNode" node="2>0" />
+        <i3dMapping id="componentJoint05" node="2>0|0|0" />
+        <i3dMapping id="leftArm1Ref" node="2>1" />
+        <i3dMapping id="rightArmRotationNode" node="3>0" />
+        <i3dMapping id="componentJoint06" node="3>0|0|0" />
+        <i3dMapping id="rightArm1Ref" node="3>1" />
+        <i3dMapping id="middleArmRef" node="4>0" />
+        <i3dMapping id="middleUnitRef" node="4>1" />
+        <i3dMapping id="pyhsicalSupportWheel01" node="4>2|0" />
+        <i3dMapping id="pyhsicalSupportWheel02" node="4>2|1" />
+        <i3dMapping id="pyhsicalSupportWheel03" node="4>2|2" />
+        <i3dMapping id="leftArm3Ref" node="5>0" />
+        <i3dMapping id="colPart01" node="5>1" />
+        <i3dMapping id="pyhsicalSupportWheel04" node="5>1|0" />
+        <i3dMapping id="pyhsicalSupportWheel05" node="5>1|1" />
+        <i3dMapping id="pyhsicalSupportWheel06" node="5>1|2" />
+        <i3dMapping id="colPart02" node="5>1|3" />
+        <i3dMapping id="rightArm3Ref" node="6>0" />
+        <i3dMapping id="pyhsicalSupportWheel07" node="6>1|0" />
+        <i3dMapping id="pyhsicalSupportWheel08" node="6>1|1" />
+        <i3dMapping id="pyhsicalSupportWheel09" node="6>1|2" />
+    </i3dMappings>
+</vehicle>

@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="fillableImplement">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Solitair 23</name>
+        <specs>
+            <combination>Azurit 9</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_additionalTank</function>
+        </functions>
+        <image>$data/vehicles/lemken/lemkenSolitair23/store_lemkenSolitair23.png</image>
+        <price>8000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>LEMKEN</brand>
+        <category>planters</category>
+        <vertexBufferMemoryUsage>1259832</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>228936</indexBufferMemoryUsage>
+        <textureMemoryUsage>4718872</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_sprayerTank</typeDesc>
+        <filename>$data/vehicles/lemken/lemkenSolitair23/lemkenSolitair23.i3d</filename>
+        <size width="3" length="2" lengthOffset="0"/>
+        <components>
+            <component centerOfMass="0 0.5 0" solverIterationCount="20" mass="800" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="implement" topReferenceNode="topReferenceNode" lowerRotationOffset="0" lowerRotLimitScale="0 0 0" upperRotationOffset="5" >
+                <distanceToGround lower="0.7" upper="1.2" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+        <support animationName="moveSupport"/>
+    </attachable>
+
+    <lights>
+        <sharedLight linkNode="frontlightLeft"       filename="$data/shared/assets/lights/lizard/frontLightOval_03_right.xml" />
+        <sharedLight linkNode="frontlightRight"       filename="$data/shared/assets/lights/lizard/frontLightOval_03_left.xml" />
+        <sharedLight linkNode="workingLight01"       filename="$data/shared/assets/lights/lizard/workingLightOval_02.xml" />
+        <sharedLight linkNode="workingLight02"       filename="$data/shared/assets/lights/lizard/workingLightOval_02.xml" />
+        <sharedLight linkNode="workingLight03"       filename="$data/shared/assets/lights/lizard/workingLightOval_02.xml" />
+        <sharedLight linkNode="workingLight04"       filename="$data/shared/assets/lights/lizard/workingLightOval_02.xml" />
+        <sharedLight linkNode="sideMarker01"       filename="$data/shared/assets/lights/lizard/sideMarker_07Orange_left.xml" />
+        <sharedLight linkNode="sideMarker02"       filename="$data/shared/assets/lights/lizard/sideMarker_07Orange_right.xml" />
+        <realLights>
+            <low>
+                <light node="frontLightLow" lightTypes="0"/>
+            </low>
+            <high>
+                <light node="frontLightHigh" lightTypes="0"/>
+                <light node="workLightFrontHigh" lightTypes="2"/>
+                <turnLightLeft node="turnLightLeftFront"/>
+                <turnLightRight node="turnLightRightFront"/>
+            </high>
+        </realLights>
+    </lights>
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn"  length="1" diameter="0.02">
+            <objectChange node="hydraulicIn_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut" length="1" diameter="0.02" >
+            <objectChange node="hydraulicOut_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+
+        <hose inputAttacherJointIndices="1" type="TOOL_CONNECTOR_BOTTOM_01" node="seedHose01" length="1.2" diameter="0.066">
+            <objectChange node="seedHose01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="TOOL_CONNECTOR_BOTTOM_02" node="seedHose02" length="1.2" diameter="0.066">
+            <objectChange node="seedHose02_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="TOOL_CONNECTOR_BOTTOM_03" node="seedHose03" length="1.2" diameter="0.066">
+            <objectChange node="seedHose03_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="TOOL_CONNECTOR_BOTTOM_04" node="seedHose04" length="1.2" diameter="0.066">
+            <objectChange node="seedHose04_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+    </connectionHoses>
+
+    <sprayer allowsSpraying="false" fillUnitIndex="1"/>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <unloading width="8" offset="0 0 0" />
+                    <fillUnit unit="$l10n_unit_literShort" fillTypeCategories="SPREADER" capacity="1500">
+                        <exactFillRootNode node="exactFillRootNode" />
+                    </fillUnit>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <fillVolume>
+        <fillVolumeConfigurations>
+            <fillVolumeConfiguration>
+                <volumes>
+                    <volume node="fillVolume" maxAllowedHeapAngle="15" fillUnitIndex="1" />
+                </volumes>
+            </fillVolumeConfiguration>
+        </fillVolumeConfigurations>
+
+        <unloadInfos>
+            <unloadInfo>
+                <node node="fillUnloadNode" width="2" length="0.4" />
+            </unloadInfo>
+        </unloadInfos>
+
+        <loadInfos>
+            <loadInfo>
+                <node node="fillLoadNode" width="2" length="0.4" />
+            </loadInfo>
+        </loadInfos>
+    </fillVolume>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="coverRef">
+                <dependentPart node="cover" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="cover" localReferencePoint="coverOrientationArm" referencePoint="coverRef" referenceFrame="coverRefFrame">
+                <dependentPart node="coverOrientationArm" />
+            </movingPart>
+            <movingPart node="coverOrientationArm" referencePoint="coverRef" referenceFrame="coverRef"/>
+        </movingParts>
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND"/>
+        </sounds>
+    </cylindered>
+
+    <animations>
+        <animation name="toggleCover">
+            <part node="coverRef"  startTime="0"   endTime="2"   startTrans="0 1.753 0.336"  endTrans="0 1.825 -0.244" />
+            <part node="coverRef"  startTime="2"   endTime="2.5" startTrans="0 1.825 -0.244" endTrans="0 1.795 -0.264" />
+            <part node="frontStep" startTime="2.5" endTime="4"   startRot="0 0 0"            endRot="-90 0 0" />
+        </animation>
+        <animation name="moveSupport">
+            <part node="supportAttached" startTime="0" endTime="0.1" visibility="false"/>
+            <part node="supportAttached" startTime="0.0" endTime="0" visibility="true"/>
+            <part node="supportDetached" startTime="0" endTime="0.1" visibility="true"/>
+            <part node="supportDetached" startTime="0.0" endTime="0" visibility="false"/>
+        </animation>
+    </animations>
+
+    <cover>
+        <coverConfigurations>
+            <coverConfiguration >
+                <cover openAnimation="toggleCover" fillUnitIndices="1" />
+            </coverConfiguration>
+        </coverConfigurations>
+    </cover>
+
+    <foliageBending>
+        <bendingNode minX="-1.2" maxX="1.2" minZ="-0.7" maxZ="1.0" yOffset="0.6" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="lemkenSolitair23_mat" baseNode="lemkenSolitair23_vis">
+            <shaderParameter name="colorMat0" value="LEMKEN_BLUE1"/>
+            <shaderParameter name="colorMat1" value="LEMKEN_RED1"/>
+            <shaderParameter name="colorMat3" value="LEMKEN_BLUE1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="2" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="lemkenSolitair23_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0" />
+        <i3dMapping id="topReferenceNode" node="0>0|0|0" />
+        <i3dMapping id="hydraulicIn" node="0>0|0|1|0" />
+        <i3dMapping id="hydraulicIn_detached" node="0>0|0|1|0|0" />
+        <i3dMapping id="hydraulicOut" node="0>0|0|1|1" />
+        <i3dMapping id="hydraulicOut_detached" node="0>0|0|1|1|0" />
+        <i3dMapping id="seedHose01" node="0>0|0|1|2" />
+        <i3dMapping id="seedHose01_detached" node="0>0|0|1|2|0" />
+        <i3dMapping id="seedHose02" node="0>0|0|1|3" />
+        <i3dMapping id="seedHose02_detached" node="0>0|0|1|3|0" />
+        <i3dMapping id="seedHose03" node="0>0|0|1|4" />
+        <i3dMapping id="seedHose03_detached" node="0>0|0|1|4|0" />
+        <i3dMapping id="seedHose04" node="0>0|0|1|5" />
+        <i3dMapping id="seedHose04_detached" node="0>0|0|1|5|0" />
+        <i3dMapping id="supportDetached" node="0>0|1" />
+        <i3dMapping id="supportAttached" node="0>0|2" />
+        <i3dMapping id="frontlightLeft" node="0>0|3|0|0" />
+        <i3dMapping id="frontlightRight" node="0>0|3|0|1" />
+        <i3dMapping id="workingLight01" node="0>0|3|0|2" />
+        <i3dMapping id="workingLight02" node="0>0|3|0|3" />
+        <i3dMapping id="workingLight03" node="0>0|3|0|4" />
+        <i3dMapping id="workingLight04" node="0>0|3|0|5" />
+        <i3dMapping id="sideMarker01" node="0>0|3|0|6" />
+        <i3dMapping id="sideMarker02" node="0>0|3|0|7" />
+        <i3dMapping id="frontLightHigh" node="0>0|3|1" />
+        <i3dMapping id="frontLightHigh2" node="0>0|3|1|0" />
+        <i3dMapping id="workLightFrontHigh" node="0>0|3|2" />
+        <i3dMapping id="turnLightLeftFront" node="0>0|3|3" />
+        <i3dMapping id="turnLightRightFront" node="0>0|3|4" />
+        <i3dMapping id="frontLightLow" node="0>0|3|5" />
+        <i3dMapping id="frontStep" node="0>0|4|0" />
+        <i3dMapping id="cover" node="0>0|4|1" />
+        <i3dMapping id="coverOrientationArm" node="0>0|4|1|0" />
+        <i3dMapping id="coverRef" node="0>0|4|2" />
+        <i3dMapping id="coverRefFrame" node="0>0|4|3" />
+        <i3dMapping id="fillVolume" node="0>0|5|0" />
+        <i3dMapping id="fillLoadNode" node="0>0|5|1" />
+        <i3dMapping id="fillUnloadNode" node="0>0|5|2" />
+        <i3dMapping id="exactFillRootNode" node="0>0|5|3" />
+    </i3dMappings>
+</vehicle>

@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="conveyorBelt">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>SL 80-22 Quantum</name>
+        <functions>
+            <function>$l10n_function_beltSystem</function>
+        </functions>
+        <image>$data/vehicles/grimme/grimmeSL8022/store_grimmeSL8022.png</image>
+        <price>38000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>GRIMME</brand>
+        <category>belts</category>
+        <vertexBufferMemoryUsage>889152</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>151548</indexBufferMemoryUsage>
+        <textureMemoryUsage>9612136</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_belt</typeDesc>
+        <filename>$data/vehicles/grimme/grimmeSL8022/grimmeSL8022.i3d</filename>
+        <size width="3.5" length="14.0" lengthOffset="-4.5" />
+        <components>
+            <component centerOfMass="0 0.65 0" solverIterationCount="10" mass="1800"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="implement" needsToolbar="true" needsLowering="false" allowsLowering="false" lowerRotLimitScale="1 3.2 2" upperRotLimitScale="1 3.2 2"   upperTransLimitScale="0 1 0">
+                <distanceToGround lower="0.632" upper="0.632" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+        <brakeForce>0.2</brakeForce>
+    </attachable>
+
+    <attacherJoints>
+        <attacherJoint node="attacherJointConveyor" jointType="conveyor" lowerRotLimit="50 120 120" allowsLowering="false" >
+            <schema position="1 0" rotation="0" invertX="false" />
+        </attacherJoint>
+        <sounds>
+            <attach template="ATTACH_01" linkNode="0>" />
+        </sounds>
+    </attacherJoints>
+
+    <wheels>
+        <ackermannSteeringConfigurations>
+            <ackermannSteering rotSpeed="65" rotMax="80" rotCenterWheel1="2" rotCenterWheel2="3" rotCenterNode="rotCenterNode" />
+        </ackermannSteeringConfigurations>
+
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels autoRotateBackSpeed="1.6">
+                    <wheel hasParticles="true">
+                        <physics rotSpeed="1" restLoad="0.7" repr="wheelFrontRot" driveNode="wheelFront"     useReprDirection="true" radius="0.225" width="0.3"                 initialCompression="20" suspTravel="0.12" spring="20" damper="30" mass="0.3" />
+                    </wheel>
+                    <wheel hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="0.5" repr="wheelLeftRepr" driveNode="wheelLeft"      useReprDirection="true" radius="0.471" width="0.3" xOffset="0.05"  initialCompression="25" suspTravel="0.12" spring="10" damper="30" mass="0.2" />
+                        <tire tireTrackAtlasIndex="4" />
+                    </wheel>
+                    <wheel hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="0.5" repr="reprNode"      driveNode="wheelRightRot2" useReprDirection="true" radius="0.471" width="0.3" xOffset="-0.05" initialCompression="25" suspTravel="0.12" spring="10" damper="30" mass="0.2" />
+                        <tire tireTrackAtlasIndex="4" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+    </wheels>
+
+    <enterable isTabbable="false" >
+        <enterReferenceNode node="exitPoint" />
+        <exitPoint node="exitPoint" />
+        <cameras>
+            <camera node="camera" rotatable="true" rotateNode="cameraRot" limit="true" useWorldXZRotation="true" rotMinX="-1.4" rotMaxX="1" transMin="4" transMax="40" >
+                <raycastNode node="cameraRaycastNode1" />
+                <raycastNode node="cameraRaycastNode2" />
+                <raycastNode node="cameraRaycastNode3" />
+            </camera>
+            <camera node="workCamera" rotatable="true" limit="true" rotMinX="-1.1" rotMaxX="0.4" transMin="0" transMax="0" useMirror="false" isInside="false" />
+        </cameras>
+         <forceSelectionOnEnter>true</forceSelectionOnEnter>
+    </enterable>
+
+    <motorized>
+        <differentialConfigurations>
+            <differentialConfiguration>
+                <differentials>
+                    <differential torqueRatio="0.5" maxSpeedRatio="3.0" wheelIndex1="2" wheelIndex2="3" />
+                </differentials>
+            </differentialConfiguration>
+        </differentialConfigurations>
+
+        <motorConfigurations>
+            <motorConfiguration name="SL 80-22 Quantum" hp="5" price="0">
+                <motor torqueScale="0.2" minRpm="1000" maxRpm="2200" minSpeed="0.01" maxForwardSpeed="5" maxBackwardSpeed="5" brakeForce="1" lowBrakeForceScale="0.22">
+                    <torque normRpm="0.45" torque="0.9"/>
+                    <torque normRpm="0.5"  torque="0.97"/>
+                    <torque normRpm="0.59" torque="1"/>
+                    <torque normRpm="0.72" torque="1"/>
+                    <torque normRpm="0.86" torque="0.88"/>
+                    <torque normRpm="1"    torque="0.72"/>
+                </motor>
+                <transmission minForwardGearRatio="145" maxForwardGearRatio="150" minBackwardGearRatio="145" maxBackwardGearRatio="150" />
+            </motorConfiguration>
+        </motorConfigurations>
+    </motorized>
+
+    <drivable>
+        <sounds>
+            <waterSplash template="WATER_SPLASH_01" />
+        </sounds>
+        <cruiseControl minSpeed="0.01"/>
+    </drivable>
+
+    <conveyorBelt dischargeNodeIndex="1" >
+        <offset movingToolNode="topArm">
+            <effect index="3" inverted="false" minOffset="0" maxOffset="4.4" />
+        </offset>
+        <animationNodes>
+            <animationNode class="ScrollingAnimation" node="beltFront"  shaderParameterComponent="2" scrollSpeed="-0.3" turnOnFadeTime="0.1" turnOffFadeTime="0.1" />
+            <animationNode class="ScrollingAnimation" node="beltBottom" shaderParameterComponent="2" scrollSpeed="-0.3" turnOnFadeTime="0.1" turnOffFadeTime="0.1" />
+            <animationNode class="ScrollingAnimation" node="beltTop"    shaderParameterComponent="2" scrollSpeed="-0.3" turnOnFadeTime="0.1" turnOffFadeTime="0.1" />
+        </animationNodes>
+        <effects>
+            <effectNode effectClass="ConveyorBeltEffect" effectNode="effectBeltFront"  materialType="belt" delay="0"   fadeTime="0.5" speed="0.7" scrollLength="1"  scrollSpeed="0.8" />
+            <effectNode effectClass="ConveyorBeltEffect" effectNode="effectBeltBottom" materialType="belt" delay="0.5" fadeTime="5"   speed="0.7" scrollLength="10" scrollSpeed="0.8" />
+            <effectNode effectClass="ConveyorBeltEffect" effectNode="effectBeltTop"    materialType="belt" delay="5.5" fadeTime="5"   speed="0.7" scrollLength="10" scrollSpeed="0.8" />
+        </effects>
+    </conveyorBelt>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration name="$l10n_configuration_valueDefault" price="0" >
+                <fillUnits>
+                    <fillUnit unit="$l10n_unit_literShort" fillTypeCategories="bulk" capacity="1200" showOnHud="false" showInShop="false" updateMass="false" >
+                        <exactFillRootNode node="exactFillRootNode" />
+                        <autoAimTargetNode node="fillAutoAimTargetNode" />
+                    </fillUnit>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <dischargeable requiresTipOcclusionArea="false" stopDischargeOnDeactivate="false">
+        <dischargeNode node="dischargeNode" emptySpeed="175" fillUnitIndex="1" canStartDischargeAutomatically="true">
+            <info width="0.4" length="0.4" />
+            <effects>
+                <effectNode effectClass="PipeEffect" effectNode="pipeUnloadEffect" materialType="pipe"  delay="0" maxBending="1"  positionUpdateNodes="pipeSmokeEffect" shapeScaleSpread="1 1 0 0" materialTypeId="1"/>
+                <effectNode                          effectNode="pipeSmokeEffect" materialType="smoke" delay="0" materialTypeId="1" alignToWorldY="true"/>
+            </effects>
+        </dischargeNode>
+    </dischargeable>
+
+    <foldable>
+        <foldingParts startMoveDirection="-1" turnOnFoldDirection="1" >
+            <foldingPart animationName="folding" speedScale="1" />
+        </foldingParts>
+    </foldable>
+
+    <animations>
+        <animation name="folding">
+            <part node="wheelMountLeft"  startTime="0" endTime="3" startRot="0 0 0" endRot="0 77 0" />
+            <part node="wheelMountRight" startTime="0" endTime="3" startRot="0 0 0" endRot="0 -77 0" />
+            <part node="reprNodeRot"     startTime="0" endTime="3" startRot="0 0 0" endRot="0 180 0" />
+            <part node="wheelRightRot1"  startTime="0" endTime="0.0001" startRot="0 0 0" endRot="0 180 0" />
+            <part node="wheelRight" startTime="0" endTime="0.0001" startRot="0 0 0" endRot="0 180 0" />
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="bottomArm" playSound="true" >
+                <controls axis="AXIS_CRANE_ARM2" invertAxis="false" mouseSpeedFactor="1.0" iconName="CRANE_ARM1_ROTATE_X" />
+                <rotation rotSpeed="4" rotAcceleration="15" rotMax="20" rotMin="0" rotationAxis="1" />
+                <dependentPart node="hydraulicMainLeft"/>
+                <dependentPart node="hydraulicMainRight"/>
+                <dependentPart node="conveyorProtection"/>
+            </movingTool>
+            <movingTool node="topArm" playSound="true">
+                <controls axis="AXIS_CRANE_ARM4" invertAxis="true" mouseSpeedFactor="0.8" iconName="CRANE_ARM2_TRANSLATE" />
+                <translation transSpeed="1.2" transAcceleration="15" transMax="-5.934" transMin="-14.934" translationAxis="3" />
+            </movingTool>
+
+            <movingTool node="wheelMountLeft" wheelIndices="2" />
+            <movingTool node="reprNodeRot" wheelIndices="3" />
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="hydraulicMainLeft" referencePoint="hydraulicMainLeftRef" referenceFrame="hydraulicMainLeftRef" >
+                <translatingPart node="hydraulicMainLeftPunch"/>
+            </movingPart>
+            <movingPart node="hydraulicMainRight" referencePoint="hydraulicMainRightRef" referenceFrame="hydraulicMainRightRef" >
+                <translatingPart node="hydraulicMainRightPunch"/>
+            </movingPart>
+            <movingPart node="conveyorProtection" referencePoint="conveyorProtectionRef" referenceFrame="conveyorProtectionRef"/>
+            <movingPart node="dischargeNodeRot" referenceFrame="dischargeNodeRotRefFrame" alignToWorldY="true" isActiveDirty="true" />
+            <movingPart node="hydraulicSteering" referencePoint="hydraulicSteeringRef" referenceFrame="hydraulicSteeringRef" isActiveDirty="true" >
+                <translatingPart node="hydraulicSteeringPunch"/>
+            </movingPart>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <foliageBending>
+        <bendingNode minX="-1.3" maxX="1.3" minZ="-3.8" maxZ="1.6" yOffset="0.5" />
+        <bendingNode minX="-0.6" maxX="0.6" minZ="-4.6" maxZ="3.0" yOffset="-0.3" node="topArm" />
+    </foliageBending>
+
+    <ai>
+        <conveyorBelt minAngle="5" maxAngle="50" stepSize="5" speed="1" />
+    </ai>
+
+    <baseMaterial>
+        <material name="grimmeBeltSystem_mat" baseNode="grimme_vis">
+            <shaderParameter name="colorMat0" value="GRIMME_RED1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="grimmeSL8022_main_component1" node="0>" />
+        <i3dMapping id="wheelFrontRot" node="0>0|0" />
+        <i3dMapping id="wheelFront" node="0>0|0|0" />
+        <i3dMapping id="wheelMountLeft" node="0>0|1" />
+        <i3dMapping id="wheelLeft" node="0>0|1|0" />
+        <i3dMapping id="hydraulicSteeringRef" node="0>0|1|1" />
+        <i3dMapping id="wheelLeftRepr" node="0>0|1|2" />
+        <i3dMapping id="wheelMountRight" node="0>0|2" />
+        <i3dMapping id="wheelRightRot1" node="0>0|2|0" />
+        <i3dMapping id="wheelRightRot2" node="0>0|2|0|0" />
+        <i3dMapping id="wheelRight" node="0>0|2|0|0|0" />
+        <i3dMapping id="hydraulicSteering" node="0>0|2|1" />
+        <i3dMapping id="hydraulicSteeringPunch" node="0>0|2|1|0" />
+        <i3dMapping id="reprNodeRot" node="0>0|2|2" />
+        <i3dMapping id="reprNode" node="0>0|2|2|0" />
+        <i3dMapping id="rotCenterNode" node="0>0|3" />
+        <i3dMapping id="attacherJoint" node="0>1" />
+        <i3dMapping id="hitch" node="0>2" />
+        <i3dMapping id="attacherJointConveyor" node="0>2|0" />
+        <i3dMapping id="bottomArm" node="0>3|0" />
+        <i3dMapping id="topArm" node="0>3|0|0" />
+        <i3dMapping id="dischargeNodeRot" node="0>3|0|0|0" />
+        <i3dMapping id="dischargeNode" node="0>3|0|0|0|0" />
+        <i3dMapping id="beltTop" node="0>3|0|0|1" />
+        <i3dMapping id="pipeUnloadEffect" node="0>3|0|0|1|0|0" />
+        <i3dMapping id="pipeSmokeEffect" node="0>3|0|0|1|0|1" />
+        <i3dMapping id="effectBeltTop" node="0>3|0|0|1|0|2" />
+        <i3dMapping id="cameraRaycastNode3" node="0>3|0|0|2" />
+        <i3dMapping id="workCamera" node="0>3|0|0|3" />
+        <i3dMapping id="beltBottom" node="0>3|0|1" />
+        <i3dMapping id="effectBeltBottom" node="0>3|0|1|0|0" />
+        <i3dMapping id="hydraulicMainLeftRef" node="0>3|0|2" />
+        <i3dMapping id="hydraulicMainRightRef" node="0>3|0|3" />
+        <i3dMapping id="conveyorProtectionRef" node="0>3|0|4" />
+        <i3dMapping id="cameraRaycastNode2" node="0>3|0|5" />
+        <i3dMapping id="hydraulicMainLeft" node="0>3|1" />
+        <i3dMapping id="hydraulicMainLeftPunch" node="0>3|1|0" />
+        <i3dMapping id="hydraulicMainRight" node="0>3|2" />
+        <i3dMapping id="hydraulicMainRightPunch" node="0>3|2|0" />
+        <i3dMapping id="conveyorProtection" node="0>3|3" />
+        <i3dMapping id="dischargeNodeRotRefFrame" node="0>3|4" />
+        <i3dMapping id="beltFront" node="0>3|5" />
+        <i3dMapping id="effectBeltFront" node="0>3|5|0|0" />
+        <i3dMapping id="exactFillRootNode" node="0>4" />
+        <i3dMapping id="fillAutoAimTargetNode" node="0>5" />
+        <i3dMapping id="cameraRot" node="0>6" />
+        <i3dMapping id="camera" node="0>6|0" />
+        <i3dMapping id="exitPoint" node="0>7" />
+        <i3dMapping id="cameraRaycastNode1" node="0>8" />
+        <i3dMapping id="grimme_vis" node="0>10" />
+    </i3dMappings>
+</vehicle>

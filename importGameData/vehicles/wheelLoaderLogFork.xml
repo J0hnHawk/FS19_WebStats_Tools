@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="logGrab">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>$l10n_shopItem_wheelLoaderLogFork</name>
+        <specs>
+            <combination>W190 D</combination>
+        </specs>
+        <image>$data/vehicles/magsi/wheelLoaderLogFork/store_magsiWheelLoaderLogFork.png</image>
+        <price>3800</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>MAGSI</brand>
+        <category>wheelLoaders</category>
+        <vertexBufferMemoryUsage>185984</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>32760</indexBufferMemoryUsage>
+        <textureMemoryUsage>4238136</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_wheelLoaderTool</typeDesc>
+        <filename>$data/vehicles/magsi/wheelLoaderLogFork/wheelLoaderLogFork.i3d</filename>
+        <size width="2.5" length="2"/>
+        <components>
+            <component centerOfMass="0 0.2 0" solverIterationCount="10" mass="350" />
+            <component solverIterationCount="10" mass="250" />
+            <joint component1="1" component2="2" node="grabJoint" rotLimit="0 0 0" transLimit="0 0 0" rotLimitSpring="300 0 0" rotLimitDamping="30 0 0" rotLimitForceLimit="10 -1 -1" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="wheelLoader" />
+        </inputAttacherJoints>
+    </attachable>
+
+    <logGrab jointNode="0>" jointRoot="0>">
+        <trigger node="dynamicMountTrigger" />
+        <grab componentJoint="1" axis="3" rotationOffsetThreshold="10" rotationOffsetTime="1000"/>
+    </logGrab>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="grabJoint" playSound="true" >
+                <controls axis="AXIS_FRONTLOADER_TOOL2" invertAxis="true" mouseSpeedFactor="0.3" iconName="TOOL_OPEN_CLOSE" />
+                <rotation rotationAxis="1" rotSpeed="70" rotAcceleration="250" rotMax="0" rotMin="-85" />
+                <componentJoint index="1" anchorActor="0" />
+                <dependentPart node="grab" />
+            </movingTool>
+        </movingTools>
+        <movingParts>
+            <movingPart node="grab" referencePoint="grabRef" referenceFrame="grabRef" limitedAxis="1" isActiveDirty="true">
+                <dependentPart node="hydraulicGrab" />
+            </movingPart>
+            <movingPart node="hydraulicGrab" referencePoint="hydraulicGrabRef" referenceFrame="hydraulicGrabRefFrame" >
+                <translatingPart node="hydraulicGrabPunch" />
+            </movingPart>
+        </movingParts>
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="2" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="wheelLoaderLogFork_main_component1" node="0>" />
+        <i3dMapping id="attacherJoint" node="0>0" />
+        <i3dMapping id="grabJoint" node="0>1" />
+        <i3dMapping id="hydraulicGrab" node="0>2|0" />
+        <i3dMapping id="hydraulicGrabPunch" node="0>2|0|0" />
+        <i3dMapping id="hydraulicGrabRefFrame" node="0>2|1" />
+        <i3dMapping id="dynamicMountTrigger" node="0>2|3" />
+        <i3dMapping id="grab" node="0>3" />
+        <i3dMapping id="hydraulicGrabRef" node="0>3|0" />
+        <i3dMapping id="wheelLoaderLogFork_grab_component2" node="1>" />
+        <i3dMapping id="grabRef" node="1>0" />
+    </i3dMappings>
+</vehicle>

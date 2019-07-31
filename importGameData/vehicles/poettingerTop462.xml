@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="windrower">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>TOP 462</name>
+        <specs>
+            <workingWidth>4.6</workingWidth>
+            <neededPower>50</neededPower>
+        </specs>
+        <functions>
+            <function>$l10n_function_windrower</function>
+        </functions>
+        <image>$data/vehicles/poettinger/poettingerTop462/store_poettingerTop462.png</image>
+        <price>10000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>POETTINGER</brand>
+        <category>windrowers</category>
+        <shopFoldingState>1</shopFoldingState>
+        <shopTranslationOffset>0 -0.05 0</shopTranslationOffset>
+        <shopRotationOffset>0 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>1267524</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>186918</indexBufferMemoryUsage>
+        <textureMemoryUsage>6466360</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_windrower</typeDesc>
+        <filename>$data/vehicles/poettinger/poettingerTop462/poettingerTop462.i3d</filename>
+        <size width="4.5" length="3.5" />
+        <speedLimit value="18" />
+        <components>
+            <component centerOfMass="0 0.3 -0.4" solverIterationCount="10" mass="380" />
+            <component centerOfMass="0 0.0 0" solverIterationCount="10" mass="380" />
+            <joint component1="2" component2="1" node="componentJoint" rotLimit="0 0 0" transLimit="0 0 0" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel>
+                        <physics restLoad="0.2" repr="wheelLeftPhysical"  forcePointRatio="0.2" mass="0.01" radius="0.21" width="0.16" initialCompression="40" suspTravel="0.05" spring="9" damper="10" frictionScale="2.0" />
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.2" repr="wheelRightPhysical" forcePointRatio="0.2" mass="0.01" radius="0.21" width="0.16" initialCompression="40" suspTravel="0.05" spring="9" damper="10" frictionScale="2.0" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <hubs>
+            <hub linkNode="wheelLeftFront"  filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.142 0.142 0.142" />
+            <hub linkNode="wheelLeftBack"   filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.142 0.142 0.142" />
+            <hub linkNode="wheelRightFront" filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.142 0.142 0.142" />
+            <hub linkNode="wheelRightBack"  filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.142 0.142 0.142" />
+        </hubs>
+
+        <dynamicallyLoadedWheels>
+            <dynamicallyLoadedWheel linkNode="wheelLeftFront"  filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false"/>
+            <dynamicallyLoadedWheel linkNode="wheelLeftBack"   filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true"/>
+            <dynamicallyLoadedWheel linkNode="wheelRightFront" filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true"/>
+            <dynamicallyLoadedWheel linkNode="wheelRightBack"  filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false"/>
+        </dynamicallyLoadedWheels>
+    </wheels>
+
+    <lights>
+        <sharedLight linkNode="yellowRound_03_1"        filename="$data/shared/assets/reflectors/lizard/yellowRound_03.xml" />
+        <sharedLight linkNode="yellowRound_03_2"        filename="$data/shared/assets/reflectors/lizard/yellowRound_03.xml" />
+        <sharedLight linkNode="whiteRound_02_1"         filename="$data/shared/assets/reflectors/lizard/whiteRound_02.xml" />
+        <sharedLight linkNode="rear2ChamberLight_05_left"  filename="$data/shared/assets/lights/lizard/rear2ChamberLight_05_left.xml" />
+        <sharedLight linkNode="rear2ChamberLight_05_right"  filename="$data/shared/assets/lights/lizard/rear2ChamberLight_05_right.xml" />
+
+       <realLights>
+            <low>
+                <!-- no real lights for brake, turn or reverse lights! -->
+            </low>
+            <high>
+                <light node="backLightHighLeft" lightTypes="0"/>
+                <light node="backLightHighRight" lightTypes="0"/>
+                <brakeLight node="brakeLightHighLeft"/>
+                <brakeLight node="brakeLightHighRight"/>
+                <turnLightLeft node="turnLightLeftBack"/>
+                <turnLightRight node="turnLightRightBack"/>
+            </high>
+        </realLights>
+    </lights>
+
+    <powerConsumer ptoRpm="450" neededMinPtoPower="5" neededMaxPtoPower="15" />
+
+    <speedRotatingParts>
+        <speedRotatingPart node="wheelLeftFront" radius="0.2" groundReferenceNodeIndex="1"/>
+        <speedRotatingPart node="wheelLeftBack" radius="0.2" groundReferenceNodeIndex="1"/>
+        <speedRotatingPart node="wheelRightFront" radius="0.2" groundReferenceNodeIndex="1"/>
+        <speedRotatingPart node="wheelRightBack" radius="0.2" groundReferenceNodeIndex="1" />
+    </speedRotatingParts>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundReferenceNode" threshold="0.05" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="windrower" functionName="processWindrowerArea" disableBackwards="false">
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight" />
+            <groundReferenceNode index="1" />
+            <windrower dropWindrowWorkAreaIndex="2" />
+        </workArea>
+
+        <workArea type="auxiliary" >
+            <area startNode="dropAreaStart" widthNode="dropAreaWidth" heightNode="dropAreaHeight" />
+        </workArea>
+    </workAreas>
+
+    <animations>
+        <!-- move support wheel down/up -->
+        <animation name="moveSupport">
+            <part node="support" startTime="0" endTime="0.3" startTrans="-0.004 -0.205 -0.123" endTrans="-0.004 -0.653 -0.123" />
+        </animation>
+
+        <animation name="folding">
+            <part node="protectionLeft" startTime="0" endTime="2" startRot="0 0 0" endRot="0 0 115" />
+            <part node="protectionRight" startTime="0" endTime="2" startRot="0 0 0" endRot="0 0 -115" />
+
+            <part node="spike03" startTime="1.90" endTime="1.95" visibility="true" />
+            <part node="spike03" startTime="1.95" endTime="2.00" visibility="false" />
+
+            <part node="spikesParking" startTime="1.90" endTime="1.95" visibility="false" />
+            <part node="spikesParking" startTime="1.95" endTime="2.00" visibility="true" />
+
+            <part node="spike08" startTime="1.80" endTime="1.95" visibility="true" />
+            <part node="spike08" startTime="1.85" endTime="2.00" visibility="false" />
+        </animation>
+
+        <animation name="lowerAnimation">
+            <part componentJointIndex="1" startTime="0" endTime="2" startRotLimit="0 0 0" endRotLimit="0 30 0" />
+        </animation>
+    </animations>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" topReferenceNode="topReferenceNode" jointType="implement" rootNode="poettingerTop462_attacher_component2" allowsLowering="true" >
+                <distanceToGround lower="0.57" upper="0.95" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+        <support animationName="moveSupport" />
+        <lowerAnimation name="lowerAnimation" />
+        <brakeForce>0.05</brakeForce>
+    </attachable>
+
+    <powerTakeOffs>
+        <input inputAttacherJointIndices="1" detachNode="ptoDetachNode" inputNode="ptoInputNode" aboveAttacher="true" />
+    </powerTakeOffs>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="protectionLeft" playSound="true"/>
+        </movingTools>
+        <movingParts>
+            <movingPart node="hydraulicLeft" referencePoint="hydraulicLeftRef" referenceFrame="hydraulicLeftRef" isActiveDirty="true" >
+                <translatingPart node="hydraulicLeftPunch" />
+            </movingPart>
+            <movingPart node="hydraulicRight" referencePoint="hydraulicRightRef" referenceFrame="hydraulicRightRef" isActiveDirty="true" >
+                <translatingPart node="hydraulicRightPunch" />
+            </movingPart>
+        </movingParts>
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND"/>
+        </sounds>
+    </cylindered>
+
+    <foldable>
+        <foldingParts startMoveDirection="1" turnOnFoldMaxLimit="0.05" turnOnFoldMinLimit="0" >
+            <foldingPart animationName="folding" speedScale="1.0" />
+        </foldingParts>
+    </foldable>
+
+    <turnOnVehicle turnOffIfNotAllowed="true"/>
+
+    <windrower>
+        <animationNodes>
+            <animationNode node="rower" rotSpeed="300" rotAxis="2" />
+        </animationNodes>
+
+        <rakes>
+            <rake node="rower" moveUpRange="45 90" moveDownRange="220 265" dir="1" spikeMaxRotZ="70" >
+                <spike node="spike01" dir="-1" />
+                <spike node="spike02" dir="-1" />
+                <spike node="spike03" dir="-1" />
+                <spike node="spike04" dir="-1" />
+                <spike node="spike05" dir="-1" />
+                <spike node="spike06" dir="-1" />
+                <spike node="spike07" dir="-1" />
+                <spike node="spike08" dir="-1" />
+                <spike node="spike09" dir="-1" />
+                <spike node="spike10" dir="-1" />
+                <spike node="spike11" dir="-1" />
+                <spike node="spike12" dir="-1" />
+            </rake>
+        </rakes>
+
+        <effects>
+            <effect workAreaIndex="1">
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShape" particleType="WINDROWER" />
+            </effect>
+        </effects>
+
+        <sounds>
+            <work template="DEFAULT_TEDDER" linkNode="poettingerTop462_main_component1" />
+        </sounds>
+    </windrower>
+
+    <ai>
+        <needsLowering value="true" />
+        <areaMarkers leftNode="areaMarkerLeft" rightNode="areaMarkerRight" backNode="areaMarkerBack" />
+        <sizeMarkers leftNode="sizeMarkerLeft" rightNode="sizeMarkerRight" backNode="sizeMarkerBack" />
+        <collisionTrigger node="trafficCollisionTrigger" />
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-1.2" maxX="1.2" minZ="-1.4" maxZ="1.2 " yOffset="0.6" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="poettingerTop462_mat" baseNode="poettinger_vis">
+            <shaderParameter name="colorMat0" value="POETTINGER_YELLOW"/>
+            <shaderParameter name="colorMat2" value="POETTINGER_YELLOW"/>
+            <shaderParameter name="colorMat3" value="POETTINGER_RED1"/>
+            <shaderParameter name="colorMat4" value="POETTINGER_WHITE1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="poettingerTop462_main_component1" node="0>" />
+        <i3dMapping id="poettinger_vis" node="0>0" />
+        <i3dMapping id="hydraulicLeftRef" node="0>0|0" />
+        <i3dMapping id="hydraulicRightRef" node="0>0|1" />
+        <i3dMapping id="ptoInputNode" node="0>0|2" />
+        <i3dMapping id="ptoDetachNode" node="0>0|3" />
+        <i3dMapping id="wheelLeftPhysical" node="0>0|4|0" />
+        <i3dMapping id="wheelRightPhysical" node="0>0|4|1" />
+        <i3dMapping id="wheelLeftFront" node="0>0|4|2" />
+        <i3dMapping id="wheelLeftBack" node="0>0|4|3" />
+        <i3dMapping id="wheelRightFront" node="0>0|4|4" />
+        <i3dMapping id="wheelRightBack" node="0>0|4|5" />
+        <i3dMapping id="yellowRound_03_1" node="0>0|5|0|0" />
+        <i3dMapping id="yellowRound_03_2" node="0>0|5|0|1" />
+        <i3dMapping id="whiteRound_02_1" node="0>0|5|0|2" />
+        <i3dMapping id="rear2ChamberLight_05_left" node="0>0|5|0|3" />
+        <i3dMapping id="rear2ChamberLight_05_right" node="0>0|5|0|4" />
+        <i3dMapping id="backLightHighLeft" node="0>0|5|1|0" />
+        <i3dMapping id="backLightHighRight" node="0>0|5|1|1" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|5|2|0" />
+        <i3dMapping id="turnLightRightBack" node="0>0|5|2|1" />
+        <i3dMapping id="brakeLightHighLeft" node="0>0|5|3|0" />
+        <i3dMapping id="brakeLightHighRight" node="0>0|5|3|1" />
+        <i3dMapping id="workAreaStart" node="0>0|6|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|6|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|6|2" />
+        <i3dMapping id="groundReferenceNode" node="0>0|6|3" />
+        <i3dMapping id="dropAreaStart" node="0>0|7|0" />
+        <i3dMapping id="dropAreaWidth" node="0>0|7|1" />
+        <i3dMapping id="dropAreaHeight" node="0>0|7|2" />
+        <i3dMapping id="protectionLeft" node="0>0|8" />
+        <i3dMapping id="protectionRight" node="0>0|9" />
+        <i3dMapping id="rower" node="0>0|10" />
+        <i3dMapping id="spike01" node="0>0|10|0|0|0" />
+        <i3dMapping id="spike02" node="0>0|10|0|1|0" />
+        <i3dMapping id="spike03" node="0>0|10|0|2|0" />
+        <i3dMapping id="spike04" node="0>0|10|0|3|0" />
+        <i3dMapping id="spike05" node="0>0|10|0|4|0" />
+        <i3dMapping id="spike06" node="0>0|10|0|5|0" />
+        <i3dMapping id="spike07" node="0>0|10|0|6|0" />
+        <i3dMapping id="spike08" node="0>0|10|0|7|0" />
+        <i3dMapping id="spike09" node="0>0|10|0|8|0" />
+        <i3dMapping id="spike10" node="0>0|10|0|9|0" />
+        <i3dMapping id="spike11" node="0>0|10|0|10|0" />
+        <i3dMapping id="spike12" node="0>0|10|0|11|0" />
+        <i3dMapping id="spikesParking" node="0>0|11" />
+        <i3dMapping id="areaMarkerLeft" node="0>0|12|0|0" />
+        <i3dMapping id="areaMarkerRight" node="0>0|12|0|1" />
+        <i3dMapping id="areaMarkerBack" node="0>0|12|0|2" />
+        <i3dMapping id="sizeMarkerLeft" node="0>0|12|1|0" />
+        <i3dMapping id="sizeMarkerRight" node="0>0|12|1|1" />
+        <i3dMapping id="sizeMarkerBack" node="0>0|12|1|2" />
+        <i3dMapping id="trafficCollisionTrigger" node="0>0|12|2" />
+        <i3dMapping id="emitterShape" node="0>0|13" />
+        <i3dMapping id="poettingerTop462_attacher_component2" node="1>" />
+        <i3dMapping id="attacherJoint" node="1>0" />
+        <i3dMapping id="topReferenceNode" node="1>1" />
+        <i3dMapping id="hydraulicLeft" node="1>2" />
+        <i3dMapping id="hydraulicLeftPunch" node="1>2|0" />
+        <i3dMapping id="hydraulicRight" node="1>3" />
+        <i3dMapping id="hydraulicRightPunch" node="1>3|0" />
+        <i3dMapping id="componentJoint" node="1>4" />
+        <i3dMapping id="support" node="1>5" />
+    </i3dMappings>
+</vehicle>

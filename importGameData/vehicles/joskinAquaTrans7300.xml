@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="waterTrailer">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>AQUATRANS 7300 S</name>
+        <functions>
+            <function>$l10n_function_tank</function>
+        </functions>
+        <image>$data/vehicles/joskin/joskinAquaTrans7300/store_joskinAquaTrans7300.png</image>
+        <price>9500</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>JOSKIN</brand>
+        <category>animals</category>
+        <shopTranslationOffset>0 -0.028 0</shopTranslationOffset>
+        <shopRotationOffset>1.075 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>516184</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>91434</indexBufferMemoryUsage>
+        <textureMemoryUsage>6990712</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_waterTrailer</typeDesc>
+        <filename>$data/vehicles/joskin/joskinAquaTrans7300/joskinAquaTrans7300.i3d</filename>
+        <size width="2.5" length="7"/>
+        <components>
+            <component centerOfMass="0 0.65 -0.75" solverIterationCount="10" mass="1100" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/400_55R22_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics tipOcclusionAreaGroupId="1" rotSpeed="0" restLoad="0.5" repr="wheelLeft"  forcePointRatio="0.3" initialCompression="10" suspTravel="0.15" spring="30" damper="50" />
+                        <wheelChock parkingNode="wheelChock01" />
+                        <wheelChock parkingNode="wheelChock02" isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/400_55R22_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics tipOcclusionAreaGroupId="1" rotSpeed="0" restLoad="0.5" repr="wheelRight" forcePointRatio="0.3" initialCompression="10" suspTravel="0.15" spring="30" damper="50" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <rimColor>JOSKIN_YELLOW1</rimColor>
+
+        <hubs>
+            <color0>JOSKIN_GREEN1</color0>
+            <hub linkNode="wheelLeft"  filename="$data/shared/wheels/hubs/hub_n8_6.xml" isLeft="true"  scale="0.285 0.285 0.285" />
+            <hub linkNode="wheelRight" filename="$data/shared/wheels/hubs/hub_n8_6.xml" isLeft="false" scale="0.285 0.285 0.285" />
+        </hubs>
+    </wheels>
+
+    <dynamicallyLoadedParts>
+        <dynamicallyLoadedPart node="0" linkNode="chockSupport01" filename="$data/shared/assets/wheelChocks/wheelChockSupport01.i3d"/>
+        <dynamicallyLoadedPart node="0" linkNode="chockSupport02" filename="$data/shared/assets/wheelChocks/wheelChockSupport01.i3d"/>
+    </dynamicallyLoadedParts>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="trailer" attacherHeight="0.6" />
+        </inputAttacherJoints>
+        <brakeForce>0.4</brakeForce>
+        <support animationName="moveSupport" />
+    </attachable>
+
+    <lights>
+        <sharedLight linkNode="rearLightMultiPoint3Left"    filename="$data/shared/assets/lights/lizard/rearMultipointLight_03_left.xml" />
+        <sharedLight linkNode="rearLightMultiPoint3Right"   filename="$data/shared/assets/lights/lizard/rearMultipointLight_03_right.xml" />
+        <sharedLight linkNode="sideMarker4Orange"           filename="$data/shared/assets/lights/lizard/sideMarker_04Orange.xml" />
+        <sharedLight linkNode="sideMarker4Orange1"          filename="$data/shared/assets/lights/lizard/sideMarker_04Orange.xml" />
+        <sharedLight linkNode="sideMarker4Orange2"          filename="$data/shared/assets/lights/lizard/sideMarker_04Orange.xml" />
+        <sharedLight linkNode="sideMarker4Orange3"          filename="$data/shared/assets/lights/lizard/sideMarker_04Orange.xml" />
+
+        <sharedLight linkNode="bigTriangle"                 filename="$data/shared/assets/reflectors/lizard/bigTriangle.xml" />
+
+        <realLights>
+            <high>
+                <light node="backLightsHigh" lightTypes="0" />
+                <turnLightLeft node="turnLightLeftBack" />
+                <turnLightRight node="turnLightRightBack" />
+                <brakeLight node="backLightsHigh" />
+                <reverseLight node="reverseLight" />
+            </high>
+        </realLights>
+    </lights>
+
+    <animations>
+        <animation name="moveSupport">
+            <part node="supportArm" startTime="0" duration="0.15" startTrans="0.131 0.591 1.505" endTrans="0.131 0.361 1.499" />
+        </animation>
+    </animations>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration name="$l10n_configuration_valueDefault" price="0" >
+                <fillUnits>
+                    <fillUnit unit="$l10n_unit_literShort" fillTypes="water" capacity="7300" >
+                        <exactFillRootNode node="exactFillRootNode" />
+                    </fillUnit>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <dischargeable>
+        <dischargeNode node="dischargeNode" emptySpeed="400" fillUnitIndex="1" canDischargeToGround="false">
+            <info width="1.0" length="0.5" zOffset="0.4" />
+            <trigger node="dischargeTrigger" />
+        </dischargeNode>
+    </dischargeable>
+
+    <waterTrailer fillUnitIndex="1" fillLitersPerSecond="400" fillNode="aquaTrans_main_component1">
+        <sounds>
+            <refill template="DEFAULT_REFUEL_SOUND" linkNode="0>" />
+        </sounds>
+    </waterTrailer>
+
+    <foliageBending>
+        <bendingNode minX="-1.05" maxX="1.05" minZ="-2.8" maxZ="-1.0 " yOffset="0.6" />
+        <bendingNode minX="-0.50" maxX="0.50" minZ="-1.1" maxZ="1.6 " yOffset="0.6" />
+        <bendingNode minX="-0.90" maxX="0.90" minZ="-1.1" maxZ="1.6 " yOffset="1.6" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="aquaTrans7300XL_mat" baseNode="aquaTrans7300XL_vis">
+            <shaderParameter name="colorMat0" value="JOSKIN_GREEN1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="2" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="aquaTrans_main_component1" node="0>" />
+        <i3dMapping id="aquaTrans7300XL_vis" node="0>0" />
+        <i3dMapping id="wheelLeft" node="0>0|0|0" />
+        <i3dMapping id="wheelRight" node="0>0|0|1" />
+        <i3dMapping id="chockSupport01" node="0>0|1|0" />
+        <i3dMapping id="chockSupport02" node="0>0|1|1" />
+        <i3dMapping id="wheelChock01" node="0>0|1|2" />
+        <i3dMapping id="wheelChock02" node="0>0|1|3" />
+        <i3dMapping id="attacherJoint" node="0>0|2" />
+        <i3dMapping id="backLightsHigh" node="0>0|3|0|0" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|3|1|0|0" />
+        <i3dMapping id="turnLightRightBack" node="0>0|3|1|1|0" />
+        <i3dMapping id="reverseLight" node="0>0|3|2|0" />
+        <i3dMapping id="rearLightMultiPoint3Left" node="0>0|3|3|0" />
+        <i3dMapping id="rearLightMultiPoint3Right" node="0>0|3|3|1" />
+        <i3dMapping id="sideMarker4Orange" node="0>0|3|3|2" />
+        <i3dMapping id="sideMarker4Orange1" node="0>0|3|3|3" />
+        <i3dMapping id="sideMarker4Orange2" node="0>0|3|3|4" />
+        <i3dMapping id="sideMarker4Orange3" node="0>0|3|3|5" />
+        <i3dMapping id="bigTriangle" node="0>0|3|3|6" />
+        <i3dMapping id="exactFillRootNode" node="0>0|4" />
+        <i3dMapping id="supportArm" node="0>0|5" />
+        <i3dMapping id="waterTrigger" node="0>0|6" />
+        <i3dMapping id="dischargeNode" node="0>0|7|0" />
+        <i3dMapping id="dischargeTrigger" node="0>0|7|1" />
+    </i3dMappings>
+</vehicle>

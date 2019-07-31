@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="implementDynamicMountAttacher">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>$l10n_shopItem_wheelLoaderFork</name>
+        <specs>
+            <combination>W190 D</combination>
+        </specs>
+        <image>$data/vehicles/magsi/wheelLoaderFork/store_magsiWheelLoaderFork.png</image>
+        <price>1900</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>MAGSI</brand>
+        <category>wheelLoaders</category>
+        <vertexBufferMemoryUsage>57568</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>9456</indexBufferMemoryUsage>
+        <textureMemoryUsage>4238136</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_wheelLoaderTool</typeDesc>
+        <filename>$data/vehicles/magsi/wheelLoaderFork/wheelLoaderFork.i3d</filename>
+        <size width="2.5" length="2"/>
+        <components>
+            <component centerOfMass="0 0.2 -0.4" solverIterationCount="10" mass="400" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="wheelLoader" />
+        </inputAttacherJoints>
+    </attachable>
+
+    <dynamicMountAttacher node="0>">
+        <mountCollisionMask node="colPartBack1" collisionMask="134225920" />
+        <mountCollisionMask node="colPartBack2" collisionMask="134225920" />
+    </dynamicMountAttacher>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="2" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="attacherJoint" node="0>0" />
+        <i3dMapping id="colPartBack1" node="0>2" />
+        <i3dMapping id="colPartBack2" node="0>3" />
+    </i3dMappings>
+</vehicle>

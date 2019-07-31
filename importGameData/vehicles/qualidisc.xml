@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="cultivator">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Qualidisc Farmer 3000</name>
+        <specs>
+            <neededPower>100</neededPower>
+            <workingWidth>3.0</workingWidth>
+            <combination>AGCO 1100</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_cultivator</function>
+        </functions>
+        <image>$data/vehicles/kverneland/qualidisc/store_qualidisc.png</image>
+        <price>18000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>KVERNELAND</brand>
+        <category>discHarrows</category>
+        <vertexBufferMemoryUsage>1090848</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>209760</indexBufferMemoryUsage>
+        <textureMemoryUsage>6815928</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_cultivator</typeDesc>
+        <filename>$data/vehicles/kverneland/qualidisc/qualidisc.i3d</filename>
+        <size width="4" length="3"/>
+        <speedLimit value="17" />
+        <components>
+            <component centerOfMass="0 0.2 0" solverIterationCount="10" mass="1446"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels hasSurfaceSounds="false">
+                    <wheel hasParticles="false" >
+                        <physics rotSpeed="0" restLoad="0.5" repr="wheelLeft"  forcePointRatio="0.2" radius="0.28" width="0.3" mass="0.1" initialCompression="40" suspTravel="0.05" spring="18" damper="10" isSynchronized="false" />
+                    </wheel>
+                    <wheel hasParticles="false" >
+                        <physics rotSpeed="0" restLoad="0.5" repr="wheelRight" forcePointRatio="0.2" radius="0.28" width="0.3" mass="0.1" initialCompression="40" suspTravel="0.05" spring="18" damper="10" isSynchronized="false" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+    </wheels>
+
+   <lights>
+        <sharedLight linkNode="rear3ChamberLight_03_left" filename="$data/shared/assets/lights/lizard/rear2ChamberLight_06_left.xml" />
+        <sharedLight linkNode="rear3ChamberLight_03_right" filename="$data/shared/assets/lights/lizard/rear2ChamberLight_06_right.xml" />
+        <sharedLight linkNode="frontLightRectangle_01_1" filename="$data/shared/assets/lights/lizard/sideMarker_05White.xml" />
+        <sharedLight linkNode="frontLightRectangle_01_2" filename="$data/shared/assets/lights/lizard/sideMarker_05White.xml" />
+
+        <realLights>
+            <high>
+                <light node="backLightsHigh" lightTypes="0 3" />
+                <turnLightLeft node="turnLightLeftBack" />
+                <turnLightRight node="turnLightRightBack" />
+                <brakeLight node="backLightsHigh" />
+            </high>
+        </realLights>
+    </lights>
+
+    <!-- recommended horsepower by manufacturer: 100 -->
+    <powerConsumer forceNode="qualidisc_main_component1" forceFactor="1" maxForce="13" />
+
+    <speedRotatingParts>
+        <speedRotatingPart node="drum"        radius="0.29"  groundReferenceNodeIndex="1" />
+        <speedRotatingPart shaderNode="discs" radius="-0.26" groundReferenceNodeIndex="1" />
+    </speedRotatingParts>
+
+    <cultivator>
+        <sounds>
+            <work template="DEFAULT_CULTIVATOR_WORK" linkNode="0>" />
+        </sounds>
+        <directionNode node="qualidisc_main_component1" />
+        <onlyActiveWhenLowered value="true"/>
+    </cultivator>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="qualidisc_main_component1" threshold="0.1" depthNode="depthNode" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="cultivator" functionName="processCultivatorArea" >
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight" />
+            <groundReferenceNode index="1" />
+        </workArea>
+    </workAreas>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="implement" topReferenceNode="topReferencePoint" allowsLowering="true">
+                <distanceToGround lower="0.4" upper="1.2" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+        <support animationName="moveSupport" />
+    </attachable>
+
+    <animations>
+        <animation name="moveSupport">
+            <part node="supportCol" startTime="0" endTime="0.5" startTrans="0 0.3 0" endTrans="0 0 0"/>
+        </animation>
+    </animations>
+
+    <workParticles>
+        <particleAnimation>
+            <node node="soilAnimation" refNodeIndex="1" materialType="SOIL" />
+        </particleAnimation>
+
+        <particle>
+            <node node="soilEmitShape" refNodeIndex="1" particleType="SOIL" />
+            <node node="dustEmitterShape" refNodeIndex="1" particleType="SOIL_SMOKE" />
+            <node node="soilEmitShape1" refNodeIndex="1" particleType="SOIL_CHUNKS" worldSpace="false" />
+        </particle>
+    </workParticles>
+
+    <ai>
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack" />
+        <sizeMarkers leftNode="sizeMarkerLeft" rightNode="sizeMarkerRight" backNode="sizeMarkerBack" />
+        <needsLowering value="true"/>
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-1.6" maxX="1.6" minZ="-1.35" maxZ="1.2" yOffset="0.2" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="qualidisc_mat" baseNode="kverneland_vis">
+            <shaderParameter name="colorMat0" value="KVERNELAND_GREEN1"/>
+            <shaderParameter name="colorMat1" value="KVERNELAND_RED1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="qualidisc_main_component1" node="0>" />
+        <i3dMapping id="kverneland_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0|0" />
+        <i3dMapping id="topReferencePoint" node="0>0|0|1" />
+        <i3dMapping id="supportCol" node="0>0|0|2|0" />
+        <i3dMapping id="wheelLeft" node="0>0|1|0" />
+        <i3dMapping id="wheelRight" node="0>0|1|1" />
+        <i3dMapping id="rear3ChamberLight_03_left" node="0>0|2|0|0" />
+        <i3dMapping id="rear3ChamberLight_03_right" node="0>0|2|0|1" />
+        <i3dMapping id="frontLightRectangle_01_1" node="0>0|2|0|2" />
+        <i3dMapping id="frontLightRectangle_01_2" node="0>0|2|0|3" />
+        <i3dMapping id="backLightsHigh" node="0>0|2|1" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|2|2" />
+        <i3dMapping id="turnLightRightBack" node="0>0|2|3" />
+        <i3dMapping id="drum" node="0>0|3|0" />
+        <i3dMapping id="discs" node="0>0|3|1" />
+        <i3dMapping id="workAreaStart" node="0>0|4|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|4|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|4|2" />
+        <i3dMapping id="soilAnimation" node="0>0|5|0|0" />
+        <i3dMapping id="soilEmitShape" node="0>0|5|0|1" />
+        <i3dMapping id="dustEmitterShape" node="0>0|5|0|2" />
+        <i3dMapping id="soilEmitShape1" node="0>0|5|0|3" />
+        <i3dMapping id="depthNode" node="0>0|5|1" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|6|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|6|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|6|0|2" />
+        <i3dMapping id="sizeMarkerLeft" node="0>0|6|1|0" />
+        <i3dMapping id="sizeMarkerRight" node="0>0|6|1|1" />
+        <i3dMapping id="sizeMarkerBack" node="0>0|6|1|2" />
+    </i3dMappings>
+</vehicle>

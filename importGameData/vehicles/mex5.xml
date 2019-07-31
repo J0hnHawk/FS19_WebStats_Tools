@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<vehicle type="attachableCombine">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>MEX 5</name>
+        <specs>
+            <neededPower>150</neededPower>
+            <workingWidth>2.2</workingWidth>
+            <fillTypes>chaff</fillTypes>
+        </specs>
+        <functions>
+            <function>$l10n_function_combine</function>
+        </functions>
+        <image>$data/vehicles/poettinger/mex5/store_mex5.png</image>
+        <price>38000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>POETTINGER</brand>
+        <category>forageHarvesterCutters</category>
+        <shopTranslationOffset>0 0 0</shopTranslationOffset>
+        <shopRotationOffset>2 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>1187336</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>178626</indexBufferMemoryUsage>
+        <textureMemoryUsage>6641144</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_cutter</typeDesc>
+        <filename>$data/vehicles/poettinger/mex5/mex5.i3d</filename>
+        <size width="3" length="5.5" lengthOffset="0.8"/>
+        <speedLimit value="10"/>
+        <components>
+            <component centerOfMass="0 0.3 0" solverIterationCount="10" mass="2150" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="implement" topReferenceNode="topReferenceNode" lowerRotLimitScale="0 0 0">
+                <distanceToGround lower="0.35" upper="1"/>
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+    </attachable>
+
+    <powerTakeOffs>
+        <input inputNode="pto" inputAttacherJointIndices="1" aboveAttacher="true" detachNode="ptoDetachNode" filename="$data/shared/assets/powerTakeOffs/walterscheidWWZ.xml" />
+    </powerTakeOffs>
+
+    <powerConsumer ptoRpm="540" neededMaxPtoPower="65"/>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundReferenceNode" threshold="0.4" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="cutter" functionName="processCutterArea" >
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight" />
+            <groundReferenceNode index="1" />
+        </workArea>
+    </workAreas>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="arm">
+                <dependentPart node="armHydraulic"/>
+                <dependentPart node="armFoldLock"/>
+            </movingTool>
+            <movingTool node="pipeEnd">
+                <dependentPart node="pipeEndArm"/>
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="armHydraulic" referencePoint="armHydraulicRef" referenceFrame="armHydraulicRef" playSound="true">
+                <translatingPart node="armHydraulicPunch"/>
+            </movingPart>
+            <movingPart node="armFoldLock" referencePoint="armFoldLockRef" referenceFrame="armFoldLockRef">
+                <translatingPart node="armFoldLockPunch"/>
+            </movingPart>
+            <movingPart node="pipeEndArm" referencePoint="pipeEndArmRef" referenceFrame="arm" scaleZ="true"/>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <fillUnit unit="$l10n_unit_literShort" showOnHud="false" fillTypeCategories="forageHarvester"/>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <dischargeable requiresTipOcclusionArea="false" >
+        <dischargeNode node="dischargeNode" emptySpeed="1000" fillUnitIndex="1" maxDistance="32" stopDischargeOnEmpty="false">
+            <info width="0.4" length="0.4" useRaycastHitPosition="true"/>
+            <raycast extraDistance="-1" maxDistance="18"/>
+
+            <effects>
+                <effectNode                          effectNode="effectGrainPipe" materialType="unloading" materialTypeId="1" fadeScale="0"/>
+                <effectNode effectClass="PipeEffect" effectNode="effectGrain"     materialType="pipe" materialTypeId="1" delay="0.1" maxBending="0.15" shapeScaleSpread="1.09 1 1 0" />
+            </effects>
+        </dischargeNode>
+    </dischargeable>
+
+    <pipe>
+        <unloadingTriggers>
+            <unloadingTrigger node="trailerTrigger" />
+        </unloadingTriggers>
+
+        <pipeNodes>
+            <pipeNode node="armRotBase" rotationSpeeds="0 35 0" autoAimYRotation="true" autoAimInvertZ="false" foldPriority="1">
+                <state1 rotation="0 0 0" />
+                <state2 rotation="0 0 0"/>
+            </pipeNode>
+            <pipeNode node="arm" rotationSpeeds="25 0 0">
+                <state1 rotation="60 0 0"/>
+                <state2 rotation="0 0 0"/>
+            </pipeNode>
+            <pipeNode node="pipeEnd" rotationSpeeds="80 0 0" autoAimXRotation="true" minRotationLimits="-80 - -" maxRotationLimits="20 - -" bendingRegulation="0.15">
+                <state1 rotation="0 0 0"/>
+                <state2 rotation="0 0 0"/>
+                <bendingRegulationNode node="dischargeNode" axis="1" direction="1"/>
+            </pipeNode>
+        </pipeNodes>
+
+        <states num="2" unloading="2" autoAiming="2" turnOnAllowed="2"/>
+    </pipe>
+
+    <combine allowThreshingDuringRain="true">
+        <animationNodes>
+            <animationNode node="rotorRight"     rotSpeed="300"   rotAxis="2" turnOnFadeTime="2" turnOffFadeTime="3"/>
+            <animationNode node="rotorLeft"      rotSpeed="-300"  rotAxis="2" turnOnFadeTime="2" turnOffFadeTime="3"/>
+            <animationNode node="rotorSideLeft"  rotSpeed="2000"  rotAxis="3" turnOnFadeTime="2" turnOffFadeTime="3"/>
+            <animationNode node="rotorSideRight" rotSpeed="-2000" rotAxis="3" turnOnFadeTime="2" turnOffFadeTime="3"/>
+            <animationNode node="rotor1"         rotSpeed="-800"  rotAxis="1" turnOnFadeTime="2" turnOffFadeTime="3"/>
+            <animationNode node="rotor2"         rotSpeed="800"   rotAxis="1" turnOnFadeTime="2" turnOffFadeTime="3"/>
+            <animationNode node="rotor3"         rotSpeed="800"   rotAxis="1" turnOnFadeTime="2" turnOffFadeTime="3"/>
+            <animationNode node="rotor4"         rotSpeed="-800"  rotAxis="1" turnOnFadeTime="2" turnOffFadeTime="3"/>
+        </animationNodes>
+
+        <sounds>
+            <start template="MEX5_FORAGE_START" />
+            <work template="MEX5_FORAGE_WORK" />
+            <stop template="MEX5_FORAGE_STOP" />
+        </sounds>
+    </combine>
+
+    <cutter allowsForageGrowthState="true" fruitTypeCategories="maizeCutter" fruitTypeConverter="forageHarvester">
+        <testAreas>
+            <testArea startNode="testAreaStart1" widthNode="testAreaWidth1" heightNode="testAreaHeight1"/>
+            <testArea startNode="testAreaStart2" widthNode="testAreaWidth2" heightNode="testAreaHeight2"/>
+            <testArea startNode="testAreaStart3" widthNode="testAreaWidth3" heightNode="testAreaHeight3"/>
+        </testAreas>
+        <effect>
+            <effectNode linkNode="effectCenter" isThreshing="false" inverted="true" speedScale="0.0018" lengthAndRadius="2.5 1.3 2 3" effectType="CENTER" changeSpeedScale="0.01"/>
+            <effectNode linkNode="effectLeft"   isThreshing="false" inverted="true" speedScale="0.003"  lengthAndRadius="0 1 1 1"     effectType="LEFT"   useInterpolation="true" minOffset="1"/>
+            <effectNode linkNode="effectRight"  isThreshing="false" inverted="true" speedScale="0.003"  lengthAndRadius="0 1 1 1"     effectType="RIGHT"  useInterpolation="true" minOffset="1" useMaxValue="true"/>
+        </effect>
+    </cutter>
+
+    <turnOnVehicle turnOffIfNotAllowed="true"/>
+
+    <ai>
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack"/>
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-1.2" maxX="1.2" minZ="-1.2" maxZ="0.8" yOffset="0.2" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="mex5_mat" baseNode="poettiner_vis">
+            <shaderParameter name="colorMat0" value="POETTINGER_RED1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="mex5_main_component1" node="0>" />
+        <i3dMapping id="poettiner_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0|0" />
+        <i3dMapping id="topReferenceNode" node="0>0|0|1" />
+        <i3dMapping id="pto" node="0>0|0|2" />
+        <i3dMapping id="ptoDetachNode" node="0>0|0|2|0" />
+        <i3dMapping id="armRotBase" node="0>0|1|0" />
+        <i3dMapping id="arm" node="0>0|1|0|0" />
+        <i3dMapping id="pipeEnd" node="0>0|1|0|0|0|0" />
+        <i3dMapping id="pipeEndArmRef" node="0>0|1|0|0|0|0|0" />
+        <i3dMapping id="raycastNode" node="0>0|1|0|0|0|0|1" />
+        <i3dMapping id="dischargeNode" node="0>0|1|0|0|0|0|2" />
+        <i3dMapping id="effectGrain" node="0>0|1|0|0|0|0|3" />
+        <i3dMapping id="pipeEndArm" node="0>0|1|0|0|1" />
+        <i3dMapping id="armHydraulicRef" node="0>0|1|0|0|2" />
+        <i3dMapping id="armFoldLockRef" node="0>0|1|0|0|3" />
+        <i3dMapping id="effectGrainPipe" node="0>0|1|0|0|5" />
+        <i3dMapping id="armHydraulic" node="0>0|1|0|1" />
+        <i3dMapping id="armHydraulicPunch" node="0>0|1|0|1|0" />
+        <i3dMapping id="armFoldLock" node="0>0|1|0|2" />
+        <i3dMapping id="armFoldLockPunch" node="0>0|1|0|2|0" />
+        <i3dMapping id="rotorRight" node="0>0|1|1|0" />
+        <i3dMapping id="rotorLeft" node="0>0|1|1|1" />
+        <i3dMapping id="rotorSideLeft" node="0>0|1|1|2|0" />
+        <i3dMapping id="rotorSideRight" node="0>0|1|1|3|0" />
+        <i3dMapping id="rotor1" node="0>0|1|1|4" />
+        <i3dMapping id="rotor2" node="0>0|1|1|5" />
+        <i3dMapping id="rotor3" node="0>0|1|1|6" />
+        <i3dMapping id="rotor4" node="0>0|1|1|7" />
+        <i3dMapping id="workAreaStart" node="0>0|2|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|2|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|2|2" />
+        <i3dMapping id="groundReferenceNode" node="0>0|2|3" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|3|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|3|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|3|0|2" />
+        <i3dMapping id="trailerTrigger" node="0>0|3|1" />
+        <i3dMapping id="effectCenter" node="0>0|4|0" />
+        <i3dMapping id="effectLeft" node="0>0|4|1" />
+        <i3dMapping id="effectRight" node="0>0|4|2" />
+        <i3dMapping id="testAreaStart1" node="0>0|4|3|0" />
+        <i3dMapping id="testAreaWidth1" node="0>0|4|3|0|0" />
+        <i3dMapping id="testAreaHeight1" node="0>0|4|3|0|1" />
+        <i3dMapping id="testAreaStart2" node="0>0|4|3|1" />
+        <i3dMapping id="testAreaWidth2" node="0>0|4|3|1|0" />
+        <i3dMapping id="testAreaHeight2" node="0>0|4|3|1|1" />
+        <i3dMapping id="testAreaStart3" node="0>0|4|3|2" />
+        <i3dMapping id="testAreaWidth3" node="0>0|4|3|2|0" />
+        <i3dMapping id="testAreaHeight3" node="0>0|4|3|2|1" />
+    </i3dMappings>
+</vehicle>

@@ -1,0 +1,468 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="woodCrusherTrailerDrivable">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>BA 725 D</name>
+        <functions>
+            <function>$l10n_function_forestryWoodCrusher</function>
+        </functions>
+        <rotation>0</rotation>
+        <image>$data/vehicles/jenz/jenzBA725/store_jenzBA725.png</image>
+        <price>64000</price>
+        <lifetime>600</lifetime>
+        <brand>JENZ</brand>
+        <category>wood</category>
+        <shopTranslationOffset>0 -0.065 0</shopTranslationOffset>
+        <shopRotationOffset>0 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>1642364</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>237780</indexBufferMemoryUsage>
+        <textureMemoryUsage>9786992</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_woodCrusher</typeDesc>
+        <filename>$data/vehicles/jenz/jenzBA725/jenzBA725.i3d</filename>
+        <size width="3.5" length="11.5" lengthOffset="0.75" />
+        <components>
+            <component centerOfMass="0 1.0 0" solverIterationCount="15" mass="19300" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0" brand="TRELLEBORG">
+                <wheels autoRotateBackSpeed="2.0">
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/560_45R22_5.xml" isLeft="true" >
+                        <physics tipOcclusionAreaGroupId="1" rotSpeed="0" restLoad="4.6" repr="wheelLeftFront"  initialCompression="50" suspTravel="0.16" spring="55" damper="40" />
+                        <wheelChock parkingNode="wheelChock02" />
+                        <wheelChock parkingNode="wheelChock03" isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/560_45R22_5.xml" isLeft="false" >
+                        <physics tipOcclusionAreaGroupId="2" rotSpeed="0" restLoad="4.6" repr="wheelRightFront" initialCompression="50" suspTravel="0.16" spring="55" damper="40" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/560_45R22_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                        <physics tipOcclusionAreaGroupId="1" rotSpeed="0" restLoad="4.6" repr="wheelLeftBack"   initialCompression="51" suspTravel="0.16" spring="55" damper="40" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/560_45R22_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics tipOcclusionAreaGroupId="2" rotSpeed="0" restLoad="4.6" repr="wheelRightBack"  initialCompression="51" suspTravel="0.16" spring="55" damper="40" />
+                    </wheel>
+                    <wheel>
+                        <physics tipOcclusionAreaGroupId="3" rotSpeed="0" restLoad="1.3" repr="wheelFront" radius="0.257" width="0.68" mass="0.2" initialCompression="50" suspTravel="0.05" spring="70" damper="40" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0" brand="LIZARD">
+                <wheels autoRotateBackSpeed="2.0">
+                    <wheel filename="$data/shared/wheels/lizard/implement/385_65R22_5.xml" isLeft="true" >
+                        <physics tipOcclusionAreaGroupId="1" rotSpeed="0" restLoad="4.6" repr="wheelLeftFront"  initialCompression="50" suspTravel="0.17" spring="52" damper="40" />
+                        <wheelChock parkingNode="wheelChock02" />
+                        <wheelChock parkingNode="wheelChock03" isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/385_65R22_5.xml" isLeft="false" >
+                        <physics tipOcclusionAreaGroupId="2" rotSpeed="0" restLoad="4.6" repr="wheelRightFront" initialCompression="50" suspTravel="0.17" spring="52" damper="40" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/385_65R22_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                        <physics tipOcclusionAreaGroupId="1" rotSpeed="0" restLoad="4.6" repr="wheelLeftBack"   initialCompression="51" suspTravel="0.17" spring="52" damper="40" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/385_65R22_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics tipOcclusionAreaGroupId="2" rotSpeed="0" restLoad="4.6" repr="wheelRightBack"  initialCompression="51" suspTravel="0.17" spring="52" damper="40" />
+                    </wheel>
+                    <wheel>
+                        <physics tipOcclusionAreaGroupId="3" rotSpeed="0" restLoad="1.3" repr="wheelFront" radius="0.257" width="0.68" mass="0.2" initialCompression="50" suspTravel="0.05" spring="70" damper="40" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <ackermannSteeringConfigurations>
+            <ackermannSteering rotSpeed="65" rotMax="0" rotCenterWheel1="3" rotCenterWheel2="4" />
+        </ackermannSteeringConfigurations>
+
+        <hubs>
+            <hub linkNode="wheelLeftFront"  filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="true"  scale="0.335 0.335 0.335" />
+            <hub linkNode="wheelRightFront" filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="false" scale="0.335 0.335 0.335" />
+            <hub linkNode="wheelLeftBack"   filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="true"  scale="0.335 0.335 0.335" />
+            <hub linkNode="wheelRightBack"  filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="false" scale="0.335 0.335 0.335" />
+        </hubs>
+    </wheels>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="trailer" attacherHeight="1.0" />
+        </inputAttacherJoints>
+        <support animationName="moveSupport" />
+        <brakeForce>2.5</brakeForce>
+    </attachable>
+
+    <speedRotatingParts>
+        <speedRotatingPart node="axisRot" radius="-0.25" groundReferenceNodeIndex="1" />
+    </speedRotatingParts>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundReferenceNode" threshold="0.2" depthNode="groundReferenceNode"/>
+    </groundReferenceNodes>
+    <powerConsumer neededPtoPower="40" ptoRpm="1080" />
+
+    <motorized>
+        <differentialConfigurations>
+            <differentialConfiguration>
+                <differentials>
+                    <differential torqueRatio="0.5" maxSpeedRatio="1.0" wheelIndex1="3" wheelIndex2="4" /> <!-- front left-right -->
+                </differentials>
+            </differentialConfiguration>
+        </differentialConfigurations>
+
+        <motorConfigurations>
+            <motorConfiguration name="BA 725 D" hp="105" price="0">
+                <motor torqueScale="0.445" minRpm="850" maxRpm="2200" maxForwardSpeed="5" maxBackwardSpeed="5" brakeForce="1" lowBrakeForceScale="0.22">
+                    <torque normRpm="0.45" torque="0.9"/>
+                    <torque normRpm="0.5"  torque="0.97"/>
+                    <torque normRpm="0.59" torque="1"/>
+                    <torque normRpm="0.72" torque="1"/>
+                    <torque normRpm="0.86" torque="0.88"/>
+                    <torque normRpm="1"    torque="0.72"/>
+                </motor>
+                <transmission minForwardGearRatio="145" maxForwardGearRatio="150" minBackwardGearRatio="145" maxBackwardGearRatio="150" />
+            </motorConfiguration>
+        </motorConfigurations>
+    </motorized>
+
+    <enterable isTabbable="true" >
+        <enterReferenceNode node="exitNode" />
+        <exitPoint node="exitNode" />
+
+        <cameras>
+            <camera node="outdoorCamera1" rotatable="true" rotateNode="outdoorCameraTarget" limit="true" useWorldXZRotation="true" rotMinX="-1.4" rotMaxX="1" transMin="8" transMax="40" />
+        </cameras>
+        <enterAnimation name="enterAnimation"/>
+    </enterable>
+
+    <drivable>
+        <sounds>
+            <waterSplash template="WATER_SPLASH_01" />
+        </sounds>
+    </drivable>
+
+    <lights>
+        <sharedLight linkNode="rear4ChamberLight01_left"  filename="$data/shared/assets/lights/lizard/rear4ChamberLight_01_left.xml" />
+        <sharedLight linkNode="rear4ChamberLight01_right"  filename="$data/shared/assets/lights/lizard/rear4ChamberLight_01_right.xml" />
+        <sharedLight linkNode="sideMarker01_left"  filename="$data/shared/assets/lights/lizard/sideMarker_01_left.xml" />
+        <sharedLight linkNode="sideMarker01_right"  filename="$data/shared/assets/lights/lizard/sideMarker_01_right.xml" />
+        <sharedLight linkNode="workingLightSquare02_01" lightTypes="2" filename="$data/shared/assets/lights/lizard/workingLightSquare_02.xml" />
+        <sharedLight linkNode="workingLightSquare02_02" lightTypes="2" filename="$data/shared/assets/lights/lizard/workingLightSquare_02.xml" />
+        <sharedLight linkNode="workingLightSquare02_03" lightTypes="1" filename="$data/shared/assets/lights/lizard/workingLightSquare_02.xml" />
+        <sharedLight linkNode="workingLightSquare02_04" lightTypes="1" filename="$data/shared/assets/lights/lizard/workingLightSquare_02.xml" />
+        <sharedLight linkNode="sideMarker04White_left" lightTypes="0 3" filename="$data/shared/assets/lights/lizard/rearLightOvalLEDWhite_01.xml" />
+        <sharedLight linkNode="sideMarker04White_right" lightTypes="0 3" filename="$data/shared/assets/lights/lizard/rearLightOvalLEDWhite_01.xml" />
+
+        <realLights>
+            <low>
+                <light node="workLightBackHigh" lightTypes="1" />
+            </low>
+            <high>
+                <light node="backLightsHigh" lightTypes="0" />
+                <light node="workLightBackHigh" lightTypes="1" />
+                <light node="workLightFrontHigh1" lightTypes="2" />
+                <turnLightLeft node="turnLightLeftBack" />
+                <turnLightRight node="turnLightRightBack" />
+                <brakeLight node="backLightsHigh" />
+            </high>
+        </realLights>
+    </lights>
+
+    <foldable>
+        <foldingParts startAnimTime="0" turnOnFoldMaxLimit="1.0" turnOnFoldMinLimit="0.98" >
+            <foldingPart animationName="folding" speedScale="1" />
+        </foldingParts>
+    </foldable>
+
+    <animations>
+        <!-- move support wheel down/up -->
+        <animation name="moveSupport">
+            <part node="supportTrans"  startTime="0.0"  endTime="0.5" startTrans="0.203 0.869 4.524" endTrans="0.203 0.55 4.524" />
+        </animation>
+
+        <!-- folding, flapFront and pipe -->
+        <animation name="folding">
+            <part node="flapFrontRot"     startTime="0.0" endTime="3.0" startRot="-76 0 0" endRot="0 0 0" />
+            <part node="flapFrontLeft"    startTime="1.5" endTime="3.0" startRot="0 0 70"  endRot="0 0 0" />
+            <part node="flapFrontRight"   startTime="1.5" endTime="3.0" startRot="0 0 -70" endRot="0 0 0" />
+
+            <part node="pipeExtra1"    startTime="2.90" endTime="2.95" visbility="false" />
+            <part node="pipeExtra1"    startTime="2.95" endTime="3.00" visbility="true" />
+            <part node="pipeExtra2"    startTime="2.90" endTime="2.95" visbility="false" />
+            <part node="pipeExtra2"    startTime="2.95" endTime="3.00" visbility="true" />
+        </animation>
+
+        <animation name="pipeFolding">
+            <part node="pipe1"             startTime="0.0" endTime="0.25" startRot="-29.2 0 0" endRot="-26 0 0" />
+            <part node="pipe2"             startTime="0.0" endTime="0.25" startRot="112.2 0 0" endRot="109 0 0" />
+
+            <part node="pipe2"             startTime="0.25" endTime="7.0" startRot="109.0 0 0" endRot="0 0 0" />
+
+            <part node="pipe1"             startTime="2.0" endTime="7.0" startRot="-26 0 0" endRot="0 0 0" />
+
+            <part node="pipeExtra1"        startTime="6.90" endTime="6.95" visibility="false" />
+            <part node="pipeExtra1"        startTime="6.95" endTime="7.00" visibility="true" />
+            <part node="pipeExtra2"        startTime="6.90" endTime="6.95" visibility="false" />
+            <part node="pipeExtra2"        startTime="6.95" endTime="7.00" visibility="true" />
+        </animation>
+        <animation name="enterAnimation">
+            <part node="axisPart"  startTime="0.0"  endTime="0.5" startRot="0 0 0" endRot="25 0 0" />
+            <part node="groundReferenceNode"  startTime="0.0"  endTime="0.5" startTrans="0 8 0" endTrans="0 0 0" />
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <!-- pipe  -->
+            <movingTool node="pipe1" foldMinLimit="0.99" foldMaxLimit="1" freezingPipeStates="1" playSound="true" >
+                <controls axis="AXIS_PIPE" invertAxis="false" mouseSpeedFactor="0.6" iconName="PIPE_END_ROTATE" />
+                <rotation rotSpeed="10" rotAcceleration="125" rotMax="0" rotMin="-35" rotationAxis="1" />
+                <dependentPart node="hydraulciPipe1"/>
+            </movingTool>
+            <movingTool node="pipe2" playSound="true" >
+                <dependentPart node="hydraulciPipe2"/>
+            </movingTool>
+
+            <!-- flap front -->
+            <movingTool node="flapFrontRot" playSound="true" >
+                <dependentPart node="hydraulicFlapFront"/>
+            </movingTool>
+            <movingTool node="flapFrontLeft">
+                <dependentPart node="springFlapFrontLeft"/>
+            </movingTool>
+            <movingTool node="flapFrontRight">
+                <dependentPart node="springFlapFrontRight"/>
+            </movingTool>
+            <movingTool node="axisPart">
+                <dependentPart node="axisPartHydraulic"/>
+            </movingTool>
+
+            <!-- suppprt / front wheel -->
+            <movingTool node="supportTrans" wheelIndices="5" />
+
+        </movingTools>
+
+        <movingParts>
+            <!-- flap front -->
+            <movingPart node="hydraulicFlapFront" referencePoint="hydraulicFlapFrontRef" referenceFrame="hydraulicFlapFrontRef" >
+                <translatingPart node="hydraulicFlapFrontPush" />
+            </movingPart>
+            <movingPart node="springFlapFrontLeft" referencePoint="springFlapFrontLeftRef" referenceFrame="springFlapFrontLeftRef" >
+                <translatingPart node="springFlapFrontLeftPush" />
+                <dependentPart node="springFlapFrontLeftScale" />
+            </movingPart>
+            <movingPart node="springFlapFrontLeftScale" referencePoint="springFlapFrontLeftPush" referenceFrame="springFlapFrontLeftPush" scaleZ="true" />
+            <movingPart node="springFlapFrontRight" referencePoint="springFlapFrontRightRef" referenceFrame="springFlapFrontRightRef" >
+                <translatingPart node="springFlapFrontRightPush" />
+                <dependentPart node="springFlapFrontRightScale" />
+            </movingPart>
+            <movingPart node="springFlapFrontRightScale" referencePoint="springFlapFrontRightPush" referenceFrame="springFlapFrontRightPush" scaleZ="true" />
+
+            <!-- pipe -->
+            <movingPart node="hydraulciPipe1" referencePoint="hydraulciPipe1Ref" referenceFrame="hydraulciPipe1Ref" >
+                <translatingPart node="hydraulciPipe1Push" />
+            </movingPart>
+            <movingPart node="hydraulciPipe2" referencePoint="hydraulciPipe2Ref" referenceFrame="hydraulciPipe2Ref" >
+                <translatingPart node="hydraulciPipe2Push" />
+            </movingPart>
+
+            <movingPart node="pipeRaycastNodeRot" referenceFrame="pipeRaycastNodeRotRefFrame" alignToWorldY="true" isActiveDirty="true" />
+
+            <!-- crusher main drum -->
+            <movingPart node="drumBigFrame" referencePoint="drumMainRefNode" referenceFrame="drumMainRefNode" isActiveDirty="true">
+                <dependentPart node="hydraulicDrumBigFrame"/>
+            </movingPart>
+            <movingPart node="hydraulicDrumBigFrame" referencePoint="hydraulicDrumBigFrameRef" referenceFrame="hydraulicDrumBigFrameRef" >
+                <translatingPart node="hydraulicDrumBigFramePush"/>
+            </movingPart>
+            <movingPart node="axisPartHydraulic" referencePoint="axisPartHydraulicRef" referenceFrame="axisPartHydraulicRef" >
+                <translatingPart node="axisPartHydraulicPunch" />
+            </movingPart>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="jenzBA725_main_component1"/>
+        </sounds>
+    </cylindered>
+
+    <woodCrusher cutNode="woodCrusherCutNode" cutSizeY="1.3" cutSizeZ="1.6" moveColDisableCollisionPairs="false" mainDrumRefNode="drumMainRefNode" downForceNode="woodCrusherDownForceNode">
+        <moveTriggers>
+            <trigger node="moveTrigger" />
+        </moveTriggers>
+        <moveCollisions>
+            <collision node="moveCollision" />
+        </moveCollisions>
+        <crushEffects>
+            <effectNode effectClass="ParticleEffect" effectNode="emitterShapeWood" particleType="CRUSHER_WOOD"/>
+            <effectNode effectClass="ParticleEffect" effectNode="emitterShapeDust" particleType="CRUSHER_DUST"/>
+        </crushEffects>
+        <animationNodes>
+            <animationNode node="drumBig"   rotSpeed="200"  rotAxis="1" />
+            <animationNode node="drumSmall" rotSpeed="-600" rotAxis="1" />
+            <animationNode node="drum1"     rotSpeed="1300" rotAxis="1" />
+            <animationNode class="ScrollingAnimation" node="beltInput" scrollSpeed="-0.25" shaderParameterComponent="2" />
+        </animationNodes>
+        <sounds>
+            <start template="WOOD_CHIPPER_START" linkNode="jenzBA725_main_component1" />
+            <idle template="WOOD_CHIPPER_IDLE" linkNode="jenzBA725_main_component1" />
+            <work template="WOOD_CHIPPER_WORK" linkNode="jenzBA725_main_component1" />
+            <stop template="WOOD_CHIPPER_STOP" linkNode="jenzBA725_main_component1" />
+        </sounds>
+    </woodCrusher>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <fillUnit unit="$l10n_unit_literShort" fillTypes="woodChips" capacity="5000" showOnHud="false"/>>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <pipe unloadInfoIndex="1" foldMinState="0" foldMaxState="2">
+        <dischargeNode index="1" />
+        <states num="2" unloading="2" turnOnAllowed="2"/>
+        <animation name="pipeFolding" speedScale="1" />
+        <unloadingTriggers>
+            <unloadingTrigger node="trailerTrigger" />
+        </unloadingTriggers>
+        <animationNodes>
+            <animationNode class="ScrollingAnimation" node="beltOutput"     scrollSpeed="0.76"  shaderParameterComponent="2" />
+            <animationNode class="ScrollingAnimation" node="beltPipeFirst"  scrollSpeed="-0.76" shaderParameterComponent="2" />
+            <animationNode class="ScrollingAnimation" node="beltPipeSecond" scrollSpeed="-0.76" shaderParameterComponent="2" />
+        </animationNodes>
+    </pipe>
+
+    <dischargeable>
+        <dischargeNode node="pipeRaycastNode" emptySpeed="750" fillUnitIndex="1" maxDistance="11">
+            <info width="0.4" length="0.4" />
+
+            <effects>
+                <effectNode effectClass="MorphPositionEffect" effectNode="beltMesh"     materialType="belt"      delay="0" fadeTime="4" speed="0.25" scrollLength="4" scrollSpeed="1.1" />
+                <effectNode effectClass="ParticleEffect"      effectNode="emitterShape" particleType="UNLOADING" delay="4" emitCountScale="4"/>
+            </effects>
+        </dischargeNode>
+    </dischargeable>
+
+    <turnOnVehicle turnOffIfNotAllowed="true"/>
+
+    <tipOccluder>
+        <occlusionArea start="tipOcclusionAreaStart" width="tipOcclusionAreaWidth" height="tipOcclusionAreaHeight" />
+    </tipOccluder>
+
+    <foliageBending>
+        <bendingNode minX="-1.4" maxX="1.4" minZ="-4.1" maxZ="4.8" yOffset="0.6" />
+        <bendingNode minX="-1.1" maxX="1.1" minZ="0" maxZ="1.6" yOffset="0" node="flapFrontRot" />
+        <bendingNode minX="-0.8" maxX="0.8" minZ="-2" maxZ="1.7" yOffset="-0.7" node="hydraulciPipe2Ref" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="jenzBA725_mat" baseNode="jenzBA725_vis">
+            <shaderParameter name="colorMat0" value="JENZ_GREEN1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="jenzBA725_main_component1" node="0>" />
+        <i3dMapping id="jenzBA725_vis" node="0>0" />
+        <i3dMapping id="wheelLeftFront" node="0>0|0|0" />
+        <i3dMapping id="wheelRightFront" node="0>0|0|1" />
+        <i3dMapping id="wheelLeftBack" node="0>0|0|2" />
+        <i3dMapping id="wheelRightBack" node="0>0|0|3" />
+        <i3dMapping id="attacherJoint" node="0>0|1|0" />
+        <i3dMapping id="supportTrans" node="0>0|1|1|0" />
+        <i3dMapping id="wheelFront" node="0>0|1|1|0|0" />
+        <i3dMapping id="wheelChock02" node="0>0|1|2|0" />
+        <i3dMapping id="wheelChock03" node="0>0|1|2|1" />
+        <i3dMapping id="outdoorCameraTarget" node="0>0|2|0" />
+        <i3dMapping id="outdoorCamera1" node="0>0|2|0|0" />
+        <i3dMapping id="exitNode" node="0>0|3" />
+        <i3dMapping id="moveTrigger" node="0>0|4|0" />
+        <i3dMapping id="moveCollision" node="0>0|4|1" />
+        <i3dMapping id="woodCrusherCutNode" node="0>0|4|2" />
+        <i3dMapping id="drumMainRefNode" node="0>0|4|3|0" />
+        <i3dMapping id="woodCrusherDownForceNode" node="0>0|4|4" />
+        <i3dMapping id="emitterShapeWood" node="0>0|4|5|0" />
+        <i3dMapping id="emitterShapeDust" node="0>0|4|5|1" />
+        <i3dMapping id="trailerTrigger" node="0>0|5" />
+        <i3dMapping id="sideMarker01_left" node="0>0|6|0|0" />
+        <i3dMapping id="sideMarker01_right" node="0>0|6|0|1" />
+        <i3dMapping id="rear4ChamberLight01_right" node="0>0|6|0|2" />
+        <i3dMapping id="rear4ChamberLight01_left" node="0>0|6|0|3" />
+        <i3dMapping id="workingLightSquare02_01" node="0>0|6|0|4" />
+        <i3dMapping id="workingLightSquare02_02" node="0>0|6|0|5" />
+        <i3dMapping id="workingLightSquare02_03" node="0>0|6|0|6" />
+        <i3dMapping id="workingLightSquare02_04" node="0>0|6|0|7" />
+        <i3dMapping id="sideMarker04White_left" node="0>0|6|0|8" />
+        <i3dMapping id="sideMarker04White_right" node="0>0|6|0|9" />
+        <i3dMapping id="workLightBackHigh" node="0>0|6|1" />
+        <i3dMapping id="workLightFrontHigh1" node="0>0|6|2" />
+        <i3dMapping id="backLightsHigh" node="0>0|6|3" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|6|4" />
+        <i3dMapping id="turnLightRightBack" node="0>0|6|5" />
+        <i3dMapping id="drumBigFrame" node="0>0|7|0|0" />
+        <i3dMapping id="drumBig" node="0>0|7|0|0|0" />
+        <i3dMapping id="hydraulicDrumBigFrameRef" node="0>0|7|0|0|1" />
+        <i3dMapping id="drumSmall" node="0>0|7|0|1" />
+        <i3dMapping id="drum1" node="0>0|7|0|2" />
+        <i3dMapping id="hydraulicDrumBigFrame" node="0>0|7|0|3" />
+        <i3dMapping id="hydraulicDrumBigFramePush" node="0>0|7|0|3|0" />
+        <i3dMapping id="flapFrontRot" node="0>0|7|1|0" />
+        <i3dMapping id="flapFrontLeft" node="0>0|7|1|0|0|0" />
+        <i3dMapping id="springFlapFrontLeft" node="0>0|7|1|0|0|0|0" />
+        <i3dMapping id="springFlapFrontLeftPush" node="0>0|7|1|0|0|0|0|0" />
+        <i3dMapping id="springFlapFrontLeftScale" node="0>0|7|1|0|0|0|0|1" />
+        <i3dMapping id="flapFrontRight" node="0>0|7|1|0|1|0" />
+        <i3dMapping id="springFlapFrontRight" node="0>0|7|1|0|1|0|0" />
+        <i3dMapping id="springFlapFrontRightPush" node="0>0|7|1|0|1|0|0|0" />
+        <i3dMapping id="springFlapFrontRightScale" node="0>0|7|1|0|1|0|0|1" />
+        <i3dMapping id="hydraulicFlapFrontRef" node="0>0|7|1|0|2" />
+        <i3dMapping id="springFlapFrontLeftRef" node="0>0|7|1|0|3" />
+        <i3dMapping id="springFlapFrontRightRef" node="0>0|7|1|0|4" />
+        <i3dMapping id="hydraulicFlapFront" node="0>0|7|1|1" />
+        <i3dMapping id="hydraulicFlapFrontPush" node="0>0|7|1|1|0" />
+        <i3dMapping id="beltInput" node="0>0|7|2|0" />
+        <i3dMapping id="beltOutput" node="0>0|7|2|1" />
+        <i3dMapping id="pipe1" node="0>0|7|3" />
+        <i3dMapping id="pipe2" node="0>0|7|3|0" />
+        <i3dMapping id="hydraulciPipe2Ref" node="0>0|7|3|0|0" />
+        <i3dMapping id="beltPipeSecond" node="0>0|7|3|0|1" />
+        <i3dMapping id="pipeRaycastNodeRot" node="0>0|7|3|0|3" />
+        <i3dMapping id="pipeRaycastNode" node="0>0|7|3|0|3|0" />
+        <i3dMapping id="emitterShape" node="0>0|7|3|0|5|0" />
+        <i3dMapping id="hydraulciPipe1Ref" node="0>0|7|3|1" />
+        <i3dMapping id="hydraulciPipe2" node="0>0|7|3|2" />
+        <i3dMapping id="hydraulciPipe2Push" node="0>0|7|3|2|0" />
+        <i3dMapping id="beltPipeFirst" node="0>0|7|3|3" />
+        <i3dMapping id="pipeExtra1" node="0>0|7|3|4" />
+        <i3dMapping id="pipeExtra2" node="0>0|7|3|5" />
+        <i3dMapping id="axisPart" node="0>0|7|4" />
+        <i3dMapping id="axisRot" node="0>0|7|4|0" />
+        <i3dMapping id="axisPartHydraulicRef" node="0>0|7|4|1" />
+        <i3dMapping id="hydraulciPipe1" node="0>0|8|0" />
+        <i3dMapping id="hydraulciPipe1Push" node="0>0|8|0|0" />
+        <i3dMapping id="axisPartHydraulic" node="0>0|8|1" />
+        <i3dMapping id="axisPartHydraulicPunch" node="0>0|8|1|0" />
+        <i3dMapping id="beltMesh" node="0>0|9|0" />
+        <i3dMapping id="groundReferenceNode" node="0>0|10" />
+        <i3dMapping id="pipeRaycastNodeRotRefFrame" node="0>0|11" />
+        <i3dMapping id="tipOcclusionAreaStart" node="0>0|12|0" />
+        <i3dMapping id="tipOcclusionAreaWidth" node="0>0|12|1" />
+        <i3dMapping id="tipOcclusionAreaHeight" node="0>0|12|2" />
+    </i3dMappings>
+</vehicle>

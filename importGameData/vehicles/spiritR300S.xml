@@ -1,0 +1,511 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="sowingMachine">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Spirit R 300S</name>
+        <specs>
+            <neededPower>110</neededPower>
+            <workingWidth>3.0</workingWidth>
+        </specs>
+        <functions>
+            <function>$l10n_function_sowingMachine</function>
+            <function>$l10n_function_sowingMachineDirect</function>
+        </functions>
+        <image>$data/vehicles/vaderstad/spiritR300S/store_spiritR300S.png</image>
+        <price>30000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>VAEDERSTAD</brand>
+        <category>seeders</category>
+        <vertexBufferMemoryUsage>5672276</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>1576416</indexBufferMemoryUsage>
+        <textureMemoryUsage>19574096</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_sowingMachine</typeDesc>
+        <filename>$data/vehicles/vaderstad/spiritR300S/spiritR300S.i3d</filename>
+        <size width="4" length="9" lengthOffset="0.8"/>
+        <speedLimit value="18" />
+        <components>
+            <component centerOfMass="0 0.7 0.3" solverIterationCount="20" mass="3400" />
+            <component centerOfMass="0 0 0" solverIterationCount="20" mass="600" />
+            <joint component1="1" component2="2" node="jointNode" rotLimit="0 90 25" transLimit="0 0 0" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/trelleborg/SK800/12_R16_5.xml" isLeft="true">
+                        <physics rotSpeed="0" restLoad="1.7" repr="wheelLeft01"                              forcePointRatio="0.3" mass="0.1" initialCompression="40" suspTravel="0.05" spring="40" damper="20" rotationDamping="0.002" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/SK800/12_R16_5.xml" isLeft="false">
+                        <physics rotSpeed="0" restLoad="1.7" repr="wheelLeft02"                              forcePointRatio="0.3" mass="0.1" initialCompression="40" suspTravel="0.05" spring="40" damper="20" rotationDamping="0.002" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/SK800/12_R16_5.xml" isLeft="true">
+                        <physics rotSpeed="0" restLoad="1.7" repr="wheelLeft03"                              forcePointRatio="0.3" mass="0.1" initialCompression="40" suspTravel="0.05" spring="40" damper="20" rotationDamping="0.002" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/SK800/12_R16_5.xml" isLeft="false">
+                        <physics rotSpeed="0" restLoad="1.7" repr="wheelRight01"                             forcePointRatio="0.3" mass="0.1" initialCompression="40" suspTravel="0.05" spring="40" damper="20" rotationDamping="0.002" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/SK800/12_R16_5.xml" isLeft="true">
+                        <physics rotSpeed="0" restLoad="1.7" repr="wheelRight02"                             forcePointRatio="0.3" mass="0.1" initialCompression="40" suspTravel="0.05" spring="40" damper="20" rotationDamping="0.002" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/SK800/12_R16_5.xml" isLeft="false">
+                        <physics rotSpeed="0" restLoad="1.7" repr="wheelRight03"                             forcePointRatio="0.3" mass="0.1" initialCompression="40" suspTravel="0.05" spring="40" damper="20" rotationDamping="0.002" />
+                    </wheel>
+                    <wheel>
+                        <physics rotSpeed="0" restLoad="0.5" repr="axisLeft" driveNode="wheelAttacherLeft"   forcePointRatio="0.3" radius="0.38" width="0.5" mass="0.1" initialCompression="25" suspTravel="0.05" spring="17" damper="20" rotationDamping="0.002" versatileYRot="true" rotMax="40" rotMin="-40" />
+                    </wheel>
+                    <wheel>
+                        <physics rotSpeed="0" restLoad="0.5" repr="axisRight" driveNode="wheelAttacherRight" forcePointRatio="0.3" radius="0.38" width="0.5" mass="0.1" initialCompression="25" suspTravel="0.05" spring="17" damper="20" rotationDamping="0.002" useReprDirection="true"/>
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+        <dynamicallyLoadedWheels>
+            <dynamicallyLoadedWheel linkNode="wheelAttacherLeft1"  filename="$data/shared/wheels/trelleborg/SK800/10_R16_5.xml" isLeft="true" />
+            <dynamicallyLoadedWheel linkNode="wheelAttacherLeft2"  filename="$data/shared/wheels/trelleborg/SK800/10_R16_5.xml" isLeft="false" />
+            <dynamicallyLoadedWheel linkNode="wheelAttacherRight1" filename="$data/shared/wheels/trelleborg/SK800/10_R16_5.xml" isLeft="true" />
+            <dynamicallyLoadedWheel linkNode="wheelAttacherRight3" filename="$data/shared/wheels/trelleborg/SK800/10_R16_5.xml" isLeft="false" />
+        </dynamicallyLoadedWheels>
+
+        <rimColor>VAEDERSTAD_YELLOW1</rimColor>
+
+        <hubs>
+            <color0>VAEDERSTAD_RED1</color0>
+            <color1>SHARED_BLACK2</color1>
+            <hub linkNode="wheelLeft01"         filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="true"  scale="0.2 0.2 0.2" />
+            <hub linkNode="wheelLeft02"         filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="false" scale="0.2 0.2 0.2" />
+            <hub linkNode="wheelLeft03"         filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="true"  scale="0.2 0.2 0.2" />
+            <hub linkNode="wheelRight01"        filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="false" scale="0.2 0.2 0.2" />
+            <hub linkNode="wheelRight02"        filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="true"  scale="0.2 0.2 0.2" />
+            <hub linkNode="wheelRight03"        filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="false" scale="0.2 0.2 0.2" />
+            <hub linkNode="wheelAttacherLeft1"  filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="true"  scale="0.2 0.2 0.2" />
+            <hub linkNode="wheelAttacherLeft1"  filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="false" scale="0.2 0.2 0.2" offset="0.38"/>
+            <hub linkNode="wheelAttacherRight3" filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="false" scale="0.2 0.2 0.2" />
+            <hub linkNode="wheelAttacherRight3" filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="true"  scale="0.2 0.2 0.2" offset="0.38"/>
+        </hubs>
+    </wheels>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" rootNode="spirit3000_attacher_component2" jointType="implement" allowsJointRotLimitMovement="false" allowsLowering="true" upperRotLimitScale="0 0 1">
+                <distanceToGround lower="0.6" upper="0.95" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+        <lowerAnimation name="lowerAnimation" speed="-1" />
+        <support animationName="moveSupport" />
+        <brakeForce>0.6</brakeForce>
+    </attachable>
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn01"  length="2.3" diameter="0.02">
+            <objectChange node="hydraulicIn01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut01" length="2.3" diameter="0.02">
+            <objectChange node="hydraulicOut01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn02"  length="2.3" diameter="0.02">
+            <objectChange node="hydraulicIn02_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut02" length="2.3" diameter="0.02">
+            <objectChange node="hydraulicOut02_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+    </connectionHoses>
+
+    <powerConsumer forceNode="0>" maxForce="35" ptoRpm="450" neededMaxPtoPower="10" />
+
+    <speedRotatingParts>
+        <speedRotatingPart node="sowingWheels1"        radius="0.186" groundReferenceNodeIndex="1" />
+        <speedRotatingPart node="sowingWheels2"        radius="0.186" groundReferenceNodeIndex="1" />
+        <speedRotatingPart node="ridgeMarkerLeftDisc"  radius="0.186" groundReferenceNodeIndex="2" />
+        <speedRotatingPart node="ridgeMarkerRightDisc" radius="0.186" groundReferenceNodeIndex="3" />
+        <speedRotatingPart shaderNode="sowingDiscs1"   radius="0.186" groundReferenceNodeIndex="1" />
+        <speedRotatingPart shaderNode="sowingDiscs2"   radius="0.186" groundReferenceNodeIndex="1" />
+        <speedRotatingPart shaderNode="frontDiscs1"    radius="0.186" groundReferenceNodeIndex="1" />
+        <speedRotatingPart shaderNode="frontDiscs2"    radius="0.186" groundReferenceNodeIndex="1" />
+        <speedRotatingPart shaderNode="frontDiscs3"    radius="0.186" groundReferenceNodeIndex="1" />
+        <speedRotatingPart shaderNode="frontDiscs4"    radius="0.186" groundReferenceNodeIndex="1" />
+        <speedRotatingPart shaderNode="leftArmDisc1"   radius="0.186" groundReferenceNodeIndex="1" />
+        <speedRotatingPart shaderNode="leftArmDisc2"   radius="0.186" groundReferenceNodeIndex="1" />
+        <speedRotatingPart shaderNode="rightArmDisc1"  radius="0.186" groundReferenceNodeIndex="1" />
+        <speedRotatingPart shaderNode="rightArmDisc2"  radius="0.186" groundReferenceNodeIndex="1" />
+    </speedRotatingParts>
+
+    <lights>
+        <sharedLight linkNode="shared_sideMarkerRed1_scaled"        filename="$data/shared/assets/lights/lizard/sideMarker_04Red.xml" />
+        <sharedLight linkNode="shared_sideMarkerRed2_scaled"        filename="$data/shared/assets/lights/lizard/sideMarker_04Red.xml" />
+        <sharedLight linkNode="shared_sideMarkerOrange1_scaled"     filename="$data/shared/assets/lights/lizard/sideMarker_04Orange.xml" />
+        <sharedLight linkNode="shared_sideMarkerOrange2_scaled"     filename="$data/shared/assets/lights/lizard/sideMarker_04Orange.xml" />
+        <sharedLight linkNode="shared_sideMarkerOrangeBack1_scaled" filename="$data/shared/assets/lights/lizard/sideMarker_04Orange.xml" />
+        <sharedLight linkNode="shared_sideMarkerOrangeBack2_scaled" filename="$data/shared/assets/lights/lizard/sideMarker_04Orange.xml" />
+        <sharedLight linkNode="shared_twoChamberLeft_scaled"        filename="$data/shared/assets/lights/lizard/rear2ChamberLight_01_left.xml" />
+        <sharedLight linkNode="shared_twoChamberRight_scaled"       filename="$data/shared/assets/lights/lizard/rear2ChamberLight_01_right.xml" />
+
+        <realLights>
+            <high>
+                <light node="backLightsHigh" lightTypes="0" />
+                <turnLightLeft node="turnLightLeftBack" />
+                <turnLightRight node="turnLightRightBack" />
+                <brakeLight node="backLightsHigh" />
+            </high>
+        </realLights>
+    </lights>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundReferenceNode" threshold="0.05" depthNode="groundReferenceNode" maxDepth="-0.1" />
+        <groundReferenceNode node="ridgeMarkerLeftGroundReferenceNode" threshold="0.05" depthNode="ridgeMarkerLeftGroundReferenceNode" maxDepth="-0.1" />
+        <groundReferenceNode node="ridgeMarkerRightGroundReferenceNode" threshold="0.05" depthNode="ridgeMarkerRightGroundReferenceNode" maxDepth="-0.1" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="sowingMachine" functionName="processSowingMachineArea" disableBackwards="false">
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight" />
+            <groundReferenceNode index="1" />
+        </workArea>
+
+        <workArea type="ridgemarker" functionName="processRidgeMarkerArea" disableBackwards="false" needsSetIsTurnedOn="false">
+            <area startNode="ridgeMarkerLeftAreaStart" widthNode="ridgeMarkerLeftAreaWidth" heightNode="ridgeMarkerLeftAreaHeight" />
+            <testArea startNode="ridgeMarkerLeftTestAreaStart" widthNode="ridgeMarkerLeftTestAreaWidth" heightNode="ridgeMarkerLeftTestAreaHeight" />
+            <groundReferenceNode index="2" />
+        </workArea>
+        <workArea type="ridgemarker" functionName="processRidgeMarkerArea" disableBackwards="false" needsSetIsTurnedOn="false">
+            <area startNode="ridgeMarkerRightAreaStart" widthNode="ridgeMarkerRightAreaWidth" heightNode="ridgeMarkerRightAreaHeight" />
+            <testArea startNode="ridgeMarkerRightTestAreaStart" widthNode="ridgeMarkerRightTestAreaWidth" heightNode="ridgeMarkerRightTestAreaHeight" />
+            <groundReferenceNode index="3" />
+        </workArea>
+    </workAreas>
+
+    <workParticles>
+        <particleAnimation>
+            <node node="soilAnimation" refNodeIndex="1" materialType="SOIL" />
+            <node node="soilAnimationBack" refNodeIndex="1" materialType="SOIL" />
+            <node node="soilAnimationLeft" refNodeIndex="2" materialType="SOIL" />
+            <node node="soilAnimationRight" refNodeIndex="3" materialType="SOIL" />
+        </particleAnimation>
+        <particle>
+            <node node="soilEmitShape" refNodeIndex="1" particleType="SOIL" speedThreshold="6" />
+            <node node="soilChunksEmitShape" refNodeIndex="1" particleType="SOIL_CHUNKS" speedThreshold="5" worldSpace="false"/>
+            <node node="dustEmitterShape" refNodeIndex="1" particleType="SOIL_SMOKE" speedThreshold="1" />
+        </particle>
+    </workParticles>
+
+    <ridgeMarker onlyActiveWhenLowered="false">
+        <marker animName="ridgeMarkerLeft" workAreaIndex="2"/>
+        <marker animName="ridgeMarkerRight" workAreaIndex="3"/>
+    </ridgeMarker>
+
+    <foldable>
+        <foldingParts startMoveDirection="0" turnOnFoldDirection="-1" >
+            <foldingPart animationName="folding" speedScale="1" />
+        </foldingParts>
+    </foldable>
+
+    <animations>
+        <animation name="lowerAnimation">
+            <part node="frontDiscArmBottom" startTime="0" endTime="1.5" startRot="5 0 0" endRot="-20 0 0" />
+            <part node="frontDiscArm" startTime="0" endTime="1.5" startRot="-5 0 0" endRot="20 0 0" />
+            <part node="crossBoard" startTime="0" endTime="1.5" startRot="0 0 0" endRot="30 0 0" />
+            <part node="sowingArmBottom" startTime="0" endTime="1" startRot="0 0 0" endRot="18 0 0" />
+            <part node="sowingArm" startTime="0" endTime="1" startRot="0 0 0" endRot="-18 0 0" />
+            <part node="sowingArm" startTime="1" endTime="1.5" startRot="-18 0 0" endRot="-8 0 0" />
+            <part node="weeder" startTime="0" endTime="1.5" startRot="-1 0 0" endRot="15 0 0" />
+        </animation>
+        <animation name="folding">
+            <part node="rightArm" startTime="0" endTime="2" startRot="0 0 0" endRot="0 0 -145" />
+            <part node="leftArm" startTime="0" endTime="2" startRot="0 0 0" endRot="0 0 145" />
+        </animation>
+        <animation name="ridgeMarkerLeft">
+            <part node="ridgeMarkerLeft" startTime="0" endTime="1.5" startRot="0 0 0" endRot="0 0 -102" />
+        </animation>
+        <animation name="ridgeMarkerRight">
+            <part node="ridgeMarkerRight" startTime="0" endTime="1.5" startRot="0 0 0" endRot="0 0 102" />
+        </animation>
+        <animation name="toggleCover">
+            <part node="ladder" startTime="0" endTime="1.2" startRot="0 0 0" endRot="0 0 -180" />
+            <part node="cover"  startTime="1.5" endTime="3" startRot="0 0 0" endRot="0 0 110" />
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="leftArm" playSound="true" />
+            <movingTool node="ridgeMarkerLeft" playSound="true" >
+                <dependentPart node="hydraulicRidgeMarkerLeft" />
+            </movingTool>
+            <movingTool node="ridgeMarkerRight" playSound="true" >
+                <dependentPart node="hydraulicRidgeMarkerRight" />
+            </movingTool>
+            <movingTool node="cover" playSound="false" >
+                <dependentPart node="hydraulicCover" />
+            </movingTool>
+            <movingTool node="sowingArm" playSound="true" >
+                <dependentPart node="sowingArmLock" />
+                <dependentPart node="hydraulicSowingArm" />
+                <dependentPart node="damper" />
+                <dependentPart node="hydraulicCrossBoard" />
+                <dependentPart node="frontDiscArmTop" />
+                <dependentPart node="hydraulicFrontDiscArm" />
+            </movingTool>
+            <movingTool node="weeder" playSound="true" >
+                <dependentPart node="hydraulicWeeder" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="sowingArmLock" localReferencePoint="sowingArmLockArm" referencePoint="sowingArmLockArmRef" referenceFrame="sowingArmLockRefFrame" >
+                <dependentPart node="sowingArmLockArm" />
+            </movingPart>
+            <movingPart node="sowingArmLockArm" referencePoint="sowingArmLockArmRef" referenceFrame="sowingArmLockArmRef" />
+            <movingPart node="hydraulicSowingArm" referencePoint="hydraulicSowingArmRef" referenceFrame="hydraulicSowingArmRef">
+                <translatingPart node="hydraulicSowingArmPunch" />
+            </movingPart>
+            <movingPart node="damper" referencePoint="damperRef" referenceFrame="damperRef" />
+            <movingPart node="frontDiscArmTop" referencePoint="frontDiscArmTopRef" referenceFrame="frontDiscArmTopRef" />
+
+
+            <movingPart node="hydraulicCrossBoard" referencePoint="hydraulicCrossBoardRef" referenceFrame="hydraulicCrossBoardRef">
+                <translatingPart node="hydraulicCrossBoardPunch" />
+            </movingPart>
+            <movingPart node="axisRight" referenceFrame="axisLeft" isActiveDirty="true" wheelIndices="4" >
+                <dependentPart node="axisSteeringBar" />
+            </movingPart>
+            <movingPart node="axisSteeringBar" referencePoint="axisSteeringBarRef" referenceFrame="axisSteeringBarRef" />
+            <movingPart node="drawbarPart" referencePoint="drawbarPartRef" referenceFrame="vaderstad_vis" isActiveDirty="true" />
+            <movingPart node="hydraulicCover" referencePoint="hydraulicCoverRef" referenceFrame="hydraulicCoverRef">
+                <translatingPart node="hydraulicCoverPunch" />
+            </movingPart>
+            <movingPart node="hydraulicFrontDiscArm" referencePoint="hydraulicFrontDiscArmRef" referenceFrame="hydraulicFrontDiscArmRef">
+                <translatingPart node="hydraulicFrontDiscArmPunch" />
+            </movingPart>
+            <movingPart node="hydraulicWeeder" referencePoint="hydraulicWeederRef" referenceFrame="hydraulicWeederRef">
+                <translatingPart node="hydraulicWeederPunch" />
+            </movingPart>
+            <movingPart node="hydraulicRidgeMarkerLeft" referencePoint="hydraulicRidgeMarkerLeftRef" referenceFrame="spirit3000_main_component1">
+                <translatingPart node="hydraulicRidgeMarkerLeftPunch" />
+            </movingPart>
+            <movingPart node="hydraulicRidgeMarkerRight" referencePoint="hydraulicRidgeMarkerRightRef" referenceFrame="spirit3000_main_component1">
+                <translatingPart node="hydraulicRidgeMarkerRightPunch" />
+            </movingPart>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <unloading width="12" offset="0 0 0" />
+                    <fillUnit unit="$l10n_unit_literShort" fillTypes="seeds" capacity="2800" >
+                        <exactFillRootNode node="exactFillRootNode" extraEffectDistance="0.6"/>
+                    </fillUnit>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <fillVolume>
+        <fillVolumeConfigurations>
+            <fillVolumeConfiguration>
+                <volumes>
+                    <volume node="fillVolume" maxDelta="0.0" fillUnitIndex="1" />
+                </volumes>
+            </fillVolumeConfiguration>
+        </fillVolumeConfigurations>
+    </fillVolume>
+
+    <sowingMachine fillUnitIndex="1" >
+        <seedFruitTypeCategories>sowingMachine</seedFruitTypeCategories>
+        <needsActivation value="true"/>
+        <useDirectPlanting value="true" />
+
+        <sounds>
+            <work template="DEFAULT_SOWING_WORK" linkNode="0>" />
+            <airBlower template="DEFAULT_SOWING_AIR_BLOWER" linkNode="0>" />
+        </sounds>
+    </sowingMachine>
+
+    <cover>
+        <coverConfigurations>
+            <coverConfiguration>
+                <cover openAnimation="toggleCover" fillUnitIndices="1" />
+            </coverConfiguration>
+        </coverConfigurations>
+    </cover>
+
+    <ai>
+        <needsLowering value="true" />
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack" />
+        <sizeMarkers leftNode="sizeMarkerLeft" rightNode="sizeMarkerRight" backNode="sizeMarkerBack" />
+        <toolReverserDirectionNode node="aiMarkerBack" />
+        <collisionTrigger node="aiCollisionTrigger" />
+        <allowTurnBackward value="false"/>
+        <turningRadiusLimitation rotationJointNode="jointNode" wheelIndices="1 2" />
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-1.6" maxX="1.6" minZ="-3.3" maxZ="2.8 " yOffset="0.6" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="vaderstad_mat" baseNode="vaderstad_vis">
+            <shaderParameter name="colorMat0" value="VAEDERSTAD_RED1"/>
+            <shaderParameter name="colorMat1" value="VAEDERSTAD_YELLOW1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="spirit3000_main_component1" node="0>" />
+        <i3dMapping id="vaderstad_vis" node="0>0" />
+        <i3dMapping id="wheelLeft01" node="0>0|0|0" />
+        <i3dMapping id="wheelLeft02" node="0>0|0|1" />
+        <i3dMapping id="wheelLeft03" node="0>0|0|2" />
+        <i3dMapping id="wheelRight01" node="0>0|0|3" />
+        <i3dMapping id="wheelRight02" node="0>0|0|4" />
+        <i3dMapping id="wheelRight03" node="0>0|0|5" />
+        <i3dMapping id="shared_sideMarkerRed1_scaled" node="0>0|1|0|0" />
+        <i3dMapping id="shared_sideMarkerRed2_scaled" node="0>0|1|0|1" />
+        <i3dMapping id="shared_sideMarkerOrange1_scaled" node="0>0|1|0|2" />
+        <i3dMapping id="shared_sideMarkerOrange2_scaled" node="0>0|1|0|3" />
+        <i3dMapping id="drawbarPart" node="0>0|2" />
+        <i3dMapping id="ladder" node="0>0|3" />
+        <i3dMapping id="frontDiscArmBottom" node="0>0|4" />
+        <i3dMapping id="frontDiscArm" node="0>0|4|0" />
+        <i3dMapping id="groundReferenceNode" node="0>0|4|0|0" />
+        <i3dMapping id="crossBoard" node="0>0|4|0|1" />
+        <i3dMapping id="hydraulicCrossBoardRef" node="0>0|4|0|1|0" />
+        <i3dMapping id="hydraulicCrossBoard" node="0>0|4|0|2" />
+        <i3dMapping id="hydraulicCrossBoardPunch" node="0>0|4|0|2|0" />
+        <i3dMapping id="leftArm" node="0>0|4|0|3" />
+        <i3dMapping id="leftArmDisc1" node="0>0|4|0|3|0" />
+        <i3dMapping id="leftArmDisc2" node="0>0|4|0|3|1" />
+        <i3dMapping id="rightArm" node="0>0|4|0|4" />
+        <i3dMapping id="rightArmDisc1" node="0>0|4|0|4|0" />
+        <i3dMapping id="rightArmDisc2" node="0>0|4|0|4|1" />
+        <i3dMapping id="frontDiscs1" node="0>0|4|0|5" />
+        <i3dMapping id="frontDiscs2" node="0>0|4|0|6" />
+        <i3dMapping id="frontDiscs3" node="0>0|4|0|7" />
+        <i3dMapping id="frontDiscs4" node="0>0|4|0|8" />
+        <i3dMapping id="frontDiscArmTopRef" node="0>0|4|0|10" />
+        <i3dMapping id="hydraulicFrontDiscArmRef" node="0>0|4|1" />
+        <i3dMapping id="frontDiscArmTop" node="0>0|5" />
+        <i3dMapping id="hydraulicFrontDiscArm" node="0>0|6" />
+        <i3dMapping id="hydraulicFrontDiscArmPunch" node="0>0|6|0" />
+        <i3dMapping id="sowingArmBottom" node="0>0|7" />
+        <i3dMapping id="sowingArm" node="0>0|7|0" />
+        <i3dMapping id="sowingArmLockArmRef" node="0>0|7|0|0" />
+        <i3dMapping id="hydraulicSowingArmRef" node="0>0|7|0|1" />
+        <i3dMapping id="sowingWheels1" node="0>0|7|0|2" />
+        <i3dMapping id="sowingWheels2" node="0>0|7|0|3" />
+        <i3dMapping id="sowingDiscs1" node="0>0|7|0|4" />
+        <i3dMapping id="sowingDiscs2" node="0>0|7|0|5" />
+        <i3dMapping id="soilAnimationBack" node="0>0|7|0|6|0" />
+        <i3dMapping id="sowingArmLock" node="0>0|7|1" />
+        <i3dMapping id="sowingArmLockArm" node="0>0|7|1|0" />
+        <i3dMapping id="damper" node="0>0|7|2" />
+        <i3dMapping id="hydraulicSowingArm" node="0>0|8" />
+        <i3dMapping id="hydraulicSowingArmPunch" node="0>0|8|0" />
+        <i3dMapping id="sowingArmLockRefFrame" node="0>0|9" />
+        <i3dMapping id="damperRef" node="0>0|10" />
+        <i3dMapping id="weeder" node="0>0|11" />
+        <i3dMapping id="hydraulicWeederRef" node="0>0|11|0" />
+        <i3dMapping id="shared_twoChamberRight_scaled" node="0>0|11|1|0|0" />
+        <i3dMapping id="shared_twoChamberLeft_scaled" node="0>0|11|1|0|1" />
+        <i3dMapping id="shared_sideMarkerOrangeBack2_scaled" node="0>0|11|1|0|2" />
+        <i3dMapping id="shared_sideMarkerOrangeBack1_scaled" node="0>0|11|1|0|3" />
+        <i3dMapping id="backLightsHigh" node="0>0|11|1|1" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|11|1|2" />
+        <i3dMapping id="turnLightRightBack" node="0>0|11|1|3" />
+        <i3dMapping id="hydraulicWeeder" node="0>0|12" />
+        <i3dMapping id="hydraulicWeederPunch" node="0>0|12|0" />
+        <i3dMapping id="ridgeMarkerLeft" node="0>0|13" />
+        <i3dMapping id="hydraulicRidgeMarkerLeftRef" node="0>0|13|0" />
+        <i3dMapping id="ridgeMarkerLeftDisc" node="0>0|13|1|0" />
+        <i3dMapping id="ridgeMarkerLeftAreaStart" node="0>0|13|2|0" />
+        <i3dMapping id="ridgeMarkerLeftAreaWidth" node="0>0|13|2|1" />
+        <i3dMapping id="ridgeMarkerLeftAreaHeight" node="0>0|13|2|2" />
+        <i3dMapping id="ridgeMarkerLeftTestAreaStart" node="0>0|13|2|3" />
+        <i3dMapping id="ridgeMarkerLeftTestAreaWidth" node="0>0|13|2|4" />
+        <i3dMapping id="ridgeMarkerLeftTestAreaHeight" node="0>0|13|2|5" />
+        <i3dMapping id="ridgeMarkerLeftGroundReferenceNode" node="0>0|13|2|6" />
+        <i3dMapping id="soilAnimationLeft" node="0>0|13|3|0" />
+        <i3dMapping id="ridgeMarkerRight" node="0>0|14" />
+        <i3dMapping id="hydraulicRidgeMarkerRightRef" node="0>0|14|0" />
+        <i3dMapping id="ridgeMarkerRightDisc" node="0>0|14|1|0" />
+        <i3dMapping id="ridgeMarkerRightAreaStart" node="0>0|14|2|0" />
+        <i3dMapping id="ridgeMarkerRightAreaWidth" node="0>0|14|2|1" />
+        <i3dMapping id="ridgeMarkerRightAreaHeight" node="0>0|14|2|2" />
+        <i3dMapping id="ridgeMarkerRightTestAreaStart" node="0>0|14|2|3" />
+        <i3dMapping id="ridgeMarkerRightTestAreaWidth" node="0>0|14|2|4" />
+        <i3dMapping id="ridgeMarkerRightTestAreaHeight" node="0>0|14|2|5" />
+        <i3dMapping id="ridgeMarkerRightGroundReferenceNode" node="0>0|14|2|6" />
+        <i3dMapping id="soilAnimationRight" node="0>0|14|3|0" />
+        <i3dMapping id="hydraulicRidgeMarkerLeft" node="0>0|15" />
+        <i3dMapping id="hydraulicRidgeMarkerLeftPunch" node="0>0|15|0" />
+        <i3dMapping id="hydraulicRidgeMarkerRight" node="0>0|16" />
+        <i3dMapping id="hydraulicRidgeMarkerRightPunch" node="0>0|16|0" />
+        <i3dMapping id="ridgeMarkerLockLeft" node="0>0|17|0" />
+        <i3dMapping id="ridgeMarkerLockRight" node="0>0|18|0" />
+        <i3dMapping id="cover" node="0>0|19" />
+        <i3dMapping id="hydraulicCoverRef" node="0>0|19|0" />
+        <i3dMapping id="hydraulicCover" node="0>0|20" />
+        <i3dMapping id="hydraulicCoverPunch" node="0>0|20|0" />
+        <i3dMapping id="workAreaStart" node="0>0|21|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|21|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|21|2" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|22|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|22|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|22|0|2" />
+        <i3dMapping id="sizeMarkerLeft" node="0>0|22|1|0" />
+        <i3dMapping id="sizeMarkerRight" node="0>0|22|1|1" />
+        <i3dMapping id="sizeMarkerBack" node="0>0|22|1|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|22|2" />
+        <i3dMapping id="exactFillRootNode" node="0>0|23|0" />
+        <i3dMapping id="fillVolume" node="0>0|23|1" />
+        <i3dMapping id="soilAnimation" node="0>0|24|0" />
+        <i3dMapping id="dustEmitterShape" node="0>0|24|1" />
+        <i3dMapping id="soilEmitShape" node="0>0|24|2" />
+        <i3dMapping id="soilChunksEmitShape" node="0>0|24|3" />
+        <i3dMapping id="hydraulicIn01" node="0>0|25|0" />
+        <i3dMapping id="hydraulicIn01_detached" node="0>0|25|0|0" />
+        <i3dMapping id="hydraulicOut01" node="0>0|25|1" />
+        <i3dMapping id="hydraulicOut01_detached" node="0>0|25|1|0" />
+        <i3dMapping id="hydraulicIn02" node="0>0|25|2" />
+        <i3dMapping id="hydraulicIn02_detached" node="0>0|25|2|0" />
+        <i3dMapping id="hydraulicOut02" node="0>0|25|3" />
+        <i3dMapping id="hydraulicOut02_detached" node="0>0|25|3|0" />
+        <i3dMapping id="spirit3000_attacher_component2" node="1>" />
+        <i3dMapping id="axisLeft" node="1>0|0" />
+        <i3dMapping id="wheelAttacherLeft" node="1>0|0|0" />
+        <i3dMapping id="wheelAttacherLeft1" node="1>0|0|0|0" />
+        <i3dMapping id="wheelAttacherLeft2" node="1>0|0|0|1" />
+        <i3dMapping id="axisSteeringBar" node="1>0|0|1" />
+        <i3dMapping id="axisRight" node="1>0|1" />
+        <i3dMapping id="wheelAttacherRight" node="1>0|1|0" />
+        <i3dMapping id="wheelAttacherRight1" node="1>0|1|0|0" />
+        <i3dMapping id="wheelAttacherRight3" node="1>0|1|0|1" />
+        <i3dMapping id="axisSteeringBarRef" node="1>0|1|1" />
+        <i3dMapping id="attacherJoint" node="1>0|2" />
+        <i3dMapping id="jointNode" node="1>0|3" />
+        <i3dMapping id="drawbarPartRef" node="1>0|4" />
+    </i3dMappings>
+</vehicle>

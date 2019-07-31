@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="spreader">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>AXIS 40.2 M-EMC-W</name>
+        <specs>
+            <workingWidth>24.0</workingWidth>
+            <combination>SB 1000</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_fertilizer</function>
+        </functions>
+        <image>$data/vehicles/kuhn/kuhnAxis402/store_kuhnAxis402.png</image>
+        <price>20000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>KUHN</brand>
+        <category>fertilizerSpreaders</category>
+        <vertexBufferMemoryUsage>1106256</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>167778</indexBufferMemoryUsage>
+        <textureMemoryUsage>9262688</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_fertilizerSpreader</typeDesc>
+        <filename>$data/vehicles/kuhn/kuhnAxis402/kuhnAxis402.i3d</filename>
+        <size width="3.5" length="2.5" />
+        <speedLimit value="20" />
+        <components>
+            <component centerOfMass="0 0.3 0" solverIterationCount="10" mass="482"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <powerConsumer ptoRpm="450" neededMaxPtoPower="10"/>
+
+    <lights>
+        <realLights>
+            <high>
+                <light node="backLightsHigh" lightTypes="0" />
+                <brakeLight node="backLightsHigh" />
+                <turnLightLeft node="turnLightLeftBack" />
+                <turnLightRight node="turnLightRightBack" />
+            </high>
+        </realLights>
+
+        <defaultLights>
+            <defaultLight shaderNode="brakelight_static" lightTypes="0" />
+        </defaultLights>
+
+        <brakeLights>
+            <brakeLight shaderNode="brakelight_static" lightTypes="0" />
+        </brakeLights>
+
+        <turnLights>
+            <turnLightLeft shaderNode="turnLightLeft_static" toggleVisibility="true"/>
+            <turnLightRight shaderNode="turnLightRight_static" toggleVisibility="true"/>
+        </turnLights>
+
+        <reverseLights>
+            <reverseLight shaderNode="backlight_static" toggleVisibility="true"/>
+        </reverseLights>
+    </lights>
+
+    <workAreas>
+        <workArea type="sprayer" functionName="processSprayerArea" disableBackwards="false" requiresGroundContact="false" >
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight" />
+        </workArea>
+    </workAreas>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="implement" topReferenceNode="topReferencePoint" lowerRotLimitScale="0 0 0" lowerTransLimitScale="0 0 0" upperRotationOffset="2" needsLowering="false" >
+                <distanceToGround lower="0.2" upper="0.75" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+    </attachable>
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1" type="electric" node="electricHose" length="1.5" diameter="0.008" straighteningFactor="1.5"/>
+    </connectionHoses>
+
+    <powerTakeOffs>
+        <input inputAttacherJointIndices="1" detachNode="ptoDetachNode" inputNode="ptoInput" aboveAttacher="false" />
+    </powerTakeOffs>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration name="$l10n_configuration_valueDefault" price="0" >
+                <fillUnits>
+                    <unloading width="11" offset="0 0 0" />
+                    <fillUnit unit="$l10n_unit_literShort" fillTypes="fertilizer" capacity="3200" >
+                        <exactFillRootNode node="exactFillRootNode" />
+                    </fillUnit>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <fillVolume>
+        <fillVolumeConfigurations>
+            <fillVolumeConfiguration>
+                <volumes>
+                    <volume node="fillVolume" maxDelta="0.0" fillUnitIndex="1" />
+                </volumes>
+            </fillVolumeConfiguration>
+        </fillVolumeConfigurations>
+    </fillVolume>
+
+    <sprayer fillUnitIndex="1">
+        <usageScales workingWidth="24" scale="1" />
+        <effects>
+            <effectNode effectNode="effectNode" delay="0" materialType="spreader" materialTypeId="1" />
+        </effects>
+        <animationNodes>
+            <animationNode node="left"  rotSpeed="-1500" turnOnFadeTime="0.5" turnOffFadeTime="3" />
+            <animationNode node="right" rotSpeed="-1500" turnOnFadeTime="0.5" turnOffFadeTime="3" />
+        </animationNodes>
+    </sprayer>
+
+    <turnOnVehicle>
+        <sounds>
+            <work template="DEFAULT_SPREADER" linkNode="axis402_main_component1" />
+        </sounds>
+    </turnOnVehicle>
+
+    <cover>
+        <coverConfigurations>
+            <coverConfiguration>
+                <cover openAnimation="toggleCover" fillUnitIndices="1" />
+            </coverConfiguration>
+        </coverConfigurations>
+    </cover>
+
+    <ai>
+        <needsLowering value="false" />
+        <areaMarkers leftNode="areaMarkerLeft" rightNode="areaMarkerRight" backNode="areaMarkerBack" />
+        <sizeMarkers leftNode="sizeMarkerLeft" rightNode="sizeMarkerRight" backNode="sizeMarkerBack" />
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-1.2" maxX="1.2" minZ="-0.9" maxZ="0.7" yOffset="0" />
+    </foliageBending>
+
+    <animations>
+        <animation name="toggleCover">
+            <part node="closed" startTime="0"    endTime="0.02" visibility="true" />
+            <part node="closed" startTime="0.02" endTime="0.04" visibility="false" />
+            <part node="open"   startTime="0"    endTime="0.02" visibility="false" />
+            <part node="open"   startTime="0.02" endTime="0.04" visibility="true" />
+        </animation>
+    </animations>
+
+    <baseMaterial>
+        <material name="kuhnAxis402m_mat" baseNode="kuhnAxis402_vis">
+            <shaderParameter name="colorMat0" value="KUHN_RED1"/>
+            <shaderParameter name="colorMat1" value="KUHN_YELLOW1"/>
+            <shaderParameter name="colorMat2" value="KUHN_BLUE1"/>
+            <shaderParameter name="colorMat4" value="KUHN_WHITE1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="axis402_main_component1" node="0>" />
+        <i3dMapping id="kuhnAxis402_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0" />
+        <i3dMapping id="topReferencePoint" node="0>0|0|0" />
+        <i3dMapping id="ptoInput" node="0>0|0|1" />
+        <i3dMapping id="ptoDetachNode" node="0>0|0|2" />
+        <i3dMapping id="electricHose" node="0>0|0|3" />
+        <i3dMapping id="left" node="0>0|1|0" />
+        <i3dMapping id="right" node="0>0|1|1" />
+        <i3dMapping id="fillVolume" node="0>0|2|0" />
+        <i3dMapping id="exactFillRootNode" node="0>0|2|1" />
+        <i3dMapping id="effectNode" node="0>0|3|0" />
+        <i3dMapping id="workAreaStart" node="0>0|4|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|4|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|4|2" />
+        <i3dMapping id="areaMarkerLeft" node="0>0|5|0|0" />
+        <i3dMapping id="areaMarkerRight" node="0>0|5|0|1" />
+        <i3dMapping id="areaMarkerBack" node="0>0|5|0|2" />
+        <i3dMapping id="sizeMarkerLeft" node="0>0|5|1|0" />
+        <i3dMapping id="sizeMarkerRight" node="0>0|5|1|1" />
+        <i3dMapping id="sizeMarkerBack" node="0>0|5|1|2" />
+        <i3dMapping id="brakelight_static" node="0>0|6|0|0" />
+        <i3dMapping id="kuhnAxis402_lights" node="0>0|6|0|1" />
+        <i3dMapping id="backlight_static" node="0>0|6|0|2" />
+        <i3dMapping id="turnLightRight_static" node="0>0|6|0|3" />
+        <i3dMapping id="turnLightLeft_static" node="0>0|6|0|4" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|6|1" />
+        <i3dMapping id="turnLightRightBack" node="0>0|6|2" />
+        <i3dMapping id="backLightsHigh" node="0>0|6|3" />
+        <i3dMapping id="closed" node="0>0|7|0" />
+        <i3dMapping id="open" node="0>0|7|1" />
+    </i3dMappings>
+</vehicle>

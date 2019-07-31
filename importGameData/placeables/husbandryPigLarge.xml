@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable>
+    <storeData>
+        <name>$l10n_animalPen_pig2</name>
+        <image>$data/placeables/animalHusbandry/store_husbandryPigLarge.png</image>
+        <price>250000</price>
+        <functions>
+            <function>$l10n_function_animalPenPig</function>
+        </functions>
+        <lifetime>1000</lifetime>
+        <dailyUpkeep>250</dailyUpkeep>
+        <rotation>0</rotation>
+        <brand>Lizard</brand>
+        <species>placeable</species>
+        <category>animalpens</category>
+        <vertexBufferMemoryUsage>1173176</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>141186</indexBufferMemoryUsage>
+        <textureMemoryUsage>32101520</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <placeableType>husbandry</placeableType>
+    <filename>data/placeables/animalHusbandry/husbandryPigLarge.i3d</filename>
+    <placement testSizeX="36.0" testSizeZ="36.0" sizeX="30" sizeZ="30" useRandomYRotation="false" useManualYRotation="true" placementRotationSnapAngle="90" placementPositionSnapSize="0.5" placementPositionSnapOffset="0.45"/>
+
+    <clearAreas>
+        <clearArea startNode="0|9|0" widthNode="0|9|0|0" heightNode="0|9|0|1" />
+    </clearAreas>
+
+    <leveling requireLeveling="true" maxSmoothDistance="10" maxSlope="75" maxEdgeAngle="30">
+        <levelAreas>
+            <levelArea startNode="0|10|0" widthNode="0|10|0|0" heightNode="0|10|0|1" groundType="grass"/>
+            <levelArea startNode="0|10|1" widthNode="0|10|1|0" heightNode="0|10|1|1" groundType="animalMud"/>
+            <levelArea startNode="0|10|2" widthNode="0|10|2|0" heightNode="0|10|2|1" groundType="animalMud"/>
+            <levelArea startNode="0|10|3" widthNode="0|10|3|0" heightNode="0|10|3|1" groundType="dirt"/>
+            <levelArea startNode="0|10|4" widthNode="0|10|4|0" heightNode="0|10|4|1" groundType="animalMud"/>
+            <levelArea startNode="0|10|5" widthNode="0|10|5|0" heightNode="0|10|5|1" groundType="dirt"/>
+            <levelArea startNode="0|10|6" widthNode="0|10|6|0" heightNode="0|10|6|1" groundType="dirt"/>
+            <levelArea startNode="0|10|7" widthNode="0|10|7|0" heightNode="0|10|7|1" groundType="dirt"/>
+            <levelArea startNode="0|10|8" widthNode="0|10|8|0" heightNode="0|10|8|1" groundType="dirt"/>
+            <levelArea startNode="0|10|9" widthNode="0|10|9|0" heightNode="0|10|9|1" groundType="dirt"/>
+        </levelAreas>
+        <rampAreas> <!-- Deprecated! no longer used in script -->
+            <rampArea maxSlope="75" rootNode="0|11|0" startNode="0|11|0" widthNode="0|11|0|0" heightNode="0|11|0|1" groundType="grassRough"/>
+            <rampArea maxSlope="75" rootNode="0|11|1" startNode="0|11|1" widthNode="0|11|1|0" heightNode="0|11|1|1" groundType="grassRough"/>
+            <rampArea maxSlope="75" rootNode="0|11|2" startNode="0|11|2" widthNode="0|11|2|0" heightNode="0|11|2|1" groundType="grassRough"/>
+            <rampArea maxSlope="75" rootNode="0|11|3" startNode="0|11|3" widthNode="0|11|3|0" heightNode="0|11|3|1" groundType="grassRough"/>
+        </rampAreas>
+    </leveling>
+
+    <foliageAreas>
+    </foliageAreas>
+
+    <triggerMarkers>
+        <triggerMarker node="0|13" />
+    </triggerMarkers>
+
+    <hotspots>
+        <hotspot name="Pig stable" fullName="$l10n_animals_pigPasture" imageName="PIG_STABLE" hidable="true" category="CATEGORY_TRIGGERS" />
+    </hotspots>
+
+    <animatedObjects>
+        <animatedObject saveId="gate_01" >
+            <animation duration="1.5">
+                <part node="0|8|2|0|0">
+                    <keyFrame time="0.0" rotation="0 0 0"/>
+                    <keyFrame time="1.0" rotation="0 -120 0"/>
+                </part>
+                <part node="0|8|2|0|1">
+                    <keyFrame time="0.0" rotation="0 0 0"/>
+                    <keyFrame time="1.0" rotation="0 120 0"/>
+                </part>
+            </animation>
+            <controls triggerNode="0|14" posAction="ACTIVATE_HANDTOOL" posText="action_openGate" negText="action_closeGate" />
+            <sounds>
+                <moving file="data/sounds/prefab/gate/gate_loop.wav" loops="0" linkNode="0|8|2|0" volume="0.8" radius="25" innerRadius="3" fadeOut="0.25"/>
+                <posEnd file="data/sounds/prefab/gate/gate_opened.wav" linkNode="0|8|2|0" volume="0.8" radius="25" innerRadius="3" />
+                <negEnd file="data/sounds/prefab/gate/gate_closed.wav" linkNode="0|8|2|0" volume="0.8" radius="25" innerRadius="3" />
+            </sounds>
+        </animatedObject>
+    </animatedObjects>
+
+    <animatedObjects>
+        <animatedObject saveId="gate_01" >
+            <animation duration="1.5">
+                <part node="0|8|2|0|0">
+                    <keyFrame time="0.0" rotation="0 0 0"/>
+                    <keyFrame time="1.0" rotation="0 -120 0"/>
+                </part>
+                <part node="0|8|2|0|1">
+                    <keyFrame time="0.0" rotation="0 0 0"/>
+                    <keyFrame time="1.0" rotation="0 120 0"/>
+                </part>
+            </animation>
+            <controls triggerNode="0|13" posAction="ACTIVATE_HANDTOOL" posText="action_openGate" negText="action_closeGate" />
+            <sounds>
+                <moving file="data/sounds/prefab/gate/gate_loop.wav" loops="0" linkNode="0|8|2|0" volume="0.8" radius="25" innerRadius="3" fadeOu="0.25"/>
+                <posEnd file="data/sounds/prefab/gate/gate_opened.wav" linkNode="0|8|2|0" volume="0.8" radius="25" innerRadius="3" />
+                <negEnd file="data/sounds/prefab/gate/gate_closed.wav" linkNode="0|8|2|0" volume="0.8" radius="25" innerRadius="3" />
+            </sounds>
+        </animatedObject>
+    </animatedObjects>
+
+    <husbandry saveId="Animals_PIG" hasStatistics="false">
+        <modules>
+            <module name="animals">
+                <config type="PIG" navmeshNode="0|7" animalLoadTriggerNode="0|0" maxNumAnimals="300" husbandryFileName="$dataS/character/pigAnimalHusbandry.xml" placementRaycastDistance="2.0" carryingCapacity="50" rideableDeliveryStartNode="0|6|0" rideableDeliveryWidthNode="0|6|0|0" rideableDeliveryHeightNode="0|6|0|0" />
+            </module>
+            <module name="food">
+                <config node="0|1|0" exactFillRootNode="0" animalPlacesNode="1" >
+                    <fillPlane node="0|1|1" minY="-0.29" maxY="0" colorChange="true" />
+                </config>
+            </module>
+            <module name="water">
+                <config node="0|2|0" exactFillRootNode="0" fillTypes="WATER" acceptedToolTypes="undefined trailer">
+                    <fillPlane node="0|2|1" minY="0.06" maxY="0.275" colorChange="true" />
+                </config>
+            </module>
+            <module name="liquidManure">
+                <config node="0|3|0" fillTypes="LIQUIDMANURE" triggerNode="0">
+                    <fillPlane node="0|3|0|1" minY="0.02" maxY="0.5" />
+                </config>
+            </module>
+            <module name="manure">
+                <config startNode="0|4|1|0" widthNode="0|4|1|0|0" heightNode="0|4|1|0|1" fillType="MANURE"/>
+            </module>
+            <module name="foodSpillage">
+                <config fillType="PIGFOOD">
+                    <area startNode="0|1|0|2|0" widthNode="0|1|0|2|0|0" heightNode="0|1|0|2|0|1" />
+                    <area startNode="0|1|0|2|1" widthNode="0|1|0|2|1|0" heightNode="0|1|0|2|1|1" />
+                    <area startNode="0|1|0|2|2" widthNode="0|1|0|2|2|0" heightNode="0|1|0|2|2|1" />
+                    <area startNode="0|1|0|2|3" widthNode="0|1|0|2|3|0" heightNode="0|1|0|2|3|1" />
+                </config>
+            </module>
+            <module name="straw">
+                <config node="0|5" exactFillRootNode="0" fillTypes="STRAW">
+                    <fillPlane node="0|5|1" minY="-0.27" maxY="0.0" colorChange="false" />
+                </config>
+            </module>
+        </modules>
+        <placementRaycast distance="2" />
+    </husbandry>
+
+    <tipOcclusionUpdateArea sizeX="44" sizeZ="58" />
+
+</placeable>

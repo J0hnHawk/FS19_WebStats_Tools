@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="turnOnCultivator">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>MKE 300</name>
+        <specs>
+            <neededPower>95</neededPower>
+            <workingWidth>3</workingWidth>
+            <combination>AGCO 650, D8 30</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_cultivator</function>
+        </functions>
+        <image>$data/vehicles/rabe/MKE300/store_mke300.png</image>
+        <price>15000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>RABE</brand>
+        <category>powerHarrows</category>
+        <shopTranslationOffset>0 -0.05 0</shopTranslationOffset>
+        <shopRotationOffset>2 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>682912</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>116778</indexBufferMemoryUsage>
+        <textureMemoryUsage>874016</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_cultivator</typeDesc>
+        <filename>$data/vehicles/rabe/MKE300/MKE300.i3d</filename>
+        <size width="4" length="2" lengthOffset="-0.2"/>
+        <speedLimit value="15" />
+        <components>
+            <component centerOfMass="0 0.3 0" solverIterationCount="15" mass="500" />
+            <component centerOfMass="0 0 -0.3"   solverIterationCount="15" mass="310" />
+            <joint component1="1" component2="2" node="component2_joint" rotLimit="7 0 0" transLimit="0 0 0" enabled="false"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <!-- recommended horsepower by manufacturer: 85 - 120 -->
+    <powerConsumer ptoRpm="500" neededMinPtoPower="20" neededMaxPtoPower="25" forceNode="mke300_main_component1" maxForce="2" />
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels hasSurfaceSounds="false">
+                    <wheel>
+                        <physics restLoad="0.3" repr="backWheel" radius="0.2" width="3" forcePointRatio="0.3" initialCompression="20" suspTravel="0.05" spring="10" damper="10" mass="0.1" isSynchronized="false"/>
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+    </wheels>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="depthNode"  threshold="0.18" depthNode="depthNode" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="cultivator" functionName="processCultivatorArea">
+            <area startNode="aiMarkerLeft" widthNode="aiMarkerRight" heightNode="aiMarkerBack" />
+            <groundReferenceNode index="1" />
+        </workArea>
+    </workAreas>
+
+    <cultivator>
+        <sounds>
+            <work template="DEFAULT_CULTIVATOR_WORK" linkNode="0>" />
+        </sounds>
+        <directionNode node="0>" />
+        <onlyActiveWhenLowered value="true"/>
+    </cultivator>
+
+    <turnOnVehicle>
+        <sounds>
+            <start template="STRAWBLOWER_START" />
+            <work template="STRAWBLOWER_WORK" />
+            <stop template="STRAWBLOWER_STOP" />
+        </sounds>
+        <animationNodes>
+            <animationNode node="turnOnRotationNode01" rotSpeed="-2500" rotAxis="2" />
+            <animationNode node="turnOnRotationNode02" rotSpeed="2500"  rotAxis="2" />
+            <animationNode node="turnOnRotationNode03" rotSpeed="-2500" rotAxis="2" />
+            <animationNode node="turnOnRotationNode04" rotSpeed="2500"  rotAxis="2" />
+            <animationNode node="turnOnRotationNode05" rotSpeed="-2500" rotAxis="2" />
+            <animationNode node="turnOnRotationNode06" rotSpeed="2500"  rotAxis="2" />
+            <animationNode node="turnOnRotationNode07" rotSpeed="-2500" rotAxis="2" />
+            <animationNode node="turnOnRotationNode08" rotSpeed="2500"  rotAxis="2" />
+            <animationNode node="turnOnRotationNode09" rotSpeed="-2500" rotAxis="2" />
+            <animationNode node="turnOnRotationNode10" rotSpeed="2500"  rotAxis="2" />
+            <animationNode node="turnOnRotationNode11" rotSpeed="-2500" rotAxis="2" />
+            <animationNode node="turnOnRotationNode12" rotSpeed="2500"  rotAxis="2" />
+        </animationNodes>
+    </turnOnVehicle>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="implement" topReferenceNode="topReferenceNode"   lowerTransLimitScale="0 1 0" upperRotationOffset="12" lowerRotLimitScale="0 0 0" >
+                <distanceToGround lower="0.1" upper="1.3" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+    </attachable>
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn01"  length="1.2" diameter="0.02">
+            <objectChange node="hydraulicIn01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut01" length="1.2" diameter="0.02">
+            <objectChange node="hydraulicOut01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+    </connectionHoses>
+
+    <powerTakeOffs>
+        <input inputAttacherJointIndices="1" detachNode="ptoDetachNode" inputNode="ptoInputNode" aboveAttacher="true" filename="$data/shared/assets/powerTakeOffs/walterscheidW.xml" />
+    </powerTakeOffs>
+
+    <attacherJoints>
+        <attacherJoint node="backAttacherJoint" upperRotationOffset="0" lowerRotationOffset="0" upperRotLimit="0 0 0" lowerRotLimit="0 0 0" lowerTransLimit="0 0 0" lockDownTransLimit="false" moveTime="2.5" comboTime="0">
+            <distanceToGround lower="0.38" upper="1.03" />
+            <rotationNode node="rotationNode" lowerRotation="-8 0 0" upperRotation="30 0 0" />
+            <rotationNode2 node="rotationNode2" />
+            <bottomArm rotationNode="bottomArm" translationNode="bottomArm2" referenceNode="referencePoint" zScale="-1" startRotation="-17 0 0" />
+            <topArm rotationNode="upperLink" translationNode="translatingPart" referenceNode="translatingPartRef" zScale="1"/>
+            <schema position="1 0" rotation="0" invertX="false" />
+        </attacherJoint>
+        <sounds>
+            <attach template="ATTACH_01" linkNode="mke300_main_component1" />
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="mke300_main_component1" />
+        </sounds>
+    </attacherJoints>
+
+    <speedRotatingParts>
+        <speedRotatingPart node="backRoller" radius="0.22" groundReferenceNodeIndex="1" />
+    </speedRotatingParts>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="bottomArm">
+                <dependentPart node="topArm"/>
+            </movingTool>
+        </movingTools>
+        <movingParts>
+            <movingPart node="topArm" referencePoint="referencePoint" localReferencePoint="backPart" referenceFrame="bottomArm" limitedAxis="1">
+               <dependentPart node="backPart"/>
+               <dependentPart node="lowerArm"/>
+               <dependentPart node="topArmHydraulic"/>
+            </movingPart>
+            <movingPart node="backPart" referencePoint="referencePoint" referenceFrame="referencePoint"/>
+            <movingPart node="lowerArm" referencePoint="lowerArmRef" referenceFrame="lowerArmRef" scaleZ="true"/>
+            <movingPart node="topArmHydraulic" referencePoint="topArmHydraulicRef" referenceFrame="topArmHydraulicRef">
+                <translatingPart node="topArmHydraulicPunch" />
+            </movingPart>
+            <movingPart node="scalingPart" referencePoint="scalingPartRef" referenceFrame="scalingPartRef" isActiveDirty="true" scaleZ="true"/>
+        </movingParts>
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <workParticles>
+        <particleAnimation>
+            <node node="soilAnimation"      refNodeIndex="1" materialType="SOIL" />
+        </particleAnimation>
+        <particle>
+            <node node="soilEmitShape"    refNodeIndex="1" particleType="SOIL_CHUNKS" worldSpace="false" />
+            <node node="dustEmitterShape" refNodeIndex="1" particleType="SOIL_SMOKE" emitCountScale="1.0" />
+            <node node="soilEmitShape1"   refNodeIndex="1" particleType="SOIL"  />
+        </particle>
+    </workParticles>
+
+    <randomlyMovingParts>
+        <randomlyMovingPart node="leftFlap"  rotAxis="3" rotMean="1 -1" rotVariance="0.5 -0.5" rotTimeMean="0.1246 0.1246" rotTimeVariance="0.03 0.03" pauseMean="0.001 0.1246" pauseVariance="0.004 0.01" refNodeIndex="1" isSpeedDependent="true" />
+        <randomlyMovingPart node="rightFlap" rotAxis="3" rotMean="1 -1" rotVariance="0.5 -0.5" rotTimeMean="0.1246 0.1246" rotTimeVariance="0.03 0.03" pauseMean="0.001 0.1246" pauseVariance="0.004 0.01" refNodeIndex="1" isSpeedDependent="true" />
+    </randomlyMovingParts>
+
+    <ai>
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack" />
+        <collisionTrigger node="aiCollisionTrigger" />
+        <needsLowering value="true"/>
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-1.5" maxX="1.5" minZ="-0.7" maxZ="0.5" yOffset="0.2" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="MKE300_mat" baseNode="mke300_vis">
+            <shaderParameter name="colorMat0" value="RABE_BLUE1"/>
+            <shaderParameter name="colorMat1" value="RABE_YELLOW1"/>
+            <shaderParameter name="colorMat2" value="RABE_BROWN1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="mke300_main_component1" node="0>" />
+        <i3dMapping id="mke300_vis" node="0>0" />
+        <i3dMapping id="attachable" node="0>0|0" />
+        <i3dMapping id="attacherJoint" node="0>0|0|0" />
+        <i3dMapping id="topReferenceNode" node="0>0|0|1" />
+        <i3dMapping id="ptoInputNode" node="0>0|0|2" />
+        <i3dMapping id="ptoDetachNode" node="0>0|0|3" />
+        <i3dMapping id="hydraulicIn01" node="0>0|0|4|0" />
+        <i3dMapping id="hydraulicIn01_detached" node="0>0|0|4|0|0" />
+        <i3dMapping id="hydraulicOut01" node="0>0|0|4|1" />
+        <i3dMapping id="hydraulicOut01_detached" node="0>0|0|4|1|0" />
+        <i3dMapping id="topRightPipeSkipPoint" node="0>0|0|4|2" />
+        <i3dMapping id="attacherJointBack" node="0>0|1" />
+        <i3dMapping id="topArm" node="0>0|1|0" />
+        <i3dMapping id="backPart" node="0>0|1|0|0" />
+        <i3dMapping id="lowerArmRef" node="0>0|1|0|0|0" />
+        <i3dMapping id="upperLink" node="0>0|1|0|0|1" />
+        <i3dMapping id="translatingPart" node="0>0|1|0|0|1|0" />
+        <i3dMapping id="translatingPartRef" node="0>0|1|0|0|1|0|0" />
+        <i3dMapping id="scalingPart" node="0>0|1|0|0|1|0|1" />
+        <i3dMapping id="scalingPartRef" node="0>0|1|0|0|1|1" />
+        <i3dMapping id="topArmHydraulic" node="0>0|1|0|1" />
+        <i3dMapping id="topArmHydraulicPunch" node="0>0|1|0|1|0" />
+        <i3dMapping id="topArmScaleRef" node="0>0|1|0|2" />
+        <i3dMapping id="lowerArm" node="0>0|1|1" />
+        <i3dMapping id="rotationNode" node="0>0|1|2" />
+        <i3dMapping id="rotationNode2" node="0>0|1|2|0" />
+        <i3dMapping id="backAttacherJoint" node="0>0|1|2|0|0" />
+        <i3dMapping id="bottomArm" node="0>0|1|3" />
+        <i3dMapping id="bottomArm2" node="0>0|1|3|0" />
+        <i3dMapping id="referencePoint" node="0>0|1|3|0|0" />
+        <i3dMapping id="lowerReferenceFrame" node="0>0|1|4" />
+        <i3dMapping id="backReferenceFrame" node="0>0|1|5" />
+        <i3dMapping id="turnOnRotationNodes" node="0>0|2|0" />
+        <i3dMapping id="turnOnRotationNode01" node="0>0|2|0|0" />
+        <i3dMapping id="turnOnRotationNode02" node="0>0|2|0|1" />
+        <i3dMapping id="turnOnRotationNode03" node="0>0|2|0|2" />
+        <i3dMapping id="turnOnRotationNode04" node="0>0|2|0|3" />
+        <i3dMapping id="turnOnRotationNode05" node="0>0|2|0|4" />
+        <i3dMapping id="turnOnRotationNode06" node="0>0|2|0|5" />
+        <i3dMapping id="turnOnRotationNode07" node="0>0|2|0|6" />
+        <i3dMapping id="turnOnRotationNode08" node="0>0|2|0|7" />
+        <i3dMapping id="turnOnRotationNode09" node="0>0|2|0|8" />
+        <i3dMapping id="turnOnRotationNode10" node="0>0|2|0|9" />
+        <i3dMapping id="turnOnRotationNode11" node="0>0|2|0|10" />
+        <i3dMapping id="turnOnRotationNode12" node="0>0|2|0|11" />
+        <i3dMapping id="randomlyMovingParts" node="0>0|2|1" />
+        <i3dMapping id="leftFlap" node="0>0|2|1|0" />
+        <i3dMapping id="rightFlap" node="0>0|2|1|1" />
+        <i3dMapping id="component2_joint" node="0>0|3|0" />
+        <i3dMapping id="topArmHydraulicRef" node="0>0|3|1" />
+        <i3dMapping id="workArea" node="0>0|4" />
+        <i3dMapping id="workAreaStart" node="0>0|4|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|4|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|4|2" />
+        <i3dMapping id="depthNode" node="0>0|4|3" />
+        <i3dMapping id="ai" node="0>0|5" />
+        <i3dMapping id="aiMarker" node="0>0|5|0" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|5|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|5|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|5|0|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|5|1" />
+        <i3dMapping id="effects" node="0>0|6" />
+        <i3dMapping id="soilAnimation" node="0>0|6|0" />
+        <i3dMapping id="soilEmitShape" node="0>0|6|1" />
+        <i3dMapping id="dustEmitterShape" node="0>0|6|2" />
+        <i3dMapping id="soilEmitShape1" node="0>0|6|3" />
+        <i3dMapping id="collisions" node="0>0|7" />
+        <i3dMapping id="backAttacherCollision" node="0>0|7|0" />
+        <i3dMapping id="TODO_Skinning" node="0>1" />
+        <i3dMapping id="skinnedMesh" node="0>1|0" />
+        <i3dMapping id="mke300_rollerArm_component2" node="1>" />
+        <i3dMapping id="rollerArm" node="1>0" />
+        <i3dMapping id="backRoller" node="1>0|0" />
+        <i3dMapping id="backWheel" node="1>0|1" />
+    </i3dMappings>
+</vehicle>

@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="sprayer">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>METRIS 4102</name>
+        <specs>
+            <workingWidth>36.0</workingWidth>
+        </specs>
+        <functions>
+            <function>$l10n_function_sprayer</function>
+        </functions>
+        <image>$data/vehicles/kuhn/kuhnMetris4102/store_kuhnMetris4102.png</image>
+        <price>84000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>KUHN</brand>
+        <category>sprayers</category>
+        <shopTranslationOffset>0 0.128 0</shopTranslationOffset>
+        <shopRotationOffset>1.63 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>2424540</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>690300</indexBufferMemoryUsage>
+        <textureMemoryUsage>12058776</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_sprayer</typeDesc>
+        <filename>$data/vehicles/kuhn/kuhnMetris4102/kuhnMetris4102.i3d</filename>
+        <size width="3.5" length="8" lengthOffset="-0.2" />
+        <speedLimit value="12" />
+        <components>
+            <component centerOfMass="0 0.7 0.5" solverIterationCount="10" mass="3760" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/trelleborg/TM100/270_95R44.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="1.2" repr="wheelLeftRot" driveNode="wheelLeftDriveNodeRot" forcePointRatio="0.5" initialCompression="28" suspTravel="0.2" spring="20" damper="20"/>
+                        <steeringAxle scale="-0.7" rotMax="17" rotMin="-17" />
+                        <tire isCareWheel="true" />
+                        <wheelChock/>
+                        <wheelChock isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TM100/270_95R44.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="1.2" repr="wheelRightRot" driveNode="wheelRightDriveNodeRot" forcePointRatio="0.5" initialCompression="28" suspTravel="0.2" spring="20" damper="20"/>
+                        <steeringAxle scale="-0.7" rotMax="17" rotMin="-17" />
+                        <tire isCareWheel="true" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <rimColor>KUHN_WHITE1</rimColor>
+
+        <hubs>
+            <color0>KUHN_BLACK3</color0>
+            <color1>KUHN_BLACK3</color1>
+            <hub linkNode="wheelLeftDriveNodeRot"  filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="true"  scale="0.335 0.335 0.335" />
+            <hub linkNode="wheelRightDriveNodeRot" filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="false" scale="0.335 0.335 0.335" />
+        </hubs>
+    </wheels>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="trailer" attacherHeight="0.60" />
+        </inputAttacherJoints>
+        <support animationName="moveSupport" />
+        <brakeForce>1.1</brakeForce>
+    </attachable>
+
+    <powerTakeOffs>
+        <input inputAttacherJointIndices="1" detachNode="ptoDetachNode" inputNode="ptoInput" />
+    </powerTakeOffs>
+
+    <powerConsumer ptoRpm="450" neededMinPtoPower="10" neededMaxPtoPower="10" />
+
+    <lights>
+        <sharedLight linkNode="rear4ChamberLight01_left"       filename="$data/shared/assets/lights/lizard/rear4ChamberLight_01_left.xml" />
+        <sharedLight linkNode="rear4ChamberLight01_right"       filename="$data/shared/assets/lights/lizard/rear4ChamberLight_01_right.xml" />
+        <realLights>
+            <high>
+                <light node="backLightsHighLeft" lightTypes="0"/>
+                <turnLightLeft node="turnLightLeftBack"/>
+                <turnLightRight node="turnLightRightBack"/>
+                <brakeLight node="backLightsHighLeft"/>
+            </high>
+        </realLights>
+    </lights>
+
+    <workAreas>
+        <workArea type="sprayer" functionName="processSprayerArea" disableBackwards="false" requiresGroundContact="false" >
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight" />
+        </workArea>
+    </workAreas>
+
+    <sprayer fillUnitIndex="1">
+        <usageScales workingWidth="36.0" scale="1"/>
+        <effects>
+            <effectNode effectNode="middleEffect"                  delay="0" materialType="sprayer" materialTypeId="1" />
+            <effectNode effectNode="leftArm1Effect"              delay="0" materialType="sprayer" materialTypeId="1" />
+            <effectNode effectNode="leftArm2Effect"          delay="0" materialType="sprayer" materialTypeId="1" />
+            <effectNode effectNode="leftArm3Effect"      delay="0" materialType="sprayer" materialTypeId="1" />
+            <effectNode effectNode="leftArm4Effect"    delay="0" materialType="sprayer" materialTypeId="1" />
+            <effectNode effectNode="rightArm1Effect"              delay="0" materialType="sprayer" materialTypeId="1" />
+            <effectNode effectNode="rightArm2Effect"          delay="0" materialType="sprayer" materialTypeId="1" />
+            <effectNode effectNode="rightArm3Effect"      delay="0" materialType="sprayer" materialTypeId="1" />
+            <effectNode effectNode="rightArm4Effect"    delay="0" materialType="sprayer" materialTypeId="1" />
+        </effects>
+    </sprayer>
+
+    <foldable>
+        <foldingParts startMoveDirection="1" turnOnFoldMaxLimit="0" turnOnFoldMinLimit="0" turnOffIfNotAllowed="true" loadMovingToolStatesMaxLimit="-1" loadMovingToolStatesMinLimit="-1">
+            <foldingPart animationName="folding" speedScale="0.4" animStartTime="0.63"/>
+        </foldingParts>
+    </foldable>
+
+    <animations>
+        <animation name="folding">
+            <part node="lowerArm" startTime="0.0" endTime="1.2" endRot="45.0 0.0 0.0" />
+            <part node="lowerArm" startTime="6.0" endTime="7.0"  startRot="45.0 0.0 0.0" endRot="19.5 0.0 0.0" />
+
+            <part node="leftArm1" startTime="1.6" endTime="4.0"  startRot="0.0 0.0 0.0" endRot="0.0 0.0 10.6" />
+            <part node="rightArm1" startTime="1.6" endTime="4.0"  startRot="0.0 0.0 0.0" endRot="0.0 0.0 -10.6" />
+            <part node="leftRotationArm" startTime="1" endTime="3.5"  startRot="0.0 0.0 0.0" endRot="0.0 -20 0.0" />
+            <part node="leftRotationArm" startTime="3.5" endTime="5.3"  startRot="0.0 -20 0.0" endRot="0.0 -90.05 0.0" />
+
+            <part node="rightRotationArm" startTime="1" endTime="3.5"  startRot="0.0 0.0 0.0" endRot="0.0 20 0.0" />
+            <part node="rightRotationArm" startTime="3.5" endTime="5.3"  startRot="0.0 20 0.0" endRot="0.0 90.05 0.0" />
+
+            <part node="rightArm2" startTime="3.2" endTime="3.9"  startRot="0.006 3.879 0.0" endRot="-54.798 3.806 -3.257" />
+            <part node="rightArm2" startTime="3.9" endTime="4.6"  startRot="-54.798 3.806 -3.257" endRot="-112.411 4.498 -8.44" />
+            <part node="rightArm2" startTime="4.6" endTime="5.3"  startRot="-112.411 4.498 -8.44" endRot="-163.147 1.93 -12.532" />
+            <part node="rightArm2" startTime="5.3" endTime="6.0"  startRot="-163.147 1.93 -12.532" endRot="-179.536 0.9 -12.6" />
+
+            <part node="leftArm2" startTime="3.2" endTime="3.9"  startRot="0.006 3.879 0.0" endRot="54.798 3.806 3.257" />
+            <part node="leftArm2" startTime="3.9" endTime="4.6"  startRot="54.798 3.806 3.257" endRot="112.411 4.498 8.44" />
+            <part node="leftArm2" startTime="4.6" endTime="5.3"  startRot="112.411 4.498 8.44" endRot="163.147 1.93 12.532" />
+            <part node="leftArm2" startTime="5.3" endTime="6.0"  startRot="163.147 1.93 12.532" endRot="179.536 0.9 12.6" />
+
+            <part node="rightArm3" startTime="1.5" endTime="2.0"    startRot="-0.0 -2.505 0.003" endRot="-44.806 2.177 1.253" />
+            <part node="rightArm3" startTime="2.0" endTime="2.5"  startRot="-44.806 2.177 1.253" endRot="-89.567 7.37 -4.21" />
+            <part node="rightArm3" startTime="2.5" endTime="3.0"  startRot="-89.567 7.37 -4.21" endRot="-134.496 4.675 -12.664" />
+            <part node="rightArm3" startTime="3.0" endTime="3.5"    startRot="-134.496 4.675 -12.664" endRot="-180.45 -4.35 -15.3" />
+            <part node="leftArm3" startTime="1" endTime="3.5"  startRot="0.0 -2.504 -0.001" endRot="180.5 -4.35 14.109" />
+
+            <part node="rightArm4" startTime="1.5" endTime="2.5"  startRot="0.0 0.0 0.0" endRot="0.0 -11.0 0.0" />
+            <part node="leftArm4" startTime="1.5" endTime="2.5"  startRot="-0.0 -0.0 0.0" endRot="-0.0 -11.0 0.0" />
+
+            <part node="rightArm1TransitionPart" startTime="3.2" endTime="6"  startRot="-177.099 0.006 93.94" endRot="-266.648 0.006 93.94" />
+            <part node="rightArm2TransitionPart" startTime="1.5" endTime="3.5"  startRot="-68.654 -2.331 0.652" endRot="-172.372 -2.331 0.652" />
+
+            <part node="leftArm1TransitionPart" startTime="3.2" endTime="6"  startRot="177.1 0.005 86.06" endRot="266.648 0.005 86.06" />
+            <part node="leftArm2TransitionPart" startTime="1.5" endTime="3.5"  startRot="68.652 -2.327 -0.639" endRot="172.372 -2.327 -0.639" />
+        </animation>
+
+        <animation name="moveSupport">
+            <part node="support" startTime="0" endTime="0.2"  startRot="90.0 0.0 0.0" endRot="0.0 0.0 0.0" />
+        </animation>
+
+        <animation name="fillLevelDisplay">
+            <part node="fillLevelIndicatorNeedle" startTime="0.0"  endTime="0.12"  startTrans="-6.346 1.006 5.125" endTrans="-6.346 0.893 5.125" />
+            <part node="fillLevelIndicatorNeedle" startTime="0.12" endTime="0.24"  startTrans="-6.346 0.893 5.125" endTrans="-6.346 0.795 5.125" />
+            <part node="fillLevelIndicatorNeedle" startTime="0.24" endTime="0.73"  startTrans="-6.346 0.795 5.125" endTrans="-6.346 0.507 5.125" />
+            <part node="fillLevelIndicatorNeedle" startTime="0.73" endTime="0.97"  startTrans="-6.346 0.507 5.125" endTrans="-6.346 0.318 5.125" />
+            <part node="fillLevelIndicatorNeedle" startTime="0.97" endTime="1"     startTrans="-6.346 0.318 5.125" endTrans="-6.346 0.298 5.125" />
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="lowerArm" playSound="true" foldMinLimit="0" foldMaxLimit="0.1">
+                <controls axis="AXIS_SPRAYER_ARM" invertAxis="false" mouseSpeedFactor="0.7" iconName="SPRAYER_ARM_TRANSLATE_Y" />
+                <rotation rotSpeed="25" rotAcceleration="120" rotMax="45.0" rotMin="-25" rotationAxis="1"/>
+                <dependentPart node="lowerMiddlePart" />
+                <dependentPart node="topArm" />
+                <dependentPart node="topArmHydraulic" />
+            </movingTool>
+
+            <movingTool node="leftRotationArm" playSound="true">
+                <dependentPart node="leftArmRotCylinder" />
+                <dependentPart node="leftArmDamping" />
+            </movingTool>
+            <movingTool node="leftArm1" playSound="true">
+                <dependentPart node="leftArmDamping" />
+            </movingTool>
+            <movingTool node="leftArm1TransitionPart" playSound="true">
+                <dependentPart node="leftArm1InnerCylinder" />
+                <dependentPart node="leftArm1OrientationPart" />
+            </movingTool>
+            <movingTool node="leftArm2" playSound="true">
+                <dependentPart node="leftArm2BottomCylinder" />
+            </movingTool>
+            <movingTool node="rightArm2TransitionPart" playSound="true">
+                <dependentPart node="rightArm2OuterCylinder" />
+                <dependentPart node="rightArm2OrientationPart" />
+            </movingTool>
+            <movingTool node="leftArm2TransitionPart" playSound="true">
+                <dependentPart node="leftArm2OuterCylinder" />
+                <dependentPart node="leftArm2OrientationPart" />
+            </movingTool>
+            <movingTool node="leftArm3" playSound="true">
+                <dependentPart node="leftArm3BottomCylinder" />
+                <dependentPart node="leftArm2OrientationPart" />
+            </movingTool>
+            <movingTool node="leftArm4" playSound="true">
+                <dependentPart node="leftArm4Punch" />
+            </movingTool>
+
+            <movingTool node="rightRotationArm" playSound="true">
+                <dependentPart node="rightArmRotCylinder" />
+                <dependentPart node="rightArmDamping" />
+            </movingTool>
+            <movingTool node="rightArm1" playSound="true">
+                <dependentPart node="rightArmDamping" />
+            </movingTool>
+            <movingTool node="rightArm1TransitionPart" playSound="true">
+                <dependentPart node="arm1RightInnerHydraulics" />
+                <dependentPart node="rightArm1Orientation" />
+            </movingTool>
+            <movingTool node="rightArm2" playSound="true">
+                <dependentPart node="rightArm2BottomCylinder" />
+            </movingTool>
+            <movingTool node="rightArm3" playSound="true">
+                <dependentPart node="rightArm3BottomCylinder" />
+            </movingTool>
+            <movingTool node="rightArm4" playSound="true">
+                <dependentPart node="rightArm4Punch" />
+            </movingTool>
+
+            <movingTool node="fillLevelIndicatorNeedle" playSound="true">
+                <dependentPart node="fillLevelIndicatorRope" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="lowerMiddlePart" referenceFrame="lowerArm" rotMultiplier="-1" doRotationAlignment="true" doDirectionAlignment="false" />
+            <movingPart node="topArm" referencePoint="topArmRef" referenceFrame="topArmRef" />
+            <movingPart node="topArmHydraulic" referencePoint="topArmHydraulicRef" referenceFrame="topArmHydraulicRef" >
+                <translatingPart node="topArmHydraulicPunch" />
+            </movingPart>
+
+            <movingPart node="leftArmRotCylinder" referencePoint="leftArmRotCylinderRef" referenceFrame="leftArmRotCylinderRef" >
+                <translatingPart node="leftArmRotCylinderPunch" />
+            </movingPart>
+            <movingPart node="leftArmDamping" referencePoint="leftArmDampingPunchRef" referenceFrame="leftArmDampingPunchRef" >
+                <translatingPart node="leftArmDampingPunch" />
+            </movingPart>
+            <movingPart node="leftArm1InnerCylinder" referencePoint="leftArm1InnerCylinderRef" referenceFrame="leftArm1InnerCylinderRef" >
+                <translatingPart node="leftArm1InnerCylinderPunch" />
+            </movingPart>
+            <movingPart node="leftArm1OrientationPart" referencePoint="leftArm1OrientationPartRef" referenceFrame="leftArm1OrientationPartRef" scaleZ="true"/>
+
+            <movingPart node="leftArm2OrientationPart" referencePoint="leftArm2OrientationPartRef" referenceFrame="leftArm2OrientationPartRef" scaleZ="true"/>
+            <movingPart node="leftArm2BottomCylinder" referencePoint="leftArm2BottomCylinderCylinderRef" referenceFrame="leftArm2BottomCylinderCylinderRef" doDirectionAlignment="false">
+                <translatingPart node="leftArm2BottomCylinderCylinder" />
+            </movingPart>
+            <movingPart node="leftArm2OuterCylinder" referencePoint="leftArm2OuterCylinderRef" referenceFrame="leftArm2OuterCylinderRef" >
+                <translatingPart node="leftArm2OuterCylinderPunch" />
+            </movingPart>
+
+            <movingPart node="leftArm3BottomCylinder" referencePoint="leftArm3BottomCylinderCylinderRef" referenceFrame="leftArm3BottomCylinderCylinderRef" doDirectionAlignment="false">
+                <translatingPart node="leftArm3BottomCylinderCylinder" />
+            </movingPart>
+
+            <movingPart node="leftArm4Punch" referencePoint="leftArm4PunchPunchRef" referenceFrame="leftArm4PunchPunchRef" doDirectionAlignment="false">
+                <translatingPart node="leftArm4PunchPunch" />
+            </movingPart>
+
+            <movingPart node="rightArmRotCylinder" referencePoint="rightArmRotCylinderRef" referenceFrame="rightArmRotCylinderRef" >
+                <translatingPart node="rightArmRotCylinderPunch" />
+            </movingPart>
+            <movingPart node="rightArmDamping" referencePoint="rightArmDampingRef" referenceFrame="rightArmDampingRef" >
+                <translatingPart node="rightArmDampingPunch" />
+            </movingPart>
+            <movingPart node="arm1RightInnerHydraulics" referencePoint="arm1RightInnerHydraulicsRef" referenceFrame="arm1RightInnerHydraulicsRef" >
+                <translatingPart node="arm1RightInnerHydraulicsPunch" />
+            </movingPart>
+            <movingPart node="rightArm1Orientation" referencePoint="rightArm1OrientationRef" referenceFrame="rightArm1OrientationRef" scaleZ="true"/>
+
+            <movingPart node="rightArm2OrientationPart" referencePoint="rightArm2OrientationPartRef" referenceFrame="rightArm2OrientationPartRef" scaleZ="true"/>
+            <movingPart node="rightArm2BottomCylinder" referencePoint="rightArm2BottomCylinderRef" referenceFrame="rightArm2BottomCylinderRef" doDirectionAlignment="false">
+                <translatingPart node="rightArm2BottomCylinderCylinder" />
+            </movingPart>
+            <movingPart node="rightArm2OuterCylinder" referencePoint="rightArm2OuterCylinderRef" referenceFrame="rightArm2OuterCylinderRef" >
+                <translatingPart node="rightArm2OuterCylinderPunch" />
+            </movingPart>
+
+            <movingPart node="rightArm3BottomCylinder" referencePoint="rightArm2DampingRef" referenceFrame="rightArm2DampingRef" doDirectionAlignment="false">
+                <translatingPart node="rightArm3BottomCylinderCylinder" />
+            </movingPart>
+
+            <movingPart node="rightArm4Punch" referencePoint="rightArm4PunchPunchRef" referenceFrame="rightArm4PunchPunchRef" doDirectionAlignment="false">
+                <translatingPart node="rightArm4PunchPunch" />
+            </movingPart>
+
+            <movingPart node="wheelConnection" referencePoint="wheelConnectionRef" referenceFrame="wheelConnectionRef" scaleZ="true" isActiveDirty="true"/>
+            <movingPart node="fillLevelIndicatorRope" referencePoint="fillLevelIndicatorRopeRef" referenceFrame="fillLevelIndicatorRopeRef" scaleZ="true"/>
+        </movingParts>
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <unloading width="13" offset="0 0 0" />
+                    <fillUnit unit="$l10n_unit_literShort" fillTypeCategories="sprayer" capacity="4380" >
+                        <dashboard displayType="ANIMATION" valueType="fillLevel" animName="fillLevelDisplay" />
+                    </fillUnit>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <turnOnVehicle turnOffIfNotAllowed="true" >
+        <sounds>
+            <work template="DEFAULT_SPRAYER" linkNode="0>" />
+        </sounds>
+    </turnOnVehicle>
+
+    <ai>
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack" />
+        <needsLowering value="false"/>
+        <allowTurnBackward value="false"/>
+        <collisionTrigger node="aiCollisionTrigger" />
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-1.3" maxX="1.3" minZ="-2.4" maxZ="2.2 " yOffset="0.6" />
+        <bendingNode minX="-1.0" maxX="5.0" minZ="-0.4" maxZ="0.5" yOffset="0.0" node="leftArm1" />
+        <bendingNode minX="-5.0" maxX="1.0" minZ="-0.4" maxZ="0.5" yOffset="0.0" node="rightArm1" />
+        <bendingNode minX="-3.0" maxX="3.0" minZ="-0.3" maxZ="0.2" yOffset="0.6" node="leftArm2Effect" />
+        <bendingNode minX="-3.0" maxX="3.0" minZ="-0.3" maxZ="0.2" yOffset="0.6" node="rightArm2Effect" />
+        <bendingNode minX="-1.8" maxX="4.3" minZ="-0.3" maxZ="0.2" yOffset="0.6" node="leftArm3Effect" />
+        <bendingNode minX="-4.3" maxX="1.8" minZ="-0.3" maxZ="0.2" yOffset="0.6" node="rightArm3Effect" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="kuhnMetris4102_mat" baseNode="kuhnMetris4102_vis">
+            <shaderParameter name="colorMat0" value="KUHN_RED1"/>
+            <shaderParameter name="colorMat1" value="KUHN_WHITE1"/>
+            <shaderParameter name="colorMat2" value="KUHN_YELLOW1"/>
+            <shaderParameter name="colorMat3" value="KUHN_BLUE1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="2" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="kuhnMetris4102_main_component1" node="0>" />
+        <i3dMapping id="kuhnMetris4102_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0|0" />
+        <i3dMapping id="ptoInput" node="0>0|0|1" />
+        <i3dMapping id="ptoDetachNode" node="0>0|0|2" />
+        <i3dMapping id="wheelLeft" node="0>0|1|0" />
+        <i3dMapping id="wheelLeftRot" node="0>0|1|0|0" />
+        <i3dMapping id="wheelLeftDriveNode" node="0>0|1|0|0|0" />
+        <i3dMapping id="wheelLeftDriveNodeRot" node="0>0|1|0|0|0|0" />
+        <i3dMapping id="wheelConnectionRef" node="0>0|1|0|0|1" />
+        <i3dMapping id="wheelRight" node="0>0|1|1" />
+        <i3dMapping id="wheelRightRot" node="0>0|1|1|0" />
+        <i3dMapping id="wheelRightDriveNode" node="0>0|1|1|0|0" />
+        <i3dMapping id="wheelRightDriveNodeRot" node="0>0|1|1|0|0|0" />
+        <i3dMapping id="wheelConnection" node="0>0|1|1|0|1" />
+        <i3dMapping id="lowerArm" node="0>0|2|0" />
+        <i3dMapping id="lowerMiddlePart" node="0>0|2|0|0" />
+        <i3dMapping id="leftRotationArm" node="0>0|2|0|0|0" />
+        <i3dMapping id="leftArm1" node="0>0|2|0|0|0|0" />
+        <i3dMapping id="leftArm1TopCylinder" node="0>0|2|0|0|0|0|0" />
+        <i3dMapping id="leftArm2" node="0>0|2|0|0|0|0|0|0" />
+        <i3dMapping id="leftArm2TopCylinder" node="0>0|2|0|0|0|0|0|0|0" />
+        <i3dMapping id="leftArm3" node="0>0|2|0|0|0|0|0|0|0|0" />
+        <i3dMapping id="leftArm4" node="0>0|2|0|0|0|0|0|0|0|0|0" />
+        <i3dMapping id="leftArm4Punch" node="0>0|2|0|0|0|0|0|0|0|0|0|0" />
+        <i3dMapping id="leftArm4PunchPunch" node="0>0|2|0|0|0|0|0|0|0|0|0|0|0" />
+        <i3dMapping id="leftArm4Effect" node="0>0|2|0|0|0|0|0|0|0|0|0|1" />
+        <i3dMapping id="leftArm3BottomCylinder" node="0>0|2|0|0|0|0|0|0|0|0|1" />
+        <i3dMapping id="leftArm3BottomCylinderCylinder" node="0>0|2|0|0|0|0|0|0|0|0|1|0" />
+        <i3dMapping id="leftArm2OrientationPartRef" node="0>0|2|0|0|0|0|0|0|0|0|2" />
+        <i3dMapping id="leftArm4PunchPunchRef" node="0>0|2|0|0|0|0|0|0|0|0|3" />
+        <i3dMapping id="leftArm3Effect" node="0>0|2|0|0|0|0|0|0|0|0|4" />
+        <i3dMapping id="leftArm2BottomCylinder" node="0>0|2|0|0|0|0|0|0|1" />
+        <i3dMapping id="leftArm2BottomCylinderCylinder" node="0>0|2|0|0|0|0|0|0|1|0" />
+        <i3dMapping id="leftArm2OuterCylinder" node="0>0|2|0|0|0|0|0|0|2" />
+        <i3dMapping id="leftArm2OuterCylinderPunch" node="0>0|2|0|0|0|0|0|0|2|0" />
+        <i3dMapping id="leftArm2TransitionPart" node="0>0|2|0|0|0|0|0|0|3" />
+        <i3dMapping id="leftArm2OrientationPart" node="0>0|2|0|0|0|0|0|0|3|0" />
+        <i3dMapping id="leftArm2OuterCylinderRef" node="0>0|2|0|0|0|0|0|0|3|1" />
+        <i3dMapping id="leftArm1OrientationPartRef" node="0>0|2|0|0|0|0|0|0|4" />
+        <i3dMapping id="leftArm3BottomCylinderCylinderRef" node="0>0|2|0|0|0|0|0|0|5" />
+        <i3dMapping id="leftArm2Effect" node="0>0|2|0|0|0|0|0|0|6" />
+        <i3dMapping id="leftArm1InnerCylinder" node="0>0|2|0|0|0|0|1" />
+        <i3dMapping id="leftArm1InnerCylinderPunch" node="0>0|2|0|0|0|0|1|0" />
+        <i3dMapping id="leftArm1TransitionPart" node="0>0|2|0|0|0|0|2" />
+        <i3dMapping id="leftArm1OrientationPart" node="0>0|2|0|0|0|0|2|0" />
+        <i3dMapping id="leftArm1InnerCylinderRef" node="0>0|2|0|0|0|0|2|1" />
+        <i3dMapping id="leftArmDampingPunchRef" node="0>0|2|0|0|0|0|3" />
+        <i3dMapping id="leftArm2BottomCylinderCylinderRef" node="0>0|2|0|0|0|0|4" />
+        <i3dMapping id="leftArm1Effect" node="0>0|2|0|0|0|0|5" />
+        <i3dMapping id="leftArmRotCylinderRef" node="0>0|2|0|0|0|1" />
+        <i3dMapping id="rightRotationArm" node="0>0|2|0|0|1" />
+        <i3dMapping id="rightArm1" node="0>0|2|0|0|1|0" />
+        <i3dMapping id="rightArm1TopCylinder" node="0>0|2|0|0|1|0|0" />
+        <i3dMapping id="rightArm2" node="0>0|2|0|0|1|0|0|0" />
+        <i3dMapping id="rightArm2TopCylinder" node="0>0|2|0|0|1|0|0|0|0" />
+        <i3dMapping id="rightArm3" node="0>0|2|0|0|1|0|0|0|0|0" />
+        <i3dMapping id="rightArm4" node="0>0|2|0|0|1|0|0|0|0|0|0" />
+        <i3dMapping id="rightArm4Punch" node="0>0|2|0|0|1|0|0|0|0|0|0|0" />
+        <i3dMapping id="rightArm4PunchPunch" node="0>0|2|0|0|1|0|0|0|0|0|0|0|0" />
+        <i3dMapping id="rightArm4Effect" node="0>0|2|0|0|1|0|0|0|0|0|0|1" />
+        <i3dMapping id="rightArm3BottomCylinder" node="0>0|2|0|0|1|0|0|0|0|0|1" />
+        <i3dMapping id="rightArm3BottomCylinderCylinder" node="0>0|2|0|0|1|0|0|0|0|0|1|0" />
+        <i3dMapping id="rightArm2OrientationPartRef" node="0>0|2|0|0|1|0|0|0|0|0|2" />
+        <i3dMapping id="rightArm4PunchPunchRef" node="0>0|2|0|0|1|0|0|0|0|0|3" />
+        <i3dMapping id="rightArm3Effect" node="0>0|2|0|0|1|0|0|0|0|0|4" />
+        <i3dMapping id="rightArm2BottomCylinder" node="0>0|2|0|0|1|0|0|0|1" />
+        <i3dMapping id="rightArm2BottomCylinderCylinder" node="0>0|2|0|0|1|0|0|0|1|0" />
+        <i3dMapping id="rightArm2OuterCylinder" node="0>0|2|0|0|1|0|0|0|2" />
+        <i3dMapping id="rightArm2OuterCylinderPunch" node="0>0|2|0|0|1|0|0|0|2|0" />
+        <i3dMapping id="rightArm2TransitionPart" node="0>0|2|0|0|1|0|0|0|3" />
+        <i3dMapping id="rightArm2OrientationPart" node="0>0|2|0|0|1|0|0|0|3|0" />
+        <i3dMapping id="rightArm2OuterCylinderRef" node="0>0|2|0|0|1|0|0|0|3|1" />
+        <i3dMapping id="rightArm1OrientationRef" node="0>0|2|0|0|1|0|0|0|4" />
+        <i3dMapping id="rightArm2DampingRef" node="0>0|2|0|0|1|0|0|0|5" />
+        <i3dMapping id="rightArm2Effect" node="0>0|2|0|0|1|0|0|0|6" />
+        <i3dMapping id="arm1RightInnerHydraulics" node="0>0|2|0|0|1|0|1" />
+        <i3dMapping id="arm1RightInnerHydraulicsPunch" node="0>0|2|0|0|1|0|1|0" />
+        <i3dMapping id="rightArm1TransitionPart" node="0>0|2|0|0|1|0|2" />
+        <i3dMapping id="rightArm1Orientation" node="0>0|2|0|0|1|0|2|0" />
+        <i3dMapping id="arm1RightInnerHydraulicsRef" node="0>0|2|0|0|1|0|2|1" />
+        <i3dMapping id="rightArmDampingRef" node="0>0|2|0|0|1|0|3" />
+        <i3dMapping id="rightArm2BottomCylinderRef" node="0>0|2|0|0|1|0|4" />
+        <i3dMapping id="rightArm1Effect" node="0>0|2|0|0|1|0|5" />
+        <i3dMapping id="rightArmRotCylinderRef" node="0>0|2|0|0|1|1" />
+        <i3dMapping id="leftArmRotCylinder" node="0>0|2|0|0|2" />
+        <i3dMapping id="leftArmRotCylinderPunch" node="0>0|2|0|0|2|0" />
+        <i3dMapping id="rightArmRotCylinder" node="0>0|2|0|0|3" />
+        <i3dMapping id="rightArmRotCylinderPunch" node="0>0|2|0|0|3|0" />
+        <i3dMapping id="leftArmDamping" node="0>0|2|0|0|4" />
+        <i3dMapping id="leftArmDampingPunch" node="0>0|2|0|0|4|0" />
+        <i3dMapping id="rightArmDamping" node="0>0|2|0|0|5" />
+        <i3dMapping id="rightArmDampingPunch" node="0>0|2|0|0|5|0" />
+        <i3dMapping id="topArmRef" node="0>0|2|0|0|6" />
+        <i3dMapping id="backLightsHighLeft" node="0>0|2|0|0|7|0" />
+        <i3dMapping id="backLightsHighRight" node="0>0|2|0|0|7|0|0" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|2|0|0|7|1" />
+        <i3dMapping id="turnLightRightBack" node="0>0|2|0|0|7|2" />
+        <i3dMapping id="rear4ChamberLight01_left" node="0>0|2|0|0|7|3" />
+        <i3dMapping id="rear4ChamberLight01_right" node="0>0|2|0|0|7|4" />
+        <i3dMapping id="middleEffect" node="0>0|2|0|0|8" />
+        <i3dMapping id="topArm" node="0>0|2|1" />
+        <i3dMapping id="topArmHydraulicRef" node="0>0|2|1|0" />
+        <i3dMapping id="topArmHydraulic" node="0>0|2|2" />
+        <i3dMapping id="topArmHydraulicPunch" node="0>0|2|2|0" />
+        <i3dMapping id="support" node="0>0|2|3" />
+        <i3dMapping id="translatingPart" node="0>0|2|3|0" />
+        <i3dMapping id="fillLevelIndicator" node="0>0|2|4" />
+        <i3dMapping id="fillLevelIndicatorRope" node="0>0|2|4|0" />
+        <i3dMapping id="fillLevelIndicatorNeedle" node="0>0|2|4|1" />
+        <i3dMapping id="fillLevelIndicatorRopeRef" node="0>0|2|4|1|0" />
+        <i3dMapping id="workAreaStart" node="0>0|3|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|3|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|3|2" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|4|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|4|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|4|0|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|4|1" />
+    </i3dMappings>
+</vehicle>

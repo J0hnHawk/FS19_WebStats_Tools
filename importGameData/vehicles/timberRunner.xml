@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<vehicle type="transportTrailer">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Timber Runner</name>
+        <specs>
+            <combination>Truck, Dolly</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_forestryTransport</function>
+            <function>$l10n_function_semiTrailer</function>
+        </functions>
+        <image>$data/vehicles/fliegl/timberRunner/store_timberRunner.png</image>
+        <price>28000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>FLIEGL</brand>
+        <category>wood</category>
+        <shopTranslationOffset>0 -0.04 0</shopTranslationOffset>
+        <shopRotationOffset>-0.77 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>665916</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>77580</indexBufferMemoryUsage>
+        <textureMemoryUsage>6641112</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_trailer</typeDesc>
+        <filename>$data/vehicles/fliegl/timberRunner/timberRunner.i3d</filename>
+        <size width="3" length="13" lengthOffset="0.3"/>
+        <components>
+            <component centerOfMass="0 0.58 -2" solverIterationCount="30" mass="5370" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" isLeft="true" hasParticles="true">
+                        <physics restLoad="0.9" repr="wheelLeftFront"   forcePointRatio="0.3" initialCompression="60" suspTravel="0.08" spring="65" damper="42"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" isLeft="false" hasParticles="true">
+                        <physics restLoad="0.9" repr="wheelRightFront"  forcePointRatio="0.3" initialCompression="60" suspTravel="0.08" spring="65" damper="42"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" isLeft="true" hasTireTracks="true">
+                        <physics restLoad="0.9" repr="wheelLeftMiddle"  forcePointRatio="0.3" initialCompression="38" suspTravel="0.08" spring="65" damper="42"/>
+                        <wheelChock parkingNode="wheelChock01" />
+                        <wheelChock parkingNode="wheelChock02" isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" isLeft="false" hasTireTracks="true">
+                        <physics restLoad="0.9" repr="wheelRightMiddle" forcePointRatio="0.3" initialCompression="38" suspTravel="0.08" spring="65" damper="42"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" isLeft="true" hasParticles="true">
+                        <physics restLoad="0.9" repr="wheelLeftBack"    forcePointRatio="0.3" initialCompression="15" suspTravel="0.08" spring="65" damper="42"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" isLeft="false" hasParticles="true">
+                        <physics restLoad="0.9" repr="wheelRightBack"   forcePointRatio="0.3" initialCompression="15" suspTravel="0.08" spring="65" damper="42"/>
+                    </wheel>
+                </wheels>
+                <objectChange node="wheelLeftFrontHub"   visibilityActive="false" visibilityInactive="true" />
+                <objectChange node="wheelRightFrontHub"  visibilityActive="false" visibilityInactive="true" />
+                <objectChange node="wheelLeftMiddleHub"  visibilityActive="false" visibilityInactive="true" />
+                <objectChange node="wheelRightMiddleHub" visibilityActive="false" visibilityInactive="true" />
+                <objectChange node="wheelLeftBackHub"    visibilityActive="false" visibilityInactive="true" />
+                <objectChange node="wheelRightBackHub"   visibilityActive="false" visibilityInactive="true" />
+            </wheelConfiguration>
+            <wheelConfiguration name="$l10n_configuration_valueWheelBroad" price="600">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/560_45R22_5.xml" isLeft="true" hasParticles="true">
+                        <physics restLoad="1.0" repr="wheelLeftFront"   forcePointRatio="0.3" initialCompression="37" suspTravel="0.20" spring="40" damper="42"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/560_45R22_5.xml" isLeft="false" hasParticles="true">
+                        <physics restLoad="1.0" repr="wheelRightFront"  forcePointRatio="0.3" initialCompression="37" suspTravel="0.20" spring="40" damper="42"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/560_45R22_5.xml" isLeft="true" hasTireTracks="true">
+                        <physics restLoad="1.0" repr="wheelLeftMiddle"  forcePointRatio="0.3" initialCompression="31" suspTravel="0.17" spring="40" damper="42"/>
+                        <wheelChock parkingNode="wheelChock01" />
+                        <wheelChock parkingNode="wheelChock02" isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/560_45R22_5.xml" isLeft="false" hasTireTracks="true">
+                        <physics restLoad="1.0" repr="wheelRightMiddle" forcePointRatio="0.3" initialCompression="31" suspTravel="0.17" spring="40" damper="42"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/560_45R22_5.xml" isLeft="true" hasParticles="true">
+                        <physics restLoad="1.0" repr="wheelLeftBack"    forcePointRatio="0.3" initialCompression="20" suspTravel="0.15" spring="40" damper="42"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/560_45R22_5.xml" isLeft="false" hasParticles="true">
+                        <physics restLoad="1.0" repr="wheelRightBack"   forcePointRatio="0.3" initialCompression="20" suspTravel="0.15" spring="40" damper="42"/>
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <hubs>
+            <hub linkNode="wheelLeftFrontHub"   filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="true"  scale="0.285 0.285 0.285" />
+            <hub linkNode="wheelRightFrontHub"  filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="false" scale="0.285 0.285 0.285" />
+            <hub linkNode="wheelLeftMiddleHub"  filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="true"  scale="0.285 0.285 0.285" />
+            <hub linkNode="wheelRightMiddleHub" filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="false" scale="0.285 0.285 0.285" />
+            <hub linkNode="wheelLeftBackHub"    filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="true"  scale="0.285 0.285 0.285" />
+            <hub linkNode="wheelRightBackHub"   filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="false" scale="0.285 0.285 0.285" />
+        </hubs>
+    </wheels>
+
+    <dynamicallyLoadedParts>
+        <dynamicallyLoadedPart node="0" linkNode="chockSupport01" filename="$data/shared/assets/wheelChocks/wheelChockSupport01.i3d"/>
+        <dynamicallyLoadedPart node="0" linkNode="chockSupport02" filename="$data/shared/assets/wheelChocks/wheelChockSupport01.i3d"/>
+    </dynamicallyLoadedParts>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="semitrailer"/>
+        </inputAttacherJoints>
+        <support animationName="moveSupport"/>
+        <brakeForce>0.6</brakeForce>
+    </attachable>
+
+    <lights>
+        <sharedLight linkNode="rear5ChamberLight_02_left" filename="$data/shared/assets/lights/lizard/rear5ChamberLight_02_left.xml" />
+        <sharedLight linkNode="rear5ChamberLight_02_right" filename="$data/shared/assets/lights/lizard/rear5ChamberLight_02_right.xml" />
+        <sharedLight linkNode="sideMarker_03_left" filename="$data/shared/assets/lights/lizard/sideMarker_03_left.xml" />
+        <sharedLight linkNode="sideMarker_03_right" filename="$data/shared/assets/lights/lizard/sideMarker_03_right.xml" />
+        <sharedLight linkNode="rearLightCircleWhite_02_1" filename="$data/shared/assets/lights/lizard/rearLightCircleWhite_02.xml" />
+        <sharedLight linkNode="rearLightCircleWhite_02_2" filename="$data/shared/assets/lights/lizard/rearLightCircleWhite_02.xml" />
+        <sharedLight linkNode="sideMarker_09_1" filename="$data/shared/assets/lights/lizard/sideMarker_09Orange.xml" />
+        <sharedLight linkNode="sideMarker_09_2" filename="$data/shared/assets/lights/lizard/sideMarker_09Orange.xml" />
+        <sharedLight linkNode="sideMarker_09_3" filename="$data/shared/assets/lights/lizard/sideMarker_09Orange.xml" />
+        <sharedLight linkNode="sideMarker_09_4" filename="$data/shared/assets/lights/lizard/sideMarker_09Orange.xml" />
+        <sharedLight linkNode="sideMarker_09_5" filename="$data/shared/assets/lights/lizard/sideMarker_09Orange.xml" />
+        <sharedLight linkNode="sideMarker_09_6" filename="$data/shared/assets/lights/lizard/sideMarker_09Orange.xml" />
+        <sharedLight linkNode="sideMarker_09_7" filename="$data/shared/assets/lights/lizard/sideMarker_09Orange.xml" />
+        <sharedLight linkNode="sideMarker_09_8" filename="$data/shared/assets/lights/lizard/sideMarker_09Orange.xml" />
+        <sharedLight linkNode="sideMarker_09_9" filename="$data/shared/assets/lights/lizard/sideMarker_09Orange.xml" />
+        <sharedLight linkNode="sideMarker_09_10" filename="$data/shared/assets/lights/lizard/sideMarker_09Orange.xml" />
+        <sharedLight linkNode="frontLightCone_01_1" filename="$data/shared/assets/lights/lizard/frontLightCone_01.xml" />
+        <sharedLight linkNode="frontLightCone_01_2" filename="$data/shared/assets/lights/lizard/frontLightCone_01.xml" />
+
+        <realLights>
+            <high>
+                <light node="backLightsHigh" lightTypes="0"/>
+                <turnLightLeft node="turnLightLeftBack"/>
+                <turnLightRight node="turnLightRightBack"/>
+                <brakeLight node="backLightsHigh"/>
+                <reverseLight node="reverseLight"/>
+            </high>
+        </realLights>
+    </lights>
+
+    <animations>
+        <animation name="moveSupport">
+            <part node="support" startTime="0" endTime="1" startTrans="0 0.8 2.816" endTrans="0 0.233 2.816"/>
+        </animation>
+    </animations>
+
+    <tensionBelts>
+        <tensionBeltsConfigurations>
+            <tensionBeltsConfiguration>
+                <tensionBelts linkNode="tensionBelts" jointNode="timberRunner_main_component1" width="0.075" maxEdgeLength="0.1" geometryBias="0.01" ratchetPosition="0.2" defaultOffset="-0.25" defaultOffsetSide="0.1" defaultHeight="2.75" interactionRadius="1.5" totalInteractionRadius="6.5" activationTrigger="beltActivationTrigger">
+                    <tensionBelt startNode="beltStart1" endNode="beltEnd1" offsetLeft="0.95"/>
+                    <tensionBelt startNode="beltStart2" endNode="beltEnd2"/>
+                    <tensionBelt startNode="beltStart3" endNode="beltEnd3"/>
+                    <tensionBelt startNode="beltStart4" endNode="beltEnd4"/>
+                    <tensionBelt startNode="beltStart5" endNode="beltEnd5"/>
+                    <tensionBelt startNode="beltStart6" endNode="beltEnd6"/>
+                    <tensionBelt startNode="beltStart7" endNode="beltEnd7"/>
+                    <tensionBelt startNode="beltStart8" endNode="beltEnd8"/>
+                    <tensionBelt startNode="beltStart9" endNode="beltEnd9" offsetRight="0.8"/>
+                </tensionBelts>
+            </tensionBeltsConfiguration>
+        </tensionBeltsConfigurations>
+    </tensionBelts>
+
+    <dynamicMountAttacher triggerNode="dynamicMountTrigger" rootNode="timberRunner_main_component1" jointNode="timberRunner_main_component1" forceAcceleration="30"/>
+
+    <foliageBending>
+        <bendingNode minX="-1.3" maxX="1.3" minZ="-5.8" maxZ="6.3" yOffset="0.6" />
+    </foliageBending>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="3" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="timberRunner_main_component1" node="0>" />
+        <i3dMapping id="attacherJoint" node="0>0|0|0" />
+        <i3dMapping id="support" node="0>0|0|1" />
+        <i3dMapping id="chockSupport01" node="0>0|0|2|0" />
+        <i3dMapping id="chockSupport02" node="0>0|0|2|1" />
+        <i3dMapping id="wheelChock01" node="0>0|0|2|2" />
+        <i3dMapping id="wheelChock02" node="0>0|0|2|3" />
+        <i3dMapping id="wheelLeftFront" node="0>0|1|0" />
+        <i3dMapping id="wheelLeftFrontHub" node="0>0|1|0|0" />
+        <i3dMapping id="wheelRightFront" node="0>0|1|1" />
+        <i3dMapping id="wheelRightFrontHub" node="0>0|1|1|0" />
+        <i3dMapping id="wheelLeftMiddle" node="0>0|1|2" />
+        <i3dMapping id="wheelLeftMiddleHub" node="0>0|1|2|0" />
+        <i3dMapping id="wheelRightMiddle" node="0>0|1|3" />
+        <i3dMapping id="wheelRightMiddleHub" node="0>0|1|3|0" />
+        <i3dMapping id="wheelLeftBack" node="0>0|1|4" />
+        <i3dMapping id="wheelLeftBackHub" node="0>0|1|4|0" />
+        <i3dMapping id="wheelRightBack" node="0>0|1|5" />
+        <i3dMapping id="wheelRightBackHub" node="0>0|1|5|0" />
+        <i3dMapping id="frontLightCone_01_2" node="0>0|2|0|0" />
+        <i3dMapping id="frontLightCone_01_1" node="0>0|2|0|1" />
+        <i3dMapping id="sideMarker_09_10" node="0>0|2|0|2" />
+        <i3dMapping id="sideMarker_09_9" node="0>0|2|0|3" />
+        <i3dMapping id="sideMarker_09_8" node="0>0|2|0|4" />
+        <i3dMapping id="sideMarker_09_7" node="0>0|2|0|5" />
+        <i3dMapping id="sideMarker_09_6" node="0>0|2|0|6" />
+        <i3dMapping id="sideMarker_09_5" node="0>0|2|0|7" />
+        <i3dMapping id="sideMarker_09_4" node="0>0|2|0|8" />
+        <i3dMapping id="sideMarker_09_3" node="0>0|2|0|9" />
+        <i3dMapping id="sideMarker_09_2" node="0>0|2|0|10" />
+        <i3dMapping id="sideMarker_09_1" node="0>0|2|0|11" />
+        <i3dMapping id="rearLightCircleWhite_02_1" node="0>0|2|0|12" />
+        <i3dMapping id="rearLightCircleWhite_02_2" node="0>0|2|0|13" />
+        <i3dMapping id="sideMarker_03_right" node="0>0|2|0|14" />
+        <i3dMapping id="sideMarker_03_left" node="0>0|2|0|15" />
+        <i3dMapping id="rear5ChamberLight_02_right" node="0>0|2|0|16" />
+        <i3dMapping id="rear5ChamberLight_02_left" node="0>0|2|0|17" />
+        <i3dMapping id="backLightsHigh" node="0>0|2|1" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|2|2" />
+        <i3dMapping id="turnLightRightBack" node="0>0|2|3" />
+        <i3dMapping id="reverseLight" node="0>0|2|4" />
+        <i3dMapping id="tensionBelts" node="0>0|3" />
+        <i3dMapping id="beltStart1" node="0>0|3|0" />
+        <i3dMapping id="beltEnd1" node="0>0|3|0|0" />
+        <i3dMapping id="beltStart2" node="0>0|3|1" />
+        <i3dMapping id="beltEnd2" node="0>0|3|1|0" />
+        <i3dMapping id="beltStart3" node="0>0|3|2" />
+        <i3dMapping id="beltEnd3" node="0>0|3|2|0" />
+        <i3dMapping id="beltStart4" node="0>0|3|3" />
+        <i3dMapping id="beltEnd4" node="0>0|3|3|0" />
+        <i3dMapping id="beltStart5" node="0>0|3|4" />
+        <i3dMapping id="beltEnd5" node="0>0|3|4|0" />
+        <i3dMapping id="beltStart6" node="0>0|3|5" />
+        <i3dMapping id="beltEnd6" node="0>0|3|5|0" />
+        <i3dMapping id="beltStart7" node="0>0|3|6" />
+        <i3dMapping id="beltEnd7" node="0>0|3|6|0" />
+        <i3dMapping id="beltStart8" node="0>0|3|7" />
+        <i3dMapping id="beltEnd8" node="0>0|3|7|0" />
+        <i3dMapping id="beltStart9" node="0>0|3|8" />
+        <i3dMapping id="beltEnd9" node="0>0|3|8|0" />
+        <i3dMapping id="beltActivationTrigger" node="0>0|3|9" />
+        <i3dMapping id="dynamicMountTrigger" node="0>0|4" />
+    </i3dMappings>
+</vehicle>

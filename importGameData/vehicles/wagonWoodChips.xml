@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="trainTrailer">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Sugarbeet Wagon</name>
+        <image>$data/vehicles/train/wagonWoodChips/store_wagonWoodChips.png</image>
+        <price>1</price>
+        <canBeSold>false</canBeSold>
+        <showInStore>false</showInStore>
+        <lifetime>0</lifetime>
+        <rotation>0</rotation>
+        <brand>LIZARD</brand>
+        <category>trailers</category>
+        <vertexBufferMemoryUsage>823328</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>129372</indexBufferMemoryUsage>
+        <textureMemoryUsage>27306864</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_tipper</typeDesc>
+        <filename>$data/vehicles/train/wagonWoodChips/wagonWoodChips.i3d</filename>
+        <size width="3.5" length="11" />
+        <components>
+            <component centerOfMass="0 0.7 -1" solverIterationCount="10" mass="45000" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration>
+                <wheels surfaceSoundLinkNode="surfaceSoundNode" />
+            </wheelConfiguration>
+        </wheelConfigurations>
+    </wheels>
+
+    <splineVehicle>
+        <dollies frontNode="frontNode" backNode="backNode" dolly1Node="dollyFront" dolly2Node="dollyBack" />
+    </splineVehicle>
+
+    <speedRotatingParts>
+        <speedRotatingPart node="wheel01" radius="0.44" />
+        <speedRotatingPart node="wheel02" radius="0.44" />
+        <speedRotatingPart node="wheel03" radius="0.44" />
+        <speedRotatingPart node="wheel04" radius="0.44" />
+    </speedRotatingParts>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="train" allowsDetaching="false"/>
+        </inputAttacherJoints>
+    </attachable>
+
+    <attacherJoints>
+        <attacherJoint node="trailerAttacherJointNode" jointType="train" allowsLowering="false">
+            <schema position="1 0" rotation="0" invertX="false" />
+            <bottomArm rotationNode="linkArm" translationNode="linkArmTrans" referenceNode="referenceNode" zScale="-1" startRotation="-17 0 0" lockDirection="false" toggleVisibility="true"/>
+        </attacherJoint>
+        <sounds>
+            <attach template="ATTACH_01" />
+        </sounds>
+    </attacherJoints>
+
+    <animations>
+        <animation name="tipAnimation">
+            <part node="tipAnimationNode" startTime="0" endTime="2" startRot="0 0 0" endRot="359 0 0" />
+        </animation>
+    </animations>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <fillUnit unit="$l10n_unit_literShort" fillTypeCategories="bulk" capacity="120000" blocksAutomatedTrainTravel="true">
+                        <exactFillRootNode node="exactFillRootNode" />
+                    </fillUnit>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <trailer>
+        <trailerConfigurations>
+            <trailerConfiguration>
+                <trailer>
+                    <tipSide name="$l10n_info_tipSideBack" dischargeNodeIndex="1">
+                        <animation name="tipAnimation" speedScale="1.0" />
+                    </tipSide>
+                </trailer>
+            </trailerConfiguration>
+        </trailerConfigurations>
+    </trailer>
+
+    <dischargeable>
+        <dischargeNode node="dischargeNode" emptySpeed="4000" fillUnitIndex="1" canDischargeToGround="false" >
+            <info width="1.0" length="0.5" zOffset="0.4" />
+            <effects>
+                <effectNode effectNode="effectMesh" materialType="unloading" materialTypeId="1" fadeTime="0.5" useDistance="false" />
+            </effects>
+        </dischargeNode>
+    </dischargeable>
+
+    <fillVolume>
+        <fillVolumeConfigurations>
+            <fillVolumeConfiguration>
+                <volumes>
+                    <volume node="fillVolume" maxDelta="0.05" fillUnitIndex="1" />
+                </volumes>
+            </fillVolumeConfiguration>
+        </fillVolumeConfigurations>
+    </fillVolume>
+
+    <i3dMappings>
+        <i3dMapping id="dollyFront" node="0>0" />
+        <i3dMapping id="wheel01" node="0>0|0" />
+        <i3dMapping id="wheel02" node="0>0|1" />
+        <i3dMapping id="dollyBack" node="0>1" />
+        <i3dMapping id="wheel03" node="0>1|0" />
+        <i3dMapping id="wheel04" node="0>1|1" />
+        <i3dMapping id="frontNode" node="0>2" />
+        <i3dMapping id="backNode" node="0>3" />
+        <i3dMapping id="attacherJoint" node="0>4" />
+        <i3dMapping id="inputAttacherJointNode" node="0>4|0" />
+        <i3dMapping id="trailerAttacherJoint" node="0>5" />
+        <i3dMapping id="trailerAttacherJointNode" node="0>5|0" />
+        <i3dMapping id="linkArm" node="0>5|0|0" />
+        <i3dMapping id="linkArmTrans" node="0>5|0|0|0" />
+        <i3dMapping id="referenceNode" node="0>5|0|0|0|0" />
+        <i3dMapping id="fillVolume" node="0>6" />
+        <i3dMapping id="tipAnimationNode" node="0>7" />
+        <i3dMapping id="dischargeNode" node="0>8" />
+        <i3dMapping id="exactFillRootNode" node="0>9" />
+        <i3dMapping id="surfaceSoundNode" node="0>10" />
+        <i3dMapping id="effectMesh" node="0>11|0" />
+    </i3dMappings>
+</vehicle>

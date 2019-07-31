@@ -1,0 +1,805 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="fertilizingSowingMachine">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>TERMINATOR TH18</name>
+        <specs>
+            <neededPower>450</neededPower>
+            <workingWidth>18</workingWidth>
+            <combination>TH1400</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_sowingMachine</function>
+            <function>$l10n_function_sowingMachineDirect</function>
+        </functions>
+        <image>$data/vehicles/hatzenbichler/terminator18/store_terminator18.png</image>
+        <price>212000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>HATZENBICHLER</brand>
+        <category>seeders</category>
+        <shopTranslationOffset>0 0.142 0</shopTranslationOffset>
+        <shopRotationOffset>-0.8 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>8913116</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>2045466</indexBufferMemoryUsage>
+        <textureMemoryUsage>31282968</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_sowingMachine</typeDesc>
+        <filename>$data/vehicles/hatzenbichler/terminator18/terminator18.i3d</filename>
+        <size width="7.5" length="11" lengthOffset="1.7"/>
+        <speedLimit value="18"/>
+        <components>
+            <component centerOfMass="0 0.3 0" solverIterationCount="10" mass="6000"/>
+            <component centerOfMass="0 0 0"   solverIterationCount="10" mass="5000"/>
+            <component solverIterationCount="10" mass="3000"/>
+            <component solverIterationCount="10" mass="2000"/>
+            <component solverIterationCount="10" mass="3000"/>
+            <component solverIterationCount="10" mass="2000"/>
+            <joint component1="1" component2="2" node="componentJointDrawbar" rotLimit="10 0 0" transLimit="0 0 0"/>
+            <joint component1="1" component2="3" node="componentJointLeftArm" rotLimit="0 0 0" transLimit="0 0 0"/>
+            <joint component1="1" component2="5" node="componentJointRightArm" rotLimit="0 0 0" transLimit="0 0 0"/>
+            <joint component1="3" component2="4" node="componentJointLeftArm2" rotLimit="0 0 0" transLimit="0 0 0"/>
+            <joint component1="5" component2="6" node="componentJointRightArm2" rotLimit="0 0 0" transLimit="0 0 0"/>
+            <collisionPair component1="1" component2="4" enabled="false"/>
+            <collisionPair component1="1" component2="6" enabled="false"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <!-- middle front -->
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/500_45R22_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                        <physics restLoad="4.2" repr="frontWheelLeft"  driveNode="frontWheelLeftDriveNode"  forcePointRatio="0.5" initialCompression="30" suspTravel="0.1" spring="130" damper="40" versatileYRot="true" frictionScale="1"/>
+                        <additionalWheel filename="$data/shared/wheels/trelleborg/T404/500_45R22_5.xml" isLeft="false" offset="0.317" hasParticles="true" hasTireTracks="true"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/500_45R22_5.xml" isLeft="false" hasTireTracks="false" hasParticles="true">
+                        <physics restLoad="4.2" repr="frontWheelRight" driveNode="frontWheelRightDriveNode" forcePointRatio="0.5" initialCompression="30" suspTravel="0.1" spring="130" damper="40" versatileYRot="true" frictionScale="1"/>
+                        <additionalWheel filename="$data/shared/wheels/trelleborg/T404/500_45R22_5.xml" isLeft="true" offset="0.317" hasParticles="true" hasTireTracks="true"/>
+                    </wheel>
+
+                    <!-- middle back -->
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/400_60R15_5.xml" isLeft="true" hasTireTracks="false" hasParticles="true">
+                        <physics restLoad="2.8" repr="leftBackWheelOuter"  forcePointRatio="0.5" initialCompression="30" suspTravel="0.12" spring="80" damper="40"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/400_60R15_5.xml" isLeft="false" hasTireTracks="false" hasParticles="true">
+                        <physics restLoad="2.8" repr="leftBackWheelInner"  forcePointRatio="0.5" initialCompression="30" suspTravel="0.12" spring="80" damper="40"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/400_60R15_5.xml" isLeft="false" hasTireTracks="false" hasParticles="true">
+                        <physics restLoad="2.8" repr="rightBackWheelOuter" forcePointRatio="0.5" initialCompression="30" suspTravel="0.12" spring="80" damper="40"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/400_60R15_5.xml" isLeft="true" hasTireTracks="false" hasParticles="true">
+                        <physics restLoad="2.8" repr="rightBackWheelInner" forcePointRatio="0.5" initialCompression="30" suspTravel="0.12" spring="80" damper="40"/>
+                    </wheel>
+
+                    <!-- left -->
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/400_60R15_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                        <physics restLoad="1.5" repr="leftArm1FrontWheelRepr" driveNode="leftArm1FrontWheelDriveNode" forcePointRatio="0.5" initialCompression="30" suspTravel="0.08" spring="50" damper="40" rotationDamping="0.003" brakeFactor="0" frictionScale="0.5" versatileYRot="true"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/400_60R15_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                        <physics restLoad="1.5" repr="leftArm1backWheel"                                              forcePointRatio="0.5" initialCompression="30" suspTravel="0.08" spring="50" damper="40" rotationDamping="0.003" brakeFactor="0"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/400_60R15_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                        <physics restLoad="0.6" repr="leftArm2FrontWheelRepr" driveNode="leftArm2FrontWheelDriveNode" forcePointRatio="0.5" initialCompression="30" suspTravel="0.08" spring="50" damper="40" rotationDamping="0.003" brakeFactor="0" frictionScale="0.5" versatileYRot="true"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/400_60R15_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                        <physics restLoad="0.6" repr="leftArm2BackWheel"                                              forcePointRatio="0.5" initialCompression="30" suspTravel="0.08" spring="50" damper="40" rotationDamping="0.003" brakeFactor="0"/>
+                    </wheel>
+
+                    <!-- right -->
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/400_60R15_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true">
+                        <physics restLoad="1.5" repr="rightArm1FrontWheelRepr" driveNode="rightArm1FrontWheelDriveNode" forcePointRatio="0.5" initialCompression="30" suspTravel="0.08" spring="50" damper="40" rotationDamping="0.003" brakeFactor="0" frictionScale="0.5" versatileYRot="true"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/400_60R15_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true">
+                        <physics restLoad="1.5" repr="rightArm1BackWheel"                                               forcePointRatio="0.5" initialCompression="30" suspTravel="0.08" spring="50" damper="40" rotationDamping="0.003" brakeFactor="0"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/400_60R15_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true">
+                        <physics restLoad="0.6" repr="rightArm2FrontWheelRepr" driveNode="rightArm2FrontWheelDriveNode" forcePointRatio="0.5" initialCompression="30" suspTravel="0.08" spring="50" damper="40" rotationDamping="0.003" brakeFactor="0" frictionScale="0.5" versatileYRot="true"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/400_60R15_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true">
+                        <physics restLoad="0.6" repr="rightArm2BackWheel"                                               forcePointRatio="0.5" initialCompression="30" suspTravel="0.08" spring="50" damper="40" rotationDamping="0.003" brakeFactor="0"/>
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <hubs>
+            <color0>HATZENBICHLER_RED</color0>
+            <color1>HATZENBICHLER_RED</color1>
+            <hub linkNode="frontWheelLeftDriveNode"      filename="$data/shared/wheels/hubs/hub_n6_1.xml" isLeft="true"  scale="0.203 0.203 0.203" />
+            <hub linkNode="frontWheelLeftDriveNode"      filename="$data/shared/wheels/hubs/hub_n6_1.xml" isLeft="false" scale="0.203 0.203 0.203" offset="0.725" />
+            <hub linkNode="frontWheelRightDriveNode"     filename="$data/shared/wheels/hubs/hub_n6_1.xml" isLeft="false" scale="0.203 0.203 0.203" />
+            <hub linkNode="frontWheelRightDriveNode"     filename="$data/shared/wheels/hubs/hub_n6_1.xml" isLeft="true"  scale="0.203 0.203 0.203" offset="0.725" />
+
+            <hub linkNode="leftBackWheelOuter"           filename="$data/shared/wheels/hubs/hub_n6_1.xml" isLeft="true"  scale="0.203 0.203 0.203" />
+            <hub linkNode="leftBackWheelInner"           filename="$data/shared/wheels/hubs/hub_n6_1.xml" isLeft="false" scale="0.203 0.203 0.203" />
+            <hub linkNode="rightBackWheelOuter"          filename="$data/shared/wheels/hubs/hub_n6_1.xml" isLeft="false" scale="0.203 0.203 0.203" />
+            <hub linkNode="rightBackWheelInner"          filename="$data/shared/wheels/hubs/hub_n6_1.xml" isLeft="true"  scale="0.203 0.203 0.203" />
+
+            <hub linkNode="leftArm1FrontWheelDriveNode"  filename="$data/shared/wheels/hubs/hub_n6_1.xml" isLeft="true"  scale="0.203 0.203 0.203" />
+            <hub linkNode="leftArm1backWheel"            filename="$data/shared/wheels/hubs/hub_n6_1.xml" isLeft="true"  scale="0.203 0.203 0.203" />
+            <hub linkNode="leftArm2FrontWheelDriveNode"  filename="$data/shared/wheels/hubs/hub_n6_1.xml" isLeft="true"  scale="0.203 0.203 0.203" />
+            <hub linkNode="leftArm2BackWheel"            filename="$data/shared/wheels/hubs/hub_n6_1.xml" isLeft="true"  scale="0.203 0.203 0.203" />
+
+            <hub linkNode="rightArm1FrontWheelDriveNode" filename="$data/shared/wheels/hubs/hub_n6_1.xml" isLeft="false" scale="0.203 0.203 0.203" />
+            <hub linkNode="rightArm1BackWheel"           filename="$data/shared/wheels/hubs/hub_n6_1.xml" isLeft="false" scale="0.203 0.203 0.203" />
+            <hub linkNode="rightArm2FrontWheelDriveNode" filename="$data/shared/wheels/hubs/hub_n6_1.xml" isLeft="false" scale="0.203 0.203 0.203" />
+            <hub linkNode="rightArm2BackWheel"           filename="$data/shared/wheels/hubs/hub_n6_1.xml" isLeft="false" scale="0.203 0.203 0.203" />
+        </hubs>
+    </wheels>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" rootNode="terminator18_drawbar_component2" jointType="trailerLow" attacherHeight="0.52"/>
+        </inputAttacherJoints>
+        <support animationName="moveSupport"/>
+        <brakeForce>1.2</brakeForce>
+    </attachable>
+
+    <powerTakeOffs>
+        <input ptoName="hatzenbichlerTerminator18" inputAttacherJointIndices="1" inputNode="ptoInputNode" aboveAttacher="true" filename="$data/vehicles/hatzenbichler/th1400/th1400Hoses.xml"/>
+    </powerTakeOffs>
+
+    <powerConsumer forceNode="terminator18_main_component1" maxForce="165" ptoRpm="450" neededMaxPtoPower="150"/>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="centerArmDepthNode" threshold="0.12" depthNode="centerArmDepthNode"/>
+        <groundReferenceNode node="leftArm1DepthNode"  threshold="0.12" depthNode="leftArm1DepthNode"/>
+        <groundReferenceNode node="leftArm2DepthNode"  threshold="0.12" depthNode="leftArm2DepthNode"/>
+        <groundReferenceNode node="rightArm1DepthNode" threshold="0.12" depthNode="rightArm1DepthNode"/>
+        <groundReferenceNode node="rightArm2DepthNode" threshold="0.12" depthNode="rightArm2DepthNode"/>
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="sowingMachine" functionName="processSowingMachineArea" needsSetIsTurnedOn="false">
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight"/>
+            <groundReferenceNode index="1"/>
+        </workArea>
+    </workAreas>
+
+    <workParticles>
+        <particle>
+            <node node="centerArmCultivatorUnitEffects_smokeEmitter" refNodeIndex="1" particleType="SOIL_SMOKE"/>
+            <node node="centerArmCultivatorUnitEffects_soilEmitter"  refNodeIndex="1" particleType="SOIL"/>
+            <node node="centerArmCultivatorUnitEffects_chunkEmitter" refNodeIndex="1" particleType="SOIL_CHUNKS" worldSpace="false"/>
+            <node node="centerArmDrillUnitEffects_soilEmitter"       refNodeIndex="1" particleType="SOIL"/>
+            <node node="centerArmDrillUnitEffects_chunkEmitter"      refNodeIndex="1" particleType="SOIL_CHUNKS" worldSpace="false"/>
+
+            <node node="rightArm1CultivatorUnitEffects_smokeEmitter" refNodeIndex="2" particleType="SOIL_SMOKE"/>
+            <node node="rightArm1CultivatorUnitEffects_soilEmitter"  refNodeIndex="2" particleType="SOIL"/>
+            <node node="rightArm1CultivatorUnitEffects_chunkEmitter" refNodeIndex="2" particleType="SOIL_CHUNKS" worldSpace="false"/>
+            <node node="rightArm1DrillUnitEffects_soilEmitter"       refNodeIndex="2" particleType="SOIL"/>
+            <node node="rightArm1DrillUnitEffects_chunkEmitter"      refNodeIndex="2" particleType="SOIL_CHUNKS" worldSpace="false"/>
+
+            <node node="rightArm2CulitvatorEffects_smokeEmitter"     refNodeIndex="3" particleType="SOIL_SMOKE"/>
+            <node node="rightArm2CulitvatorEffects_soilEmitter"      refNodeIndex="3" particleType="SOIL"/>
+            <node node="rightArm2CulitvatorEffects_chunkEmiter"      refNodeIndex="3" particleType="SOIL_CHUNKS" worldSpace="false"/>
+            <node node="rightArm2DrillUnitEffects_soilEmitter"       refNodeIndex="3" particleType="SOIL"/>
+            <node node="rightArm2DrillUnitEffects_chunkEmitter"      refNodeIndex="3" particleType="SOIL_CHUNKS" worldSpace="false"/>
+
+            <node node="leftArm1CultivatorUnitEffects_smokeEmitter"  refNodeIndex="4" particleType="SOIL_SMOKE"/>
+            <node node="leftArm1CultivatorUnitEffects_soilEmitter"   refNodeIndex="4" particleType="SOIL"/>
+            <node node="leftArm1CultivatorUnitEffects_chunkEmitter"  refNodeIndex="4" particleType="SOIL_CHUNKS" worldSpace="false"/>
+            <node node="leftArm1DrillUnitEffects_soilEmitter"        refNodeIndex="4" particleType="SOIL"/>
+            <node node="leftArm1DrillUnitEffects_chunkEmitter"       refNodeIndex="4" particleType="SOIL_CHUNKS" worldSpace="false"/>
+
+            <node node="leftArm2CulitvatorEffects_smokeEmitter"      refNodeIndex="5" particleType="SOIL_SMOKE"/>
+            <node node="leftArm2CulitvatorEffects_soilEmitter"       refNodeIndex="5" particleType="SOIL"/>
+            <node node="leftArm2CulitvatorEffects_chunkEmiter"       refNodeIndex="5" particleType="SOIL_CHUNKS" worldSpace="false"/>
+            <node node="leftArm2DrillUnitEffects_soilEmitter"        refNodeIndex="5" particleType="SOIL"/>
+            <node node="leftArm2DrillUnitEffects_chunkEmitter"       refNodeIndex="5" particleType="SOIL_CHUNKS" worldSpace="false"/>
+        </particle>
+    </workParticles>
+
+    <sprayer fillUnitIndex="2" unloadInfoIndex="2" loadInfoIndex="2">
+        <usageScales workingWidth="18" scale="1"/>
+    </sprayer>
+
+    <jigglingParts>
+        <jigglingPart node="leftArm2Tines" speedScale="2" amplitudeScale="8" shaderParameter="amplFreq" shaderParameterComponentSpeed="4" shaderParameterComponentAmplitude="1" refNodeIndex="1" />
+        <jigglingPart node="leftArm2TinesEnd" speedScale="2" amplitudeScale="8" shaderParameter="amplFreq" shaderParameterComponentSpeed="4" shaderParameterComponentAmplitude="1" refNodeIndex="1" />
+
+        <jigglingPart node="leftArm1Tines" speedScale="2" amplitudeScale="8" shaderParameter="amplFreq" shaderParameterComponentSpeed="4" shaderParameterComponentAmplitude="1" refNodeIndex="1" />
+        <jigglingPart node="leftArm1TinesEnd" speedScale="2" amplitudeScale="8" shaderParameter="amplFreq" shaderParameterComponentSpeed="4" shaderParameterComponentAmplitude="1" refNodeIndex="1" />
+
+        <jigglingPart node="centerArmTines" speedScale="2" amplitudeScale="8" shaderParameter="amplFreq" shaderParameterComponentSpeed="4" shaderParameterComponentAmplitude="1" refNodeIndex="1" />
+        <jigglingPart node="centerArmTinesEnd" speedScale="2" amplitudeScale="8" shaderParameter="amplFreq" shaderParameterComponentSpeed="4" shaderParameterComponentAmplitude="1" refNodeIndex="1" />
+
+        <jigglingPart node="rightArm1Tines" speedScale="2" amplitudeScale="8" shaderParameter="amplFreq" shaderParameterComponentSpeed="4" shaderParameterComponentAmplitude="1" refNodeIndex="1" />
+        <jigglingPart node="rightArm1TinesEnd" speedScale="2" amplitudeScale="8" shaderParameter="amplFreq" shaderParameterComponentSpeed="4" shaderParameterComponentAmplitude="1" refNodeIndex="1" />
+
+        <jigglingPart node="rightArm2Tines" speedScale="2" amplitudeScale="8" shaderParameter="amplFreq" shaderParameterComponentSpeed="4" shaderParameterComponentAmplitude="1" refNodeIndex="1" />
+        <jigglingPart node="rightArm2TinesEnd" speedScale="2" amplitudeScale="8" shaderParameter="amplFreq" shaderParameterComponentSpeed="4" shaderParameterComponentAmplitude="1" refNodeIndex="1" />
+    </jigglingParts>
+
+    <foldable>
+        <foldingParts foldMiddleAnimTime="0.05" startMoveDirection="1" turnOnFoldMaxLimit="0.06" turnOnFoldMinLimit="0">
+            <foldingPart animationName="folding" speedScale="0.2" />
+        </foldingParts>
+    </foldable>
+
+    <speedRotatingParts>
+        <speedRotatingPart node="centerArmCultivatorUnitWheels" radius="0.19" groundReferenceNodeIndex="1"/>
+        <speedRotatingPart node="leftArm1CultivatorUnitWheel" radius="0.19" groundReferenceNodeIndex="2"/>
+        <speedRotatingPart node="leftArm2CultivatorUnitWheel" radius="0.19" groundReferenceNodeIndex="3"/>
+        <speedRotatingPart node="rightArm1CultivatorUnitWheel" radius="0.19" groundReferenceNodeIndex="4"/>
+        <speedRotatingPart node="rightArm2CultivatorUnitWheel" radius="0.19" groundReferenceNodeIndex="5"/>
+
+        <speedRotatingPart node="centerArmDrillUnitFrontWheels" radius="0.15" groundReferenceNodeIndex="1"/>
+        <speedRotatingPart node="centerArmDrillUnitBackWheels" radius="0.15" groundReferenceNodeIndex="1"/>
+        <speedRotatingPart node="leftArm1DrillUnitFrontWheel" radius="0.15" groundReferenceNodeIndex="2"/>
+        <speedRotatingPart node="leftArm1DrillUnitBackWheel" radius="0.15" groundReferenceNodeIndex="2"/>
+        <speedRotatingPart node="leftArm2DrillUnitFrontWheel" radius="0.15" groundReferenceNodeIndex="3"/>
+        <speedRotatingPart node="leftArm2DrillUnitBackWheel" radius="0.15" groundReferenceNodeIndex="3"/>
+        <speedRotatingPart node="rightArm1DrillUnitFrontWheel" radius="0.15" groundReferenceNodeIndex="4"/>
+        <speedRotatingPart node="rightArm1DrillUnitBackWheel" radius="0.15" groundReferenceNodeIndex="4"/>
+        <speedRotatingPart node="rightArm2DrillUnitFrontWheel" radius="0.15" groundReferenceNodeIndex="5"/>
+        <speedRotatingPart node="rightArm2DrillUnitBackWheel" radius="0.15" groundReferenceNodeIndex="5"/>
+
+        <speedRotatingPart shaderNode="centerArmDrillUnitBlades" radius="0.15" groundReferenceNodeIndex="1"/>
+        <speedRotatingPart shaderNode="leftArm1DrillUnitBlades" radius="0.15" groundReferenceNodeIndex="1"/>
+        <speedRotatingPart shaderNode="leftArm2DrillUnitBlades" radius="0.15" groundReferenceNodeIndex="1"/>
+        <speedRotatingPart shaderNode="rightArm1DrillUnitBlades" radius="0.15" groundReferenceNodeIndex="1"/>
+        <speedRotatingPart shaderNode="rightArm2DrillUnitBlades" radius="0.15" groundReferenceNodeIndex="1"/>
+    </speedRotatingParts>
+
+    <cylindered>
+        <movingTools>
+            <!-- left arms -->
+            <movingTool node="componentJointLeftArm" playSound="true" >
+                <componentJoint index="2" />
+            </movingTool>
+            <movingTool node="componentJointLeftArm2" playSound="true" >
+                <componentJoint index="4" />
+            </movingTool>
+
+            <!-- right arms -->
+            <movingTool node="componentJointRightArm" playSound="true" >
+                <componentJoint index="3" />
+            </movingTool>
+            <movingTool node="componentJointRightArm2" playSound="true" >
+                <componentJoint index="5" />
+            </movingTool>
+
+            <!-- orientation arms -->
+            <movingTool node="leftArm2OrientationArm" playSound="true" >
+                <dependentPart node="leftArm2OuterHydraulics" />
+            </movingTool>
+            <movingTool node="rightArm2OrientationArm" playSound="true" >
+                <dependentPart node="rightArm2OuterHydraulics" />
+            </movingTool>
+
+            <!-- cultivator lowering frames -->
+            <movingTool node="centerArmFrontBottomArm" playSound="true" >
+                <dependentPart node="centerArmCultivatorUnit" />
+                <dependentPart node="centerArmCultivatorUnitTopArm" />
+                <dependentPart node="centerArmCultivatorUnitTopArmHydraulics" />
+            </movingTool>
+            <movingTool node="leftArm1FrontBottomArm" playSound="true" >
+                <dependentPart node="leftArm1CultivatorUnit" />
+                <dependentPart node="leftArm1CultivatorUnitTopArm" />
+                <dependentPart node="leftArm1CultivatorUnitTopArmHydraulics" />
+            </movingTool>
+            <movingTool node="leftArm2FrontBottomArm" playSound="true" >
+                <dependentPart node="leftArm2CultivatorUnit" />
+                <dependentPart node="leftArm2CultivatorUnitTopArm" />
+                <dependentPart node="leftArm2CultivatorUnitTopArmHydraulics" />
+            </movingTool>
+            <movingTool node="rightArm1FrontBottomArm" playSound="true" >
+                <dependentPart node="rightArm1CultivatorUnit" />
+                <dependentPart node="rightArm1CultivatorUnitTopArm" />
+                <dependentPart node="rightArm1CultivatorUnitTopArmHydraulics" />
+            </movingTool>
+            <movingTool node="rightArm2FrontBottomArm" playSound="true" >
+                <dependentPart node="rightArm2CultivatorUnit" />
+                <dependentPart node="rightArm2CultivatorUnitTopArm" />
+                <dependentPart node="rightArm2CultivatorUnitTopArmHydraulics" />
+            </movingTool>
+
+            <!-- drill lowering frames -->
+            <movingTool node="centerArmBackBottomArm" playSound="true" >
+                <dependentPart node="centerArmDrillUnit" />
+                <dependentPart node="centerArmDrillUnitTopArm" />
+                <dependentPart node="centerArmBackBottomArmHydraulics" />
+                <dependentPart node="centerArmDrillUnitDamper" />
+            </movingTool>
+            <movingTool node="leftArm1BackBottomArm" playSound="true" >
+                <dependentPart node="leftArm1DrillUnit" />
+                <dependentPart node="leftArm1DrillUnitTopArm" />
+                <dependentPart node="leftArm1BackBottomArmHydraulics" />
+                <dependentPart node="leftArm1DrillUnitDamper" />
+            </movingTool>
+            <movingTool node="leftArm2BackBottomArm" playSound="true" >
+                <dependentPart node="leftArm2DrillUnit" />
+                <dependentPart node="leftArm2DrillUnitTopArm" />
+                <dependentPart node="leftArm2BackBottomArmHydraulics" />
+                <dependentPart node="leftArm2DrillUnitDamper" />
+            </movingTool>
+            <movingTool node="rightArm1BackBottomArm" playSound="true" >
+                <dependentPart node="rightArm1DrillUnit" />
+                <dependentPart node="rightArm1DrillUnitTopArm" />
+                <dependentPart node="rightArm1BackBottomArmHydraulics" />
+                <dependentPart node="rightArm1DrillUnitDamper" />
+            </movingTool>
+            <movingTool node="rightArm2BackBottomArm" playSound="true" >
+                <dependentPart node="rightArm2DrillUnit" />
+                <dependentPart node="rightArm2DrillUnitTopArm" />
+                <dependentPart node="rightArm2BackBottomArmHydraulics" />
+                <dependentPart node="rightArm2DrillUnitDamper" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <!-- drawbar component -->
+            <movingPart node="drawbar"       referencePoint="referencePointDrawbar" referenceFrame="terminator18_main_component1" isActiveDirty="true" limitedAxis="1"/>
+
+            <!-- left arms -->
+            <movingPart node="leftArm1"       referencePoint="leftArm1Ref" referenceFrame="leftArm1RefFrame" isActiveDirty="true" limitedAxis="3"/>
+            <movingPart node="leftArm2"     referencePoint="leftArm2Ref" referenceFrame="leftArm2RefFrame" isActiveDirty="true" limitedAxis="1"/>
+            <movingPart node="leftArm1Hydraulics" referencePoint="leftArm1HydraulicsRef" referenceFrame="leftArm1HydraulicsRef" isActiveDirty="true">
+                <translatingPart node="leftArm1HydraulicsPunch" />
+            </movingPart>
+            <movingPart node="leftArm2InnerHydraulics" referencePoint="leftArm2InnerHydraulicsRef" referenceFrame="leftArm2InnerHydraulicsRef" isActiveDirty="true">
+                <translatingPart node="leftArm2InnerHydraulicsPunch" />
+            </movingPart>
+            <movingPart node="leftArm2OuterHydraulics" referencePoint="leftArm2OuterHydraulicsRef" referenceFrame="leftArm2OuterHydraulicsRef">
+                <translatingPart node="leftArm2OuterHydraulicsPunch" />
+            </movingPart>
+
+            <!-- right arms -->
+            <movingPart node="rightArm1"       referencePoint="rightArm1Ref" referenceFrame="rightArm1RefFrame" isActiveDirty="true" limitedAxis="3"/>
+            <movingPart node="rightArm2"     referencePoint="rightArm2Ref" referenceFrame="rightArm2RefFrame" isActiveDirty="true" limitedAxis="1"/>
+            <movingPart node="rightArm1Hydraulics" referencePoint="rightArm1HydraulicsRef" referenceFrame="rightArm1HydraulicsRef" isActiveDirty="true">
+                <translatingPart node="rightArm1HydraulicsPunch" />
+            </movingPart>
+            <movingPart node="rightArm2InnerHydraulics" referencePoint="rightArm2InnerHydraulicsRef" referenceFrame="rightArm2InnerHydraulicsRef" isActiveDirty="true">
+                <translatingPart node="rightArm2InnerHydraulicsPunch" />
+            </movingPart>
+            <movingPart node="rightArm2OuterHydraulics" referencePoint="rightArm2OuterHydraulicsRef" referenceFrame="rightArm2OuterHydraulicsRef">
+                <translatingPart node="rightArm2OuterHydraulicsPunch" />
+            </movingPart>
+
+            <!-- versatile y rot wheel frames-->
+            <movingPart node="leftArm1FrontWheel" referenceFrame="leftArm1FrontWheelRepr" isActiveDirty="true" doRotationAlignment="true" rotMultiplier="1" doDirectionAlignment="false"/>
+            <movingPart node="leftArm2FrontWheel" referenceFrame="leftArm2FrontWheelRepr" isActiveDirty="true" doRotationAlignment="true" rotMultiplier="1" doDirectionAlignment="false"/>
+
+            <movingPart node="rightArm1FrontWheel" referenceFrame="rightArm1FrontWheelRepr" isActiveDirty="true" doRotationAlignment="true" rotMultiplier="1" doDirectionAlignment="false"/>
+            <movingPart node="rightArm2FrontWheel" referenceFrame="rightArm2FrontWheelRepr" isActiveDirty="true" doRotationAlignment="true" rotMultiplier="1" doDirectionAlignment="false"/>
+
+            <!-- cultivator lowering frames -->
+            <movingPart node="centerArmCultivatorUnit" referenceFrame="centerArmFrontBottomArm" doRotationAlignment="true" rotMultiplier="-1" doDirectionAlignment="false"/>
+            <movingPart node="centerArmCultivatorUnitTopArm" referenceFrame="centerArmFrontBottomArm" doRotationAlignment="true" rotMultiplier="1" doDirectionAlignment="false"/>
+            <movingPart node="centerArmCultivatorUnitTopArmHydraulics" referencePoint="centerArmCultivatorUnitTopArmHydraulicsRef" referenceFrame="centerArmCultivatorUnitTopArmHydraulicsRef">
+                <translatingPart node="centerArmCultivatorUnitTopArmHydraulicsPunch" />
+            </movingPart>
+
+            <movingPart node="leftArm1CultivatorUnit" referenceFrame="leftArm1FrontBottomArm" doRotationAlignment="true" rotMultiplier="-1" doDirectionAlignment="false"/>
+            <movingPart node="leftArm1CultivatorUnitTopArm" referenceFrame="leftArm1FrontBottomArm" doRotationAlignment="true" rotMultiplier="1" doDirectionAlignment="false"/>
+            <movingPart node="leftArm1CultivatorUnitTopArmHydraulics" referencePoint="leftArm1CultivatorUnitTopArmHydraulicsRef" referenceFrame="leftArm1CultivatorUnitTopArmHydraulicsRef">
+                <translatingPart node="leftArm1CultivatorUnitTopArmHydraulicsPunch" />
+            </movingPart>
+
+            <movingPart node="leftArm2CultivatorUnit" referenceFrame="leftArm2FrontBottomArm" doRotationAlignment="true" rotMultiplier="-1" doDirectionAlignment="false"/>
+            <movingPart node="leftArm2CultivatorUnitTopArm" referenceFrame="leftArm2FrontBottomArm" doRotationAlignment="true" rotMultiplier="1" doDirectionAlignment="false"/>
+            <movingPart node="leftArm2CultivatorUnitTopArmHydraulics" referencePoint="leftArm2frontBottomArmHydraulicsRef" referenceFrame="leftArm2frontBottomArmHydraulicsRef">
+                <translatingPart node="leftArm2CultivatorUnitTopArmHydraulicsPunch" />
+            </movingPart>
+
+            <movingPart node="rightArm1CultivatorUnit" referenceFrame="rightArm1FrontBottomArm" doRotationAlignment="true" rotMultiplier="-1" doDirectionAlignment="false"/>
+            <movingPart node="rightArm1CultivatorUnitTopArm" referenceFrame="rightArm1FrontBottomArm" doRotationAlignment="true" rotMultiplier="1" doDirectionAlignment="false"/>
+            <movingPart node="rightArm1CultivatorUnitTopArmHydraulics" referencePoint="rightArm1CultivatorUnitTopArmHydraulicsRef" referenceFrame="rightArm1CultivatorUnitTopArmHydraulicsRef">
+                <translatingPart node="rightArm1CultivatorUnitTopArmHydraulicsPunch" />
+            </movingPart>
+
+            <movingPart node="rightArm2CultivatorUnit" referenceFrame="rightArm2FrontBottomArm" doRotationAlignment="true" rotMultiplier="-1" doDirectionAlignment="false"/>
+            <movingPart node="rightArm2CultivatorUnitTopArm" referenceFrame="rightArm2FrontBottomArm" doRotationAlignment="true" rotMultiplier="1" doDirectionAlignment="false"/>
+            <movingPart node="rightArm2CultivatorUnitTopArmHydraulics" referencePoint="rightArm2frontBottomArmHydraulicsRef" referenceFrame="rightArm2frontBottomArmHydraulicsRef">
+                <translatingPart node="rightArm2CultivatorUnitTopArmHydraulicsPunch" />
+            </movingPart>
+
+            <!-- drill lowering frames -->
+            <movingPart node="centerArmDrillUnit" referenceFrame="centerArmBackBottomArm" doRotationAlignment="true" rotMultiplier="-1" doDirectionAlignment="false"/>
+            <movingPart node="centerArmDrillUnitTopArm" referenceFrame="centerArmBackBottomArm" doRotationAlignment="true" rotMultiplier="1" doDirectionAlignment="false"/>
+            <movingPart node="centerArmBackBottomArmHydraulics" referencePoint="centerArmBackBottomArmHydraulicsRef" referenceFrame="centerArmBackBottomArmHydraulicsRef">
+                <translatingPart node="centerArmBackBottomArmHydraulicsPunch" />
+            </movingPart>
+            <movingPart node="centerArmDrillUnitDamper" referencePoint="centerArmDrillUnitDamperRef" referenceFrame="centerArmDrillUnitDamperRef">
+                <translatingPart node="centerArmDrillUnitDamperPunch" />
+            </movingPart>
+
+            <movingPart node="leftArm1DrillUnit" referenceFrame="leftArm1BackBottomArm" doRotationAlignment="true" rotMultiplier="-1" doDirectionAlignment="false"/>
+            <movingPart node="leftArm1DrillUnitTopArm" referenceFrame="leftArm1BackBottomArm" doRotationAlignment="true" rotMultiplier="1" doDirectionAlignment="false"/>
+            <movingPart node="leftArm1BackBottomArmHydraulics" referencePoint="leftArm1BackBottomArmHydraulicsRef" referenceFrame="leftArm1BackBottomArmHydraulicsRef">
+                <translatingPart node="leftArm1BackBottomArmHydraulicsPunch" />
+            </movingPart>
+            <movingPart node="leftArm1DrillUnitDamper" referencePoint="leftArm1DrillUnitDamperRef" referenceFrame="leftArm1DrillUnitDamperRef">
+                <translatingPart node="leftArm1DrillUnitDamperPunch" />
+            </movingPart>
+
+            <movingPart node="leftArm2DrillUnit" referenceFrame="leftArm2BackBottomArm" doRotationAlignment="true" rotMultiplier="-1" doDirectionAlignment="false"/>
+            <movingPart node="leftArm2DrillUnitTopArm" referenceFrame="leftArm2BackBottomArm" doRotationAlignment="true" rotMultiplier="1" doDirectionAlignment="false"/>
+            <movingPart node="leftArm2BackBottomArmHydraulics" referencePoint="leftArm2BackBottomArmHydraulicsRef" referenceFrame="leftArm2BackBottomArmHydraulicsRef">
+                <translatingPart node="leftArm2BackBottomArmHydraulicsPunch" />
+            </movingPart>
+            <movingPart node="leftArm2DrillUnitDamper" referencePoint="leftArm2DrillUnitDamperRef" referenceFrame="leftArm2DrillUnitDamperRef">
+                <translatingPart node="leftArm2DrillUnitDamperPunch" />
+            </movingPart>
+
+            <movingPart node="rightArm1DrillUnit" referenceFrame="rightArm1BackBottomArm" doRotationAlignment="true" rotMultiplier="-1" doDirectionAlignment="false"/>
+            <movingPart node="rightArm1DrillUnitTopArm" referenceFrame="rightArm1BackBottomArm" doRotationAlignment="true" rotMultiplier="1" doDirectionAlignment="false"/>
+            <movingPart node="rightArm1BackBottomArmHydraulics" referencePoint="rightArm1BackBottomArmHydraulicsRef" referenceFrame="rightArm1BackBottomArmHydraulicsRef">
+                <translatingPart node="rightArm1BackBottomArmHydraulicsPunch" />
+            </movingPart>
+            <movingPart node="rightArm1DrillUnitDamper" referencePoint="rightArm1DrillUnitDamperRef" referenceFrame="rightArm1DrillUnitDamperRef">
+                <translatingPart node="rightArm1DrillUnitDamperPunch" />
+            </movingPart>
+
+            <movingPart node="rightArm2DrillUnit" referenceFrame="rightArm2BackBottomArm" doRotationAlignment="true" rotMultiplier="-1" doDirectionAlignment="false"/>
+            <movingPart node="rightArm2DrillUnitTopArm" referenceFrame="rightArm2BackBottomArm" doRotationAlignment="true" rotMultiplier="1" doDirectionAlignment="false"/>
+            <movingPart node="rightArm2BackBottomArmHydraulics" referencePoint="rightArm2BackBottomArmHydraulicsRef" referenceFrame="rightArm2BackBottomArmHydraulicsRef">
+                <translatingPart node="rightArm2BackBottomArmHydraulicsPunch" />
+            </movingPart>
+            <movingPart node="rightArm2DrillUnitDamper" referencePoint="rightArm2DrillUnitDamperRef" referenceFrame="rightArm2DrillUnitDamperRef">
+                <translatingPart node="rightArm2DrillUnitDamperPunch" />
+            </movingPart>
+        </movingParts>
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND"/>
+        </sounds>
+    </cylindered>
+
+    <animations>
+        <animation name="moveSupport">
+            <!-- collision -->
+            <part node="supportColPart" startTime="0" duration="0.5" startTrans="0 -0.171 1.58" endTrans="0 -0.694 1.58" />
+
+            <!-- optics -->
+            <part node="supportTrans" startTime="0" duration="0.5" startTrans="0 0.105 4.197" endTrans="0 -0.406 4.197" />
+            <part node="suppoerWinder" startTime="0" duration="0.5" startRot="0 0 2000" endRot="0 0 0" />
+        </animation>
+
+        <animation name="folding">
+            <!-- folding -->
+
+            <!-- left arms -->
+            <part node="componentJointLeftArm" startTime="4" endTime="5"  startRot="0 0 0" endRot="0 0 92" />
+            <part node="connectionLeftJoint" startTime="4" endTime="5" startTrans="0.413 0.128 0.439" endTrans="0.413 -0.097 0.572" startRot="-90 -90 90" endRot="-90 -51.2 90" />
+            <part node="componentJointLeftArm2" startTime="1" endTime="3.8"  startRot="0 0 0" endRot="0 0 179" />
+            <part node="leftArm2OrientationArm" startTime="1" endTime="2.4"  startRot="-75.208 0 0" endRot="11 0 0" />
+            <part node="leftArm2RefFrame" startTime="1" endTime="3.8"  startRot="-35 0 0" endRot="-100 0 0" />
+
+            <!-- right arms -->
+            <part node="componentJointRightArm" startTime="3" endTime="4.5"  startRot="0 0 0" endRot="0 0 -92" />
+            <part node="connectionRightJoint" startTime="3" endTime="4.5" startTrans="-0.413 0.128 0.439" endTrans="-0.413 -0.097 0.572" startRot="-90 90 -90" endRot="-90 51.2 -90" />
+            <part node="componentJointRightArm2" startTime="0.25" endTime="2.8"  startRot="0 0 0" endRot="0 0 -179" />
+            <part node="rightArm2OrientationArm" startTime="0.25" endTime="1.525"  startRot="-75.208 0 0" endRot="11 0 0" />
+            <part node="rightArm2RefFrame" startTime="0.25" endTime="2.8"  startRot="-35 0 0" endRot="-100 0 0" />
+
+            <!-- joint limits -->
+            <part componentJointIndex="2" startTime="3.8"  endTime="4.2" startRotLimit="0 0 10" endRotLimit="0 0 0"/>
+            <part componentJointIndex="3" startTime="2.8"  endTime="3.2" startRotLimit="0 0 10" endRotLimit="0 0 0"/>
+
+            <part componentJointIndex="4" startTime="2.8"  endTime="3.2" startRotLimit="0 0 10" endRotLimit="0 0 0"/>
+            <part componentJointIndex="5" startTime="2.6"  endTime="2.8" startRotLimit="0 0 10" endRotLimit="0 0 0"/>
+
+            <!-- lowering -->
+
+            <!-- cultivators -->
+            <part node="centerArmFrontBottomArm" startTime="0" endTime="0.25"  startRot="-50 0 0" endRot="0 0 0" />
+            <part node="leftArm1FrontBottomArm" startTime="0" endTime="0.25"  startRot="0 0 -50" endRot="0 0 0" />
+            <part node="leftArm2FrontBottomArm" startTime="0" endTime="0.25"  startRot="0 0 -50" endRot="0 0 0" />
+            <part node="rightArm1FrontBottomArm" startTime="0" endTime="0.25"  startRot="0 0 50" endRot="0 0 0" />
+            <part node="rightArm2FrontBottomArm" startTime="0" endTime="0.25"  startRot="0 0 50" endRot="0 0 0" />
+
+            <!-- drills -->
+            <part node="centerArmBackBottomArm" startTime="0" endTime="0.25"  startRot="-15 0 0" endRot="14 0 0" />
+            <part node="leftArm1BackBottomArm" startTime="0" endTime="0.25"  startRot="0 0 -15" endRot="0 0 14" />
+            <part node="leftArm2BackBottomArm" startTime="0" endTime="0.25"  startRot="0 0 -15" endRot="0 0 14" />
+            <part node="rightArm1BackBottomArm" startTime="0" endTime="0.25"  startRot="0 0 15" endRot="0 0 -14" />
+            <part node="rightArm2BackBottomArm" startTime="0" endTime="0.25"  startRot="0 0 15" endRot="0 0 -14" />
+        </animation>
+    </animations>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <fillUnit unit="$l10n_unit_literShort" fillTypes="seeds" capacity="0"/>
+                    <fillUnit unit="$l10n_unit_literShort" fillTypes="fertilizer" capacity="0"/>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <sowingMachine fillUnitIndex="1">
+        <seedFruitTypeCategories>sowingMachine</seedFruitTypeCategories>
+        <useDirectPlanting value="true"/>
+        <needsActivation value="true"/>
+        <sounds>
+            <work template="DEFAULT_SOWING_WORK" linkNode="terminator18_main_component1" />
+            <airBlower template="DEFAULT_SOWING_AIR_BLOWER" linkNode="terminator18_main_component1" />
+        </sounds>
+    </sowingMachine>
+
+    <turnOnVehicle turnOffIfNotAllowed="true"/>
+
+    <ai>
+        <needsLowering value="true"/>
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack"/>
+        <collisionTrigger node="aiCollisionTrigger"/>
+        <allowTurnBackward value="false"/>
+        <turningRadiusLimitation radius="8"/>
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-2.75" maxX="2.7" minZ="-3.8" maxZ="2.8" yOffset="0.5" />
+        <bendingNode minX="-1.45" maxX="3.7" minZ="-0.0" maxZ="3.8" yOffset="-0.6" node="leftArm1" />
+        <bendingNode minX="-1.45" maxX="3.7" minZ="-0.0" maxZ="3.0" yOffset="-1.1" node="leftArm2" />
+        <bendingNode minX="-3.7" maxX="1.45" minZ="-0.0" maxZ="3.8" yOffset="-0.6" node="rightArm1" />
+        <bendingNode minX="-3.7" maxX="1.45" minZ="-0.0" maxZ="3.0" yOffset="-1.1" node="rightArm2" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="terminator18_mat" baseNode="terminator18">
+            <shaderParameter name="colorMat0" value="HATZENBICHLER_RED"/>
+            <shaderParameter name="colorMat1" value="HATZENBICHLER_YELLOW"/>
+            <shaderParameter name="colorMat2" value="HATZENBICHLER_GREEN"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="terminator18_main_component1" node="0>" />
+        <i3dMapping id="terminator18" node="0>0" />
+        <i3dMapping id="wheels" node="0>0|0" />
+        <i3dMapping id="frontWheelLeft" node="0>0|0|0" />
+        <i3dMapping id="frontWheelLeftRepr" node="0>0|0|0|0" />
+        <i3dMapping id="frontWheelLeftDriveNode" node="0>0|0|0|0|0" />
+        <i3dMapping id="frontWheelRight" node="0>0|0|1" />
+        <i3dMapping id="frontWheelRightRepr" node="0>0|0|1|0" />
+        <i3dMapping id="frontWheelRightDriveNode" node="0>0|0|1|0|0" />
+        <i3dMapping id="leftBackWheelOuter" node="0>0|0|2" />
+        <i3dMapping id="leftBackWheelInner" node="0>0|0|3" />
+        <i3dMapping id="rightBackWheelOuter" node="0>0|0|4" />
+        <i3dMapping id="rightBackWheelInner" node="0>0|0|5" />
+        <i3dMapping id="componentJoints" node="0>0|1" />
+        <i3dMapping id="componentJointDrawbar" node="0>0|1|0" />
+        <i3dMapping id="componentJointLeftArm" node="0>0|1|1" />
+        <i3dMapping id="componentJointRightArm" node="0>0|1|2" />
+        <i3dMapping id="movingParts" node="0>0|2" />
+        <i3dMapping id="drawbar" node="0>0|2|0" />
+        <i3dMapping id="supportTrans" node="0>0|2|0|0" />
+        <i3dMapping id="suppoerWinder" node="0>0|2|0|1" />
+        <i3dMapping id="leftArm1" node="0>0|2|1" />
+        <i3dMapping id="leftArm2" node="0>0|2|1|0" />
+        <i3dMapping id="leftArm2OuterHydraulics" node="0>0|2|1|0|0" />
+        <i3dMapping id="leftArm2OuterHydraulicsPunch" node="0>0|2|1|0|0|0" />
+        <i3dMapping id="leftArm2OrientationArm" node="0>0|2|1|0|1" />
+        <i3dMapping id="leftArm2InnerHydraulicsRef" node="0>0|2|1|0|1|0" />
+        <i3dMapping id="leftArm2OuterHydraulicsRef" node="0>0|2|1|0|1|1" />
+        <i3dMapping id="leftArm2FrontWheel" node="0>0|2|1|0|2|0" />
+        <i3dMapping id="leftArm2FrontBottomArm" node="0>0|2|1|0|3" />
+        <i3dMapping id="leftArm2CultivatorUnit" node="0>0|2|1|0|3|0" />
+        <i3dMapping id="leftArm2CultivatorUnitTopArm" node="0>0|2|1|0|3|0|0" />
+        <i3dMapping id="leftArm2frontBottomArmHydraulicsRef" node="0>0|2|1|0|3|0|0|0" />
+        <i3dMapping id="leftArm2CultivatorUnitWheel" node="0>0|2|1|0|3|0|1|0" />
+        <i3dMapping id="leftArm2DepthNode" node="0>0|2|1|0|3|0|2" />
+        <i3dMapping id="leftArm2CulitvatorEffects_smokeEmitter" node="0>0|2|1|0|3|0|3|0|0" />
+        <i3dMapping id="leftArm2CulitvatorEffects_soilEmitter" node="0>0|2|1|0|3|0|3|0|1" />
+        <i3dMapping id="leftArm2CulitvatorEffects_chunkEmiter" node="0>0|2|1|0|3|0|3|0|2" />
+        <i3dMapping id="leftArm2Tines" node="0>0|2|1|0|3|0|4" />
+        <i3dMapping id="leftArm2TinesEnd" node="0>0|2|1|0|3|0|4|0" />
+        <i3dMapping id="leftArm2CultivatorUnitTopArmHydraulics" node="0>0|2|1|0|4" />
+        <i3dMapping id="leftArm2CultivatorUnitTopArmHydraulicsPunch" node="0>0|2|1|0|4|0" />
+        <i3dMapping id="leftArm2BackBottomArm" node="0>0|2|1|0|5" />
+        <i3dMapping id="leftArm2DrillUnit" node="0>0|2|1|0|5|0" />
+        <i3dMapping id="leftArm2DrillUnitTopArm" node="0>0|2|1|0|5|0|0" />
+        <i3dMapping id="leftArm2DrillUnitBlades" node="0>0|2|1|0|5|0|1" />
+        <i3dMapping id="leftArm2DrillUnitFrontWheel" node="0>0|2|1|0|5|0|2|0" />
+        <i3dMapping id="leftArm2DrillUnitBackWheel" node="0>0|2|1|0|5|0|3|0" />
+        <i3dMapping id="leftArm2DrillUnitDamperRef" node="0>0|2|1|0|5|0|4" />
+        <i3dMapping id="leftArm2DrillUnitEffects_soilEmitter" node="0>0|2|1|0|5|0|5|0|0" />
+        <i3dMapping id="leftArm2DrillUnitEffects_chunkEmitter" node="0>0|2|1|0|5|0|5|0|1" />
+        <i3dMapping id="backBottomArmLeftBone_01" node="0>0|2|1|0|5|0|7" />
+        <i3dMapping id="leftArm2BackBottomArmHydraulicsRef" node="0>0|2|1|0|5|1" />
+        <i3dMapping id="leftArm2BackBottomArmHydraulics" node="0>0|2|1|0|6" />
+        <i3dMapping id="leftArm2BackBottomArmHydraulicsPunch" node="0>0|2|1|0|6|0" />
+        <i3dMapping id="leftArm2DrillUnitDamper" node="0>0|2|1|0|7" />
+        <i3dMapping id="leftArm2DrillUnitDamperPunch" node="0>0|2|1|0|7|0" />
+        <i3dMapping id="plate" node="0>0|2|1|0|8" />
+        <i3dMapping id="decals" node="0>0|2|1|0|9" />
+        <i3dMapping id="leftArm2Left" node="0>0|2|1|0|10" />
+        <i3dMapping id="colPart" node="0>0|2|1|0|11" />
+        <i3dMapping id="leftArm2InnerHydraulics" node="0>0|2|1|1" />
+        <i3dMapping id="leftArm2InnerHydraulicsPunch" node="0>0|2|1|1|0" />
+        <i3dMapping id="leftArm1FrontWheelRot" node="0>0|2|1|2" />
+        <i3dMapping id="leftArm1FrontWheel" node="0>0|2|1|2|0" />
+        <i3dMapping id="leftArm1FrontBottomArm" node="0>0|2|1|3" />
+        <i3dMapping id="leftArm1CultivatorUnit" node="0>0|2|1|3|0" />
+        <i3dMapping id="leftArm1CultivatorUnitTopArm" node="0>0|2|1|3|0|0" />
+        <i3dMapping id="leftArm1CultivatorUnitTopArmHydraulicsRef" node="0>0|2|1|3|0|0|0" />
+        <i3dMapping id="leftArm1CultivatorUnitWheel" node="0>0|2|1|3|0|1|0" />
+        <i3dMapping id="leftArm1DepthNode" node="0>0|2|1|3|0|2" />
+        <i3dMapping id="leftArm1CultivatorUnitEffects_smokeEmitter" node="0>0|2|1|3|0|3|0|0" />
+        <i3dMapping id="leftArm1CultivatorUnitEffects_soilEmitter" node="0>0|2|1|3|0|3|0|1" />
+        <i3dMapping id="leftArm1CultivatorUnitEffects_chunkEmitter" node="0>0|2|1|3|0|3|0|2" />
+        <i3dMapping id="leftArm1Tines" node="0>0|2|1|3|0|4" />
+        <i3dMapping id="leftArm1TinesEnd" node="0>0|2|1|3|0|4|0" />
+        <i3dMapping id="leftArm1CultivatorUnitTopArmHydraulics" node="0>0|2|1|4" />
+        <i3dMapping id="leftArm1CultivatorUnitTopArmHydraulicsPunch" node="0>0|2|1|4|0" />
+        <i3dMapping id="leftArm1BackBottomArm" node="0>0|2|1|5" />
+        <i3dMapping id="leftArm1DrillUnit" node="0>0|2|1|5|0" />
+        <i3dMapping id="leftArm1DrillUnitTopArm" node="0>0|2|1|5|0|0" />
+        <i3dMapping id="leftArm1DrillUnitBlades" node="0>0|2|1|5|0|1" />
+        <i3dMapping id="leftArm1DrillUnitFrontWheel" node="0>0|2|1|5|0|2|0" />
+        <i3dMapping id="leftArm1DrillUnitBackWheel" node="0>0|2|1|5|0|3|0" />
+        <i3dMapping id="leftArm1DrillUnitDamperRef" node="0>0|2|1|5|0|4" />
+        <i3dMapping id="leftArm1DrillUnitEffects_soilEmitter" node="0>0|2|1|5|0|5|0|0" />
+        <i3dMapping id="leftArm1DrillUnitEffects_chunkEmitter" node="0>0|2|1|5|0|5|0|1" />
+        <i3dMapping id="leftArm1BackBottomArmHydraulicsRef" node="0>0|2|1|5|1" />
+        <i3dMapping id="leftArm1BackBottomArmHydraulics" node="0>0|2|1|6" />
+        <i3dMapping id="leftArm1BackBottomArmHydraulicsPunch" node="0>0|2|1|6|0" />
+        <i3dMapping id="leftArm1DrillUnitDamper" node="0>0|2|1|7" />
+        <i3dMapping id="leftArm1DrillUnitDamperPunch" node="0>0|2|1|7|0" />
+        <i3dMapping id="leftArm1HydraulicsRef" node="0>0|2|1|8" />
+        <i3dMapping id="leftArm2RefFrame" node="0>0|2|1|9" />
+        <i3dMapping id="connectionLeftJoint" node="0>0|2|1|10" />
+        <i3dMapping id="leftArm1Left" node="0>0|2|1|11" />
+        <i3dMapping id="leftArm1Hydraulics" node="0>0|2|2" />
+        <i3dMapping id="leftArm1HydraulicsPunch" node="0>0|2|2|0" />
+        <i3dMapping id="rightArm1" node="0>0|2|3" />
+        <i3dMapping id="rightArm2" node="0>0|2|3|0" />
+        <i3dMapping id="rightArm2OuterHydraulics" node="0>0|2|3|0|0" />
+        <i3dMapping id="rightArm2OuterHydraulicsPunch" node="0>0|2|3|0|0|0" />
+        <i3dMapping id="rightArm2OrientationArm" node="0>0|2|3|0|1" />
+        <i3dMapping id="rightArm2InnerHydraulicsRef" node="0>0|2|3|0|1|0" />
+        <i3dMapping id="rightArm2OuterHydraulicsRef" node="0>0|2|3|0|1|1" />
+        <i3dMapping id="rightArm2FrontWheel" node="0>0|2|3|0|2|0" />
+        <i3dMapping id="rightArm2FrontBottomArm" node="0>0|2|3|0|3" />
+        <i3dMapping id="rightArm2CultivatorUnit" node="0>0|2|3|0|3|0" />
+        <i3dMapping id="rightArm2CultivatorUnitTopArm" node="0>0|2|3|0|3|0|0" />
+        <i3dMapping id="rightArm2frontBottomArmHydraulicsRef" node="0>0|2|3|0|3|0|0|0" />
+        <i3dMapping id="rightArm2CultivatorUnitWheel" node="0>0|2|3|0|3|0|1|0" />
+        <i3dMapping id="rightArm2DepthNode" node="0>0|2|3|0|3|0|2" />
+        <i3dMapping id="rightArm2CulitvatorEffects_smokeEmitter" node="0>0|2|3|0|3|0|3|0|0" />
+        <i3dMapping id="rightArm2CulitvatorEffects_soilEmitter" node="0>0|2|3|0|3|0|3|0|1" />
+        <i3dMapping id="rightArm2CulitvatorEffects_chunkEmiter" node="0>0|2|3|0|3|0|3|0|2" />
+        <i3dMapping id="rightArm2Tines" node="0>0|2|3|0|3|0|4" />
+        <i3dMapping id="rightArm2TinesEnd" node="0>0|2|3|0|3|0|4|0" />
+        <i3dMapping id="rightArm2CultivatorUnitTopArmHydraulics" node="0>0|2|3|0|4" />
+        <i3dMapping id="rightArm2CultivatorUnitTopArmHydraulicsPunch" node="0>0|2|3|0|4|0" />
+        <i3dMapping id="rightArm2BackBottomArm" node="0>0|2|3|0|5" />
+        <i3dMapping id="rightArm2DrillUnit" node="0>0|2|3|0|5|0" />
+        <i3dMapping id="rightArm2DrillUnitTopArm" node="0>0|2|3|0|5|0|0" />
+        <i3dMapping id="rightArm2DrillUnitBlades" node="0>0|2|3|0|5|0|1" />
+        <i3dMapping id="rightArm2DrillUnitFrontWheel" node="0>0|2|3|0|5|0|2|0" />
+        <i3dMapping id="rightArm2DrillUnitBackWheelRot" node="0>0|2|3|0|5|0|3" />
+        <i3dMapping id="rightArm2DrillUnitBackWheel" node="0>0|2|3|0|5|0|3|0" />
+        <i3dMapping id="rightArm2DrillUnitDamperRef" node="0>0|2|3|0|5|0|4" />
+        <i3dMapping id="effectNodes" node="0>0|2|3|0|5|0|5|0" />
+        <i3dMapping id="rightArm2DrillUnitEffects_soilEmitter" node="0>0|2|3|0|5|0|5|0|0" />
+        <i3dMapping id="rightArm2DrillUnitEffects_chunkEmitter" node="0>0|2|3|0|5|0|5|0|1" />
+        <i3dMapping id="rightArm2BackBottomArmHydraulicsRef" node="0>0|2|3|0|5|1" />
+        <i3dMapping id="rightArm2BackBottomArmHydraulics" node="0>0|2|3|0|6" />
+        <i3dMapping id="rightArm2BackBottomArmHydraulicsPunch" node="0>0|2|3|0|6|0" />
+        <i3dMapping id="rightArm2DrillUnitDamper" node="0>0|2|3|0|7" />
+        <i3dMapping id="rightArm2DrillUnitDamperPunch" node="0>0|2|3|0|7|0" />
+        <i3dMapping id="rightArm2InnerHydraulics" node="0>0|2|3|1" />
+        <i3dMapping id="rightArm2InnerHydraulicsPunch" node="0>0|2|3|1|0" />
+        <i3dMapping id="rightArm1FrontWheelRot" node="0>0|2|3|2" />
+        <i3dMapping id="rightArm1FrontWheel" node="0>0|2|3|2|0" />
+        <i3dMapping id="rightArm1FrontBottomArm" node="0>0|2|3|3" />
+        <i3dMapping id="rightArm1CultivatorUnit" node="0>0|2|3|3|0" />
+        <i3dMapping id="rightArm1CultivatorUnitTopArm" node="0>0|2|3|3|0|0" />
+        <i3dMapping id="rightArm1CultivatorUnitTopArmHydraulicsRef" node="0>0|2|3|3|0|0|0" />
+        <i3dMapping id="rightArm1CultivatorUnitWheel" node="0>0|2|3|3|0|1|0" />
+        <i3dMapping id="rightArm1DepthNode" node="0>0|2|3|3|0|2" />
+        <i3dMapping id="rightArm1CultivatorUnitEffects_smokeEmitter" node="0>0|2|3|3|0|3|0|0" />
+        <i3dMapping id="rightArm1CultivatorUnitEffects_soilEmitter" node="0>0|2|3|3|0|3|0|1" />
+        <i3dMapping id="rightArm1CultivatorUnitEffects_chunkEmitter" node="0>0|2|3|3|0|3|0|2" />
+        <i3dMapping id="rightArm1Tines" node="0>0|2|3|3|0|4" />
+        <i3dMapping id="rightArm1TinesEnd" node="0>0|2|3|3|0|4|0" />
+        <i3dMapping id="rightArm1CultivatorUnitTopArmHydraulics" node="0>0|2|3|4" />
+        <i3dMapping id="rightArm1CultivatorUnitTopArmHydraulicsPunch" node="0>0|2|3|4|0" />
+        <i3dMapping id="rightArm1BackBottomArm" node="0>0|2|3|5" />
+        <i3dMapping id="rightArm1DrillUnit" node="0>0|2|3|5|0" />
+        <i3dMapping id="rightArm1DrillUnitTopArm" node="0>0|2|3|5|0|0" />
+        <i3dMapping id="rightArm1DrillUnitBlades" node="0>0|2|3|5|0|1" />
+        <i3dMapping id="rightArm1DrillUnitFrontWheel" node="0>0|2|3|5|0|2|0" />
+        <i3dMapping id="rightArm1DrillUnitBackWheel" node="0>0|2|3|5|0|3|0" />
+        <i3dMapping id="rightArm1DrillUnitDamperRef" node="0>0|2|3|5|0|4" />
+        <i3dMapping id="rightArm1DrillUnitEffects_soilEmitter" node="0>0|2|3|5|0|5|0|0" />
+        <i3dMapping id="rightArm1DrillUnitEffects_chunkEmitter" node="0>0|2|3|5|0|5|0|1" />
+        <i3dMapping id="rightArm1BackBottomArmHydraulicsRef" node="0>0|2|3|5|1" />
+        <i3dMapping id="rightArm1BackBottomArmHydraulics" node="0>0|2|3|6" />
+        <i3dMapping id="rightArm1BackBottomArmHydraulicsPunch" node="0>0|2|3|6|0" />
+        <i3dMapping id="rightArm1DrillUnitDamper" node="0>0|2|3|7" />
+        <i3dMapping id="rightArm1DrillUnitDamperPunch" node="0>0|2|3|7|0" />
+        <i3dMapping id="rightArm1HydraulicsRef" node="0>0|2|3|8" />
+        <i3dMapping id="rightArm2RefFrame" node="0>0|2|3|9" />
+        <i3dMapping id="connectionRightJoint" node="0>0|2|3|10" />
+        <i3dMapping id="rightArm1Hydraulics" node="0>0|2|4" />
+        <i3dMapping id="rightArm1HydraulicsPunch" node="0>0|2|4|0" />
+        <i3dMapping id="centerArmFrontBottomArm" node="0>0|2|5" />
+        <i3dMapping id="centerArmCultivatorUnit" node="0>0|2|5|0" />
+        <i3dMapping id="centerArmCultivatorUnitTopArm" node="0>0|2|5|0|0" />
+        <i3dMapping id="centerArmCultivatorUnitTopArmHydraulicsRef" node="0>0|2|5|0|0|0" />
+        <i3dMapping id="centerArmCultivatorUnitWheels" node="0>0|2|5|0|1" />
+        <i3dMapping id="centerArmDepthNode" node="0>0|2|5|0|2" />
+        <i3dMapping id="centerArmCultivatorUnitEffects_smokeEmitter" node="0>0|2|5|0|3|0|0" />
+        <i3dMapping id="centerArmCultivatorUnitEffects_soilEmitter" node="0>0|2|5|0|3|0|1" />
+        <i3dMapping id="centerArmCultivatorUnitEffects_chunkEmitter" node="0>0|2|5|0|3|0|2" />
+        <i3dMapping id="centerArmTines" node="0>0|2|5|0|4" />
+        <i3dMapping id="centerArmTinesEnd" node="0>0|2|5|0|4|0" />
+        <i3dMapping id="centerArmCultivatorUnitTopArmHydraulics" node="0>0|2|6" />
+        <i3dMapping id="centerArmCultivatorUnitTopArmHydraulicsPunch" node="0>0|2|6|0" />
+        <i3dMapping id="centerArmBackBottomArm" node="0>0|2|7" />
+        <i3dMapping id="centerArmDrillUnit" node="0>0|2|7|0" />
+        <i3dMapping id="centerArmDrillUnitTopArm" node="0>0|2|7|0|0" />
+        <i3dMapping id="centerArmDrillUnitBlades" node="0>0|2|7|0|1" />
+        <i3dMapping id="centerArmDrillUnitFrontWheels" node="0>0|2|7|0|2" />
+        <i3dMapping id="centerArmDrillUnitBackWheels" node="0>0|2|7|0|3" />
+        <i3dMapping id="centerArmDrillUnitDamperRef" node="0>0|2|7|0|4" />
+        <i3dMapping id="centerArmDrillUnitEffects" node="0>0|2|7|0|5" />
+        <i3dMapping id="centerArmDrillUnitEffects_soilEmitter" node="0>0|2|7|0|5|0|0" />
+        <i3dMapping id="centerArmDrillUnitEffects_chunkEmitter" node="0>0|2|7|0|5|0|1" />
+        <i3dMapping id="centerArmBackBottomArmHydraulicsRef" node="0>0|2|7|1" />
+        <i3dMapping id="centerArmBackBottomArmHydraulics" node="0>0|2|8" />
+        <i3dMapping id="centerArmBackBottomArmHydraulicsPunch" node="0>0|2|8|0" />
+        <i3dMapping id="centerArmDrillUnitDamper" node="0>0|2|9" />
+        <i3dMapping id="centerArmDrillUnitDamperPunch" node="0>0|2|9|0" />
+        <i3dMapping id="leftArm1RefFrame" node="0>0|2|10" />
+        <i3dMapping id="rightArm1RefFrame" node="0>0|2|11" />
+        <i3dMapping id="workAreas" node="0>0|3" />
+        <i3dMapping id="workAreaStart" node="0>0|3|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|3|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|3|2" />
+        <i3dMapping id="ai" node="0>0|4" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|4|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|4|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|4|0|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|4|1" />
+        <i3dMapping id="mainBodyBone" node="0>0|6" />
+        <i3dMapping id="collisions" node="0>0|7" />
+        <i3dMapping id="skinnedMeshes" node="0>0|8" />
+        <i3dMapping id="blackPipes" node="0>0|8|0" />
+        <i3dMapping id="yellowPipes" node="0>0|8|1" />
+        <i3dMapping id="terminator18_drawbar_component2" node="1>" />
+        <i3dMapping id="attacherJoint" node="1>0" />
+        <i3dMapping id="ptoInputNode" node="1>0|0" />
+        <i3dMapping id="referencePointDrawbar" node="1>1" />
+        <i3dMapping id="supportColPart" node="1>2" />
+        <i3dMapping id="componentJointLeftArm2" node="2>0" />
+        <i3dMapping id="leftArm1Ref" node="2>1" />
+        <i3dMapping id="leftArm1FrontWheelRepr" node="2>2" />
+        <i3dMapping id="leftArm1FrontWheelDriveNode" node="2>2|0" />
+        <i3dMapping id="leftArm1backWheel" node="2>3" />
+        <i3dMapping id="leftArm2Ref" node="3>0" />
+        <i3dMapping id="leftArm2FrontWheelRepr" node="3>1" />
+        <i3dMapping id="leftArm2FrontWheelDriveNode" node="3>1|0" />
+        <i3dMapping id="leftArm2BackWheel" node="3>2" />
+        <i3dMapping id="componentJointRightArm2" node="4>0" />
+        <i3dMapping id="rightArm1Ref" node="4>1" />
+        <i3dMapping id="rightArm1FrontWheelRepr" node="4>2" />
+        <i3dMapping id="rightArm1FrontWheelDriveNode" node="4>2|0" />
+        <i3dMapping id="rightArm1BackWheel" node="4>3" />
+        <i3dMapping id="rightArm2Ref" node="5>0" />
+        <i3dMapping id="rightArm2FrontWheelRepr" node="5>1" />
+        <i3dMapping id="rightArm2FrontWheelDriveNode" node="5>1|0" />
+        <i3dMapping id="rightArm2BackWheel" node="5>2" />
+    </i3dMappings>
+</vehicle>

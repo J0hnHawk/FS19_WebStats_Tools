@@ -1,0 +1,1015 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="windrower">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Hibiscus 1515 CD Profi</name>
+        <specs>
+            <workingWidth>14.8</workingWidth>
+            <neededPower>110</neededPower>
+            <combination>AGCO 650</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_windrower</function>
+        </functions>
+        <image>$data/vehicles/lely/hibiscus1515CdProf/store_hibiscus1515CdProf.png</image>
+        <price>62000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>LELY</brand>
+        <category>windrowers</category>
+        <vertexBufferMemoryUsage>1856192</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>281112</indexBufferMemoryUsage>
+        <textureMemoryUsage>6466360</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_windrower</typeDesc>
+        <filename>$data/vehicles/lely/hibiscus1515CdProf/hibiscus1515CdProf.i3d</filename>
+        <size width="3.5" length="10" />
+        <speedLimit value="18" />
+        <components>
+            <component centerOfMass="0 0 0" solverIterationCount="30" mass="2950"/>
+            <component centerOfMass="0 0 0" solverIterationCount="30" mass="500"/>
+            <component centerOfMass="0.2 0.2 0" solverIterationCount="10" mass="500"/>
+            <component centerOfMass="-0.2 0.2 0" solverIterationCount="10" mass="500"/>
+            <component centerOfMass="0.2 0.2 0" solverIterationCount="10" mass="500"/>
+            <component centerOfMass="-0.2 0.2 0" solverIterationCount="10" mass="500"/>
+            <joint component1="1" component2="2" node="attacherComponentJoint" rotLimit="0 55 0" transLimit="0 0 0" />
+            <joint component1="1" component2="3" node="componentJoint1to3" rotLimit="0 0 2"  transLimit="0 0.4 0" />
+            <joint component1="1" component2="4" node="componentJoint1to4" rotLimit="0 0 2"  transLimit="0 0.4 0" />
+            <joint component1="1" component2="5" node="componentJoint1to5" rotLimit="0 0 2"  transLimit="0 0.4 0" />
+            <joint component1="1" component2="6" node="componentJoint1to6" rotLimit="0 0 2"  transLimit="0 0.4 0" />
+
+            <collisionPair component1="2" component2="3" enabled="false" />
+            <collisionPair component1="2" component2="4" enabled="false" />
+            <collisionPair component1="3" component2="4" enabled="false" />
+            <collisionPair component1="3" component2="5" enabled="false" />
+            <collisionPair component1="3" component2="6" enabled="false" />
+            <collisionPair component1="3" component2="5" enabled="false" />
+            <collisionPair component1="3" component2="6" enabled="false" />
+            <collisionPair component1="5" component2="6" enabled="false" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <powerConsumer ptoRpm="450" neededMinPtoPower="30" neededMaxPtoPower="30"/>
+
+     <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/560_45R22_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics restLoad="2.3" repr="wheelLeft"  forcePointRatio="0.5" initialCompression="40" suspTravel="0.13" spring="40" damper="60" />
+                        <wheelChock/>
+                        <wheelChock isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/560_45R22_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics restLoad="2.3" repr="wheelRight" forcePointRatio="0.5" initialCompression="40" suspTravel="0.13" spring="40" damper="60" />
+                    </wheel>
+
+                    <wheel>
+                        <physics restLoad="0.1" repr="armFrontLeftWheelFront"      forcePointRatio="0.2" mass="0.01" radius="0.21" width="0.16" initialCompression="50" suspTravel="0.03" spring="20" damper="20" frictionScale="0.1" isSynchronized="false" />
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="armFrontLeftWheelBackRight"  forcePointRatio="0.2" mass="0.01" radius="0.21" width="0.16" initialCompression="50" suspTravel="0.03" spring="20" damper="20" frictionScale="0.1" isSynchronized="false" />
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="armFrontLeftWheelBackLeft"   forcePointRatio="0.2" mass="0.01" radius="0.21" width="0.16" initialCompression="50" suspTravel="0.03" spring="20" damper="20" frictionScale="0.1" isSynchronized="false" />
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="armFrontRightWheelFront"     forcePointRatio="0.2" mass="0.01" radius="0.21" width="0.16" initialCompression="50" suspTravel="0.03" spring="20" damper="20" frictionScale="0.1" isSynchronized="false" />
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="armFrontRightWheelBackLeft"  forcePointRatio="0.2" mass="0.01" radius="0.21" width="0.16" initialCompression="50" suspTravel="0.03" spring="20" damper="20" frictionScale="0.1" isSynchronized="false" />
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="armFrontRightWheelBackRight" forcePointRatio="0.2" mass="0.01" radius="0.21" width="0.16" initialCompression="50" suspTravel="0.03" spring="20" damper="20" frictionScale="0.1" isSynchronized="false" />
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="armBackLeftWheelFront"       forcePointRatio="0.2" mass="0.01" radius="0.21" width="0.16" initialCompression="50" suspTravel="0.03" spring="20" damper="20" frictionScale="0.1" isSynchronized="false" />
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="armBackLeftWheelBackLeft"    forcePointRatio="0.2" mass="0.01" radius="0.21" width="0.16" initialCompression="50" suspTravel="0.03" spring="20" damper="20" frictionScale="0.1" isSynchronized="false" />
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="armBackLeftWheelBackRight"   forcePointRatio="0.2" mass="0.01" radius="0.21" width="0.16" initialCompression="50" suspTravel="0.03" spring="20" damper="20" frictionScale="0.1" isSynchronized="false" />
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="armBackRightWheelFront"      forcePointRatio="0.2" mass="0.01" radius="0.21" width="0.16" initialCompression="50" suspTravel="0.03" spring="20" damper="20" frictionScale="0.1" isSynchronized="false" />
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="armBackRightWheelRight"      forcePointRatio="0.2" mass="0.01" radius="0.21" width="0.16" initialCompression="50" suspTravel="0.03" spring="20" damper="20" frictionScale="0.1" isSynchronized="false" />
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="armBackRightWheelLeft"       forcePointRatio="0.2" mass="0.01" radius="0.21" width="0.16" initialCompression="50" suspTravel="0.03" spring="20" damper="20" frictionScale="0.1" isSynchronized="false" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <dynamicallyLoadedWheels>
+            <dynamicallyLoadedWheel linkNode="rowerFrameLeftFrontAxisWheelLeft"         filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true"/>
+            <dynamicallyLoadedWheel linkNode="rowerFrameLeftFrontAxisWheelRight"        filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false"/>
+            <dynamicallyLoadedWheel linkNode="rowerFrameLeftFrontAxisMiddleRightWheel"  filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false"/>
+            <dynamicallyLoadedWheel linkNode="rowerFrameLeftFrontAxisMiddleLeftWheel"   filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true"/>
+            <dynamicallyLoadedWheel linkNode="rowerFrameLeftFrontAxisBackRightWheel"    filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true"/>
+            <dynamicallyLoadedWheel linkNode="rowerFrameLeftFrontAxisBackLeftWheel"     filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false"/>
+
+            <dynamicallyLoadedWheel linkNode="rowerFrameLeftBackAxisFrontLeftWheel"     filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false"/>
+            <dynamicallyLoadedWheel linkNode="rowerFrameLeftBackAxisFrontRightWheel"    filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true"/>
+            <dynamicallyLoadedWheel linkNode="armLeftBackAxisMiddleLeftWheel_vis"       filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false"/>
+            <dynamicallyLoadedWheel linkNode="armLeftBackAxisMiddleRightWheel_vis"      filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true"/>
+            <dynamicallyLoadedWheel linkNode="rowerFrameLeftBackAxisMiddleLeftWheel"    filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true"/>
+            <dynamicallyLoadedWheel linkNode="rowerFrameLeftBackAxisMiddleRightWheel"   filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false"/>
+
+            <dynamicallyLoadedWheel linkNode="rowerFrameFrontRightAxisFrontWheelLeft"   filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true"/>
+            <dynamicallyLoadedWheel linkNode="rowerFrameFrontRightAxisFrontWheelRight"  filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false"/>
+            <dynamicallyLoadedWheel linkNode="rowerFrameFrontRightAxisMiddleWheelLeft"  filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true"/>
+            <dynamicallyLoadedWheel linkNode="rowerFrameFrontRightAxisMiddleWheelRight" filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false"/>
+            <dynamicallyLoadedWheel linkNode="rowerFrameFrontRightAxisBackWheelLeft"    filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false"/>
+            <dynamicallyLoadedWheel linkNode="rowerFrameFrontRightAxisBackWheelRight"   filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true"/>
+
+            <dynamicallyLoadedWheel linkNode="rowerFrameRightBackAxisFrontWheelLeft"    filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false"/>
+            <dynamicallyLoadedWheel linkNode="rowerFrameRightBackAxisFrontWheelRight"   filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true"/>
+            <dynamicallyLoadedWheel linkNode="rowerFrameRightBackAxisMiddleLeft"        filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false"/>
+            <dynamicallyLoadedWheel linkNode="rowerFrameRightBackAxisMiddleRight"       filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true"/>
+            <dynamicallyLoadedWheel linkNode="rowerFrameRightBackAxisBackLeft"          filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true"/>
+            <dynamicallyLoadedWheel linkNode="rowerFrameRightBackAxisBackRight"         filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false"/>
+        </dynamicallyLoadedWheels>
+
+        <hubs>
+            <hub linkNode="wheelLeft"  filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="true"  scale="0.335 0.335 0.335" >
+                <color0>LELY_RED1</color0>
+                <color1>SHARED_BLACK2</color1>
+            </hub>
+            <hub linkNode="wheelRight" filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="false" scale="0.335 0.335 0.335" >
+                <color0>LELY_RED1</color0>
+                <color1>SHARED_BLACK2</color1>
+            </hub>
+
+            <hub linkNode="rowerFrameLeftFrontAxisWheelLeft"         filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.12 0.12 0.12" />
+            <hub linkNode="rowerFrameLeftFrontAxisWheelRight"        filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.12 0.12 0.12" />
+            <hub linkNode="rowerFrameLeftFrontAxisMiddleRightWheel"  filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.12 0.12 0.12" />
+            <hub linkNode="rowerFrameLeftFrontAxisMiddleLeftWheel"   filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.12 0.12 0.12" />
+            <hub linkNode="rowerFrameLeftFrontAxisBackRightWheel"    filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.12 0.12 0.12" />
+            <hub linkNode="rowerFrameLeftFrontAxisBackLeftWheel"     filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.12 0.12 0.12" />
+
+            <hub linkNode="rowerFrameLeftBackAxisFrontLeftWheel"     filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.12 0.12 0.12" />
+            <hub linkNode="rowerFrameLeftBackAxisFrontRightWheel"    filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.12 0.12 0.12" />
+            <hub linkNode="armLeftBackAxisMiddleLeftWheel_vis"       filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.12 0.12 0.12" />
+            <hub linkNode="armLeftBackAxisMiddleRightWheel_vis"      filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.12 0.12 0.12" />
+            <hub linkNode="rowerFrameLeftBackAxisMiddleLeftWheel"    filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.12 0.12 0.12" />
+            <hub linkNode="rowerFrameLeftBackAxisMiddleRightWheel"   filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.12 0.12 0.12" />
+
+            <hub linkNode="rowerFrameFrontRightAxisFrontWheelLeft"   filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.12 0.12 0.12" />
+            <hub linkNode="rowerFrameFrontRightAxisFrontWheelRight"  filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.12 0.12 0.12" />
+            <hub linkNode="rowerFrameFrontRightAxisMiddleWheelLeft"  filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.12 0.12 0.12" />
+            <hub linkNode="rowerFrameFrontRightAxisMiddleWheelRight" filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.12 0.12 0.12" />
+            <hub linkNode="rowerFrameFrontRightAxisBackWheelLeft"    filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.12 0.12 0.12" />
+            <hub linkNode="rowerFrameFrontRightAxisBackWheelRight"   filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.12 0.12 0.12" />
+
+            <hub linkNode="rowerFrameRightBackAxisFrontWheelLeft"    filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.12 0.12 0.12" />
+            <hub linkNode="rowerFrameRightBackAxisFrontWheelRight"   filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.12 0.12 0.12" />
+            <hub linkNode="rowerFrameRightBackAxisMiddleLeft"        filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.12 0.12 0.12" />
+            <hub linkNode="rowerFrameRightBackAxisMiddleRight"       filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.12 0.12 0.12" />
+            <hub linkNode="rowerFrameRightBackAxisBackLeft"          filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.12 0.12 0.12" />
+            <hub linkNode="rowerFrameRightBackAxisBackRight"         filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.12 0.12 0.12" />
+        </hubs>
+    </wheels>
+
+    <speedRotatingParts>
+        <speedRotatingPart node="rowerFrameLeftFrontAxisWheels"  radius="0.196" foldMinLimit="0" foldMaxLimit="0.1"/>
+        <speedRotatingPart node="rowerFrameLeftFrontAxisMiddle"  radius="0.196" foldMinLimit="0" foldMaxLimit="0.1"/>
+        <speedRotatingPart node="rowerFrameLeftFrontAxisBack"  radius="0.196" foldMinLimit="0" foldMaxLimit="0.1"/>
+        <speedRotatingPart node="rowerFrameLeftBackAxisFront"  radius="0.196" foldMinLimit="0" foldMaxLimit="0.1"/>
+        <speedRotatingPart node="rowerFrameLeftBackAxisMiddle"  radius="0.196" foldMinLimit="0" foldMaxLimit="0.1"/>
+        <speedRotatingPart node="rowerFrameLeftBackAxisBack"  radius="0.196" foldMinLimit="0" foldMaxLimit="0.1"/>
+        <speedRotatingPart node="rowerFrameFrontRightAxisFront"  radius="0.196" foldMinLimit="0" foldMaxLimit="0.1"/>
+        <speedRotatingPart node="rowerFrameFrontRightAxisMiddle"  radius="0.196" foldMinLimit="0" foldMaxLimit="0.1"/>
+        <speedRotatingPart node="rowerFrameFrontRightAxisBack"  radius="0.196" foldMinLimit="0" foldMaxLimit="0.1"/>
+        <speedRotatingPart node="rowerFrameRightBackAxisFront"  radius="0.196" foldMinLimit="0" foldMaxLimit="0.1"/>
+        <speedRotatingPart node="rowerFrameRightBackAxisMiddle"  radius="0.196" foldMinLimit="0" foldMaxLimit="0.1"/>
+        <speedRotatingPart node="rowerFrameRightBackAxisBack"  radius="0.196" foldMinLimit="0" foldMaxLimit="0.1"/>
+
+        <speedRotatingPart node="rowerFrameFrontRight" updateXDrive="false" foldMinLimit="0" foldMaxLimit="0.1" versatileYRot="true"  />
+        <speedRotatingPart node="rowerFrameRightBackAxis" updateXDrive="false" foldMinLimit="0" foldMaxLimit="0.05" versatileYRot="true"  />
+        <speedRotatingPart node="rowerFrameLeftFrontAxis" updateXDrive="false" foldMinLimit="0" foldMaxLimit="0.1" versatileYRot="true"  />
+        <speedRotatingPart node="rowerFrameLeftBackAxis" updateXDrive="false" foldMinLimit="0" foldMaxLimit="0.05" versatileYRot="true"  />
+    </speedRotatingParts>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint rootNode="hibiscus1515CdProf_attacher_component2" node="attacherJoint" jointType="implement" lowerTransLimitScale="0 0 0" isDefaultLowered="true" needsLowering="false" allowsLowering="false" >
+                <distanceToGround lower="0.65" upper="0.65" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+        <support animationName="moveSupport" />
+        <brakeForce>1.0</brakeForce>
+    </attachable>
+
+    <lights>
+        <sharedLight linkNode="backlight01"       filename="$data/shared/assets/lights/lizard/rear2ChamberLight_01_left.xml" />
+        <sharedLight linkNode="backlight02"       filename="$data/shared/assets/lights/lizard/rear2ChamberLight_01_right.xml" />
+        <sharedLight linkNode="frontlight01"       filename="$data/shared/assets/lights/lizard/frontLightRectangle_01.xml" />
+        <sharedLight linkNode="frontlight02"       filename="$data/shared/assets/lights/lizard/frontLightRectangle_01.xml" />
+        <sharedLight linkNode="yellowRound01"       filename="$data/shared/assets/reflectors/lizard/yellowRound_01.xml" />
+        <sharedLight linkNode="yellowRound02"       filename="$data/shared/assets/reflectors/lizard/yellowRound_01.xml" />
+        <sharedLight linkNode="yellowRound03"       filename="$data/shared/assets/reflectors/lizard/yellowRound_01.xml" />
+        <sharedLight linkNode="yellowRound04"       filename="$data/shared/assets/reflectors/lizard/yellowRound_01.xml" />
+        <realLights>
+            <high>
+                <light node="backLightHighLeftBack" lightTypes="0" />
+                <light node="backLightHighBackRight" lightTypes="0" />
+                <turnLightLeft node="turnLightLeftBack" />
+                <turnLightRight node="turnLightRightBack" />
+                <brakeLight node="backLightHighLeftBack" />
+                <brakeLight node="backLightHighBackRight" />
+            </high>
+        </realLights>
+    </lights>
+
+    <powerTakeOffs>
+        <input inputAttacherJointIndices="1" inputNode="ptoInputNode" detachNode="ptoDetachNode" filename="$data/shared/assets/powerTakeOffs/walterscheidWWZ.xml" />
+    </powerTakeOffs>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundRefNodeLeftFront" threshold="0.2" />
+        <groundReferenceNode node="groundRefNodeRightFront" threshold="0.2" />
+        <groundReferenceNode node="groundRefNodeLeftBack" threshold="0.1" />
+        <groundReferenceNode node="groundRefNodeRightBack" threshold="0.1" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="windrower" functionName="processWindrowerArea" disableBackwards="false" >
+            <area startNode="rowerFrameLeftFrontWorkAreaStart" widthNode="rowerFrameLeftFrontWorkAreaWidth" heightNode="rowerFrameLeftFrontWorkAreaHeight" />
+            <groundReferenceNode index="1" />
+            <windrower dropWindrowWorkAreaIndex="5" />
+        </workArea>
+        <workArea type="windrower" functionName="processWindrowerArea" disableBackwards="false" >
+            <area startNode="armRightFrontWorkAreaStart" widthNode="armRightFrontWorkAreaWidth" heightNode="armRightFrontWorkAreaHeight" />
+            <groundReferenceNode index="2" />
+            <windrower dropWindrowWorkAreaIndex="6" />
+        </workArea>
+        <workArea type="windrower" functionName="processWindrowerArea" disableBackwards="false" >
+            <area startNode="rowerFrameLeftBackWorkAreaStart" widthNode="rowerFrameLeftBackWorkAreaWidth" heightNode="rowerFrameLeftBackWorkAreaHeight" />
+            <groundReferenceNode index="3" />
+            <windrower dropWindrowWorkAreaIndex="7" />
+        </workArea>
+        <workArea type="windrower" functionName="processWindrowerArea" disableBackwards="false" >
+            <area startNode="armRightBackWorkAreaStart" widthNode="armRightBackWorkAreaWidth" heightNode="armRightBackWorkAreaHeight" />
+            <groundReferenceNode index="4" />
+            <windrower dropWindrowWorkAreaIndex="7" />
+        </workArea>
+
+        <workArea type="auxiliary" >
+            <area startNode="rowerFrameLeftFrontDropAreaStart" widthNode="rowerFrameLeftFrontDropAreaWidth" heightNode="rowerFrameLeftFrontDropAreaHeight" />
+        </workArea>
+        <workArea type="auxiliary" >
+            <area startNode="armRightFrontDropAreaStart" widthNode="armRightFrontDropAreaWidth" heightNode="armRightFrontDropAreaHeight" />
+        </workArea>
+        <workArea type="auxiliary" >
+            <area startNode="dropAreaStart" widthNode="dropAreaWidth" heightNode="dropAreaHeight" />
+        </workArea>
+    </workAreas>
+
+    <windrower>
+        <animationNodes>
+            <animationNode node="rowerLeftFront" rotSpeed="-350" rotAxis="2" />
+            <animationNode node="rowerLeftBack" rotSpeed="-450" rotAxis="2" />
+            <animationNode node="rowerRightFront" rotSpeed="350" rotAxis="2" />
+            <animationNode node="rowerRightBack" rotSpeed="450" rotAxis="2" />
+        </animationNodes>
+
+        <rakes>
+            <rake node="rowerLeftFront" moveUpRange="15 90" moveDownRange="180 265" dir="-1" spikeMaxRotZ="55" >
+                <spike node="rowerLeftFrontSpike02" />
+                <spike node="rowerLeftFrontSpike02" />
+                <spike node="rowerLeftFrontSpike03" />
+                <spike node="rowerLeftFrontSpike04" />
+                <spike node="rowerLeftFrontSpike05" />
+                <spike node="rowerLeftFrontSpike06" />
+                <spike node="rowerLeftFrontSpike07" />
+                <spike node="rowerLeftFrontSpike08" />
+                <spike node="rowerLeftFrontSpike09" />
+                <spike node="rowerLeftFrontSpike10" />
+                <spike node="rowerLeftFrontSpike11" />
+                <spike node="rowerLeftFrontSpike12" />
+                <spike node="rowerLeftFrontSpike13" />
+            </rake>
+            <rake node="rowerLeftBack" moveUpRange="15 90" moveDownRange="180 265" dir="-1" spikeMaxRotZ="55" >
+                <spike node="rowerLeftBackSpike01" />
+                <spike node="rowerLeftBackSpike02" />
+                <spike node="rowerLeftBackSpike03" />
+                <spike node="rowerLeftBackSpike04" />
+                <spike node="rowerLeftBackSpike05" />
+                <spike node="rowerLeftBackSpike06" />
+                <spike node="rowerLeftBackSpike07" />
+                <spike node="rowerLeftBackSpike08" />
+                <spike node="rowerLeftBackSpike09" />
+                <spike node="rowerLeftBackSpike10" />
+                <spike node="rowerLeftBackSpike11" />
+                <spike node="rowerLeftBackSpike12" />
+                <spike node="rowerLeftBackSpike13" />
+            </rake>
+            <rake node="rowerRightFront" moveUpRange="15 90" moveDownRange="180 265" dir="1" spikeMaxRotZ="-55" >
+                <spike node="rowerRightFrontSpike01" />
+                <spike node="rowerRightFrontSpike02" />
+                <spike node="rowerRightFrontSpike03" />
+                <spike node="rowerRightFrontSpike04" />
+                <spike node="rowerRightFrontSpike05" />
+                <spike node="rowerRightFrontSpike06" />
+                <spike node="rowerRightFrontSpike07" />
+                <spike node="rowerRightFrontSpike08" />
+                <spike node="rowerRightFrontSpike09" />
+                <spike node="rowerRightFrontSpike10" />
+                <spike node="rowerRightFrontSpike11" />
+                <spike node="rowerRightFrontSpike12" />
+                <spike node="rowerRightFrontSpike13" />
+            </rake>
+            <rake node="rowerRightBack" moveUpRange="15 90" moveDownRange="180 265" dir="1" spikeMaxRotZ="-55" >
+                <spike node="rowerRightBackSpike01" />
+                <spike node="rowerRightBackSpike02" />
+                <spike node="rowerRightBackSpike03" />
+                <spike node="rowerRightBackSpike04" />
+                <spike node="rowerRightBackSpike05" />
+                <spike node="rowerRightBackSpike06" />
+                <spike node="rowerRightBackSpike07" />
+                <spike node="rowerRightBackSpike08" />
+                <spike node="rowerRightBackSpike09" />
+                <spike node="rowerRightBackSpike10" />
+                <spike node="rowerRightBackSpike11" />
+                <spike node="rowerRightBackSpike12" />
+                <spike node="rowerRightBackSpike13" />
+            </rake>
+        </rakes>
+
+        <effects>
+            <effect workAreaIndex="1">
+                <effectNode effectClass="ParticleEffect" effectNode="rowerFrameLeftFrontWorkParticleEmitter" particleType="WINDROWER" />
+            </effect>
+            <effect workAreaIndex="2">
+                <effectNode effectClass="ParticleEffect" effectNode="armRightFrontParticleEmitter" particleType="WINDROWER" />
+            </effect>
+            <effect workAreaIndex="3">
+                <effectNode effectClass="ParticleEffect" effectNode="rowerFrameLeftBackParticleEmitter" particleType="WINDROWER" />
+            </effect>
+            <effect workAreaIndex="4">
+                <effectNode effectClass="ParticleEffect" effectNode="armRightBackParticleEmitter" particleType="WINDROWER" />
+            </effect>
+        </effects>
+
+        <sounds>
+            <work template="DEFAULT_TEDDER" linkNode="hibiscus1515CdProf_main_component1" />
+        </sounds>
+    </windrower>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="leftArm" >
+                <dependentPart node="leftArmPart" />
+                <componentJoint index="2" anchorActor="0" />
+                <componentJoint index="4" anchorActor="0" />
+            </movingTool>
+            <movingTool node="leftArmAxis" wheelIndices="1" >
+            </movingTool>
+            <movingTool node="armLeftFrontPart" >
+                <dependentPart node="rowerFrameLeftFrontMover" />
+            </movingTool>
+            <movingTool node="armLeftBackPart" >
+                <dependentPart node="backArmLeftHelpArm" />
+            </movingTool>
+            <movingTool node="rightArm" >
+                <dependentPart node="rightArmPart" />
+                <componentJoint index="3" anchorActor="0" />
+                <componentJoint index="5" anchorActor="0" />
+            </movingTool>
+            <movingTool node="rightArmAxis" wheelIndices="2" >
+            </movingTool>
+            <movingTool node="armRightFrontPart" >
+                <dependentPart node="armRightFrontMover" />
+            </movingTool>
+            <movingTool node="armRightBackPart" >
+                <dependentPart node="backArmRightHelpArm" />
+            </movingTool>
+
+            <movingTool node="jointArmLeftFront" playSound="true" >
+                <componentJoint index="2" anchorActor="0" />
+            </movingTool>
+            <movingTool node="jointArmLeftFrontPart" playSound="true">
+                <componentJoint index="2" anchorActor="0" />
+            </movingTool>
+            <movingTool node="jointArmLeftBack" playSound="true">
+                <componentJoint index="4" anchorActor="0" />
+            </movingTool>
+            <movingTool node="jointArmLeftBackPart" playSound="true">
+                <componentJoint index="4" anchorActor="0" />
+            </movingTool>
+            <movingTool node="jointArmRightFront" playSound="true" >
+                <componentJoint index="3" anchorActor="0" />
+            </movingTool>
+            <movingTool node="jointArmRightFrontPart" playSound="true">
+                <componentJoint index="3" anchorActor="0" />
+            </movingTool>
+            <movingTool node="armRightBackJoint" playSound="true" >
+                <componentJoint index="5" anchorActor="0" />
+            </movingTool>
+            <movingTool node="jointArmRightBackPart" playSound="true">
+                <componentJoint index="5" anchorActor="0" />
+            </movingTool>
+
+            <movingTool node="transportationLock" >
+                <dependentPart node="hydraulicTransportationLock" />
+            </movingTool>
+            <movingTool node="foldingLock" >
+                <dependentPart node="hydraulicFoldingLock" />
+            </movingTool>
+            <movingTool node="swath" >
+                <dependentPart node="hydraulicSwath" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="leftArmPart" referencePoint="leftArmRef" referenceFrame="leftArmRef" scaleZ="true" >
+                <dependentPart node="hydraulicLeftArm" />
+                <dependentPart node="leftArmAxisPart" />
+                <dependentPart node="ptoLeft" />
+            </movingPart>
+            <movingPart node="hydraulicLeftArm" referencePoint="hydraulicLeftArmRef" referenceFrame="hydraulicLeftArmRef" playSound="true">
+                <translatingPart node="hydraulicLeftArmPunch" />
+            </movingPart>
+            <movingPart node="leftArmAxisPart" referencePoint="leftArmAxisRef" referenceFrame="leftArmAxisRef" scaleZ="true" />
+            <movingPart node="ptoLeft" referencePoint="mainPTOLeftRef" referenceFrame="mainPTOLeftRef">
+                <translatingPart node="ptoLeftPart1" />
+                <translatingPart node="ptoLeftPart2" />
+            </movingPart>
+
+            <movingPart node="rightArmPart" referencePoint="rightArmRef" referenceFrame="rightArmRef" scaleZ="true" >
+                <dependentPart node="hydraulicRightArm" />
+                <dependentPart node="rightArmAxisPart" />
+                <dependentPart node="ptoRight" />
+            </movingPart>
+            <movingPart node="hydraulicRightArm" referencePoint="hydraulicRightArmRef" referenceFrame="hydraulicRightArmRef" playSound="true" >
+                <translatingPart node="hydraulicRightArmPunch" />
+            </movingPart>
+            <movingPart node="rightArmAxisPart" referencePoint="rightArmAxisRef" referenceFrame="rightArmAxisRef" scaleZ="true" />
+            <movingPart node="ptoRight" referencePoint="ptoRightRef" referenceFrame="ptoRightRef">
+                <translatingPart node="ptoRightPart" />
+                <translatingPart node="ptoRightPart2" />
+            </movingPart>
+
+            <movingPart node="armLeftFront" referencePoint="colLeftFrontRotorRef" referenceFrame="jointArmLeftFront" isActiveDirty="true" limitedAxis="3">
+                <dependentPart node="hydraulicFrontArmLeft" />
+                <dependentPart node="rowerFrameLeftFront" />
+                <dependentPart node="rowerFrameLeftFrontDamper1" />
+                <dependentPart node="rowerFrameLeftFrontDamper2" />
+                <dependentPart node="ptoLeftFront" />
+            </movingPart>
+            <movingPart node="hydraulicFrontArmLeft" referencePoint="hydraulicFrontArmLeftRef" referenceFrame="hydraulicFrontArmLeftRef">
+                <translatingPart node="hydraulicFrontArmLeftPunch" />
+            </movingPart>
+            <movingPart node="rowerFrameLeftFront" referenceFrame="colLeftFrontRotorRef" limitedAxis="2" />
+            <movingPart node="rowerFrameLeftFrontDamper1" referencePoint="damperFrontLeft1Ref" referenceFrame="damperFrontLeft1Ref">
+                <translatingPart node="rowerFrameLeftFrontDamper1Punch" />
+            </movingPart>
+            <movingPart node="rowerFrameLeftFrontDamper2" referencePoint="damperFrontLeft2Ref" referenceFrame="damperFrontLeft2Ref">
+                <translatingPart node="rowerFrameLeftFrontDamper2Punch" />
+            </movingPart>
+            <movingPart node="rowerFrameLeftFrontMover" localReferencePoint="rowerFrameLeftFrontMoverPart" referencePoint="rowerFrameLeftFrontMoverRef" referenceFrame="hydraulicFrontArmLeftRefFrame">
+                <dependentPart node="rowerFrameLeftFrontMoverPart" />
+            </movingPart>
+            <movingPart node="rowerFrameLeftFrontMoverPart" referencePoint="rowerFrameLeftFrontMoverRef" referenceFrame="rowerFrameLeftFrontMoverRef"/>
+            <movingPart node="ptoLeftFront" referencePoint="ptoLeftFrontRef" referenceFrame="ptoLeftFrontRef">
+                <translatingPart node="ptoLeftBackPunch" />
+            </movingPart>
+
+            <movingPart node="armRightFront" referencePoint="colRightFrontRotorRef" referenceFrame="jointArmRightFront" isActiveDirty="true" limitedAxis="3">
+                <dependentPart node="hydraulicFrontArmRight" />
+                <dependentPart node="rowerFrameRightFront" />
+                <dependentPart node="damperFrontRight1" />
+                <dependentPart node="damperFrontRight2" />
+                <dependentPart node="ptoRightFront" />
+            </movingPart>
+            <movingPart node="hydraulicFrontArmRight" referencePoint="hydraulicFrontArmRightRef" referenceFrame="hydraulicFrontArmRightRef">
+                <translatingPart node="hydraulicFrontArmRightPunch" />
+            </movingPart>
+            <movingPart node="rowerFrameRightFront" referenceFrame="colRightFrontRotorRef" limitedAxis="2" />
+            <movingPart node="damperFrontRight1" referencePoint="damperFrontRight1Ref" referenceFrame="damperFrontRight1Ref">
+                <translatingPart node="damperFrontRight1Punch" />
+            </movingPart>
+            <movingPart node="damperFrontRight2" referencePoint="damperFrontRight2Ref" referenceFrame="damperFrontRight2Ref">
+                <translatingPart node="damperFrontRight2Punch" />
+            </movingPart>
+            <movingPart node="armRightFrontMover" localReferencePoint="armRightFrontMoverPart" referencePoint="armRightFrontMoverRef" referenceFrame="armRightFrontMoverRefFrame">
+                <dependentPart node="armRightFrontMoverPart" />
+            </movingPart>
+            <movingPart node="armRightFrontMoverPart" referencePoint="armRightFrontMoverRef" referenceFrame="armRightFrontMoverRef"/>
+            <movingPart node="ptoRightFront" referencePoint="ptoRightFrontRef" referenceFrame="ptoRightFrontRef">
+                <translatingPart node="ptoRightFrontPunch" />
+            </movingPart>
+
+            <movingPart node="armLeftBack" referencePoint="colLeftBackRotorRef" referenceFrame="jointArmLeftBack" isActiveDirty="true" limitedAxis="3">
+                <dependentPart node="hydraulicBackArmLeft" />
+                <dependentPart node="rowerFrameLeftBack" />
+                <dependentPart node="armLeftBackDamper1" />
+                <dependentPart node="armLeftBackDamper2" />
+                <dependentPart node="armLeftBackDamper3" />
+                <dependentPart node="armLeftBackPTO" />
+            </movingPart>
+            <movingPart node="hydraulicBackArmLeft" referencePoint="hydraulicBackArmLeftRef" referenceFrame="hydraulicBackArmLeftRef">
+                <translatingPart node="hydraulicBackArmLeftPunch" />
+            </movingPart>
+            <movingPart node="rowerFrameLeftBack" referenceFrame="colLeftBackRotorRef" limitedAxis="2" />
+            <movingPart node="armLeftBackDamper1" referencePoint="armLeftBackDamper1Ref" referenceFrame="armLeftBackDamper1Ref">
+                <dependentPart node="armLeftBackDamper1Punch" />
+            </movingPart>
+            <movingPart node="armLeftBackDamper1Punch" referencePoint="armLeftBackDamper1Ref" referenceFrame="armLeftBackDamper1Ref" scaleZ="true" />
+            <movingPart node="armLeftBackDamper2" referencePoint="armLeftBackDamper2Ref" referenceFrame="rowerFrameLeftBack">
+                <translatingPart node="armLeftBackDamper2Punch" />
+            </movingPart>
+            <movingPart node="armLeftBackDamper3" referencePoint="armLeftBackDamper3Ref" referenceFrame="rowerFrameLeftBack">
+                <dependentPart node="armLeftBackDamper3Punch" />
+            </movingPart>
+            <movingPart node="armLeftBackDamper3Punch" referencePoint="armLeftBackDamper3Ref" referenceFrame="rowerFrameLeftBack" scaleZ="true" />
+            <movingPart node="armLeftBackPTO" referencePoint="armLeftBackPTORef" referenceFrame="armLeftBackPTORef">
+                <translatingPart node="armLeftBackPTOPunch" />
+            </movingPart>
+            <movingPart node="backArmLeftHelpArm" localReferencePoint="backArmLeftHelpArmPart" referencePoint="backArmLeftHelpArmRef" referenceFrame="backArmLeftHelpArmRefFrame">
+                <dependentPart node="backArmLeftHelpArmPart" />
+            </movingPart>
+            <movingPart node="backArmLeftHelpArmPart" referencePoint="backArmLeftHelpArmRef" referenceFrame="backArmLeftHelpArmRef"/>
+
+            <movingPart node="armRightBack" referencePoint="colRightBackRotorRef" referenceFrame="armRightBackJoint" isActiveDirty="true" limitedAxis="3">
+                <dependentPart node="hydraulicBackArmRight" />
+                <dependentPart node="rowerFrameRightBack" />
+                <dependentPart node="rowerRightBackDamper1" />
+                <dependentPart node="rowerRightBackDamper2" />
+                <dependentPart node="rowerRightBackDamper3" />
+                <dependentPart node="ptoRightBack" />
+            </movingPart>
+            <movingPart node="hydraulicBackArmRight" referencePoint="hydraulicBackArmRightRef" referenceFrame="hydraulicBackArmRightRef">
+                <translatingPart node="hydraulicBackArmRightPunch" />
+            </movingPart>
+            <movingPart node="rowerFrameRightBack" referenceFrame="colRightBackRotorRef" limitedAxis="2" />
+
+            <movingPart node="rowerRightBackDamper1" referencePoint="rowerRightBackDamper1Ref" referenceFrame="rowerRightBackDamper1Ref">
+                <dependentPart node="rowerRightBackDamper1Punch" />
+            </movingPart>
+            <movingPart node="rowerRightBackDamper1Punch" referencePoint="rowerRightBackDamper1Ref" referenceFrame="rowerRightBackDamper1Ref" scaleZ="true" />
+            <movingPart node="rowerRightBackDamper2" referencePoint="rowerRightBackDamper2Ref" referenceFrame="rowerFrameRightBack">
+                <translatingPart node="rowerRightBackDamper2Punch" />
+            </movingPart>
+            <movingPart node="rowerRightBackDamper3" referencePoint="rowerRightBackDamper3Ref" referenceFrame="rowerFrameRightBack">
+                <dependentPart node="rowerRightBackDamper3Punch" />
+            </movingPart>
+            <movingPart node="rowerRightBackDamper3Punch" referencePoint="rowerRightBackDamper3Ref" referenceFrame="rowerFrameRightBack" scaleZ="true" />
+            <movingPart node="ptoRightBack" referencePoint="ptoRightBackRef" referenceFrame="ptoRightBackRef">
+                <translatingPart node="ptoRightBackPunch" />
+            </movingPart>
+            <movingPart node="backArmRightHelpArm" localReferencePoint="backArmRightHelpArmPart" referencePoint="backArmRightHelpArmRef" referenceFrame="backArmRightHelpArmRefFrame">
+                <dependentPart node="backArmRightHelpArmPart" />
+            </movingPart>
+            <movingPart node="backArmRightHelpArmPart" referencePoint="backArmRightHelpArmRef" referenceFrame="backArmRightHelpArmRef"/>
+
+            <movingPart node="hydraulicTransportationLock" referencePoint="hydraulicTransportationLockPunch" referenceFrame="hydraulicTransportationLockPunch">
+                <translatingPart node="hydraulicTransportationLockPunch" />
+            </movingPart>
+            <movingPart node="hydraulicFoldingLock" referencePoint="hydraulicFoldingLockRef" referenceFrame="hydraulicFoldingLockRef">
+                <translatingPart node="hydraulicFoldingLockPunch" />
+            </movingPart>
+            <movingPart node="hydraulicSwath" referencePoint="hydraulicSwathRef" referenceFrame="hydraulicSwathRefFrame">
+                <translatingPart node="hydraulicSwathPunch" />
+            </movingPart>
+            <movingPart node="attacherJointRot" referencePoint="attacherJointRotRef" referenceFrame="hibiscus1515CdProf_main_component1" isActiveDirty="true" limitedAxis="2"/>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="hibiscus1515CdProf_main_component1"/>
+        </sounds>
+    </cylindered>
+
+    <animations>
+        <animation name="moveSupport">
+            <part node="supportArm_vis" startTime="0" endTime="0.3" startRot="90 0 0" endRot="0 0 0" />
+            <part node="supportCol" startTime="0" endTime="0.3" startTrans="0 0.6 0" endTrans="0 0 0" />
+            <part componentJointIndex="1" startTime="0" endTime="0.2" endRotLimit="0 0 0" />
+        </animation>
+
+        <animation name="folding">
+            <part node="swath"                  direction="-1" startTime="0" endTime="1" startRot="0 0 0" endRot="35 0 0" />
+            <part node="swath"                  direction="1"  startTime="1" endTime="2" startRot="0 0 0" endRot="35 0 0" />
+            <part node="jointArmLeftFront"      direction="-1" startTime="1" endTime="2" startRot="0 0 -8" endRot="0 0 15"  componentJointIndex="2" startRotLimit="0 0 9" startTransLimit="0 0.4 0" endRotLimit="0 0 0" endTransLimit="0 0 0"/>
+            <part node="componentJoint1to3"     direction="-1" startTime="1" endTime="2" startRot="0 0 8" endRot="0 0 -5" />
+            <part node="jointArmRightFront"     direction="-1" startTime="1" endTime="2" startRot="0 0 8" endRot="0 0 -15"  componentJointIndex="3" startRotLimit="0 0 9" startTransLimit="0 0.4 0" endRotLimit="0 0 0" endTransLimit="0 0 0"/>
+            <part node="componentJoint1to4"     direction="-1" startTime="1" endTime="2" startRot="0 0 -8" endRot="0 0 5" />
+            <part node="jointArmLeftFront"      direction="1"  startTime="0" endTime="1" startRot="0 0 -8" endRot="0 0 15"  componentJointIndex="2" startRotLimit="0 0 9" startTransLimit="0 0.4 0" endRotLimit="0 0 0" endTransLimit="0 0 0"/>
+            <part node="componentJoint1to3"     direction="1"  startTime="0" endTime="1" startRot="0 0 8"  endRot="0 0 -5" />
+            <part node="jointArmRightFront"     direction="1"  startTime="0" endTime="1" startRot="0 0 8"  endRot="0 0 -15"  componentJointIndex="3" startRotLimit="0 0 9" startTransLimit="0 0.4 0" endRotLimit="0 0 0" endTransLimit="0 0 0"/>
+            <part node="componentJoint1to4"     direction="1"  startTime="0" endTime="1" startRot="0 0 -8" endRot="0 0 5" />
+            <part node="jointArmLeftBack"       direction="1"  startTime="1" endTime="2" startRot="0 0 8" endRot="0 0 -15"  componentJointIndex="4" startRotLimit="0 0 9" startTransLimit="0 0.4 0" endRotLimit="0 0 0" endTransLimit="0 0 0"/>
+            <part node="componentJoint1to5"     direction="1"  startTime="1" endTime="2" startRot="0 0 -8" endRot="0 0 5" />
+            <part node="armRightBackJoint"      direction="1"  startTime="1" endTime="2" startRot="0 0 -8" endRot="0 0 15"  componentJointIndex="5" startRotLimit="0 0 9" startTransLimit="0 0.4 0" endRotLimit="0 0 0" endTransLimit="0 0 0"/>
+            <part node="componentJoint1to6"     direction="1"  startTime="1" endTime="2" startRot="0 0 8" endRot="0 0 -5" />
+            <part node="jointArmLeftBack"       direction="-1" startTime="0" endTime="1" startRot="0 0 8" endRot="0 0 -15"  componentJointIndex="4" startRotLimit="0 0 9" startTransLimit="0 0.4 0" endRotLimit="0 0 0" endTransLimit="0 0 0"/>
+            <part node="componentJoint1to5"     direction="-1" startTime="0" endTime="1" startRot="0 0 -8" endRot="0 0 5" />
+            <part node="armRightBackJoint"      direction="-1" startTime="0" endTime="1" startRot="0 0 -8" endRot="0 0 15"  componentJointIndex="5" startRotLimit="0 0 9" startTransLimit="0 0.4 0" endRotLimit="0 0 0" endTransLimit="0 0 0"/>
+            <part node="componentJoint1to6"     direction="-1" startTime="0" endTime="1" startRot="0 0 8" endRot="0 0 -5" />
+
+            <part node="jointArmLeftFrontPart"  startTime="2" endTime="4" startTrans="1.75 0 0" endTrans="0.937 0 0" />
+            <part node="armLeftFrontPart"       startTime="2" endTime="4" startTrans="0 0 1.65" endTrans="0 0 0.937" />
+            <part node="jointArmRightFrontPart" startTime="2" endTime="4" startTrans="-1.75 0 0" endTrans="-0.937 0 0" />
+            <part node="armRightFrontPart"      startTime="2" endTime="4" startTrans="0 0 1.65" endTrans="0 0 0.937" />
+            <part node="jointArmLeftBackPart"   startTime="2" endTime="4" startTrans="-1.55 0 0" endTrans="-0.937 0 0" />
+            <part node="armLeftBackPart"        startTime="2" endTime="4" startTrans="0 0 1.55" endTrans="0 0 0.937" />
+            <part node="jointArmRightBackPart"  startTime="2" endTime="4" startTrans="1.55 0 0" endTrans="0.937 0 0" />
+            <part node="armRightBackPart"       startTime="2" endTime="4" startTrans="0 0 1.55" endTrans="0 0 0.937" />
+
+            <part node="jointArmLeftFront"  startTime="4" endTime="8" startRot="0 0 15" endRot="0 0 98" />
+            <part node="jointArmRightFront" startTime="4" endTime="8" startRot="0 0 -15" endRot="0 0 -98" />
+            <part node="jointArmLeftBack"   startTime="4" endTime="8" startRot="0 0 -15" endRot="0 0 -95" />
+            <part node="armRightBackJoint"  startTime="4" endTime="8" startRot="0 0 15" endRot="0 0 95" />
+
+            <part node="movingPart"         startTime="8" endTime="15.5" startTrans="0 0.925 2.3" endTrans="0 0.925 3.5" />
+            <part node="leftArm"            startTime="8" endTime="15.5" startRot="0 -10 0"  endRot="0 40.25 0" />
+            <part node="leftArmAxis"        startTime="8" endTime="15.5" startRot="0 10 0"  endRot="0 -40.8 0" />
+            <part node="rightArm"           startTime="8" endTime="15.5" startRot="0 10 0"  endRot="0 -40.25 0" />
+            <part node="rightArmAxis"       startTime="8" endTime="15.5" startRot="0 -10 0"  endRot="0 40.8 0" />
+            <part node="swath"              startTime="8" endTime="15.5" startRot="35 0 0" endRot="115 0 0" />
+            <part node="transportationLock" startTime="15.5" endTime="16.5" startRot="0 0 0" endRot="0 55 0" />
+            <part node="foldingLock"        startTime="15.5" endTime="16.5" startRot="0 0 0" endRot="-50 0 0" />
+        </animation>
+    </animations>
+
+    <foldable>
+        <foldingParts startMoveDirection="1" foldMiddleAnimTime="0.125" turnOnFoldMaxLimit="0.2" turnOnFoldMinLimit="0" >
+            <foldingPart animationName="folding" speedScale="1.0" />
+        </foldingParts>
+    </foldable>
+
+    <turnOnVehicle turnOffIfNotAllowed="true"/>
+
+    <ai>
+        <needsLowering value="true" />
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack" />
+        <sizeMarkers leftNode="sizeMarkerLeft" rightNode="sizeMarkerRight" backNode="sizeMarkerBack" />
+        <collisionTrigger node="aiCollisionTrigger" />
+        <allowTurnBackward value="false" />
+        <toolReverserDirectionNode node="sizeMarkerBack" />
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-1.4" maxX="1.4" minZ="-3.1" maxZ="3.2" yOffset="0.6" />
+        <bendingNode minX="-2.0" maxX="2.0" minZ="-1.7" maxZ="2.0" yOffset="-0.5" node="componentJoint1to3" />
+        <bendingNode minX="-1.7" maxX="2.0" minZ="-1.7" maxZ="2.0" yOffset="-0.5" node="componentJoint1to5" />
+        <bendingNode minX="-2.0" maxX="2.0" minZ="-1.7" maxZ="2.0" yOffset="-0.5" node="componentJoint1to4" />
+        <bendingNode minX="-1.7" maxX="2.0" minZ="-1.7" maxZ="2.0" yOffset="-0.5" node="componentJoint1to6" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="lelyHibiscus1515CdProf_mat" baseNode="lely_vis">
+            <shaderParameter name="colorMat1" value="LELY_RED1"/>
+            <shaderParameter name="colorMat2" value="LELY_BEIGE1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="hibiscus1515CdProf_main_component1" node="0>" />
+        <i3dMapping id="lely_vis" node="0>0" />
+        <i3dMapping id="attacherComponentJoint" node="0>0|0|0" />
+        <i3dMapping id="attacherJointRot" node="0>0|0|1" />
+        <i3dMapping id="supportArm_vis" node="0>0|0|1|0" />
+        <i3dMapping id="support" node="0>0|0|2" />
+        <i3dMapping id="supportCol" node="0>0|0|2|0" />
+        <i3dMapping id="ptoInputNode" node="0>0|0|3" />
+        <i3dMapping id="ptoDetachNode" node="0>0|0|4" />
+        <i3dMapping id="yellowRound01" node="0>0|1|0" />
+        <i3dMapping id="yellowRound02" node="0>0|1|1" />
+        <i3dMapping id="movingPart" node="0>0|2" />
+        <i3dMapping id="leftArm" node="0>0|2|0" />
+        <i3dMapping id="leftArmAxis" node="0>0|2|0|0" />
+        <i3dMapping id="wheelLeft" node="0>0|2|0|0|0" />
+        <i3dMapping id="leftArmAxisRef" node="0>0|2|0|0|1" />
+        <i3dMapping id="jointArmLeftFront" node="0>0|2|0|0|2" />
+        <i3dMapping id="jointArmLeftFrontPart" node="0>0|2|0|0|2|0" />
+        <i3dMapping id="componentJoint1to3" node="0>0|2|0|0|2|0|0" />
+        <i3dMapping id="armLeftFront" node="0>0|2|0|0|3" />
+        <i3dMapping id="armLeftFrontPart" node="0>0|2|0|0|3|0" />
+        <i3dMapping id="rowerFrameLeftFront" node="0>0|2|0|0|3|0|0" />
+        <i3dMapping id="rowerLeftFront" node="0>0|2|0|0|3|0|0|0" />
+        <i3dMapping id="rowerLeftFrontSpike01" node="0>0|2|0|0|3|0|0|0|0|0" />
+        <i3dMapping id="rowerLeftFrontSpike02" node="0>0|2|0|0|3|0|0|0|1|0" />
+        <i3dMapping id="rowerLeftFrontSpike03" node="0>0|2|0|0|3|0|0|0|2|0" />
+        <i3dMapping id="rowerLeftFrontSpike04" node="0>0|2|0|0|3|0|0|0|3|0" />
+        <i3dMapping id="rowerLeftFrontSpike05" node="0>0|2|0|0|3|0|0|0|4|0" />
+        <i3dMapping id="rowerLeftFrontSpike06" node="0>0|2|0|0|3|0|0|0|5|0" />
+        <i3dMapping id="rowerLeftFrontSpike07" node="0>0|2|0|0|3|0|0|0|6|0" />
+        <i3dMapping id="rowerLeftFrontSpike08" node="0>0|2|0|0|3|0|0|0|7|0" />
+        <i3dMapping id="rowerLeftFrontSpike09" node="0>0|2|0|0|3|0|0|0|8|0" />
+        <i3dMapping id="rowerLeftFrontSpike10" node="0>0|2|0|0|3|0|0|0|9|0" />
+        <i3dMapping id="rowerLeftFrontSpike11" node="0>0|2|0|0|3|0|0|0|10|0" />
+        <i3dMapping id="rowerLeftFrontSpike12" node="0>0|2|0|0|3|0|0|0|11|0" />
+        <i3dMapping id="rowerLeftFrontSpike13" node="0>0|2|0|0|3|0|0|0|12|0" />
+        <i3dMapping id="damperFrontLeft1Ref" node="0>0|2|0|0|3|0|0|1" />
+        <i3dMapping id="damperFrontLeft2Ref" node="0>0|2|0|0|3|0|0|2" />
+        <i3dMapping id="ptoLeftFrontRef" node="0>0|2|0|0|3|0|0|3" />
+        <i3dMapping id="rowerFrameLeftFrontAxis" node="0>0|2|0|0|3|0|0|4" />
+        <i3dMapping id="rowerFrameLeftFrontAxisWheels" node="0>0|2|0|0|3|0|0|4|0" />
+        <i3dMapping id="rowerFrameLeftFrontAxisWheelLeft" node="0>0|2|0|0|3|0|0|4|0|0" />
+        <i3dMapping id="rowerFrameLeftFrontAxisWheelRight" node="0>0|2|0|0|3|0|0|4|0|1" />
+        <i3dMapping id="rowerFrameLeftFrontAxisMiddle" node="0>0|2|0|0|3|0|0|4|1" />
+        <i3dMapping id="rowerFrameLeftFrontAxisMiddleRightWheel" node="0>0|2|0|0|3|0|0|4|1|0" />
+        <i3dMapping id="rowerFrameLeftFrontAxisMiddleLeftWheel" node="0>0|2|0|0|3|0|0|4|1|1" />
+        <i3dMapping id="rowerFrameLeftFrontAxisBack" node="0>0|2|0|0|3|0|0|4|2" />
+        <i3dMapping id="rowerFrameLeftFrontAxisBackRightWheel" node="0>0|2|0|0|3|0|0|4|2|0" />
+        <i3dMapping id="rowerFrameLeftFrontAxisBackLeftWheel" node="0>0|2|0|0|3|0|0|4|2|1" />
+        <i3dMapping id="rowerFrameLeftFrontWorkAreaStart" node="0>0|2|0|0|3|0|0|5|0" />
+        <i3dMapping id="rowerFrameLeftFrontWorkAreaWidth" node="0>0|2|0|0|3|0|0|5|1" />
+        <i3dMapping id="rowerFrameLeftFrontWorkAreaHeight" node="0>0|2|0|0|3|0|0|5|2" />
+        <i3dMapping id="rowerFrameLeftFrontDropAreaStart" node="0>0|2|0|0|3|0|0|5|3" />
+        <i3dMapping id="rowerFrameLeftFrontDropAreaWidth" node="0>0|2|0|0|3|0|0|5|4" />
+        <i3dMapping id="rowerFrameLeftFrontDropAreaHeight" node="0>0|2|0|0|3|0|0|5|5" />
+        <i3dMapping id="rowerFrameLeftFrontWorkParticleEmitter" node="0>0|2|0|0|3|0|0|6" />
+        <i3dMapping id="rowerFrameLeftFrontDamper1" node="0>0|2|0|0|3|0|1|0" />
+        <i3dMapping id="rowerFrameLeftFrontDamper1Punch" node="0>0|2|0|0|3|0|1|0|0" />
+        <i3dMapping id="rowerFrameLeftFrontDamper2" node="0>0|2|0|0|3|0|1|1" />
+        <i3dMapping id="rowerFrameLeftFrontDamper2Punch" node="0>0|2|0|0|3|0|1|1|0" />
+        <i3dMapping id="rowerFrameLeftFrontMoverRef" node="0>0|2|0|0|3|0|2" />
+        <i3dMapping id="hydraulicFrontArmLeftRef" node="0>0|2|0|0|3|1" />
+        <i3dMapping id="rowerFrameLeftFrontMover" node="0>0|2|0|0|3|2" />
+        <i3dMapping id="rowerFrameLeftFrontMoverPart" node="0>0|2|0|0|3|2|0" />
+        <i3dMapping id="hydraulicFrontArmLeftRefFrame" node="0>0|2|0|0|3|3" />
+        <i3dMapping id="jointArmLeftBack" node="0>0|2|0|0|4" />
+        <i3dMapping id="jointArmLeftBackPart" node="0>0|2|0|0|4|0" />
+        <i3dMapping id="componentJoint1to5" node="0>0|2|0|0|4|0|0" />
+        <i3dMapping id="armLeftBack" node="0>0|2|0|0|5" />
+        <i3dMapping id="armLeftBackPart" node="0>0|2|0|0|5|0" />
+        <i3dMapping id="rowerFrameLeftBack" node="0>0|2|0|0|5|0|0" />
+        <i3dMapping id="rowerLeftBack" node="0>0|2|0|0|5|0|0|0" />
+        <i3dMapping id="rowerLeftBackSpikeRot1" node="0>0|2|0|0|5|0|0|0|1" />
+        <i3dMapping id="rowerLeftBackSpike01" node="0>0|2|0|0|5|0|0|0|1|0" />
+        <i3dMapping id="rowerLeftBackSpikeRot2" node="0>0|2|0|0|5|0|0|0|2" />
+        <i3dMapping id="rowerLeftBackSpike02" node="0>0|2|0|0|5|0|0|0|2|0" />
+        <i3dMapping id="rowerLeftBackSpikeRot3" node="0>0|2|0|0|5|0|0|0|3" />
+        <i3dMapping id="rowerLeftBackSpike03" node="0>0|2|0|0|5|0|0|0|3|0" />
+        <i3dMapping id="rowerLeftBackSpikeRot4" node="0>0|2|0|0|5|0|0|0|4" />
+        <i3dMapping id="rowerLeftBackSpike04" node="0>0|2|0|0|5|0|0|0|4|0" />
+        <i3dMapping id="rowerLeftBackSpikeRot5" node="0>0|2|0|0|5|0|0|0|5" />
+        <i3dMapping id="rowerLeftBackSpike05" node="0>0|2|0|0|5|0|0|0|5|0" />
+        <i3dMapping id="rowerLeftBackSpikeRot6" node="0>0|2|0|0|5|0|0|0|6" />
+        <i3dMapping id="rowerLeftBackSpike06" node="0>0|2|0|0|5|0|0|0|6|0" />
+        <i3dMapping id="rowerLeftBackSpikeRot7" node="0>0|2|0|0|5|0|0|0|7" />
+        <i3dMapping id="rowerLeftBackSpike07" node="0>0|2|0|0|5|0|0|0|7|0" />
+        <i3dMapping id="rowerLeftBackSpikeRot8" node="0>0|2|0|0|5|0|0|0|8" />
+        <i3dMapping id="rowerLeftBackSpike08" node="0>0|2|0|0|5|0|0|0|8|0" />
+        <i3dMapping id="rowerLeftBackSpikeRot9" node="0>0|2|0|0|5|0|0|0|9" />
+        <i3dMapping id="rowerLeftBackSpike09" node="0>0|2|0|0|5|0|0|0|9|0" />
+        <i3dMapping id="rowerLeftBackSpikeRot10" node="0>0|2|0|0|5|0|0|0|10" />
+        <i3dMapping id="rowerLeftBackSpike10" node="0>0|2|0|0|5|0|0|0|10|0" />
+        <i3dMapping id="rowerLeftBackSpikeRot11" node="0>0|2|0|0|5|0|0|0|11" />
+        <i3dMapping id="rowerLeftBackSpike11" node="0>0|2|0|0|5|0|0|0|11|0" />
+        <i3dMapping id="rowerLeftBackSpikeRot12" node="0>0|2|0|0|5|0|0|0|12" />
+        <i3dMapping id="rowerLeftBackSpike12" node="0>0|2|0|0|5|0|0|0|12|0" />
+        <i3dMapping id="rowerLeftBackSpikeRot13" node="0>0|2|0|0|5|0|0|0|13" />
+        <i3dMapping id="rowerLeftBackSpike13" node="0>0|2|0|0|5|0|0|0|13|0" />
+        <i3dMapping id="armLeftBackDamper1" node="0>0|2|0|0|5|0|0|1|0" />
+        <i3dMapping id="armLeftBackDamper1Punch" node="0>0|2|0|0|5|0|0|1|0|0" />
+        <i3dMapping id="armLeftBackDamper2" node="0>0|2|0|0|5|0|0|1|1" />
+        <i3dMapping id="armLeftBackDamper2Punch" node="0>0|2|0|0|5|0|0|1|1|0" />
+        <i3dMapping id="armLeftBackDamper3" node="0>0|2|0|0|5|0|0|1|2" />
+        <i3dMapping id="armLeftBackDamper3Punch" node="0>0|2|0|0|5|0|0|1|2|0" />
+        <i3dMapping id="backLightHighLeftBack" node="0>0|2|0|0|5|0|0|2|0" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|2|0|0|5|0|0|2|1" />
+        <i3dMapping id="armLeftBackPTORef" node="0>0|2|0|0|5|0|0|3" />
+        <i3dMapping id="rowerFrameLeftBackAxis" node="0>0|2|0|0|5|0|0|4" />
+        <i3dMapping id="rowerFrameLeftBackAxisFront" node="0>0|2|0|0|5|0|0|4|0" />
+        <i3dMapping id="rowerFrameLeftBackAxisFrontLeftWheel" node="0>0|2|0|0|5|0|0|4|0|0" />
+        <i3dMapping id="rowerFrameLeftBackAxisFrontRightWheel" node="0>0|2|0|0|5|0|0|4|0|1" />
+        <i3dMapping id="rowerFrameLeftBackAxisMiddle" node="0>0|2|0|0|5|0|0|4|1" />
+        <i3dMapping id="rowerFrameLeftBackAxisMiddleLeftWheel" node="0>0|2|0|0|5|0|0|4|1|0" />
+        <i3dMapping id="rowerFrameLeftBackAxisMiddleRightWheel" node="0>0|2|0|0|5|0|0|4|1|1" />
+        <i3dMapping id="rowerFrameLeftBackAxisBack" node="0>0|2|0|0|5|0|0|4|2" />
+        <i3dMapping id="armLeftBackAxisMiddleLeftWheel_vis" node="0>0|2|0|0|5|0|0|4|2|0" />
+        <i3dMapping id="armLeftBackAxisMiddleRightWheel_vis" node="0>0|2|0|0|5|0|0|4|2|1" />
+        <i3dMapping id="rowerFrameLeftBackWorkAreaStart" node="0>0|2|0|0|5|0|0|5|0" />
+        <i3dMapping id="rowerFrameLeftBackWorkAreaWidth" node="0>0|2|0|0|5|0|0|5|1" />
+        <i3dMapping id="rowerFrameLeftBackWorkAreaHeight" node="0>0|2|0|0|5|0|0|5|2" />
+        <i3dMapping id="rowerFrameLeftBackParticleEmitter" node="0>0|2|0|0|5|0|0|6" />
+        <i3dMapping id="backlight01" node="0>0|2|0|0|5|0|0|7" />
+        <i3dMapping id="armLeftBackDamper1Ref" node="0>0|2|0|0|5|0|1" />
+        <i3dMapping id="armLeftBackDamper2Ref" node="0>0|2|0|0|5|0|2" />
+        <i3dMapping id="armLeftBackDamper3Ref" node="0>0|2|0|0|5|0|3" />
+        <i3dMapping id="backArmLeftHelpArmRef" node="0>0|2|0|0|5|0|4" />
+        <i3dMapping id="hydraulicBackArmLeftRef" node="0>0|2|0|0|5|1" />
+        <i3dMapping id="backArmLeftHelpArm" node="0>0|2|0|0|5|2" />
+        <i3dMapping id="backArmLeftHelpArmPart" node="0>0|2|0|0|5|2|0" />
+        <i3dMapping id="backArmLeftHelpArmRefFrame" node="0>0|2|0|0|5|3" />
+        <i3dMapping id="hydraulicFrontArmLeft" node="0>0|2|0|0|6|0" />
+        <i3dMapping id="hydraulicFrontArmLeftPunch" node="0>0|2|0|0|6|0|0" />
+        <i3dMapping id="hydraulicBackArmLeft" node="0>0|2|0|0|6|1" />
+        <i3dMapping id="hydraulicBackArmLeftPunch" node="0>0|2|0|0|6|1|0" />
+        <i3dMapping id="ptoLeftFront" node="0>0|2|0|0|6|2" />
+        <i3dMapping id="ptoLeftBackPunch" node="0>0|2|0|0|6|2|0" />
+        <i3dMapping id="armLeftBackPTO" node="0>0|2|0|0|6|3" />
+        <i3dMapping id="armLeftBackPTOPunch" node="0>0|2|0|0|6|3|0" />
+        <i3dMapping id="mainPTOLeftRef" node="0>0|2|0|0|7" />
+        <i3dMapping id="yellowRound04" node="0>0|2|0|0|12" />
+        <i3dMapping id="leftArmPart" node="0>0|2|0|1" />
+        <i3dMapping id="hydraulicLeftArmRef" node="0>0|2|0|1|0" />
+        <i3dMapping id="frontlight02" node="0>0|2|0|4" />
+        <i3dMapping id="rightArm" node="0>0|2|1" />
+        <i3dMapping id="rightArmAxis" node="0>0|2|1|0" />
+        <i3dMapping id="wheelRight" node="0>0|2|1|0|0" />
+        <i3dMapping id="rightArmAxisRef" node="0>0|2|1|0|1" />
+        <i3dMapping id="jointArmRightFront" node="0>0|2|1|0|2" />
+        <i3dMapping id="jointArmRightFrontPart" node="0>0|2|1|0|2|0" />
+        <i3dMapping id="componentJoint1to4" node="0>0|2|1|0|2|0|0" />
+        <i3dMapping id="armRightFront" node="0>0|2|1|0|3" />
+        <i3dMapping id="armRightFrontPart" node="0>0|2|1|0|3|0" />
+        <i3dMapping id="rowerFrameRightFront" node="0>0|2|1|0|3|0|0" />
+        <i3dMapping id="rowerRightFront" node="0>0|2|1|0|3|0|0|0" />
+        <i3dMapping id="rowerRightFrontSpike01" node="0>0|2|1|0|3|0|0|0|1|0" />
+        <i3dMapping id="rowerRightFrontSpike02" node="0>0|2|1|0|3|0|0|0|2|0" />
+        <i3dMapping id="rowerRightFrontSpike03" node="0>0|2|1|0|3|0|0|0|3|0" />
+        <i3dMapping id="rowerRightFrontSpike04" node="0>0|2|1|0|3|0|0|0|4|0" />
+        <i3dMapping id="rowerRightFrontSpike05" node="0>0|2|1|0|3|0|0|0|5|0" />
+        <i3dMapping id="rowerRightFrontSpike06" node="0>0|2|1|0|3|0|0|0|6|0" />
+        <i3dMapping id="rowerRightFrontSpike07" node="0>0|2|1|0|3|0|0|0|7|0" />
+        <i3dMapping id="rowerRightFrontSpike08" node="0>0|2|1|0|3|0|0|0|8|0" />
+        <i3dMapping id="rowerRightFrontSpike09" node="0>0|2|1|0|3|0|0|0|9|0" />
+        <i3dMapping id="rowerRightFrontSpike10" node="0>0|2|1|0|3|0|0|0|10|0" />
+        <i3dMapping id="rowerRightFrontSpike11" node="0>0|2|1|0|3|0|0|0|11|0" />
+        <i3dMapping id="rowerRightFrontSpike12" node="0>0|2|1|0|3|0|0|0|12|0" />
+        <i3dMapping id="rowerRightFrontSpike13" node="0>0|2|1|0|3|0|0|0|13|0" />
+        <i3dMapping id="damperFrontRight1Ref" node="0>0|2|1|0|3|0|0|1" />
+        <i3dMapping id="damperFrontRight2Ref" node="0>0|2|1|0|3|0|0|2" />
+        <i3dMapping id="ptoRightFrontRef" node="0>0|2|1|0|3|0|0|3" />
+        <i3dMapping id="rowerFrameFrontRight" node="0>0|2|1|0|3|0|0|4" />
+        <i3dMapping id="rowerFrameFrontRightAxisFront" node="0>0|2|1|0|3|0|0|4|0" />
+        <i3dMapping id="rowerFrameFrontRightAxisFrontWheelLeft" node="0>0|2|1|0|3|0|0|4|0|0" />
+        <i3dMapping id="rowerFrameFrontRightAxisFrontWheelRight" node="0>0|2|1|0|3|0|0|4|0|1" />
+        <i3dMapping id="rowerFrameFrontRightAxisMiddle" node="0>0|2|1|0|3|0|0|4|1" />
+        <i3dMapping id="rowerFrameFrontRightAxisMiddleWheelLeft" node="0>0|2|1|0|3|0|0|4|1|0" />
+        <i3dMapping id="rowerFrameFrontRightAxisMiddleWheelRight" node="0>0|2|1|0|3|0|0|4|1|1" />
+        <i3dMapping id="rowerFrameFrontRightAxisBack" node="0>0|2|1|0|3|0|0|4|2" />
+        <i3dMapping id="rowerFrameFrontRightAxisBackWheelLeft" node="0>0|2|1|0|3|0|0|4|2|0" />
+        <i3dMapping id="rowerFrameFrontRightAxisBackWheelRight" node="0>0|2|1|0|3|0|0|4|2|1" />
+        <i3dMapping id="armRightFrontWorkAreaStart" node="0>0|2|1|0|3|0|0|5|0" />
+        <i3dMapping id="armRightFrontWorkAreaWidth" node="0>0|2|1|0|3|0|0|5|1" />
+        <i3dMapping id="armRightFrontWorkAreaHeight" node="0>0|2|1|0|3|0|0|5|2" />
+        <i3dMapping id="armRightFrontDropAreaStart" node="0>0|2|1|0|3|0|0|5|3" />
+        <i3dMapping id="armRightFrontDropAreaWidth" node="0>0|2|1|0|3|0|0|5|4" />
+        <i3dMapping id="armRightFrontDropAreaHeight" node="0>0|2|1|0|3|0|0|5|5" />
+        <i3dMapping id="armRightFrontParticleEmitter" node="0>0|2|1|0|3|0|0|6" />
+        <i3dMapping id="damperFrontRight1" node="0>0|2|1|0|3|0|1|0" />
+        <i3dMapping id="damperFrontRight1Punch" node="0>0|2|1|0|3|0|1|0|0" />
+        <i3dMapping id="damperFrontRight2" node="0>0|2|1|0|3|0|1|1" />
+        <i3dMapping id="damperFrontRight2Punch" node="0>0|2|1|0|3|0|1|1|0" />
+        <i3dMapping id="armRightFrontMoverRef" node="0>0|2|1|0|3|0|2" />
+        <i3dMapping id="hydraulicFrontArmRightRef" node="0>0|2|1|0|3|1" />
+        <i3dMapping id="armRightFrontMover" node="0>0|2|1|0|3|2" />
+        <i3dMapping id="armRightFrontMoverPart" node="0>0|2|1|0|3|2|0" />
+        <i3dMapping id="armRightFrontMoverRefFrame" node="0>0|2|1|0|3|3" />
+        <i3dMapping id="foldingLock" node="0>0|2|1|0|3|4" />
+        <i3dMapping id="hydraulicFoldingLockRef" node="0>0|2|1|0|3|4|0" />
+        <i3dMapping id="hydraulicFoldingLock" node="0>0|2|1|0|3|5" />
+        <i3dMapping id="hydraulicFoldingLockPunch" node="0>0|2|1|0|3|5|0" />
+        <i3dMapping id="decalsArmRightFront" node="0>0|2|1|0|3|6" />
+        <i3dMapping id="armRightBackJoint" node="0>0|2|1|0|4" />
+        <i3dMapping id="jointArmRightBackPart" node="0>0|2|1|0|4|0" />
+        <i3dMapping id="componentJoint1to6" node="0>0|2|1|0|4|0|0" />
+        <i3dMapping id="armRightBack" node="0>0|2|1|0|5" />
+        <i3dMapping id="armRightBackPart" node="0>0|2|1|0|5|0" />
+        <i3dMapping id="rowerFrameRightBack" node="0>0|2|1|0|5|0|0" />
+        <i3dMapping id="rowerRightBack" node="0>0|2|1|0|5|0|0|0" />
+        <i3dMapping id="rowerRightBackSpike01" node="0>0|2|1|0|5|0|0|0|1|0" />
+        <i3dMapping id="rowerRightBackSpike02" node="0>0|2|1|0|5|0|0|0|2|0" />
+        <i3dMapping id="rowerRightBackSpike03" node="0>0|2|1|0|5|0|0|0|3|0" />
+        <i3dMapping id="rowerRightBackSpike04" node="0>0|2|1|0|5|0|0|0|4|0" />
+        <i3dMapping id="rowerRightBackSpike05" node="0>0|2|1|0|5|0|0|0|5|0" />
+        <i3dMapping id="rowerRightBackSpike06" node="0>0|2|1|0|5|0|0|0|6|0" />
+        <i3dMapping id="rowerRightBackSpike07" node="0>0|2|1|0|5|0|0|0|7|0" />
+        <i3dMapping id="rowerRightBackSpike08" node="0>0|2|1|0|5|0|0|0|8|0" />
+        <i3dMapping id="rowerRightBackSpike09" node="0>0|2|1|0|5|0|0|0|9|0" />
+        <i3dMapping id="rowerRightBackSpike10" node="0>0|2|1|0|5|0|0|0|10|0" />
+        <i3dMapping id="rowerRightBackSpike11" node="0>0|2|1|0|5|0|0|0|11|0" />
+        <i3dMapping id="rowerRightBackSpike12" node="0>0|2|1|0|5|0|0|0|12|0" />
+        <i3dMapping id="rowerRightBackSpike13" node="0>0|2|1|0|5|0|0|0|13|0" />
+        <i3dMapping id="rowerRightBackDamper1" node="0>0|2|1|0|5|0|0|1|0" />
+        <i3dMapping id="rowerRightBackDamper1Punch" node="0>0|2|1|0|5|0|0|1|0|0" />
+        <i3dMapping id="rowerRightBackDamper2" node="0>0|2|1|0|5|0|0|1|1" />
+        <i3dMapping id="rowerRightBackDamper2Punch" node="0>0|2|1|0|5|0|0|1|1|0" />
+        <i3dMapping id="rowerRightBackDamper3" node="0>0|2|1|0|5|0|0|1|2" />
+        <i3dMapping id="rowerRightBackDamper3Punch" node="0>0|2|1|0|5|0|0|1|2|0" />
+        <i3dMapping id="backLightHighBackRight" node="0>0|2|1|0|5|0|0|2|0" />
+        <i3dMapping id="turnLightRightBack" node="0>0|2|1|0|5|0|0|2|1" />
+        <i3dMapping id="ptoRightBackRef" node="0>0|2|1|0|5|0|0|3" />
+        <i3dMapping id="rowerFrameRightBackAxis" node="0>0|2|1|0|5|0|0|4" />
+        <i3dMapping id="rowerFrameRightBackAxisFront" node="0>0|2|1|0|5|0|0|4|0" />
+        <i3dMapping id="rowerFrameRightBackAxisFrontWheelLeft" node="0>0|2|1|0|5|0|0|4|0|0" />
+        <i3dMapping id="rowerFrameRightBackAxisFrontWheelRight" node="0>0|2|1|0|5|0|0|4|0|1" />
+        <i3dMapping id="rowerFrameRightBackAxisMiddle" node="0>0|2|1|0|5|0|0|4|1" />
+        <i3dMapping id="rowerFrameRightBackAxisMiddleLeft" node="0>0|2|1|0|5|0|0|4|1|0" />
+        <i3dMapping id="rowerFrameRightBackAxisMiddleRight" node="0>0|2|1|0|5|0|0|4|1|1" />
+        <i3dMapping id="rowerFrameRightBackAxisBack" node="0>0|2|1|0|5|0|0|4|2" />
+        <i3dMapping id="rowerFrameRightBackAxisBackLeft" node="0>0|2|1|0|5|0|0|4|2|0" />
+        <i3dMapping id="rowerFrameRightBackAxisBackRight" node="0>0|2|1|0|5|0|0|4|2|1" />
+        <i3dMapping id="armRightBackWorkAreaStart" node="0>0|2|1|0|5|0|0|5|0" />
+        <i3dMapping id="armRightBackWorkAreaWidth" node="0>0|2|1|0|5|0|0|5|1" />
+        <i3dMapping id="armRightBackWorkAreaHeight" node="0>0|2|1|0|5|0|0|5|2" />
+        <i3dMapping id="armRightBackParticleEmitter" node="0>0|2|1|0|5|0|0|6" />
+        <i3dMapping id="backlight02" node="0>0|2|1|0|5|0|0|7" />
+        <i3dMapping id="rowerRightBackDamper1Ref" node="0>0|2|1|0|5|0|1" />
+        <i3dMapping id="rowerRightBackDamper2Ref" node="0>0|2|1|0|5|0|2" />
+        <i3dMapping id="rowerRightBackDamper3Ref" node="0>0|2|1|0|5|0|3" />
+        <i3dMapping id="backArmRightHelpArmRef" node="0>0|2|1|0|5|0|4" />
+        <i3dMapping id="hydraulicBackArmRightRef" node="0>0|2|1|0|5|1" />
+        <i3dMapping id="backArmRightHelpArm" node="0>0|2|1|0|5|2" />
+        <i3dMapping id="backArmRightHelpArmPart" node="0>0|2|1|0|5|2|0" />
+        <i3dMapping id="backArmRightHelpArmRefFrame" node="0>0|2|1|0|5|3" />
+        <i3dMapping id="decalsArmRightBack" node="0>0|2|1|0|5|4" />
+        <i3dMapping id="hydraulicFrontArmRight" node="0>0|2|1|0|6|0" />
+        <i3dMapping id="hydraulicFrontArmRightPunch" node="0>0|2|1|0|6|0|0" />
+        <i3dMapping id="hydraulicBackArmRight" node="0>0|2|1|0|6|1" />
+        <i3dMapping id="hydraulicBackArmRightPunch" node="0>0|2|1|0|6|1|0" />
+        <i3dMapping id="transportationLock" node="0>0|2|1|0|6|2" />
+        <i3dMapping id="hydraulicTransportationLockRef" node="0>0|2|1|0|6|2|0" />
+        <i3dMapping id="hydraulicTransportationLock" node="0>0|2|1|0|6|3" />
+        <i3dMapping id="hydraulicTransportationLockPunch" node="0>0|2|1|0|6|3|0" />
+        <i3dMapping id="ptoRightFront" node="0>0|2|1|0|6|4" />
+        <i3dMapping id="ptoRightFrontPunch" node="0>0|2|1|0|6|4|0" />
+        <i3dMapping id="ptoRightFrontDecals" node="0>0|2|1|0|6|4|1" />
+        <i3dMapping id="ptoRightBack" node="0>0|2|1|0|6|5" />
+        <i3dMapping id="ptoRightBackPunch" node="0>0|2|1|0|6|5|0" />
+        <i3dMapping id="ptoRightRef" node="0>0|2|1|0|7" />
+        <i3dMapping id="decalsArmRightAxis" node="0>0|2|1|0|8" />
+        <i3dMapping id="yellowRound03" node="0>0|2|1|0|12" />
+        <i3dMapping id="rightArmPart" node="0>0|2|1|1" />
+        <i3dMapping id="hydraulicRightArmRef" node="0>0|2|1|1|0" />
+        <i3dMapping id="decalsArmLeft" node="0>0|2|1|3" />
+        <i3dMapping id="frontlight01" node="0>0|2|1|4" />
+        <i3dMapping id="leftArmAxisPart" node="0>0|2|2" />
+        <i3dMapping id="rightArmAxisPart" node="0>0|2|3" />
+        <i3dMapping id="swath" node="0>0|3" />
+        <i3dMapping id="hydraulicSwathRef" node="0>0|3|0" />
+        <i3dMapping id="decalsSwatch" node="0>0|3|1" />
+        <i3dMapping id="hydraulicLeftArm" node="0>0|4|0" />
+        <i3dMapping id="hydraulicLeftArmPunch" node="0>0|4|0|0" />
+        <i3dMapping id="leftArmRef" node="0>0|4|1" />
+        <i3dMapping id="hydraulicRightArm" node="0>0|4|2" />
+        <i3dMapping id="hydraulicRightArmPunch" node="0>0|4|2|0" />
+        <i3dMapping id="rightArmRef" node="0>0|4|3" />
+        <i3dMapping id="hydraulicSwath" node="0>0|4|4" />
+        <i3dMapping id="hydraulicSwathPunch" node="0>0|4|4|0" />
+        <i3dMapping id="hydraulicSwathRefFrame" node="0>0|4|5" />
+        <i3dMapping id="ptoLeft" node="0>0|4|6" />
+        <i3dMapping id="ptoLeftPart1" node="0>0|4|6|0" />
+        <i3dMapping id="ptoLeftPart2" node="0>0|4|6|0|0" />
+        <i3dMapping id="ptoRight" node="0>0|4|7" />
+        <i3dMapping id="ptoRightPart" node="0>0|4|7|0" />
+        <i3dMapping id="ptoRightPart2" node="0>0|4|7|0|0" />
+        <i3dMapping id="dropAreaStart" node="0>0|5|0" />
+        <i3dMapping id="dropAreaWidth" node="0>0|5|1" />
+        <i3dMapping id="dropAreaHeight" node="0>0|5|2" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|6|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|6|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|6|0|2" />
+        <i3dMapping id="sizeMarkerLeft" node="0>0|6|1|0" />
+        <i3dMapping id="sizeMarkerRight" node="0>0|6|1|1" />
+        <i3dMapping id="sizeMarkerBack" node="0>0|6|1|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|6|2" />
+        <i3dMapping id="hibiscus1515CdProf_attacher_component2" node="1>" />
+        <i3dMapping id="attacherFrame" node="1>0" />
+        <i3dMapping id="attacherJoint" node="1>0|0" />
+        <i3dMapping id="attacherJointRotRef" node="1>0|1" />
+        <i3dMapping id="colLeftFrontRotorRef" node="2>0" />
+        <i3dMapping id="groundRefNodeLeftFront" node="2>1" />
+        <i3dMapping id="armFrontLeftWheelFront" node="2>2" />
+        <i3dMapping id="armFrontLeftWheelBackRight" node="2>3" />
+        <i3dMapping id="armFrontLeftWheelBackLeft" node="2>4" />
+        <i3dMapping id="colRightFrontRotorRef" node="3>0" />
+        <i3dMapping id="groundRefNodeRightFront" node="3>1" />
+        <i3dMapping id="armFrontRightWheelFront" node="3>2" />
+        <i3dMapping id="armFrontRightWheelBackLeft" node="3>3" />
+        <i3dMapping id="armFrontRightWheelBackRight" node="3>4" />
+        <i3dMapping id="colLeftBackRotorRef" node="4>0" />
+        <i3dMapping id="groundRefNodeLeftBack" node="4>1" />
+        <i3dMapping id="armBackLeftWheelFront" node="4>2" />
+        <i3dMapping id="armBackLeftWheelBackLeft" node="4>3" />
+        <i3dMapping id="armBackLeftWheelBackRight" node="4>4" />
+        <i3dMapping id="colRightBackRotorRef" node="5>0" />
+        <i3dMapping id="groundRefNodeRightBack" node="5>1" />
+        <i3dMapping id="armBackRightWheelFront" node="5>2" />
+        <i3dMapping id="armBackRightWheelRight" node="5>3" />
+        <i3dMapping id="armBackRightWheelLeft" node="5>4" />
+    </i3dMappings>
+</vehicle>

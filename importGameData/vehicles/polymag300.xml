@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="cultivator">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Polymag 300</name>
+        <specs>
+            <neededPower>100</neededPower>
+            <workingWidth>3.0</workingWidth>
+            <combination>SB 700</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_cultivator</function>
+        </functions>
+        <image>$data/vehicles/rau/polymag300/store_polymag300.png</image>
+        <price>7000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>RAU</brand>
+        <category>cultivators</category>
+        <vertexBufferMemoryUsage>668800</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>111768</indexBufferMemoryUsage>
+        <textureMemoryUsage>3320912</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_cultivator</typeDesc>
+        <filename>$data/vehicles/rau/polymag300/polymag300.i3d</filename>
+        <size width="3.5" length="3.5"/>
+        <speedLimit value="15" />
+        <components>
+            <component centerOfMass="0 0.5 0" solverIterationCount="10" mass="1150" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels hasSurfaceSounds="false">
+                    <wheel hasParticles="false" >
+                        <physics rotSpeed="0" restLoad="0.4" repr="wheels1" forcePointRatio="0.5" radius="0.15" width="0.2" mass="0.1" initialCompression="30" suspTravel="0.1" spring="9" damper="20" rotationDamping="0.001" />
+                    </wheel>
+                    <wheel hasParticles="false" >
+                        <physics rotSpeed="0" restLoad="0.4" repr="wheels2" forcePointRatio="0.5" radius="0.15" width="0.2" mass="0.1" initialCompression="30" suspTravel="0.1" spring="9" damper="20" rotationDamping="0.001" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+    </wheels>
+
+    <!-- recommended horsepower by manufacturer: 100 -->
+    <powerConsumer forceNode="polymag3000_main_component1" forceFactor="0.13" maxForce="30" />
+
+    <speedRotatingParts>
+        <speedRotatingPart node="rightOuterDiscRot" radius="-0.2" groundReferenceNodeIndex="2" />
+        <speedRotatingPart node="leftOuterDiscRot" radius="-0.2" groundReferenceNodeIndex="2" />
+        <speedRotatingPart shaderNode="disc2_mesh" radius="0.2" groundReferenceNodeIndex="1" />
+        <speedRotatingPart shaderNode="disc1_mesh" radius="0.2" groundReferenceNodeIndex="1" />
+        <speedRotatingPart node="frontRoller" radius="0.2" wheelIndex="1" />
+        <speedRotatingPart node="backRoller" radius="0.2" wheelIndex="1" />
+    </speedRotatingParts>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="depthNode" threshold="0.1" chargeValue="1" depthNode="depthNode" maxDepth="-0.2" />
+        <groundReferenceNode node="depthNodeParts" threshold="0.1" chargeValue="1" depthNode="depthNodeParts" maxDepth="-0.2" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="cultivator" functionName="processCultivatorArea" >
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight" />
+            <groundReferenceNode index="1" />
+            <folding minLimit="0" maxLimit="1.0" />
+        </workArea>
+    </workAreas>
+
+    <workParticles>
+        <particleAnimation>
+            <node node="centerAnimation" refNodeIndex="1" materialType="SOIL" />
+            <node node="soilAnimationMiddle" refNodeIndex="1" materialType="SOIL" />
+            <node node="soilAnimationLeft" refNodeIndex="2" materialType="SOIL" />
+            <node node="soilAnimationRight" refNodeIndex="2" materialType="SOIL" />
+        </particleAnimation>
+        <particle>
+            <node node="soilEmitShape" refNodeIndex="1" particleType="SOIL" worldSpace="false" speedThreshold="6" />
+            <node node="dustEmitterShape" refNodeIndex="1" particleType="SOIL_SMOKE" speedThreshold="1" />
+            <node node="chunkEmitShape" refNodeIndex="1" particleType="SOIL_CHUNKS" worldSpace="false" speedThreshold="9" />
+        </particle>
+    </workParticles>
+
+    <animations>
+        <animation name="moveSupport">
+            <part node="colPart" startTime="0.0" endTime="0.50" startTrans="0 0.6 0" endTrans="0 0 0" />
+        </animation>
+        <animation name="folding">
+            <part node="leftArm" startTime="0" endTime="1.5" startRot="0 0 -180" endRot="0 0 0"/>
+            <part node="rightArm" startTime="0" endTime="1.5" startRot="0 0 180" endRot="0 0 0"/>
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingParts>
+            <movingPart node="rollerArmPart" referenceFrame="polymag3000_main_component1" isActiveDirty="true"/>
+        </movingParts>
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="polymag3000_main_component1"/>
+        </sounds>
+    </cylindered>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="implement" topReferenceNode="topReferenceNode">
+                <distanceToGround lower="0.45" upper="1.8" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+        <support animationName="moveSupport" />
+    </attachable>
+
+    <foldable>
+        <foldingParts startMoveDirection="0" turnOnFoldDirection="-1" loweringMinLimit="0" loweringMaxLimit="0" >
+            <foldingPart animationName="folding" speedScale="0.7" />
+        </foldingParts>
+    </foldable>
+
+    <cultivator>
+        <sounds>
+            <work template="DEFAULT_CULTIVATOR_WORK" linkNode="polymag3000_main_component1" />
+        </sounds>
+        <directionNode node="polymag3000_main_component1" />
+        <onlyActiveWhenLowered value="true"/>
+    </cultivator>
+
+    <ai>
+        <needsLowering value="true" />
+        <areaMarkers leftNode="aiLeftMarker" rightNode="aiRightMarker" backNode="aiBackMarker" />
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-1.5" maxX="1.5" minZ="-1.7" maxZ="1.5" yOffset="0.4" />
+        <bendingNode minX="-0.7" maxX="0.1" minZ="-0.4" maxZ="0.4" yOffset="0.4" node="leftArm" />
+        <bendingNode minX="-0.1" maxX="0.7" minZ="-0.4" maxZ="0.4" yOffset="0.4" node="rightArm" />
+    </foliageBending>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="polymag3000_main_component1" node="0>" />
+        <i3dMapping id="polymag3000_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0|0" />
+        <i3dMapping id="topReferenceNode" node="0>0|0|1" />
+        <i3dMapping id="workAreaStart" node="0>0|1|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|1|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|1|2" />
+        <i3dMapping id="depthNode" node="0>0|1|3" />
+        <i3dMapping id="aiLeftMarker" node="0>0|2|0" />
+        <i3dMapping id="aiRightMarker" node="0>0|2|1" />
+        <i3dMapping id="aiBackMarker" node="0>0|2|2" />
+        <i3dMapping id="centerAnimation" node="0>0|3|0" />
+        <i3dMapping id="dustEmitterShape" node="0>0|3|1" />
+        <i3dMapping id="soilEmitShape" node="0>0|3|2" />
+        <i3dMapping id="chunkEmitShape" node="0>0|3|3" />
+        <i3dMapping id="colPart" node="0>0|4|0" />
+        <i3dMapping id="leftArm" node="0>0|4|1" />
+        <i3dMapping id="leftOuterDiscRot" node="0>0|4|1|0|0|0" />
+        <i3dMapping id="leftOuterDisc" node="0>0|4|1|0|0|0|0" />
+        <i3dMapping id="leftInnerDisc" node="0>0|4|1|0|0|0|1" />
+        <i3dMapping id="soilAnimationLeft" node="0>0|4|1|0|1" />
+        <i3dMapping id="rightArm" node="0>0|4|2" />
+        <i3dMapping id="rightOuterDiscRot" node="0>0|4|2|0|0|0" />
+        <i3dMapping id="rightOuterDisc" node="0>0|4|2|0|0|0|0" />
+        <i3dMapping id="rightInnerDisc" node="0>0|4|2|0|0|0|1" />
+        <i3dMapping id="depthNodeParts" node="0>0|4|2|0|1" />
+        <i3dMapping id="soilAnimationRight" node="0>0|4|2|0|2" />
+        <i3dMapping id="rollerArm" node="0>0|4|3" />
+        <i3dMapping id="rollerArmPart" node="0>0|4|3|0" />
+        <i3dMapping id="frontRoller" node="0>0|4|3|0|0" />
+        <i3dMapping id="backRoller" node="0>0|4|3|0|1" />
+        <i3dMapping id="wheels1" node="0>0|4|3|0|2" />
+        <i3dMapping id="wheels2" node="0>0|4|3|0|3" />
+        <i3dMapping id="disc2_mesh" node="0>0|4|4|0" />
+        <i3dMapping id="disc1_mesh" node="0>0|4|4|1" />
+        <i3dMapping id="soilAnimationMiddle" node="0>0|4|4|2" />
+    </i3dMappings>
+</vehicle>

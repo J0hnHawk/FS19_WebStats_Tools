@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="locomotive">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Diesel Locomotive</name>
+        <image>data/vehicles/train/locomotive04/store_locomotive04.png</image>
+        <price>164000</price>
+        <canBeSold>false</canBeSold>
+        <showInStore>false</showInStore>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>LIZARD</brand>
+        <category>tractorsS</category>
+        <vertexBufferMemoryUsage>2171132</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>388338</indexBufferMemoryUsage>
+        <textureMemoryUsage>36875160</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_locomotive</typeDesc>
+        <filename>$data/vehicles/train/locomotive04/locomotive04.i3d</filename>
+        <size width="3.5" length="5"/>
+        <components>
+            <component centerOfMass="0 1 -0.4" solverIterationCount="20" mass="25000" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_VEHICLE"/>
+            <selected name="DEFAULT_VEHICLE_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration>
+                <wheels surfaceSoundLinkNode="surfaceSoundNode" />
+            </wheelConfiguration>
+        </wheelConfigurations>
+    </wheels>
+
+    <splineVehicle>
+        <dollies frontNode="frontNode" backNode="backNode" dolly1Node="dollyFront" dolly2Node="dollyBack" />
+    </splineVehicle>
+
+    <speedRotatingParts>
+        <speedRotatingPart node="wheel01" radius="0.51" />
+        <speedRotatingPart node="wheel02" radius="0.51" />
+        <speedRotatingPart node="wheel03" radius="0.51" />
+        <speedRotatingPart node="wheel04" radius="0.51" />
+    </speedRotatingParts>
+
+    <lights>
+        <states>
+            <state lightTypes="0" />
+        </states>
+
+        <realLights>
+            <low>
+                <light node="frontLightLow" lightTypes="0" excludedLightTypes="3"/>
+                <light node="highBeamLow" lightTypes="3"/>
+            </low>
+            <high>
+                <light node="frontLightHigh" lightTypes="0" excludedLightTypes="3"/>
+                <light node="highBeamHigh" lightTypes="3" />
+            </high>
+        </realLights>
+
+        <defaultLights>
+            <defaultLight shaderNode="frontLightStatic" lightTypes="0 3" intensity="45"/>
+            <defaultLight shaderNode="frontBeamStatic" lightTypes="3" intensity="45"/>
+            <defaultLight shaderNode="selfIllumGlassBack" lightTypes="0" intensity="45"/>
+        </defaultLights>
+
+        <sounds>
+            <switchLight template="SWITCH_01"  />
+        </sounds>
+
+        <dashboards>
+            <dashboard displayType="EMITTER" valueType="lightState" node="dashboardLight" intensity="0.5" lightTypes="0" groups="MOTOR_ACTIVE"/>
+        </dashboards>
+    </lights>
+
+    <enterable isTabbable="false" >
+        <enterReferenceNode node="0>" />
+        <exitPoint node="exitPoint" />
+
+        <cameras>
+            <camera node="outdoorCamera" rotatable="true" rotateNode="outdoorCameraTarget" limit="true" useWorldXZRotation="true" rotMinX="-1.4" rotMaxX="1" transMin="12" transMax="50" >
+                <raycastNode node="cameraRaycastNode1" />
+                <raycastNode node="cameraRaycastNode2" />
+                <raycastNode node="cameraRaycastNode3" />
+            </camera>
+            <camera node="indoorCamera" rotatable="true" limit="true" rotMinX="-1.1" rotMaxX="0.4" transMin="0" transMax="0" useMirror="true" isInside="true" shadowFocusBox="shadowFocusBox" />
+        </cameras>
+
+        <characterNode node="playerFrontSkin" cameraMinDistance="1.5" spineRotation="-90 0 90" >
+            <target ikChain="rightFoot" targetNode="playerFrontRightFoot" />
+            <target ikChain="leftFoot"  targetNode="playerFrontLeftFoot" />
+            <target ikChain="rightArm"  targetNode="playerFrontRightHand" />
+            <target ikChain="leftArm"   targetNode="playerFrontLeftHand" />
+        </characterNode>
+
+        <dashboards>
+            <dashboard displayType="NUMBER" valueType="time"          numbers="numbersTime" precision="2" groups="MOTOR_ACTIVE"/>
+        </dashboards>
+    </enterable>
+
+    <drivable>
+        <sounds>
+            <waterSplash template="WATER_SPLASH_01" />
+        </sounds>
+    </drivable>
+
+    <motorized>
+        <motorConfigurations>
+            <motorConfiguration hp="1500" >
+                <motor torqueScale="0.4" minRpm="850" maxRpm="2200" maxForwardSpeed="80" maxBackwardSpeed="80" brakeForce="5" lowBrakeForceScale="0.22" rotInertia="0.004"  startAnimationName="startMotor">
+                    <torque normRpm="0.45" torque="0.9"/>
+                    <torque normRpm="0.5" torque="0.97"/>
+                    <torque normRpm="0.59" torque="1"/>
+                    <torque normRpm="0.72" torque="1"/>
+                    <torque normRpm="0.86" torque="0.88"/>
+                    <torque normRpm="1" torque="0.72"/>
+                </motor>
+                <transmission minForwardGearRatio="9" maxForwardGearRatio="300" minBackwardGearRatio="9" maxBackwardGearRatio="300" />
+            </motorConfiguration>
+        </motorConfigurations>
+
+        <motorStartDuration>3000</motorStartDuration>
+
+        <sounds externalSoundFile="$data/sounds/vehicles/engine/train/train_02.xml" />
+
+        <animationNodes>
+            <animationNode node="engineFan01" rotAxis="2" rotSpeed="800" turnOnFadeTime="4" turnOffFadeTime="4"/>
+            <animationNode node="engineFan02" rotAxis="2" rotSpeed="800" turnOnFadeTime="4" turnOffFadeTime="4"/>
+            <animationNode node="engineFan03" rotAxis="2" rotSpeed="800" turnOnFadeTime="4" turnOffFadeTime="4"/>
+            <animationNode node="engineFan04" rotAxis="2" rotSpeed="800" turnOnFadeTime="4" turnOffFadeTime="4"/>
+            <animationNode node="engineFan05" rotAxis="2" rotSpeed="800" turnOnFadeTime="4" turnOffFadeTime="4"/>
+        </animationNodes>
+    </motorized>
+
+    <honk>
+        <sound template="HONK_TRAIN" linkNode="0>" />
+    </honk>
+
+    <attacherJoints>
+        <attacherJoint node="trailerAttacherJointNode" jointType="train" allowsLowering="false">
+            <schema position="1 0" rotation="0" invertX="false" />
+            <bottomArm rotationNode="linkArm" translationNode="linkArmTrans" referenceNode="referenceNode" zScale="-1" startRotation="-17 0 0" lockDirection="false" toggleVisibility="true"/>
+        </attacherJoint>
+        <sounds>
+            <attach template="ATTACH_01" />
+        </sounds>
+    </attacherJoints>
+
+    <dashboard>
+        <groups>
+            <group name="MOTOR_ACTIVE"   isMotorStarting="true" isMotorRunning="true"/>
+        </groups>
+    </dashboard>
+
+    <i3dMappings>
+        <i3dMapping id="locomotive04_main_component1" node="0>" />
+        <i3dMapping id="dollyFront" node="0>0" />
+        <i3dMapping id="wheel01" node="0>0|0" />
+        <i3dMapping id="wheel02" node="0>0|1" />
+        <i3dMapping id="dollyBack" node="0>1" />
+        <i3dMapping id="wheel03" node="0>1|0" />
+        <i3dMapping id="wheel04" node="0>1|1" />
+        <i3dMapping id="outdoorCameraTarget" node="0>2|0" />
+        <i3dMapping id="outdoorCamera" node="0>2|0|0" />
+        <i3dMapping id="indoorCamera" node="0>2|1" />
+        <i3dMapping id="cameraRaycastNode1" node="0>2|2" />
+        <i3dMapping id="cameraRaycastNode2" node="0>2|3" />
+        <i3dMapping id="cameraRaycastNode3" node="0>2|4" />
+        <i3dMapping id="frontLightStatic" node="0>3|0" />
+        <i3dMapping id="frontBeamStatic" node="0>3|1" />
+        <i3dMapping id="selfIllumGlassBack" node="0>3|2" />
+        <i3dMapping id="frontLightLow" node="0>3|3" />
+        <i3dMapping id="highBeamLow" node="0>3|4" />
+        <i3dMapping id="frontLightHigh" node="0>3|5" />
+        <i3dMapping id="highBeamHigh" node="0>3|6" />
+        <i3dMapping id="playerFrontSkin" node="0>4|0" />
+        <i3dMapping id="playerFrontRightFoot" node="0>4|1" />
+        <i3dMapping id="playerFrontLeftFoot" node="0>4|2" />
+        <i3dMapping id="playerFrontLeftHand" node="0>4|3" />
+        <i3dMapping id="playerFrontRightHand" node="0>4|4" />
+        <i3dMapping id="shadowFocusBox" node="0>5" />
+        <i3dMapping id="attacherJoint" node="0>6" />
+        <i3dMapping id="inputAttacherJointNode" node="0>6|0" />
+        <i3dMapping id="trailerAttacherJoint" node="0>7" />
+        <i3dMapping id="trailerAttacherJointNode" node="0>7|0" />
+        <i3dMapping id="linkArm" node="0>7|0|0" />
+        <i3dMapping id="linkArmTrans" node="0>7|0|0|0" />
+        <i3dMapping id="referenceNode" node="0>7|0|0|0|0" />
+        <i3dMapping id="exitPoint" node="0>8" />
+        <i3dMapping id="surfaceSoundNode" node="0>9" />
+        <i3dMapping id="frontNode" node="0>10" />
+        <i3dMapping id="backNode" node="0>11" />
+        <i3dMapping id="dashboardLight" node="0>12" />
+        <i3dMapping id="engineFan01" node="0>13|0" />
+        <i3dMapping id="engineFan02" node="0>13|1" />
+        <i3dMapping id="engineFan03" node="0>13|2" />
+        <i3dMapping id="engineFan04" node="0>13|3" />
+        <i3dMapping id="engineFan05" node="0>13|4" />
+        <i3dMapping id="numbersTime" node="0>14" />
+    </i3dMappings>
+</vehicle>

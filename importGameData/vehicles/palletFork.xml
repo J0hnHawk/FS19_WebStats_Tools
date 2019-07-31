@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="implementDynamicMountAttacher">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>$l10n_shopItem_frontloaderPalletFork</name>
+        <specs>
+            <combination>L218, C232</combination>
+        </specs>
+        <image>$data/vehicles/paladin/palletFork/store_palletFork.png</image>
+        <price>800</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>PALADIN</brand>
+        <category>skidSteers</category>
+        <vertexBufferMemoryUsage>79904</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>11712</indexBufferMemoryUsage>
+        <textureMemoryUsage>1048720</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_frontloaderTool</typeDesc>
+        <filename>$data/vehicles/paladin/palletFork/palletFork.i3d</filename>
+        <size width="1.5" length="2"/>
+        <supportsPickUp>false</supportsPickUp>
+        <components>
+            <component centerOfMass="0 0.2 0" solverIterationCount="10" mass="187" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="skidSteer" />
+        </inputAttacherJoints>
+    </attachable>
+
+    <dynamicMountAttacher node="0>">
+        <mountCollisionMask node="colPartBack1" collisionMask="134225920" />
+        <mountCollisionMask node="colPartBack2" collisionMask="134225920" />
+    </dynamicMountAttacher>
+
+    <baseMaterial>
+        <material name="palletFork_mat" baseNode="paladinPalletFork_vis">
+            <shaderParameter name="colorMat0" value="PALADIN_GREY"/>
+        </material>
+        <material name="palletForkTransparent_alpha_mat" baseNode="alphaPart">
+            <shaderParameter name="colorMat0" value="PALADIN_GREY"/>
+        </material>
+    </baseMaterial>
+
+    <baseMaterialConfigurations price="200" useDefaultColors="false">
+        <baseMaterialConfiguration color="PALADIN_GREY"/>
+        <baseMaterialConfiguration color="PALADIN_RED"/>
+        <material name="palletFork_mat" shaderParameter="colorMat0" />
+        <material name="palletForkTransparent_alpha_mat" shaderParameter="colorMat0" />
+    </baseMaterialConfigurations>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="2" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="paladinPalletFork_main_component1" node="0>" />
+        <i3dMapping id="paladinPalletFork_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0" />
+        <i3dMapping id="alphaPart" node="0>0|1" />
+        <i3dMapping id="dynamicMountTrigger1" node="0>0|2" />
+        <i3dMapping id="dynamicMountTrigger2" node="0>0|3" />
+        <i3dMapping id="colPartBack1" node="0>0|4" />
+        <i3dMapping id="colPartBack2" node="0>0|5" />
+    </i3dMappings>
+</vehicle>

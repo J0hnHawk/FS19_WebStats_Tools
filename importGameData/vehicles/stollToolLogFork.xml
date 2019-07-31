@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="logGrab">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>$l10n_shopItem_frontloaderLogFork</name>
+        <specs>
+            <combination>FZ 30 / FZ 60</combination>
+        </specs>
+        <image>data/vehicles/stoll/stollToolLogFork/store_stollToolLogFork.png</image>
+        <price>800</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>STOLL</brand>
+        <category>frontLoaders</category>
+        <shopTranslationOffset>0 0 0</shopTranslationOffset>
+        <shopRotationOffset>15 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>54560</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>7464</indexBufferMemoryUsage>
+        <textureMemoryUsage>8563512</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_frontloaderTool</typeDesc>
+        <filename>data/vehicles/stoll/stollToolLogFork/stollToolLogFork.i3d</filename>
+        <size width="2.5" length="2"/>
+        <supportsPickUp>false</supportsPickUp>
+        <components>
+            <component centerOfMass="0 0.2 0" solverIterationCount="10" mass="235" />
+            <component solverIterationCount="10" mass="150" />
+            <joint component1="1" component2="2" node="grabJoint" rotLimit="0 0 0" transLimit="0 0 0" rotLimitSpring="300 0 0" rotLimitDamping="30 0 0" rotLimitForceLimit="10 -1 -1" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="frontloader" />
+        </inputAttacherJoints>
+    </attachable>
+
+    <logGrab jointNode="0>" jointRoot="0>">
+        <trigger node="dynamicMountTrigger" />
+        <grab componentJoint="1" axis="3" rotationOffsetThreshold="10" rotationOffsetTime="1000"/>
+    </logGrab>
+
+    <cylindered>
+        <movingTools>
+            <!-- Left Arm -->
+            <movingTool node="grabJoint" playSound="true" >
+                <controls axis="AXIS_FRONTLOADER_TOOL2" invertAxis="true" mouseSpeedFactor="0.5" iconName="TOOL_OPEN_CLOSE" />
+                <rotation rotationAxis="1" rotSpeed="70" rotAcceleration="250" rotMax="18" rotMin="-105" />
+                <componentJoint index="1" anchorActor="0" />
+                <!-- cylinder hinge -->
+                <dependentPart node="grab" />
+            </movingTool>
+        </movingTools>
+        <movingParts>
+            <movingPart node="grab" referencePoint="grabRef" referenceFrame="grabJoint" limitedAxis="1" isActiveDirty="true">
+                <dependentPart node="hydraulic" />
+            </movingPart>
+            <movingPart node="hydraulic" referencePoint="hydraulicRef" referenceFrame="hydraulicFrame" >
+                <translatingPart node="hydraulicPunch" />
+            </movingPart>
+        </movingParts>
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <baseMaterial>
+        <material name="stollFrontLoaderImplements_mat" baseNode="stollLogFork_vis">
+            <shaderParameter name="colorMat0" value="STOLL_GREY1"/>
+        </material>
+    </baseMaterial>
+
+    <baseMaterialConfigurations price="200" useDefaultColors="true">
+        <baseMaterialConfiguration color="STOLL_GREY1"/>
+        <material name="stollFrontLoaderImplements_mat" shaderParameter="colorMat0" />
+    </baseMaterialConfigurations>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="2" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="attacherJoint" node="0>0" />
+        <i3dMapping id="grabJoint" node="0>1" />
+        <i3dMapping id="stollLogFork_vis" node="0>2" />
+        <i3dMapping id="grab" node="0>2|0" />
+        <i3dMapping id="hydraulicRef" node="0>2|0|0" />
+        <i3dMapping id="hydraulic" node="0>2|1" />
+        <i3dMapping id="hydraulicPunch" node="0>2|1|0" />
+        <i3dMapping id="hydraulicFrame" node="0>2|2" />
+        <i3dMapping id="dynamicMountTrigger" node="0>3" />
+        <i3dMapping id="grabRef" node="1>0" />
+    </i3dMappings>
+</vehicle>

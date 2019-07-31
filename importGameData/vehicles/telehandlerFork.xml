@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="implementDynamicMountAttacher">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>$l10n_shopItem_telehandlerFork</name>
+        <specs>
+            <combination>9407 S, MLA-T, MLT</combination>
+        </specs>
+        <image>$data/vehicles/magsi/telehandlerFork/store_magsiTelehandlerFork.png</image>
+        <price>1200</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>MAGSI</brand>
+        <category>teleLoaders</category>
+        <vertexBufferMemoryUsage>29216</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>3528</indexBufferMemoryUsage>
+        <textureMemoryUsage>4197176</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_telehandlerTool</typeDesc>
+        <filename>$data/vehicles/magsi/telehandlerFork/telehandlerFork.i3d</filename>
+        <size width="1.5" length="2"/>
+        <supportsPickUp>false</supportsPickUp>
+        <components>
+            <component centerOfMass="0 0.1 -0.4" solverIterationCount="10" mass="250" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="telehandler" />
+        </inputAttacherJoints>
+    </attachable>
+
+    <dynamicMountAttacher node="0>">
+        <mountCollisionMask node="colPartBack1" collisionMask="134225920" />
+        <mountCollisionMask node="colPartBack2" collisionMask="134225920" />
+    </dynamicMountAttacher>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="2" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="attacherJoint" node="0>0" />
+        <i3dMapping id="colPartBack1" node="0>2" />
+        <i3dMapping id="colPartBack2" node="0>3" />
+    </i3dMappings>
+</vehicle>

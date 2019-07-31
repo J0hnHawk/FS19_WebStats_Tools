@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="trailer">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Pacesetter</name>
+        <specs>
+            <combination>Truck, Dolly</combination>
+            <capacity unit="$l10n_unit_literShort">60000</capacity>
+        </specs>
+        <functions>
+            <function>$l10n_function_tipper</function>
+            <function>$l10n_function_semiTrailer</function>
+        </functions>
+        <image>$data/vehicles/wilsonTrailer/pacesetter/store_pacesetter.png</image>
+        <price>80000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>WILSON</brand>
+        <category>trailers</category>
+        <shopTranslationOffset>0 0.05 0</shopTranslationOffset>
+        <shopRotationOffset>0 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>2601284</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>336522</indexBufferMemoryUsage>
+        <textureMemoryUsage>9087880</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_tipper</typeDesc>
+        <filename>$data/vehicles/wilsonTrailer/pacesetter/pacesetter.i3d</filename>
+        <size width="3.5" length="14.5" />
+        <components>
+            <component centerOfMass="0 0.7 -4" solverIterationCount="10" mass="7000" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration>
+                <wheels>
+                    <wheel filename="$data/shared/wheels/lizard/truck/_11R24_5.xml" configId="dual" isLeft="true" >
+                        <physics tipOcclusionAreaGroupId="1" restLoad="2.3" repr="wheelFrontLeft"  forcePointRatio="0.5"  initialCompression="20" suspTravel="0.30" spring="55" damper="50" />
+                        <additionalWheel filename="$data/shared/wheels/lizard/truck/_11R24_5.xml" configId="dualRim" isLeft="true" offset="0.1" />
+                        <wheelChock parkingNode="wheelChock01" />
+                        <wheelChock parkingNode="wheelChock02" isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/truck/_11R24_5.xml" configId="dual" isLeft="false" >
+                        <physics tipOcclusionAreaGroupId="1" restLoad="2.3" repr="wheelFrontRight" forcePointRatio="0.5"  initialCompression="20" suspTravel="0.30" spring="55" damper="50" />
+                        <additionalWheel filename="$data/shared/wheels/lizard/truck/_11R24_5.xml" configId="dualRim" isLeft="false" offset="0.1" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/truck/_11R24_5.xml" configId="dual" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.2" repr="wheelBackLeft"   forcePointRatio="0.5"  initialCompression="10" suspTravel="0.30" spring="60" damper="50" />
+                        <additionalWheel filename="$data/shared/wheels/lizard/truck/_11R24_5.xml" configId="dualRim" isLeft="true" offset="0.1" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/truck/_11R24_5.xml" configId="dual" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.2" repr="wheelBackRight"  forcePointRatio="0.5"  initialCompression="10" suspTravel="0.30" spring="60" damper="50" />
+                        <additionalWheel filename="$data/shared/wheels/lizard/truck/_11R24_5.xml" configId="dualRim" isLeft="false" offset="0.1" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <rimColor material="2">0.98 0.98 0.98</rimColor>
+    </wheels>
+
+    <dynamicallyLoadedParts>
+        <dynamicallyLoadedPart node="0" linkNode="chockSupport01" filename="$data/shared/assets/wheelChocks/wheelChockSupport01.i3d"/>
+        <dynamicallyLoadedPart node="0" linkNode="chockSupport02" filename="$data/shared/assets/wheelChocks/wheelChockSupport01.i3d"/>
+    </dynamicallyLoadedParts>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="semitrailer" />
+        </inputAttacherJoints>
+        <steeringAxleAngleScale startSpeed="1" endSpeed="90" />
+        <support animationName="moveSupport" />
+        <brakeForce>0.8</brakeForce>
+    </attachable>
+
+    <lights>
+        <sharedLight linkNode="turnlightLeft"       filename="$data/shared/assets/lights/lizard/rearLightCircleOrange_01_left.xml" />
+        <sharedLight linkNode="turnlightRight"       filename="$data/shared/assets/lights/lizard/rearLightCircleOrange_01_right.xml" />
+        <sharedLight linkNode="backlightLeft"       filename="$data/shared/assets/lights/lizard/rearLightCircleRed_01.xml" />
+        <sharedLight linkNode="brakeLightLeft"       filename="$data/shared/assets/lights/lizard/rearLightCircleRed_01.xml" />
+        <sharedLight linkNode="backlightRight"       filename="$data/shared/assets/lights/lizard/rearLightCircleRed_01.xml" />
+        <sharedLight linkNode="brakelightRight"       filename="$data/shared/assets/lights/lizard/rearLightCircleRed_01.xml" />
+        <sharedLight linkNode="backLightTop01"       filename="$data/shared/assets/lights/lizard/rearLightOvalRed_01.xml" />
+        <sharedLight linkNode="backLightTop02"       filename="$data/shared/assets/lights/lizard/rearLightOvalRed_01.xml" />
+        <sharedLight linkNode="backLightTop03"       filename="$data/shared/assets/lights/lizard/rearLightOvalRed_01.xml" />
+        <sharedLight linkNode="backLightTop04"       filename="$data/shared/assets/lights/lizard/rearLightOvalRed_01.xml" />
+        <sharedLight linkNode="backLightTop05"       filename="$data/shared/assets/lights/lizard/rearLightOvalRed_01.xml" />
+        <sharedLight linkNode="backLightTop06"       filename="$data/shared/assets/lights/lizard/rearLightOvalRed_01.xml" />
+        <sharedLight linkNode="backLightTop07"       filename="$data/shared/assets/lights/lizard/rearLightOvalRed_01.xml" />
+        <sharedLight linkNode="backLightTop08"       filename="$data/shared/assets/lights/lizard/rearLightOvalRed_01.xml" />
+        <sharedLight linkNode="backLightTop09"       filename="$data/shared/assets/lights/lizard/rearLightOvalRed_01.xml" />
+        <sharedLight linkNode="sideLightBack01"       filename="$data/shared/assets/lights/lizard/rearLightOvalOrange_01.xml" />
+        <sharedLight linkNode="sideLightBack02"       filename="$data/shared/assets/lights/lizard/rearLightOvalOrange_01.xml" />
+        <sharedLight linkNode="sideLightBack03"       filename="$data/shared/assets/lights/lizard/rearLightOvalOrange_01.xml" />
+        <sharedLight linkNode="sideLightBack04"       filename="$data/shared/assets/lights/lizard/rearLightOvalOrange_01.xml" />
+        <sharedLight linkNode="sideLightBack05"       filename="$data/shared/assets/lights/lizard/rearLightOvalOrange_01.xml" />
+        <sharedLight linkNode="sideLightBack06"       filename="$data/shared/assets/lights/lizard/rearLightOvalOrange_01.xml" />
+        <sharedLight linkNode="sideLightBack07"       filename="$data/shared/assets/lights/lizard/rearLightOvalOrange_01.xml" />
+        <sharedLight linkNode="sideLightBack08"       filename="$data/shared/assets/lights/lizard/rearLightOvalOrange_01.xml" />
+        <sharedLight linkNode="sideLightBack09"       filename="$data/shared/assets/lights/lizard/rearLightOvalOrange_01.xml" />
+        <sharedLight linkNode="sideLightBack10"       filename="$data/shared/assets/lights/lizard/rearLightOvalOrange_01.xml" />
+        <sharedLight linkNode="sideLightBack11"       filename="$data/shared/assets/lights/lizard/rearLightOvalOrange_01.xml" />
+        <sharedLight linkNode="sideLightBack12"       filename="$data/shared/assets/lights/lizard/rearLightOvalOrange_01.xml" />
+        <sharedLight linkNode="sideLightBack13"       filename="$data/shared/assets/lights/lizard/rearLightOvalOrange_01.xml" />
+        <sharedLight linkNode="sideLightBack14"       filename="$data/shared/assets/lights/lizard/rearLightOvalOrange_01.xml" />
+        <sharedLight linkNode="sideLightBack15"       filename="$data/shared/assets/lights/lizard/rearLightOvalOrange_01.xml" />
+        <sharedLight linkNode="sideLightBack16"       filename="$data/shared/assets/lights/lizard/rearLightOvalOrange_01.xml" />
+        <sharedLight linkNode="sideLightBack17"       filename="$data/shared/assets/lights/lizard/rearLightOvalOrange_01.xml" />
+        <sharedLight linkNode="sideLightBack18"       filename="$data/shared/assets/lights/lizard/rearLightOvalOrange_01.xml" />
+
+        <realLights>
+            <high>
+                <light node="backLightsHigh1" lightTypes="0" />
+                <turnLightLeft node="turnLightLeftBack" />
+                <turnLightRight node="turnLightRightBack" />
+                <brakeLight node="backLightsHigh1" />
+            </high>
+        </realLights>
+    </lights>
+
+    <animations>
+        <animation name="tipAnimationFront">
+            <part node="doorFront"         startTime="0.0" endTime="1.5" startTrans="-0.011 0.515 2.256" endTrans="-0.011 0.515 1.615" />
+            <part node="doorHandleFrontRot" startTime="0.0" endTime="1.5" startRot="0 0 0" endRot="1440 0 0" />
+            <part node="doorHandleFront1"   startTime="0.0" endTime="1.5" startRot="0 0 0" endRot="0 0 1440" />
+        </animation>
+        <animation name="tipAnimationBack">
+            <part node="doorBack"           startTime="0.0" endTime="1.5" startTrans="-0.011 0.515 -1.908" endTrans="-0.011 0.515 -1.319" />
+            <part node="doorHandleBackRot" startTime="0.0" endTime="1.5" startRot="0 0 0" endRot="-1440 0 0" />
+            <part node="doorHandleBack1"   startTime="0.0" endTime="1.5" startRot="0 0 0" endRot="0 0 -1440" />
+        </animation>
+        <animation name="toggleCover">
+            <part node="coverClosed" startTime="0"    endTime="0.05" visibility="true" />
+            <part node="coverClosed" startTime="0.05" endTime="0.1"  visibility="false" />
+            <part node="coverOpen"   startTime="0"    endTime="0.05" visibility="false" />
+            <part node="coverOpen"   startTime="0.05" endTime="0.1"  visibility="true" />
+        </animation>
+        <animation name="moveSupport">
+            <part node="supportArm" startTime="0.0" endTime="0.25" startTrans="0 0.366 3.706" endTrans="0 -0.1 3.706" />
+        </animation>
+    </animations>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <fillUnit unit="$l10n_unit_literShort" fillTypeCategories="AUGERWAGON" capacity="30000">
+                        <exactFillRootNode node="exactFillRootNodeFront" />
+                        <autoAimTargetNode node="fillAutoAimTargetFront" startZ="5.791" endZ="0.760" invert="false" fillUnitIndex="1" startPercentage="25" />
+                    </fillUnit>
+                    <fillUnit unit="$l10n_unit_literShort" fillTypeCategories="AUGERWAGON" capacity="30000">
+                        <exactFillRootNode node="exactFillRootNodeBack" />
+                        <autoAimTargetNode node="fillAutoAimTargetBack" startZ="-0.382" endZ="-5.570" invert="false" fillUnitIndex="2" startPercentage="25" />
+                    </fillUnit>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <fillVolume>
+        <fillVolumeConfigurations>
+            <fillVolumeConfiguration>
+                <volumes>
+                    <volume node="fillVolumeFront" maxDelta="0.23" maxAllowedHeapAngle="18" fillUnitIndex="1" />
+                    <volume node="fillVolumeBack" maxDelta="0.23" maxAllowedHeapAngle="18" fillUnitIndex="2" />
+                </volumes>
+            </fillVolumeConfiguration>
+        </fillVolumeConfigurations>
+    </fillVolume>
+
+    <trailer>
+        <trailerConfigurations>
+            <trailerConfiguration>
+                <trailer>
+                    <tipSide name="$l10n_info_tipSideFront" dischargeNodeIndex="1">
+                        <animation name="tipAnimationFront" speedScale="1.0" startTipTime="0.8"/>
+                    </tipSide>
+                    <tipSide name="$l10n_info_tipSideBack" dischargeNodeIndex="2" >
+                        <animation name="tipAnimationBack" speedScale="1.0" startTipTime="0.8"/>
+                    </tipSide>
+                </trailer>
+            </trailerConfiguration>
+        </trailerConfigurations>
+    </trailer>
+
+    <dischargeable>
+        <dischargeNode node="dischargeNodeFront" emptySpeed="2140" fillUnitIndex="1" unloadInfoIndex="1" >
+            <info width="0.5" length="0.5" />
+            <effects>
+                <effectNode effectClass="PipeEffect" effectNode="pipeEffectFront"      materialType="pipe" materialTypeId="1" fadeTime="0.2" shapeScaleSpread="1 1 0 0"/>
+                <effectNode                          effectNode="pipeEffectSmokeFront" materialType="smoke" materialTypeId="1" delay="0.1" alignToWorldY="true"/>
+            </effects>
+        </dischargeNode>
+        <dischargeNode node="dischargeNodeBack" emptySpeed="2140"  fillUnitIndex="2" unloadInfoIndex="2" >
+            <info width="0.5" length="0.5" />
+            <effects>
+                <effectNode effectClass="PipeEffect" effectNode="pipeEffectBack"      materialType="pipe" materialTypeId="1" fadeTime="0.2" shapeScaleSpread="1 1 0 0"/>
+                <effectNode                          effectNode="pipeEffectSmokeBack" materialType="smoke" materialTypeId="1" delay="0.1" alignToWorldY="true"/>
+            </effects>
+        </dischargeNode>
+    </dischargeable>
+
+    <cover>
+        <coverConfigurations>
+            <coverConfiguration>
+                <cover openAnimation="toggleCover" fillUnitIndices="1" />
+            </coverConfiguration>
+        </coverConfigurations>
+    </cover>
+
+    <ai>
+        <allowTurnBackward value="false"/>
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-1.35" maxX="1.35" minZ="-6.6" maxZ="6.6 " yOffset="0.6" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="pacesetter_mat" baseNode="pacesetter_vis">
+            <shaderParameter name="colorMat0" value="WILSONTRAILER_WHITE1"/>
+        </material>
+    </baseMaterial>
+
+    <baseMaterialConfigurations>
+        <baseMaterialConfiguration name="WHITE" color="WILSONTRAILER_WHITE1" material="0"/>
+        <baseMaterialConfiguration name="STAINLESS STEEL" color="SHARED_WHITE2" material="2" price="4000"/>
+        <baseMaterialConfiguration name="BLACK" color="SHARED_BLACK2" material="0" price="4000"/>
+        <baseMaterialConfiguration name="PEWTER" color="SHARED_WHITE2" material="8" price="4000"/>
+        <material name="pacesetter_mat" shaderParameter="colorMat0" />
+    </baseMaterialConfigurations>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="3" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="pacesetter_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0|0" />
+        <i3dMapping id="airIn" node="0>0|0|1|0" />
+        <i3dMapping id="airOut" node="0>0|0|1|1" />
+        <i3dMapping id="supportArm" node="0>0|0|2" />
+        <i3dMapping id="chockSupport01" node="0>0|0|3|0" />
+        <i3dMapping id="chockSupport02" node="0>0|0|3|1" />
+        <i3dMapping id="wheelChock01" node="0>0|0|3|2" />
+        <i3dMapping id="wheelChock02" node="0>0|0|3|3" />
+        <i3dMapping id="wheelFrontLeft" node="0>0|1|0" />
+        <i3dMapping id="wheelFrontRight" node="0>0|1|1" />
+        <i3dMapping id="wheelBackLeft" node="0>0|1|2" />
+        <i3dMapping id="wheelBackRight" node="0>0|1|3" />
+        <i3dMapping id="turnlightLeft" node="0>0|2|0|0" />
+        <i3dMapping id="backlightLeft" node="0>0|2|0|1" />
+        <i3dMapping id="turnlightRight" node="0>0|2|0|2" />
+        <i3dMapping id="brakeLightLeft" node="0>0|2|0|3" />
+        <i3dMapping id="backlightRight" node="0>0|2|0|4" />
+        <i3dMapping id="brakelightRight" node="0>0|2|0|5" />
+        <i3dMapping id="backLightTop04" node="0>0|2|0|6" />
+        <i3dMapping id="backLightTop01" node="0>0|2|0|7" />
+        <i3dMapping id="backLightTop02" node="0>0|2|0|8" />
+        <i3dMapping id="backLightTop03" node="0>0|2|0|9" />
+        <i3dMapping id="backLightTop05" node="0>0|2|0|10" />
+        <i3dMapping id="backLightTop06" node="0>0|2|0|11" />
+        <i3dMapping id="backLightTop07" node="0>0|2|0|12" />
+        <i3dMapping id="backLightTop08" node="0>0|2|0|13" />
+        <i3dMapping id="backLightTop09" node="0>0|2|0|14" />
+        <i3dMapping id="sideLightBack01" node="0>0|2|0|15" />
+        <i3dMapping id="sideLightBack02" node="0>0|2|0|16" />
+        <i3dMapping id="sideLightBack03" node="0>0|2|0|17" />
+        <i3dMapping id="sideLightBack04" node="0>0|2|0|18" />
+        <i3dMapping id="sideLightBack05" node="0>0|2|0|19" />
+        <i3dMapping id="sideLightBack06" node="0>0|2|0|20" />
+        <i3dMapping id="sideLightBack07" node="0>0|2|0|21" />
+        <i3dMapping id="sideLightBack08" node="0>0|2|0|22" />
+        <i3dMapping id="sideLightBack09" node="0>0|2|0|23" />
+        <i3dMapping id="sideLightBack10" node="0>0|2|0|24" />
+        <i3dMapping id="sideLightBack11" node="0>0|2|0|25" />
+        <i3dMapping id="sideLightBack12" node="0>0|2|0|26" />
+        <i3dMapping id="sideLightBack13" node="0>0|2|0|27" />
+        <i3dMapping id="sideLightBack14" node="0>0|2|0|28" />
+        <i3dMapping id="sideLightBack15" node="0>0|2|0|29" />
+        <i3dMapping id="sideLightBack16" node="0>0|2|0|30" />
+        <i3dMapping id="sideLightBack17" node="0>0|2|0|31" />
+        <i3dMapping id="sideLightBack18" node="0>0|2|0|32" />
+        <i3dMapping id="backLightsHigh1" node="0>0|2|1" />
+        <i3dMapping id="backLightsHigh3" node="0>0|2|1|0" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|2|2" />
+        <i3dMapping id="turnLightRightBack" node="0>0|2|3" />
+        <i3dMapping id="coverOpen" node="0>0|3|0" />
+        <i3dMapping id="coverClosed" node="0>0|3|1" />
+        <i3dMapping id="doorFront" node="0>0|4|0" />
+        <i3dMapping id="doorBack" node="0>0|4|1" />
+        <i3dMapping id="doorHandleFront1" node="0>0|4|2|0|0" />
+        <i3dMapping id="doorHandleBack1" node="0>0|4|2|1|0" />
+        <i3dMapping id="doorHandleFrontRot" node="0>0|4|3" />
+        <i3dMapping id="doorHandleBackRot" node="0>0|4|4" />
+        <i3dMapping id="fillVolumeFront" node="0>0|5|0" />
+        <i3dMapping id="fillVolumeBack" node="0>0|5|1" />
+        <i3dMapping id="exactFillRootNodeFront" node="0>0|5|2" />
+        <i3dMapping id="exactFillRootNodeBack" node="0>0|5|3" />
+        <i3dMapping id="fillAutoAimTargetFront" node="0>0|5|4" />
+        <i3dMapping id="fillAutoAimTargetBack" node="0>0|5|5" />
+        <i3dMapping id="dischargeNodeFront" node="0>0|6|0" />
+        <i3dMapping id="dischargeNodeBack" node="0>0|6|1" />
+        <i3dMapping id="pipeEffectFront" node="0>0|7|0|0" />
+        <i3dMapping id="pipeEffectSmokeFront" node="0>0|7|0|1" />
+        <i3dMapping id="pipeEffectBack" node="0>0|7|1|0" />
+        <i3dMapping id="pipeEffectSmokeBack" node="0>0|7|1|1" />
+    </i3dMappings>
+</vehicle>

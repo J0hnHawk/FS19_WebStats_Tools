@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<vehicle type="cutter">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Helianthus 5700</name>
+        <specs>
+            <neededPower>180</neededPower>
+            <workingWidth>5.7</workingWidth>
+            <combination>Nova, Activa 7347 S, T560</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_cutter</function>
+        </functions>
+        <image>$data/vehicles/capello/helianthus5700/store_helianthus5700.png</image>
+        <price>22500</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>CAPELLO</brand>
+        <category>cutters</category>
+        <shopTranslationOffset>0 -0.075 0</shopTranslationOffset>
+        <shopRotationOffset>0 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>504148</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>72936</indexBufferMemoryUsage>
+        <textureMemoryUsage>6816024</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_cutter</typeDesc>
+        <filename>$data/vehicles/capello/helianthus5700/helianthus5700.i3d</filename>
+        <size width="7" length="3" lengthOffset="-0.2"/>
+        <speedLimit value="15"/>
+        <components>
+            <component centerOfMass="0 0.4 0" mass="1750" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="cutter">
+                <heightNode node="heightNode" />
+                <distanceToGround lower="0.6" upper="1.6" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+    </attachable>
+
+    <powerTakeOffs>
+        <input inputNode="ptoInputNode" inputAttacherJointIndices="1" aboveAttacher="true" ptoName="LEFT_PTO"/>
+    </powerTakeOffs>
+
+    <powerConsumer ptoRpm="540" neededMaxPtoPower="50"/>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundReferenceNode" threshold="0.6" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="cutter" functionName="processCutterArea" >
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight" />
+            <groundReferenceNode index="1" />
+            <chopperArea index="2" />
+        </workArea>
+        <workArea type="auxiliary" >
+            <area startNode="workAreaStrawStart" widthNode="workAreaStrawWidth" heightNode="workAreaStrawHeight" />
+        </workArea>
+    </workAreas>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="reelArm" playSound="true">
+                <controls axis="AXIS_CUTTER_REEL2" invertAxis="true" mouseSpeedFactor="0.3" iconName="REEL_TRANSLATE_Y" />
+                <rotation rotSpeed="20" rotAcceleration="50" rotMax="0" rotMin="-27" startRot="-26"/>
+            </movingTool>
+        </movingTools>
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <cutter fruitTypes="sunflower">
+        <testAreas>
+            <testArea startNode="testAreaStart1" widthNode="testAreaWidth1" heightNode="testAreaHeight1"/>
+            <testArea startNode="testAreaStart2" widthNode="testAreaWidth2" heightNode="testAreaHeight2"/>
+            <testArea startNode="testAreaStart3" widthNode="testAreaWidth3" heightNode="testAreaHeight3"/>
+            <testArea startNode="testAreaStart4" widthNode="testAreaWidth4" heightNode="testAreaHeight4"/>
+            <testArea startNode="testAreaStart5" widthNode="testAreaWidth5" heightNode="testAreaHeight5"/>
+            <testArea startNode="testAreaStart6" widthNode="testAreaWidth6" heightNode="testAreaHeight6"/>
+        </testAreas>
+        <effect>
+            <effectNode linkNode="effectCenter" inverted="true" speedScale="0.0018" lengthAndRadius="1 3.0 0.85 2.6" effectType="CENTER" changeSpeedScale="0.01"/>
+            <effectNode linkNode="effectLeft" inverted="true" speedScale="0.0010" lengthAndRadius="1.75 1 1 1" effectType="LEFT" useInterpolation="true" minOffset="3.5"/>
+            <effectNode linkNode="effectRight" inverted="true" speedScale="0.0010" lengthAndRadius="1.75 1 1 1" effectType="RIGHT" useInterpolation="true" minOffset="3.5" useMaxValue="true"/>
+        </effect>
+        <fillEffect>
+            <effectNode effectClass="ParticleEffect" effectNode="effectParticles" particleType="CUTTER_CHOPPER" />
+            <effectNode effectClass="ParticleEffect" effectNode="smokeEmitter" particleType="SMOKE" emitCountScale="0.1" worldSpace="false" useCuttingWidth="false"/>
+        </fillEffect>
+        <animationNodes>
+            <animationNode node="mainDrum" rotSpeed="900" rotAxis="1" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="reel" rotSpeed="400" rotAxis="1" turnOnFadeTime="1" turnOffFadeTime="1"/>
+        </animationNodes>
+    </cutter>
+
+    <turnOnVehicle turnedOnByAttacherVehicle="true"/>
+
+    <ai>
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack"/>
+        <collisionTrigger node="aiCollisionTrigger"/>
+    </ai>
+
+    <dynamicMount forceLimit="0.04"/>
+
+    <baseMaterial>
+        <material name="capelloHelianthus5700_mat" baseNode="capello_vis">
+            <shaderParameter name="colorMat0" value="CAPELLO_RED1"/>
+            <shaderParameter name="colorMat1" value="CAPELLO_BLACK1"/>
+        </material>
+    </baseMaterial>
+
+    <foliageBending>
+        <bendingNode minX="-3.2" maxX="3.2" minZ="-1" maxZ="1" yOffset="0.1" />
+    </foliageBending>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="helianthus5700_main_component1" node="0>" />
+        <i3dMapping id="capello_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0" />
+        <i3dMapping id="heightNode" node="0>0|0|0" />
+        <i3dMapping id="ptoInputNode" node="0>0|1" />
+        <i3dMapping id="mainDrum" node="0>0|2" />
+        <i3dMapping id="reelArm" node="0>0|3" />
+        <i3dMapping id="reel" node="0>0|3|0" />
+        <i3dMapping id="workAreaStart" node="0>0|4|0|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|4|0|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|4|0|2" />
+        <i3dMapping id="groundReferenceNode" node="0>0|4|1" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|5|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|5|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|5|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|5|3" />
+        <i3dMapping id="effectCenter" node="0>0|6|0" />
+        <i3dMapping id="effectLeft" node="0>0|6|1" />
+        <i3dMapping id="effectRight" node="0>0|6|2" />
+        <i3dMapping id="smokeEmitter" node="0>0|6|3" />
+        <i3dMapping id="effectParticles" node="0>0|6|4" />
+        <i3dMapping id="workAreaStrawStart" node="0>0|6|4|0|0" />
+        <i3dMapping id="workAreaStrawWidth" node="0>0|6|4|0|1" />
+        <i3dMapping id="workAreaStrawHeight" node="0>0|6|4|0|2" />
+        <i3dMapping id="testAreaStart1" node="0>0|7|0" />
+        <i3dMapping id="testAreaWidth1" node="0>0|7|0|0" />
+        <i3dMapping id="testAreaHeight1" node="0>0|7|0|1" />
+        <i3dMapping id="testAreaStart2" node="0>0|7|1" />
+        <i3dMapping id="testAreaWidth2" node="0>0|7|1|0" />
+        <i3dMapping id="testAreaHeight2" node="0>0|7|1|1" />
+        <i3dMapping id="testAreaStart3" node="0>0|7|2" />
+        <i3dMapping id="testAreaWidth3" node="0>0|7|2|0" />
+        <i3dMapping id="testAreaHeight3" node="0>0|7|2|1" />
+        <i3dMapping id="testAreaStart4" node="0>0|7|3" />
+        <i3dMapping id="testAreaWidth4" node="0>0|7|3|0" />
+        <i3dMapping id="testAreaHeight4" node="0>0|7|3|1" />
+        <i3dMapping id="testAreaStart5" node="0>0|7|4" />
+        <i3dMapping id="testAreaWidth5" node="0>0|7|4|0" />
+        <i3dMapping id="testAreaHeight5" node="0>0|7|4|1" />
+        <i3dMapping id="testAreaStart6" node="0>0|7|5" />
+        <i3dMapping id="testAreaWidth6" node="0>0|7|5|0" />
+        <i3dMapping id="testAreaHeight6" node="0>0|7|5|1" />
+    </i3dMappings>
+</vehicle>

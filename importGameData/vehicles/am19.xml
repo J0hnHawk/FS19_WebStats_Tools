@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="livestockTrailer">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>AM19</name>
+        <specs>
+            <combination>Truck, Dolly</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_livestockTrailer</function>
+        </functions>
+        <image>$data/vehicles/michieletto/am19/store_am19.png</image>
+        <price>67500</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>MICHIELETTO</brand>
+        <category>animalTransport</category>
+        <vertexBufferMemoryUsage>1680168</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>232584</indexBufferMemoryUsage>
+        <textureMemoryUsage>8913080</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_livestockTrailer</typeDesc>
+        <filename>$data/vehicles/michieletto/am19/am19.i3d</filename>
+        <size width="3.5" length="15.5" lengthOffset="-0.5"/>
+        <components>
+            <component centerOfMass="0 0.8 0" solverIterationCount="10" mass="12285"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels autoRotateBackSpeed="2.0">
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" isLeft="true" hasParticles="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.3" repr="wheelFrontLeft"   initialCompression="30" suspTravel="0.2" spring="30" damper="20" frictionScale="1.5"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" isLeft="flase" hasParticles="true">
+                        <physics tipOcclusionAreaGroupId="2" restLoad="1.3" repr="wheelFrontRight"  initialCompression="30" suspTravel="0.2" spring="30" damper="20" frictionScale="1.5"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" isLeft="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.3" repr="wheelMiddleLeft"  initialCompression="25" suspTravel="0.2" spring="30" damper="20" frictionScale="1.5"/>
+                        <wheelChock/>
+                        <wheelChock isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" isLeft="false">
+                        <physics tipOcclusionAreaGroupId="2" restLoad="1.3" repr="wheelMiddleRight" initialCompression="25" suspTravel="0.2" spring="30" damper="20" frictionScale="1.5"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.3" repr="wheelBackLeft"    initialCompression="20" suspTravel="0.2" spring="30" damper="20" frictionScale="1.5"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true">
+                        <physics tipOcclusionAreaGroupId="2" restLoad="1.3" repr="wheelBackRight"   initialCompression="20" suspTravel="0.2" spring="30" damper="20" frictionScale="1.5"/>
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+    </wheels>
+
+    <rimColorConfigurations useDefaultColors="true" price="300"/>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="semitrailer"/>
+        </inputAttacherJoints>
+        <support animationName="moveSupport"/>
+        <brakeForce>0.7</brakeForce>
+    </attachable>
+
+    <lights>
+        <sharedLight linkNode="sideMarker_07White_01"        filename="$data/shared/assets/lights/lizard/sideMarker_07White.xml" />
+        <sharedLight linkNode="sideMarker_07White_02"        filename="$data/shared/assets/lights/lizard/sideMarker_07White.xml" />
+        <sharedLight linkNode="sideMarker_07OrangeLeft_01"   filename="$data/shared/assets/lights/lizard/sideMarker_07Orange.xml" />
+        <sharedLight linkNode="sideMarker_07OrangeLeft_02"   filename="$data/shared/assets/lights/lizard/sideMarker_07Orange.xml" />
+        <sharedLight linkNode="sideMarker_07OrangeLeft_03"   filename="$data/shared/assets/lights/lizard/sideMarker_07Orange.xml" />
+        <sharedLight linkNode="sideMarker_07OrangeLeft_04"   filename="$data/shared/assets/lights/lizard/sideMarker_07Orange.xml" />
+        <sharedLight linkNode="sideMarker_07OrangeLeft_05"   filename="$data/shared/assets/lights/lizard/sideMarker_07Orange.xml" />
+        <sharedLight linkNode="sideMarker_07OrangeLeft_06"   filename="$data/shared/assets/lights/lizard/sideMarker_07Orange.xml" />
+        <sharedLight linkNode="sideMarker_07OrangeLeft_07"   filename="$data/shared/assets/lights/lizard/sideMarker_07Orange.xml" />
+        <sharedLight linkNode="sideMarker_07OrangeLeft_08"   filename="$data/shared/assets/lights/lizard/sideMarker_07Orange.xml" />
+        <sharedLight linkNode="sideMarker_07Orange_right_01" filename="$data/shared/assets/lights/lizard/sideMarker_07Orange.xml" />
+        <sharedLight linkNode="sideMarker_07Orange_right_02" filename="$data/shared/assets/lights/lizard/sideMarker_07Orange.xml" />
+        <sharedLight linkNode="sideMarker_07Orange_right_03" filename="$data/shared/assets/lights/lizard/sideMarker_07Orange.xml" />
+        <sharedLight linkNode="sideMarker_07Orange_right_04" filename="$data/shared/assets/lights/lizard/sideMarker_07Orange.xml" />
+        <sharedLight linkNode="sideMarker_07Orange_right_05" filename="$data/shared/assets/lights/lizard/sideMarker_07Orange.xml" />
+        <sharedLight linkNode="sideMarker_07Orange_right_06" filename="$data/shared/assets/lights/lizard/sideMarker_07Orange.xml" />
+        <sharedLight linkNode="sideMarker_07Orange_right_07" filename="$data/shared/assets/lights/lizard/sideMarker_07Orange.xml" />
+        <sharedLight linkNode="sideMarker_07Orange_right_08" filename="$data/shared/assets/lights/lizard/sideMarker_07Orange.xml" />
+        <sharedLight linkNode="redTriangle_02_01"            filename="$data/shared/assets/reflectors/lizard/redTriangle_02.xml" />
+        <sharedLight linkNode="redTriangle_02_02"            filename="$data/shared/assets/reflectors/lizard/redTriangle_02.xml" />
+        <sharedLight linkNode="sideMarker_04Right01"         filename="$data/shared/assets/lights/lizard/sideMarker_04_right.xml" />
+        <sharedLight linkNode="sideMarker_04Left01"          filename="$data/shared/assets/lights/lizard/sideMarker_04_left.xml" />
+        <sharedLight linkNode="turnlightLeft"                filename="$data/shared/assets/lights/lizard/rear3ChamberLight_03_left.xml" />
+        <sharedLight linkNode="turnlightRight"               filename="$data/shared/assets/lights/lizard/rear3ChamberLight_03_right.xml" />
+        <sharedLight linkNode="backlightLeft"                filename="$data/shared/assets/lights/lizard/rear3ChamberLight_03_left.xml" />
+        <sharedLight linkNode="backlightRight"               filename="$data/shared/assets/lights/lizard/rear3ChamberLight_03_right.xml" />
+        <sharedLight linkNode="brakelightLeft"               filename="$data/shared/assets/lights/lizard/rear3ChamberLight_03_left.xml" />
+        <sharedLight linkNode="brakelightRight"              filename="$data/shared/assets/lights/lizard/rear3ChamberLight_03_right.xml" />
+        <sharedLight linkNode="PlateNumberLight01"           filename="$data/shared/assets/lights/lizard/rearPlateNumberLight_01.xml" />
+        <sharedLight linkNode="PlateNumberLight02"           filename="$data/shared/assets/lights/lizard/rearPlateNumberLight_01.xml" />
+
+        <realLights>
+            <high>
+                <light node="backLightsHigh"   lightTypes="0"/>
+                <brakeLight node="backLightsHigh" />
+                <turnLightLeft node="turnLightLeftBack" />
+                <turnLightRight node="turnLightRightBack" />
+            </high>
+        </realLights>
+    </lights>
+
+    <animations>
+        <animation name="moveSupport">
+            <part node="support" startTime="0" endTime="0.5" startTrans="0 0.556 2.649" endTrans="0 0 2.649"/>
+        </animation>
+        <animation name="toggleCover">
+            <part node="roof_vis" startTime="0" endTime="2" startTrans="0 0 0" endTrans="0 0.330 0"/>
+            <part node="doors" startTime="0" endTime="2" startTrans="0 0.345 0" endTrans="0 0 0"/>
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="roof_vis" playSound="true" />
+        </movingTools>
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <cover>
+        <coverConfigurations>
+            <coverConfiguration>
+                <cover openAnimation="toggleCover" openOnBuy="false" fillUnitIndices="1"/>
+            </coverConfiguration>
+        </coverConfigurations>
+    </cover>
+
+    <livestockTrailer>
+        <animal type="sheep" node="sheepSlots" numSlots="24" />
+        <animal type="pig"   node="pigSlots" numSlots="21" />
+        <animal type="cow"   node="cowSlots" numSlots="14" />
+    </livestockTrailer>
+
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4"/>
+
+    <tipOccluder>
+        <occlusionArea start="start" width="width" height="height"/>
+    </tipOccluder>
+
+    <foliageBending>
+        <bendingNode minX="-1.35" maxX="1.35" minZ="2.9" maxZ="6.7" yOffset="1.2" />
+        <bendingNode minX="-1.35" maxX="1.35" minZ="-7.5" maxZ="2.9" yOffset="0.6" />
+    </foliageBending>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="trailer_main_component1" node="0>" />
+        <i3dMapping id="michieletto_vis" node="0>0" />
+        <i3dMapping id="wheels" node="0>0|0" />
+        <i3dMapping id="wheelFrontLeft" node="0>0|0|0" />
+        <i3dMapping id="wheelFrontRight" node="0>0|0|1" />
+        <i3dMapping id="wheelMiddleLeft" node="0>0|0|2" />
+        <i3dMapping id="wheelMiddleRight" node="0>0|0|3" />
+        <i3dMapping id="wheelBackLeft" node="0>0|0|4" />
+        <i3dMapping id="wheelBackRight" node="0>0|0|5" />
+        <i3dMapping id="attacherJoint" node="0>0|1" />
+        <i3dMapping id="PlateNumberLight01" node="0>0|2|0|0" />
+        <i3dMapping id="PlateNumberLight02" node="0>0|2|0|1" />
+        <i3dMapping id="sideMarker_07White_01" node="0>0|2|0|2" />
+        <i3dMapping id="sideMarker_07White_02" node="0>0|2|0|3" />
+        <i3dMapping id="sideMarker_07OrangeLeft_01" node="0>0|2|0|4" />
+        <i3dMapping id="sideMarker_07Orange_right_01" node="0>0|2|0|5" />
+        <i3dMapping id="sideMarker_07Orange_right_02" node="0>0|2|0|6" />
+        <i3dMapping id="sideMarker_07OrangeLeft_02" node="0>0|2|0|7" />
+        <i3dMapping id="sideMarker_07OrangeLeft_03" node="0>0|2|0|8" />
+        <i3dMapping id="sideMarker_07Orange_right_03" node="0>0|2|0|9" />
+        <i3dMapping id="sideMarker_07Orange_right_04" node="0>0|2|0|10" />
+        <i3dMapping id="sideMarker_07OrangeLeft_04" node="0>0|2|0|11" />
+        <i3dMapping id="sideMarker_07OrangeLeft_05" node="0>0|2|0|12" />
+        <i3dMapping id="sideMarker_07Orange_right_05" node="0>0|2|0|13" />
+        <i3dMapping id="sideMarker_07Orange_right_06" node="0>0|2|0|14" />
+        <i3dMapping id="sideMarker_07OrangeLeft_06" node="0>0|2|0|15" />
+        <i3dMapping id="sideMarker_07OrangeLeft_07" node="0>0|2|0|16" />
+        <i3dMapping id="sideMarker_07Orange_right_07" node="0>0|2|0|17" />
+        <i3dMapping id="sideMarker_07Orange_right_08" node="0>0|2|0|18" />
+        <i3dMapping id="sideMarker_07OrangeLeft_08" node="0>0|2|0|19" />
+        <i3dMapping id="redTriangle_02_01" node="0>0|2|0|20" />
+        <i3dMapping id="redTriangle_02_02" node="0>0|2|0|21" />
+        <i3dMapping id="sideMarker_04Right01" node="0>0|2|0|22" />
+        <i3dMapping id="sideMarker_04Left01" node="0>0|2|0|23" />
+        <i3dMapping id="turnlightLeft" node="0>0|2|0|24" />
+        <i3dMapping id="backlightLeft" node="0>0|2|0|25" />
+        <i3dMapping id="brakelightLeft" node="0>0|2|0|26" />
+        <i3dMapping id="brakelightRight" node="0>0|2|0|27" />
+        <i3dMapping id="backlightRight" node="0>0|2|0|28" />
+        <i3dMapping id="turnlightRight" node="0>0|2|0|29" />
+        <i3dMapping id="backLightsHigh" node="0>0|2|1|0" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|2|2|0|0" />
+        <i3dMapping id="turnLightRightBack" node="0>0|2|2|1|0" />
+        <i3dMapping id="support" node="0>0|3" />
+        <i3dMapping id="sheepSlots" node="0>0|4|0" />
+        <i3dMapping id="pigSlots" node="0>0|4|1" />
+        <i3dMapping id="cowSlots" node="0>0|4|2" />
+        <i3dMapping id="start" node="0>0|5|0" />
+        <i3dMapping id="width" node="0>0|5|1" />
+        <i3dMapping id="height" node="0>0|5|2" />
+        <i3dMapping id="roof_vis" node="0>0|6|0" />
+        <i3dMapping id="doors" node="0>0|6|1" />
+    </i3dMappings>
+</vehicle>

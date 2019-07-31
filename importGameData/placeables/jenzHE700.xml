@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable>
+    <storeData>
+        <name>HE 700 StA</name>
+        <image>$data/placeables/woodCrusher/jenz/store_jenzHE700.png</image>
+        <price>72000</price>
+        <specs>
+            <fillTypes>treeSaplings</fillTypes>
+        </specs>
+        <functions>
+            <function>$l10n_function_placeableChipper</function>
+        </functions>
+        <dailyUpkeep>100</dailyUpkeep>
+        <lifetime>1000</lifetime>
+        <rotation>0</rotation>
+        <brand>JENZ</brand>
+        <species>placeable</species>
+        <category>placeableMisc</category>
+        <vertexBufferMemoryUsage>986768</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>144318</indexBufferMemoryUsage>
+        <textureMemoryUsage>7514992</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <placeableType>woodCrusher</placeableType>
+    <filename>$data/placeables/woodCrusher/jenz/jenzHE700.i3d</filename>
+    <placement testSizeX="3" testSizeZ="9" sizeX="2" sizeZ="3" useRandomYRotation="false" useManualYRotation="true" />
+
+    <woodCrusher priceScale="0.8" cutNode="0|2" cutSizeY="1.5" cutSizeZ="2" downForceNode="0|3" mainDrumRefNode="0|5" downForce="1" moveMaxForce="9" automaticallyTurnOn="true">
+        <moveTriggers>
+            <trigger node="0|0" />
+        </moveTriggers>
+        <moveCollisions>
+            <collision node="0|1|0" />
+            <collision node="0|1|1" />
+            <collision node="0|1|2" />
+        </moveCollisions>
+        <crushEffects>
+            <effectNode effectClass="ParticleEffect" effectNode="0|4|0" particleType="CRUSHER_DUST"/>
+            <effectNode effectClass="ParticleEffect" effectNode="0|4|1" particleType="CRUSHER_WOOD"/>
+        </crushEffects>
+        <animationNodes>
+            <animationNode node="1|0" rotSpeed="100"  rotAxis="1" />
+            <animationNode node="1|1" rotSpeed="-450" rotAxis="1" />
+            <animationNode node="1|2" rotSpeed="450"  rotAxis="1" />
+            <animationNode class="ScrollingAnimation" node="2" scrollSpeed="0.25" shaderParameterComponent="2" />
+        </animationNodes>
+        <sounds>
+            <idle template="WOOD_CHIPPER_IDLE" linkNode="0" />
+            <work template="WOOD_CHIPPER_WORK" linkNode="0" />
+        </sounds>
+    </woodCrusher>
+
+    <tipOcclusionUpdateArea sizeX="4" sizeZ="9" />
+
+    <clearAreas>
+        <clearArea startNode="7|0" widthNode="7|1" heightNode="7|2"/>
+    </clearAreas>
+
+    <leveling requireLeveling="true" maxSmoothDistance="10" maxSlope="75" maxEdgeAngle="30">
+        <levelAreas>
+            <levelArea startNode="8|0" widthNode="8|1" heightNode="8|2" groundType="asphalt"/>
+        </levelAreas>
+        <rampAreas> <!-- Deprecated! no longer used in script -->
+            <rampArea maxSlope="75" rootNode="9|0" startNode="9|0|0" widthNode="9|0|1" heightNode="9|0|2" groundType="asphalt"/>
+            <rampArea maxSlope="75" rootNode="9|1" startNode="9|1|0" widthNode="9|1|1" heightNode="9|1|2" groundType="asphalt"/>
+            <rampArea maxSlope="75" rootNode="9|2" startNode="9|2|0" widthNode="9|2|1" heightNode="9|2|2" groundType="asphalt"/>
+            <rampArea maxSlope="75" rootNode="9|3" startNode="9|3|0" widthNode="9|3|1" heightNode="9|3|2" groundType="asphalt"/>
+        </rampAreas>
+    </leveling>
+</placeable>

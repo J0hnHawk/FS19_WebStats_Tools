@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="cutter">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Corn Champion 5R</name>
+        <specs>
+            <workingWidth>3.4</workingWidth>
+            <combination>TX 32, Nova 330</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_cutter</function>
+        </functions>
+        <image>$data/vehicles/ziegler/zieglerCornChampion5R/store_zieglerCornChampion5R.png</image>
+        <price>19000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>ZIEGLER</brand>
+        <category>cornHeaders</category>
+        <shopTranslationOffset>0 -0.05 0</shopTranslationOffset>
+        <shopRotationOffset>3 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>1027336</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>154470</indexBufferMemoryUsage>
+        <textureMemoryUsage>7034520</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_cutter</typeDesc>
+        <filename>$data/vehicles/ziegler/zieglerCornChampion5R/zieglerCornChampion5R.i3d</filename>
+        <size width="4.5" length="3.5" lengthOffset="-0.1" />
+        <speedLimit value="10" />
+        <components>
+            <component centerOfMass="0 0.2 -0.2" solverIterationCount="10" mass="1650" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <powerConsumer ptoRpm="540" neededMaxPtoPower="35"/>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="cutter" >
+                <heightNode node="heightNode" />
+                <distanceToGround lower="0.3" upper="2" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+        <support animationName="moveSupport" />
+    </attachable>
+
+    <powerTakeOffs>
+        <input inputNode="ptoInputNode" inputAttacherJointIndices="1" aboveAttacher="true" ptoName="LEFT_PTO"/>
+    </powerTakeOffs>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundReferenceNode" threshold="0.4" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="cutter" functionName="processCutterArea" >
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight" />
+            <groundReferenceNode index="1" />
+            <chopperArea index="2" />
+        </workArea>
+        <workArea type="auxiliary" >
+            <area startNode="chopperAreaStart" widthNode="chopperAreaWidth" heightNode="chopperAreaHeight" />
+        </workArea>
+    </workAreas>
+
+    <animations>
+        <animation name="moveSupport">
+            <part node="supportArm" startTime="0.0" endTime="0.5" startTrans="0 0.175 -1.176" endTrans="0 0 -1.176" />
+        </animation>
+    </animations>
+
+    <cutter fruitTypeCategories="MAIZEHEADER">
+        <testAreas>
+            <testArea startNode="testAreasStart1" widthNode="testAreasWidth1" heightNode="testAreasHeight1" />
+            <testArea startNode="testAreasStart2" widthNode="testAreasWidth2" heightNode="testAreasHeight2" />
+            <testArea startNode="testAreasStart3" widthNode="testAreasWidth3" heightNode="testAreasHeight3" />
+            <testArea startNode="testAreasStart4" widthNode="testAreasWidth4" heightNode="testAreasHeight4" />
+            <testArea startNode="testAreasStart5" widthNode="testAreasWidth5" heightNode="testAreasHeight5" />
+        </testAreas>
+        <effect>
+            <effectNode linkNode="cutterEffectCenter" speedScale="0.0018"                              effectType="CENTER" offset="0.35" changeSpeedScale="0.01" supportScaling="true" />
+            <effectNode linkNode="cutterEffectLeft"   speedScale="0.0013" lengthAndRadius="1.75 1 1 1" effectType="LEFT"  useInterpolation="true" minOffset="6" />
+            <effectNode linkNode="cutterEffectRight"  speedScale="0.0013" lengthAndRadius="1.75 1 1 1" effectType="RIGHT" useInterpolation="true" minOffset="6" useMaxValue="true" />
+        </effect>
+        <fillEffect>
+            <effectNode effectClass="ParticleEffect" effectNode="emitterShape" particleType="CUTTER_CHOPPER" worldSpace="true"/>
+            <effectNode effectClass="ParticleEffect" effectNode="smokeEmitter" particleType="SMOKE" emitCountScale="0.1" worldSpace="false" useCuttingWidth="false"/>
+        </fillEffect>
+        <animationNodes>
+            <animationNode node="mainDrum" rotAxis="1" rotSpeed="1200"  turnOnFadeTime="2" turnOffFadeTime="2"/>
+            <animationNode node="cutter1"  rotAxis="2" rotSpeed="-1200" turnOnFadeTime="2" turnOffFadeTime="2"/>
+            <animationNode node="cutter2"  rotAxis="2" rotSpeed="-1200" turnOnFadeTime="2" turnOffFadeTime="2"/>
+            <animationNode node="cutter3"  rotAxis="2" rotSpeed="-1200" turnOnFadeTime="2" turnOffFadeTime="2"/>
+            <animationNode node="cutter4"  rotAxis="2" rotSpeed="-1200" turnOnFadeTime="2" turnOffFadeTime="2"/>
+            <animationNode node="cutter5"  rotAxis="2" rotSpeed="-1200" turnOnFadeTime="2" turnOffFadeTime="2"/>
+            <animationNode node="drum1"    rotAxis="3" rotSpeed="-1200" turnOnFadeTime="2" turnOffFadeTime="2"/>
+            <animationNode node="drum2"    rotAxis="3" rotSpeed="-1200" turnOnFadeTime="2" turnOffFadeTime="2"/>
+            <animationNode node="drum3"    rotAxis="3" rotSpeed="1200"  turnOnFadeTime="2" turnOffFadeTime="2"/>
+            <animationNode node="drum4"    rotAxis="3" rotSpeed="-1200" turnOnFadeTime="2" turnOffFadeTime="2"/>
+            <animationNode node="drum5"    rotAxis="3" rotSpeed="1200"  turnOnFadeTime="2" turnOffFadeTime="2"/>
+            <animationNode node="drum6"    rotAxis="3" rotSpeed="-1200" turnOnFadeTime="2" turnOffFadeTime="2"/>
+            <animationNode node="drum7"    rotAxis="3" rotSpeed="1200"  turnOnFadeTime="2" turnOffFadeTime="2"/>
+            <animationNode node="drum8"    rotAxis="3" rotSpeed="-1200" turnOnFadeTime="2" turnOffFadeTime="2"/>
+            <animationNode node="drum9"    rotAxis="3" rotSpeed="1200"  turnOnFadeTime="2" turnOffFadeTime="2"/>
+            <animationNode node="drum10"   rotAxis="3" rotSpeed="-1200" turnOnFadeTime="2" turnOffFadeTime="2"/>
+            <animationNode class="ScrollingAnimation" node="chain1" scrollSpeed="3" turnOnFadeTime="2" turnOffFadeTime="2" />
+            <animationNode class="ScrollingAnimation" node="chain2" scrollSpeed="3" turnOnFadeTime="2" turnOffFadeTime="2" />
+        </animationNodes>
+    </cutter>
+
+    <turnOnVehicle turnedOnByAttacherVehicle="true" />
+
+    <ai>
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack" />
+        <sizeMarkers leftNode="sizeMarkerLeft" rightNode="sizeMarkerRight" backNode="sizeMarkerBack" />
+        <collisionTrigger node="aiCollisionTrigger" />
+    </ai>
+
+    <dynamicMount forceLimitScale="1" />
+
+    <baseMaterial>
+        <material name="zieglerCornChampion5R_mat" baseNode="ziegler_vis">
+            <shaderParameter name="colorMat0" value="ZIEGLER_RED"/>
+            <shaderParameter name="colorMat2" value="ZIEGLER_YELLOW"/>
+        </material>
+    </baseMaterial>
+
+    <foliageBending>
+        <bendingNode minX="-2" maxX="2" minZ="-1.2" maxZ="0.6" yOffset="0.2" />
+    </foliageBending>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="cornChampion5R_main_component1" node="0>" />
+        <i3dMapping id="ziegler_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0" />
+        <i3dMapping id="heightNode" node="0>0|0|0" />
+        <i3dMapping id="ptoInputNode" node="0>0|1" />
+        <i3dMapping id="supportArm" node="0>0|2" />
+        <i3dMapping id="mainDrum" node="0>0|3|0" />
+        <i3dMapping id="cutter1" node="0>0|3|1|0" />
+        <i3dMapping id="cutter2" node="0>0|3|1|1" />
+        <i3dMapping id="cutter3" node="0>0|3|1|2" />
+        <i3dMapping id="cutter4" node="0>0|3|1|3" />
+        <i3dMapping id="cutter5" node="0>0|3|1|4" />
+        <i3dMapping id="drum1" node="0>0|3|2|0" />
+        <i3dMapping id="drum2" node="0>0|3|2|1" />
+        <i3dMapping id="drum3" node="0>0|3|2|2" />
+        <i3dMapping id="drum4" node="0>0|3|2|3" />
+        <i3dMapping id="drum5" node="0>0|3|2|4" />
+        <i3dMapping id="drum6" node="0>0|3|2|5" />
+        <i3dMapping id="drum7" node="0>0|3|2|6" />
+        <i3dMapping id="drum8" node="0>0|3|2|7" />
+        <i3dMapping id="drum9" node="0>0|3|2|8" />
+        <i3dMapping id="drum10" node="0>0|3|2|9" />
+        <i3dMapping id="chain1" node="0>0|4|0" />
+        <i3dMapping id="chain2" node="0>0|4|1" />
+        <i3dMapping id="workAreaStart" node="0>0|5|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|5|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|5|2" />
+        <i3dMapping id="groundReferenceNode" node="0>0|5|3" />
+        <i3dMapping id="chopperAreaStart" node="0>0|5|4" />
+        <i3dMapping id="chopperAreaWidth" node="0>0|5|5" />
+        <i3dMapping id="chopperAreaHeight" node="0>0|5|6" />
+        <i3dMapping id="testAreasStart1" node="0>0|6|0|0" />
+        <i3dMapping id="testAreasWidth1" node="0>0|6|0|1" />
+        <i3dMapping id="testAreasHeight1" node="0>0|6|0|2" />
+        <i3dMapping id="testAreasStart2" node="0>0|6|1|0" />
+        <i3dMapping id="testAreasWidth2" node="0>0|6|1|1" />
+        <i3dMapping id="testAreasHeight2" node="0>0|6|1|2" />
+        <i3dMapping id="testAreasStart3" node="0>0|6|2|0" />
+        <i3dMapping id="testAreasWidth3" node="0>0|6|2|1" />
+        <i3dMapping id="testAreasHeight3" node="0>0|6|2|2" />
+        <i3dMapping id="testAreasStart4" node="0>0|6|3|0" />
+        <i3dMapping id="testAreasWidth4" node="0>0|6|3|1" />
+        <i3dMapping id="testAreasHeight4" node="0>0|6|3|2" />
+        <i3dMapping id="testAreasStart5" node="0>0|6|4|0" />
+        <i3dMapping id="testAreasWidth5" node="0>0|6|4|1" />
+        <i3dMapping id="testAreasHeight5" node="0>0|6|4|2" />
+        <i3dMapping id="cutterEffectCenter" node="0>0|7|0" />
+        <i3dMapping id="cutterEffectLeft" node="0>0|7|1" />
+        <i3dMapping id="cutterEffectRight" node="0>0|7|2" />
+        <i3dMapping id="emitterShape" node="0>0|7|3" />
+        <i3dMapping id="smokeEmitter" node="0>0|7|4" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|8|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|8|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|8|0|2" />
+        <i3dMapping id="sizeMarkerLeft" node="0>0|8|1|0" />
+        <i3dMapping id="sizeMarkerRight" node="0>0|8|1|1" />
+        <i3dMapping id="sizeMarkerBack" node="0>0|8|1|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|8|2" />
+    </i3dMappings>
+</vehicle>

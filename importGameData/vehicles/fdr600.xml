@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<vehicle type="cutter">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>600FDR</name>
+        <specs>
+            <workingWidth>6.0</workingWidth>
+            <combination>FR 780</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_cutterForage</function>
+        </functions>
+        <image>$data/vehicles/newHolland/fdr600/store_fdr600.png</image>
+        <price>38000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>NEWHOLLAND</brand>
+        <category>forageHarvesterCutters</category>
+        <shopTranslationOffset>0 -0.025 0</shopTranslationOffset>
+        <shopRotationOffset>0 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>389600</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>54132</indexBufferMemoryUsage>
+        <textureMemoryUsage>6488264</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_cutter</typeDesc>
+        <filename>$data/vehicles/newHolland/fdr600/fdr600.i3d</filename>
+        <size width="6.5" length="2.5"/>
+        <speedLimit value="15"/>
+        <components>
+            <component centerOfMass="0 0.2 0" mass="2900"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="cutterHarvester" forceSelectionOnAttach="false">
+                <heightNode node="groundReferenceNode"/>
+                <distanceToGround lower="0.2" upper="1.8"/>
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+    </attachable>
+
+    <powerTakeOffs>
+        <input inputNode="pto" detachNode="ptoDetachNode" inputAttacherJointIndices="1" aboveAttacher="true" ptoName="LEFT_PTO"/>
+    </powerTakeOffs>
+
+    <powerConsumer ptoRpm="540" neededMaxPtoPower="100"/>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundReferenceNode" threshold="0.3" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="cutter" functionName="processCutterArea" disableBackwards="true" >
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight" />
+            <groundReferenceNode index="1" />
+        </workArea>
+    </workAreas>
+
+    <cutter allowsForageGrowthState="true" fruitTypeCategories="directCutter" fruitTypeConverter="forageHarvester">
+        <fillEffect>
+            <effectNode effectClass="ParticleEffect"      effectNode="emitterSmoke" particleType="SMOKE"  useCuttingWidth="false" emitCountScale="1"/>
+        </fillEffect>
+        <animationNodes>
+            <animationNode node="drum"      rotAxis="1" rotSpeed="800"   turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="rotor000"    rotAxis="2" rotSpeed="2000"  turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="rotor00"    rotAxis="2" rotSpeed="-2000" turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="rotor0"    rotAxis="2" rotSpeed="2000"  turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="rotor1"    rotAxis="2" rotSpeed="-2000" turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="rotor2"    rotAxis="2" rotSpeed="2000"  turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="rotor3"    rotAxis="2" rotSpeed="-2000" turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="rotor4"    rotAxis="2" rotSpeed="2000"  turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="rotor5"    rotAxis="2" rotSpeed="-2000" turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="rotor6"    rotAxis="2" rotSpeed="2000"  turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="rotor7"    rotAxis="2" rotSpeed="-2000" turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="rotor8"   rotAxis="2" rotSpeed="2000"  turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="rotor9"   rotAxis="2" rotSpeed="-2000" turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="rotor10"   rotAxis="2" rotSpeed="2000"  turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="rotor11"   rotAxis="2" rotSpeed="-2000" turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+        </animationNodes>
+    </cutter>
+
+    <foliageBending>
+        <bendingNode minX="-3.10" maxX="3.10" minZ="-0.9" maxZ="0.9" yOffset="0.4" />
+    </foliageBending>
+
+    <turnOnVehicle turnedOnByAttacherVehicle="true" turnOffIfNotAllowed="true"/>
+
+    <ai>
+        <areaMarkers leftNode="aiLeftMarker" rightNode="aiRightMarker" backNode="aiMarkerBack"/>
+        <collisionTrigger node="aiCollisionTrigger"/>
+    </ai>
+
+    <baseMaterial>
+        <material name="fdr600_mat" baseNode="fdr600_vis">
+            <shaderParameter name="colorMat0" value="NEWHOLLAND_YELLOW1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="fdr600_main_component1" node="0>" />
+        <i3dMapping id="fdr600_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0|0" />
+        <i3dMapping id="pto" node="0>0|0|1" />
+        <i3dMapping id="ptoDetachNode" node="0>0|0|2" />
+        <i3dMapping id="rotor000" node="0>0|1|0" />
+        <i3dMapping id="rotor00" node="0>0|1|1" />
+        <i3dMapping id="rotor0" node="0>0|1|2" />
+        <i3dMapping id="rotor1" node="0>0|1|3" />
+        <i3dMapping id="rotor2" node="0>0|1|4" />
+        <i3dMapping id="rotor3" node="0>0|1|5" />
+        <i3dMapping id="rotor4" node="0>0|1|6" />
+        <i3dMapping id="rotor5" node="0>0|1|7" />
+        <i3dMapping id="rotor6" node="0>0|1|8" />
+        <i3dMapping id="rotor7" node="0>0|1|9" />
+        <i3dMapping id="rotor8" node="0>0|1|10" />
+        <i3dMapping id="rotor9" node="0>0|1|11" />
+        <i3dMapping id="rotor10" node="0>0|1|12" />
+        <i3dMapping id="rotor11" node="0>0|1|13" />
+        <i3dMapping id="drum" node="0>0|1|14" />
+        <i3dMapping id="workAreaStart" node="0>0|2|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|2|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|2|2" />
+        <i3dMapping id="groundReferenceNode" node="0>0|2|3" />
+        <i3dMapping id="emitterSmoke" node="0>0|3|0" />
+        <i3dMapping id="aiLeftMarker" node="0>0|4|0|0" />
+        <i3dMapping id="aiRightMarker" node="0>0|4|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|4|0|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|4|1" />
+    </i3dMappings>
+</vehicle>

@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="windrowerUnpowered">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>SR 314</name>
+        <specs>
+            <workingWidth>8.5</workingWidth>
+            <neededPower>35</neededPower>
+        </specs>
+        <functions>
+            <function>$l10n_function_windrower</function>
+        </functions>
+        <image>$data/vehicles/kuhn/kuhnSR314/store_kuhnSR314.png</image>
+        <price>23000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>KUHN</brand>
+        <category>windrowers</category>
+        <vertexBufferMemoryUsage>1574592</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>296958</indexBufferMemoryUsage>
+        <textureMemoryUsage>9961656</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_windrower</typeDesc>
+        <filename>$data/vehicles/kuhn/kuhnSR314/kuhnSR314.i3d</filename>
+        <size width="4.5" length="9" lengthOffset="0" />
+        <speedLimit value="18" />
+        <components>
+            <component centerOfMass="0 0.5 -0.4" solverIterationCount="10" mass="650" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/trelleborg/T510/215_65R15.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics restLoad="0.2" repr="wheelLeftFront"  forcePointRatio="0.3"  initialCompression="15" suspTravel="0.2" spring="5" damper="10" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T510/215_65R15.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics restLoad="0.2" repr="wheelRightFront" forcePointRatio="0.3"  initialCompression="15" suspTravel="0.2" spring="5" damper="10" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T510/215_65R15.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics restLoad="0.2" repr="wheelLeftBack"   forcePointRatio="0.3"  initialCompression="15" suspTravel="0.2" spring="5" damper="10" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T510/215_65R15.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics restLoad="0.2" repr="wheelRightBack"  forcePointRatio="0.3"  initialCompression="15" suspTravel="0.2" spring="5" damper="10" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+    </wheels>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="implement" needsToolbar="true"  lowerRotLimitScale="1 2.3 2" upperRotLimitScale="1 2.3 2"  upperTransLimitScale="0 1 0">
+                <distanceToGround lower="0.4871" upper="0.4871" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+        <support animationName="moveSupport" />
+        <brakeForce>0.1</brakeForce>
+    </attachable>
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn01"  length="1.7" diameter="0.02" minCenterPointOffset="0 0.3 0" maxCenterPointOffset="0 0 0">
+            <objectChange node="hydraulicIn01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut01" length="1.7" diameter="0.02" minCenterPointOffset="0 0.3 0" maxCenterPointOffset="0 0 0">
+            <objectChange node="hydraulicOut01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn02"  length="1.7" diameter="0.02" minCenterPointOffset="0 0.3 0" maxCenterPointOffset="0 0 0">
+            <objectChange node="hydraulicIn02_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut02" length="1.7" diameter="0.02" minCenterPointOffset="0 0.3 0" maxCenterPointOffset="0 0 0">
+            <objectChange node="hydraulicOut02_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+    </connectionHoses>
+
+    <lights>
+        <sharedLight linkNode="bigTriangle"          filename="$data/shared/assets/reflectors/lizard/bigTriangle.xml" />
+        <sharedLight linkNode="backlightLeftTop"          filename="$data/shared/assets/lights/lizard/rearLightCircleOrange_01_left.xml" />
+        <sharedLight linkNode="backlightLeftBottom"          filename="$data/shared/assets/lights/lizard/rearLightCircleRed_01.xml" />
+        <sharedLight linkNode="backlightRightTop"          filename="$data/shared/assets/lights/lizard/rearLightCircleOrange_01_right.xml" />
+        <sharedLight linkNode="backlightRightBottom"          filename="$data/shared/assets/lights/lizard/rearLightCircleRed_01.xml" />
+        <realLights>
+            <high>
+                <light node="backLightsHigh1" lightTypes="0" />
+                <light node="backLightsHigh3" lightTypes="0" />
+                <turnLightLeft node="turnLightLeftBack" />
+                <turnLightRight node="turnLightRightBack" />
+                <brakeLight node="backLightsHigh1" />
+                <brakeLight node="backLightsHigh3" />
+            </high>
+        </realLights>
+    </lights>
+
+    <speedRotatingParts>
+        <speedRotatingPart node="discArmLeft1Disc" radius="0.7" groundReferenceNodeIndex="1"/>
+        <speedRotatingPart node="discArmLeft2Disc" radius="0.7" groundReferenceNodeIndex="1"/>
+        <speedRotatingPart node="discArmLeft3Disc" radius="0.7" groundReferenceNodeIndex="1"/>
+        <speedRotatingPart node="discArmLeft4Disc" radius="0.7" groundReferenceNodeIndex="1"/>
+        <speedRotatingPart node="discArmLeft5Disc" radius="0.7" groundReferenceNodeIndex="1"/>
+        <speedRotatingPart node="discArmLeft6Disc" radius="0.7" groundReferenceNodeIndex="1"/>
+        <speedRotatingPart node="discArmLeft7Disc" radius="0.7" groundReferenceNodeIndex="1"/>
+        <speedRotatingPart node="discArmRight1Disc" radius="0.7" groundReferenceNodeIndex="1"/>
+        <speedRotatingPart node="discArmRight2Disc" radius="0.7" groundReferenceNodeIndex="1"/>
+        <speedRotatingPart node="discArmRight3Disc" radius="0.7" groundReferenceNodeIndex="1"/>
+        <speedRotatingPart node="discArmRight4Disc" radius="0.7" groundReferenceNodeIndex="1"/>
+        <speedRotatingPart node="discArmRight5Disc" radius="0.7" groundReferenceNodeIndex="1"/>
+        <speedRotatingPart node="discArmRight6Disc" radius="0.7" groundReferenceNodeIndex="1"/>
+        <speedRotatingPart node="discArmRight7Disc" radius="0.7" groundReferenceNodeIndex="1"/>
+        <speedRotatingPart node="frontDiscArmDisc" radius="0.56" groundReferenceNodeIndex="1"/>
+        <speedRotatingPart node="backDiscArmDisc" radius="0.56" groundReferenceNodeIndex="1"/>
+    </speedRotatingParts>
+
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundRefNode" threshold="0.15" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="windrower" functionName="processWindrowerArea" disableBackwards="false" >
+            <area startNode="workAreaLeftStart" widthNode="workAreaLeftWidth" heightNode="workAreaLeftHeight" />
+            <groundReferenceNode index="1" />
+            <windrower dropWindrowWorkAreaIndex="6" />
+        </workArea>
+        <workArea type="windrower" functionName="processWindrowerArea" disableBackwards="false" >
+            <area startNode="workAreaRightStart" widthNode="workAreaRightWidth" heightNode="workAreaRightHeight" />
+            <groundReferenceNode index="1" />
+            <windrower dropWindrowWorkAreaIndex="6" />
+        </workArea>
+        <workArea type="windrower" functionName="processWindrowerArea" disableBackwards="false" >
+            <area startNode="workAreaBackStart" widthNode="workAreaBackWidth" heightNode="workAreaBackHeight" />
+            <groundReferenceNode index="1" />
+            <windrower dropWindrowWorkAreaIndex="6" />
+        </workArea>
+        <workArea type="windrower" functionName="processWindrowerArea" disableBackwards="false" >
+            <area startNode="workAreaMiddleFrontStart" widthNode="workAreaMiddleFrontWidth" heightNode="workAreaMiddleFrontHeight" />
+            <groundReferenceNode index="1" />
+            <windrower dropWindrowWorkAreaIndex="7" />
+        </workArea>
+        <workArea type="windrower" functionName="processWindrowerArea" disableBackwards="false" >
+            <area startNode="workAreaMiddleBackStart" widthNode="workAreaMiddleBackWidth" heightNode="workAreaMiddleBackHeight" />
+            <groundReferenceNode index="1" />
+            <windrower dropWindrowWorkAreaIndex="8" />
+        </workArea>
+
+        <workArea type="auxiliary" >
+            <area startNode="dropAreaStart" widthNode="dropAreaWidth" heightNode="dropAreaHeight" />
+        </workArea>
+        <workArea type="auxiliary" >
+            <area startNode="workAreaMiddleFrontStartDrop" widthNode="workAreaMiddleFrontWidthDrop" heightNode="workAreaMiddleFrontHeightDrop" />
+        </workArea>
+        <workArea type="auxiliary" >
+            <area startNode="workAreaMiddleBackStartDrop" widthNode="workAreaMiddleBackWidthDrop" heightNode="workAreaMiddleBackHeightDrop" />
+        </workArea>
+    </workAreas>
+
+    <foldable>
+        <foldingParts startMoveDirection="1" foldMiddleAnimTime="0.125" turnOnFoldMaxLimit="0.05" turnOnFoldMinLimit="0" turnOffOnFold="true" >
+            <foldingPart animationName="folding" speedScale="1.0" />
+        </foldingParts>
+    </foldable>
+
+    <animations>
+        <animation name="moveSupport">
+            <part node="supportArm" startTime="0" endTime="0.3" startTrans="0 0.378 0" endTrans="0 0 0" />
+            <part node="supportRot" startTime="0" endTime="0.3" startRot="720 0 0" endRot="0 0 0" />
+        </animation>
+
+        <animation name="folding">
+            <part node="frontArm"            startTime="0" endTime="1" startRot="0 -30 0" endRot="0 0 0" />
+            <part node="frontDiscArm"        startTime="0" endTime="1" startRot="-40 0 0" endRot="0 0 0" />
+            <part node="workAreaMiddleFront" startTime="0" endTime="1" startRot="40 0 0" endRot="0 0 0" />
+            <part node="backArm"             startTime="0" endTime="1" startRot="0 30 0" endRot="0 0 0" />
+            <part node="backDiscArm"         startTime="0" endTime="1" startRot="-40 0 0" endRot="0 0 0" />
+            <part node="workAreaMiddleBack"  startTime="0" endTime="1" startRot="40 0 0" endRot="0 0 0" />
+
+            <part node="discArmLeft1"  startTime="0" endTime="1" startRot="-60 0 0" endRot="0 0 0" />
+            <part node="discArmLeft2"  startTime="0" endTime="1" startRot="-60 0 0" endRot="0 0 0" />
+            <part node="discArmLeft3"  startTime="0" endTime="1" startRot="-60 0 0" endRot="0 0 0" />
+            <part node="discArmLeft4"  startTime="0" endTime="1" startRot="-60 0 0" endRot="0 0 0" />
+            <part node="discArmLeft5"  startTime="0" endTime="1" startRot="-60 0 0" endRot="0 0 0" />
+            <part node="discArmLeft6"  startTime="0" endTime="1" startRot="-60 0 0" endRot="0 0 0" />
+            <part node="discArmLeft7"  startTime="0" endTime="1" startRot="-60 0 0" endRot="0 0 0" />
+            <part node="leftLiftBar"   startTime="0" endTime="1" startTrans="0 0 0" endTrans="0 0 0.25" />
+            <part node="discArmRight1" startTime="0" endTime="1" startRot="-60 0 0" endRot="0 0 0" />
+            <part node="discArmRight2" startTime="0" endTime="1" startRot="-60 0 0" endRot="0 0 0" />
+            <part node="discArmRight3" startTime="0" endTime="1" startRot="-60 0 0" endRot="0 0 0" />
+            <part node="discArmRight4" startTime="0" endTime="1" startRot="-60 0 0" endRot="0 0 0" />
+            <part node="discArmRight5" startTime="0" endTime="1" startRot="-60 0 0" endRot="0 0 0" />
+            <part node="discArmRight6" startTime="0" endTime="1" startRot="-60 0 0" endRot="0 0 0" />
+            <part node="discArmRight7" startTime="0" endTime="1" startRot="-60 0 0" endRot="0 0 0" />
+            <part node="rightLiftBar"  startTime="0" endTime="1" startTrans="0 0 0" endTrans="0 0 0.25" />
+            <part node="groundRefNode" startTime="0" endTime="1" startTrans="0 0 0" endTrans="0 1 0" />
+
+            <part node="leftArm" startTime="1.5" endTime="8" startTrans="1.05 1.038 -0.863" endTrans="0 1.038 -0.863" />
+            <part node="rightArm" startTime="1.5" endTime="8" startTrans="-1.05 1.038 -0.863" endTrans="0 1.038 -0.863" />
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="leftArm" playSound="true" >
+                <dependentPart node="leftOuterArm"/>
+            </movingTool>
+            <movingTool node="leftLiftBar" playSound="true" >
+                <dependentPart node="discArmLeft1Spring"/>
+                <dependentPart node="discArmLeft2Spring"/>
+                <dependentPart node="discArmLeft3Spring"/>
+                <dependentPart node="discArmLeft4Spring"/>
+                <dependentPart node="discArmLeft5Spring"/>
+                <dependentPart node="discArmLeft6Spring"/>
+                <dependentPart node="discArmLeft7Spring"/>
+            </movingTool>
+
+            <movingTool node="frontArm" playSound="true" >
+                <dependentPart node="frontBackBar"/>
+                <dependentPart node="hydraulicFrontArm"/>
+            </movingTool>
+            <movingTool node="rightArm" playSound="true" >
+                <dependentPart node="rightOuterArm"/>
+            </movingTool>
+            <movingTool node="rightLiftBar" playSound="true" >
+                <dependentPart node="discArmRight1Spring"/>
+                <dependentPart node="discArmRight2Spring"/>
+                <dependentPart node="discArmRight3Spring"/>
+                <dependentPart node="discArmRight4Spring"/>
+                <dependentPart node="discArmRight5Spring"/>
+                <dependentPart node="discArmRight6Spring"/>
+                <dependentPart node="discArmRight7Spring"/>
+            </movingTool>
+
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="leftOuterArm" localReferencePoint="leftOuterArmPart" referencePoint="leftOuterArmRef" referenceFrame="leftOuterArmRefFrame">
+                <dependentPart node="leftOuterArmPart" />
+                <dependentPart node="leftOuterArmBar" />
+            </movingPart>
+            <movingPart node="leftOuterArmPart" referencePoint="leftOuterArmRef" referenceFrame="leftOuterArmRef" />
+            <movingPart node="leftOuterArmBar" referencePoint="leftOuterArmBarRef" referenceFrame="leftOuterArmBarRef" scaleZ="true"/>
+            <movingPart node="discArmLeft1Spring" referencePoint="discArmLeft1SpringRef" referenceFrame="discArmLeft1SpringRef" scaleZ="true" />
+            <movingPart node="discArmLeft2Spring" referencePoint="discArmLeft2SpringRef" referenceFrame="discArmLeft2SpringRef" scaleZ="true" />
+            <movingPart node="discArmLeft3Spring" referencePoint="discArmLeft3SpringRef" referenceFrame="discArmLeft3SpringRef" scaleZ="true" />
+            <movingPart node="discArmLeft4Spring" referencePoint="discArmLeft4SpringRef" referenceFrame="discArmLeft4SpringRef" scaleZ="true" />
+            <movingPart node="discArmLeft5Spring" referencePoint="discArmLeft5SpringRef" referenceFrame="discArmLeft5SpringRef" scaleZ="true" />
+            <movingPart node="discArmLeft6Spring" referencePoint="discArmLeft6SpringRef" referenceFrame="discArmLeft6SpringRef" scaleZ="true" />
+            <movingPart node="discArmLeft7Spring" referencePoint="discArmLeft7SpringRef" referenceFrame="discArmLeft7SpringRef" scaleZ="true" />
+
+            <movingPart node="frontBackBar" referencePoint="frontBackBarRef" referenceFrame="frontBackBarRef" />
+            <movingPart node="hydraulicFrontArm" referencePoint="hydraulicFrontArmRef" referenceFrame="hydraulicFrontArmRef">
+                <translatingPart node="hydraulicFrontArmPunch" />
+            </movingPart>
+
+
+            <movingPart node="rightOuterArm" localReferencePoint="rightOuterArmPart" referencePoint="rightOuterArmRef" referenceFrame="rightOuterArmRefFrame">
+                <dependentPart node="rightOuterArmPart" />
+                <dependentPart node="rightOuterArmBar" />
+            </movingPart>
+            <movingPart node="rightOuterArmPart" referencePoint="rightOuterArmRef" referenceFrame="rightOuterArmRef" />
+            <movingPart node="rightOuterArmBar" referencePoint="rightOuterArmBarRef" referenceFrame="rightOuterArmBarRef" scaleZ="true"/>
+            <movingPart node="discArmRight1Spring" referencePoint="discArmRight1SpringRef" referenceFrame="discArmRight1SpringRef" scaleZ="true" />
+            <movingPart node="discArmRight2Spring" referencePoint="discArmRight2SpringRef" referenceFrame="discArmRight2SpringRef" scaleZ="true" />
+            <movingPart node="discArmRight3Spring" referencePoint="discArmRight3SpringRef" referenceFrame="discArmRight3SpringRef" scaleZ="true" />
+            <movingPart node="discArmRight4Spring" referencePoint="discArmRight4SpringRef" referenceFrame="discArmRight4SpringRef" scaleZ="true" />
+            <movingPart node="discArmRight5Spring" referencePoint="discArmRight5SpringRef" referenceFrame="discArmRight5SpringRef" scaleZ="true" />
+            <movingPart node="discArmRight6Spring" referencePoint="discArmRight6SpringRef" referenceFrame="discArmRight6SpringRef" scaleZ="true" />
+            <movingPart node="discArmRight7Spring" referencePoint="discArmRight7SpringRef" referenceFrame="discArmRight7SpringRef" scaleZ="true" />
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <windrower>
+        <effects>
+            <effect workAreaIndex="1">
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShape_discArmLeft1" particleType="WINDROWER" emitCountScale="2"/>
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShape_discArmLeft2" particleType="WINDROWER" emitCountScale="2"/>
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShape_discArmLeft3" particleType="WINDROWER" emitCountScale="2"/>
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShape_discArmLeft4" particleType="WINDROWER" emitCountScale="2"/>
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShape_discArmLeft5" particleType="WINDROWER" emitCountScale="2"/>
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShape_discArmLeft6" particleType="WINDROWER" emitCountScale="2"/>
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShape_discArmLeft7" particleType="WINDROWER" emitCountScale="2"/>
+            </effect>
+            <effect workAreaIndex="2">
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShape_discArmRight1" particleType="WINDROWER" emitCountScale="2"/>
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShape_discArmRight2" particleType="WINDROWER" emitCountScale="2"/>
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShape_discArmRight3" particleType="WINDROWER" emitCountScale="2"/>
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShape_discArmRight4" particleType="WINDROWER" emitCountScale="2"/>
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShape_discArmRight5" particleType="WINDROWER" emitCountScale="2"/>
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShape_discArmRight6" particleType="WINDROWER" emitCountScale="2"/>
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShape_discArmRight7" particleType="WINDROWER" emitCountScale="2"/>
+            </effect>
+            <effect workAreaIndex="4">
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShape_frontDisc" particleType="WINDROWER" emitCountScale="2"/>
+            </effect>
+            <effect workAreaIndex="4">
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShape_backDisc" particleType="WINDROWER" emitCountScale="2"/>
+            </effect>
+        </effects>
+
+        <sounds>
+            <work template="DEFAULT_TEDDER_UNPOWERED" linkNode="0>" />
+        </sounds>
+    </windrower>
+
+    <ai>
+        <needsLowering value="true" />
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack" />
+        <allowTurnBackward value="false"/>
+        <collisionTrigger node="aiCollisionTrigger" />
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-0.5" maxX="0.5" minZ="0" maxZ="2.7" yOffset="0.6" />
+        <bendingNode minX="-1.1" maxX="1.1" minZ="-1.4" maxZ="0" yOffset="0.3" />
+        <bendingNode minX="-0.1" maxX="0.6" minZ="-3.7" maxZ="3.3" yOffset="-0.5" node="leftArmRot" />
+        <bendingNode minX="-0.6" maxX="0.1" minZ="-3.7" maxZ="3.3" yOffset="-0.5" node="rightArmRot" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="kuhnSR314_mat" baseNode="kuhnSR314_vis">
+            <shaderParameter name="colorMat0" value="KUHN_RED1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="kuhnSR314_vis" node="0>0" />
+        <i3dMapping id="wheelLeftFront" node="0>0|0|0" />
+        <i3dMapping id="wheelRightFront" node="0>0|0|1" />
+        <i3dMapping id="wheelLeftBack" node="0>0|0|2" />
+        <i3dMapping id="wheelRightBack" node="0>0|0|3" />
+        <i3dMapping id="attacherJoint" node="0>0|1" />
+        <i3dMapping id="bigTriangle" node="0>0|2|0|0" />
+        <i3dMapping id="supportArm" node="0>0|3|0" />
+        <i3dMapping id="supportRot" node="0>0|3|1" />
+        <i3dMapping id="frontArm" node="0>0|4|0" />
+        <i3dMapping id="frontDiscArm" node="0>0|4|0|0" />
+        <i3dMapping id="frontDiscArmDisc" node="0>0|4|0|0|0|0" />
+        <i3dMapping id="workAreaMiddleFront" node="0>0|4|0|0|0|1" />
+        <i3dMapping id="workAreaMiddleFrontStart" node="0>0|4|0|0|0|1|0" />
+        <i3dMapping id="workAreaMiddleFrontWidth" node="0>0|4|0|0|0|1|1" />
+        <i3dMapping id="workAreaMiddleFrontHeight" node="0>0|4|0|0|0|1|2" />
+        <i3dMapping id="workAreaMiddleFrontStartDrop" node="0>0|4|0|0|0|1|3" />
+        <i3dMapping id="workAreaMiddleFrontWidthDrop" node="0>0|4|0|0|0|1|4" />
+        <i3dMapping id="workAreaMiddleFrontHeightDrop" node="0>0|4|0|0|0|1|5" />
+        <i3dMapping id="emitterShape_frontDisc" node="0>0|4|0|0|1" />
+        <i3dMapping id="hydraulicFrontArmRef" node="0>0|4|0|1" />
+        <i3dMapping id="frontBackBarRef" node="0>0|4|0|2" />
+        <i3dMapping id="backArm" node="0>0|4|1" />
+        <i3dMapping id="backDiscArm" node="0>0|4|1|0" />
+        <i3dMapping id="backDiscArmDisc" node="0>0|4|1|0|0|0" />
+        <i3dMapping id="workAreaMiddleBack" node="0>0|4|1|0|0|1" />
+        <i3dMapping id="workAreaMiddleBackStart" node="0>0|4|1|0|0|1|0" />
+        <i3dMapping id="workAreaMiddleBackWidth" node="0>0|4|1|0|0|1|1" />
+        <i3dMapping id="workAreaMiddleBackHeight" node="0>0|4|1|0|0|1|2" />
+        <i3dMapping id="workAreaMiddleBackStartDrop" node="0>0|4|1|0|0|1|3" />
+        <i3dMapping id="workAreaMiddleBackWidthDrop" node="0>0|4|1|0|0|1|4" />
+        <i3dMapping id="workAreaMiddleBackHeightDrop" node="0>0|4|1|0|0|1|5" />
+        <i3dMapping id="emitterShape_backDisc" node="0>0|4|1|0|1" />
+        <i3dMapping id="frontBackBar" node="0>0|4|1|1" />
+        <i3dMapping id="hydraulicFrontArm" node="0>0|4|2" />
+        <i3dMapping id="hydraulicFrontArmPunch" node="0>0|4|2|0" />
+        <i3dMapping id="leftArm" node="0>0|5" />
+        <i3dMapping id="leftOuterArm" node="0>0|5|0" />
+        <i3dMapping id="discArmLeft1" node="0>0|5|0|0|0" />
+        <i3dMapping id="discArmLeft1Disc" node="0>0|5|0|0|0|0" />
+        <i3dMapping id="discArmLeft1SpringRef" node="0>0|5|0|0|0|1" />
+        <i3dMapping id="emitterShape_discArmLeft1" node="0>0|5|0|0|0|2" />
+        <i3dMapping id="discArmLeft2" node="0>0|5|0|0|1" />
+        <i3dMapping id="discArmLeft2Disc" node="0>0|5|0|0|1|0" />
+        <i3dMapping id="discArmLeft2SpringRef" node="0>0|5|0|0|1|1" />
+        <i3dMapping id="emitterShape_discArmLeft2" node="0>0|5|0|0|1|2" />
+        <i3dMapping id="discArmLeft3" node="0>0|5|0|0|2" />
+        <i3dMapping id="discArmLeft3Disc" node="0>0|5|0|0|2|0" />
+        <i3dMapping id="discArmLeft3SpringRef" node="0>0|5|0|0|2|1" />
+        <i3dMapping id="emitterShape_discArmLeft3" node="0>0|5|0|0|2|2" />
+        <i3dMapping id="discArmLeft4" node="0>0|5|0|0|3" />
+        <i3dMapping id="discArmLeft4Disc" node="0>0|5|0|0|3|0" />
+        <i3dMapping id="discArmLeft4SpringRef" node="0>0|5|0|0|3|1" />
+        <i3dMapping id="emitterShape_discArmLeft4" node="0>0|5|0|0|3|2" />
+        <i3dMapping id="discArmLeft5" node="0>0|5|0|0|4" />
+        <i3dMapping id="discArmLeft5Disc" node="0>0|5|0|0|4|0" />
+        <i3dMapping id="discArmLeft5SpringRef" node="0>0|5|0|0|4|1" />
+        <i3dMapping id="emitterShape_discArmLeft5" node="0>0|5|0|0|4|2" />
+        <i3dMapping id="discArmLeft6" node="0>0|5|0|0|5" />
+        <i3dMapping id="discArmLeft6Disc" node="0>0|5|0|0|5|0" />
+        <i3dMapping id="discArmLeft6SpringRef" node="0>0|5|0|0|5|1" />
+        <i3dMapping id="emitterShape_discArmLeft6" node="0>0|5|0|0|5|2" />
+        <i3dMapping id="discArmLeft7" node="0>0|5|0|0|6" />
+        <i3dMapping id="discArmLeft7Disc" node="0>0|5|0|0|6|0" />
+        <i3dMapping id="discArmLeft7SpringRef" node="0>0|5|0|0|6|1" />
+        <i3dMapping id="emitterShape_discArmLeft7" node="0>0|5|0|0|6|2" />
+        <i3dMapping id="leftArmRot" node="0>0|5|0|1" />
+        <i3dMapping id="leftLiftBar" node="0>0|5|0|1|0" />
+        <i3dMapping id="discArmLeft1Spring" node="0>0|5|0|1|0|0" />
+        <i3dMapping id="discArmLeft2Spring" node="0>0|5|0|1|0|1" />
+        <i3dMapping id="discArmLeft3Spring" node="0>0|5|0|1|0|2" />
+        <i3dMapping id="discArmLeft4Spring" node="0>0|5|0|1|0|3" />
+        <i3dMapping id="discArmLeft5Spring" node="0>0|5|0|1|0|4" />
+        <i3dMapping id="discArmLeft6Spring" node="0>0|5|0|1|0|5" />
+        <i3dMapping id="discArmLeft7Spring" node="0>0|5|0|1|0|6" />
+        <i3dMapping id="leftOuterArmPart" node="0>0|5|0|2" />
+        <i3dMapping id="leftOuterArmBarRef" node="0>0|5|0|2|0" />
+        <i3dMapping id="leftOuterArmBar" node="0>0|5|0|3" />
+        <i3dMapping id="workAreaLeftStart" node="0>0|5|0|4|0" />
+        <i3dMapping id="workAreaLeftWidth" node="0>0|5|0|4|1" />
+        <i3dMapping id="workAreaLeftHeight" node="0>0|5|0|4|2" />
+        <i3dMapping id="backlightLeftTop" node="0>0|5|0|7|0" />
+        <i3dMapping id="backlightLeftBottom" node="0>0|5|0|7|1" />
+        <i3dMapping id="backLightsHigh1" node="0>0|5|0|7|2" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|5|0|7|3" />
+        <i3dMapping id="rightArm" node="0>0|6" />
+        <i3dMapping id="rightOuterArm" node="0>0|6|0" />
+        <i3dMapping id="discArmRight1" node="0>0|6|0|0|0" />
+        <i3dMapping id="discArmRight1Disc" node="0>0|6|0|0|0|0" />
+        <i3dMapping id="discArmRight1SpringRef" node="0>0|6|0|0|0|1" />
+        <i3dMapping id="emitterShape_discArmRight1" node="0>0|6|0|0|0|2" />
+        <i3dMapping id="discArmRight2" node="0>0|6|0|0|1" />
+        <i3dMapping id="discArmRight2Disc" node="0>0|6|0|0|1|0" />
+        <i3dMapping id="discArmRight2SpringRef" node="0>0|6|0|0|1|1" />
+        <i3dMapping id="emitterShape_discArmRight2" node="0>0|6|0|0|1|2" />
+        <i3dMapping id="discArmRight3" node="0>0|6|0|0|2" />
+        <i3dMapping id="discArmRight3Disc" node="0>0|6|0|0|2|0" />
+        <i3dMapping id="discArmRight3SpringRef" node="0>0|6|0|0|2|1" />
+        <i3dMapping id="emitterShape_discArmRight3" node="0>0|6|0|0|2|2" />
+        <i3dMapping id="discArmRight4" node="0>0|6|0|0|3" />
+        <i3dMapping id="discArmRight4Disc" node="0>0|6|0|0|3|0" />
+        <i3dMapping id="discArmRight4SpringRef" node="0>0|6|0|0|3|1" />
+        <i3dMapping id="emitterShape_discArmRight4" node="0>0|6|0|0|3|2" />
+        <i3dMapping id="discArmRight5" node="0>0|6|0|0|4" />
+        <i3dMapping id="discArmRight5Disc" node="0>0|6|0|0|4|0" />
+        <i3dMapping id="discArmRight5SpringRef" node="0>0|6|0|0|4|1" />
+        <i3dMapping id="emitterShape_discArmRight5" node="0>0|6|0|0|4|2" />
+        <i3dMapping id="discArmRight6" node="0>0|6|0|0|5" />
+        <i3dMapping id="discArmRight6Disc" node="0>0|6|0|0|5|0" />
+        <i3dMapping id="discArmRight6SpringRef" node="0>0|6|0|0|5|1" />
+        <i3dMapping id="emitterShape_discArmRight6" node="0>0|6|0|0|5|2" />
+        <i3dMapping id="discArmRight7" node="0>0|6|0|0|6" />
+        <i3dMapping id="discArmRight7Disc" node="0>0|6|0|0|6|0" />
+        <i3dMapping id="discArmRight7SpringRef" node="0>0|6|0|0|6|1" />
+        <i3dMapping id="emitterShape_discArmRight7" node="0>0|6|0|0|6|2" />
+        <i3dMapping id="rightArmRot" node="0>0|6|0|1" />
+        <i3dMapping id="rightLiftBar" node="0>0|6|0|1|0" />
+        <i3dMapping id="discArmRight1Spring" node="0>0|6|0|1|0|0" />
+        <i3dMapping id="discArmRight2Spring" node="0>0|6|0|1|0|1" />
+        <i3dMapping id="discArmRight3Spring" node="0>0|6|0|1|0|2" />
+        <i3dMapping id="discArmRight4Spring" node="0>0|6|0|1|0|3" />
+        <i3dMapping id="discArmRight5Spring" node="0>0|6|0|1|0|4" />
+        <i3dMapping id="discArmRight6Spring" node="0>0|6|0|1|0|5" />
+        <i3dMapping id="discArmRight7Spring" node="0>0|6|0|1|0|6" />
+        <i3dMapping id="rightOuterArmPart" node="0>0|6|0|2" />
+        <i3dMapping id="rightOuterArmBarRef" node="0>0|6|0|2|0" />
+        <i3dMapping id="rightOuterArmBar" node="0>0|6|0|3" />
+        <i3dMapping id="workAreaRightStart" node="0>0|6|0|5|0" />
+        <i3dMapping id="workAreaRightWidth" node="0>0|6|0|5|1" />
+        <i3dMapping id="workAreaRightHeight" node="0>0|6|0|5|2" />
+        <i3dMapping id="backlightRightTop" node="0>0|6|0|7|0" />
+        <i3dMapping id="backlightRightBottom" node="0>0|6|0|7|1" />
+        <i3dMapping id="backLightsHigh3" node="0>0|6|0|7|2" />
+        <i3dMapping id="turnLightRightBack" node="0>0|6|0|7|3" />
+        <i3dMapping id="leftOuterArmRef" node="0>0|7" />
+        <i3dMapping id="leftOuterArmRefFrame" node="0>0|8" />
+        <i3dMapping id="rightOuterArmRef" node="0>0|9" />
+        <i3dMapping id="rightOuterArmRefFrame" node="0>0|10" />
+        <i3dMapping id="groundRefNode" node="0>0|11|0" />
+        <i3dMapping id="workAreaBackStart" node="0>0|11|1|0" />
+        <i3dMapping id="workAreaBackWidth" node="0>0|11|1|1" />
+        <i3dMapping id="workAreaBackHeight" node="0>0|11|1|2" />
+        <i3dMapping id="dropAreaStart" node="0>0|11|2|0" />
+        <i3dMapping id="dropAreaWidth" node="0>0|11|2|1" />
+        <i3dMapping id="dropAreaHeight" node="0>0|11|2|2" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|12|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|12|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|12|0|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|12|1" />
+        <i3dMapping id="hydraulicIn01" node="0>0|13|0" />
+        <i3dMapping id="hydraulicIn01_detached" node="0>0|13|0|0" />
+        <i3dMapping id="hydraulicOut01" node="0>0|13|1" />
+        <i3dMapping id="hydraulicOut01_detached" node="0>0|13|1|0" />
+        <i3dMapping id="hydraulicIn02" node="0>0|13|2" />
+        <i3dMapping id="hydraulicIn02_detached" node="0>0|13|2|0" />
+        <i3dMapping id="hydraulicOut02" node="0>0|13|3" />
+        <i3dMapping id="hydraulicOut02_detached" node="0>0|13|3|0" />
+    </i3dMappings>
+</vehicle>

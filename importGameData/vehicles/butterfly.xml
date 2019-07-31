@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="dynamicMountAttacherFork">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Schmetterling</name>
+            <specs>
+            <workingWidth>3</workingWidth>
+            <combination>FZ 30/60, 643 R</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_baleStacker</function>
+        </functions>
+        <image>$data/vehicles/fliegl/butterfly/store_butterfly.png</image>
+        <price>2200</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>FLIEGL</brand>
+        <category>baling</category>
+        <shopFoldingState>1</shopFoldingState>
+        <shopTranslationOffset>0 0.08 0</shopTranslationOffset>
+        <shopRotationOffset>0 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>421760</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>71964</indexBufferMemoryUsage>
+        <textureMemoryUsage>1747744</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_baleLoader</typeDesc>
+        <filename>$data/vehicles/fliegl/butterfly/butterfly.i3d</filename>
+        <size width="3.4" length="1.9" lengthOffset="0.5" />
+        <components>
+            <component centerOfMass="0 0.1 0.5" solverIterationCount="10" mass="400" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1 2" type="hydraulicIn"     node="hydraulicIn01"     length="1.2" diameter="0.02" />
+        <hose inputAttacherJointIndices="1 2" type="hydraulicOut"    node="hydraulicOut01"    length="1.2" diameter="0.02" straighteningFactor="2"/>
+        <hose inputAttacherJointIndices="1 2" type="hydraulicIn"     node="hydraulicIn02"     length="1.2" diameter="0.02" />
+        <hose inputAttacherJointIndices="1 2" type="hydraulicOut"    node="hydraulicOut02"    length="1.2" diameter="0.02" straighteningFactor="2"/>
+    </connectionHoses>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJointFrontloader" jointType="frontloader" isControllable="false"/>
+            <inputAttacherJoint node="attacherJointImplement" topReferenceNode="topReferenceNode" jointType="implement" isControllable="true" lowerRotLimitScale="0 0 0" upperRotLimitScale="0 0 0" lowerTransLimitScale="0 0 0" upperTransLimitScale="0 0 0" upperRotationOffset="1" >
+                <distanceToGround lower="0.15" upper="2" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+    </attachable>
+
+    <attacherJointControl maxTiltAngle="25">
+        <control controlFunction="controlAttacherJointHeight" controlAxis="AXIS_HYDRAULICATTACHER1" invertControlAxis="true" mouseSpeedFactor="0.3" iconName="IMPLEMENT_ATTACHER_TRANS" />
+        <control controlFunction="controlAttacherJointTilt"   controlAxis="AXIS_HYDRAULICATTACHER2" invertControlAxis="true" mouseSpeedFactor="0.3" iconName="IMPLEMENT_ATTACHER_ROTX" />
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>" />
+        </sounds>
+    </attacherJointControl>
+
+    <foldable>
+        <foldingParts startMoveDirection="1" dynamicMountMinLimit="1" dynamicMountMaxLimit="1">
+            <foldingPart animationName="folding" speedScale="1" />
+        </foldingParts>
+    </foldable>
+
+    <animations>
+        <animation name="folding">
+            <part node="armLeft"    startTime="0" endTime="3" startRot="0 0 -65" endRot="0 0 -15" />
+            <part node="armLeft02"  startTime="0" endTime="3" startTrans="0 0 0.30" endTrans="0 0 0.15" />
+            <part node="armRight"   startTime="0" endTime="3" startRot="0 0 65" endRot="0 0 15" />
+            <part node="armRight02" startTime="0" endTime="3" startTrans="0 0 0.30" endTrans="0 0 0.15" />
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="armLeft" playSound="true" >
+                <dependentPart node="armLeftHydraulic" />
+            </movingTool>
+            <movingTool node="armRight" playSound="true" >
+                <dependentPart node="armRightHydraulic" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="armLeftHydraulic" referencePoint="armLeftHydraulicRef" referenceFrame="armLeftHydraulicRef">
+                <translatingPart node="armLeftHydraulicPunch" />
+            </movingPart>
+            <movingPart node="armRightHydraulic" referencePoint="armRightHydraulicRef" referenceFrame="armRightHydraulicRef">
+                <translatingPart node="armRightHydraulicPunch" />
+            </movingPart>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <dynamicMountAttacher triggerNode="dynamicMountTrigger" rootNode="butterfly_main_component1" jointNode="butterfly_main_component1" forceAcceleration="500" mountType="TYPE_FIX_ATTACH" timeToMount="100"/>
+
+    <foliageBending>
+        <bendingNode minX="-0.8" maxX="0.8" minZ="-0.1" maxZ="0.1" yOffset="0" />
+        <bendingNode node="armLeft02" minX="-1.4" maxX="-0.1" minZ="0.6" maxZ="0.8" yOffset="-0.1" />
+        <bendingNode node="armLeft02" minX="-1.4" maxX="-0.1" minZ="-0.55" maxZ="-0.35" yOffset="-0.1" />
+        <bendingNode node="armRight02" minX="-0.1" maxX="1.4" minZ="0.6" maxZ="0.85" yOffset="-0.1" />
+        <bendingNode node="armRight02" minX="-0.1" maxX="1.4" minZ="-0.55" maxZ="-0.35" yOffset="-0.1" />
+        <bendingNode node="armLeft02" minX="-0.1" maxX="0.1" minZ="-0.4" maxZ="0.7" yOffset="0" />
+        <bendingNode node="armRight02" minX="-0.1" maxX="0.1" minZ="-0.4" maxZ="0.7" yOffset="0" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="butterfly_mat" baseNode="butterfly_vis">
+            <shaderParameter name="colorMat0" value="FLIEGL_GREEN1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="3" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="butterfly_main_component1" node="0>" />
+        <i3dMapping id="butterfly_vis" node="0>0" />
+        <i3dMapping id="attacherJointFrontloader" node="0>0|0|0" />
+        <i3dMapping id="attacherJointImplement" node="0>0|0|1" />
+        <i3dMapping id="topReferenceNode" node="0>0|0|1|0" />
+        <i3dMapping id="hydraulicIn01" node="0>0|0|2|0" />
+        <i3dMapping id="hydraulicOut01" node="0>0|0|2|1" />
+        <i3dMapping id="hydraulicIn02" node="0>0|0|2|2" />
+        <i3dMapping id="hydraulicOut02" node="0>0|0|2|3" />
+        <i3dMapping id="armLeft" node="0>0|1|0" />
+        <i3dMapping id="armLeft02" node="0>0|1|0|0|0" />
+        <i3dMapping id="armLeftHydraulicRef" node="0>0|1|0|1" />
+        <i3dMapping id="armLeftHydraulic" node="0>0|1|1" />
+        <i3dMapping id="armLeftHydraulicPunch" node="0>0|1|1|0" />
+        <i3dMapping id="armRight" node="0>0|1|2" />
+        <i3dMapping id="armRight02" node="0>0|1|2|0|0" />
+        <i3dMapping id="armRightHydraulicRef" node="0>0|1|2|1" />
+        <i3dMapping id="armRightHydraulic" node="0>0|1|3" />
+        <i3dMapping id="armRightHydraulicPunch" node="0>0|1|3|0" />
+        <i3dMapping id="dynamicMountTrigger" node="0>0|2" />
+    </i3dMappings>
+</vehicle>

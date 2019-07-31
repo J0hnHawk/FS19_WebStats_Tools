@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="implementDynamicMountAttacher">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>$l10n_shopItem_frontloaderRoundBaleFork</name>
+        <specs>
+            <combination>FZ 30 / FZ 60</combination>
+        </specs>
+        <image>data/vehicles/stoll/stollToolRoundBaleFork/store_stollToolRoundBaleFork.png</image>
+        <price>1100</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>STOLL</brand>
+        <category>frontLoaders</category>
+        <vertexBufferMemoryUsage>41168</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>5580</indexBufferMemoryUsage>
+        <textureMemoryUsage>8563512</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_frontloaderTool</typeDesc>
+        <filename>data/vehicles/stoll/stollToolRoundBaleFork/stollToolRoundBaleFork.i3d</filename>
+        <size width="2.5" length="2"/>
+        <components>
+            <component centerOfMass="0 0.2 0.4" solverIterationCount="10" mass="245" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="frontloader" />
+        </inputAttacherJoints>
+    </attachable>
+
+    <dynamicMountAttacher node="0>" />
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="leftArmCol" delayedNode="leftArm" playSound="true" >
+                <controls axis="AXIS_FRONTLOADER_TOOL2" invertAxis="false" mouseSpeedFactor="0.5" iconName="TOOL_OPEN_CLOSE" />
+                <rotation rotationAxis="3" rotSpeed="70" rotAcceleration="250" rotMax="0" rotMin="-40" />
+                <dependentPart node="hydraulic" />
+                <dependentMovingTool node="rightArmCol" speedScale="-1" />
+            </movingTool>
+            <movingTool node="rightArmCol" delayedNode="rightArm">
+                <rotation rotationAxis="3" rotSpeed="70" rotAcceleration="250" rotMax="40" rotMin="0" />
+                <dependentPart node="hydraulic" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="hydraulic" referencePoint="hydraulicRef" referenceFrame="0>" >
+                <translatingPart node="hydraulicPunch" />
+            </movingPart>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <baseMaterial>
+        <material name="stollFrontLoaderImplements_mat" baseNode="stollRotatingBaleHandler">
+            <shaderParameter name="colorMat0" value="STOLL_GREY1"/>
+        </material>
+    </baseMaterial>
+
+    <baseMaterialConfigurations price="200" useDefaultColors="true">
+        <baseMaterialConfiguration color="STOLL_GREY1"/>
+        <material name="stollFrontLoaderImplements_mat" shaderParameter="colorMat0" />
+    </baseMaterialConfigurations>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="2" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="stollToolRoundBaleFork_main_component1" node="0>" />
+        <i3dMapping id="attacherJoint" node="0>0" />
+        <i3dMapping id="stollRotatingBaleHandler" node="0>1" />
+        <i3dMapping id="leftArm" node="0>1|0" />
+        <i3dMapping id="hydraulicRef" node="0>1|0|0" />
+        <i3dMapping id="rightArm" node="0>1|1" />
+        <i3dMapping id="hydraulic" node="0>1|1|0" />
+        <i3dMapping id="hydraulicPunch" node="0>1|1|0|0" />
+        <i3dMapping id="leftArmCol" node="0>2" />
+        <i3dMapping id="rightArmCol" node="0>3" />
+    </i3dMappings>
+</vehicle>

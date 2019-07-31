@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="waterTrailer">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>MKS 8</name>
+        <functions>
+            <function>$l10n_function_tank</function>
+        </functions>
+        <image>$data/vehicles/lizard/mks8/store_mks8.png</image>
+        <price>25000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>LIZARD</brand>
+        <category>animals</category>
+        <shopTranslationOffset>0 0 0</shopTranslationOffset>
+        <shopRotationOffset>0 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>1280624</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>215916</indexBufferMemoryUsage>
+        <textureMemoryUsage>4631568</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_trailer</typeDesc>
+        <filename>$data/vehicles/lizard/mks8/mks8.i3d</filename>
+        <size width="3" length="7.5" lengthOffset="1"/>
+        <components>
+            <component centerOfMass="0 0.6 -0.6"  solverIterationCount="10" mass="2700"/>
+            <component centerOfMass="0 -0.15 0.0" solverIterationCount="10" mass="1500"/>
+            <component                            solverIterationCount="10" mass="250"/>
+            <joint component1="1" component2="2" node="componentJointFront" rotLimit="0 120 0" transLimit="0 0 0" />
+            <joint component1="2" component2="3" node="componentJointDrawbar" rotLimit="0 0 0" transLimit="0 0 0" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" configId="truck2" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics tipOcclusionAreaGroupId="1" rotSpeed="0"  restLoad="1.3" repr="wheelFrontLeft"  forcePointRatio="0.5" initialCompression="30" suspTravel="0.05" spring="77" damper="30" frictionScale="2" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" configId="truck2" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics tipOcclusionAreaGroupId="1" rotSpeed="0"  restLoad="1.3" repr="wheelFrontRight" forcePointRatio="0.5" initialCompression="30" suspTravel="0.05" spring="77" damper="30" frictionScale="2" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" configId="truck2" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics tipOcclusionAreaGroupId="1" rotSpeed="0"  restLoad="1.1" repr="wheelBackLeft"   forcePointRatio="0.5" initialCompression="20" suspTravel="0.06" spring="80" damper="30" frictionScale="2" />
+                        <wheelChock/>
+                        <wheelChock isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" configId="truck2" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics tipOcclusionAreaGroupId="1" rotSpeed="0"  restLoad="1.1" repr="wheelBackRight"  forcePointRatio="0.5" initialCompression="20" suspTravel="0.06" spring="80" damper="30" frictionScale="2" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <rimColor material="8">0.98 0.98 0.98</rimColor>
+    </wheels>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="trailer" rootNode="mks8_drawbar_component3" attacherHeight="0.874" />
+        </inputAttacherJoints>
+        <brakeForce>0.5</brakeForce>
+        <support animationName="moveSupport" />
+    </attachable>
+
+    <lights>
+        <sharedLight linkNode="rear5ChamberLight_02_Left" filename="$data/shared/assets/lights/lizard/rear5ChamberLight_02_left.xml" />
+        <sharedLight linkNode="rear5ChamberLight_02_Right" filename="$data/shared/assets/lights/lizard/rear5ChamberLight_02_right.xml" />
+        <sharedLight linkNode="sideMarker_01Left" filename="$data/shared/assets/lights/lizard/sideMarker_01_left.xml" />
+        <sharedLight linkNode="sideMarker_01Right" filename="$data/shared/assets/lights/lizard/sideMarker_01_right.xml" />
+
+        <realLights>
+            <high>
+                <light node="backLightsHigh1" lightTypes="0"/>
+                <brakeLight node="backLightsHigh1"/>
+                <turnLightLeft  node="turnLightLeftBack" />
+                <turnLightRight node="turnLightRightBack" />
+                <reverseLight node="reverseLight" />
+            </high>
+        </realLights>
+    </lights>
+
+    <dynamicallyLoadedParts>
+        <dynamicallyLoadedPart node="1|3" linkNode="airYellowConnector"  filename="$data/shared/connectionHoses/connectors.i3d" />
+        <dynamicallyLoadedPart node="1|2" linkNode="airRedConnector"  filename="$data/shared/connectionHoses/connectors.i3d" />
+    </dynamicallyLoadedParts>
+
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1" type="airDoubleRed"  node="hydraulicIn01"  length="0.8" diameter="0.02" straighteningFactor="0.5">
+            <objectChange node="hydraulicIn01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="airDoubleYellow" node="hydraulicOut01" length="0.7" diameter="0.02" straighteningFactor="0.5">
+            <objectChange node="hydraulicOut01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+    </connectionHoses>
+
+    <animations>
+        <animation name="moveSupport">
+            <part componentJointIndex="2" startTime="0.0" endTime="0.15" startRotLimit="50 0 0" endRotLimit="15 0 0" />
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingParts>
+            <movingPart node="spring" referencePoint="springRef" referenceFrame="springRef" scaleZ="true" isActiveDirty="true"/>
+        </movingParts>
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="mks8_main_component1"/>
+        </sounds>
+    </cylindered>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <fillUnit unit="$l10n_unit_literShort" fillTypes="MILK WATER" capacity="8000">
+                        <exactFillRootNode node="exactFillRootNode" />
+                    </fillUnit>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <fillTriggerVehicle triggerNode="fillTrigger" fillUnitIndex="1" litersPerSecond="300"/>
+
+    <dischargeable>
+        <dischargeNode node="dischargeNode" emptySpeed="400" fillUnitIndex="1" canDischargeToGround="false">
+            <info width="1.0" length="0.5" zOffset="0.4" />
+            <trigger node="dischargeTrigger" />
+        </dischargeNode>
+    </dischargeable>
+
+    <waterTrailer fillUnitIndex="1" fillLitersPerSecond="400" fillNode="mks8_main_component1">
+        <sounds>
+            <refill template="DEFAULT_REFUEL_SOUND" linkNode="0>" />
+        </sounds>
+    </waterTrailer>
+
+    <foliageBending>
+        <bendingNode minX="-1.25" maxX="1.25" minZ="-2.3" maxZ="2.3" yOffset="0.6" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="MKS8_mat" baseNode="mks8_vis">
+            <shaderParameter name="colorMat0" value="WILSONTRAILER_WHITE1"/>
+        </material>
+    </baseMaterial>
+
+    <baseMaterialConfigurations>
+        <baseMaterialConfiguration name="CHROME" color="SHARED_WHITE2" material="2"/>
+        <baseMaterialConfiguration name="STAINLESS STEEL" color="SHARED_WHITE2" material="8" price="4000"/>
+        <baseMaterialConfiguration name="BLACK" color="SHARED_BLACK2" material="0" price="4000"/>
+        <material name="MKS8_mat" shaderParameter="colorMat0" />
+    </baseMaterialConfigurations>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="2" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="mks8_main_component1" node="0>" />
+        <i3dMapping id="mks8_vis" node="0>0" />
+        <i3dMapping id="wheelBackLeft" node="0>0|0|0" />
+        <i3dMapping id="wheelBackRight" node="0>0|0|1" />
+        <i3dMapping id="rear5ChamberLight_02_Left" node="0>0|1|0|0" />
+        <i3dMapping id="rear5ChamberLight_02_Right" node="0>0|1|0|1" />
+        <i3dMapping id="sideMarker_01Right" node="0>0|1|0|2" />
+        <i3dMapping id="sideMarker_01Left" node="0>0|1|0|3" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|1|1|0" />
+        <i3dMapping id="turnLightRightBack" node="0>0|1|1|1" />
+        <i3dMapping id="backLightsHigh1" node="0>0|1|2|0" />
+        <i3dMapping id="reverseLight" node="0>0|1|3|0" />
+        <i3dMapping id="flap01" node="0>0|2|0" />
+        <i3dMapping id="flap02" node="0>0|2|1" />
+        <i3dMapping id="flap03" node="0>0|2|2" />
+        <i3dMapping id="exactFillRootNode" node="0>0|3|0" />
+        <i3dMapping id="fillTrigger" node="0>0|3|1" />
+        <i3dMapping id="dischargeNode" node="0>0|3|2" />
+        <i3dMapping id="dischargeTrigger" node="0>0|3|3" />
+        <i3dMapping id="mks8_dolly_component2" node="1>" />
+        <i3dMapping id="wheelFrontLeft" node="1>0" />
+        <i3dMapping id="wheelFrontRight" node="1>1" />
+        <i3dMapping id="componentJointFront" node="1>2" />
+        <i3dMapping id="dolly_vis" node="1>3" />
+        <i3dMapping id="spring" node="1>4" />
+        <i3dMapping id="mks8_drawbar_component3" node="2>" />
+        <i3dMapping id="componentJointDrawbar" node="2>0" />
+        <i3dMapping id="hydraulicIn01" node="2>1|0" />
+        <i3dMapping id="hydraulicOut01_detached" node="2>1|0|0" />
+        <i3dMapping id="airRedConnector" node="2>1|0|0|0" />
+        <i3dMapping id="hydraulicOut01" node="2>1|1" />
+        <i3dMapping id="hydraulicIn01_detached" node="2>1|1|0" />
+        <i3dMapping id="airYellowConnector" node="2>1|1|0|0" />
+        <i3dMapping id="drawbar_vis" node="2>2" />
+        <i3dMapping id="attacherJoint" node="2>2|0" />
+        <i3dMapping id="springRef" node="2>2|1" />
+    </i3dMappings>
+</vehicle>

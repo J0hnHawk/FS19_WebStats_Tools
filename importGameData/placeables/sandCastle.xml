@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable>
+    <storeData>
+        <name>$l10n_shopItem_sandcastle</name>
+        <functions>
+            <function>$l10n_function_decoration</function>
+        </functions>
+        <image>data/placeables/sandCastle/store_sandCastle.png</image>
+        <price>200</price>
+        <lifetime>1000</lifetime>
+        <rotation>0</rotation>
+        <brand>LIZARD</brand>
+        <species>placeable</species>
+        <category>decoration</category>
+        <vertexBufferMemoryUsage>55808</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>11052</indexBufferMemoryUsage>
+        <textureMemoryUsage>524408</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <placeableType>placeable</placeableType>
+    <filename>data/placeables/sandCastle/sandCastle.i3d</filename>
+    <placement testSizeX="1" testSizeZ="1" sizeX="1" sizeZ="1" useRandomYRotation="false" useManualYRotation="true" />
+
+    <clearAreas>
+        <clearArea startNode="1|0" widthNode="1|0|0" heightNode="1|0|1"/>
+    </clearAreas>
+    
+    <leveling requireLeveling="true" maxSmoothDistance="10" maxSlope="75" maxEdgeAngle="30" >
+        <levelAreas>
+            <levelArea startNode="1|0" widthNode="1|0|0" heightNode="1|0|1" groundType="sand"/>        
+        </levelAreas>
+    </leveling>       
+    
+</placeable>

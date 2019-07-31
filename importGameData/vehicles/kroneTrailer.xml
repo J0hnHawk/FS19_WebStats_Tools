@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="dynamicMountAttacherTrailer">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Trailer</name>
+        <specs>
+            <combination>XDisc 620</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_cutterTrailer</function>
+        </functions>
+        <image>$data/vehicles/krone/kroneTrailer/store_kroneTrailer.png</image>
+        <price>3000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>KRONE</brand>
+        <category>cutterTrailers</category>
+        <vertexBufferMemoryUsage>605376</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>89916</indexBufferMemoryUsage>
+        <textureMemoryUsage>5789160</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_cutterTrailer</typeDesc>
+        <filename>$data/vehicles/krone/kroneTrailer/kroneTrailer.i3d</filename>
+        <size width="3.0" length="11" lengthOffset="0.5"/>
+        <components>
+            <component centerOfMass="0 0.45 -5" solverIterationCount="10" mass="627"/>
+            <component centerOfMass="0 -0.1 0" solverIterationCount="20" mass="511"/>
+            <component centerOfMass="0 0 0" solverIterationCount="10" mass="497"/>
+            <joint component1="1" component2="2" node="componentJoint" rotLimit="0 100 0" transLimit="0 0 0"/>
+            <joint component1="2" component2="3" node="componentJointDrawbar" rotLimit="0 0 0" transLimit="0 0 0"/>
+            <collisionPair component1="1" component2="3" enabled="false"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/trelleborg/AW305/300_80R15_3.xml" isLeft="true" hasTireTracks="true">
+                        <physics restLoad="0.4" repr="wheelLeft" driveNode="wheelRepr" initialCompression="20" suspTravel="0.10" spring="17" damper="10"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/AW305/300_80R15_3.xml" isLeft="false" hasTireTracks="true">
+                        <physics restLoad="0.4" repr="wheelRight" initialCompression="20" suspTravel="0.10" spring="17" damper="10"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/AW305/300_80R15_3.xml" isLeft="true" hasTireTracks="true">
+                        <physics restLoad="0.5" repr="wheelLeftFront" initialCompression="20" suspTravel="0.10" spring="20" damper="10"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/AW305/300_80R15_3.xml" isLeft="false" hasTireTracks="true">
+                        <physics restLoad="0.5" repr="wheelRightFront" initialCompression="20" suspTravel="0.10" spring="20" damper="10"/>
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+        <hubs>
+            <color0>KRONE_GREEN1</color0>
+            <color1>KRONE_GREEN1</color1>
+            <hub linkNode="wheelRepr"       filename="$data/shared/wheels/hubs/hub_n8_6.xml" isLeft="true"  scale="0.203 0.203 0.203" />
+            <hub linkNode="wheelRight"      filename="$data/shared/wheels/hubs/hub_n8_6.xml" isLeft="false" scale="0.203 0.203 0.203" />
+            <hub linkNode="wheelLeftFront"  filename="$data/shared/wheels/hubs/hub_n8_6.xml" isLeft="true"  scale="0.203 0.203 0.203" />
+            <hub linkNode="wheelRightFront" filename="$data/shared/wheels/hubs/hub_n8_6.xml" isLeft="false" scale="0.203 0.203 0.203" />
+        </hubs>
+    </wheels>
+
+    <dynamicallyLoadedParts>
+        <dynamicallyLoadedPart node="0" linkNode="wheelChock1" filename="$data/shared/assets/wheelChocks/wheelChock01.i3d"/>
+        <dynamicallyLoadedPart node="0" linkNode="wheelChock2" filename="$data/shared/assets/wheelChocks/wheelChock01.i3d"/>
+        <dynamicallyLoadedPart node="0" linkNode="wheelChock1Attached" filename="$data/shared/assets/wheelChocks/wheelChock01.i3d"/>
+        <dynamicallyLoadedPart node="0" linkNode="wheelChock2Attached" filename="$data/shared/assets/wheelChocks/wheelChock01.i3d"/>
+    </dynamicallyLoadedParts>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" rootNode="kroneTrailer_drawbar_component3" jointType="trailer" attacherHeight="1.05"/>
+        </inputAttacherJoints>
+        <support animationName="moveSupport"/>
+        <brakeForce>0.3</brakeForce>
+    </attachable>
+
+    <lights>
+       <sharedLight linkNode="yellowRound_03_1"              filename="$data/shared/assets/reflectors/lizard/yellowRound_03.xml" />
+       <sharedLight linkNode="yellowRound_03_2"              filename="$data/shared/assets/reflectors/lizard/yellowRound_03.xml" />
+       <sharedLight linkNode="yellowRound_03_3"              filename="$data/shared/assets/reflectors/lizard/yellowRound_03.xml" />
+       <sharedLight linkNode="yellowRound_03_4"              filename="$data/shared/assets/reflectors/lizard/yellowRound_03.xml" />
+       <sharedLight linkNode="yellowRound_03_5"              filename="$data/shared/assets/reflectors/lizard/yellowRound_03.xml" />
+       <sharedLight linkNode="yellowRound_03_6"              filename="$data/shared/assets/reflectors/lizard/yellowRound_03.xml" />
+       <sharedLight linkNode="yellowRound_03_7"              filename="$data/shared/assets/reflectors/lizard/yellowRound_03.xml" />
+       <sharedLight linkNode="yellowRound_03_8"              filename="$data/shared/assets/reflectors/lizard/yellowRound_03.xml" />
+       <sharedLight linkNode="rearPlateNumberLight_01_left"  filename="$data/shared/assets/lights/lizard/rearPlateNumber_01.xml" />
+       <sharedLight linkNode="rearPlateNumberLight_01_right" filename="$data/shared/assets/lights/lizard/rearPlateNumber_01.xml" />
+       <sharedLight linkNode="rear4ChamberLight_01_left"     filename="$data/shared/assets/lights/lizard/rear4ChamberLight_01_left.xml" />
+       <sharedLight linkNode="rear4ChamberLight_01_right"    filename="$data/shared/assets/lights/lizard/rear4ChamberLight_01_right.xml" />
+
+
+        <realLights>
+            <high>
+                <light node="backLightsHigh" lightTypes="0"/>
+                <turnLightLeft node="turnLightLeftBack"/>
+                <turnLightRight node="turnLightRightBack"/>
+                <brakeLight node="brakeLightsHigh"/>
+            </high>
+        </realLights>
+    </lights>
+
+    <animations>
+        <animation name="moveSupport">
+            <part node="wheelChock1" startTime="0.00" endTime="0.05" visibility="false"/>
+            <part node="wheelChock1" startTime="0.05" endTime="0.10" visibility="true"/>
+            <part node="wheelChock2" startTime="0.00" endTime="0.05" visibility="false"/>
+            <part node="wheelChock2" startTime="0.05" endTime="0.10" visibility="true"/>
+            <part node="wheelChock1Attached" startTime="0.00" endTime="0.05" visibility="true"/>
+            <part node="wheelChock1Attached" startTime="0.05" endTime="0.10" visibility="false"/>
+            <part node="wheelChock2Attached" startTime="0.00" endTime="0.05" visibility="true"/>
+            <part node="wheelChock2Attached" startTime="0.05" endTime="0.10" visibility="false"/>
+            <part startTime="0" endTime="0.1" componentJointIndex="2" startRotLimit="80 0 0" endRotLimit="0 0 0"/>
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingParts isActiveDirtyTimeOffset="1">
+            <movingPart node="damperDrawbar" referencePoint="damperDrawbarRef" referenceFrame="kroneTrailer_drawbar_component3" isActiveDirty="true">
+                <translatingPart node="damperDrawbarPunch"/>
+            </movingPart>
+            <movingPart node="hydraulicDrawbarBrake" referencePoint="hydraulicDrawbarBrakeRef" referenceFrame="kroneTrailer_drawbar_component3" isActiveDirty="true" scaleZ="true"/>
+            <movingPart node="pipe" referencePoint="pipeRef" referenceFrame="kroneTrailer_main_component1" isActiveDirty="true" scaleZ="true"/>
+        </movingParts>
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND"/>
+        </sounds>
+    </cylindered>
+
+    <dynamicMountAttacher triggerNode="dynamicMountTrigger" rootNode="kroneTrailer_main_component1" jointNode="kroneTrailer_main_component1" forceAcceleration="30" mountType="TYPE_AUTO_ATTACH_XZ"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4"/>
+    <tipOccluder>
+        <occlusionArea start="tipOccluderAreaStart" width="tipOccluderAreaWidth" height="tipOccluderAreaHeight"/>
+    </tipOccluder>
+
+    <foliageBending>
+        <bendingNode minX="-0.5" maxX="0.5" minZ="-4.2" maxZ="4.4 " yOffset="0.3" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="kroneTrailer_mat" baseNode="kroneTrailer_vis">
+            <shaderParameter name="colorMat0" value="KRONE_GREEN1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="3" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="kroneTrailer_main_component1" node="0>" />
+        <i3dMapping id="kroneTrailer_vis" node="0>0" />
+        <i3dMapping id="wheelChock1Attached" node="0>0|0|0|0" />
+        <i3dMapping id="wheelChock2Attached" node="0>0|0|0|1" />
+        <i3dMapping id="wheelLeft" node="0>0|1|0" />
+        <i3dMapping id="wheelRepr" node="0>0|1|0|0" />
+        <i3dMapping id="wheelChock1" node="0>0|1|0|1|0" />
+        <i3dMapping id="wheelChock2" node="0>0|1|0|1|1" />
+        <i3dMapping id="wheelRight" node="0>0|1|1" />
+        <i3dMapping id="yellowRound_03_1" node="0>0|2|0|0" />
+        <i3dMapping id="yellowRound_03_2" node="0>0|2|0|1" />
+        <i3dMapping id="yellowRound_03_3" node="0>0|2|0|2" />
+        <i3dMapping id="yellowRound_03_4" node="0>0|2|0|3" />
+        <i3dMapping id="yellowRound_03_5" node="0>0|2|0|4" />
+        <i3dMapping id="yellowRound_03_6" node="0>0|2|0|5" />
+        <i3dMapping id="yellowRound_03_7" node="0>0|2|0|6" />
+        <i3dMapping id="yellowRound_03_8" node="0>0|2|0|7" />
+        <i3dMapping id="rearPlateNumberLight_01_left" node="0>0|2|0|8" />
+        <i3dMapping id="rearPlateNumberLight_01_right" node="0>0|2|0|9" />
+        <i3dMapping id="rear4ChamberLight_01_left" node="0>0|2|0|10" />
+        <i3dMapping id="rear4ChamberLight_01_right" node="0>0|2|0|11" />
+        <i3dMapping id="backLightsHigh" node="0>0|2|1|0" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|2|2|0|0" />
+        <i3dMapping id="turnLightRightBack" node="0>0|2|2|1|0" />
+        <i3dMapping id="brakeLightsHigh" node="0>0|2|3|0" />
+        <i3dMapping id="brakeLightsHigh2" node="0>0|2|3|0|0" />
+        <i3dMapping id="componentJoint" node="0>0|3" />
+        <i3dMapping id="tipOccluderAreaStart" node="0>0|4|0" />
+        <i3dMapping id="tipOccluderAreaWidth" node="0>0|4|1" />
+        <i3dMapping id="tipOccluderAreaHeight" node="0>0|4|2" />
+        <i3dMapping id="pipe" node="0>0|6|0" />
+        <i3dMapping id="dynamicMountTrigger" node="0>0|7" />
+        <i3dMapping id="wheelLeftFront" node="1>0|0" />
+        <i3dMapping id="wheelRightFront" node="1>0|1" />
+        <i3dMapping id="damperDrawbarRef" node="1>1|0" />
+        <i3dMapping id="hydraulicDrawbarBrakeRef" node="1>1|1" />
+        <i3dMapping id="componentJointDrawbar" node="1>2" />
+        <i3dMapping id="kroneTrailer_drawbar_component3" node="2>" />
+        <i3dMapping id="attacherJoint" node="2>0|0" />
+        <i3dMapping id="damperDrawbar" node="2>1|0" />
+        <i3dMapping id="damperDrawbarPunch" node="2>1|0|0" />
+        <i3dMapping id="hydraulicDrawbarBrake" node="2>1|1" />
+        <i3dMapping id="pipeRef" node="2>2" />
+    </i3dMappings>
+</vehicle>

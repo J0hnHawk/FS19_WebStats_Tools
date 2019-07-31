@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable>
+    <storeData>
+        <name>$l10n_shopItem_farmSiloLarge</name>
+        <functions>
+            <function>$l10n_function_farmSilo</function>
+        </functions>
+        <specs>
+            <capacity>250000</capacity>
+            <fillTypes>wheat barley canola maize oat sunflower soybean</fillTypes>
+        </specs>
+        <image>$data/placeables/farmSilos/store_farmSiloLarge.png</image>
+        <price>180000</price>
+        <dailyUpkeep>60</dailyUpkeep>
+        <lifetime>1000</lifetime>
+        <rotation>0</rotation>
+        <brand>LIZARD</brand>
+        <species>placeable</species>
+        <category>silos</category>
+        <vertexBufferMemoryUsage>261300</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>44682</indexBufferMemoryUsage>
+        <textureMemoryUsage>5680200</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <placeableType>silo</placeableType>
+    <filename>$data/placeables/farmSilos/farmSiloLarge.i3d</filename>
+    <placement testSizeX="30" testSizeZ="30" sizeX="30" sizeZ="30" useRandomYRotation="false" useManualYRotation="true" />
+
+    <loadingStation stationName="$l10n_station_farmSilo" appearsOnPDA="false" storageRadius="50" fillSoundIdentifier="fillSound01">
+        <loadTrigger triggerNode="0|1|0|0|0" fillLitersPerSecond="2000" dischargeNode="0|1|0|0|1">
+            <effectNode effectClass="PipeEffect" effectNode="0|1|0|0|2|0" materialType="pipe" materialTypeId="1" fadeTime="0.5" maxBending="0" controlPoint="3.25 0 0 0"/>
+            <effectNode                          effectNode="0|1|0|0|2|1" materialType="smoke"     materialTypeId="1" fadeTime="0.5" />
+        </loadTrigger>
+    </loadingStation>
+
+    <unloadingStation stationName="$l10n_station_farmSilo" appearsOnPDA="false" storageRadius="50">
+        <unloadTrigger exactFillRootNode="0|0|0|0|0" />
+    </unloadingStation>
+
+    <storages>
+        <storage node="0|2" fillTypes="wheat barley canola maize oat sunflower soybean" capacityPerFillType="200000" />
+    </storages>
+
+    <clearAreas>
+        <clearArea startNode="3|0" widthNode="3|0|0" heightNode="3|0|1"/>
+    </clearAreas>
+
+    <hotspots>
+        <hotspot name="Farm silo" fullName="$l10n_station_farmSilo" imageName="SELLING_POINT" hidable="true" linkNode="0|3" category="CATEGORY_TRIGGERS" />
+    </hotspots>
+
+    <leveling requireLeveling="true" maxSmoothDistance="10" maxSlope="75" maxEdgeAngle="30">
+        <levelAreas>
+            <levelArea startNode="3|0" widthNode="3|0|0" heightNode="3|0|1" groundType="asphalt"/>
+        </levelAreas>
+    </leveling>
+    
+    <tipOcclusionUpdateArea sizeX="30" sizeZ="30" />
+
+</placeable>

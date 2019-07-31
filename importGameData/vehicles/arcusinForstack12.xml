@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="baleLoader">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>ForStack 8.12</name>
+        <functions>
+            <function>$l10n_function_baleStacker</function>
+        </functions>
+        <image>$data/vehicles/arcusin/arcusinForstack12/store_arcusinForstack12.png</image>
+        <price>25000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>ARCUSIN</brand>
+        <category>baling</category>
+        <vertexBufferMemoryUsage>1198432</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>187422</indexBufferMemoryUsage>
+        <textureMemoryUsage>7165400</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_baleLoader</typeDesc>
+        <filename>$data/vehicles/arcusin/arcusinForstack12/arcusinForstack12.i3d</filename>
+        <size width="3" length="6" lengthOffset="-0.2" />
+        <components>
+            <component centerOfMass="0 0.62 -1" solverIterationCount="10" mass="2630" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/trelleborg/AW305/260_70R15_3.xml" isLeft="true" >
+                        <physics tipOcclusionAreaGroupId="1" restLoad="0.6" repr="wheelRot" driveNode="wheelFrontLeft" forcePointRatio="0.5" initialCompression="35" suspTravel="0.13" spring="14" damper="25" />
+                        <wheelChock parkingNode="wheelChocks01" />
+                        <wheelChock parkingNode="wheelChocks02" isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/AW305/260_70R15_3.xml" isLeft="false" >
+                        <physics tipOcclusionAreaGroupId="2" restLoad="0.6" repr="wheelFrontRight"                     forcePointRatio="0.5" initialCompression="35" suspTravel="0.13" spring="14" damper="25" />
+                     </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/AW305/260_70R15_3.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics tipOcclusionAreaGroupId="1" restLoad="0.6" repr="wheelBackLeft"                       forcePointRatio="0.5" initialCompression="10" suspTravel="0.13" spring="14" damper="25" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/AW305/260_70R15_3.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics tipOcclusionAreaGroupId="2" restLoad="0.6" repr="wheelBackRight"                      forcePointRatio="0.5" initialCompression="10" suspTravel="0.13" spring="14" damper="25" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <hubs>
+            <hub linkNode="wheelFrontLeft"    filename="$data/shared/wheels/hubs/hub_n5_1.xml" isLeft="true"  scale="0.15 0.15 0.15" />
+            <hub linkNode="wheelFrontRight"   filename="$data/shared/wheels/hubs/hub_n5_1.xml" isLeft="false" scale="0.15 0.15 0.15" />
+            <hub linkNode="wheelBackLeft"     filename="$data/shared/wheels/hubs/hub_n5_1.xml" isLeft="true"  scale="0.15 0.15 0.15" />
+            <hub linkNode="wheelBackRight"    filename="$data/shared/wheels/hubs/hub_n5_1.xml" isLeft="false" scale="0.15 0.15 0.15" />
+        </hubs>
+    </wheels>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="trailerLow" attacherHeight="0.60" />
+        </inputAttacherJoints>
+        <support animationName="moveSupport" />
+        <brakeForce>0.18</brakeForce>
+    </attachable>
+
+    <powerConsumer ptoRpm="450" neededMinPtoPower="30" neededMaxPtoPower="30"/>
+
+    <lights>
+        <sharedLight linkNode="rear3ChamberLightLeft" filename="$data/shared/assets/lights/lizard/rear3ChamberLight_03_left.xml" />
+        <sharedLight linkNode="rear3ChamberLightRight" filename="$data/shared/assets/lights/lizard/rear3ChamberLight_03_right.xml" />
+        <sharedLight linkNode="sideMarker_01Left" filename="$data/shared/assets/reflectors/lizard/yellowRound_01.xml" />
+        <sharedLight linkNode="sideMarker_01Right" filename="$data/shared/assets/reflectors/lizard/yellowRound_01.xml" />
+        <sharedLight linkNode="marker01" filename="$data/shared/assets/reflectors/lizard/yellowRound_01.xml" />
+        <sharedLight linkNode="marker02" filename="$data/shared/assets/reflectors/lizard/yellowRound_01.xml" />
+        <sharedLight linkNode="marker03" filename="$data/shared/assets/reflectors/lizard/yellowRound_01.xml" />
+        <sharedLight linkNode="marker04" filename="$data/shared/assets/reflectors/lizard/yellowRound_01.xml" />
+
+        <realLights>
+            <high>
+                <light node="backLightsHigh"     lightTypes="0"/>
+                <brakeLight node="backLightsHigh" />
+                <turnLightLeft node="turnLightLeftBack" />
+                <turnLightRight node="turnLightRightBack" />
+            </high>
+        </realLights>
+
+        <beaconLights>
+            <beaconLight node="beaconLight01" filename="$data/shared/assets/beaconLights/lizard/beaconLight02.xml" />
+        </beaconLights>
+    </lights>
+    <animations>
+        <!-- move from transport to work position -->
+        <animation name="baleGrabberTransportToWork">
+            <part node="drawbar" startTime="0" duration="2.5" startRot="0 -38.5 0" endRot="0 0 0"/>
+        </animation>
+
+        <!-- move from work to drop position -->
+        <animation name="baleGrabberWorkToDrop">
+        </animation>
+
+        <!-- drop bale from grabber to platform -->
+        <animation name="baleGrabberDropBale">
+        </animation>
+
+        <animation name="frontBalePusher">
+        </animation>
+        <animation name="balesToOtherRow">
+        </animation>
+
+        <animation name="rotatePlatform">
+        </animation>
+
+        <animation name="emptyRotate">
+            <part node="backArm" startTime="0" duration="1" startRot="0 0 0" endRot="0 -77 0" />
+        </animation>
+
+        <animation name="moveBalePlaces">
+            <part node="liftArm"   startTime="0"   endTime="3"                         endTrans="0 0 0" />
+            <part node="clawLeft" startTime="3"   endTime="3.5" startRot="0 0 0"      endRot="0 0 -17" />
+            <part node="clawRight" startTime="3"   endTime="3.5" startRot="0 0 0"      endRot="0 0 17" />
+            <part node="liftArm"   startTime="3.5" endTime="6"   startTrans="0 0 0"    endTrans="0 0.95 0" />
+            <part node="balePlaces"   startTime="3.5" endTime="6"   startTrans="0 0 0"    endTrans="0 0.95 0" />
+            <part node="balePlace02" startTime="3.5" endTime="6"   startTrans="0 -0.8 0" endTrans="0 -0.95 0" />
+
+            <part node="liftArm"   startTime="6" endTime="6.4"   startTrans="0 0.95 0"    endTrans="0 0.8 0" />
+            <part node="balePlaces"   startTime="6" endTime="6.4"   startTrans="0 0.95 0"    endTrans="0 0.8 0" />
+            <part node="balePlace02" startTime="6" endTime="6.4"   startTrans="0 -0.95 0"    endTrans="0 -0.8 0" />
+            <part node="clawLeft" startTime="6.4" endTime="6.9" startRot="0 0 -17"       endRot="0 0 0" />
+            <part node="clawRight" startTime="6.4" endTime="6.9" startRot="0 0 17"        endRot="0 0 0" />
+            <part node="liftArm"   startTime="6.9" endTime="9"   startTrans="0 0.8 0"     endTrans="0 0 0" />
+            <part node="balePlaces"   startTime="6.9" endTime="9"   startTrans="0 0.8 0"     endTrans="0 0 0" />
+            <part node="balePlace01" startTime="6.9" endTime="9"   startTrans="0 0 0"       endTrans="0 0.8 0" />
+            <part node="balePlace02" startTime="6.9" endTime="9"   startTrans="0 -0.8 0"    endTrans="0 0 0" />
+            <part node="clawLeft" startTime="9"   endTime="9.5"  startRot="0 0 0"        endRot="0 0 -17" />
+            <part node="clawRight" startTime="9"   endTime="9.5"  startRot="0 0 0"        endRot="0 0 17" />
+            <part node="liftArm"   startTime="9.5" endTime="12"   startTrans="0 0 0"       endTrans="0 0.95 0" />
+            <part node="balePlaces"   startTime="9.5" endTime="12"   startTrans="0 0 0"       endTrans="0 0.95 0" />
+            <part node="balePlace03" startTime="9.5" endTime="12"   startTrans="0 -1.6 0" endTrans="0 -0.95 0" />
+
+            <part node="liftArm"   startTime="12" endTime="12.4"   startTrans="0 0.95 0"    endTrans="0 0.8 0" />
+            <part node="balePlaces"   startTime="12" endTime="12.4"   startTrans="0 0.95 0"    endTrans="0 0.8 0" />
+            <part node="balePlace03" startTime="12" endTime="12.4"   startTrans="0 -0.95 0"    endTrans="0 -0.8 0" />
+            <part node="clawLeft" startTime="12.4" endTime="12.9" startRot="0 0 -17"       endRot="0 0 0" />
+            <part node="clawRight" startTime="12.4" endTime="12.9" startRot="0 0 17"        endRot="0 0 0" />
+
+            <part node="liftArm"   startTime="12.9" endTime="15"   startTrans="0 0.8 0"     endTrans="0 0 0" />
+            <part node="balePlaces"   startTime="12.9" endTime="15"   startTrans="0 0.8 0"     endTrans="0 0 0" />
+            <part node="balePlace01" startTime="12.9" endTime="15"   startTrans="0 0.8 0"     endTrans="0 1.6 0" />
+            <part node="balePlace02" startTime="12.9" endTime="15"   startTrans="0 0 0"       endTrans="0 0.8 0" />
+            <part node="balePlace03" startTime="12.9" endTime="15"   startTrans="0 -0.8 0"    endTrans="0 0 0" />
+            <part node="clawLeft" startTime="15"   endTime="15.5" startRot="0 0 0"        endRot="0 0 -17" />
+            <part node="clawRight" startTime="15"   endTime="15.5" startRot="0 0 0"        endRot="0 0 17" />
+            <part node="liftArm"   startTime="15.5" endTime="18"   startTrans="0 0 0"       endTrans="0 0.15 0" />
+            <part node="balePlaces"   startTime="15.5" endTime="18"   startTrans="0 0 0"       endTrans="0 0.15 0" />
+        </animation>
+        <animation name="moveBalePlacesToEmpty">
+            <part node="liftArm" startTime="0" duration="2.5" endTrans="0 0 0" />
+            <part node="balePlaces" startTime="0" duration="2.5" endTrans="0 0 0" />
+        </animation>
+        <animation name="moveBalePusherToEmpty">
+            <part node="liftArm" startTime="0" duration="2.5" endTrans="0 0 0" />
+            <part node="balePlaces" startTime="0" duration="2.5" endTrans="0 0 0" />
+        </animation>
+
+        <animation name="emptyHidePusher1">
+        </animation>
+
+        <animation name="releaseFrontplattform">
+            <part node="clawLeft" startTime="0" endTime="0.3" startRot="0 0 -17" endRot="0 0 0" />
+            <part node="clawRight" startTime="0" endTime="0.3" startRot="0 0 17"  endRot="0 0 0" />
+
+            <part node="balePlace01" startTime="0" endTime="0.3" endTrans="0 0 0" />
+            <part node="balePlace02" startTime="0" endTime="0.3" endTrans="0 -0.8 0" />
+            <part node="balePlace03" startTime="0" endTime="0.3" endTrans="0 -1.6 0" />
+        </animation>
+
+        <animation name="closeGrippers">
+        </animation>
+
+        <!-- move support wheel down/up -->
+        <animation name="moveSupport">
+            <part node="wheelChocksDetached" startTime="0" endTime="0.05" visibility="false" />
+            <part node="wheelChocks" startTime="0" endTime="0.05" visibility="true" />
+            <part node="wheelChocksDetached" startTime="0.05" endTime="0.1" visibility="true" />
+            <part node="wheelChocks" startTime="0.05" endTime="0.1" visibility="false" />
+            <part node="supportCol" startTime="0"   endTime="0.2" startTrans="0 0.3 0" endTrans="0 -0.2 0" />
+            <part node="supportRot" startTime="0"   endTime="0.2" startRot="90 0 0"  endRot="0 0 0" />
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <!-- back door -->
+            <movingTool node="backArm" playSound="true">
+                <dependentPart node="hydraulicBackArm" />
+            </movingTool>
+            <!-- left claw -->
+            <movingTool node="clawLeft">
+                <dependentPart node="hydraulicClawLeft" />
+            </movingTool>
+            <!-- left claw -->
+            <movingTool node="clawRight">
+                <dependentPart node="hydraulicClawRight" />
+            </movingTool>
+
+            <!-- drawbar -->
+            <movingTool node="drawbar" playSound="true">
+                <dependentPart node="hydraulicDrawbar" />
+                <inputAttacherJoint value="true" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <!-- back door cylinder -->
+            <movingPart node="hydraulicBackArm" referencePoint="hydraulicBackArmRef" referenceFrame="hydraulicBackArmRef">
+                <translatingPart node="hydraulicBackArmPunch" />
+            </movingPart>
+            <!-- left claw cylinder -->
+            <movingPart node="hydraulicClawLeft" referencePoint="hydraulicClawLeftRef" referenceFrame="hydraulicClawLeftRef">
+                <translatingPart node="hydraulicClawLeftPunch" />
+            </movingPart>
+            <!-- right claw cylinder -->
+            <movingPart node="hydraulicClawRight" referencePoint="hydraulicClawRightRef" referenceFrame="hydraulicClawRightRef">
+                <translatingPart node="hydraulicClawRightPunch" />
+            </movingPart>
+            <!-- arm cylinder -->
+            <movingPart node="hydraulicDrawbar" referencePoint="hydraulicDrawbarRef" referenceFrame="hydraulicDrawbarRef">
+                <translatingPart node="hydraulicDrawbarPunch" />
+            </movingPart>
+        </movingParts>
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="arcusinForstack12_main_component1"/>
+        </sounds>
+    </cylindered>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <fillUnit unit="$l10n_unit_bale" fillTypes="squareBale" capacity="3"/>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <baleLoader alwaysMoveBalePlaces="true" transportPositionAfterUnloading="false">
+        <grabber grabNode="baleJoint01" triggerNode="baleGrabberTrigger" pickupRange="2.5">
+            <grabParticleSystem disableDuration="0.6" position="0 0.5 -1.5" rotation="0 0 0" file="$data/particleSystems/shared/threshingStrawParticles.i3d" />
+        </grabber>
+
+        <balePlaces startBalePlace="startBalePlaces">
+            <balePlace node="balePlace01" collision="balePlace01ColPart"/>
+            <balePlace node="balePlace02" collision="balePlace02ColPart"/>
+            <balePlace node="balePlace03" collision="balePlace03ColPart"/>
+        </balePlaces>
+
+        <baleTypes>
+            <baleType minBaleWidth="1.2"  maxBaleWidth="1.2" minBaleHeight="0.8" maxBaleHeight="0.9" minBaleLength="2.2" maxBaleLength="2.4"/>
+        </baleTypes>
+
+        <texts lowerPlattform="action_closeBack" lowering="info_balestackerLoweringTable" tilting="info_balestackerTiltingTable"/>
+
+        <sounds>
+            <grab template="BALER_GRAB_01" linkNode="arcusinForstack12_main_component1" />
+        </sounds>
+    </baleLoader>
+
+    <foliageBending>
+        <bendingNode minX="-1.2" maxX="1.2" minZ="-3.0" maxZ="0.8" yOffset="0.6" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="arcusinForstack12_mat" baseNode="arcusin_vis">
+            <shaderParameter name="colorMat1" value="ARCUSIN_ORANGE1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="3" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="arcusinForstack12_main_component1" node="0>" />
+        <i3dMapping id="arcusin_vis" node="0>0" />
+        <i3dMapping id="wheelRot" node="0>0|0|0" />
+        <i3dMapping id="wheelFrontLeft" node="0>0|0|0|0" />
+        <i3dMapping id="wheelChocksDetached" node="0>0|0|0|1" />
+        <i3dMapping id="chock1" node="0>0|0|0|1|0" />
+        <i3dMapping id="chock3" node="0>0|0|0|1|1" />
+        <i3dMapping id="wheelFrontRight" node="0>0|0|1" />
+        <i3dMapping id="wheelBackLeft" node="0>0|0|2" />
+        <i3dMapping id="wheelBackRight" node="0>0|0|3" />
+        <i3dMapping id="drawbar" node="0>0|1" />
+        <i3dMapping id="attacherJoint" node="0>0|1|0" />
+        <i3dMapping id="supportRot" node="0>0|1|1|0" />
+        <i3dMapping id="supportCol" node="0>0|1|1|1" />
+        <i3dMapping id="hydraulicDrawbar" node="0>0|1|2" />
+        <i3dMapping id="hydraulicDrawbarPunch" node="0>0|1|2|0" />
+        <i3dMapping id="wheelChocks" node="0>0|1|3" />
+        <i3dMapping id="wheelChocks01" node="0>0|1|3|0" />
+        <i3dMapping id="wheelChocks02" node="0>0|1|3|1" />
+        <i3dMapping id="backLightsHigh" node="0>0|2|0" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|2|1" />
+        <i3dMapping id="turnLightRightBack" node="0>0|2|2" />
+        <i3dMapping id="beaconLight01" node="0>0|2|3" />
+        <i3dMapping id="rear3ChamberLightLeft" node="0>0|2|4" />
+        <i3dMapping id="rear3ChamberLightRight" node="0>0|2|5" />
+        <i3dMapping id="sideMarker_01Right" node="0>0|2|6" />
+        <i3dMapping id="sideMarker_01Left" node="0>0|2|7" />
+        <i3dMapping id="marker01" node="0>0|2|8" />
+        <i3dMapping id="marker02" node="0>0|2|9" />
+        <i3dMapping id="marker03" node="0>0|2|10" />
+        <i3dMapping id="marker04" node="0>0|2|11" />
+        <i3dMapping id="liftArm" node="0>0|3|0" />
+        <i3dMapping id="baleJoint01" node="0>0|3|0|0" />
+        <i3dMapping id="clawLeft" node="0>0|3|0|1" />
+        <i3dMapping id="hydraulicClawLeftRef" node="0>0|3|0|1|0" />
+        <i3dMapping id="clawRight" node="0>0|3|0|2" />
+        <i3dMapping id="hydraulicClawRightRef" node="0>0|3|0|2|0" />
+        <i3dMapping id="hydraulicClawLeft" node="0>0|3|0|3" />
+        <i3dMapping id="hydraulicClawLeftPunch" node="0>0|3|0|3|0" />
+        <i3dMapping id="hydraulicClawRight" node="0>0|3|0|4" />
+        <i3dMapping id="hydraulicClawRightPunch" node="0>0|3|0|4|0" />
+        <i3dMapping id="balePlaces" node="0>0|3|1" />
+        <i3dMapping id="balePlace01" node="0>0|3|1|0" />
+        <i3dMapping id="balePlace01ColPart" node="0>0|3|1|0|0" />
+        <i3dMapping id="balePlace02" node="0>0|3|1|1" />
+        <i3dMapping id="balePlace02ColPart" node="0>0|3|1|1|0" />
+        <i3dMapping id="balePlace03" node="0>0|3|1|2" />
+        <i3dMapping id="balePlace03ColPart" node="0>0|3|1|2|0" />
+        <i3dMapping id="startBalePlaces" node="0>0|3|2" />
+        <i3dMapping id="backArm" node="0>0|4" />
+        <i3dMapping id="hydraulicBackArmRef" node="0>0|4|0" />
+        <i3dMapping id="hydraulicBackArm" node="0>0|5|0" />
+        <i3dMapping id="hydraulicBackArmPunch" node="0>0|5|0|0" />
+        <i3dMapping id="hydraulicDrawbarRef" node="0>0|5|2" />
+        <i3dMapping id="baleGrabberTrigger" node="0>0|7" />
+    </i3dMappings>
+</vehicle>

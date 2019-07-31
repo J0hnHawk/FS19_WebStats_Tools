@@ -1,0 +1,900 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="woodHarvester">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>HR46X</name>
+        <specs>
+            <power>168</power>
+            <maxSpeed>15</maxSpeed>
+        </specs>
+        <functions>
+            <function>$l10n_function_forestryCutter</function>
+            <function>$l10n_function_forestryTreeLimit</function>
+        </functions>
+        <image>$data/vehicles/sampoRosenlew/HR46/store_HR46.png</image>
+        <price>275000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>SAMPOROSENLEW</brand>
+        <category>woodHarvesting</category>
+        <shopTranslationOffset>0 -0.068 0</shopTranslationOffset>
+        <vertexBufferMemoryUsage>2887952</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>488178</indexBufferMemoryUsage>
+        <textureMemoryUsage>19835928</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_woodHarvester</typeDesc>
+        <filename>$data/vehicles/sampoRosenlew/HR46/HR46.i3d</filename>
+        <size width="3.5" length="7.5" lengthOffset="0.5" />
+        <components>
+            <component centerOfMass="0 0.8 0.3" solverIterationCount="40" mass="4750" />
+            <component centerOfMass="0 0.8 -0.9" solverIterationCount="40" mass="3400" />
+            <component centerOfMass="0 -0.5 0" solverIterationCount="20" mass="300" />
+            <component centerOfMass="0 0 0" solverIterationCount="20" mass="150" />
+            <joint component1="1" component2="2" node="componentJoint" rotLimit="0 0 0" transLimit="0 0 0" rotLimitSpring="0 0 160" rotLimitDamping="0 0 6" />
+            <joint component1="1" component2="3" node="cutterBaseColJoint1" zRotationNode="cutterBaseColJoint" nodeActor1="cutterBaseJoint_indexActor"   rotLimit="0 50 80" rotMinLimit="0 -50 -170" rotDriveVelocity="0 0 0" maxRotDriveForce="0.5 0.5 0.5"   transLimit="0 0 0" transLimitSpring="600 600 600" transLimitDamping="11 11 11" />
+            <joint component1="3" component2="4" node="cutterColJoint" rotMinLimit="0 0 0" rotLimit="0 0 0" transLimit="0 0 0" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_VEHICLE"/>
+            <turnedOn name="DEFAULT_VEHICLE_ON"/>
+            <selected name="DEFAULT_VEHICLE_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_VEHICLE_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0" brand="TRELLEBORG">
+                <wheels autoRotateBackSpeed="2.2">
+                    <wheel filename="$data/shared/wheels/trelleborg/TM800/540_65R28.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelFrontLeft" forcePointRatio="0.7" showSteeringAngle="false" initialCompression="40" suspTravel="0.2" spring="27" damper="50" frictionScale="2" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TM800/540_65R28.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelFrontRight" forcePointRatio="0.7" showSteeringAngle="false" initialCompression="40" suspTravel="0.2" spring="27" damper="50" frictionScale="2" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TM800/540_65R28.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelBackLeft" forcePointRatio="0.7" showSteeringAngle="false" initialCompression="40" suspTravel="0.2" spring="27" damper="50" frictionScale="2" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TM800/540_65R28.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelBackRight" forcePointRatio="0.7" showSteeringAngle="false" initialCompression="40" suspTravel="0.2" spring="27" damper="50" frictionScale="2" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+            <wheelConfiguration name="$l10n_configuration_valueWheelBroad" price="1000" brand="TRELLEBORG">
+                <wheels autoRotateBackSpeed="2.2">
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelFrontLeft" forcePointRatio="0.7" showSteeringAngle="false" initialCompression="40" suspTravel="0.2" spring="27" damper="50" frictionScale="2.2" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelFrontRight" forcePointRatio="0.7" showSteeringAngle="false" initialCompression="40" suspTravel="0.2" spring="27" damper="50" frictionScale="2.2" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelBackLeft" forcePointRatio="0.7" showSteeringAngle="false" initialCompression="40" suspTravel="0.2" spring="27" damper="50" frictionScale="2.2" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelBackRight" forcePointRatio="0.7" showSteeringAngle="false" initialCompression="40" suspTravel="0.2" spring="27" damper="50" frictionScale="2.2" />
+                    </wheel>
+                    <foliageBendingModifier index="1" minX="-1.25" maxX="1.25" />
+                    <foliageBendingModifier index="3" minX="-1.25" maxX="1.25" />
+                </wheels>
+            </wheelConfiguration>
+            <wheelConfiguration name="ECO-TRACK" price="4000" brand="OLOFSFORS">
+                <wheels autoRotateBackSpeed="2.2">
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelFrontLeft"  forcePointRatio="0.7" radius="0.72" width="0.85" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="5" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelFrontRight" forcePointRatio="0.7" radius="0.72" width="0.85" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="5" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelBackLeft"   forcePointRatio="0.7" radius="0.72" width="0.85" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="5" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelBackRight"  forcePointRatio="0.7" radius="0.72" width="0.85" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="5" />
+                    </wheel>
+                    <foliageBendingModifier index="1" minX="-1.4" maxX="1.4" />
+                    <foliageBendingModifier index="3" minX="-1.4" maxX="1.4" />
+                </wheels>
+                <crawlers>
+                     <crawler wheelIndex="1" filename="$data/shared/wheels/tracks/olofsfors/wheelECOtrack.xml" linkNode="wheelFrontLeft"  isLeft="true"/>
+                     <crawler wheelIndex="2" filename="$data/shared/wheels/tracks/olofsfors/wheelECOtrack.xml" linkNode="wheelFrontRight" isLeft="false"/>
+                     <crawler wheelIndex="3" filename="$data/shared/wheels/tracks/olofsfors/wheelECOtrack.xml" linkNode="wheelBackLeft"   isLeft="true"/>
+                     <crawler wheelIndex="4" filename="$data/shared/wheels/tracks/olofsfors/wheelECOtrack.xml" linkNode="wheelBackRight"  isLeft="false"/>
+                </crawlers>
+                <size width="3.2" />
+                <objectChange node="wheelFrontLeft" translationActive="0.96 0.775 1.382" />
+                <objectChange node="wheelFrontRight" translationActive="-0.96 0.775 1.382" />
+                <objectChange node="wheelBackLeft" translationActive="0.96 0.775 -1.393" />
+                <objectChange node="wheelBackRight" translationActive="-0.96 0.775 -1.393" />
+            </wheelConfiguration>
+            <wheelConfiguration name="EVO-BALTIC" price="4000" brand="OLOFSFORS">
+                <wheels autoRotateBackSpeed="2.2">
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelFrontLeft"  forcePointRatio="0.7" radius="0.72" width="0.85" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="5" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelFrontRight" forcePointRatio="0.7" radius="0.72" width="0.85" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="5" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelBackLeft"   forcePointRatio="0.7" radius="0.72" width="0.85" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="5" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelBackRight"  forcePointRatio="0.7" radius="0.72" width="0.85" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="5" />
+                    </wheel>
+                    <foliageBendingModifier index="1" minX="-1.4" maxX="1.4" />
+                    <foliageBendingModifier index="3" minX="-1.4" maxX="1.4" />
+                </wheels>
+                <crawlers>
+                     <crawler wheelIndex="1" filename="$data/shared/wheels/tracks/olofsfors/wheelEVObaltic.xml" linkNode="wheelFrontLeft"  isLeft="true"/>
+                     <crawler wheelIndex="2" filename="$data/shared/wheels/tracks/olofsfors/wheelEVObaltic.xml" linkNode="wheelFrontRight" isLeft="false"/>
+                     <crawler wheelIndex="3" filename="$data/shared/wheels/tracks/olofsfors/wheelEVObaltic.xml" linkNode="wheelBackLeft"   isLeft="true"/>
+                     <crawler wheelIndex="4" filename="$data/shared/wheels/tracks/olofsfors/wheelEVObaltic.xml" linkNode="wheelBackRight"  isLeft="false"/>
+                </crawlers>
+                <size width="3.2" />
+                <objectChange node="wheelFrontLeft" translationActive="0.96 0.775 1.382" />
+                <objectChange node="wheelFrontRight" translationActive="-0.96 0.775 1.382" />
+                <objectChange node="wheelBackLeft" translationActive="0.96 0.775 -1.393" />
+                <objectChange node="wheelBackRight" translationActive="-0.96 0.775 -1.393" />
+            </wheelConfiguration>
+            <wheelConfiguration name="EX" price="4000" brand="OLOFSFORS">
+                <wheels autoRotateBackSpeed="2.2">
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelFrontLeft"  forcePointRatio="0.7" radius="0.72" width="0.85" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="5" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelFrontRight" forcePointRatio="0.7" radius="0.72" width="0.85" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="5" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelBackLeft"   forcePointRatio="0.7" radius="0.72" width="0.85" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="5" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelBackRight"  forcePointRatio="0.7" radius="0.72" width="0.85" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="5" />
+                    </wheel>
+                    <foliageBendingModifier index="1" minX="-1.4" maxX="1.4" />
+                    <foliageBendingModifier index="3" minX="-1.4" maxX="1.4" />
+                </wheels>
+                <crawlers>
+                     <crawler wheelIndex="1" filename="$data/shared/wheels/tracks/olofsfors/wheelEX.xml" linkNode="wheelFrontLeft"  isLeft="true"/>
+                     <crawler wheelIndex="2" filename="$data/shared/wheels/tracks/olofsfors/wheelEX.xml" linkNode="wheelFrontRight" isLeft="false"/>
+                     <crawler wheelIndex="3" filename="$data/shared/wheels/tracks/olofsfors/wheelEX.xml" linkNode="wheelBackLeft"   isLeft="true"/>
+                     <crawler wheelIndex="4" filename="$data/shared/wheels/tracks/olofsfors/wheelEX.xml" linkNode="wheelBackRight"  isLeft="false"/>
+                </crawlers>
+                <size width="3.2" />
+                <objectChange node="wheelFrontLeft" translationActive="0.96 0.775 1.382" />
+                <objectChange node="wheelFrontRight" translationActive="-0.96 0.775 1.382" />
+                <objectChange node="wheelBackLeft" translationActive="0.96 0.775 -1.393" />
+                <objectChange node="wheelBackRight" translationActive="-0.96 0.775 -1.393" />
+            </wheelConfiguration>
+            <wheelConfiguration name="KOVAX" price="4000" brand="OLOFSFORS">
+                <wheels autoRotateBackSpeed="2.2">
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelFrontLeft"  forcePointRatio="0.7" radius="0.73" width="0.9" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="5" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelFrontRight" forcePointRatio="0.7" radius="0.73" width="0.9" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="5" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelBackLeft"   forcePointRatio="0.7" radius="0.73" width="0.9" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="5" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelBackRight"  forcePointRatio="0.7" radius="0.73" width="0.9" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="5" />
+                    </wheel>
+                    <foliageBendingModifier index="1" minX="-1.57" maxX="1.57" />
+                    <foliageBendingModifier index="3" minX="-1.57" maxX="1.57" />
+                </wheels>
+                <crawlers>
+                     <crawler wheelIndex="1" filename="$data/shared/wheels/tracks/olofsfors/wheelKovaX.xml" linkNode="wheelFrontLeft"  isLeft="true"/>
+                     <crawler wheelIndex="2" filename="$data/shared/wheels/tracks/olofsfors/wheelKovaX.xml" linkNode="wheelFrontRight" isLeft="false"/>
+                     <crawler wheelIndex="3" filename="$data/shared/wheels/tracks/olofsfors/wheelKovaX.xml" linkNode="wheelBackLeft"   isLeft="true"/>
+                     <crawler wheelIndex="4" filename="$data/shared/wheels/tracks/olofsfors/wheelKovaX.xml" linkNode="wheelBackRight"  isLeft="false"/>
+                </crawlers>
+                <size width="3.5" />
+                <objectChange node="wheelFrontLeft" translationActive="0.96 0.775 1.382" />
+                <objectChange node="wheelFrontRight" translationActive="-0.96 0.775 1.382" />
+                <objectChange node="wheelBackLeft" translationActive="0.96 0.775 -1.393" />
+                <objectChange node="wheelBackRight" translationActive="-0.96 0.775 -1.393" />
+            </wheelConfiguration>
+            <wheelConfiguration name="MAGNUM" price="4000" brand="OLOFSFORS">
+                <wheels autoRotateBackSpeed="2.2">
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelFrontLeft"  forcePointRatio="0.7" radius="0.74" width="0.85" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="5" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelFrontRight" forcePointRatio="0.7" radius="0.74" width="0.85" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="5" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelBackLeft"   forcePointRatio="0.7" radius="0.74" width="0.85" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="5" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelBackRight"  forcePointRatio="0.7" radius="0.74" width="0.85" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="5" />
+                    </wheel>
+                    <foliageBendingModifier index="1" minX="-1.4" maxX="1.4" />
+                    <foliageBendingModifier index="3" minX="-1.4" maxX="1.4" />
+                </wheels>
+                <crawlers>
+                     <crawler wheelIndex="1" filename="$data/shared/wheels/tracks/olofsfors/wheelMagnum.xml" linkNode="wheelFrontLeft"  isLeft="true"/>
+                     <crawler wheelIndex="2" filename="$data/shared/wheels/tracks/olofsfors/wheelMagnum.xml" linkNode="wheelFrontRight" isLeft="false"/>
+                     <crawler wheelIndex="3" filename="$data/shared/wheels/tracks/olofsfors/wheelMagnum.xml" linkNode="wheelBackLeft"   isLeft="true"/>
+                     <crawler wheelIndex="4" filename="$data/shared/wheels/tracks/olofsfors/wheelMagnum.xml" linkNode="wheelBackRight"  isLeft="false"/>
+                </crawlers>
+                <size width="3.2" />
+                <objectChange node="wheelFrontLeft" translationActive="0.96 0.775 1.382" />
+                <objectChange node="wheelFrontRight" translationActive="-0.96 0.775 1.382" />
+                <objectChange node="wheelBackLeft" translationActive="0.96 0.775 -1.393" />
+                <objectChange node="wheelBackRight" translationActive="-0.96 0.775 -1.393" />
+            </wheelConfiguration>
+            <wheelConfiguration name="PRO-GRIP F" price="4000" brand="OLOFSFORS">
+                <wheels autoRotateBackSpeed="2.2">
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelFrontLeft"  forcePointRatio="0.7" radius="0.72" width="0.83" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="9" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelFrontRight" forcePointRatio="0.7" radius="0.72" width="0.83" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="9" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelBackLeft"   forcePointRatio="0.7" radius="0.72" width="0.83" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="9" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelBackRight"  forcePointRatio="0.7" radius="0.72" width="0.83" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="9" />
+                    </wheel>
+                    <foliageBendingModifier index="1" minX="-1.4" maxX="1.4" />
+                    <foliageBendingModifier index="3" minX="-1.4" maxX="1.4" />
+                </wheels>
+                <crawlers>
+                     <crawler wheelIndex="1" filename="$data/shared/wheels/tracks/olofsfors/wheelProGripF.xml" linkNode="wheelFrontLeft"  isLeft="true"/>
+                     <crawler wheelIndex="2" filename="$data/shared/wheels/tracks/olofsfors/wheelProGripF.xml" linkNode="wheelFrontRight" isLeft="false"/>
+                     <crawler wheelIndex="3" filename="$data/shared/wheels/tracks/olofsfors/wheelProGripF.xml" linkNode="wheelBackLeft"   isLeft="true"/>
+                     <crawler wheelIndex="4" filename="$data/shared/wheels/tracks/olofsfors/wheelProGripF.xml" linkNode="wheelBackRight"  isLeft="false"/>
+                </crawlers>
+                <size width="3.2" />
+                <objectChange node="wheelFrontLeft" translationActive="0.96 0.775 1.382" />
+                <objectChange node="wheelFrontRight" translationActive="-0.96 0.775 1.382" />
+                <objectChange node="wheelBackLeft" translationActive="0.96 0.775 -1.393" />
+                <objectChange node="wheelBackRight" translationActive="-0.96 0.775 -1.393" />
+            </wheelConfiguration>
+            <wheelConfiguration name="PRO-GRIP U" price="4000" brand="OLOFSFORS">
+                <wheels autoRotateBackSpeed="2.2">
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelFrontLeft"  forcePointRatio="0.7" radius="0.72" width="0.83" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="9" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelFrontRight" forcePointRatio="0.7" radius="0.72" width="0.83" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="9" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelBackLeft"   forcePointRatio="0.7" radius="0.72" width="0.83" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="9" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="0" restLoad="2.4" repr="wheelBackRight"  forcePointRatio="0.7" radius="0.72" width="0.83" transRatio="1" tireType="crawler" showSteeringAngle="false" initialCompression="40" suspTravel="0.18" spring="30" damper="50" frictionScale="2.5" />
+                        <tire tireTrackAtlasIndex="9" />
+                    </wheel>
+                    <foliageBendingModifier index="1" minX="-1.4" maxX="1.4" />
+                    <foliageBendingModifier index="3" minX="-1.4" maxX="1.4" />
+                </wheels>
+                <crawlers>
+                     <crawler wheelIndex="1" filename="$data/shared/wheels/tracks/olofsfors/wheelProGripU.xml" linkNode="wheelFrontLeft"  isLeft="true"/>
+                     <crawler wheelIndex="2" filename="$data/shared/wheels/tracks/olofsfors/wheelProGripU.xml" linkNode="wheelFrontRight" isLeft="false"/>
+                     <crawler wheelIndex="3" filename="$data/shared/wheels/tracks/olofsfors/wheelProGripU.xml" linkNode="wheelBackLeft"   isLeft="true"/>
+                     <crawler wheelIndex="4" filename="$data/shared/wheels/tracks/olofsfors/wheelProGripU.xml" linkNode="wheelBackRight"  isLeft="false"/>
+                </crawlers>
+                <size width="3.2" />
+                <objectChange node="wheelFrontLeft" translationActive="0.96 0.775 1.382" />
+                <objectChange node="wheelFrontRight" translationActive="-0.96 0.775 1.382" />
+                <objectChange node="wheelBackLeft" translationActive="0.96 0.775 -1.393" />
+                <objectChange node="wheelBackRight" translationActive="-0.96 0.775 -1.393" />
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <ackermannSteeringConfigurations>
+            <ackermannSteering rotSpeed="35" rotMax="70" rotCenter="0 -0.002" />
+        </ackermannSteeringConfigurations>
+
+        <rimColor>SHARED_WHITE1</rimColor>
+
+        <hubs>
+            <color0>SHARED_BLACK1</color0>
+            <color1>SHARED_BLACK1</color1>
+            <hub linkNode="wheelFrontLeft"  filename="$data/shared/wheels/hubs/hub_n8_10.xml" isLeft="true"  scale="0.285 0.285 0.285" />
+            <hub linkNode="wheelFrontRight" filename="$data/shared/wheels/hubs/hub_n8_10.xml" isLeft="false" scale="0.285 0.285 0.285" />
+            <hub linkNode="wheelBackLeft"   filename="$data/shared/wheels/hubs/hub_n8_10.xml" isLeft="true"  scale="0.285 0.285 0.285" />
+            <hub linkNode="wheelBackRight"  filename="$data/shared/wheels/hubs/hub_n8_10.xml" isLeft="false" scale="0.285 0.285 0.285" />
+        </hubs>
+    </wheels>
+
+    <articulatedAxis rotNode="componentJoint" componentJointIndex="1" anchorActor="0" rotSpeed="-35" rotMax="40" rotMin="-35" />
+
+    <enterable isTabbable="true" >
+        <enterReferenceNode node="hr46_main_component1" />
+        <exitPoint node="exitPoint" />
+
+        <cameras>
+            <camera node="outdoorCamera1" rotatable="true" rotateNode="outdoorCameraTarget" limit="true" useWorldXZRotation="true" rotMinX="-1.4" rotMaxX="1" transMin="4" transMax="40" translation="0 0 6.25" rotation="-10 180 0" >
+                <raycastNode node="cameraRaycastNode1"/>
+                <raycastNode node="cameraRaycastNode2"/>
+                <raycastNode node="cameraRaycastNode3"/>
+            </camera>
+            <camera node="indoorCamera1" rotatable="true" limit="true" rotMinX="-1.1" rotMaxX="1.1" transMin="0" transMax="0" isInside="true" shadowFocusBox="shadowFocusBox"/>
+            <camera node="outdoorCamera2" rotatable="false" useWorldXZRotation="false" allowHeadTracking="true" />
+        </cameras>
+
+        <characterNode node="playerSkin" cameraMinDistance="1.5" spineRotation="-90 0 90" >
+            <target ikChain="rightFoot" targetNode="playerRightFootTarget" />
+            <target ikChain="leftFoot"  targetNode="playerLeftFootTarget" />
+            <target ikChain="rightArm"  targetNode="playerRightHandTarget" />
+            <target ikChain="leftArm"   targetNode="playerLeftHandTarget" />
+        </characterNode>
+
+        <characterTargetNodeModifier node="playerRightFootTarget" transitionTime="0.1" >
+            <state node="playerRightFootTargetGas"   referenceNode="gasPedal" directionReferenceNode="playerRightFootTargetGasRef" />
+            <state node="playerRightFootTargetBrake" referenceNode="brakePedal" />
+        </characterTargetNodeModifier>
+    </enterable>
+
+    <drivable>
+        <sounds>
+            <waterSplash template="WATER_SPLASH_01" linkNode="hr46_main_component1" />
+        </sounds>
+
+        <dashboards>
+            <dashboard displayType="ROT"     valueType="accelerationAxis" node="gasPedal"   minRot="0 0 0" maxRot="-10 0 0"  doInterpolation="true" groups="MOTOR_ACTIVE"/>
+            <dashboard displayType="ROT"     valueType="decelerationAxis" node="brakePedal" minRot="0 0 0" maxRot="20 0 0"   doInterpolation="true" groups="MOTOR_ACTIVE"/>
+        </dashboards>
+    </drivable>
+
+    <lights>
+        <states>
+            <state lightTypes="0" />
+            <state lightTypes="0 2" />
+        </states>
+
+        <realLights>
+            <low>
+                <light node="frontLightLow"       lightTypes="0" excludedLightTypes="2 3" />
+                <light node="workLightFrontLow"   lightTypes="2"/>
+                <light node="highBeamLow"         lightTypes="3" />
+            </low>
+            <high>
+                <light node="frontLightHigh"      lightTypes="0" excludedLightTypes="2 3" />
+                <light node="workLightFrontHigh"  lightTypes="2"/>
+                <light node="highBeamHigh"        lightTypes="3"/>
+                <light node="backLight"      lightTypes="0"/>
+                <brakeLight node="backLight" />
+                <turnLightLeft node="turnLightLeftFront" />
+                <turnLightLeft node="turnLightLeftBack" />
+                <turnLightRight node="turnLightRightFront" />
+                <turnLightRight node="turnLightRightBack" />
+                <interiorLight node="interiorScreenLight"/>
+            </high>
+        </realLights>
+
+        <defaultLights>
+            <defaultLight shaderNode="frontlightStatic"           lightTypes="0 3" />
+            <defaultLight shaderNode="backlightStatic"          lightTypes="0" />
+            <defaultLight shaderNode="worklightsStatic"       lightTypes="2" intensity="45" />
+        </defaultLights>
+
+        <turnLights>
+            <turnLightLeft shaderNode="turnlightLeftFrontStatic" />
+            <turnLightLeft shaderNode="turnlightLeftStatic" />
+            <turnLightRight shaderNode="turnlightRightFrontStatic" />
+            <turnLightRight shaderNode="turnlightRightStatic" />
+        </turnLights>
+
+        <brakeLights>
+            <brakeLight shaderNode="backlightStatic" />
+        </brakeLights>
+
+        <sounds>
+            <switchLight template="SWITCH_01"  />
+            <turnLight template="SWITCH_TURNLIGHT"  />
+        </sounds>
+        
+        <dashboards>
+            <dashboard displayType="EMITTER" valueType="lightState" node="interior_01_decal1" intensity="0.1" lightTypes="0" groups="MOTOR_ACTIVE"/>
+        </dashboards>
+    </lights>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <fillUnit unit="$l10n_unit_literShort" showOnHud="false" showInShop="false" fillTypes="diesel" capacity="180" />
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <motorized>
+        <consumerConfigurations>
+            <consumerConfiguration>
+                <consumer fillUnitIndex="1" usage="50"  fillType="diesel" /> <!-- usage is per hour at max load and max rpm -->
+            </consumerConfiguration>
+        </consumerConfigurations>
+
+        <differentialConfigurations>
+            <differentialConfiguration>
+                <differentials>
+                    <differential torqueRatio="0.5" maxSpeedRatio="2.3" wheelIndex1="1" wheelIndex2="2" />
+                    <differential torqueRatio="0.5" maxSpeedRatio="2.3" wheelIndex1="3" wheelIndex2="4" />
+                    <differential torqueRatio="0.5" maxSpeedRatio="1.3" differentialIndex1="1" differentialIndex2="2" /><!-- front-back -->
+                </differentials>
+            </differentialConfiguration>
+        </differentialConfigurations>
+
+        <motorConfigurations>
+            <motorConfiguration name="HR46X" hp="168" price="0">
+                <motor torqueScale="0.712" minRpm="850" maxRpm="2200" maxForwardSpeed="15" maxBackwardSpeed="15" brakeForce="5" lowBrakeForceScale="0.6">
+                    <torque normRpm="0.45" torque="0.9"/>
+                    <torque normRpm="0.5" torque="0.97"/>
+                    <torque normRpm="0.59" torque="1"/>
+                    <torque normRpm="0.72" torque="1"/>
+                    <torque normRpm="0.86" torque="0.88"/>
+                    <torque normRpm="1" torque="0.72"/>
+                </motor>
+                <transmission minForwardGearRatio="55" maxForwardGearRatio="200" minBackwardGearRatio="55" maxBackwardGearRatio="200" />
+            </motorConfiguration>
+        </motorConfigurations>
+
+        <exhaustEffects>
+            <exhaustEffect node="exhaustEffect" filename="$data/particleSystems/shared/exhaust.i3d" minRpmColor="0.4 0.4 0.4 0.1" maxRpmColor="0.9 0.9 0.9 0.9" minRpmScale="0.05" maxRpmScale="0.3" xzRotationsOffset="90 0" xzRotationsForward="-45 0" xzRotationsBackward="90 0" xzRotationsLeft="0 -100" xzRotationsRight="0 100" />
+        </exhaustEffects>
+
+        <brakeCompressor capacity="10000" fillSpeed="500" />
+        <motorStartDuration>2500</motorStartDuration>
+
+        <sounds externalSoundFile="$data/sounds/vehicles/engine/sampo_rosenlew_hr46x/sampo_rosenlew_hr46x.xml" />
+    </motorized>
+
+    <wipers>
+        <wiper animName="wiperAnimation" >
+            <state animSpeed="0.75" animPause="2.0" />
+            <state animSpeed="0.75" animPause="0.0" />
+            <state animSpeed="1.10" animPause="0.0" />
+        </wiper>
+    </wipers>
+
+    <cylindered>
+        <movingTools>
+            <easyArmControl node="scTargetNodeY" targetNodeZ="scTargetNodeZ" rootNode="armRootCol" refNode="scTargetRefNode">
+                <xRotationNodes maxDistance="8">
+                    <xRotationNode1 node="mainArmCol" refNode="scMainArm" />
+                    <xRotationNode2 node="secondArmCol" refNode="scSecondArm" />
+                </xRotationNodes>
+            </easyArmControl>
+
+            <movingTool node="scTargetNodeZ" isEasyControlTarget="true">
+                <controls axis="AXIS_CRANE_ARM2" invertAxis="true" mouseSpeedFactor="0.5" iconName="CRANE_EC_TRANSLATE_Z" />
+                <translation transSpeed="1.3" transAcceleration="50" translationAxis="3"/>
+            </movingTool>
+            <movingTool node="scTargetNodeY" isEasyControlTarget="true">
+                <controls axis="AXIS_CRANE_ARM3" invertAxis="false" mouseSpeedFactor="0.5" iconName="CRANE_EC_TRANSLATE_Y" />
+                <translation transSpeed="1.3" transAcceleration="50" translationAxis="2"/>
+            </movingTool>
+
+            <movingTool node="armRootCol" delayedNode="armRoot" playSound="true">
+                <controls axis="AXIS_CRANE_ARM" invertAxis="true" mouseSpeedFactor="0.6" iconName="CRANE_ARM1_ROTATE_Y" />
+                <rotation rotSpeed="25" rotAcceleration="80" rotMin="-115" rotMax="115" startRot="0" rotationAxis="2" />
+                <dependentPart node="cutterBaseColJoint1" />
+                <dependentPart node="cutterJoint1" />
+            </movingTool>
+            <movingTool node="mainArmCol" delayedNode="mainArm" playSound="true">
+                <controls axis="AXIS_CRANE_ARM2" invertAxis="true" mouseSpeedFactor="0.5" iconName="CRANE_ARM1_ROTATE_X" />
+                <rotation rotSpeed="20" rotAcceleration="80" rotMax="-30" rotMin="-89" startRot="-88.8" rotationAxis="1" rotSendNumBits="9" />
+                <dependentPart node="cutterBaseColJoint1" />
+                <dependentPart node="cutterJoint1" />
+            </movingTool>
+            <movingTool node="secondArmCol" delayedNode="secondArm" playSound="true" >
+                <controls axis="AXIS_CRANE_ARM3" invertAxis="true" mouseSpeedFactor="0.5" iconName="CRANE_ARM2_ROTATE_X" />
+                <rotation rotSpeed="20" rotAcceleration="80" rotMax="161.155" rotMin="90" startRot="161.155" rotationAxis="1" rotSendNumBits="10" syncMinRotLimits="true" syncMaxRotLimits="true" />
+                <dependentPart node="cutterBaseColJoint1" />
+                <dependentPart node="cutterJoint1" />
+            </movingTool>
+
+            <!-- cutter base col joint -->
+            <movingTool node="cutterBaseColJoint1">
+                <componentJoint index="2" anchorActor="0"/>
+            </movingTool>
+
+            <!-- delayed nodes -->
+            <movingTool node="mainArm" >
+                <dependentPart node="armHinge1" />
+            </movingTool>
+            <movingTool node="secondArm" >
+                <dependentPart node="armHinge1" />
+                <dependentPart node="camera3RefRoot" />
+            </movingTool>
+
+            <!-- cutter x rotation -->
+            <movingTool node="cutterBaseJoint_rot" playSound="true">
+                <controls axis="AXIS_CRANE_TOOL2" invertAxis="true" mouseSpeedFactor="1.0" iconName="GRABBER_ROTATE_Y" />
+                <rotation rotSpeed="-80" rotAcceleration="160" rotMax="170" rotMin="-170" rotationAxis="2" />
+                <componentJoint index="2" anchorActor="1" />
+            </movingTool>
+
+            <!-- grabber/claw hydraulics -->
+            <movingTool node="cutterTopClaw1" playSound="true">
+                <dependentPart node="hydraulicCutterTopClaw"/>
+            </movingTool>
+            <movingTool node="cutterBottomClaw">
+                <dependentPart node="hydraulicCutterBottomClaw"/>
+            </movingTool>
+            <movingTool node="cutterWheel1Frame">
+                <dependentPart node="hydraulicWheelFrames"/>
+            </movingTool>
+            <movingTool node="wiperArm1">
+                <dependentPart node="wiperArm2" />
+                <dependentPart node="wiper" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts isActiveDirtyTimeOffset="6.5">
+            <movingPart node="wiper" referenceFrame="hr46_main_component1" />
+            <movingPart node="wiperArm2" referencePoint="wiperArm2Ref" referenceFrame="wiperArm2Ref" />
+            <!-- steering hydraulic -->
+            <movingPart node="componentConnector" referencePoint="componentConnectorRef" referenceFrame="hr46_main_component1" isActiveDirty="true" />
+            <movingPart node="hydraulicSteeringLeft" referencePoint="hydraulicSteeringLeftRef" referenceFrame="hydraulicSteeringLeftRef" isActiveDirty="true" >
+                <translatingPart node="hydraulicSteeringLeftPush" />
+            </movingPart>
+            <movingPart node="hydraulicSteeringRight" referencePoint="hydraulicSteeringRightRef" referenceFrame="hydraulicSteeringRightRef" isActiveDirty="true" >
+                <translatingPart node="hydraulicSteeringRightPush" />
+            </movingPart>
+
+            <!-- cutter joints and cutter frame -->
+            <movingPart node="cutterJoint1" referencePoint="cutterJointRef" referenceFrame="cutterJoint1RefFrame" isActiveDirty="true" limitedAxis="1">
+                <dependentPart node="cutterJoint2" />
+                <dependentPart node="cutterFrame" />
+            </movingPart>
+            <movingPart node="cutterJoint2" referencePoint="cutterJointRef" referenceFrame="cutterJoint2RefFrame" limitedAxis="1"/>
+            <movingPart node="cutterFrame" referencePoint="cutterFrameRef" referenceFrame="hr46_cutterBase_component3" />
+
+            <!-- outdoorCamera2 -->
+            <movingPart node="camera3RefRoot" referenceFrame="camera3RefRootRefFrame" alignToWorldY="true" isActiveDirty="true" >
+                <dependentPart node="outdoorCamera2Rot" />
+            </movingPart>
+            <movingPart node="outdoorCamera2Rot" referencePoint="camera3Ref" referenceFrame="hr46_main_component1" invertZ="true" />
+
+
+            <!-- cutter body -->
+            <movingPart node="cutterBody" referencePoint="cutterBodyRef" referenceFrame="cutterBodyRef" isActiveDirty="true" >
+                <dependentPart node="hydraulicCutterBody" />
+            </movingPart>
+            <movingPart node="hydraulicCutterBody" referencePoint="hydraulicCutterBodyRef" referenceFrame="hydraulicCutterBodyRefFrame" >
+                <translatingPart node="hydraulicCutterBodyPush" />
+            </movingPart>
+
+            <!-- arm hydraulics -->
+            <movingPart node="armHinge1" referencePoint="armHinge2Ref" localReferencePoint="armHinge2" referenceFrame="armHinge1RefFrame">
+                <dependentPart node="armHinge2" />
+            </movingPart>
+            <movingPart node="armHinge2" referencePoint="armHinge2Ref" referenceFrame="armHinge2RefFrame">
+                <dependentPart node="armHinge3" />
+            </movingPart>
+            <movingPart node="armHinge3" referencePoint="armHinge4Ref" localReferencePoint="armHinge4" referenceFrame="armHinge3RefFrame">
+                <dependentPart node="armHinge4" />
+            </movingPart>
+            <movingPart node="armHinge4" referencePoint="armHinge4Ref" referenceFrame="armHinge4RefFrame" >
+                <dependentPart node="hydraulicHinge4" />
+                <dependentPart node="hydraulicArm1" />
+            </movingPart>
+
+            <movingPart node="hydraulicHinge4" referencePoint="hydraulicArm1Ref" referenceFrame="hydraulicArm1Ref" >
+                <translatingPart node="hydraulicHinge4Push" />
+            </movingPart>
+            <movingPart node="hydraulicArm1" referencePoint="hydraulicHinge4Ref" referenceFrame="hydraulicHinge4Ref" >
+                <translatingPart node="hydraulicArm1Push" />
+            </movingPart>
+
+            <!-- grabber/claw hydraulics -->
+            <movingPart node="hydraulicCutterTopClaw" referencePoint="hydraulicTutterTopClawRef" referenceFrame="hydraulicTutterTopClawRef" >
+                <translatingPart node="hydraulicTutterTopClawPush" />
+            </movingPart>
+            <movingPart node="hydraulicCutterBottomClaw" referencePoint="hydraulicCutterBottomClawRef" referenceFrame="hydraulicCutterBottomClawRefFrame" >
+                <translatingPart node="hydraulicCutterBottomClawPush" />
+            </movingPart>
+            <movingPart node="hydraulicWheelFrames" referencePoint="hydraulicWheelFramesRef" referenceFrame="hydraulicWheelFramesRef" >
+                <translatingPart node="hydraulicWheelFramesPush" />
+            </movingPart>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="hr46_main_component1"/>
+        </sounds>
+
+        <dashboards>
+            <dashboard displayType="ROT" valueType="movingTool" node="joystickLeft" rotAxis="1" minRot="15" maxRot="-15" axis="AXIS_CRANE_ARM3" doInterpolation="true" groups="MOTOR_ACTIVE"/>
+            <dashboard displayType="ROT" valueType="movingTool" node="joystickLeft" rotAxis="3" minRot="15" maxRot="-15" axis="AXIS_CRANE_ARM"  doInterpolation="true" groups="MOTOR_ACTIVE"/>
+            <dashboard displayType="ROT" valueType="movingTool" node="joystickRight" rotAxis="1" minRot="-15" maxRot="15" axis="AXIS_CRANE_ARM2" doInterpolation="true" groups="MOTOR_ACTIVE"/>
+            <dashboard displayType="ROT" valueType="movingTool" node="joystickRight" rotAxis="3" minRot="15" maxRot="-15" axis="AXIS_CRANE_TOOL2"  doInterpolation="true" groups="MOTOR_ACTIVE"/>
+        </dashboards>
+    </cylindered>
+
+    <animations>
+        <animation name="cutAnimation">
+            <part node="chainsaw" startTime="0" duration="0.9" startRot="-90 0 0" endRot="-90 -90 0"/>
+            <part node="chainsaw" startTime="0.9" duration="0.1" startRot="-90 -90 0" endRot="-90 0 0"/>
+        </animation>
+        <animation name="grabberAnimation">
+            <part node="cutterTopClaw1" startTime="0" duration="1" startRot="-90 -77 0" endRot="-90 0 0"/>
+            <part node="cutterTopClaw2" startTime="0" duration="1" startRot="-90 77 0" endRot="-90 0 0"/>
+            <part node="cutterBottomClaw" startTime="0" duration="1" startRot="-90 -80 0" endRot="-90 0 0"/>
+
+            <part node="cutterWheel1Frame"   startTime="0.0" endTime="1.0" startRot="-90 -35 0" endRot="-90 0 0"/>
+            <part node="cutterWheel1Frame2" startTime="0.0" endTime="0.5" startRot="0 0 35" endRot="0 0 5"/>
+            <part node="cutterWheel1Frame2" startTime="0.5" endTime="1.0" startRot="0 0 5" endRot="0 0 0"/>
+
+            <part node="cutterWheel2Frame"   startTime="0.0" endTime="1.0" startRot="-90 35 0" endRot="-90 0 0"/>
+            <part node="cutterWheel2Frame2" startTime="0.0" endTime="0.5" startRot="90 0 -35" endRot="90 0 -5"/>
+            <part node="cutterWheel2Frame2" startTime="0.5" endTime="1.0" startRot="90 0 -5" endRot="90 0 0"/>
+        </animation>
+        <animation name="wiperAnimation">
+            <part node="wiperArm1" startTime="0" endTime="0.375" startRot="0 0 5" endRot="-8 0 40" />
+            <part node="wiperArm1" startTime="0.375" endTime="0.65" startRot="-8 0 40" endRot="0 0 80" />
+        </animation>
+    </animations>
+
+    <woodHarvester>
+        <cutNode node="cutNode" attachNode="hr46_cutter_component4" attachReferenceNode="attachReferenceNode" sizeY="1.3" sizeZ="1.8" maxRadius="0.32" releasedComponentJointIndex="3" releasedComponentJoint2Index="2" />
+        <cutLengths min="1" max="6" step="1.0" />
+        <delimbNode node="delimbNode" sizeX="0.1" sizeY="1.3" sizeZ="1.8" delimbOnCut="true" />
+        <cutAnimation name="cutAnimation" speedScale="1" cutTime="0.5" />
+        <grabAnimation name="grabberAnimation" speedScale="1" />
+        <treeSizeMeasure node="treeSizeMeasureNode" rotMaxRadius="0.2" />
+
+        <cutEffects>
+            <effectNode effectClass="ParticleEffect" effectNode="chainsawWoodChipsEmitter" particleType="CRUSHER_WOOD" emitCountScale="100"/>
+            <effectNode effectClass="ParticleEffect" effectNode="chainsawWoodDustEmitter" particleType="CRUSHER_DUST" emitCountScale="20"/>
+        </cutEffects>
+        <delimbEffects>
+            <effectNode effectClass="ParticleEffect" effectNode="delimbWoodChipsEmitter" particleType="CRUSHER_WOOD" emitCountScale="20"/>
+            <effectNode effectClass="ParticleEffect" effectNode="delimbWoodDustEmitter" particleType="CRUSHER_DUST" emitCountScale="4"/>
+        </delimbEffects>
+        <forwardingNodes>
+            <animationNode node="cutterWheel1" rotAxis="2" rotSpeed="900"  turnOnFadeTime="0" turnOffFadeTime="0" />
+            <animationNode node="cutterWheel2" rotAxis="2" rotSpeed="-900" turnOnFadeTime="0" turnOffFadeTime="0" />
+        </forwardingNodes>
+
+        <sounds>
+            <delimb template="DEFAULT_TREE_DELIMB" linkNode="delimbParticles" />
+            <cut template="DEFAULT_TREE_CUT" linkNode="delimbParticles" />
+        </sounds>
+
+        <dashboards>
+            <dashboard displayType="NUMBER" valueType="cutLength" numbers="numbersCutLength"     precision="0" groups="MOTOR_ACTIVE"/>
+            <dashboard displayType="NUMBER" valueType="diameter"  numbers="numbersTrunkDiameter" precision="0" groups="MOTOR_ACTIVE"/>
+        </dashboards>
+    </woodHarvester>
+
+    <ropes>
+        <rope baseNode="rope01" targetNode="rope01Target" baseParameters="0 0 -4 0" targetParameters="0 0 6.5 0" >
+            <baseParameterAdjuster   node="cutterBaseJoint_rot" rotationAxis="2" rotationRange="-90 90" minTargetParameters="2 0 0 0" maxTargetParameters="-2 0 0 0" />
+            <targetParameterAdjuster node="cutterBaseJoint_rot" rotationAxis="2" rotationRange="-90 90" minTargetParameters="-4 0 0 0" maxTargetParameters="4 0 0 0" />
+        </rope>
+
+        <rope baseNode="rope02" targetNode="rope02Target" baseParameters="0 0 -7 0" targetParameters="0 0 4 0" >
+            <baseParameterAdjuster node="armRoot" rotationAxis="2" rotationRange="-90 90" minTargetParameters="0 0 5 0" maxTargetParameters="0 0 0 0" />
+        </rope>
+        <rope baseNode="rope03" targetNode="rope03Target" baseParameters="0 0 -7 0" targetParameters="0 0 4 0" >
+            <baseParameterAdjuster node="armRoot" rotationAxis="2" rotationRange="-90 90" minTargetParameters="0 0 0 0" maxTargetParameters="0 0 5 0" />
+        </rope>
+    </ropes>
+
+    <honk>
+        <sound template="HONK_FENDT511C" linkNode="0>" />
+    </honk>
+
+    <dashboard>
+        <groups>
+            <group name="MOTOR_STARTING" isMotorStarting="true"/>
+            <group name="MOTOR_ACTIVE"   isMotorStarting="true" isMotorRunning="true"/>
+        </groups>
+        <default>
+            <dashboard displayType="EMITTER" node="dashboardDisplay" idleValue="-1" intensity="0.3" groups="MOTOR_ACTIVE" />
+            <dashboard displayType="EMITTER" node="interior_decal" idleValue="-1" intensity="0.3" groups="MOTOR_ACTIVE" />
+        </default>
+    </dashboard>
+
+    <foliageBending>
+        <bendingNode minX="-1.15" maxX="1.15" minZ="0.65" maxZ="2.1" yOffset="0.6" />
+        <bendingNode minX="-0.7" maxX="0.7" minZ="-0.1" maxZ="2.0" yOffset="0.8" />
+        <bendingNode minX="-1.15" maxX="1.15" minZ="-2.05" maxZ="-0.6" yOffset="-0.3" node="componentConnector" />
+        <bendingNode minX="-0.9" maxX="0.9" minZ="-2.85" maxZ="0" yOffset="-0.1" node="componentConnector" />
+        <bendingNode minX="-0.6" maxX="0.6" minZ="-2.5" maxZ="-1.4" yOffset="-0.5" node="cutterBodyRef" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="HR46_mat" baseNode="front_vis">
+            <shaderParameter name="colorMat3" value="SAMPOROSENLEW_YELLOW1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="hr46_main_component1" node="0>" />
+        <i3dMapping id="front_vis" node="0>0" />
+        <i3dMapping id="wheelFrontLeft" node="0>0|0|0" />
+        <i3dMapping id="wheelFrontRight" node="0>0|0|1" />
+        <i3dMapping id="outdoorCameraTarget" node="0>0|1|0" />
+        <i3dMapping id="outdoorCamera1" node="0>0|1|0|0" />
+        <i3dMapping id="indoorCamera1" node="0>0|1|1" />
+        <i3dMapping id="cameraRaycastNode1" node="0>0|1|2" />
+        <i3dMapping id="cameraRaycastNode2" node="0>0|1|3" />
+        <i3dMapping id="cameraRaycastNode3" node="0>0|1|4" />
+        <i3dMapping id="shadowFocusBox" node="0>0|1|5" />
+        <i3dMapping id="frontLightLow" node="0>0|2|0|0" />
+        <i3dMapping id="highBeamLow" node="0>0|2|0|1" />
+        <i3dMapping id="frontLightHigh" node="0>0|2|0|2" />
+        <i3dMapping id="highBeamHigh" node="0>0|2|0|3" />
+        <i3dMapping id="workLightFrontLow" node="0>0|2|1|0|0" />
+        <i3dMapping id="workLightFrontHigh" node="0>0|2|1|0|1" />
+        <i3dMapping id="turnLightLeftFront" node="0>0|2|2|0|0" />
+        <i3dMapping id="turnLightRightFront" node="0>0|2|2|1|0" />
+        <i3dMapping id="worklightsStatic" node="0>0|2|3|0" />
+        <i3dMapping id="light_glass_static" node="0>0|2|3|1" />
+        <i3dMapping id="turnlightRightFrontStatic" node="0>0|2|3|2" />
+        <i3dMapping id="turnlightLeftFrontStatic" node="0>0|2|3|3" />
+        <i3dMapping id="frontlightStatic" node="0>0|2|3|4" />
+        <i3dMapping id="exitPoint" node="0>0|3" />
+        <i3dMapping id="playerSkin" node="0>0|4|0|0" />
+        <i3dMapping id="joystickLeft" node="0>0|4|0|1" />
+        <i3dMapping id="playerLeftHandTarget" node="0>0|4|0|1|0" />
+        <i3dMapping id="joystickRight" node="0>0|4|0|2" />
+        <i3dMapping id="playerRightHandTarget" node="0>0|4|0|2|0" />
+        <i3dMapping id="gasPedal" node="0>0|4|1|0" />
+        <i3dMapping id="playerRightFootTargetGasRef" node="0>0|4|1|0|0" />
+        <i3dMapping id="playerRightFootTargetGas" node="0>0|4|1|1" />
+        <i3dMapping id="brakePedal" node="0>0|4|1|2" />
+        <i3dMapping id="playerRightFootTargetBrake" node="0>0|4|1|2|0" />
+        <i3dMapping id="playerRightFootTarget" node="0>0|4|2|0" />
+        <i3dMapping id="playerLeftFootTarget" node="0>0|4|2|1" />
+        <i3dMapping id="wiperArm1" node="0>0|4|3|0" />
+        <i3dMapping id="wiper" node="0>0|4|3|0|0" />
+        <i3dMapping id="wiperArm2Ref" node="0>0|4|3|0|0|0" />
+        <i3dMapping id="wiperArm2" node="0>0|4|3|1" />
+        <i3dMapping id="hydraulicSteeringLeft" node="0>0|5|0" />
+        <i3dMapping id="hydraulicSteeringLeftPush" node="0>0|5|0|0" />
+        <i3dMapping id="hydraulicSteeringRight" node="0>0|5|1" />
+        <i3dMapping id="hydraulicSteeringRightPush" node="0>0|5|1|0" />
+        <i3dMapping id="armRootCol" node="0>0|5|2" />
+        <i3dMapping id="mainArmCol" node="0>0|5|2|0" />
+        <i3dMapping id="secondArmCol" node="0>0|5|2|0|0" />
+        <i3dMapping id="cutterBaseColJoint1" node="0>0|5|2|0|0|0" />
+        <i3dMapping id="cutterBaseColJoint" node="0>0|5|2|0|0|0|0" />
+        <i3dMapping id="scTargetRefNode" node="0>0|5|2|0|0|1" />
+        <i3dMapping id="scTargetNodeZ" node="0>0|5|2|1|0" />
+        <i3dMapping id="scTargetNodeY" node="0>0|5|2|1|0|0" />
+        <i3dMapping id="scMainArm" node="0>0|5|2|2|0" />
+        <i3dMapping id="scSecondArm" node="0>0|5|2|2|0|0" />
+        <i3dMapping id="armRoot" node="0>0|5|3" />
+        <i3dMapping id="mainArm" node="0>0|5|3|0" />
+        <i3dMapping id="secondArm" node="0>0|5|3|0|0" />
+        <i3dMapping id="cutterJoint1" node="0>0|5|3|0|0|0" />
+        <i3dMapping id="cutterJoint2" node="0>0|5|3|0|0|0|0" />
+        <i3dMapping id="cutterFrame" node="0>0|5|3|0|0|0|0|0" />
+        <i3dMapping id="cutterBody" node="0>0|5|3|0|0|0|0|0|0" />
+        <i3dMapping id="hydraulicCutterBodyRef" node="0>0|5|3|0|0|0|0|0|0|0" />
+        <i3dMapping id="chainsaw" node="0>0|5|3|0|0|0|0|0|0|1" />
+        <i3dMapping id="chainsawWoodChipsEmitter" node="0>0|5|3|0|0|0|0|0|0|1|0|0" />
+        <i3dMapping id="chainsawWoodDustEmitter" node="0>0|5|3|0|0|0|0|0|0|1|0|1" />
+        <i3dMapping id="cutterTopClaw1" node="0>0|5|3|0|0|0|0|0|0|2" />
+        <i3dMapping id="hydraulicCutterTopClaw" node="0>0|5|3|0|0|0|0|0|0|2|0" />
+        <i3dMapping id="hydraulicTutterTopClawPush" node="0>0|5|3|0|0|0|0|0|0|2|0|0" />
+        <i3dMapping id="cutterTopClaw2" node="0>0|5|3|0|0|0|0|0|0|3" />
+        <i3dMapping id="hydraulicTutterTopClawRef" node="0>0|5|3|0|0|0|0|0|0|3|0" />
+        <i3dMapping id="cutterBottomClaw" node="0>0|5|3|0|0|0|0|0|0|4" />
+        <i3dMapping id="hydraulicCutterBottomClawRef" node="0>0|5|3|0|0|0|0|0|0|4|0" />
+        <i3dMapping id="hydraulicCutterBottomClaw" node="0>0|5|3|0|0|0|0|0|0|5" />
+        <i3dMapping id="hydraulicCutterBottomClawPush" node="0>0|5|3|0|0|0|0|0|0|5|0" />
+        <i3dMapping id="cutterWheel1Frame" node="0>0|5|3|0|0|0|0|0|0|6" />
+        <i3dMapping id="hydraulicWheelFrames" node="0>0|5|3|0|0|0|0|0|0|6|0" />
+        <i3dMapping id="hydraulicWheelFramesPush" node="0>0|5|3|0|0|0|0|0|0|6|0|0" />
+        <i3dMapping id="cutterWheel1Frame2" node="0>0|5|3|0|0|0|0|0|0|6|1" />
+        <i3dMapping id="cutterWheel1" node="0>0|5|3|0|0|0|0|0|0|6|1|0" />
+        <i3dMapping id="cutterWheel2Frame" node="0>0|5|3|0|0|0|0|0|0|7" />
+        <i3dMapping id="hydraulicWheelFramesRef" node="0>0|5|3|0|0|0|0|0|0|7|0" />
+        <i3dMapping id="cutterWheel2Frame2" node="0>0|5|3|0|0|0|0|0|0|7|1" />
+        <i3dMapping id="cutterWheel2" node="0>0|5|3|0|0|0|0|0|0|7|1|0|0" />
+        <i3dMapping id="delimbParticles" node="0>0|5|3|0|0|0|0|0|0|8" />
+        <i3dMapping id="delimbWoodChipsEmitter" node="0>0|5|3|0|0|0|0|0|0|8|0" />
+        <i3dMapping id="delimbWoodDustEmitter" node="0>0|5|3|0|0|0|0|0|0|8|1" />
+        <i3dMapping id="treeSizeMeasureNode" node="0>0|5|3|0|0|0|0|0|0|9" />
+        <i3dMapping id="hydraulicCutterBottomClawRefFrame" node="0>0|5|3|0|0|0|0|0|0|10" />
+        <i3dMapping id="rope01Target" node="0>0|5|3|0|0|0|0|0|0|11" />
+        <i3dMapping id="hydraulicCutterBody" node="0>0|5|3|0|0|0|0|0|1" />
+        <i3dMapping id="hydraulicCutterBodyPush" node="0>0|5|3|0|0|0|0|0|1|0" />
+        <i3dMapping id="hydraulicCutterBodyRefFrame" node="0>0|5|3|0|0|0|0|0|2" />
+        <i3dMapping id="cutterJoint2RefFrame" node="0>0|5|3|0|0|0|1" />
+        <i3dMapping id="armHinge2Ref" node="0>0|5|3|0|0|1" />
+        <i3dMapping id="cutterJoint1RefFrame" node="0>0|5|3|0|0|2" />
+        <i3dMapping id="camera3RefRoot" node="0>0|5|3|0|0|3" />
+        <i3dMapping id="camera3Ref" node="0>0|5|3|0|0|3|0" />
+        <i3dMapping id="rope01" node="0>0|5|3|0|0|4" />
+        <i3dMapping id="armHinge1" node="0>0|5|3|0|1" />
+        <i3dMapping id="armHinge2" node="0>0|5|3|0|1|0" />
+        <i3dMapping id="armHinge3" node="0>0|5|3|0|1|0|0" />
+        <i3dMapping id="armHinge4" node="0>0|5|3|0|1|0|0|0" />
+        <i3dMapping id="hydraulicArm1Ref" node="0>0|5|3|0|1|0|0|0|0" />
+        <i3dMapping id="hydraulicHinge4Ref" node="0>0|5|3|0|1|0|0|0|1" />
+        <i3dMapping id="armHinge4Ref" node="0>0|5|3|0|2" />
+        <i3dMapping id="hydraulicHinge4" node="0>0|5|3|0|3" />
+        <i3dMapping id="hydraulicHinge4Push" node="0>0|5|3|0|3|0" />
+        <i3dMapping id="armHinge1RefFrame" node="0>0|5|3|0|4" />
+        <i3dMapping id="armHinge2RefFrame" node="0>0|5|3|0|5" />
+        <i3dMapping id="armHinge3RefFrame" node="0>0|5|3|0|6" />
+        <i3dMapping id="armHinge4RefFrame" node="0>0|5|3|0|7" />
+        <i3dMapping id="rope02Target" node="0>0|5|3|0|8" />
+        <i3dMapping id="rope03Target" node="0>0|5|3|0|9" />
+        <i3dMapping id="hydraulicArm1" node="0>0|5|3|1" />
+        <i3dMapping id="hydraulicArm1Push" node="0>0|5|3|1|0" />
+        <i3dMapping id="outdoorCamera2Rot" node="0>0|5|3|2" />
+        <i3dMapping id="outdoorCamera2" node="0>0|5|3|2|0" />
+        <i3dMapping id="camera3RefRootRefFrame" node="0>0|5|3|3" />
+        <i3dMapping id="componentJoint" node="0>0|5|4" />
+        <i3dMapping id="dashboardDisplay" node="0>0|6|0" />
+        <i3dMapping id="interior_01_decal1" node="0>0|6|1" />
+        <i3dMapping id="interiorScreenLight" node="0>0|6|2" />
+        <i3dMapping id="interior_decal" node="0>0|6|3" />
+        <i3dMapping id="numbersCutLength" node="0>0|6|4|0" />
+        <i3dMapping id="numbersTrunkDiameter" node="0>0|6|4|1" />
+        <i3dMapping id="rope02" node="0>0|7|0" />
+        <i3dMapping id="rope03" node="0>0|7|1" />
+        <i3dMapping id="back_vis" node="1>0" />
+        <i3dMapping id="wheelBackLeft" node="1>0|0|0" />
+        <i3dMapping id="wheelBackRight" node="1>0|0|1" />
+        <i3dMapping id="exhaustEffect" node="1>0|1" />
+        <i3dMapping id="componentConnector" node="1>0|2" />
+        <i3dMapping id="hydraulicSteeringLeftRef" node="1>0|2|0" />
+        <i3dMapping id="hydraulicSteeringRightRef" node="1>0|2|1" />
+        <i3dMapping id="componentConnectorRef" node="1>0|3" />
+        <i3dMapping id="light_glass_static1" node="1>0|4|0|0" />
+        <i3dMapping id="turnlightRightStatic" node="1>0|4|0|1" />
+        <i3dMapping id="turnlightLeftStatic" node="1>0|4|0|2" />
+        <i3dMapping id="backlightStatic" node="1>0|4|0|3" />
+        <i3dMapping id="turnLightLeftBack" node="1>0|4|1|0|0" />
+        <i3dMapping id="turnLightRightBack" node="1>0|4|1|1|0" />
+        <i3dMapping id="backLight" node="1>0|4|2|0" />
+        <i3dMapping id="hr46_cutterBase_component3" node="2>" />
+        <i3dMapping id="cutterBaseJoint_rot" node="2>0" />
+        <i3dMapping id="cutterBaseJoint_indexActor" node="2>0|0" />
+        <i3dMapping id="cutterColJoint" node="2>1" />
+        <i3dMapping id="cutterJointRef" node="2>2" />
+        <i3dMapping id="cutterFrameRef" node="2>3" />
+        <i3dMapping id="hr46_cutter_component4" node="3>" />
+        <i3dMapping id="cutNode" node="3>0" />
+        <i3dMapping id="delimbNode" node="3>1" />
+        <i3dMapping id="attachReferenceNode" node="3>2" />
+        <i3dMapping id="cutterBodyRef" node="3>3" />
+    </i3dMappings>
+</vehicle>

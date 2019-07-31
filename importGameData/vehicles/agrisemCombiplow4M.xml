@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="cultivator">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Combiplow Gold 4M</name>
+        <specs>
+            <neededPower>140</neededPower>
+            <workingWidth>4.0</workingWidth>
+        </specs>
+        <functions>
+            <function>$l10n_function_subsoiler</function>
+        </functions>
+        <image>$data/vehicles/agrisem/agrisemCombiplow4M/store_agrisemCombiplow4M.png</image>
+        <price>9500</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>AGRISEM</brand>
+        <category>subsoilers</category>
+        <vertexBufferMemoryUsage>270944</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>46044</indexBufferMemoryUsage>
+        <textureMemoryUsage>2796592</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_cultivator</typeDesc>
+        <filename>$data/vehicles/agrisem/agrisemCombiplow4M/agrisemCombiplow4M.i3d</filename>
+        <size width="4.5" length="1.2" lengthOffset="0"/>
+        <speedLimit value="12" />
+        <components>
+            <component centerOfMass="0 0.3 0" solverIterationCount="20" mass="862" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="inputAttacherJoint" jointType="implement" topReferenceNode="topReferenceNode" allowsLowering="true" lowerRotLimitScale="0 0 0" upperRotationOffset="15" lowerRotationOffset="0"   >
+                <distanceToGround lower="0.55" upper="1.3" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+        <support animationName="moveSupport" />
+    </attachable>
+
+    <attacherJoints>
+        <attacherJoint node="attacherJointBack" lowerTransLimit="0 0.1 0" upperTransLimit="0 0.1 0" upperRotationOffset="15" allowsLowering="false" lockDownTransLimit="false">
+            <distanceToGround lower="0.7" upper="1.0" />
+            <rotationNode node="attacherJointBackRot" upperRotation="-50 0 0" />
+            <bottomArm rotationNode="attacherJointBackArmBottom" translationNode="lowerLink" referenceNode="referencePointBackBottom" zScale="-1" startRotation="-50 0 0" />
+            <topArm baseNode="attacherJointBackArmTop" filename="$data/shared/assets/upperLinkSmall.i3d" zScale="-1" toggleVisibility="true"/>
+            <schema position="1 0" rotation="0" invertX="false" liftedOffset="0 0"/>
+        </attacherJoint>
+        <sounds>
+            <attach template="ATTACH_01" />
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" />
+        </sounds>
+    </attacherJoints>
+
+    <connectionHoses>
+        <skipNode attacherJointIndex="1" inputAttacherJointIndex="1" node="topRightPipeSkipPoint" type="TOOL_CONNECTOR_TOP_RIGHT" length="1" isTwoPointHose="true"/>
+    </connectionHoses>
+
+    <powerTakeOffs>
+        <output attacherJointIndices="1" skipToInputAttacherIndex="1" />
+    </powerTakeOffs>
+
+    <!-- recommended horsepower by manufacturer: 140-210 -->
+    <powerConsumer neededMinPtoPower="0" neededMaxPtoPower="0" forceNode="agrisemCombiplow4M_main_component1" maxForce="29" />
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundReferenceNode" threshold="0.10" depthNode="depthNode" chargeValue="1" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="cultivator" functionName="processCultivatorArea" >
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight" />
+            <groundReferenceNode index="1" />
+        </workArea>
+    </workAreas>
+
+    <workParticles>
+        <particleAnimation>
+            <node node="cultivatorAnimation1" refNodeIndex="1" materialType="SOIL" maxDepth="-0.2"/>
+        </particleAnimation>
+        <particle>
+            <node node="soilEmitter" refNodeIndex="1" particleType="SOIL"/>
+            <node node="chunksEmitter" refNodeIndex="1" particleType="SOIL_CHUNKS"/>
+            <node node="smokeEmitter" refNodeIndex="1" particleType="SOIL_SMOKE" worldSpace="false"/>
+        </particle>
+    </workParticles>
+
+    <cultivator isSubsoiler="true" >
+        <sounds>
+            <work template="DEFAULT_PLOW_WORK" linkNode="0>" />
+        </sounds>
+        <directionNode node="0>" />
+        <onlyActiveWhenLowered value="true"/>
+    </cultivator>
+
+    <animations>
+        <animation name="moveSupport">
+            <part node="supportTrans"          startTime="0" endTime="0.3" startTrans="0 0 0.627" endTrans="0 0 0" />
+            <part node="support_colFront"      startTime="0" endTime="0.3" startTrans="0 0.952 0" endTrans="0 0.287 0" />
+        </animation>
+    </animations>
+
+    <ai>
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack" />
+        <collisionTrigger node="aiCollisionTrigger" />
+        <needsLowering value="true"/>
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-2.0" maxX="2.0" minZ="-0.3" maxZ="0.3" yOffset="0.6" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="agrisemCombiplow_mat" baseNode="agrisemCombiplow4M_vis">
+            <shaderParameter name="colorMat0" value="AGRISEM_YELLOW1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="agrisemCombiplow4M_main_component1" node="0>" />
+        <i3dMapping id="agrisemCombiplow4M_vis" node="0>0" />
+        <i3dMapping id="inputAttacherJoint" node="0>0|0|0" />
+        <i3dMapping id="topReferenceNode" node="0>0|0|1" />
+        <i3dMapping id="supportTrans" node="0>0|0|2|0|0" />
+        <i3dMapping id="support_colFront" node="0>0|0|2|1" />
+        <i3dMapping id="topRightPipeSkipPoint" node="0>0|0|3" />
+        <i3dMapping id="attacherJointBackRot" node="0>0|1|0|0" />
+        <i3dMapping id="attacherJointBackRot2" node="0>0|1|0|0|0" />
+        <i3dMapping id="attacherJointBack" node="0>0|1|0|0|0|0" />
+        <i3dMapping id="attacherJointBackArmBottom" node="0>0|1|0|1" />
+        <i3dMapping id="lowerLink" node="0>0|1|0|1|0" />
+        <i3dMapping id="referencePointBackBottom" node="0>0|1|0|1|0|0" />
+        <i3dMapping id="attacherJointBackArmTop" node="0>0|1|0|2" />
+        <i3dMapping id="workAreaStart" node="0>0|2|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|2|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|2|2" />
+        <i3dMapping id="groundReferenceNode" node="0>0|2|3" />
+        <i3dMapping id="depthNode" node="0>0|2|4" />
+        <i3dMapping id="soilEmitter" node="0>0|3|0" />
+        <i3dMapping id="chunksEmitter" node="0>0|3|1" />
+        <i3dMapping id="smokeEmitter" node="0>0|3|2" />
+        <i3dMapping id="cultivatorAnimation1" node="0>0|3|3" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|4|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|4|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|4|0|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|4|1" />
+    </i3dMappings>
+</vehicle>

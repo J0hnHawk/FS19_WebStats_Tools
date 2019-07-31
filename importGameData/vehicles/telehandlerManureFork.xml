@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="dynamicMountAttacherShovel">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>$l10n_shopItem_telehandlerManureFork</name>
+        <specs>
+            <combination>9407 S, MLA-T, MLT</combination>
+        </specs>
+        <image>$data/vehicles/magsi/telehandlerManureFork/store_magsiTelehandlerManureFork.png</image>
+        <price>2900</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>MAGSI</brand>
+        <category>teleLoaders</category>
+        <vertexBufferMemoryUsage>140856</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>27468</indexBufferMemoryUsage>
+        <textureMemoryUsage>4205368</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_frontloaderTool</typeDesc>
+        <filename>$data/vehicles/magsi/telehandlerManureFork/telehandlerManureFork.i3d</filename>
+        <size width="3" length="2"/>
+        <components>
+            <component centerOfMass="0 0.1 0" solverIterationCount="10" mass="550" />
+            <component solverIterationCount="10" mass="150" />
+            <joint component1="1" component2="2" node="grabJoint" rotLimit="0 0 0" transLimit="0 0 0" rotLimitSpring="300 0 0" rotLimitDamping="30 0 0" rotLimitForceLimit="10 -1 -1" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="telehandler" />
+        </inputAttacherJoints>
+    </attachable>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <fillUnit unit="$l10n_unit_literShort" fillTypeCategories="fork" capacity="1760" >
+                        <exactFillRootNode node="exactFillRootNode" />
+                    </fillUnit>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <fillVolume>
+        <fillVolumeConfigurations>
+            <fillVolumeConfiguration>
+                <volumes>
+                    <volume node="fillVolume" maxAllowedHeapAngle="10" fillUnitIndex="1" />
+                </volumes>
+            </fillVolumeConfiguration>
+        </fillVolumeConfigurations>
+
+        <loadInfos>
+            <loadInfo>
+                <node node="fillVolumeLoadNode" width="1.1" length="0.1" />
+            </loadInfo>
+        </loadInfos>
+
+        <unloadInfos>
+            <unloadInfo>
+                <node node="fillVolumeUnloadNode" width="1.1" length="0.1" />
+            </unloadInfo>
+        </unloadInfos>
+    </fillVolume>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="grabJoint" playSound="true" >
+                <controls axis="AXIS_FRONTLOADER_TOOL2" invertAxis="true" mouseSpeedFactor="0.15" iconName="TOOL_OPEN_CLOSE" />
+                <componentJoint index="1" anchorActor="0" />
+                <rotation rotSpeed="200" rotAcceleration="450" rotMax="0" rotMin="-80" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="grab" referencePoint="grabRef" referenceFrame="grabRef" limitedAxis="1" isActiveDirty="true" >
+                <dependentPart node="hydraulic" />
+            </movingPart>
+            <movingPart node="hydraulic" referencePoint="hydraulicRef" referenceFrame="hydraulicRef" >
+                <translatingPart node="hydraulicPunch" />
+            </movingPart>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <dischargeable requiresTipOcclusionArea="false">
+        <dischargeNode node="dischargeNode" fillUnitIndex="1" emptySpeed="880" >
+            <raycast node="dischargeNode" maxDistance="30" useWorldNegYDirection="true" yOffset="2"/>
+            <info width="1.0" length="0.2" zOffset="0.5"/>
+            <movingToolActivation node="grabJoint" isInverted="true" openFactor="0.4" />
+
+            <effects>
+                <effectNode effectClass="TipEffect">
+                    <effectNode effectNode="emitterShape" effectClass="ParticleEffect" lifespan="0.3"/>
+                    <effectNode effectNode="grainEffect" materialType="unloading" materialTypeId="3" fadeTime="0.5" alignXAxisToWorldY="true" />
+                </effectNode>
+                <effectNode effectNode="smokeEffect" materialType="smoke" materialTypeId="1" fadeTime="0.5" />
+            </effects>
+        </dischargeNode>
+    </dischargeable>
+
+    <shovel>
+        <shovelNode node="pickUpNode" fillUnitIndex="1" loadInfoIndex="1" width="1.2" length="0.2" needsMovement="true" maxPickupAngle="105">
+            <movingToolActivation node="grabJoint" isInverted="true" openFactor="0.4" />
+        </shovelNode>
+        <dischargeInfo node="dischargeNode" minSpeedAngle="105" maxSpeedAngle="180" />
+    </shovel>
+
+    <dynamicMountAttacher node="telehandlerManureFork_main_component1">
+        <mountCollisionMask node="colPartBalesBack" collisionMask="134225920" />
+        <mountCollisionMask node="grabColPart" collisionMask="134225920" />
+        <grab openMountType="TYPE_FORK" closedMountType="TYPE_AUTO_ATTACH_XYZ"/>
+    </dynamicMountAttacher>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="telehandlerManureFork_main_component1" node="0>" />
+        <i3dMapping id="attacherJoint" node="0>0" />
+        <i3dMapping id="grabJoint" node="0>1|0" />
+        <i3dMapping id="grab" node="0>1|1" />
+        <i3dMapping id="hydraulicRef" node="0>1|1|0" />
+        <i3dMapping id="hydraulic" node="0>1|2" />
+        <i3dMapping id="hydraulicPunch" node="0>1|2|0" />
+        <i3dMapping id="fillVolume" node="0>1|3|0" />
+        <i3dMapping id="fillVolumeLoadNode" node="0>1|3|1" />
+        <i3dMapping id="fillVolumeUnloadNode" node="0>1|3|2" />
+        <i3dMapping id="exactFillRootNode" node="0>1|3|3" />
+        <i3dMapping id="dischargeNode" node="0>1|4" />
+        <i3dMapping id="emitterShape" node="0>1|5" />
+        <i3dMapping id="grainEffect" node="0>1|6|0" />
+        <i3dMapping id="smokeEffect" node="0>1|6|1" />
+        <i3dMapping id="pickUpNode" node="0>1|7" />
+        <i3dMapping id="colPartBales" node="0>2" />
+        <i3dMapping id="colPartBalesBack" node="0>3" />
+        <i3dMapping id="grabRef" node="1>0" />
+        <i3dMapping id="grabColPart" node="1>1" />
+    </i3dMappings>
+</vehicle>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable>
+    <storeData>
+        <name>$l10n_animalPen_chicken2</name>
+        <image>$data/placeables/animalHusbandry/store_husbandryChickenLarge.png</image>
+        <price>40000</price>
+        <functions>
+            <function>$l10n_function_animalPenChicken</function>
+        </functions>
+        <lifetime>1000</lifetime>
+        <dailyUpkeep>40</dailyUpkeep>
+        <rotation>0</rotation>
+        <brand>Lizard</brand>
+        <species>placeable</species>
+        <category>animalpens</category>
+        <vertexBufferMemoryUsage>276388</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>30720</indexBufferMemoryUsage>
+        <textureMemoryUsage>7821480</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <placeableType>husbandry</placeableType>
+    <filename>data/placeables/animalHusbandry/husbandryChickenLarge.i3d</filename>
+    <placement testSizeX="46.0" testSizeZ="44.0" sizeX="40" sizeZ="38" useRandomYRotation="false" useManualYRotation="true" />
+
+    <clearAreas>
+        <clearArea startNode="0|6|0" widthNode="0|6|0|0" heightNode="0|6|0|1"/>
+    </clearAreas>
+
+    <leveling requireLeveling="true" maxSmoothDistance="10" maxSlope="75" maxEdgeAngle="30">
+        <levelAreas>
+            <levelArea startNode="0|7|0" widthNode="0|7|0|0" heightNode="0|7|0|1" groundType="grass"/>
+            <levelArea startNode="0|7|1" widthNode="0|7|1|0" heightNode="0|7|1|1" groundType="dirt"/>
+            <levelArea startNode="0|7|2" widthNode="0|7|2|0" heightNode="0|7|2|1" groundType="dirt"/>
+            <levelArea startNode="0|7|3" widthNode="0|7|3|0" heightNode="0|7|3|1" groundType="dirt"/>
+        </levelAreas>
+        <rampAreas> <!-- Deprecated! no longer used in script -->
+            <rampArea maxSlope="75" rootNode="0|8|0" startNode="0|8|0" widthNode="0|8|0|0" heightNode="0|8|0|1" groundType="grass"/>
+            <rampArea maxSlope="75" rootNode="0|8|1" startNode="0|8|1" widthNode="0|8|1|0" heightNode="0|8|1|1" groundType="grass"/>
+            <rampArea maxSlope="75" rootNode="0|8|2" startNode="0|8|2" widthNode="0|8|2|0" heightNode="0|8|2|1" groundType="grass"/>
+            <rampArea maxSlope="75" rootNode="0|8|3" startNode="0|8|3" widthNode="0|8|3|0" heightNode="0|8|3|1" groundType="grass"/>
+        </rampAreas>
+    </leveling>
+
+    <foliageAreas>
+    </foliageAreas>
+
+    <triggerMarkers>
+        <triggerMarker node="0|10" />
+    </triggerMarkers>
+
+    <animatedObjects>
+        <animatedObject saveId="gate_01" >
+            <animation duration="1.5">
+                <part node="0|5|0|0">
+                    <keyFrame time="0.0" rotation="0 0 0"/>
+                    <keyFrame time="1.0" rotation="0 -110 0"/>
+                </part>
+            </animation>
+            <controls triggerNode="0|11" posAction="ACTIVATE_HANDTOOL" posText="action_openGate" negText="action_closeGate" />
+            <sounds>
+                <moving file="data/sounds/prefab/gate/gate_loop.wav" loops="0" linkNode="0|5|0|0" volume="0.8" radius="25" innerRadius="3" fadeOut="0.25"/>
+                <posEnd file="data/sounds/prefab/gate/gate_opened.wav" linkNode="0|5|0|0" volume="0.8" radius="25" innerRadius="3" />
+                <negEnd file="data/sounds/prefab/gate/gate_closed.wav" linkNode="0|5|0|0" volume="0.8" radius="25" innerRadius="3" />
+            </sounds>
+        </animatedObject>
+    </animatedObjects>
+
+    <hotspots>
+        <hotspot name="Chicken coop" fullName="$l10n_animals_chickenCoop" imageName="CHICKEN_PEN" hidable="true" category="CATEGORY_TRIGGERS" />
+    </hotspots>
+
+    <husbandry saveId="Animals_CHICKEN" hasStatistics="false">
+        <modules>
+            <module name="animals">
+                <config type="CHICKEN" navmeshNode="0|4" animalLoadTriggerNode="0|0" maxNumAnimals="400" husbandryFileName="$dataS/character/chickenAnimalHusbandry.xml" placementRaycastDistance="2.0" carryingCapacity="50" rideableDeliveryStartNode="0|3|0" rideableDeliveryWidthNode="0|3|0|0" rideableDeliveryHeightNode="0|3|0|0" />
+            </module>
+            <module name="food">
+                <config node="0|1|0" exactFillRootNode="0" animalPlacesNode="1" >
+                    <fillPlane node="0|1|1" minY="-0.29" maxY="0" colorChange="true" />
+                </config>
+            </module>
+            <module name="foodSpillage">
+                <config fillType="WHEAT">
+                    <area startNode="0|1|0|2|0" widthNode="0|1|0|2|0|0" heightNode="0|1|0|2|0|1" />
+                    <area startNode="0|1|0|2|1" widthNode="0|1|0|2|1|0" heightNode="0|1|0|2|1|1" />
+                </config>
+            </module>
+            <module name="pallets">
+                <config startNode="0|2|0|0" widthNode="0|2|0|0|0" heightNode="0|2|0|0|1" fillType="EGG" filename="$data/objects/pallets/eggBox/eggBox.xml" fillUnitIndex="1"/>
+            </module>
+        </modules>
+        <placementRaycast distance="2" />
+    </husbandry>
+    
+    <tipOcclusionUpdateArea sizeX="40" sizeZ="38" />
+    
+</placeable>

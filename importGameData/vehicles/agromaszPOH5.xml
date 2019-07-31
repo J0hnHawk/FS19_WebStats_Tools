@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="plow">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>POH 5</name>
+        <specs>
+            <neededPower>180</neededPower>
+            <workingWidth>2.5</workingWidth>
+            <combination>AGCO 1100</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_plow</function>
+        </functions>
+        <image>$data/vehicles/agromasz/agromaszPOH5/store_agromaszPOH5.png</image>
+        <price>14000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>AGROMASZ</brand>
+        <category>plows</category>
+        <vertexBufferMemoryUsage>2085172</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>394686</indexBufferMemoryUsage>
+        <textureMemoryUsage>4369248</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_plow</typeDesc>
+        <filename>$data/vehicles/agromasz/agromaszPOH5/agromaszPOH5.i3d</filename>
+        <size width="4" length="6.5" widthOffset="1" lengthOffset="-2.5"/>
+        <speedLimit value="12" />
+        <components>
+            <component centerOfMass="0.0 0.3 -1.6" solverIterationCount="10" mass="1740" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels hasSurfaceSounds="false">
+                    <wheel filename="$data/shared/wheels/trelleborg/AW305/10_80R12.xml" isLeft="true" >
+                        <physics restLoad="0.6" repr="backWheelNode" useReprDirection="true" forcePointRatio="0.2" initialCompression="50" suspTravel="0.05" spring="25" damper="30" rotationDamping="0.006"/>
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <hubs>
+            <color0>AGROMASZ_GREENPAINT</color0>
+            <color1>AGROMASZ_REDPAINT</color1>
+            <hub linkNode="backWheelNode" filename="$data/shared/wheels/hubs/hub_n5_1.xml" isLeft="true" scale="0.15 0.15 0.15" />
+        </hubs>
+   </wheels>
+
+    <powerConsumer forceNode="agromaszPOH5_main_component1" maxForce="100" />
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundReferneceNode01" threshold="0.05" />
+        <groundReferenceNode node="groundReferenceNode02" threshold="0.3" depthNode="depthNode02"/>
+        <groundReferenceNode node="groundReferenceNode03" threshold="0.3" depthNode="depthNode03"/>
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="plow" functionName="processPlowArea" >
+            <area startNode="start" widthNode="width" heightNode="height" />
+            <groundReferenceNode index="1" />
+        </workArea>
+    </workAreas>
+
+    <workParticles>
+        <particleAnimation>
+            <node node="soilAnimation1" refNodeIndex="2" materialType="SOIL"/>
+            <node node="soilAnimation2" refNodeIndex="3" materialType="SOIL"/>
+        </particleAnimation>
+        <particle>
+            <node node="soilSmokeEmit1"     particleType="SOIL_SMOKE"       refNodeIndex="2" />
+            <node node="soilEmit1"          particleType="SOIL"             refNodeIndex="2" emitCountScale="1.5"/>
+            <node node="soilChunksEmit1"    particleType="SOIL_CHUNKS"      refNodeIndex="2" worldSpace="false"/>
+            <node node="soilBigChunksEmit1" particleType="SOIL_BIG_CHUNKS"  refNodeIndex="2" worldSpace="false"/>
+
+            <node node="soilSmokeEmit2"     particleType="SOIL_SMOKE"       refNodeIndex="3" />
+            <node node="soilEmit2"          particleType="SOIL"             refNodeIndex="3" emitCountScale="1.5"/>
+            <node node="soilChunksEmit2"    particleType="SOIL_CHUNKS"      refNodeIndex="3" worldSpace="false"/>
+            <node node="soilBigChunksEmit2" particleType="SOIL_BIG_CHUNKS"  refNodeIndex="3" worldSpace="false"/>
+        </particle>
+    </workParticles>
+
+    <attachable allowFoldingWhileLowered="false">
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="implement" topReferenceNode="topReferenceNode" upperRotationOffset="12" >
+                <distanceToGround lower="0.3" upper="1" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+        <support animationName="moveSupport" />
+    </attachable>
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn01"  length="1.3" diameter="0.02" straighteningFactor="2">
+            <objectChange node="hydraulicIn01_attached" visibilityActive="true" visibilityInactive="false"/>
+            <objectChange node="hydraulicIn01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut01" length="1.3" diameter="0.02" straighteningFactor="2">
+            <objectChange node="hydraulicOut01_attached" visibilityActive="true" visibilityInactive="false"/>
+            <objectChange node="hydraulicOut01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+    </connectionHoses>
+
+    <foldable>
+        <foldingParts startMoveDirection="0" turnOnFoldDirection="-1">
+            <foldingPart animationName="foldPlow" speedScale="1" />
+        </foldingParts>
+    </foldable>
+
+    <animations>
+        <!-- move wheel down/up -->
+        <animation name="rotatePlow">
+            <!-- mainFrame -->
+            <part node="mainFrame"    startTime="0.0" endTime="2.0"   startRot="0 7 0" endRot="0 20 0" />
+            <part node="mainFrame"    startTime="6.0" endTime="8.0"   startRot="0 20 0" endRot="0 7 0" />
+
+            <!-- rotation -->
+            <part node="rotPart"            startTime="2.0" endTime="6.0"   startRot="0 0 0" endRot="0 0 -180" />
+            <part node="foliageBendingNode" startTime="2.0" endTime="6.0"   startRot="0 0 0" endRot="0 0 -180" />
+
+            <!-- wheelMount -->
+            <part node="axisMain"            startTime="3.0" endTime="5.0"   startRot="-25 0 0" endRot="-65 0 0" />
+            <part node="backWheelNodeRot"    startTime="3.0" endTime="5.0"   startRot="-160 0.44 180.445" endRot="-380 0.209 180.845" />
+            <part node="hydraulicAxisTop"    startTime="3.0" endTime="5.0"   startRot="40.775 180.15 0.001" endRot="0.679 180.15 0.001" />
+            <part node="hydraulicAxisBottom" startTime="3.0" endTime="5.0"   startRot="-148.252 0.089 180" endRot="-220.482 0.089 180" />
+        </animation>
+
+        <animation name="foldPlow">
+            <!-- mainFrame -->
+            <part node="mainFrame" startTime="0.0" endTime="2.0" startRot="0 7 0" endRot="0 20 0" />
+        </animation>
+
+        <!-- move support wheel down/up -->
+        <animation name="moveSupport">
+            <part node="leftSlidingCollision"      startTime="0" endTime="0.75"     startTrans="0.627 0 2.416" endTrans="0.627 0.339 2.416" />
+            <part node="rightSlidingCollision"     startTime="0" endTime="0.75"     startTrans="0.627 0 2.416" endTrans="0.627 -0.339 2.416" />
+
+            <part node="support"    startTime="0" endTime="0.3"     startRot="90 0 0" endRot="0 0 0" />
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <!-- rotPart -->
+            <movingTool node="rotPart" wheelIndices="1">
+                <dependentPart node="hydraulicRotPart" />
+            </movingTool>
+
+            <!-- mainFrame -->
+            <movingTool node="mainFrame" wheelIndices="1">
+                <dependentPart node="hydraulicMainFrame" />
+            </movingTool>
+
+            <!-- wheelMount -->
+            <movingTool node="axisMain" wheelIndices="1">
+                <dependentPart node="hydraulicAxisMain" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts isActiveDirtyTimeOffset="3">
+            <!-- rotPart -->
+            <movingPart node="hydraulicRotPart" referencePoint="hydraulicRotPart_ref" referenceFrame="hydraulicRotPart_refFrame" >
+                <translatingPart node="hydraulicRotPart_punch" />
+            </movingPart>
+
+            <!-- mainFrame -->
+            <movingPart node="hydraulicMainFrame" referencePoint="hydraulicMainFrame_ref" referenceFrame="hydraulicMainFrame_ref" >
+                <translatingPart node="hydraulicMainFrame_punch" />
+            </movingPart>
+
+            <!-- wheelMount -->
+            <movingPart node="hydraulicAxisMain" referencePoint="hydraulicAxisMain_ref" referenceFrame="hydraulicAxisMain_ref" >
+                <translatingPart node="hydraulicAxisMain_push" />
+            </movingPart>
+
+            <movingPart node="rubberPart" referencePoint="rubberPartRef" referenceFrame="rubberPartRef" isActiveDirty="true" scaleZ="true"/>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="agromaszPOH5_main_component1"/>
+        </sounds>
+    </cylindered>
+
+    <plow>
+        <rotationPart turnAnimationName="rotatePlow" rotationAllowedIfLowered="false" limitFoldRotationMax="true" foldRotationMinLimit="0" foldRotationMaxLimit="0" rotationFoldMinLimit="0" rotationFoldMaxLimit="0" foldMinLimit="0" foldMaxLimit="0.1"/>
+        <rotateLeftToMax value="true"/>
+
+        <sounds>
+            <turn template="DEFAULT_PLOW_TURN" linkNode="agromaszPOH5_main_component1" />
+            <work template="DEFAULT_PLOW_WORK" linkNode="agromaszPOH5_main_component1" />
+        </sounds>
+    </plow>
+
+    <designConfigurations>
+        <designConfiguration name="$l10n_configuration_valueUniversalShares" price="0">
+            <objectChange node="plowType01" visibilityActive="true" />
+            <objectChange node="plowType02" visibilityActive="false" />
+        </designConfiguration>
+        <designConfiguration name="$l10n_configuration_valueFingerBodyShares" price="2000">
+            <objectChange node="plowType01" visibilityActive="false" />
+            <objectChange node="plowType02" visibilityActive="true" />
+        </designConfiguration>
+    </designConfigurations>
+
+    <ai>
+        <needsLowering value="true" />
+        <collisionTrigger node="aiCollisionTrigger" />
+        <areaMarkers leftNode="areaMarkerLeft" rightNode="areaMarkerRight" backNode="areaMarkerBack" />
+        <sizeMarkers leftNode="sizeMarkerLeft" rightNode="sizeMarkerRight" backNode="sizeMarkerBack" />
+        <hasNoFullCoverageArea value="true" />
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-0.75" maxX="0.75"  minZ="-0.7" maxZ="5.0" yOffset="-0.4" node="foliageBendingNode" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="agromaszPOH5_mat" baseNode="agromaszPOH5_vis">
+            <shaderParameter name="colorMat0" value="AGROMASZ_REDPAINT"/>
+            <shaderParameter name="colorMat1" value="AGROMASZ_GREENPAINT"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="3" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="agromaszPOH5_main_component1" node="0>" />
+        <i3dMapping id="agromaszPOH5_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0" />
+        <i3dMapping id="topReferenceNode" node="0>0|0|0" />
+        <i3dMapping id="rotPart" node="0>0|1|0" />
+        <i3dMapping id="mainFrame" node="0>0|1|0|0|0" />
+        <i3dMapping id="hydraulicMainFrame_ref" node="0>0|1|0|0|0|0" />
+        <i3dMapping id="start" node="0>0|1|0|0|0|1|0" />
+        <i3dMapping id="width" node="0>0|1|0|0|0|1|1" />
+        <i3dMapping id="height" node="0>0|1|0|0|0|1|2" />
+        <i3dMapping id="groundReferenceNode02" node="0>0|1|0|0|0|1|3" />
+        <i3dMapping id="depthNode02" node="0>0|1|0|0|0|1|4" />
+        <i3dMapping id="groundReferenceNode03" node="0>0|1|0|0|0|1|5" />
+        <i3dMapping id="depthNode03" node="0>0|1|0|0|0|1|6" />
+        <i3dMapping id="areaMarkerLeft" node="0>0|1|0|0|0|2|0|0" />
+        <i3dMapping id="areaMarkerRight" node="0>0|1|0|0|0|2|0|1" />
+        <i3dMapping id="areaMarkerBack" node="0>0|1|0|0|0|2|0|2" />
+        <i3dMapping id="sizeMarkerLeft" node="0>0|1|0|0|0|2|1|0" />
+        <i3dMapping id="sizeMarkerRight" node="0>0|1|0|0|0|2|1|1" />
+        <i3dMapping id="sizeMarkerBack" node="0>0|1|0|0|0|2|1|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|1|0|0|0|2|2|0" />
+        <i3dMapping id="soilAnimation1" node="0>0|1|0|0|0|3|0|0" />
+        <i3dMapping id="soilSmokeEmit1" node="0>0|1|0|0|0|3|0|1" />
+        <i3dMapping id="soilEmit1" node="0>0|1|0|0|0|3|0|2" />
+        <i3dMapping id="soilChunksEmit1" node="0>0|1|0|0|0|3|0|3" />
+        <i3dMapping id="soilBigChunksEmit1" node="0>0|1|0|0|0|3|0|4" />
+        <i3dMapping id="soilAnimation2" node="0>0|1|0|0|0|3|0|5" />
+        <i3dMapping id="soilSmokeEmit2" node="0>0|1|0|0|0|3|0|6" />
+        <i3dMapping id="soilEmit2" node="0>0|1|0|0|0|3|0|7" />
+        <i3dMapping id="soilChunksEmit2" node="0>0|1|0|0|0|3|0|8" />
+        <i3dMapping id="soilBigChunksEmit2" node="0>0|1|0|0|0|3|0|9" />
+        <i3dMapping id="plowType01" node="0>0|1|0|0|0|4|0" />
+        <i3dMapping id="plowType02" node="0>0|1|0|0|0|4|1" />
+        <i3dMapping id="support" node="0>0|1|0|0|0|5|0" />
+        <i3dMapping id="axisMain" node="0>0|1|0|0|0|6|0|0|0" />
+        <i3dMapping id="backWheelNodeRot" node="0>0|1|0|0|0|6|0|0|0|0" />
+        <i3dMapping id="backWheelNode" node="0>0|1|0|0|0|6|0|0|0|0|0" />
+        <i3dMapping id="hydraulicAxisMain_ref" node="0>0|1|0|0|0|6|0|0|0|1" />
+        <i3dMapping id="hydraulicAxisMain" node="0>0|1|0|0|0|6|0|1" />
+        <i3dMapping id="hydraulicAxisMain_push" node="0>0|1|0|0|0|6|0|1|0" />
+        <i3dMapping id="hydraulicAxisTop" node="0>0|1|0|0|0|6|0|2" />
+        <i3dMapping id="hydraulicAxisTop_punch" node="0>0|1|0|0|0|6|0|2|0" />
+        <i3dMapping id="hydraulicAxisBottom" node="0>0|1|0|0|0|6|0|3" />
+        <i3dMapping id="hydraulicAxisBottom_punch" node="0>0|1|0|0|0|6|0|3|0" />
+        <i3dMapping id="leftSlidingCollision" node="0>0|1|0|0|0|7|0" />
+        <i3dMapping id="rightSlidingCollision" node="0>0|1|0|0|0|7|1" />
+        <i3dMapping id="foliageBendingNode" node="0>0|1|0|0|0|8" />
+        <i3dMapping id="hydraulicMainFrame" node="0>0|1|0|1" />
+        <i3dMapping id="rubberPart" node="0>0|1|0|1|0" />
+        <i3dMapping id="hydraulicMainFrame_punch" node="0>0|1|0|1|1" />
+        <i3dMapping id="rubberPartRef" node="0>0|1|0|1|1|0" />
+        <i3dMapping id="hydraulicRotPart_ref" node="0>0|1|0|2" />
+        <i3dMapping id="hydraulicRotPart" node="0>0|1|1" />
+        <i3dMapping id="hydraulicRotPart_punch" node="0>0|1|1|0" />
+        <i3dMapping id="hydraulicIn01" node="0>0|1|1|1|0" />
+        <i3dMapping id="hydraulicIn01_attached" node="0>0|1|1|1|0|0" />
+        <i3dMapping id="hydraulicOut01" node="0>0|1|1|1|1" />
+        <i3dMapping id="hydraulicOut01_attached" node="0>0|1|1|1|1|0" />
+        <i3dMapping id="hydraulicRotPart_refFrame" node="0>0|1|2" />
+        <i3dMapping id="groundReferneceNode01" node="0>0|2|0" />
+        <i3dMapping id="hydraulicIn01_detached" node="0>1|1" />
+        <i3dMapping id="hydraulicOut01_detached" node="0>1|2" />
+    </i3dMappings>
+</vehicle>

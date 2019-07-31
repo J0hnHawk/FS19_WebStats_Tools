@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable>
+    <storeData>
+        <name>$l10n_shopItem_workshop</name>
+        <image>data/placeables/workshop/store_workshop.png</image>
+        <price>28000</price>
+        <functions>
+            <function>$l10n_function_workshop</function>
+        </functions>
+        <dailyUpkeep>50</dailyUpkeep>
+        <lifetime>1000</lifetime>
+        <rotation>0</rotation>
+        <brand>LIZARD</brand>
+        <species>placeable</species>
+        <category>placeableMisc</category>
+        <vertexBufferMemoryUsage>57008</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>5334</indexBufferMemoryUsage>
+        <textureMemoryUsage>10443000</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <placeableType>workshop</placeableType>
+    <filename>data/placeables/workshop/workshop.i3d</filename>
+    <placement testSizeX="7.5" testSizeZ="10" sizeX="3" sizeZ="3" useRandomYRotation="false" useManualYRotation="true" />
+
+    <dayNightObjects>
+        <dayNightObject node="0|0|0" intensityDay="0" intensityNight="1" />
+        <dayNightObject node="0|0|1" visibleDay="false" visibleNight="true" />
+    </dayNightObjects>
+
+    <tipOcclusionUpdateArea sizeX="8" sizeZ="11" />
+
+    <sellingPoint playerTriggerNode="3" iconNode="3|0" sellTriggerNode="2" ownWorkshop="true" />
+
+    <clearAreas>
+        <clearArea startNode="5|0" widthNode="5|0|0" heightNode="5|0|1"/>
+    </clearAreas>
+
+    <leveling requireLeveling="true" maxSmoothDistance="10" maxSlope="75" maxEdgeAngle="30">
+        <levelAreas>
+            <levelArea startNode="6|0" widthNode="6|0|0" heightNode="6|0|1" groundType="asphalt"/>
+        </levelAreas>
+        <rampAreas> <!-- Deprecated! no longer used in script -->
+            <rampArea maxSlope="75" rootNode="7|0" startNode="7|0" widthNode="7|0|0" heightNode="7|0|1" />
+            <rampArea maxSlope="75" rootNode="7|1" startNode="7|1" widthNode="7|1|0" heightNode="7|1|1" />
+        </rampAreas>
+    </leveling>
+</placeable>

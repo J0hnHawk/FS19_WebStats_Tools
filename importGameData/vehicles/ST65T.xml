@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="stumpCutter">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>ST 65 T</name>
+        <specs>
+            <neededPower>70</neededPower>
+        </specs>
+        <functions>
+            <function>$l10n_function_stumpCutter</function>
+        </functions>
+        <image>$data/vehicles/fsi/ST65T/store_ST65T.png</image>
+        <price>5000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>FSI</brand>
+        <category>wood</category>
+        <shopTranslationOffset>0 -0.02 0</shopTranslationOffset>
+        <shopRotationOffset>-1.23 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>354528</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>55698</indexBufferMemoryUsage>
+        <textureMemoryUsage>1245400</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_stumpCutter</typeDesc>
+        <filename>$data/vehicles/fsi/ST65T/ST65T.i3d</filename>
+        <size width="2" length="5" />
+        <components>
+            <component centerOfMass="0 0.9 -0.2" solverIterationCount="10" mass="930" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <powerConsumer ptoRpm="540" neededMinPtoPower="35" neededMaxPtoPower="35"/>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="implement" topReferenceNode="topReferenceNode" lowerRotLimitScale="0 0 0" upperRotationOffset="4" lowerRotationOffset="-2" needsLowering="false" >
+                <distanceToGround lower="0.6" upper="0.95"/>
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+        <support animationName="moveSupport" />
+        <lowerAnimation name="lowerAnimation" />
+    </attachable>
+
+    <powerTakeOffs>
+        <input inputAttacherJointIndices="1" inputNode="pto" aboveAttacher="true" />
+    </powerTakeOffs>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="armYRot">
+                <controls axis="AXIS_FRONTLOADER_TOOL" invertAxis="false" mouseSpeedFactor="0.7" iconName="TOP_DOOR_ROTATE" />
+                <rotation rotSpeed="15" rotAcceleration="100" rotMax="35" rotMin="-35" rotationAxis="2" />
+                <dependentPart node="hydraulicLeft" />
+                <dependentPart node="hydraulicRight" />
+            </movingTool>
+            <movingTool node="armRotX" >
+                <controls axis="AXIS_FRONTLOADER_ARM" invertAxis="false" mouseSpeedFactor="0.7" iconName="FRONTLOADER_ARM_ROTATE" />
+                <rotation rotSpeed="20" rotAcceleration="170" rotMax="25" rotMin="-15" rotationAxis="1" />
+                <dependentPart node="hydraulicTop" />
+            </movingTool>
+            <movingTool node="armCutter" >
+                <controls axis="AXIS_FRONTLOADER_ARM2" invertAxis="true" mouseSpeedFactor="0.7" iconName="TOOL_OPEN_CLOSE" />
+                <rotation rotSpeed="20" rotAcceleration="170" rotMax="5" rotMin="-30" rotationAxis="1" />
+                <dependentPart node="hydraulicCutterArm" />
+                <dependentPart node="ptoArm" />
+            </movingTool>
+            <movingTool node="cutter" >
+                <controls axis="AXIS_FRONTLOADER_TOOL2" invertAxis="true" mouseSpeedFactor="0.3" iconName="CRANE_ARM2_ROTATE_TOOL" />
+                <rotation rotSpeed="40" rotAcceleration="170" rotMax="35" rotMin="0" rotationAxis="1" />
+                <dependentPart node="hydraulicCutter" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="hydraulicLeft" referencePoint="hydraulicLeftRef" referenceFrame="hydraulicLeftRef" playSound="true" >
+                <translatingPart node="hydraulicLeftPunch" />
+            </movingPart>
+            <movingPart node="hydraulicRight" referencePoint="hydraulicRightRef" referenceFrame="hydraulicRightRef" playSound="true" >
+                <translatingPart node="hydraulicRightPunch" />
+            </movingPart>
+            <movingPart node="hydraulicTop" referencePoint="hydraulicTopRef" referenceFrame="hydraulicTopRef" playSound="true" >
+                <translatingPart node="hydraulicTopPunch" />
+            </movingPart>
+            <movingPart node="hydraulicCutterArm" referencePoint="hydraulicCutterArmRef" referenceFrame="armRotX" playSound="true" >
+                <translatingPart node="hydraulicCutterArmPunch" />
+            </movingPart>
+            <movingPart node="ptoArm" localReferencePoint="ptoArmPart" referencePoint="ptoArmRef" referenceFrame="armRotX" >
+                <dependentPart node="ptoArmPart" />
+            </movingPart>
+            <movingPart node="ptoArmPart" referencePoint="ptoArmRef" referenceFrame="ptoArmRef" scaleZ="true" />
+            <movingPart node="hydraulicCutter" referencePoint="hydraulicCutterRef" referenceFrame="armCutter" playSound="true" >
+                <translatingPart node="hydraulicCutterPunch" />
+            </movingPart>
+            <movingPart node="cutNodeRot" referenceFrame="cutNdeRefFrame" isActiveDirty="true" alignToWorldY="true" />
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="fsiST65T_main_component1"/>
+        </sounds>
+    </cylindered>
+
+    <animations>
+        <animation name="moveSupport">
+            <part node="supportRight" startTime="0" endTime="0.5" startTrans="0 0.3 0" endTrans="0 0 0" />
+            <part node="supportLeft" startTime="0" endTime="0.5" startTrans="0 0.3 0" endTrans="0 0 0" />
+            <part node="supportCol"   startTime="0" endTime="0.5" startTrans="0.037 0.554 0.074" endTrans="0.037 0.254 0.074" />
+        </animation>
+        <animation name="lowerAnimation">
+            <part node="supportRight" startTime="0" endTime="0.5" startTrans="0 0.3 0" endTrans="0 0 0" />
+            <part node="supportLeft" startTime="0" endTime="0.5" startTrans="0 0.3 0" endTrans="0 0 0" />
+            <part node="supportCol"   startTime="0" endTime="0.5" startTrans="0.037 0.554 0.074" endTrans="0.037 0.254 0.074" />
+        </animation>
+    </animations>
+
+    <stumpCutter cutNode="cutNode" cutSizeY="1.4" cutSizeZ="2.3">
+        <effects>
+            <effectNode effectClass="ParticleEffect" effectNode="emitterShapeWood" particleType="CRUSHER_WOOD" emitCountScale="10"/>
+            <effectNode effectClass="ParticleEffect" effectNode="emitterShapeDust" particleType="CRUSHER_WOOD" emitCountScale="2"/>
+        </effects>
+        <animationNodes>
+            <animationNode node="cutterWheel" rotSpeed="1100" rotAxis="1" turnOnFadeTime="2" turnOffFadeTime="5"/>
+        </animationNodes>
+        <sounds>
+            <start template="STUMP_CUTTER_START" linkNode="fsiST65T_main_component1" />
+            <idle template="STUMP_CUTTER_IDLE" linkNode="fsiST65T_main_component1" />
+            <work template="STUMP_CUTTER_WORK" linkNode="fsiST65T_main_component1" />
+            <stop template="STUMP_CUTTER_STOP" linkNode="fsiST65T_main_component1" />
+        </sounds>
+    </stumpCutter>
+
+    <foliageBending>
+        <bendingNode minX="-1" maxX="1" minZ="1.7" maxZ="2.1" yOffset="0.2" />
+        <bendingNode minX="-0.3" maxX="0.3" minZ="-1.8" maxZ="0" yOffset="-0.1" node="armRotX" />
+        <bendingNode minX="-0.5" maxX="0.5" minZ="-1.8" maxZ="0" yOffset="-1" node="armCutter" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="fsiST65T_mat" baseNode="fsi_vis">
+            <shaderParameter name="colorMat0" value="FSI_RED1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="fsiST65T_main_component1" node="0>" />
+        <i3dMapping id="fsi_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0|0" />
+        <i3dMapping id="topReferenceNode" node="0>0|0|1" />
+        <i3dMapping id="supportRight" node="0>0|0|2|0|0" />
+        <i3dMapping id="supportLeft" node="0>0|0|2|1|0" />
+        <i3dMapping id="supportCol" node="0>0|0|2|2" />
+        <i3dMapping id="armYRot" node="0>0|1|0" />
+        <i3dMapping id="armRotX" node="0>0|1|0|0" />
+        <i3dMapping id="armCutter" node="0>0|1|0|0|0" />
+        <i3dMapping id="cutter" node="0>0|1|0|0|0|0" />
+        <i3dMapping id="hydraulicCutterRef" node="0>0|1|0|0|0|0|0" />
+        <i3dMapping id="cutterWheel" node="0>0|1|0|0|0|0|1" />
+        <i3dMapping id="cutNodeRot" node="0>0|1|0|0|0|0|2" />
+        <i3dMapping id="cutNode" node="0>0|1|0|0|0|0|2|0" />
+        <i3dMapping id="emitterShapeWood" node="0>0|1|0|0|0|0|3|0" />
+        <i3dMapping id="emitterShapeDust" node="0>0|1|0|0|0|0|3|1" />
+        <i3dMapping id="cutNdeRefFrame" node="0>0|1|0|0|0|0|4" />
+        <i3dMapping id="ptoArm" node="0>0|1|0|0|0|1" />
+        <i3dMapping id="ptoArmPart" node="0>0|1|0|0|0|1|0" />
+        <i3dMapping id="pto" node="0>0|1|0|0|0|1|1" />
+        <i3dMapping id="hydraulicCutter" node="0>0|1|0|0|0|2" />
+        <i3dMapping id="hydraulicCutterPunch" node="0>0|1|0|0|0|2|0" />
+        <i3dMapping id="hydraulicCutterArmRef" node="0>0|1|0|0|0|3" />
+        <i3dMapping id="hydraulicCutterArm" node="0>0|1|0|0|1" />
+        <i3dMapping id="hydraulicCutterArmPunch" node="0>0|1|0|0|1|0" />
+        <i3dMapping id="hydraulicTopRef" node="0>0|1|0|0|2" />
+        <i3dMapping id="ptoArmRef" node="0>0|1|0|0|3" />
+        <i3dMapping id="hydraulicTop" node="0>0|1|0|1" />
+        <i3dMapping id="hydraulicTopPunch" node="0>0|1|0|1|0" />
+        <i3dMapping id="hydraulicLeftRef" node="0>0|1|0|2" />
+        <i3dMapping id="hydraulicRightRef" node="0>0|1|0|3" />
+        <i3dMapping id="hydraulicLeftPipe1Ref" node="0>0|1|0|4" />
+        <i3dMapping id="hydraulicLeftPipe2Ref" node="0>0|1|0|5" />
+        <i3dMapping id="hydraulicRightPipe1Ref" node="0>0|1|0|6" />
+        <i3dMapping id="hydraulicRightPipe2Ref" node="0>0|1|0|7" />
+        <i3dMapping id="hydraulicLeft" node="0>0|2|0" />
+        <i3dMapping id="hydraulicLeftPunch" node="0>0|2|0|0" />
+        <i3dMapping id="hydraulicRight" node="0>0|2|1" />
+        <i3dMapping id="hydraulicRightPunch" node="0>0|2|1|0" />
+    </i3dMappings>
+</vehicle>

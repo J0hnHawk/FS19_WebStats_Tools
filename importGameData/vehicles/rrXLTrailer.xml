@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<vehicle type="dynamicMountAttacherTrailer">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Transport RR-XL 9x45</name>
+        <specs>
+            <combination>RR-XL 9x45</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_cutterTrailer</function>
+        </functions>
+        <image>$data/vehicles/ropa/rrXLTrailer/store_rrXLTrailer.png</image>
+        <price>9000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>ROPA</brand>
+        <category>cutterTrailers</category>
+        <vertexBufferMemoryUsage>1382792</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>257868</indexBufferMemoryUsage>
+        <textureMemoryUsage>6728704</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_cutterTrailer</typeDesc>
+        <filename>$data/vehicles/ropa/rrXLTrailer/rrXLTrailer.i3d</filename>
+        <size width="4" length="12" lengthOffset="1.5"/>
+        <components>
+            <component centerOfMass="0 0.55 -2.65" solverIterationCount="30" mass="1200"/>
+            <component solverIterationCount="30" mass="500"/>
+            <component solverIterationCount="30" mass="500"/>
+            <joint component1="1" component2="2" node="componentJointDolly"   rotLimit="0 125 0" transLimit="0 0 0"/>
+            <joint component1="2" component2="3" node="componentJointDrawbar" rotLimit="20 0 0" transLimit="0 0 0"/>
+            <collisionPair component1="1" component2="3" enabled="false"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/lizard/implement/385_65R22_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="0.6" repr="backLeftWheel"   forcePointRatio="0.3" initialCompression="20" suspTravel="0.15" spring="17" damper="20"/>
+                        <wheelChock parkingNode="wheelChock01" />
+                        <wheelChock parkingNode="wheelChock02" isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/385_65R22_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="0.6" repr="backRightWheel"  forcePointRatio="0.3" initialCompression="20" suspTravel="0.15" spring="17" damper="20"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/385_65R22_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                        <physics tipOcclusionAreaGroupId="2" restLoad="0.6" repr="frontLeftWheel"  forcePointRatio="0.3" initialCompression="20" suspTravel="0.15" spring="17" damper="20"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/385_65R22_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true">
+                        <physics tipOcclusionAreaGroupId="2" restLoad="0.6" repr="frontRightWheel" forcePointRatio="0.3" initialCompression="20" suspTravel="0.15" spring="17" damper="20"/>
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <hubs>
+            <color0>ROPA_YELLOW</color0>
+            <hub linkNode="backLeftWheel"   filename="$data/shared/wheels/hubs/hub_n8_6.xml" isLeft="true"  scale="0.285 0.285 0.285" />
+            <hub linkNode="backRightWheel"  filename="$data/shared/wheels/hubs/hub_n8_6.xml" isLeft="false" scale="0.285 0.285 0.285" />
+            <hub linkNode="frontLeftWheel"  filename="$data/shared/wheels/hubs/hub_n8_6.xml" isLeft="true"  scale="0.285 0.285 0.285" />
+            <hub linkNode="frontRightWheel" filename="$data/shared/wheels/hubs/hub_n8_6.xml" isLeft="false" scale="0.285 0.285 0.285" />
+        </hubs>
+    </wheels>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" rootNode="rrXLTrailer_drawbar_component3" jointType="trailer" attacherHeight="0.9"/>
+        </inputAttacherJoints>
+        <support animationName="moveSupport"/>
+        <brakeForce>0.45</brakeForce>
+    </attachable>
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1" type="airDoubleRed"  node="airDoubleStorage"  length="1.5" diameter="0.014" straighteningFactor="2" minDeltaY="0.1">
+            <objectChange node="airDoubleStorage_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="airDoubleYellow" node="airDoubleControl" length="1.5" diameter="0.014" straighteningFactor="2" minDeltaY="0.1">
+            <objectChange node="airDoubleControl_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+
+        <hose inputAttacherJointIndices="1" type="electric" adapterType="METAL" node="electric" length="3.2" diameter="0.009" straighteningFactor="1">
+            <objectChange node="electric_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+    </connectionHoses>
+
+    <lights>
+        <sharedLight linkNode="reflector_yellowRound_02_01" node="0" filename="$data/shared/assets/reflectors/lizard/yellowRound_02.xml" />
+        <sharedLight linkNode="reflector_yellowRound_02_02" node="0" filename="$data/shared/assets/reflectors/lizard/yellowRound_02.xml" />
+        <sharedLight linkNode="reflector_yellowRound_02_03" node="0" filename="$data/shared/assets/reflectors/lizard/yellowRound_02.xml" />
+        <sharedLight linkNode="reflector_yellowRound_02_04" node="0" filename="$data/shared/assets/reflectors/lizard/yellowRound_02.xml" />
+        <sharedLight linkNode="redTriangle_01_01" node="0" filename="$data/shared/assets/reflectors/lizard/redTriangle_01.xml" />
+        <sharedLight linkNode="redTriangle_01_02" node="0" filename="$data/shared/assets/reflectors/lizard/redTriangle_01.xml" />
+        <sharedLight linkNode="sideMarker03Left" node="0" filename="$data/shared/assets/lights/lizard/sideMarker_03_left.xml" />
+        <sharedLight linkNode="sideMarker03Right" node="0" filename="$data/shared/assets/lights/lizard/sideMarker_03_right.xml" />
+        <sharedLight linkNode="rear3ChamberLightLeft" node="0" filename="$data/shared/assets/lights/lizard/rear3ChamberLight_01_left.xml" />
+        <sharedLight linkNode="rear3ChamberLightRight" node="0" filename="$data/shared/assets/lights/lizard/rear3ChamberLight_01_right.xml" />
+        <sharedLight linkNode="frontLightOval_02_left" node="0" lightTypes="-1" filename="$data/shared/assets/lights/lizard/backLightOval_02_left_turnedOff.xml" />
+        <sharedLight linkNode="frontLightOval_02_right" node="0" lightTypes="-1" filename="$data/shared/assets/lights/lizard/backLightOval_02_right_turnedOff.xml" />
+
+        <realLights>
+            <high>
+                <light node="backLightsHigh1" lightTypes="0"/>
+                <turnLightLeft node="turnLightLeftBack"/>
+                <turnLightRight node="turnLightRightBack"/>
+                <brakeLight node="backLightsHigh1"/>
+            </high>
+        </realLights>
+
+        <beaconLights>
+            <beaconLight node="beaconLight" filename="$data/shared/assets/beaconLights/lizard/beaconLight03.xml"/>
+        </beaconLights>
+    </lights>
+
+    <animations>
+        <animation name="moveSupport">
+            <part componentJointIndex="2" startTime="0" endTime="0.1" startRotLimit="20 0 0" endRotLimit="5 0 0"/>
+        </animation>
+        <animation name="attachCutter">
+            <part node="lightBar" startTime="0.00" endTime="0.05" visibility="true"/>
+            <part node="lightBar" startTime="0.05" endTime="0.10" visibility="false"/>
+            <part node="controlArm" startTime="0" endTime="1" startRot="0 0 -27" endRot="0 0 0"/>
+            <part node="lockArm" startTime="0" endTime="1" startRot="0 0 10" endRot="0 0 -12"/>
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="controlArm">
+                <dependentPart node="lowerLockArm"/>
+                <dependentPart node="topLockArm"/>
+                <dependentPart node="centerArm"/>
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="drawBarSpring" referencePoint="referencePoint" referenceFrame="referencePoint" isActiveDirty="true" scaleZ="true"/>
+
+            <movingPart node="lowerLockArm" referencePoint="lowerLockArmRef" localReferencePoint="lowerLockArmOriArm" referenceFrame="lowerLockArmRefFrame">
+                <dependentPart node="lowerLockArmOriArm"/>
+                <dependentPart node="lowerLockArmSpring"/>
+            </movingPart>
+            <movingPart node="lowerLockArmOriArm" referencePoint="lowerLockArmRef" referenceFrame="lowerLockArmRef"/>
+            <movingPart node="lowerLockArmSpring" referencePoint="lowerLockArmSpringRef" referenceFrame="lowerLockArmSpringRef" scaleZ="true"/>
+
+            <movingPart node="topLockArm" referencePoint="topLockArmRef" localReferencePoint="topLockArmOriArm" referenceFrame="topLockArmRefFrame">
+                <dependentPart node="topLockArmOriArm"/>
+            </movingPart>
+            <movingPart node="topLockArmOriArm" referencePoint="topLockArmRef" referenceFrame="topLockArmRef"/>
+
+            <movingPart node="centerArm" referencePoint="centerArmRef" localReferencePoint="centerArmOriArm" referenceFrame="centerArmRefFrame">
+                <dependentPart node="centerArmOriArm"/>
+            </movingPart>
+            <movingPart node="centerArmOriArm" referencePoint="centerArmRef" referenceFrame="centerArmRef"/>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="rrXLTrailer_main_component1"/>
+        </sounds>
+    </cylindered>
+
+    <dynamicMountAttacher triggerNode="dynamicMountAttacher" rootNode="rrXLTrailer_main_component1" jointNode="rrXLTrailer_main_component1" forceAcceleration="500" mountType="TYPE_AUTO_ATTACH_XZ">
+        <animation name="attachCutter" speed="1"/>
+    </dynamicMountAttacher>
+
+    <foliageBending>
+        <bendingNode minX="0" maxX="2.5" minZ="-0.4" maxZ="0.4" yOffset="-0.1" node="attacherJoint" />
+        <bendingNode minX="-1.3" maxX="1.3" minZ="-1.6" maxZ="-0.2" yOffset="-0.5" node="componentJointDrawbar" />
+        <bendingNode minX="-0.6" maxX="0" minZ="-2.7" maxZ="3.2" yOffset="0.8" />
+        <bendingNode minX="-1.45" maxX="1.45" minZ="-4.4" maxZ="-2.5" yOffset="0.4" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="rrXLTrailer_mat" baseNode="rrXLTrailer_vis">
+            <shaderParameter name="colorMat0" value="ROPA_YELLOW"/>
+            <shaderParameter name="colorMat1" value="ROPA_BLACK1"/>
+            <shaderParameter name="colorMat2" value="ROPA_DARKGRAY"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="3" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="rrXLTrailer_main_component1" node="0>" />
+        <i3dMapping id="rrXLTrailer_vis" node="0>0" />
+        <i3dMapping id="componentJointDolly" node="0>0|0" />
+        <i3dMapping id="backLeftWheel" node="0>0|1|0" />
+        <i3dMapping id="backRightWheel" node="0>0|1|1" />
+        <i3dMapping id="wheelChocks" node="0>0|1|2" />
+        <i3dMapping id="wheelChock01" node="0>0|1|2|0" />
+        <i3dMapping id="wheelChock02" node="0>0|1|2|1" />
+        <i3dMapping id="dynamicMountAttacher" node="0>0|2|0" />
+        <i3dMapping id="controlArm" node="0>0|2|1" />
+        <i3dMapping id="lowerLockArmRef" node="0>0|2|1|0" />
+        <i3dMapping id="topLockArmRef" node="0>0|2|1|1" />
+        <i3dMapping id="centerArmRef" node="0>0|2|1|2" />
+        <i3dMapping id="lowerLockArm" node="0>0|2|2" />
+        <i3dMapping id="lowerLockArmOriArm" node="0>0|2|2|0" />
+        <i3dMapping id="lowerLockArmSpring" node="0>0|2|2|0|0" />
+        <i3dMapping id="topLockArm" node="0>0|2|3" />
+        <i3dMapping id="topLockArmOriArm" node="0>0|2|3|0" />
+        <i3dMapping id="centerArm" node="0>0|2|4" />
+        <i3dMapping id="centerArmOriArm" node="0>0|2|4|0" />
+        <i3dMapping id="lockArm" node="0>0|2|5" />
+        <i3dMapping id="lightBar" node="0>0|2|6" />
+        <i3dMapping id="frontLightOval_02_left" node="0>0|2|6|0|0" />
+        <i3dMapping id="frontLightOval_02_right" node="0>0|2|6|0|1" />
+        <i3dMapping id="lowerLockArmSpringRef" node="0>0|2|8" />
+        <i3dMapping id="lowerLockArmRefFrame" node="0>0|2|9" />
+        <i3dMapping id="topLockArmRefFrame" node="0>0|2|10" />
+        <i3dMapping id="centerArmRefFrame" node="0>0|2|11" />
+        <i3dMapping id="reflector_yellowRound_02_01" node="0>0|3|0|0" />
+        <i3dMapping id="reflector_yellowRound_02_02" node="0>0|3|0|1" />
+        <i3dMapping id="reflector_yellowRound_02_03" node="0>0|3|0|2" />
+        <i3dMapping id="reflector_yellowRound_02_04" node="0>0|3|0|3" />
+        <i3dMapping id="redTriangle_01_01" node="0>0|3|0|4" />
+        <i3dMapping id="redTriangle_01_02" node="0>0|3|0|5" />
+        <i3dMapping id="sideMarker03Left" node="0>0|3|0|6" />
+        <i3dMapping id="sideMarker03Right" node="0>0|3|0|7" />
+        <i3dMapping id="rear3ChamberLightLeft" node="0>0|3|0|8" />
+        <i3dMapping id="rear3ChamberLightRight" node="0>0|3|0|9" />
+        <i3dMapping id="backLightsHigh1" node="0>0|3|1|0" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|3|2|0|0" />
+        <i3dMapping id="turnLightRightBack" node="0>0|3|2|1|0" />
+        <i3dMapping id="beaconLight" node="0>0|3|3|0" />
+        <i3dMapping id="electric" node="0>0|5|0" />
+        <i3dMapping id="electric_detached" node="0>0|5|0|0" />
+        <i3dMapping id="componentJointDrawbar" node="1>0|0" />
+        <i3dMapping id="frontLeftWheel" node="1>0|1|0" />
+        <i3dMapping id="frontRightWheel" node="1>0|1|1" />
+        <i3dMapping id="drawBarSpring" node="1>0|2" />
+        <i3dMapping id="rrXLTrailer_drawbar_component3" node="2>" />
+        <i3dMapping id="attacherJoint" node="2>0|0" />
+        <i3dMapping id="referencePoint" node="2>0|1" />
+        <i3dMapping id="airDoubleStorage" node="2>0|2|0" />
+        <i3dMapping id="airDoubleStorage_detached" node="2>0|2|0|0" />
+        <i3dMapping id="airDoubleControl" node="2>0|2|1" />
+        <i3dMapping id="airDoubleControl_detached" node="2>0|2|1|0" />
+    </i3dMappings>
+</vehicle>

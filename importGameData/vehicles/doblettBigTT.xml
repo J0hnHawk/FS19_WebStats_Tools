@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="cultivator">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Big TT</name>
+        <specs>
+            <neededPower>320</neededPower>
+            <workingWidth>3.4</workingWidth>
+        </specs>
+        <functions>
+            <function>$l10n_function_cultivator</function>
+        </functions>
+        <image>$data/vehicles/TT/bigTT/store_doblettBigTT.png</image>
+        <price>13000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>TT</brand>
+        <category>discHarrows</category>
+        <vertexBufferMemoryUsage>689408</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>111888</indexBufferMemoryUsage>
+        <textureMemoryUsage>2665368</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_cultivator</typeDesc>
+        <filename>$data/vehicles/TT/bigTT/doblettBigTT.i3d</filename>
+        <size width="6" length="7" widthOffset="0.35" lengthOffset="0.5"/>
+        <speedLimit value="17"/>
+        <components>
+            <component centerOfMass="0.11 0.4 -0.5" solverIterationCount="10" mass="1612"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel isLeft="true">
+                        <physics restLoad="0.1" repr="wheelFrontLeft"  useReprDirection="true" forcePointRatio="0.3" radius="0.301" width="0.3" mass="0.05" initialCompression="20" suspTravel="0.1" spring="15" damper="20" rotationDamping="0.005" isSynchronized="false"/>
+                    </wheel>
+                    <wheel isLeft="true">
+                        <physics restLoad="0.3" repr="wheelFrontRight" useReprDirection="true" forcePointRatio="0.3" radius="0.301" width="0.3" mass="0.05" initialCompression="20" suspTravel="0.1" spring="15" damper="20" rotationDamping="0.005" isSynchronized="false"/>
+                    </wheel>
+                    <wheel isLeft="true">
+                        <physics restLoad="0.4" repr="wheelBackLeft"   useReprDirection="true" forcePointRatio="0.3" radius="0.301" width="0.3" mass="0.05" initialCompression="20" suspTravel="0.1" spring="15" damper="20" rotationDamping="0.005" isSynchronized="false"/>
+                    </wheel>
+                    <wheel isLeft="true">
+                        <physics restLoad="0.8" repr="wheelBackRight"  useReprDirection="true" forcePointRatio="0.3" radius="0.301" width="0.3" mass="0.05" initialCompression="20" suspTravel="0.1" spring="15" damper="20" rotationDamping="0.005" isSynchronized="false"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/400_55R22_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                        <physics restLoad="0.7" repr="wheelLeft"       useReprDirection="true" forcePointRatio="0.3" initialCompression="40" suspTravel="0.05" spring="30" damper="10" rotationDamping="0.005" isSynchronized="true"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/400_55R22_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true">
+                        <physics restLoad="1.0" repr="wheelRight"      useReprDirection="true" forcePointRatio="0.3" initialCompression="40" suspTravel="0.05" spring="30" damper="10" rotationDamping="0.005" isSynchronized="true"/>
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+        <hubs>
+            <color0>DOBLETT_BLACK1</color0>
+            <color1>DOBLETT_BLACK2</color1>
+            <hub linkNode="wheelLeft"  filename="$data/shared/wheels/hubs/hub_n10_7.xml" isLeft="true"  scale="0.3 0.3 0.3" />
+            <hub linkNode="wheelRight" filename="$data/shared/wheels/hubs/hub_n10_7.xml" isLeft="false" scale="0.3 0.3 0.3" />
+        </hubs>
+        <rimColor>DOBLETT_GRAY2</rimColor>
+    </wheels>
+    
+    <speedRotatingParts>
+        <speedRotatingPart shaderNode="dicsFrontOut" radius="0.6" groundReferenceNodeIndex="1" foldMinLimit="0" foldMaxLimit="0.5"/>
+        <speedRotatingPart shaderNode="dicsfrontIn"  radius="0.6" groundReferenceNodeIndex="1" foldMinLimit="0" foldMaxLimit="0.5"/>
+        <speedRotatingPart shaderNode="dicsBackOut"  radius="0.6" groundReferenceNodeIndex="1" foldMinLimit="0" foldMaxLimit="0.5"/>
+        <speedRotatingPart shaderNode="discsBackIn"  radius="0.6" groundReferenceNodeIndex="1" foldMinLimit="0" foldMaxLimit="0.5"/>
+    </speedRotatingParts>
+
+    <attachable allowFoldingWhileAttached="false">
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="trailerLow" attacherHeight="0.6"/>
+        </inputAttacherJoints>
+        <brakeForce>0.4</brakeForce>
+    </attachable>
+
+    <powerConsumer forceNode="doblettBigTT_main_component1" maxForce="45" neededMaxPtoPower="0"/>
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundReferenceNode" threshold="0.05" depthNode="depthNode"/>
+    </groundReferenceNodes>
+    
+    <workAreas>
+        <workArea type="cultivator" functionName="processCultivatorArea" needsSetIsTurnedOn="false">
+            <area startNode="workAreaFrontStart" widthNode="workAreaFrontWidth" heightNode="workAreaFrontHeight"/>
+            <groundReferenceNode index="1"/>
+            <folding minLimit="0" maxLimit="0.1"/>
+        </workArea>
+        <workArea type="cultivator" functionName="processCultivatorArea" needsSetIsTurnedOn="false">
+            <area startNode="workAreaBackStart" widthNode="workAreaBackWidth" heightNode="workAreaBackHeight"/>
+            <groundReferenceNode index="1"/>
+            <folding minLimit="0" maxLimit="0.1"/>
+        </workArea>
+    </workAreas>
+    
+    <workParticles>
+        <particleAnimation>
+            <node node="soilAnimation" refNodeIndex="1" materialType="SOIL"/>
+            <node node="soilAnimation1Back" refNodeIndex="1" materialType="SOIL"/>
+        </particleAnimation>
+        <particle>
+            <node node="soilEmitShape" refNodeIndex="1" particleType="SOIL"/>
+            <node node="dustEmitterShape" refNodeIndex="1" particleType="SOIL_SMOKE"/>
+            <node node="soilEmitShape2" refNodeIndex="1" particleType="SOIL_CHUNKS" worldSpace="false"/>
+            <node node="soilEmitShape1Back" refNodeIndex="1" particleType="SOIL"/>
+            <node node="dustEmitterShapeBack" refNodeIndex="1" particleType="SOIL_SMOKE"/>
+            <node node="soilEmitShape2Back" refNodeIndex="1" particleType="SOIL_CHUNKS" worldSpace="false"/>
+        </particle>
+    </workParticles>
+
+    <foldable>
+        <foldingParts startMoveDirection="1" foldMiddleAnimTime="1" turnOnFoldMinLimit="0.0" turnOnFoldMaxLimit="1.0">
+            <foldingPart animationName="folding" speedScale="2"/>
+        </foldingParts>
+    </foldable>
+    
+    <animations>
+        <animation name="folding">
+            <part node="drawbar" startTime="0.0" endTime="4.0" startRot="-10 0 0" endRot="0 0 0"/>
+            <part node="backAxis" startTime="0.0" endTime="4.0" startRot="22 0 0" endRot="0 0 0"/>
+            <part node="drawbarPart" startTime="0.0" endTime="4.0" startRot="0 -15 0" endRot="0 0 0"/>
+            <part node="backArm" startTime="0.0" endTime="4.0" startRot="0 -30 0" endRot="0 0 0"/>
+            <part node="wheelFrontRightRot" startTime="0.0" endTime="4.0" startRot="0 -15 0" endRot="0 0 0"/>
+            <part node="wheelFrontLeftRot" startTime="0.0" endTime="4.0" startRot="0 -15 0" endRot="0 0 0"/>
+            <part node="wheelBackLeftRot" startTime="0.0" endTime="4.0" startRot="0 15 0" endRot="0 0 0"/>
+            <part node="wheelBackRightRot" startTime="0.0" endTime="4.0" startRot="0 15 0" endRot="0 0 0"/>
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="drawbar" playSound="true">
+                <inputAttacherJoint value="true"/>
+                <dependentPart node="drawbarHydraulic"/>
+            </movingTool>
+            <movingTool node="drawbarPart">
+                <inputAttacherJoint value="true"/>
+            </movingTool>
+            <movingTool node="wheelFrontLeftRot" wheelIndices="1"/>
+            <movingTool node="wheelFrontRightRot" wheelIndices="2"/>
+            <movingTool node="wheelBackLeftRot" wheelIndices="3"/>
+            <movingTool node="wheelBackRightRot" wheelIndices="4"/>
+            <movingTool node="backArm" playSound="true" wheelIndices="3 4 5 6">
+                <dependentPart node="middleArm"/>
+            </movingTool>
+            <movingTool node="backAxis" wheelIndices="5 6">
+                <dependentPart node="backAxisHydraulic"/>
+            </movingTool>
+        </movingTools>
+        <movingParts>
+            <movingPart node="drawbarHydraulic" referencePoint="drawbarHydraulicRef" referenceFrame="drawbarHydraulicRef">
+                <translatingPart node="drawbarHydraulicPunch"/>
+            </movingPart>
+            <movingPart node="backAxisHydraulic" referencePoint="backAxisHydraulicRef" referenceFrame="backAxisHydraulicRef">
+                <translatingPart node="backAxisHydraulicPunch"/>
+            </movingPart>
+            <movingPart node="middleArm" referencePoint="middleArmRef" localReferencePoint="middleArmPart" referenceFrame="middleArmRefFrame">
+                <dependentPart node="middleArmPart"/>
+            </movingPart>
+            <movingPart node="middleArmPart" referencePoint="middleArmRef" referenceFrame="middleArmRef">
+                <dependentPart node="hydraulicMiddleArm"/>
+            </movingPart>
+            <movingPart node="hydraulicMiddleArm" referencePoint="middleArmHydraulicRef" referenceFrame="middleArmHydraulicRef">
+                <translatingPart node="middleArmHydraulicPunch"/>
+            </movingPart>
+        </movingParts>
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="doblettBigTT_main_component1"/>
+        </sounds>
+    </cylindered>
+    <cultivator>
+        <onlyActiveWhenLowered value="false"/>
+        <sounds>
+            <work template="DEFAULT_CULTIVATOR_WORK" linkNode="doblettBigTT_main_component1" />
+        </sounds>
+    </cultivator>
+
+    <ai>
+        <needsLowering value="true"/>
+        <areaMarkers leftNode="areaMarkerLeft" rightNode="areaMarkerRight" backNode="areaMarkerBack"/>
+        <sizeMarkers leftNode="sizeMarkerLeft" rightNode="sizeMarkerRight" backNode="sizeMarkerBack"/>
+        <collisionTrigger node="aiCollisionTrigger"/>
+        <allowTurnBackward value="false"/>
+        <turningRadiusLimitation radius="7"/>
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-0.3" maxX="0.3" minZ="1.5" maxZ="4" yOffset="0.2" />
+        <bendingNode minX="-2.3" maxX="2.8" minZ="-1.3" maxZ="1.5" yOffset="0.2" />
+        <bendingNode minX="-1" maxX="1.3" minZ="-2.55" maxZ="-1.3" yOffset="0.2" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="doblettBigTT_mat" baseNode="bigTT_vis">
+            <shaderParameter name="colorMat0" value="DOBLETT_ORANGE1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="doblettBigTT_main_component1" node="0>" />
+        <i3dMapping id="bigTT_vis" node="0>0" />
+        <i3dMapping id="wheelsFront" node="0>0|0" />
+        <i3dMapping id="wheelFrontLeftRot" node="0>0|0|0" />
+        <i3dMapping id="wheelFrontLeft" node="0>0|0|0|0" />
+        <i3dMapping id="wheelFrontRightRot" node="0>0|0|1" />
+        <i3dMapping id="wheelFrontRight" node="0>0|0|1|0" />
+        <i3dMapping id="drawbar" node="0>0|1|0" />
+        <i3dMapping id="drawbarPartRot" node="0>0|1|0|0" />
+        <i3dMapping id="drawbarPart" node="0>0|1|0|0|0" />
+        <i3dMapping id="attacherJoint" node="0>0|1|0|0|0|0" />
+        <i3dMapping id="drawbarPartCol" node="0>0|1|0|0|0|1" />
+        <i3dMapping id="drawbarPartBolts" node="0>0|1|0|0|0|2" />
+        <i3dMapping id="drawbar2Bone" node="0>0|1|0|0|0|3" />
+        <i3dMapping id="drawbarHydraulicRef" node="0>0|1|0|1" />
+        <i3dMapping id="drawbar_col2" node="0>0|1|0|2" />
+        <i3dMapping id="drawbarBone" node="0>0|1|0|3" />
+        <i3dMapping id="backArm" node="0>0|1|1" />
+        <i3dMapping id="wheelsBack" node="0>0|1|1|0" />
+        <i3dMapping id="wheelBackLeftRot" node="0>0|1|1|0|0" />
+        <i3dMapping id="wheelBackLeft" node="0>0|1|1|0|0|0" />
+        <i3dMapping id="wheelBackRightRot" node="0>0|1|1|0|1" />
+        <i3dMapping id="wheelBackRight" node="0>0|1|1|0|1|0" />
+        <i3dMapping id="backAxis" node="0>0|1|1|1" />
+        <i3dMapping id="backAxisHydraulicRef" node="0>0|1|1|1|0" />
+        <i3dMapping id="wheels" node="0>0|1|1|1|1" />
+        <i3dMapping id="wheelLeft" node="0>0|1|1|1|1|0" />
+        <i3dMapping id="wheelRight" node="0>0|1|1|1|1|1" />
+        <i3dMapping id="backAxis_col" node="0>0|1|1|1|2" />
+        <i3dMapping id="wheelCollision" node="0>0|1|1|1|3" />
+        <i3dMapping id="backAxisHydraulic" node="0>0|1|1|2" />
+        <i3dMapping id="backAxisHydraulicPunch" node="0>0|1|1|2|0" />
+        <i3dMapping id="hydraulicBackAxisBone" node="0>0|1|1|2|1" />
+        <i3dMapping id="middleArmRef" node="0>0|1|1|3" />
+        <i3dMapping id="rotatingPartsBack" node="0>0|1|1|4" />
+        <i3dMapping id="dicsBackOut" node="0>0|1|1|4|0" />
+        <i3dMapping id="discsBackIn" node="0>0|1|1|4|1" />
+        <i3dMapping id="workAreaBack" node="0>0|1|1|5" />
+        <i3dMapping id="workAreaBackStart" node="0>0|1|1|5|0" />
+        <i3dMapping id="workAreaBackWidth" node="0>0|1|1|5|1" />
+        <i3dMapping id="workAreaBackHeight" node="0>0|1|1|5|2" />
+        <i3dMapping id="particlesAndEffectsBack" node="0>0|1|1|6" />
+        <i3dMapping id="soilAnimation1Back" node="0>0|1|1|6|0" />
+        <i3dMapping id="soilEmitShape1Back" node="0>0|1|1|6|1" />
+        <i3dMapping id="dustEmitterShapeBack" node="0>0|1|1|6|2" />
+        <i3dMapping id="soilEmitShape2Back" node="0>0|1|1|6|3" />
+        <i3dMapping id="backArm_decals" node="0>0|1|1|7" />
+        <i3dMapping id="backArm_col" node="0>0|1|1|8" />
+        <i3dMapping id="backArmBone" node="0>0|1|1|9" />
+        <i3dMapping id="Asset_Libr_decal" node="0>0|1|1|10" />
+        <i3dMapping id="middleArm" node="0>0|1|2" />
+        <i3dMapping id="middleArmPart" node="0>0|1|2|0" />
+        <i3dMapping id="hydraulicMiddleArm" node="0>0|1|2|0|0" />
+        <i3dMapping id="middleArmHydraulicPunch" node="0>0|1|2|0|0|0" />
+        <i3dMapping id="hydraulicMiddleArmBone" node="0>0|1|2|0|0|1" />
+        <i3dMapping id="middleArmHydraulicRef" node="0>0|1|2|1" />
+        <i3dMapping id="middleArmBone" node="0>0|1|2|2" />
+        <i3dMapping id="drawbarHydraulic" node="0>0|2|0" />
+        <i3dMapping id="drawbarHydraulicPunch" node="0>0|2|0|0" />
+        <i3dMapping id="hydraulicDrawbarBone" node="0>0|2|0|1" />
+        <i3dMapping id="middleArmRefFrame" node="0>0|2|1" />
+        <i3dMapping id="rotatingPartsFront" node="0>0|3" />
+        <i3dMapping id="dicsFrontOut" node="0>0|3|0" />
+        <i3dMapping id="dicsfrontIn" node="0>0|3|1" />
+        <i3dMapping id="workAreaFront" node="0>0|4" />
+        <i3dMapping id="workAreaFrontStart" node="0>0|4|0" />
+        <i3dMapping id="workAreaFrontWidth" node="0>0|4|1" />
+        <i3dMapping id="workAreaFrontHeight" node="0>0|4|2" />
+        <i3dMapping id="groundReferenceNode" node="0>0|4|3" />
+        <i3dMapping id="depthNode" node="0>0|4|4" />
+        <i3dMapping id="particlesAndEffectsFront" node="0>0|5" />
+        <i3dMapping id="soilAnimation" node="0>0|5|0" />
+        <i3dMapping id="soilEmitShape" node="0>0|5|1" />
+        <i3dMapping id="dustEmitterShape" node="0>0|5|2" />
+        <i3dMapping id="soilEmitShape2" node="0>0|5|3" />
+        <i3dMapping id="ai" node="0>0|6" />
+        <i3dMapping id="aiAreaMarkers" node="0>0|6|0" />
+        <i3dMapping id="areaMarkerLeft" node="0>0|6|0|0" />
+        <i3dMapping id="areaMarkerRight" node="0>0|6|0|1" />
+        <i3dMapping id="areaMarkerBack" node="0>0|6|0|2" />
+        <i3dMapping id="aiSizeMarkers" node="0>0|6|1" />
+        <i3dMapping id="sizeMarkerLeft" node="0>0|6|1|0" />
+        <i3dMapping id="sizeMarkerRight" node="0>0|6|1|1" />
+        <i3dMapping id="sizeMarkerBack" node="0>0|6|1|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|6|2" />
+    </i3dMappings>
+</vehicle>

@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="fertilizingSowingMachine">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Two Row Billet Planter</name>
+        <specs>
+            <neededPower>200</neededPower>
+            <workingWidth>2</workingWidth>
+            <combination>SB 700</combination>
+            <fillTypes>sugarCane fertilizer</fillTypes>
+        </specs>
+        <functions>
+            <function>$l10n_function_sowingMachine</function>
+        </functions>
+        <image>$data/vehicles/gessner/twoRow/store_twoRow.png</image>
+        <price>85000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>GESSNER</brand>
+        <category>sugarCaneHarvesting</category>
+        <shopTranslationOffset>0 -0.15 0</shopTranslationOffset>
+        <shopRotationOffset>0.8 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>1897660</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>321504</indexBufferMemoryUsage>
+        <textureMemoryUsage>7559112</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_sowingMachine</typeDesc>
+        <filename>$data/vehicles/gessner/twoRow/twoRow.i3d</filename>
+        <size width="4.8" length="6.5"/>
+        <speedLimit value="12" />
+        <components>
+            <component centerOfMass="0 0.4 1" solverIterationCount="10" mass="900" />
+            <component centerOfMass="0 -0.4 -1.5" solverIterationCount="10" mass="450" />
+            <joint component1="1" component2="2" node="componentJoint_mainFrame" rotLimit="12 0 0" transLimit="0 0 0" rotLimitSpring="1000 0 0" rotLimitDamping="600 0 0" rotLimitForceLimit="10000 -1 -1" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/trelleborg/AW305/260_70R16.xml" isLeft="true" hasTireTracks="true" >
+                        <physics restLoad="0.5" repr="wheelFrontLeft"                             forcePointRatio="0.3" initialCompression="10" suspTravel="0.07" spring="30" damper="10" brakeFactor="0" rotationDamping="0.0008" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/AW305/260_70R16.xml" isLeft="false" hasTireTracks="true" >
+                        <physics restLoad="0.5" repr="wheelFrontRight"                            forcePointRatio="0.3" initialCompression="10" suspTravel="0.07" spring="30" damper="10" brakeFactor="0" rotationDamping="0.0008" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T510/220_50R6.xml" isLeft="true" >
+                        <physics restLoad="0.5" repr="wheelsMiddleLeft"  radius="0.2"             forcePointRatio="0.3" initialCompression="90" suspTravel="0.03" spring="40" damper="10" brakeFactor="0" rotationDamping="0.0005" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T510/220_50R6.xml" isLeft="true" >
+                        <physics restLoad="0.5" repr="wheelsMiddleRight" radius="0.2"             forcePointRatio="0.3" initialCompression="90" suspTravel="0.03" spring="40" damper="10" brakeFactor="0" rotationDamping="0.0005" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/AW305/300_80R15_3.xml" isLeft="true" hasParticles="true" hasTireTracks="true" >
+                        <physics restLoad="0.7" repr="axisBackLeft"   driveNode="wheelBackLeft"   forcePointRatio="0.3" initialCompression="20" suspTravel="0.10" spring="20" damper="10" maxLatStiffness="3" mass="0.5" versatileYRot="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/AW305/300_80R15_3.xml" isLeft="true" hasParticles="true" hasTireTracks="true" >
+                        <physics restLoad="0.5" repr="axisBackMiddle" driveNode="wheelBackMiddle" forcePointRatio="0.3" initialCompression="20" suspTravel="0.10" spring="20" damper="10" maxLatStiffness="3" mass="0.5" versatileYRot="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/AW305/300_80R15_3.xml" isLeft="false" hasParticles="true" hasTireTracks="true" >
+                        <physics restLoad="0.7" repr="axisBackRight"  driveNode="wheelBackRight"  forcePointRatio="0.3" initialCompression="20" suspTravel="0.10" spring="20" damper="10" maxLatStiffness="3" mass="0.5" versatileYRot="true" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <hubs>
+            <color0>GESSNER_GREEN1</color0>
+            <hub linkNode="wheelFrontLeft"    filename="$data/shared/wheels/hubs/hub_n5_1.xml"      isLeft="true"  scale="0.151 0.151 0.151" />
+            <hub linkNode="wheelFrontRight"   filename="$data/shared/wheels/hubs/hub_n5_1.xml"      isLeft="false" scale="0.151 0.151 0.151" />
+            <hub linkNode="wheelsMiddleLeft"  filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.151 0.151 0.151" >
+                <color0>-</color0>
+            </hub>
+            <hub linkNode="wheelsMiddleRight" filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.151 0.151 0.151" >
+                <color0>-</color0>
+            </hub>
+            <hub linkNode="wheelBackLeft"     filename="$data/shared/wheels/hubs/hub_n5_1.xml"      isLeft="true"  scale="0.151 0.151 0.151" />
+            <hub linkNode="wheelBackMiddle"   filename="$data/shared/wheels/hubs/hub_n5_1.xml"      isLeft="false" scale="0.151 0.151 0.151" />
+            <hub linkNode="wheelBackRight"    filename="$data/shared/wheels/hubs/hub_n5_1.xml"      isLeft="false" scale="0.151 0.151 0.151" />
+        </hubs>
+    </wheels>
+
+    <speedRotatingParts>
+        <speedRotatingPart shaderNode="bigDiscsOuter"   radius="-0.386" foldMinLimit="0" foldMaxLimit="1.0" groundReferenceNodeIndex="1" />
+        <speedRotatingPart shaderNode="bigDiscsInner"   radius="0.386"  foldMinLimit="0" foldMaxLimit="1.0" groundReferenceNodeIndex="1" />
+        <speedRotatingPart shaderNode="smallDiscsOuter" radius="-0.183" foldMinLimit="0" foldMaxLimit="1.0" groundReferenceNodeIndex="1" />
+        <speedRotatingPart shaderNode="smallDiscsInner" radius="0.183"  foldMinLimit="0" foldMaxLimit="1.0" groundReferenceNodeIndex="1" />
+    </speedRotatingParts>
+
+    <!-- recommended horsepower by manufacturer: 200 -->
+    <powerConsumer forceNode="0>" neededMinPtoPower="0" neededMaxPtoPower="0" maxForce="30" />
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint jointType="implement" node="attacherJoint" topReferenceNode="topReferenceNode" lowerRotLimitScale="0 0 0" lowerTransLimitScale="0 0 0" lowerRotationOffset="0" upperRotationOffset="10" >
+                <distanceToGround lower="0.55" upper="0.9" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+        <brakeForce>0.25</brakeForce>
+        <support animationName="moveSupport" />
+    </attachable>
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn01"  length="1.7" diameter="0.02" straighteningFactor="0.5">
+           <objectChange node="hydraulicIn01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut01" length="1.7" diameter="0.02" straighteningFactor="0.5">
+            <objectChange node="hydraulicOut01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn02"  length="1.5" diameter="0.02" straighteningFactor="0.5">
+           <objectChange node="hydraulicIn02_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut02" length="1.5" diameter="0.02" straighteningFactor="0.5">
+            <objectChange node="hydraulicOut02_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn03"  length="1.5" diameter="0.02" straighteningFactor="0.5">
+           <objectChange node="hydraulicIn03_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+    </connectionHoses>
+
+    <lights>
+        <sharedLight linkNode="threeChamberLightLeft"       filename="$data/shared/assets/lights/lizard/rear3ChamberLight_01_left.xml" />
+        <sharedLight linkNode="threeChamberLightRight"       filename="$data/shared/assets/lights/lizard/rear3ChamberLight_01_right.xml" />
+        <realLights>
+            <high>
+                <light node="backLightsHigh" lightTypes="0" />
+                <turnLightLeft node="turnLightLeftBack" />
+                <turnLightRight node="turnLightRightBack" />
+                <brakeLight node="backLightsHigh" />
+            </high>
+        </realLights>
+
+        <beaconLights>
+           <beaconLight node="beaconLight" filename="$data/shared/assets/beaconLights/lizard/beaconLight06.xml" />
+       </beaconLights>
+    </lights>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundReference" threshold="0.15" depthNode="depthNode" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="sowingMachine" functionName="processSowingMachineArea"  needsSetIsTurnedOn="false">
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight" />
+            <groundReferenceNode index="1" />
+        </workArea>
+    </workAreas>
+
+    <workParticles>
+        <particleAnimation>
+            <node node="emitEffectCenter"            refNodeIndex="1" materialType="SOIL" />
+        </particleAnimation>
+        <particle>
+            <node node="emitEffectParticleSoil"      refNodeIndex="1" particleType="SOIL" emitCountScale="2.0" />
+            <node node="emitEffectParticleSmoke"     refNodeIndex="1" particleType="SOIL_SMOKE" emitCountScale="3.0"/>
+            <node node="emitEffectParticleChunks"    refNodeIndex="1" particleType="SOIL_CHUNKS" worldSpace="false" emitCountScale="2.0" />
+            <node node="emitEffectParticleChunksBig" refNodeIndex="1" particleType="SOIL_BIG_CHUNKS" worldSpace="false" emitCountScale="2.0" />
+        </particle>
+    </workParticles>
+
+    <foldable>
+        <foldingParts startMoveDirection="1" turnOnFoldMaxLimit="0.1" turnOnFoldMinLimit="0" >
+            <foldingPart animationName="folding" speedScale="1" />
+        </foldingParts>
+    </foldable>
+
+    <animations>
+        <animation name="folding">
+            <part node="bunker"  startTime="0" endTime="3"   startRot="40 0 0" endRot="0 0 0"/>
+        </animation>
+        <animation name="turnedOnAnimation">
+            <part node="door"    startTime="0" endTime="1.5" startRot="0 0 0"  endRot="-25 0 0"/>
+        </animation>
+        <animation name="moveSupport">
+            <part node="support" startTime="0" endTime="0.5" startTrans="0 1.1 2.06" endTrans="0 0.55 2.06" />
+        </animation>
+        <animation name="toggleCover">
+            <part node="cover"   startTime="0" endTime="1.5" startRot="0 0 0" endRot="63 0 0" />
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="bunker" playSound="true">
+                <dependentPart node="hydraulicBunker" />
+            </movingTool>
+            <movingTool node="door" playSound="true">
+                <dependentPart node="hydraulicDoor" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="hydraulicBunker" referencePoint="hydraulicBunkerRef" referenceFrame="hydraulicBunkerRef" >
+                <translatingPart node="hydraulicBunkerPunch" />
+            </movingPart>
+            <movingPart node="hydraulicDoor" referencePoint="hydraulicDoorRef" referenceFrame="hydraulicDoorRef" >
+                <translatingPart node="hydraulicDoorPunch" />
+                <dependentPart node="hydraulicDoorPipe1" />
+                <dependentPart node="hydraulicDoorPipe2" />
+                <dependentPart node="hydraulicDoorPipe3" />
+                <dependentPart node="hydraulicDoorPipe4" />
+            </movingPart>
+            <movingPart node="hydraulicDoorPipe1" referencePoint="hydraulicDoorPipe1Ref" referenceFrame="hydraulicDoorPipe1Ref" />
+            <movingPart node="hydraulicDoorPipe2" referencePoint="hydraulicDoorPipe2Ref" referenceFrame="hydraulicDoorPipe2Ref" />
+            <movingPart node="hydraulicDoorPipe3" referencePoint="hydraulicDoorPipe3Ref" referenceFrame="hydraulicDoorPipe3Ref" />
+            <movingPart node="hydraulicDoorPipe4" referencePoint="hydraulicDoorPipe4Ref" referenceFrame="hydraulicDoorPipe4Ref" />
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <unloading width="25" offset="0 0 0" />
+                    <fillUnit unit="$l10n_unit_literShort" fillTypes="sugarCane seeds" capacity="8000" updateMass="false" >
+                        <exactFillRootNode node="exactFillRootNode" />
+                    </fillUnit>
+                    <fillUnit unit="$l10n_unit_literShort" fillTypes="fertilizer" capacity="1440" >
+                        <exactFillRootNode node="exactFillRootNodeFertilizer" />
+                    </fillUnit>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <fillVolume>
+        <fillVolumeConfigurations>
+            <fillVolumeConfiguration>
+                <volumes>
+                    <volume node="fillVolumeFertilizerLeft"  maxDelta="0.05" fillUnitIndex="2" />
+                    <volume node="fillVolumeFertilizerRight" maxDelta="0.05" fillUnitIndex="2" />
+                    <volume node="fillVolumeSugarCaneLeft"   maxDelta="0.30" fillUnitIndex="1" />
+                    <volume node="fillVolumeSugarCaneRight"  maxDelta="0.30" fillUnitIndex="1" />
+                </volumes>
+            </fillVolumeConfiguration>
+        </fillVolumeConfigurations>
+    </fillVolume>
+
+    <sowingMachine fillUnitIndex="1" >
+        <seedFruitTypeCategories>SUGARCANE_PLANTER</seedFruitTypeCategories>
+        <needsActivation value="true" />
+        <useDirectPlanting value="true" />
+        <onlyActiveWhenLowered value="true" />
+
+        <sounds>
+            <work template="DEFAULT_SOWING_WORK" linkNode="0>" />
+            <airBlower template="DEFAULT_SOWING_AIR_BLOWER" linkNode="0>" />
+        </sounds>
+
+        <animationNodes>
+            <animationNode node="belt" shaderParameterName="offsetUV" shaderComponentScale="10 0 0 0" rotSpeed="3.4" turnOnFadeTime="1" turnOffFadeTime="1" />
+            <animationNode class="ScrollingAnimation" node="chainLeft"  shaderParameterName="scrollPosition" scrollSpeed="0.2" />
+            <animationNode class="ScrollingAnimation" node="chainRight" shaderParameterName="scrollPosition" scrollSpeed="0.2" />
+            <animationNode class="ScrollingAnimation" node="sugarCane"  shaderParameterName="scrollPosition" scrollSpeed="0.2" type="seeds"/>
+        </animationNodes>
+
+        <effects>
+            <effectNode effectClass="MorphPositionEffect" effectNode="effectSugarCane" materialType="belt"    materialTypeId="2" delay="0" fadeTime="6.0" speed="1.0" scrollLength="10" scrollSpeed="0.32" />
+        </effects>
+    </sowingMachine>
+
+    <sprayer fillUnitIndex="2" unloadInfoIndex="1" loadInfoIndex="1" >
+        <usageScales workingWidth="3.2" scale="1" />
+
+        <effects>
+            <effectNode                                   effectNode="effectSprayer"   materialType="sprayer" materialTypeId="1" delay="0" defaultFillType="liquidFertilizer" dynamicFillType="false" />
+        </effects>
+    </sprayer>
+
+    <turnOnVehicle turnOffIfNotAllowed="true">
+        <turnedAnimation name="turnedOnAnimation" />
+    </turnOnVehicle>
+
+    <cover>
+        <coverConfigurations>
+            <coverConfiguration name="$l10n_configuration_valueDefault" price="0" >
+                <cover openAnimation="toggleCover" fillUnitIndices="2"/>
+            </coverConfiguration>
+        </coverConfigurations>
+    </cover>
+
+    <ai>
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack" />
+        <sizeMarkers leftNode="aiSizeLeft"   rightNode="aiSizeRight"   backNode="aiSizeBack" />
+        <collisionTrigger node="aiCollisionTrigger" />
+        <needsLowering value="true"/>
+        <allowTurnBackward value="true" />
+        <turningRadiusLimitation radius="5" />
+        <maxOverlap side="0.05" />
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-2.0" maxX="2.0" minZ="-2.8" maxZ="2.5" yOffset="0.5" />
+    </foliageBending>
+
+    <!-- <baseMaterial> -->
+        <!-- <material name="twoRow_mat" baseNode="drawbar_vis"> -->
+            <!-- <shaderParameter name="colorMat0" value="GESSNER_GREEN2"/> -->
+            <!-- <shaderParameter name="colorMat2" value="GESSNER_RED1"/> -->
+            <!-- <shaderParameter name="colorMat3" value="GESSNER_GRAY1"/> -->
+            <!-- <shaderParameter name="colorMat4" value="GESSNER_YELLOW1"/> -->
+        <!-- </material> -->
+    <!-- </baseMaterial> -->
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="2" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="twoRow_main_component1" node="0>" />
+        <i3dMapping id="attacherJoint" node="0>0" />
+        <i3dMapping id="topReferenceNode" node="0>1" />
+        <i3dMapping id="support" node="0>2" />
+        <i3dMapping id="wheelFrontLeft" node="0>3|0" />
+        <i3dMapping id="wheelFrontRight" node="0>3|1" />
+        <i3dMapping id="wheelsMiddleLeft" node="0>3|2" />
+        <i3dMapping id="wheelsMiddleRight" node="0>3|3" />
+        <i3dMapping id="componentJoint_mainFrame" node="0>4" />
+        <i3dMapping id="workAreaStart" node="0>5|0" />
+        <i3dMapping id="workAreaWidth" node="0>5|1" />
+        <i3dMapping id="workAreaHeight" node="0>5|2" />
+        <i3dMapping id="groundReference" node="0>5|3" />
+        <i3dMapping id="depthNode" node="0>5|4" />
+        <i3dMapping id="emitEffectCenter" node="0>6|0" />
+        <i3dMapping id="emitEffectParticleSoil" node="0>6|1" />
+        <i3dMapping id="emitEffectParticleSmoke" node="0>6|2" />
+        <i3dMapping id="emitEffectParticleChunks" node="0>6|3" />
+        <i3dMapping id="emitEffectParticleChunksBig" node="0>6|4" />
+        <i3dMapping id="bigDiscsOuter" node="0>7|0" />
+        <i3dMapping id="bigDiscsInner" node="0>7|1" />
+        <i3dMapping id="smallDiscsOuter" node="0>7|2" />
+        <i3dMapping id="smallDiscsInner" node="0>7|3" />
+        <i3dMapping id="aiMarkerLeft" node="0>8|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>8|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>8|0|2" />
+        <i3dMapping id="aiSizeLeft" node="0>8|1|0" />
+        <i3dMapping id="aiSizeRight" node="0>8|1|1" />
+        <i3dMapping id="aiSizeBack" node="0>8|1|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>8|2" />
+        <i3dMapping id="cover" node="0>9|0" />
+        <i3dMapping id="fillVolumeFertilizerLeft" node="0>10|0|0" />
+        <i3dMapping id="fillVolumeFertilizerRight" node="0>10|1|0" />
+        <i3dMapping id="exactFillRootNodeFertilizer" node="0>10|2" />
+        <i3dMapping id="hydraulicIn01" node="0>11|0" />
+        <i3dMapping id="hydraulicIn01_detached" node="0>11|0|0" />
+        <i3dMapping id="hydraulicOut01" node="0>11|1" />
+        <i3dMapping id="hydraulicOut01_detached" node="0>11|1|0" />
+        <i3dMapping id="hydraulicIn02" node="0>11|2" />
+        <i3dMapping id="hydraulicIn02_detached" node="0>11|2|0" />
+        <i3dMapping id="hydraulicOut02" node="0>11|3" />
+        <i3dMapping id="hydraulicOut02_detached" node="0>11|3|0" />
+        <i3dMapping id="hydraulicIn03" node="0>11|4" />
+        <i3dMapping id="hydraulicIn03_detached" node="0>11|4|0" />
+        <i3dMapping id="drawbar_vis" node="0>12|0" />
+        <i3dMapping id="axisBackLeft" node="1>0|0" />
+        <i3dMapping id="wheelBackLeft" node="1>0|0|0" />
+        <i3dMapping id="axisBackMiddle" node="1>0|1" />
+        <i3dMapping id="wheelBackMiddle" node="1>0|1|0" />
+        <i3dMapping id="axisBackRight" node="1>0|2" />
+        <i3dMapping id="wheelBackRight" node="1>0|2|0" />
+        <i3dMapping id="bunker_root" node="1>1" />
+        <i3dMapping id="bunker" node="1>2" />
+        <i3dMapping id="hydraulicBunkerRef" node="1>2|0" />
+        <i3dMapping id="door" node="1>2|1" />
+        <i3dMapping id="hydraulicDoorRef" node="1>2|1|0" />
+        <i3dMapping id="hydraulicDoor" node="1>2|2" />
+        <i3dMapping id="hydraulicDoorPunch" node="1>2|2|0" />
+        <i3dMapping id="hydraulicDoorPipe1Ref" node="1>2|2|1" />
+        <i3dMapping id="hydraulicDoorPipe2Ref" node="1>2|2|2" />
+        <i3dMapping id="hydraulicDoorPipe3Ref" node="1>2|2|3" />
+        <i3dMapping id="hydraulicDoorPipe4Ref" node="1>2|2|4" />
+        <i3dMapping id="hydraulicDoorPipe1" node="1>2|3|0" />
+        <i3dMapping id="hydraulicDoorPipe2" node="1>2|3|1" />
+        <i3dMapping id="hydraulicDoorPipe3" node="1>2|3|2" />
+        <i3dMapping id="hydraulicDoorPipe4" node="1>2|3|3" />
+        <i3dMapping id="fillVolumeSugarCaneLeft" node="1>2|4|0|0" />
+        <i3dMapping id="fillAutoAimTarget" node="1>2|4|2" />
+        <i3dMapping id="exactFillRootNode" node="1>2|4|3" />
+        <i3dMapping id="fillVolumeSugarCaneRight" node="1>2|4|4" />
+        <i3dMapping id="hydraulicBunker" node="1>3" />
+        <i3dMapping id="hydraulicBunkerPunch" node="1>3|0" />
+        <i3dMapping id="belt" node="1>4|0" />
+        <i3dMapping id="chainLeft" node="1>4|1|0" />
+        <i3dMapping id="chainRight" node="1>4|1|1" />
+        <i3dMapping id="threeChamberLightLeft" node="1>5|0|0" />
+        <i3dMapping id="threeChamberLightRight" node="1>5|0|1" />
+        <i3dMapping id="backLightsHigh" node="1>5|1" />
+        <i3dMapping id="turnLightLeftBack" node="1>5|2" />
+        <i3dMapping id="turnLightRightBack" node="1>5|3" />
+        <i3dMapping id="beaconLight" node="1>5|4" />
+        <i3dMapping id="sugarCane" node="1>6|0" />
+        <i3dMapping id="effectSprayer" node="1>6|1" />
+        <i3dMapping id="effectSugarCane" node="1>6|2" />
+    </i3dMappings>
+</vehicle>

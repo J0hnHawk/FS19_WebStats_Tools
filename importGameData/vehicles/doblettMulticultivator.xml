@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<vehicle type="fertilizingCultivator">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Multicultivator 5-in-1</name>
+        <specs>
+            <neededPower>240</neededPower>
+            <workingWidth>3.5</workingWidth>
+        </specs>
+        <functions>
+            <function>$l10n_function_subsoiler</function>
+            <function>$l10n_function_fertilizer</function>
+        </functions>
+        <image>$data/vehicles/TT/multiCultivator/store_doblettMulticultivator.png</image>
+        <price>17000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>TT</brand>
+        <category>subsoilers</category>
+        <shopTranslationOffset>0 0.09 0</shopTranslationOffset>
+        <shopRotationOffset>-0.471 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>1913832</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>334530</indexBufferMemoryUsage>
+        <textureMemoryUsage>10398864</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_cultivator</typeDesc>
+        <filename>$data/vehicles/TT/multiCultivator/doblettMulticultivator.i3d</filename>
+        <size width="4.5" length="8"/>
+        <speedLimit value="17"/>
+        <components>
+            <component centerOfMass="0 0.45 0.3" solverIterationCount="10" mass="2860"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/trelleborg/TM700/280_70R18.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                        <physics restLoad="1.6" repr="wheelLeft"  forcePointRatio="0.3" initialCompression="40" suspTravel="0.1" spring="40" damper="20" rotationDamping="0.001"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TM700/280_70R18.xml" isLeft="false" hasTireTracks="true" hasParticles="true">
+                        <physics restLoad="1.6" repr="wheelRight" forcePointRatio="0.3" initialCompression="40" suspTravel="0.1" spring="40" damper="20" rotationDamping="0.001"/>
+                    </wheel>
+                    <wheel isLeft="false" hasTireTracks="false">
+                        <physics restLoad="0.8" repr="wheelFrontLeft"  forcePointRatio="0.3" radius="0.26" width="0.3" mass="0.05" brakeFactor="0" initialCompression="40" suspTravel="0.05" spring="35" damper="20" rotationDamping="0.004" isSynchronized="false"/>
+                    </wheel>
+                    <wheel isLeft="false" hasTireTracks="false">
+                        <physics restLoad="0.8" repr="wheelFrontRight" forcePointRatio="0.3" radius="0.26" width="0.3" mass="0.05" brakeFactor="0" initialCompression="40" suspTravel="0.05" spring="35" damper="20" rotationDamping="0.004" isSynchronized="false"/>
+                    </wheel>
+                    <wheel isLeft="false" hasTireTracks="false">
+                        <physics restLoad="0.6" repr="wheelBackLeft"   forcePointRatio="0.3" radius="0.17" width="0.3" mass="0.05" brakeFactor="0" initialCompression="30" suspTravel="0.05" spring="35" damper="20" rotationDamping="0.004" isSynchronized="false"/>
+                    </wheel>
+                    <wheel isLeft="false" hasTireTracks="false">
+                        <physics restLoad="0.6" repr="wheelBackRight"  forcePointRatio="0.3" radius="0.17" width="0.3" mass="0.05" brakeFactor="0" initialCompression="30" suspTravel="0.05" spring="35" damper="20" rotationDamping="0.004" isSynchronized="false"/>
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <rimColor>SHARED_WHITE2</rimColor>
+    </wheels>
+
+    <speedRotatingParts>
+        <speedRotatingPart node="drumsBack" shaderNode="multicultivatorDisks01" radius="0.296" groundReferenceNodeIndex="1" foldMinLimit="0" foldMaxLimit="0.5"/>
+        <speedRotatingPart shaderNode="multicultivatorDisks02" radius="0.347" groundReferenceNodeIndex="1" foldMinLimit="0" foldMaxLimit="0.5"/>
+        <speedRotatingPart shaderNode="multicultivatorDisks03" radius="-0.141" groundReferenceNodeIndex="1" foldMinLimit="0" foldMaxLimit="0.5"/>
+        <speedRotatingPart shaderNode="multicultivatorDisks04" radius="0.265" groundReferenceNodeIndex="1" foldMinLimit="0" foldMaxLimit="0.5"/>
+    </speedRotatingParts>
+
+    <attachable allowFoldingWhileAttached="false">
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="trailerLow" attacherHeight="0.6"/>
+        </inputAttacherJoints>
+        <support animationName="moveSupport"/>
+        <brakeForce>0.7</brakeForce>
+    </attachable>
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn01"  length="1.7" diameter="0.02" straighteningFactor="1.5">
+           <objectChange node="hydraulicIn01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut01" length="1.7" diameter="0.02" straighteningFactor="1.5">
+           <objectChange node="hydraulicOut01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn02"  length="1.7" diameter="0.02" straighteningFactor="1.5">
+           <objectChange node="hydraulicIn02_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut02" length="1.7" diameter="0.02" straighteningFactor="1.5">
+           <objectChange node="hydraulicOut02_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn03"  length="1.7" diameter="0.02" straighteningFactor="1.5">
+           <objectChange node="hydraulicIn03_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut03" length="1.7" diameter="0.02" straighteningFactor="1.5">
+           <objectChange node="hydraulicOut03_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn04"  length="1.7" diameter="0.02" straighteningFactor="1.5">
+           <objectChange node="hydraulicIn04_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+    </connectionHoses>
+
+    <powerConsumer forceNode="multicultivator_main_component1" maxForce="27" neededMaxPtoPower="0"/>
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundReferenceNodeCultivator" threshold="0.2" depthNode="depthNodeCultivator"/>
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="cultivator" functionName="processCultivatorArea" needsSetIsTurnedOn="false">
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight"/>
+            <groundReferenceNode index="1"/>
+            <folding minLimit="0" maxLimit="0.3"/>
+        </workArea>
+        <workArea type="sprayer" functionName="processSprayerArea">
+            <area startNode="workAreaSprayerStart" widthNode="workAreaSprayerWidth" heightNode="workAreaSprayerHeight"/>
+            <groundReferenceNode index="1"/>
+            <folding minLimit="0" maxLimit="0.3"/>
+        </workArea>
+    </workAreas>
+
+    <workParticles>
+        <particleAnimation>
+            <node node="soilAnimation1" refNodeIndex="1" materialType="SOIL"/>
+        </particleAnimation>
+        <particle>
+            <node node="soilEmitShape" refNodeIndex="1" particleType="SOIL"/>
+            <node node="dustEmitterShape" refNodeIndex="1" particleType="SOIL_SMOKE"/>
+            <node node="soilEmitShape1" refNodeIndex="1" particleType="SOIL_CHUNKS" worldSpace="false"/>
+        </particle>
+    </workParticles>
+
+    <sprayer fillUnitIndex="1" unloadInfoIndex="1" loadInfoIndex="1">
+        <usageScales workingWidth="3.5" scale="1.0"/>
+        <sounds>
+            <work template="DEFAULT_SPRAYER" pitchOffset="0.75" linkNode="0>" />
+        </sounds>
+    </sprayer>
+
+    <turnOnVehicle turnOffIfNotAllowed="true" aiRequiresTurnOn="false"/>
+
+    <foldable>
+        <foldingParts startMoveDirection="1" foldMiddleAnimTime="1.0">
+            <foldingPart animationName="folding" speedScale="1"/>
+        </foldingParts>
+    </foldable>
+
+    <animations>
+        <animation name="folding">
+            <part node="axis" startTime="0.0" endTime="2.0" startRot="40 0 0" endRot="5 0 0"/>
+        </animation>
+        <animation name="moveSupport">
+            <part node="axis" startTime="0.15" endTime="0.75" startRot="0 0 0" endRot="15 0 0"/>
+            <part node="support" startTime="0.00" endTime="0.15" startTrans="0 1.309 -0.744" endTrans="0 0.600 -0.744"/>
+        </animation>
+        <animation name="toggleCover">
+            <part node="cover" startTime="0.00" endTime="0.25" startTrans="0 2.638 0.646" endTrans="0 2.646 0.227" startRot="0 0 0" endRot="0 0 0"/>
+            <part node="cover" startTime="0.25" endTime="0.50" startTrans="0 2.646 0.227" endTrans="0 2.646 0.227" startRot="0 0 0" endRot="-55.414 0 0"/>
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="axis" playSound="true" wheelIndices="1 2">
+                <dependentPart node="hydraulicAxis"/>
+            </movingTool>
+        </movingTools>
+        <movingParts>
+            <movingPart node="hydraulicAxis" referencePoint="hydraulicAxis_ref" referenceFrame="hydraulicAxis_ref">
+                <translatingPart node="hydraulicAxis_push"/>
+            </movingPart>
+        </movingParts>
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" />
+        </sounds>
+    </cylindered>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <unloading width="9" offset="0 0 0" />
+                    <fillUnit unit="$l10n_unit_literShort" fillTypeCategories="spreader" capacity="600">
+                        <exactFillRootNode node="exactFillRootNode"/>
+                    </fillUnit>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <fillVolume>
+        <fillVolumeConfigurations>
+            <fillVolumeConfiguration>
+                <volumes>
+                    <volume node="fillVolume" maxDelta="0.05" fillUnitIndex="1"/>
+                </volumes>
+            </fillVolumeConfiguration>
+        </fillVolumeConfigurations>
+        <unloadInfos>
+            <unloadInfo>
+                <node node="node01" width="0.1" length="0.1"/>
+                <node node="node02" width="0.1" length="0.1"/>
+                <node node="node03" width="0.1" length="0.1"/>
+                <node node="node04" width="0.1" length="0.1"/>
+            </unloadInfo>
+        </unloadInfos>
+        <loadInfos>
+            <loadInfo>
+                <node node="nodeLeft" width="0.25" length="0.2"/>
+                <node node="nodeRight" width="0.25" length="0.2"/>
+            </loadInfo>
+        </loadInfos>
+    </fillVolume>
+
+    <fertilizingCultivator needsSetIsTurnedOn="true" />
+
+    <cultivator isSubsoiler="true">
+        <onlyActiveWhenLowered value="true"/>
+        <sounds>
+            <work template="DEFAULT_CULTIVATOR_WORK" linkNode="multicultivator_main_component1" />
+        </sounds>
+    </cultivator>
+
+    <cover>
+        <coverConfigurations>
+            <coverConfiguration>
+                <cover openAnimation="toggleCover" fillUnitIndices="1"/>
+            </coverConfiguration>
+        </coverConfigurations>
+    </cover>
+
+    <ai>
+        <needsLowering value="true"/>
+        <areaMarkers leftNode="areaMarkerLeft" rightNode="areaMarkerRight" backNode="areaMarkerBack"/>
+        <sizeMarkers leftNode="sizeMarkerLeft" rightNode="sizeMarkerRight" backNode="sizeMarkerBack"/>
+        <collisionTrigger node="aiCollisionTrigger"/>
+        <toolReverserDirectionNode node="sizeMarkerBack"/>
+        <allowTurnBackward value="false"/>
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-1.7" maxX="1.7" minZ="-3.8" maxZ="1.9" yOffset="0.4" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="doblettMulticultivator_mat" baseNode="multicultivator_vis">
+            <shaderParameter name="colorMat0" value="DOBLETT_BLACK2"/>
+            <shaderParameter name="colorMat1" value="DOBLETT_YELLOW1"/>
+            <shaderParameter name="colorMat2" value="DOBLETT_ORANGE1"/>
+            <shaderParameter name="colorMat3" value="DOBLETT_BLACK1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="multicultivator_main_component1" node="0>" />
+        <i3dMapping id="multicultivator_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0|0" />
+        <i3dMapping id="support" node="0>0|0|1" />
+        <i3dMapping id="hydraulicIn01" node="0>0|0|2|0" />
+        <i3dMapping id="hydraulicIn01_detached" node="0>0|0|2|0|0" />
+        <i3dMapping id="hydraulicOut01" node="0>0|0|2|1" />
+        <i3dMapping id="hydraulicOut01_detached" node="0>0|0|2|1|0" />
+        <i3dMapping id="hydraulicIn02" node="0>0|0|2|2" />
+        <i3dMapping id="hydraulicIn02_detached" node="0>0|0|2|2|0" />
+        <i3dMapping id="hydraulicOut02" node="0>0|0|2|3" />
+        <i3dMapping id="hydraulicOut02_detached" node="0>0|0|2|3|0" />
+        <i3dMapping id="hydraulicIn03" node="0>0|0|2|4" />
+        <i3dMapping id="hydraulicIn03_detached" node="0>0|0|2|4|0" />
+        <i3dMapping id="hydraulicOut03" node="0>0|0|2|5" />
+        <i3dMapping id="hydraulicOut03_detached" node="0>0|0|2|5|0" />
+        <i3dMapping id="hydraulicIn04" node="0>0|0|2|6" />
+        <i3dMapping id="hydraulicIn04_detached" node="0>0|0|2|6|0" />
+        <i3dMapping id="wheelFrontLeft" node="0>0|1|0" />
+        <i3dMapping id="wheelFrontRight" node="0>0|1|1" />
+        <i3dMapping id="wheelBackLeft" node="0>0|1|2" />
+        <i3dMapping id="wheelBackRight" node="0>0|1|3" />
+        <i3dMapping id="axis" node="0>0|2|0" />
+        <i3dMapping id="wheelLeft" node="0>0|2|0|0|0" />
+        <i3dMapping id="wheelRight" node="0>0|2|0|0|1" />
+        <i3dMapping id="hydraulicAxis_ref" node="0>0|2|0|1" />
+        <i3dMapping id="multicultivatorDisks01" node="0>0|2|1|0" />
+        <i3dMapping id="multicultivatorDisks02" node="0>0|2|1|1" />
+        <i3dMapping id="multicultivatorDisks03" node="0>0|2|1|2" />
+        <i3dMapping id="multicultivatorDisks04" node="0>0|2|1|3" />
+        <i3dMapping id="drumsBack" node="0>0|2|1|4" />
+        <i3dMapping id="cover" node="0>0|2|2|0" />
+        <i3dMapping id="hydraulicAxis" node="0>0|3|0" />
+        <i3dMapping id="hydraulicAxis_push" node="0>0|3|0|0" />
+        <i3dMapping id="soilAnimation1" node="0>0|4|0" />
+        <i3dMapping id="soilEmitShape" node="0>0|4|1" />
+        <i3dMapping id="dustEmitterShape" node="0>0|4|2" />
+        <i3dMapping id="soilEmitShape1" node="0>0|4|3" />
+        <i3dMapping id="workAreaStart" node="0>0|5|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|5|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|5|2" />
+        <i3dMapping id="groundReferenceNodeCultivator" node="0>0|5|3" />
+        <i3dMapping id="depthNodeCultivator" node="0>0|5|4" />
+        <i3dMapping id="workAreaSprayerStart" node="0>0|6|0" />
+        <i3dMapping id="workAreaSprayerWidth" node="0>0|6|1" />
+        <i3dMapping id="workAreaSprayerHeight" node="0>0|6|2" />
+        <i3dMapping id="fillVolume" node="0>0|7|0" />
+        <i3dMapping id="nodeLeft" node="0>0|7|1|0" />
+        <i3dMapping id="nodeRight" node="0>0|7|1|1" />
+        <i3dMapping id="node01" node="0>0|7|2|0" />
+        <i3dMapping id="node02" node="0>0|7|2|1" />
+        <i3dMapping id="node03" node="0>0|7|2|2" />
+        <i3dMapping id="node04" node="0>0|7|2|3" />
+        <i3dMapping id="exactFillRootNode" node="0>0|7|3" />
+        <i3dMapping id="areaMarkerLeft" node="0>0|8|0|0" />
+        <i3dMapping id="areaMarkerRight" node="0>0|8|0|1" />
+        <i3dMapping id="areaMarkerBack" node="0>0|8|0|2" />
+        <i3dMapping id="sizeMarkerLeft" node="0>0|8|1|0" />
+        <i3dMapping id="sizeMarkerRight" node="0>0|8|1|1" />
+        <i3dMapping id="sizeMarkerBack" node="0>0|8|1|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|8|2" />
+    </i3dMappings>
+</vehicle>

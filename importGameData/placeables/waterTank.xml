@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable>
+    <storeData>
+        <name>$l10n_shopItem_waterTower</name>
+        <image>$data/placeables/waterTank/store_waterTank.png</image>
+        <functions>
+            <function>$l10n_function_waterTower</function>
+        </functions>
+        <price>5000</price>
+        <dailyUpkeep>5</dailyUpkeep>
+        <canBeSold>true</canBeSold>
+        <showInStore>true</showInStore>
+        <lifetime>1000</lifetime>
+        <rotation>0</rotation>
+        <brand>LIZARD</brand>
+        <species>placeable</species>
+        <category>placeableMisc</category>
+        <vertexBufferMemoryUsage>48896</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>8640</indexBufferMemoryUsage>
+        <textureMemoryUsage>2097256</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <placeableType>buyingStation</placeableType>
+    <filename>$data/placeables/waterTank/waterTank.i3d</filename>
+    <placement testSizeX="17" testSizeZ="17" sizeX="12" sizeZ="12" useRandomYRotation="false" useManualYRotation="true" />
+
+    <clearAreas>
+        <clearArea startNode="2|0" widthNode="2|0|0" heightNode="2|0|1"/>
+    </clearAreas>
+
+    <leveling requireLeveling="true" maxSmoothDistance="10" maxSlope="75" maxEdgeAngle="30">
+        <levelAreas>
+            <levelArea startNode="3|0" widthNode="3|0|0" heightNode="3|0|1" groundType="dirt"/>
+        </levelAreas>
+    </leveling>
+
+    <buyingStation stationName="waterFillTrigger" appearsOnPDA="false" storageRadius="0" fillSoundIdentifier="fillSound01">
+        <loadTrigger triggerNode="1" fillLitersPerSecond="200" autoStart="true"/>
+        <fillType name="water" priceScale="0" />
+    </buyingStation>
+
+</placeable>

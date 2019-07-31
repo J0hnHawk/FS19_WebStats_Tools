@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="treeSaw">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>RT3000</name>
+        <specs>
+            <combination>L218, C232</combination>
+            <neededPower>60</neededPower>
+        </specs>
+        <functions>
+            <function>$l10n_function_treeSaw</function>
+        </functions>
+        <image>$data/vehicles/dfm/rt3000/store_rt3000.png</image>
+        <price>9400</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>DFM</brand>
+        <category>skidSteers</category>
+        <vertexBufferMemoryUsage>223040</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>33156</indexBufferMemoryUsage>
+        <textureMemoryUsage>6815888</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_treeSaw</typeDesc>
+        <filename>$data/vehicles/dfm/rt3000/rt3000.i3d</filename>
+        <size width="2" length="2.5" />
+        <components>
+            <component centerOfMass="0 0.2 0" solverIterationCount="20" mass="340" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <powerConsumer ptoRpm="540" neededMaxPtoPower="15" />
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="skidSteer" />
+        </inputAttacherJoints>
+    </attachable>
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn01"  length="1.1" diameter="0.025" straighteningFactor="1.3" isTwoPointHose="false"/>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut01" length="1.1" diameter="0.025" straighteningFactor="1.3" isTwoPointHose="false"/>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn02"  length="1.1" diameter="0.025" straighteningFactor="1.3" isTwoPointHose="false"/>
+    </connectionHoses>
+
+    <treeSaw>
+        <cutNode node="cudeNode" sizeY="0.8" sizeZ="0.8" />
+
+        <effects>
+            <effectNode effectClass="ParticleEffect" effectNode="woodChipsEmitter" particleType="CRUSHER_WOOD" emitCountScale="100"/>
+            <effectNode effectClass="ParticleEffect" effectNode="woodDustEmitter" particleType="CRUSHER_WOOD" emitCountScale="20"/>
+        </effects>
+
+        <animationNodes>
+            <animationNode node="saw" rotAxis="2" rotSpeed="600" turnOnFadeTime="2" turnOffFadeTime="5" />
+        </animationNodes>
+
+        <sounds>
+            <cut template="DEFAULT_HYDRAULIC_SAW_CUT" linkNode="rt3000_main_component1" />
+        </sounds>
+    </treeSaw>
+
+    <turnOnVehicle>
+        <sounds>
+            <start template="DEFAULT_HYDRAULIC_SAW_START" linkNode="rt3000_main_component1" />
+            <work template="DEFAULT_HYDRAULIC_SAW_IDLE" linkNode="rt3000_main_component1" />
+            <stop template="DEFAULT_HYDRAULIC_SAW_STOP" linkNode="rt3000_main_component1" />
+        </sounds>
+    </turnOnVehicle>
+
+    <foliageBending>
+        <bendingNode minX="-0.4" maxX="0.4" minZ="-1.2" maxZ="1" yOffset="0.1" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="dfmTools_mat" baseNode="dfm_vis">
+            <shaderParameter name="colorMat0" value="DFM_YELLOW1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="rt3000_main_component1" node="0>" />
+        <i3dMapping id="dfm_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0" />
+        <i3dMapping id="saw" node="0>0|1" />
+        <i3dMapping id="cudeNode" node="0>0|2" />
+        <i3dMapping id="woodChipsEmitter" node="0>0|3|0" />
+        <i3dMapping id="woodDustEmitter" node="0>0|3|1" />
+        <i3dMapping id="hydraulicIn01" node="0>0|4|0" />
+        <i3dMapping id="hydraulicOut01" node="0>0|4|1" />
+        <i3dMapping id="hydraulicIn02" node="0>0|4|2" />
+    </i3dMappings>
+</vehicle>

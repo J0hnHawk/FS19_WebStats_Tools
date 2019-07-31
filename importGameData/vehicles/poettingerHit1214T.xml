@@ -1,0 +1,636 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="tedder">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>HIT 12.14 T</name>
+        <specs>
+            <workingWidth>13</workingWidth>
+            <neededPower>75</neededPower>
+        </specs>
+        <functions>
+            <function>$l10n_function_tedder</function>
+        </functions>
+        <image>$data/vehicles/poettinger/poettingerHit1214T/store_poettingerHit1214T.png</image>
+        <price>27000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>POETTINGER</brand>
+        <category>tedders</category>
+        <vertexBufferMemoryUsage>1800716</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>260160</indexBufferMemoryUsage>
+        <textureMemoryUsage>6990624</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_tedder</typeDesc>
+        <filename>$data/vehicles/poettinger/poettingerHit1214T/poettingerHit1214T.i3d</filename>
+        <size width="3.5" length="6.5" />
+        <speedLimit value="19" />
+        <components>
+            <component centerOfMass="0 0.4 0"    solverIterationCount="40" mass="1300" /> <!-- main -->
+            <component centerOfMass="0 -0.4 0"   solverIterationCount="10" mass="575" />  <!-- arm back -->
+            <component centerOfMass="0 -0.4 0.5" solverIterationCount="10" mass="40" />   <!-- arm left -->
+            <component centerOfMass="0 -0.4 0.5" solverIterationCount="10" mass="30" />   <!-- arm left part -->
+            <component centerOfMass="0 -0.4 0.5" solverIterationCount="10" mass="40" />   <!-- arm right -->
+            <component centerOfMass="0 -0.4 0.5" solverIterationCount="10" mass="30" />   <!-- arm right part -->
+
+            <joint component1="1" component2="2" node="componentJoint01"  rotLimit="20 0 0" transLimit="0 0 0" />
+
+            <joint component1="2" component2="3" node="leftArmJoint"      rotLimit="0 0 9"  transLimit="0 0 0" />
+            <joint component1="3" component2="4" node="leftArmPartJoint"  rotLimit="0 0 9"  transLimit="0 0 0" />
+
+            <joint component1="2" component2="5" node="rightArmJoint"     rotLimit="0 0 9"  transLimit="0 0 0" />
+            <joint component1="5" component2="6" node="rightArmPartJoint" rotLimit="0 0 9"  transLimit="0 0 0" />
+
+            <collisionPair component1="1" component2="3" enabled="false" />
+            <collisionPair component1="1" component2="4" enabled="false" />
+            <collisionPair component1="1" component2="5" enabled="false" />
+            <collisionPair component1="1" component2="6" enabled="false" />
+
+            <collisionPair component1="2" component2="4" enabled="false" />
+            <collisionPair component1="2" component2="6" enabled="false" />
+
+            <collisionPair component1="3" component2="5" enabled="false" />
+            <collisionPair component1="3" component2="6" enabled="false" />
+
+            <collisionPair component1="4" component2="5" enabled="false" />
+            <collisionPair component1="4" component2="6" enabled="false" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <powerConsumer ptoRpm="450" neededMinPtoPower="25" neededMaxPtoPower="25"/>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/trelleborg/AW305/380_55R17.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics restLoad="0.8" repr="wheelLeft"  forcePointRatio="0.2"   initialCompression="40" suspTravel="0.15" spring="12" damper="20" />
+                        <wheelChock parkingNode="wheelChockDetached01" filename="$data/shared/assets/wheelChocks/wheelChock02.i3d"/>
+                        <wheelChock parkingNode="wheelChockDetached02" filename="$data/shared/assets/wheelChocks/wheelChock02.i3d" isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/AW305/380_55R17.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics restLoad="0.8" repr="wheelRight" forcePointRatio="0.2"  initialCompression="40" suspTravel="0.15" spring="12" damper="20" />
+                    </wheel>
+
+                    <wheel>
+                        <physics restLoad="0.1" repr="physicalSupportWheel01" forcePointRatio="0.2" radius="0.1" width="0.16" mass="0.02" initialCompression="20" suspTravel="0.1" spring="5" damper="20" maxLatStiffness="0.01" brakeFactor="0" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="physicalSupportWheel02" forcePointRatio="0.2" radius="0.1" width="0.16" mass="0.02" initialCompression="20" suspTravel="0.1" spring="5" damper="20" maxLatStiffness="0.01" brakeFactor="0" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="physicalSupportWheel03" forcePointRatio="0.2" radius="0.1" width="0.16" mass="0.02" initialCompression="20" suspTravel="0.1" spring="5" damper="20" maxLatStiffness="0.01" brakeFactor="0" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="physicalSupportWheel04" forcePointRatio="0.2" radius="0.1" width="0.16" mass="0.02" initialCompression="20" suspTravel="0.1" spring="5" damper="20" maxLatStiffness="0.01" brakeFactor="0" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="physicalSupportWheel05" forcePointRatio="0.2" radius="0.1" width="0.16" mass="0.02" initialCompression="20" suspTravel="0.1" spring="5" damper="20" maxLatStiffness="0.01" brakeFactor="0" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="physicalSupportWheel06" forcePointRatio="0.2" radius="0.1" width="0.16" mass="0.02" initialCompression="20" suspTravel="0.1" spring="5" damper="20" maxLatStiffness="0.01" brakeFactor="0" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="physicalSupportWheel07" forcePointRatio="0.2" radius="0.1" width="0.16" mass="0.02" initialCompression="20" suspTravel="0.1" spring="5" damper="20" maxLatStiffness="0.01" brakeFactor="0" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="physicalSupportWheel08" forcePointRatio="0.2" radius="0.1" width="0.16" mass="0.02" initialCompression="20" suspTravel="0.1" spring="5" damper="20" maxLatStiffness="0.01" brakeFactor="0" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="physicalSupportWheel09" forcePointRatio="0.2" radius="0.1" width="0.16" mass="0.02" initialCompression="20" suspTravel="0.1" spring="5" damper="20" maxLatStiffness="0.01" brakeFactor="0" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="physicalSupportWheel10" forcePointRatio="0.2" radius="0.1" width="0.16" mass="0.02" initialCompression="20" suspTravel="0.1" spring="5" damper="20" maxLatStiffness="0.01" brakeFactor="0" isSynchronized="false"/>
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <hubs>
+            <hub linkNode="wheelLeft"  filename="$data/shared/wheels/hubs/hub_n6_1.xml" isLeft="true"  scale="0.203 0.203 0.203" />
+            <hub linkNode="wheelRight" filename="$data/shared/wheels/hubs/hub_n6_1.xml" isLeft="false" scale="0.203 0.203 0.203" />
+
+            <hub linkNode="opticalWheelCenter01"    filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.142 0.142 0.142" />
+            <hub linkNode="opticalWheelCenter02"    filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.142 0.142 0.142" />
+            <hub linkNode="opticalWheelLeft01"      filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.142 0.142 0.142" />
+            <hub linkNode="opticalWheelLeft02"      filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.142 0.142 0.142" />
+            <hub linkNode="opticalWheelLeft03"      filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.142 0.142 0.142" />
+            <hub linkNode="opticalWheelLeftPart01"  filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.142 0.142 0.142" />
+            <hub linkNode="opticalWheelLeftPart02"  filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.142 0.142 0.142" />
+
+            <hub linkNode="opticalWheelRight01"     filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.142 0.142 0.142" />
+            <hub linkNode="opticalWheelRight02"     filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.142 0.142 0.142" />
+            <hub linkNode="opticalWheelRight03"     filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.142 0.142 0.142" />
+            <hub linkNode="opticalWheelRightPart01" filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.142 0.142 0.142" />
+            <hub linkNode="opticalWheelRightPart02" filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.142 0.142 0.142" />
+        </hubs>
+
+        <dynamicallyLoadedWheels>
+            <dynamicallyLoadedWheel linkNode="opticalWheelCenter01"   filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false" />
+            <dynamicallyLoadedWheel linkNode="opticalWheelCenter02"   filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true" />
+            <dynamicallyLoadedWheel linkNode="opticalWheelLeft01"     filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true" />
+            <dynamicallyLoadedWheel linkNode="opticalWheelLeft02"     filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false" />
+            <dynamicallyLoadedWheel linkNode="opticalWheelLeft03"     filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true" />
+            <dynamicallyLoadedWheel linkNode="opticalWheelLeftPart01" filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false" />
+            <dynamicallyLoadedWheel linkNode="opticalWheelLeftPart02" filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true" />
+
+            <dynamicallyLoadedWheel linkNode="opticalWheelRight01"     filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false" />
+            <dynamicallyLoadedWheel linkNode="opticalWheelRight02"     filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true" />
+            <dynamicallyLoadedWheel linkNode="opticalWheelRight03"     filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false" />
+            <dynamicallyLoadedWheel linkNode="opticalWheelRightPart01" filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false" />
+            <dynamicallyLoadedWheel linkNode="opticalWheelRightPart02" filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true" />
+        </dynamicallyLoadedWheels>
+    </wheels>
+
+    <lights>
+        <sharedLight linkNode="yellowRound_02_1" filename="$data/shared/assets/reflectors/lizard/yellowRound_02.xml" />
+        <sharedLight linkNode="yellowRound_02_2" filename="$data/shared/assets/reflectors/lizard/yellowRound_02.xml" />
+        <sharedLight linkNode="yellowRound_02_3" filename="$data/shared/assets/reflectors/lizard/yellowRound_02.xml" />
+        <sharedLight linkNode="yellowRound_02_4" filename="$data/shared/assets/reflectors/lizard/yellowRound_02.xml" />
+        <sharedLight linkNode="rearMultipointLight_03_left" filename="$data/shared/assets/lights/lizard/rearMultipointLight_03_left.xml" />
+        <sharedLight linkNode="rearMultipointLight_03_right" filename="$data/shared/assets/lights/lizard/rearMultipointLight_03_right.xml" />
+        <sharedLight linkNode="frontLightRectangle_01_1" filename="$data/shared/assets/lights/lizard/frontLightRectangle_01.xml" />
+        <sharedLight linkNode="frontLightRectangle_01_2" filename="$data/shared/assets/lights/lizard/frontLightRectangle_01.xml" />
+
+        <realLights>
+            <high>
+                <light node="backLightsHigh" lightTypes="0"/>
+                <turnLightLeft node="turnLightLeftBack"/>
+                <turnLightRight node="turnLightRightBack"/>
+                <brakeLight node="backLightsHigh"/>
+            </high>
+        </realLights>
+    </lights>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="trailer" attacherHeight="0.96"/>
+        </inputAttacherJoints>
+        <support animationName="moveSupport" />
+        <brakeForce>0.4</brakeForce>
+    </attachable>
+
+    <powerTakeOffs>
+        <input inputAttacherJointIndices="1" inputNode="ptoInputNode" aboveAttacher="false" filename="$data/shared/assets/powerTakeOffs/walterscheidWWZ.xml" />
+    </powerTakeOffs>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundReferenceNode"             threshold="0.7" />
+        <groundReferenceNode node="groundReferenceNodeLeft"         threshold="0.7" />
+        <groundReferenceNode node="groundReferenceNodeLeftPart"     threshold="0.7" />
+        <groundReferenceNode node="groundReferenceNodeRight"        threshold="0.7" />
+        <groundReferenceNode node="groundReferenceNodeRightPart"    threshold="0.7" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="tedder" functionName="processTedderArea" preprocessFunctionName="preprocessTedderArea" disableBackwards="true" >
+            <area startNode="workAreaCenterLeftStart" widthNode="workAreaCenterLeftWidth" heightNode="workAreaCenterLeftHeight" />
+            <groundReferenceNode index="1" />
+            <folding minLimit="0" maxLimit="0.12" />
+            <tedder dropWindrowWorkAreaIndex="7" />
+        </workArea>
+        <workArea type="tedder" functionName="processTedderArea" preprocessFunctionName="preprocessTedderArea" disableBackwards="true" >
+            <area startNode="workAreaCenterRightStart" widthNode="workAreaCenterRightWidth" heightNode="workAreaCenterRightHeight" />
+            <groundReferenceNode index="1" />
+            <folding minLimit="0" maxLimit="0.12" />
+            <tedder dropWindrowWorkAreaIndex="8" />
+        </workArea>
+        <workArea type="tedder" functionName="processTedderArea" preprocessFunctionName="preprocessTedderArea" disableBackwards="true" >
+            <area startNode="workAreaLeftStart" widthNode="workAreaLeftWidth" heightNode="workAreaLeftHeight" />
+            <groundReferenceNode index="2" />
+            <folding minLimit="0" maxLimit="0.12" />
+            <tedder dropWindrowWorkAreaIndex="9" />
+        </workArea>
+        <workArea type="tedder" functionName="processTedderArea" preprocessFunctionName="preprocessTedderArea" disableBackwards="true" >
+            <area startNode="workAreaLeftPartStart" widthNode="workAreaLeftPartWidth" heightNode="workAreaLeftPartHeight" />
+            <groundReferenceNode index="3" />
+            <folding minLimit="0" maxLimit="0.12" />
+            <tedder dropWindrowWorkAreaIndex="10" />
+        </workArea>
+        <workArea type="tedder" functionName="processTedderArea" preprocessFunctionName="preprocessTedderArea" disableBackwards="true" >
+            <area startNode="workAreaRightStart" widthNode="workAreaRightWidth" heightNode="workAreaRightHeight" />
+            <groundReferenceNode index="4" />
+            <folding minLimit="0" maxLimit="0.12" />
+            <tedder dropWindrowWorkAreaIndex="11" />
+        </workArea>
+        <workArea type="tedder" functionName="processTedderArea" preprocessFunctionName="preprocessTedderArea" disableBackwards="true" >
+            <area startNode="workAreaRightPartStart" widthNode="workAreaRightPartWidth" heightNode="workAreaRightPartHeight" />
+            <groundReferenceNode index="5" />
+            <folding minLimit="0" maxLimit="0.12" />
+            <tedder dropWindrowWorkAreaIndex="12" />
+        </workArea>
+
+        <workArea type="auxiliary" >
+            <area startNode="dropAreaCenterLeftStart" widthNode="dropAreaCenterLeftWidth" heightNode="dropAreaCenterLeftHeight" />
+        </workArea>
+        <workArea type="auxiliary" >
+            <area startNode="dropAreaCenterRightStart" widthNode="dropAreaCenterRightWidth" heightNode="dropAreaCenterRightHeight" />
+        </workArea>
+        <workArea type="auxiliary" >
+            <area startNode="dropAreaLeftStart" widthNode="dropAreaLeftWidth" heightNode="dropAreaLeftHeight" />
+        </workArea>
+        <workArea type="auxiliary" >
+            <area startNode="dropAreaLeftPartStart" widthNode="dropAreaLeftPartWidth" heightNode="dropAreaLeftPartHeight" />
+        </workArea>
+        <workArea type="auxiliary" >
+            <area startNode="dropAreaRightStart" widthNode="dropAreaRightWidth" heightNode="dropAreaRightHeight" />
+        </workArea>
+        <workArea type="auxiliary" >
+            <area startNode="dropAreaRightPartStart" widthNode="dropAreaRightPartWidth" heightNode="dropAreaRightPartHeight" />
+        </workArea>
+    </workAreas>
+
+    <speedRotatingParts>
+        <speedRotatingPart node="opticalWheelCenter01"     radius="0.208" foldMinLimit="0" foldMaxLimit="0.02" />
+        <speedRotatingPart node="opticalWheelCenter02"     radius="0.208" foldMinLimit="0" foldMaxLimit="0.02" />
+        <speedRotatingPart node="opticalWheelLeft01"       radius="0.208" foldMinLimit="0" foldMaxLimit="0.02" />
+        <speedRotatingPart node="opticalWheelLeft02"       radius="0.208" foldMinLimit="0" foldMaxLimit="0.02" />
+        <speedRotatingPart node="opticalWheelLeft03"       radius="0.208" foldMinLimit="0" foldMaxLimit="0.02" />
+        <speedRotatingPart node="opticalWheelLeftPart01"   radius="0.208" foldMinLimit="0" foldMaxLimit="0.02" />
+        <speedRotatingPart node="opticalWheelLeftPart02"   radius="0.208" foldMinLimit="0" foldMaxLimit="0.02" />
+        <speedRotatingPart node="opticalWheelRight01"      radius="0.208" foldMinLimit="0" foldMaxLimit="0.02" />
+        <speedRotatingPart node="opticalWheelRight02"      radius="0.208" foldMinLimit="0" foldMaxLimit="0.02" />
+        <speedRotatingPart node="opticalWheelRight03"      radius="0.208" foldMinLimit="0" foldMaxLimit="0.02" />
+        <speedRotatingPart node="opticalWheelRightPart01"  radius="0.208" foldMinLimit="0" foldMaxLimit="0.02" />
+        <speedRotatingPart node="opticalWheelRightPart02"  radius="0.208" foldMinLimit="0" foldMaxLimit="0.02" />
+    </speedRotatingParts>
+
+    <foldable>
+        <foldingParts startMoveDirection="1" foldMiddleAnimTime="0.1428" turnOnFoldMaxLimit="0.35" turnOnFoldMinLimit="0">
+            <foldingPart animationName="folding" speedScale="1.0" />
+        </foldingParts>
+    </foldable>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="backArm" playSound="true">
+                <componentJoint index="1" />
+            </movingTool>
+            <movingTool node="leftArmJoint" playSound="true">
+                <componentJoint index="2" />
+            </movingTool>
+            <movingTool node="leftArmPartJoint" playSound="true">
+                <componentJoint index="3" />
+            </movingTool>
+            <movingTool node="rightArmJoint" playSound="true">
+                <componentJoint index="4" />
+            </movingTool>
+            <movingTool node="rightArmPartJoint" playSound="true">
+                <componentJoint index="5" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <!-- back arm rot -->
+            <movingPart node="backArmPartRot" referencePoint="backArmPartRef" referenceFrame="backArmPartRef" isActiveDirty="true" limitedAxis="1">
+                <dependentPart node="hydraulicBackArmFront" />
+                <dependentPart node="springRoot" />
+                <dependentPart node="ptoBack" />
+            </movingPart>
+            <movingPart node="springRoot" referencePoint="springRef" referenceFrame="poettingerHit1214T_main_component1">
+                <dependentPart node="spring" />
+            </movingPart>
+            <movingPart node="spring" referencePoint="springRef" referenceFrame="poettingerHit1214T_main_component1" scaleZ="true" />
+            <movingPart node="ptoBack" referencePoint="ptoBackRef" referenceFrame="poettingerHit1214T_main_component1" scaleZ="true" />
+            <movingPart node="hydraulicBackArmFront" referencePoint="hydraulicBackArm" referenceFrame="poettingerHit1214T_main_component1">
+                <dependentPart node="hydraulicBackArm" />
+            </movingPart>
+            <movingPart node="hydraulicBackArm" referencePoint="hydraulicBackArmFront" referenceFrame="poettingerHit1214T_main_component1" >
+                <translatingPart node="hydraulicBackArmPunch"/>
+            </movingPart>
+
+            <!-- arm left -->
+            <movingPart node="armLeft" referencePoint="leftArmRef" referenceFrame="leftArmRef" isActiveDirty="true" limitedAxis="3">
+                <dependentPart node="hydraulicArmLeft" />
+            </movingPart>
+            <movingPart node="hydraulicArmLeft" referencePoint="hydraulicArmLeftRef" referenceFrame="poettingerHit1214T_main_component1" >
+                <translatingPart node="hydraulicArmLeftPunch"/>
+            </movingPart>
+
+            <!-- arm left part -->
+            <movingPart node="armLeftPart" referencePoint="leftArmPartRef" referenceFrame="leftArmPartRef" isActiveDirty="true" limitedAxis="1">
+                <dependentPart node="armLeftFolding" />
+            </movingPart>
+            <movingPart node="armLeftFolding" localReferencePoint="armLeftFoldingPart" referencePoint="armLeftFoldingRef" referenceFrame="armLeftFoldingRefFrame" >
+                <dependentPart node="armLeftFoldingPart"/>
+            </movingPart>
+            <movingPart node="armLeftFoldingPart" referencePoint="armLeftFoldingRef" referenceFrame="armLeftFoldingPartRefFrame" >
+                <dependentPart node="hydraulicArmLeftPart"/>
+            </movingPart>
+            <movingPart node="hydraulicArmLeftPart" referencePoint="hydraulicArmLeftPartRef" referenceFrame="armLeft" >
+                <translatingPart node="hydraulicArmLeftPartPunch"/>
+            </movingPart>
+
+            <!-- arm right -->
+            <movingPart node="armRight" referencePoint="rightArmRef" referenceFrame="rightArmRef" isActiveDirty="true" limitedAxis="3">
+                <dependentPart node="hydraulicArmRight" />
+            </movingPart>
+            <movingPart node="hydraulicArmRight" referencePoint="hydraulicArmRightRef" referenceFrame="hydraulicArmRightRef" >
+                <translatingPart node="hydraulicArmRightPunch"/>
+            </movingPart>
+
+            <!-- arm right part -->
+            <movingPart node="armRightPart" referencePoint="rightArmPartRef" referenceFrame="rightArmPartRef" isActiveDirty="true" limitedAxis="1">
+                <dependentPart node="armRightFolding" />
+            </movingPart>
+            <movingPart node="armRightFolding" localReferencePoint="armRightFoldingPart" referencePoint="foldingArmRightRef" referenceFrame="foldingArmRightRefFrame" >
+                <dependentPart node="armRightFoldingPart"/>
+            </movingPart>
+            <movingPart node="armRightFoldingPart" referencePoint="foldingArmRightRef" referenceFrame="armRightFoldingPartRefFrame" >
+                <dependentPart node="hydraulicArmRightPart"/>
+            </movingPart>
+            <movingPart node="hydraulicArmRightPart" referencePoint="hydraulicArmRightPartRef" referenceFrame="armRight" >
+                <translatingPart node="hydraulicArmRightPartPunch"/>
+            </movingPart>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="poettingerHit1214T_main_component1"/>
+        </sounds>
+    </cylindered>
+
+    <animations>
+        <!-- move support wheel down/up -->
+        <animation name="moveSupport">
+            <part node="support"     startTime="0"    endTime="0.2" startTrans="0.174 0.710 2.629" endTrans="0.174 0.318 2.629" />
+        </animation>
+
+        <animation name="folding">
+            <!-- raise/lower -->
+            <part startTime="1" endTime="1.75" node="backArm" startRot="0 0 0"  endRot="20 0 0" />
+            <part startTime="1.75" endTime="2" node="backArm" startRot="20 0 0" endRot="21 0 0" />
+            <part startTime="1" endTime="2"    componentJointIndex="1" startRotLimit="20 0 0" endRotLimit="0 0 0"/>
+            <part startTime="0" endTime="0.75" componentJointIndex="2" startRotLimit="0 0 9"  endRotLimit="0 0 1"/>
+            <part startTime="0" endTime="0.75" componentJointIndex="3" startRotLimit="0 0 9"  endRotLimit="0 0 1"/>
+            <part startTime="0" endTime="0.75" componentJointIndex="4" startRotLimit="0 0 9"  endRotLimit="0 0 1"/>
+            <part startTime="0" endTime="0.75" componentJointIndex="5" startRotLimit="0 0 9"  endRotLimit="0 0 1"/>
+
+            <part startTime="0.5" endTime="1.5" node="leftArmJoint" startRot="0 0 0" endRot="0 0 3" />
+            <part startTime="0.5" endTime="1.5" node="rightArmJoint" startRot="0 0 0" endRot="0 0 -3" />
+
+            <part startTime="0" endTime="1.5" node="leftArmPartJoint" startRot="0 0 0" endRot="0 0 7" />
+            <part startTime="0" endTime="1.5" node="rightArmPartJoint" startRot="0 0 0" endRot="0 0 -7" />
+
+            <part startTime="2.5"  endTime="6"    node="backArm"            startRot="20 0 0" endRot="64 0 0" />
+            <part startTime="2.5"  endTime="8"    node="leftArmPartJoint"   startRot="0 0 0"  endRot="0 0 174" />
+            <part startTime="3"    endTime="8.5"  node="rightArmPartJoint"  startRot="0 0 0"  endRot="0 0 -174" />
+            <part startTime="6"  endTime="11.5"   node="leftArmJoint"       startRot="0 0 0"  endRot="0 0 93" />
+            <part startTime="5.5"    endTime="11" node="rightArmJoint"      startRot="0 0 0"  endRot="0 0 -93" />
+            <part startTime="8"    endTime="10" componentJointIndex="2" startRotLimit="0 0 1" endRotLimit="0 0 0"/>
+            <part startTime="8"    endTime="10" componentJointIndex="3" startRotLimit="0 0 1" endRotLimit="0 0 0"/>
+            <part startTime="8"    endTime="10" componentJointIndex="4" startRotLimit="0 0 1" endRotLimit="0 0 0"/>
+            <part startTime="8"    endTime="10" componentJointIndex="5" startRotLimit="0 0 1" endRotLimit="0 0 0"/>
+            <part startTime="11"   endTime="13" node="backArm"     startRot="64 0 0" endRot="65 0 0" />
+            <part startTime="13"   endTime="14" node="backArm"     startRot="65 0 0" endRot="75 0 0" />
+            <part startTime="13.6" endTime="14" node="safetyLeft"  startRot="0 0 0"  endRot="0 0 38" />
+            <part startTime="13.6" endTime="14" node="safetyRight" startRot="0 0 0"  endRot="0 0 -38" />
+        </animation>
+    </animations>
+
+    <tedder fillTypeConverter="TEDDER">
+        <animationNodes>
+            <animationNode node="rotorArmLeftPart01"  rotSpeed="-800" turnOnFadeTime="1.5" turnOffFadeTime="3" />
+            <animationNode node="rotorArmLeftPart02"  rotSpeed="800"  turnOnFadeTime="1.5" turnOffFadeTime="3" />
+            <animationNode node="rotorArmLeft01"      rotSpeed="-800" turnOnFadeTime="1.5" turnOffFadeTime="3" />
+            <animationNode node="rotorArmLeft02"      rotSpeed="800"  turnOnFadeTime="1.5" turnOffFadeTime="3" />
+            <animationNode node="rotorArmLeft03"      rotSpeed="-800" turnOnFadeTime="1.5" turnOffFadeTime="3" />
+            <animationNode node="rotorBackArm01"      rotSpeed="800"  turnOnFadeTime="1.5" turnOffFadeTime="3" />
+            <animationNode node="rotorBackArm02"      rotSpeed="-800" turnOnFadeTime="1.5" turnOffFadeTime="3" />
+            <animationNode node="rotorArmRight01"     rotSpeed="800"  turnOnFadeTime="1.5" turnOffFadeTime="3" />
+            <animationNode node="rotorArmRight02"     rotSpeed="-800" turnOnFadeTime="1.5" turnOffFadeTime="3" />
+            <animationNode node="rotorArmRight03"     rotSpeed="800"  turnOnFadeTime="1.5" turnOffFadeTime="3" />
+            <animationNode node="rotorArmRightPart01" rotSpeed="-800" turnOnFadeTime="1.5" turnOffFadeTime="3" />
+            <animationNode node="rotorArmRightPart02" rotSpeed="800"  turnOnFadeTime="1.5" turnOffFadeTime="3" />
+        </animationNodes>
+
+        <effects>
+            <effect workAreaIndex="1">
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShapeCenterLeft" particleType="TEDDER" />
+            </effect>
+            <effect workAreaIndex="2">
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShapeCenterRight" particleType="TEDDER" />
+            </effect>
+            <effect workAreaIndex="3">
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShapeLeft" particleType="TEDDER" />
+            </effect>
+            <effect workAreaIndex="4">
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShapeLeftPart" particleType="TEDDER" />
+            </effect>
+            <effect workAreaIndex="5">
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShapeRight" particleType="TEDDER" />
+            </effect>
+            <effect workAreaIndex="6">
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShapeRightPart" particleType="TEDDER" />
+            </effect>
+        </effects>
+    </tedder>
+
+    <turnOnVehicle turnOffIfNotAllowed="true">
+        <sounds>
+            <work template="DEFAULT_TEDDER" linkNode="poettingerHit1214T_backPart_component2" />
+        </sounds>
+    </turnOnVehicle>
+
+    <ai>
+        <needsLowering value="true" />
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack" />
+        <sizeMarkers leftNode="sizeMarkerLeft" rightNode="sizeMarkerRight" backNode="sizeMarkerBack" />
+        <collisionTrigger node="aiCollisionTrigger" />
+        <allowTurnBackward value="false" />
+        <toolReverserDirectionNode node="sizeMarkerBack" />
+        <turningRadiusLimitation rotationJointNode="attacherJoint" wheelIndices="1 2" />
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-1.5" maxX="1.5" minZ="-2.4" maxZ="1.7 " yOffset="0.6" />
+        <bendingNode minX="-1.0" maxX="0.4" minZ="-0.8" maxZ="5.5" yOffset="-0.4" node="armLeft" />
+        <bendingNode minX="-0.45" maxX="0.95" minZ="-0.8" maxZ="5.5" yOffset="-0.4" node="armRight" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="poettingerHit1214T_mat" baseNode="poettingerHit1214T_vis">
+            <shaderParameter name="colorMat1" value="POETTINGER_WHITE1"/>
+            <shaderParameter name="colorMat2" value="POETTINGER_RED1"/>
+            <shaderParameter name="colorMat4" value="POETTINGER_YELLOW"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="poettingerHit1214T_main_component1" node="0>" />
+        <i3dMapping id="poettingerHit1214T_vis" node="0>0" />
+        <i3dMapping id="wheelLeft" node="0>0|0|0" />
+        <i3dMapping id="wheelRight" node="0>0|0|1" />
+        <i3dMapping id="attacherJoint" node="0>0|1" />
+        <i3dMapping id="ptoInputNode" node="0>0|2" />
+        <i3dMapping id="wheelChockDetached01" node="0>0|3|0" />
+        <i3dMapping id="wheelChockDetached02" node="0>0|3|1" />
+        <i3dMapping id="support" node="0>0|4" />
+        <i3dMapping id="yellowRound_02_1" node="0>0|5|0|0" />
+        <i3dMapping id="yellowRound_02_2" node="0>0|5|0|1" />
+        <i3dMapping id="yellowRound_02_3" node="0>0|5|0|2" />
+        <i3dMapping id="yellowRound_02_4" node="0>0|5|0|3" />
+        <i3dMapping id="rearMultipointLight_03_left" node="0>0|5|0|4" />
+        <i3dMapping id="rearMultipointLight_03_right" node="0>0|5|0|5" />
+        <i3dMapping id="frontLightRectangle_01_1" node="0>0|5|0|6" />
+        <i3dMapping id="frontLightRectangle_01_2" node="0>0|5|0|7" />
+        <i3dMapping id="coronas" node="0>0|5|1|0" />
+        <i3dMapping id="backLightsHigh" node="0>0|5|1|1" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|5|2|0|1" />
+        <i3dMapping id="turnLightRightBack" node="0>0|5|2|1|1" />
+        <i3dMapping id="reverseLight" node="0>0|5|4|1" />
+        <i3dMapping id="backArm" node="0>0|6" />
+        <i3dMapping id="componentJoint01" node="0>0|6|0" />
+        <i3dMapping id="backArmPartRot" node="0>0|6|1" />
+        <i3dMapping id="armLeft" node="0>0|6|1|0|0" />
+        <i3dMapping id="armLeftPart" node="0>0|6|1|0|0|0" />
+        <i3dMapping id="opticalWheelLeftPart01" node="0>0|6|1|0|0|0|0|0" />
+        <i3dMapping id="opticalWheelLeftPart02" node="0>0|6|1|0|0|0|0|1" />
+        <i3dMapping id="rotorArmLeftPart01" node="0>0|6|1|0|0|0|1|0" />
+        <i3dMapping id="rotorArmLeftPart02" node="0>0|6|1|0|0|0|1|1" />
+        <i3dMapping id="armLeftFoldingRef" node="0>0|6|1|0|0|0|2" />
+        <i3dMapping id="workAreaLeftPartStart" node="0>0|6|1|0|0|0|3|0" />
+        <i3dMapping id="workAreaLeftPartWidth" node="0>0|6|1|0|0|0|3|1" />
+        <i3dMapping id="workAreaLeftPartHeight" node="0>0|6|1|0|0|0|3|2" />
+        <i3dMapping id="dropAreaLeftPartStart" node="0>0|6|1|0|0|0|3|3" />
+        <i3dMapping id="dropAreaLeftPartWidth" node="0>0|6|1|0|0|0|3|4" />
+        <i3dMapping id="dropAreaLeftPartHeight" node="0>0|6|1|0|0|0|3|5" />
+        <i3dMapping id="groundReferenceNodeLeftPart" node="0>0|6|1|0|0|0|3|6" />
+        <i3dMapping id="emitterShapeLeftPart" node="0>0|6|1|0|0|0|4|0" />
+        <i3dMapping id="armLeftFoldingRefFrame" node="0>0|6|1|0|0|0|5" />
+        <i3dMapping id="opticalWheelLeft01" node="0>0|6|1|0|0|1|0" />
+        <i3dMapping id="opticalWheelLeft02" node="0>0|6|1|0|0|1|1" />
+        <i3dMapping id="opticalWheelLeft03" node="0>0|6|1|0|0|1|2" />
+        <i3dMapping id="rotorArmLeft01" node="0>0|6|1|0|0|2|0" />
+        <i3dMapping id="rotorArmLeft02" node="0>0|6|1|0|0|2|1" />
+        <i3dMapping id="rotorArmLeft03" node="0>0|6|1|0|0|2|2" />
+        <i3dMapping id="hydraulicArmLeftRef" node="0>0|6|1|0|0|3|0" />
+        <i3dMapping id="armLeftFolding" node="0>0|6|1|0|0|3|1" />
+        <i3dMapping id="armLeftFoldingPart" node="0>0|6|1|0|0|3|1|0" />
+        <i3dMapping id="hydraulicArmLeftPartRef" node="0>0|6|1|0|0|3|1|1" />
+        <i3dMapping id="armLeftFoldingPartRefFrame" node="0>0|6|1|0|0|3|1|2" />
+        <i3dMapping id="hydraulicArmLeftPart" node="0>0|6|1|0|0|3|2" />
+        <i3dMapping id="hydraulicArmLeftPartPunch" node="0>0|6|1|0|0|3|2|0" />
+        <i3dMapping id="workAreaLeftStart" node="0>0|6|1|0|0|4|0" />
+        <i3dMapping id="workAreaLeftWidth" node="0>0|6|1|0|0|4|1" />
+        <i3dMapping id="workAreaLeftHeight" node="0>0|6|1|0|0|4|2" />
+        <i3dMapping id="dropAreaLeftStart" node="0>0|6|1|0|0|4|3" />
+        <i3dMapping id="dropAreaLeftWidth" node="0>0|6|1|0|0|4|4" />
+        <i3dMapping id="dropAreaLeftHeight" node="0>0|6|1|0|0|4|5" />
+        <i3dMapping id="groundReferenceNodeLeft" node="0>0|6|1|0|0|4|6" />
+        <i3dMapping id="emitterShapeLeft" node="0>0|6|1|0|0|5|0" />
+        <i3dMapping id="armRight" node="0>0|6|1|0|1" />
+        <i3dMapping id="armRightPart" node="0>0|6|1|0|1|0" />
+        <i3dMapping id="opticalWheelRightPart01" node="0>0|6|1|0|1|0|0|0" />
+        <i3dMapping id="opticalWheelRightPart02" node="0>0|6|1|0|1|0|0|1" />
+        <i3dMapping id="rotorArmRightPart01" node="0>0|6|1|0|1|0|1|0" />
+        <i3dMapping id="rotorArmRightPart02" node="0>0|6|1|0|1|0|1|1" />
+        <i3dMapping id="foldingArmRightRef" node="0>0|6|1|0|1|0|2" />
+        <i3dMapping id="workAreaRightPartStart" node="0>0|6|1|0|1|0|3|0" />
+        <i3dMapping id="workAreaRightPartWidth" node="0>0|6|1|0|1|0|3|1" />
+        <i3dMapping id="workAreaRightPartHeight" node="0>0|6|1|0|1|0|3|2" />
+        <i3dMapping id="dropAreaRightPartStart" node="0>0|6|1|0|1|0|3|3" />
+        <i3dMapping id="dropAreaRightPartWidth" node="0>0|6|1|0|1|0|3|4" />
+        <i3dMapping id="dropAreaRightPartHeight" node="0>0|6|1|0|1|0|3|5" />
+        <i3dMapping id="groundReferenceNodeRightPart" node="0>0|6|1|0|1|0|3|6" />
+        <i3dMapping id="emitterShapeRightPart" node="0>0|6|1|0|1|0|4|0" />
+        <i3dMapping id="foldingArmRightRefFrame" node="0>0|6|1|0|1|0|5" />
+        <i3dMapping id="opticalWheelRight01" node="0>0|6|1|0|1|1|0" />
+        <i3dMapping id="opticalWheelRight02" node="0>0|6|1|0|1|1|1" />
+        <i3dMapping id="opticalWheelRight03" node="0>0|6|1|0|1|1|2" />
+        <i3dMapping id="rotorArmRight01" node="0>0|6|1|0|1|2|0" />
+        <i3dMapping id="rotorArmRight02" node="0>0|6|1|0|1|2|1" />
+        <i3dMapping id="rotorArmRight03" node="0>0|6|1|0|1|2|2" />
+        <i3dMapping id="hydraulicArmRightRef" node="0>0|6|1|0|1|3|0" />
+        <i3dMapping id="armRightFolding" node="0>0|6|1|0|1|3|1" />
+        <i3dMapping id="armRightFoldingPart" node="0>0|6|1|0|1|3|1|0" />
+        <i3dMapping id="hydraulicArmRightPartRef" node="0>0|6|1|0|1|3|1|1" />
+        <i3dMapping id="armRightFoldingPartRefFrame" node="0>0|6|1|0|1|3|1|2" />
+        <i3dMapping id="hydraulicArmRightPart" node="0>0|6|1|0|1|3|2" />
+        <i3dMapping id="hydraulicArmRightPartPunch" node="0>0|6|1|0|1|3|2|0" />
+        <i3dMapping id="workAreaRightStart" node="0>0|6|1|0|1|4|0" />
+        <i3dMapping id="workAreaRightWidth" node="0>0|6|1|0|1|4|1" />
+        <i3dMapping id="workAreaRightHeight" node="0>0|6|1|0|1|4|2" />
+        <i3dMapping id="dropAreaRightStart" node="0>0|6|1|0|1|4|3" />
+        <i3dMapping id="dropAreaRightWidth" node="0>0|6|1|0|1|4|4" />
+        <i3dMapping id="dropAreaRightHeight" node="0>0|6|1|0|1|4|5" />
+        <i3dMapping id="groundReferenceNodeRight" node="0>0|6|1|0|1|4|6" />
+        <i3dMapping id="emitterShapeRight" node="0>0|6|1|0|1|5|0" />
+        <i3dMapping id="opticalWheelCenter01" node="0>0|6|1|0|2|0" />
+        <i3dMapping id="opticalWheelCenter02" node="0>0|6|1|0|2|1" />
+        <i3dMapping id="rotorBackArm01" node="0>0|6|1|0|3|0" />
+        <i3dMapping id="rotorBackArm02" node="0>0|6|1|0|3|1" />
+        <i3dMapping id="hydraulicArmLeft" node="0>0|6|1|0|4|0" />
+        <i3dMapping id="hydraulicArmLeftPunch" node="0>0|6|1|0|4|0|0" />
+        <i3dMapping id="hydraulicArmRight" node="0>0|6|1|0|4|1" />
+        <i3dMapping id="hydraulicArmRightPunch" node="0>0|6|1|0|4|1|0" />
+        <i3dMapping id="ptoBack" node="0>0|6|1|0|4|4" />
+        <i3dMapping id="springRef" node="0>0|6|1|0|4|5" />
+        <i3dMapping id="workAreaCenterLeftStart" node="0>0|6|1|0|5|0|0" />
+        <i3dMapping id="workAreaCenterLeftWidth" node="0>0|6|1|0|5|0|1" />
+        <i3dMapping id="workAreaCenterLeftHeight" node="0>0|6|1|0|5|0|2" />
+        <i3dMapping id="dropAreaCenterLeftStart" node="0>0|6|1|0|5|0|3" />
+        <i3dMapping id="dropAreaCenterLeftWidth" node="0>0|6|1|0|5|0|4" />
+        <i3dMapping id="dropAreaCenterLeftHeight" node="0>0|6|1|0|5|0|5" />
+        <i3dMapping id="workAreaCenterRightStart" node="0>0|6|1|0|5|1|0" />
+        <i3dMapping id="workAreaCenterRightWidth" node="0>0|6|1|0|5|1|1" />
+        <i3dMapping id="workAreaCenterRightHeight" node="0>0|6|1|0|5|1|2" />
+        <i3dMapping id="dropAreaCenterRightStart" node="0>0|6|1|0|5|1|3" />
+        <i3dMapping id="dropAreaCenterRightWidth" node="0>0|6|1|0|5|1|4" />
+        <i3dMapping id="dropAreaCenterRightHeight" node="0>0|6|1|0|5|1|5" />
+        <i3dMapping id="groundReferenceNode" node="0>0|6|1|0|5|2" />
+        <i3dMapping id="emitterShapeCenterLeft" node="0>0|6|1|0|6|0" />
+        <i3dMapping id="emitterShapeCenterRight" node="0>0|6|1|0|6|1" />
+        <i3dMapping id="hydraulicBackArm" node="0>0|6|2" />
+        <i3dMapping id="hydraulicBackArmPunch" node="0>0|6|2|0" />
+        <i3dMapping id="springRoot" node="0>0|6|3" />
+        <i3dMapping id="spring" node="0>0|6|3|0" />
+        <i3dMapping id="safetyLeft" node="0>0|7|0" />
+        <i3dMapping id="safetyRight" node="0>0|7|1" />
+        <i3dMapping id="hydraulicBackArmFront" node="0>0|8|0" />
+        <i3dMapping id="ptoBackRef" node="0>0|8|1" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|9|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|9|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|9|0|2" />
+        <i3dMapping id="sizeMarkerLeft" node="0>0|9|1|0" />
+        <i3dMapping id="sizeMarkerRight" node="0>0|9|1|1" />
+        <i3dMapping id="sizeMarkerBack" node="0>0|9|1|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|9|2" />
+        <i3dMapping id="poettingerHit1214T_backPart_component2" node="1>" />
+        <i3dMapping id="physicalSupportWheel01" node="1>0|0" />
+        <i3dMapping id="physicalSupportWheel02" node="1>0|1" />
+        <i3dMapping id="leftArmJoint" node="1>1" />
+        <i3dMapping id="rightArmJoint" node="1>2" />
+        <i3dMapping id="backArmPartRef" node="1>3" />
+        <i3dMapping id="poettingerHit1214T_armLeft_component3" node="2>" />
+        <i3dMapping id="physicalSupportWheel03" node="2>0|0" />
+        <i3dMapping id="physicalSupportWheel04" node="2>0|1" />
+        <i3dMapping id="leftArmPartJoint" node="2>1" />
+        <i3dMapping id="leftArmRef" node="2>2" />
+        <i3dMapping id="poettingerHit1214T_armLeftPart_component4" node="3>" />
+        <i3dMapping id="physicalSupportWheel05" node="3>0|0" />
+        <i3dMapping id="physicalSupportWheel06" node="3>0|1" />
+        <i3dMapping id="leftArmPartRef" node="3>1" />
+        <i3dMapping id="poettingerHit1214T_armRight_component5" node="4>" />
+        <i3dMapping id="physicalSupportWheel07" node="4>0|0" />
+        <i3dMapping id="physicalSupportWheel08" node="4>0|1" />
+        <i3dMapping id="rightArmPartJoint" node="4>1" />
+        <i3dMapping id="rightArmRef" node="4>2" />
+        <i3dMapping id="poettingerHit1214T_armRightPart_component6" node="5>" />
+        <i3dMapping id="physicalSupportWheel09" node="5>0|0" />
+        <i3dMapping id="physicalSupportWheel10" node="5>0|1" />
+        <i3dMapping id="rightArmPartRef" node="5>1" />
+    </i3dMappings>
+</vehicle>

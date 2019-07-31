@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<vehicle type="cutter">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Quasar F4</name>
+        <specs>
+            <workingWidth>3.0</workingWidth>
+            <combination>BIZON SUPER Z056</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_cutter</function>
+        </functions>
+        <image>$data/vehicles/capello/quasarF4/store_quasarF4.png</image>
+        <price>17000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>CAPELLO</brand>
+        <category>cornHeaders</category>
+        <shopTranslationOffset>0 -0.04 0</shopTranslationOffset>
+        <shopRotationOffset>6 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>497248</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>65940</indexBufferMemoryUsage>
+        <textureMemoryUsage>6466360</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_cutter</typeDesc>
+        <filename>$data/vehicles/capello/quasarF4/quasarF4.i3d</filename>
+        <size width="3.5" length="3.5"/>
+        <speedLimit value="10"/>
+        <components>
+            <component centerOfMass="0 0 0" mass="1200" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="cutter">
+                <heightNode node="heightNode" />
+                <distanceToGround lower="0.2" upper="1.8" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+    </attachable>
+
+    <powerTakeOffs>
+        <input inputNode="ptoLeft" inputAttacherJointIndices="1" aboveAttacher="true" ptoName="LEFT_PTO"/>
+        <input inputNode="ptoRight" inputAttacherJointIndices="1" aboveAttacher="true" ptoName="RIGHT_PTO"/>
+    </powerTakeOffs>
+
+    <powerConsumer ptoRpm="540" neededMaxPtoPower="30"/>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundReferenceNode" threshold="0.4" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="cutter" functionName="processCutterArea" >
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight" />
+            <groundReferenceNode index="1" />
+            <chopperArea index="2" />
+        </workArea>
+        <workArea type="auxiliary" >
+            <area startNode="workAreaStrawStart" widthNode="workAreaStrawWidth" heightNode="workAreaStrawHeight" />
+        </workArea>
+    </workAreas>
+
+    <cutter fruitTypeCategories="maizeHeader">
+        <testAreas>
+            <testArea startNode="testAreaStart1" widthNode="testAreaWidth1" heightNode="testAreaHeight1"/>
+            <testArea startNode="testAreaStart2" widthNode="testAreaWidth2" heightNode="testAreaHeight2"/>
+            <testArea startNode="testAreaStart3" widthNode="testAreaWidth3" heightNode="testAreaHeight3"/>
+            <testArea startNode="testAreaStart4" widthNode="testAreaWidth4" heightNode="testAreaHeight4"/>
+        </testAreas>
+        <effect>
+            <effectNode linkNode="effectCenter" inverted="true" speedScale="0.0018" lengthAndRadius="1 3.8 1 3" effectType="CENTER" changeSpeedScale="0.01"/>
+            <effectNode linkNode="effectLeft" inverted="true" speedScale="0.0012" lengthAndRadius="0.5 1 1 1" effectType="LEFT" useInterpolation="true" minOffset="2"/>
+            <effectNode linkNode="effectRight" inverted="true" speedScale="0.0012" lengthAndRadius="0.5 1 1 1" effectType="RIGHT" useInterpolation="true" minOffset="2" useMaxValue="true"/>
+        </effect>
+        <fillEffect>
+            <effectNode effectClass="ParticleEffect" effectNode="effectParticles" particleType="CUTTER_CHOPPER" />
+            <effectNode effectClass="ParticleEffect" effectNode="smokeEmitter" particleType="SMOKE" emitCountScale="0.1" worldSpace="false" useCuttingWidth="false"/>
+        </fillEffect>
+        <animationNodes>
+            <animationNode node="rotor" rotSpeed="600" rotAxis="1" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="chopper1" rotSpeed="800" rotAxis="2" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="chopper2" rotSpeed="800" rotAxis="2" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="chopper3" rotSpeed="800" rotAxis="2" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="chopper4" rotSpeed="800" rotAxis="2" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotor1" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotor2" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotor3" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotor4" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotor5" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotor6" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotor7" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotor8" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode class="ScrollingAnimation" node="chains1" scrollSpeed="3" scrollLength="1" shaderParameterName="offsetUV" shaderParameterComponent="1" turnOnFadeTime="2" turnOffFadeTime="2"/>
+            <animationNode class="ScrollingAnimation" node="chains2" scrollSpeed="3" scrollLength="1" shaderParameterName="offsetUV" shaderParameterComponent="1" turnOnFadeTime="2" turnOffFadeTime="2"/>
+        </animationNodes>
+    </cutter>
+
+    <turnOnVehicle turnedOnByAttacherVehicle="true"/>
+
+    <ai>
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack"/>
+        <collisionTrigger node="aiCollisionTrigger"/>
+    </ai>
+
+    <dynamicMount forceLimitScale="1"/>
+
+    <baseMaterialConfigurations useDefaultColors="true" price="300">
+        <baseMaterialConfiguration color="CAPELLO_RED1"/>
+        <material name="capelloQuasar_mat" shaderParameter="colorMat0" />
+    </baseMaterialConfigurations>
+
+    <baseMaterial>
+        <material name="capelloQuasar_mat" baseNode="capello_vis">
+            <shaderParameter name="colorMat0" value="CAPELLO_RED1"/>
+            <shaderParameter name="colorMat1" value="CAPELLO_BLACK1"/>
+        </material>
+    </baseMaterial>
+
+    <foliageBending>
+        <bendingNode minX="-1.6" maxX="1.6" minZ="-1.3" maxZ="0.8" yOffset="0.2" />
+    </foliageBending>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="quasarF4_main_component1" node="0>" />
+        <i3dMapping id="capello_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0" />
+        <i3dMapping id="heightNode" node="0>0|0|0" />
+        <i3dMapping id="ptoLeft" node="0>0|1" />
+        <i3dMapping id="ptoRight" node="0>0|2" />
+        <i3dMapping id="rotor" node="0>0|3" />
+        <i3dMapping id="chopper1" node="0>0|4|0" />
+        <i3dMapping id="chopper2" node="0>0|4|1" />
+        <i3dMapping id="chopper3" node="0>0|4|2" />
+        <i3dMapping id="chopper4" node="0>0|4|3" />
+        <i3dMapping id="rotor1" node="0>0|5|0" />
+        <i3dMapping id="rotor2" node="0>0|5|1" />
+        <i3dMapping id="rotor3" node="0>0|5|2" />
+        <i3dMapping id="rotor4" node="0>0|5|3" />
+        <i3dMapping id="rotor5" node="0>0|5|4" />
+        <i3dMapping id="rotor6" node="0>0|5|5" />
+        <i3dMapping id="rotor7" node="0>0|5|6" />
+        <i3dMapping id="rotor8" node="0>0|5|7" />
+        <i3dMapping id="chains1" node="0>0|6|0" />
+        <i3dMapping id="chains2" node="0>0|6|1" />
+        <i3dMapping id="workAreaStart" node="0>0|7|0|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|7|0|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|7|0|2" />
+        <i3dMapping id="groundReferenceNode" node="0>0|7|1" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|8|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|8|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|8|0|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|8|1" />
+        <i3dMapping id="effectCenter" node="0>0|9|0|0" />
+        <i3dMapping id="effectLeft" node="0>0|9|0|1" />
+        <i3dMapping id="effectRight" node="0>0|9|0|2" />
+        <i3dMapping id="effectParticles" node="0>0|9|0|3" />
+        <i3dMapping id="workAreaStrawStart" node="0>0|9|0|3|0|0" />
+        <i3dMapping id="workAreaStrawWidth" node="0>0|9|0|3|0|1" />
+        <i3dMapping id="workAreaStrawHeight" node="0>0|9|0|3|0|2" />
+        <i3dMapping id="smokeEmitter" node="0>0|9|0|4" />
+        <i3dMapping id="testAreaStart1" node="0>0|9|1|0" />
+        <i3dMapping id="testAreaWidth1" node="0>0|9|1|0|0" />
+        <i3dMapping id="testAreaHeight1" node="0>0|9|1|0|1" />
+        <i3dMapping id="testAreaStart2" node="0>0|9|1|1" />
+        <i3dMapping id="testAreaWidth2" node="0>0|9|1|1|0" />
+        <i3dMapping id="testAreaHeight2" node="0>0|9|1|1|1" />
+        <i3dMapping id="testAreaStart3" node="0>0|9|1|2" />
+        <i3dMapping id="testAreaWidth3" node="0>0|9|1|2|0" />
+        <i3dMapping id="testAreaHeight3" node="0>0|9|1|2|1" />
+        <i3dMapping id="testAreaStart4" node="0>0|9|1|3" />
+        <i3dMapping id="testAreaWidth4" node="0>0|9|1|3|0" />
+        <i3dMapping id="testAreaHeight4" node="0>0|9|1|3|1" />
+    </i3dMappings>
+</vehicle>

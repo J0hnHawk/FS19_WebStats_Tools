@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<vehicle type="tippingAugerWagon">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>$l10n_shopItem_sugarcaneTrailer</name>
+        <specs>
+            <combination>$l10n_category_tractorsL</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_sugarCaneTrailer</function>
+        </functions>
+        <image>$data/vehicles/randon/canavieiro/store_canavieiro.png</image>
+        <price>92000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>RANDON</brand>
+        <category>sugarCaneHarvesting</category>
+        <shopTranslationOffset>0 0.06 0</shopTranslationOffset>
+        <shopRotationOffset>0 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>1637736</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>273780</indexBufferMemoryUsage>
+        <textureMemoryUsage>12932680</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_tipper</typeDesc>
+        <filename>$data/vehicles/randon/canavieiro/canavieiro.i3d</filename>
+        <size width="3.2" length="12" lengthOffset="0.8"/>
+        <components>
+            <component centerOfMass="0 0.65 -0.7" solverIterationCount="10" mass="5400"/>
+            <component centerOfMass="0 0.65 0" solverIterationCount="10" mass="2800"/>
+            <component centerOfMass="0 0.00 0" solverIterationCount="10" mass="950"/>
+            <joint component1="1" component2="2" node="componentJoint_frontPart" rotLimit="0 120 0" transLimit="0 0 0"/>
+            <joint component1="2" component2="3" node="componentJoint_drawbar" rotLimit="20 0 0" transLimit="0 0 0"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+        <forcedMapHotspotType>Trailer</forcedMapHotspotType>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" configId="dual" isLeft="false">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.1" repr="wheelBackFrontLeft"   forcePointRatio="0.3" initialCompression="20" suspTravel="0.15" spring="35" damper="30" rotationDamping="0.001"/>
+                        <additionalWheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" isLeft="true" configId="dualConnector" offset="0.1" hasParticles="true"/>
+                        <wheelChock parkingNode="wheelChock01" />
+                        <wheelChock parkingNode="wheelChock02" isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" configId="dual" isLeft="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.1" repr="wheelBackFrontRight"  forcePointRatio="0.3" initialCompression="20" suspTravel="0.15" spring="35" damper="30" rotationDamping="0.001"/>
+                        <additionalWheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" isLeft="false" configId="dualConnector" offset="0.1" hasParticles="true"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" configId="dual" isLeft="false" hasTireTracks="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.0" repr="wheelBackBackLeft"    forcePointRatio="0.3" initialCompression="20" suspTravel="0.15" spring="35" damper="30" rotationDamping="0.001"/>
+                        <additionalWheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" isLeft="true" configId="dualConnector" offset="0.1" hasTireTracks="true"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" configId="dual" isLeft="true" hasTireTracks="true">
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.0" repr="wheelBackBackRight"   forcePointRatio="0.3" initialCompression="20" suspTravel="0.15" spring="35" damper="30" rotationDamping="0.001"/>
+                        <additionalWheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" isLeft="false" configId="dualConnector" offset="0.1" hasTireTracks="true"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" configId="dual" isLeft="false">
+                        <physics tipOcclusionAreaGroupId="2" restLoad="1.6" repr="wheelFrontFrontLeft"  forcePointRatio="0.3" initialCompression="20" suspTravel="0.15" spring="35" damper="30" rotationDamping="0.001"/>
+                        <additionalWheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" isLeft="true" configId="dualConnector" offset="0.1" hasParticles="true"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" configId="dual" isLeft="true">
+                        <physics tipOcclusionAreaGroupId="2" restLoad="1.6" repr="wheelFrontFrontRight" forcePointRatio="0.3" initialCompression="20" suspTravel="0.15" spring="35" damper="30" rotationDamping="0.001"/>
+                        <additionalWheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" isLeft="false" configId="dualConnector" offset="0.1" hasParticles="true"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" configId="dual" isLeft="false" hasTireTracks="true">
+                        <physics tipOcclusionAreaGroupId="2" restLoad="1.5" repr="wheelFrontBackLeft"   forcePointRatio="0.3" initialCompression="20" suspTravel="0.15" spring="35" damper="30" rotationDamping="0.001"/>
+                        <additionalWheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" isLeft="true" configId="dualConnector" offset="0.1" hasTireTracks="true"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" configId="dual" isLeft="true" hasTireTracks="true">
+                        <physics tipOcclusionAreaGroupId="2" restLoad="1.5" repr="wheelFrontBackRight"  forcePointRatio="0.3" initialCompression="20" suspTravel="0.15" spring="35" damper="30" rotationDamping="0.001"/>
+                        <additionalWheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" isLeft="false" configId="dualConnector" offset="0.1" hasTireTracks="true"/>
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+    </wheels>
+
+    <dynamicallyLoadedParts>
+        <dynamicallyLoadedPart node="0" linkNode="chockSupport01" filename="$data/shared/assets/wheelChocks/wheelChockSupport01.i3d"/>
+        <dynamicallyLoadedPart node="0" linkNode="chockSupport02" filename="$data/shared/assets/wheelChocks/wheelChockSupport01.i3d"/>
+    </dynamicallyLoadedParts>
+
+    <rimColorConfigurations useDefaultColors="true" price="200">
+        <rimColorConfiguration color="RANDON_ORANGE1"         price="0"/>
+        <rimColorConfiguration color="0.0152 0.3112 0.0582 1" price="0"/>
+    </rimColorConfigurations>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" rootNode="canavieiro_drawbar_component3" jointType="trailer" attacherHeight="0.847"/>
+        </inputAttacherJoints>
+        <brakeForce>1</brakeForce>
+    </attachable>
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn01"  length="0.9" diameter="0.02"/>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut01" length="0.9" diameter="0.02"/>
+
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn02"  length="0.9" diameter="0.02"/>
+        <hose inputAttacherJointIndices="1" type="electric"  node="electric"  length="0.9" diameter="0.008"/>
+    </connectionHoses>
+
+    <lights>
+            <sharedLight linkNode="backlightLeft"       filename="$data/shared/assets/lights/lizard/rearMultipointLight_01_left.xml" />
+            <sharedLight linkNode="backlightRight"       filename="$data/shared/assets/lights/lizard/rearMultipointLight_01_right.xml" />
+            <sharedLight linkNode="sideMarker01"       filename="$data/shared/assets/lights/lizard/sideMarker_06Red.xml" />
+            <sharedLight linkNode="sideMarker02"       filename="$data/shared/assets/lights/lizard/sideMarker_06Red.xml" />
+            <sharedLight linkNode="sideMarker03"       filename="$data/shared/assets/lights/lizard/sideMarker_06Red.xml" />
+            <sharedLight linkNode="sideMarker04"       filename="$data/shared/assets/lights/lizard/sideMarker_06Red.xml" />
+            <sharedLight linkNode="sideMarker05"       filename="$data/shared/assets/lights/lizard/sideMarker_06Red.xml" />
+            <sharedLight linkNode="sideMarker06"       filename="$data/shared/assets/lights/lizard/sideMarker_06Red.xml" />
+            <sharedLight linkNode="sideMarker07"       filename="$data/shared/assets/lights/lizard/sideMarker_06Red.xml" />
+            <sharedLight linkNode="sideMarker08"       filename="$data/shared/assets/lights/lizard/sideMarker_06Red.xml" />
+        <realLights>
+            <high>
+                <light node="backLightsHigh" lightTypes="0"/>
+                <turnLightLeft node="turnLightLeftBack"/>
+                <turnLightRight node="turnLightRightBack"/>
+                <brakeLight node="backLightsHigh"/>
+                <reverseLight node="reverseLight"/>
+            </high>
+        </realLights>
+    </lights>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="cage" playSound="true">
+                <controls axis="AXIS_FRONTLOADER_TOOL" invertAxis="true" mouseSpeedFactor="0.6" iconName="FRONTLOADER_ARM_ROTATE_TOOL"/>
+                <rotation rotSpeed="25" rotAcceleration="100" rotMax="0" rotMin="-120" rotationAxis="3" startRot="0"/>
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="dischargeNodeRot" referenceFrame="0>" isActiveDirty="true"/>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <fillUnit unit="$l10n_unit_literShort" fillTypeCategories="silageTrailer" capacity="66500">
+                        <exactFillRootNode node="exactFillRootNode"/>
+                        <autoAimTargetNode node="fillAutoAimTarget" startZ="3.8" endZ="-3.7" invert="false" startPercentage="25"/>
+                    </fillUnit>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <fillVolume>
+        <fillVolumeConfigurations>
+            <fillVolumeConfiguration>
+                <volumes>
+                    <volume node="fillVolume" allSidePlanes="true" maxAllowedHeapAngle="60" fillUnitIndex="1"/>
+                </volumes>
+            </fillVolumeConfiguration>
+        </fillVolumeConfigurations>
+
+        <unloadInfos>
+            <unloadInfo>
+                <node node="fillVolumeUnloadNode01" width="9.5" length="2"/>
+            </unloadInfo>
+        </unloadInfos>
+    </fillVolume>
+
+    <dischargeable>
+        <dischargeNode node="dischargeNode" fillUnitIndex="1" emptySpeed="1400" >
+            <raycast node="dischargeNode" maxDistance="6" />
+            <info width="8.0" length="2.0"/>
+
+            <effects>
+                <effectNode effectClass="TipEffect">
+                    <effectNode effectNode="effectParticles" effectClass="ParticleEffect" lifespan="0.11"/>
+                    <effectNode effectNode="effectGrain" materialType="unloading" materialTypeId="3" fadeTime="0.5" alignXAxisToWorldY="true" />
+                </effectNode>
+
+                <effectNode effectNode="effectSmoke" materialType="smoke"     materialTypeId="1" fadeTime="0.5" />
+            </effects>
+        </dischargeNode>
+    </dischargeable>
+
+    <shovel>
+        <dischargeInfo node="dischargeInfoNode" minSpeedAngle="110" maxSpeedAngle="165" />
+    </shovel>
+
+    <tipOccluder>
+        <occlusionArea start="occlusionAreaStart" width="occlusionAreaWidth" height="occlusionAreaHeight"/>
+    </tipOccluder>
+
+    <foliageBending>
+        <bendingNode minX="-1.4" maxX="1.4" minZ="-4.8" maxZ="5.0" yOffset="0.6" />
+    </foliageBending>
+
+    <ai>
+        <allowTurnBackward value="false"/>
+        <turningRadiusLimitation radius="6"/>
+    </ai>
+
+    <baseMaterialConfigurations useDefaultColors="true" price="800">
+        <baseMaterialConfiguration color="RANDON_ORANGE1"         price="0"/>
+        <baseMaterialConfiguration color="0.0152 0.3112 0.0582 1" price="0"/>
+        <material name="randonCanavieiro_mat" shaderParameter="colorMat0" />
+        <material name="cageWalls_mat" shaderParameter="colorMat0" />
+        <material name="alphaParts_mat" shaderParameter="colorMat0" />
+    </baseMaterialConfigurations>
+
+    <baseMaterial>
+        <material name="randonCanavieiro_mat" baseNode="canavieiro_vis">
+            <shaderParameter name="colorMat0" value="RANDON_ORANGE1"/>
+            <shaderParameter name="colorMat1" value="RANDON_RED1"/>
+            <shaderParameter name="colorMat2" value="RANDON_ORANGE2"/>
+        </material>
+        <material name="cageWalls_mat" baseNode="cageWalls_vis">
+            <shaderParameter name="colorMat0" value="RANDON_ORANGE1"/>
+        </material>
+        <material name="alphaParts_mat" baseNode="alphaParts_vis">
+            <shaderParameter name="colorMat0" value="RANDON_ORANGE1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="3" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="componentJoint_frontPart" node="0>0" />
+        <i3dMapping id="wheels" node="0>1" />
+        <i3dMapping id="wheelBackFrontLeft" node="0>1|0" />
+        <i3dMapping id="wheelBackFrontRight" node="0>1|1" />
+        <i3dMapping id="wheelBackBackLeft" node="0>1|2" />
+        <i3dMapping id="wheelBackBackRight" node="0>1|3" />
+        <i3dMapping id="chockSupport01" node="0>2|0" />
+        <i3dMapping id="chockSupport02" node="0>2|1" />
+        <i3dMapping id="wheelChock01" node="0>2|2" />
+        <i3dMapping id="wheelChock02" node="0>2|3" />
+        <i3dMapping id="cage" node="0>3" />
+        <i3dMapping id="fillVolume" node="0>3|0|0" />
+        <i3dMapping id="fillVolumeUnloadNode01" node="0>3|0|1" />
+        <i3dMapping id="dischargeInfoNode" node="0>3|0|2" />
+        <i3dMapping id="exactFillRootNode" node="0>3|0|3" />
+        <i3dMapping id="fillAutoAimTarget" node="0>3|0|4" />
+        <i3dMapping id="effectParticles" node="0>3|0|5|0" />
+        <i3dMapping id="effectGrain" node="0>3|0|5|1" />
+        <i3dMapping id="effectSmoke" node="0>3|0|5|2" />
+        <i3dMapping id="dischargeNodeRot" node="0>3|0|6" />
+        <i3dMapping id="dischargeNode" node="0>3|0|6|0" />
+        <i3dMapping id="cageWalls_vis" node="0>3|1|0" />
+        <i3dMapping id="backlightLeft" node="0>4|0|0" />
+        <i3dMapping id="backlightRight" node="0>4|0|1" />
+        <i3dMapping id="sideMarker01" node="0>4|0|2" />
+        <i3dMapping id="sideMarker02" node="0>4|0|3" />
+        <i3dMapping id="sideMarker03" node="0>4|0|4" />
+        <i3dMapping id="sideMarker04" node="0>4|0|5" />
+        <i3dMapping id="sideMarker05" node="0>4|0|6" />
+        <i3dMapping id="sideMarker06" node="0>4|0|7" />
+        <i3dMapping id="sideMarker07" node="0>4|0|8" />
+        <i3dMapping id="sideMarker08" node="0>4|0|9" />
+        <i3dMapping id="backLightsHigh" node="0>4|1" />
+        <i3dMapping id="turnLightLeftBack" node="0>4|2" />
+        <i3dMapping id="turnLightRightBack" node="0>4|3" />
+        <i3dMapping id="reverseLight" node="0>4|4" />
+        <i3dMapping id="occlusionAreaStart" node="0>5|0" />
+        <i3dMapping id="occlusionAreaWidth" node="0>5|1" />
+        <i3dMapping id="occlusionAreaHeight" node="0>5|2" />
+        <i3dMapping id="canavieiro_vis" node="0>6|0" />
+        <i3dMapping id="alphaParts_vis" node="0>6|1" />
+        <i3dMapping id="componentJoint_drawbar" node="1>0" />
+        <i3dMapping id="wheelsFront" node="1>1" />
+        <i3dMapping id="wheelFrontFrontLeft" node="1>1|0" />
+        <i3dMapping id="wheelFrontFrontRight" node="1>1|1" />
+        <i3dMapping id="wheelFrontBackLeft" node="1>1|2" />
+        <i3dMapping id="wheelFrontBackRight" node="1>1|3" />
+        <i3dMapping id="canavieiro_drawbar_component3" node="2>" />
+        <i3dMapping id="attacherJoint" node="2>0" />
+        <i3dMapping id="hydraulicIn01" node="2>1|0" />
+        <i3dMapping id="hydraulicOut01" node="2>1|1" />
+        <i3dMapping id="hydraulicIn02" node="2>1|2" />
+        <i3dMapping id="electric" node="2>1|3" />
+    </i3dMappings>
+</vehicle>

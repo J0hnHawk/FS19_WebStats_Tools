@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="implement">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>SB 1000</name>
+        <functions>
+            <function>$l10n_function_weight</function>
+        </functions>
+        <rotation>0</rotation>
+        <image>$data/vehicles/suer/SB1000/store_suerSB1000.png</image>
+        <price>900</price>
+        <lifetime>600</lifetime>
+        <brand>SUER</brand>
+        <category>weights</category>
+        <vertexBufferMemoryUsage>38208</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>5868</indexBufferMemoryUsage>
+        <textureMemoryUsage>9087816</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_weight</typeDesc>
+        <filename>$data/vehicles/suer/SB1000/SB1000.i3d</filename>
+        <size width="2" length="1.5" />
+        <components>
+            <component centerOfMass="0 0.3 0" solverIterationCount="10" mass="1000" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <attacherJoints>
+        <attacherJoint node="trailerAttacherJoint" jointType="trailer" lowerRotLimit="10 80 80" upperRotRotationOffset="0" allowsJointLimitMovement="false" >
+            <schema position="1 0" rotation="0" invertX="false" />
+        </attacherJoint>
+        <sounds>
+            <attach template="ATTACH_01" linkNode="0>" />
+        </sounds>
+    </attacherJoints>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="implement" topReferenceNode="topReferenceNode" lowerRotLimitScale="0 0 0" upperRotationOffset="3" lowerRotationOffset="0" needsLowering="false">
+                <distanceToGround lower="0" upper="1.5" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+    </attachable>
+
+    <foliageBending>
+        <bendingNode minX="-0.7" maxX="0.7" minZ="-0.5" maxZ="0.45" yOffset="0.1" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="suerSB_mat" baseNode="suerSB_vis">
+            <shaderParameter name="colorMat0" value="SUER_GREY1"/>
+        </material>
+    </baseMaterial>
+
+    <baseMaterialConfigurations price="100" useDefaultColors="true" defaultColorIndex="8">
+        <material name="suerSB_mat" shaderParameter="colorMat0" />
+    </baseMaterialConfigurations>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="2" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="attacherJoint" node="0>0" />
+        <i3dMapping id="topReferenceNode" node="0>1" />
+        <i3dMapping id="trailerAttacherJoint" node="0>2" />
+        <i3dMapping id="suerSB_vis" node="0>3" />
+    </i3dMappings>
+</vehicle>

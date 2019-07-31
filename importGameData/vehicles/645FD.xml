@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="cutter">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>645 FD</name>
+        <specs>
+            <workingWidth>13.7</workingWidth>
+            <combination>S790</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_cutter</function>
+        </functions>
+        <image>$data/vehicles/johnDeere/645FD/store_645FD.png</image>
+        <price>89000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>JOHNDEERE</brand>
+        <category>cutters</category>
+        <shopTranslationOffset>0 -0.05 0</shopTranslationOffset>
+        <shopRotationOffset>-6 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>3712660</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>909078</indexBufferMemoryUsage>
+        <textureMemoryUsage>30146952</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_cutter</typeDesc>
+        <filename>$data/vehicles/johnDeere/645FD/645FD.i3d</filename>
+        <size width="16" length="4" />
+        <speedLimit value="10" />
+        <components>
+            <component centerOfMass="0 0.2 -0.2" solverIterationCount="10" mass="4264" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="cutter" >
+                <heightNode node="heightNode" />
+                <distanceToGround lower="0.5" upper="2.05" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+    </attachable>
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn01"  length="0.8" diameter="0.02" straighteningFactor="0.5">
+            <objectChange node="hydraulicIn01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut01" length="0.8" diameter="0.02" straighteningFactor="0.5">
+            <objectChange node="hydraulicOut01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn" node="hydraulicIn02" length="0.8" diameter="0.02" straighteningFactor="0.5">
+            <objectChange node="hydraulicIn02_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut02" length="0.8" diameter="0.02" straighteningFactor="0.5">
+            <objectChange node="hydraulicOut02_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+    </connectionHoses>
+
+    <powerTakeOffs>
+        <input inputAttacherJointIndices="1" inputNode="ptoInputNode" aboveAttacher="true" detachNode="ptoDetachNode" ptoName="LEFT_PTO"/>
+    </powerTakeOffs>
+
+    <powerConsumer ptoRpm="540" neededMaxPtoPower="125"/>
+
+    <lights>
+        <sharedLight linkNode="rearLightCircle_01Orange02" filename="$data/shared/assets/lights/lizard/rearLightCircleOrange_01_right.xml" />
+        <sharedLight linkNode="rearLightCircle_01Orange01" filename="$data/shared/assets/lights/lizard/rearLightCircleOrange_01_left.xml" />
+        <defaultLights>
+            <defaultLight shaderNode="workLightStatic" lightTypes="2"/>
+        </defaultLights>
+    </lights>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundReferenceNode" threshold="0.5" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="cutter" functionName="processCutterArea" disableBackwards="true" >
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight" />
+            <groundReferenceNode index="1" />
+        </workArea>
+    </workAreas>
+
+    <animations>
+        <animation name="knifeAnimation" looping="true">
+            <part node="knifes" startTime="0" endTime="0.5" shaderParameter="offsetUV" shaderStartValues="0 0 0 0" shaderEndValues="0 0.12 0 0"/>
+            <part node="knifes" startTime="0.5" endTime="1" shaderParameter="offsetUV" shaderStartValues="0 0.12 0 0" shaderEndValues="0 0 0 0"/>
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="reelMover" playSound="true" >
+                <controls axis="AXIS_CUTTER_REEL" invertAxis="false" mouseSpeedFactor="0.9" iconName="REEL_TRANSLATE_X" />
+                <translation transSpeed="0.1" transAcceleration="20" transMax="0.45" transMin="0" translationAxis="3" startTrans="0.1"/>
+                <dependentPart node="reelArmHydraulic01" />
+                <dependentPart node="reelArmHydraulic02" />
+            </movingTool>
+
+            <movingTool node="reelArm" playSound="true" >
+                <controls axis="AXIS_CUTTER_REEL2" invertAxis="true" mouseSpeedFactor="0.9" iconName="REEL_TRANSLATE_Y" />
+                <rotation rotSpeed="10" rotAcceleration="40" rotMax="0" rotMin="-25" startRot="-24"/>
+                <dependentPart node="mainArmHydraulic" />
+                <dependentPart node="middleBigHydraulic" />
+                <dependentPart node="middleSmallHydraulic" />
+            </movingTool>
+
+            <movingTool node="reel">
+                <dependentPart node="arm01" />
+                <dependentPart node="arm02" />
+                <dependentPart node="arm03" />
+                <dependentPart node="arm04" />
+                <dependentPart node="arm05" />
+                <dependentPart node="arm06" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="arm01" referenceFrame="fd645_main_component1"/>
+            <movingPart node="arm02" referenceFrame="fd645_main_component1"/>
+            <movingPart node="arm03" referenceFrame="fd645_main_component1"/>
+            <movingPart node="arm04" referenceFrame="fd645_main_component1"/>
+            <movingPart node="arm05" referenceFrame="fd645_main_component1"/>
+            <movingPart node="arm06" referenceFrame="fd645_main_component1"/>
+
+            <movingPart node="reelArmHydraulic01" referencePoint="reelArmHydraulic01Ref" referenceFrame="reelArmHydraulic01Ref" >
+                <translatingPart node="reelArmHydraulic01Punch" />
+            </movingPart>
+            <movingPart node="reelArmHydraulic02" referencePoint="reelArmHydraulic02Ref" referenceFrame="reelArmHydraulic02Ref" >
+                <translatingPart node="reelArmHydraulic02Punch" />
+            </movingPart>
+            <movingPart node="mainArmHydraulic" referencePoint="mainArmHydraulicRef" referenceFrame="mainArmHydraulicRef" >
+                <translatingPart node="mainArmHydraulicPunch" />
+            </movingPart>
+            <movingPart node="middleBigHydraulic" referencePoint="middleBigHydraulicRef" referenceFrame="middleBigHydraulicRef" >
+                <translatingPart node="middleBigHydraulicPunch" />
+            </movingPart>
+            <movingPart node="middleSmallHydraulic" referencePoint="middleSmallHydraulicRef" referenceFrame="middleSmallHydraulicRef" >
+                <translatingPart node="middleSmallHydraulicPunch" />
+            </movingPart>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" />
+        </sounds>
+    </cylindered>
+
+    <cutter fruitTypeCategories="grainHeader">
+        <testAreas>
+            <testArea startNode="testAreaStart1" widthNode="testAreaWidth1" heightNode="testAreaHeight1"/>
+            <testArea startNode="testAreaStart2" widthNode="testAreaWidth2" heightNode="testAreaHeight2"/>
+            <testArea startNode="testAreaStart3" widthNode="testAreaWidth3" heightNode="testAreaHeight3"/>
+            <testArea startNode="testAreaStart4" widthNode="testAreaWidth4" heightNode="testAreaHeight4"/>
+            <testArea startNode="testAreaStart5" widthNode="testAreaWidth5" heightNode="testAreaHeight5"/>
+            <testArea startNode="testAreaStart6" widthNode="testAreaWidth6" heightNode="testAreaHeight6"/>
+            <testArea startNode="testAreaStart7" widthNode="testAreaWidth7" heightNode="testAreaHeight7"/>
+            <testArea startNode="testAreaStart8" widthNode="testAreaWidth8" heightNode="testAreaHeight8"/>
+            <testArea startNode="testAreaStart9" widthNode="testAreaWidth9" heightNode="testAreaHeight9"/>
+            <testArea startNode="testAreaStart10" widthNode="testAreaWidth10" heightNode="testAreaHeight10"/>
+        </testAreas>
+        <fillEffect>
+            <effectNode effectClass="ParticleEffect" effectNode="smokeEmitter" particleType="SMOKE" emitCountScale="0.1" worldSpace="false" useCuttingWidth="false"/>
+        </fillEffect>
+        <effect>
+            <effectNode linkNode="effectCenter" speedScale="0.0018"                             effectType="CENTER" changeSpeedScale="0.01" supportScaling="true" />
+            <effectNode linkNode="effectLeft" speedScale="0.0013" lengthAndRadius="5.5 1 1 1" effectType="LEFT" useInterpolation="true" minOffset="6"/>
+            <effectNode linkNode="effectRight" speedScale="0.0013" lengthAndRadius="5.5 1 1 1" effectType="RIGHT" useInterpolation="true" minOffset="6" useMaxValue="true"/>
+        </effect>
+
+        <animationNodes>
+            <animationNode node="mainDrum"  rotAxis="1" rotSpeed="600"  turnOnFadeTime="2" turnOffFadeTime="3"/>
+            <animationNode node="reel" rotAxis="1" rotSpeed="-200"  turnOnFadeTime="2" turnOffFadeTime="3"/>
+            <animationNode node="reelPart" rotAxis="1" rotSpeed="-200"  turnOnFadeTime="2" turnOffFadeTime="3"/>
+            <animationNode node="rightInnerBelt" rotSpeed="70"  rotAxis="1" turnOnFadeTime="2" turnOffFadeTime="2" shaderComponentScale="0 1 0 0" shaderParameterName="offsetUV"/>
+            <animationNode node="rightOuterBelt" rotSpeed="70"  rotAxis="1" turnOnFadeTime="2" turnOffFadeTime="2" shaderComponentScale="0 1 0 0" shaderParameterName="offsetUV"/>
+            <animationNode node="leftOuterBelt" rotSpeed="70"  rotAxis="1" turnOnFadeTime="2" turnOffFadeTime="2" shaderComponentScale="0 1 0 0" shaderParameterName="offsetUV"/>
+            <animationNode node="leftInnerBelt" rotSpeed="70"  rotAxis="1" turnOnFadeTime="2" turnOffFadeTime="2" shaderComponentScale="0 1 0 0" shaderParameterName="offsetUV"/>
+            <animationNode node="middleBelt" rotSpeed="50"  rotAxis="1" turnOnFadeTime="2" turnOffFadeTime="2" shaderComponentScale="0 1 0 0" shaderParameterName="offsetUV"/>
+        </animationNodes>
+    </cutter>
+
+    <turnOnVehicle turnedOnByAttacherVehicle="true">
+        <turnedOnAnimation name="knifeAnimation" speedScale="6" turnOnFadeTime="2" turnOffFadeTime="2"/>
+    </turnOnVehicle>
+
+    <dynamicMount forceLimitScale="1" />
+
+    <ai>
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack" />
+        <sizeMarkers leftNode="sizeMarkerLeft" rightNode="sizeMarkerRight" backNode="sizeMarkerBack" />
+        <collisionTrigger node="aiCollisionTrigger" />
+    </ai>
+
+    <baseMaterial>
+        <material name="FD_mat" baseNode="fd645_vis">
+            <shaderParameter name="colorMat0" value="JOHNDEERE_GREEN1"/>
+            <shaderParameter name="colorMat1" value="JOHNDEERE_YELLOW1"/>
+        </material>
+    </baseMaterial>
+
+    <foliageBending>
+        <bendingNode minX="-7" maxX="7" minZ="-1.1" maxZ="0.9" yOffset="0.1" />
+    </foliageBending>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="fd645_main_component1" node="0>" />
+        <i3dMapping id="fd645_vis" node="0>0" />
+        <i3dMapping id="heightNode" node="0>0|0|0" />
+        <i3dMapping id="attacherJoint" node="0>0|0|1" />
+        <i3dMapping id="ptoInputNode" node="0>0|0|2" />
+        <i3dMapping id="ptoDetachNode" node="0>0|0|2|0" />
+        <i3dMapping id="hydraulicIn01" node="0>0|0|3|0" />
+        <i3dMapping id="hydraulicIn01_detached" node="0>0|0|3|0|0" />
+        <i3dMapping id="hydraulicOut01" node="0>0|0|3|1" />
+        <i3dMapping id="hydraulicOut01_detached" node="0>0|0|3|1|0" />
+        <i3dMapping id="hydraulicIn02" node="0>0|0|3|2" />
+        <i3dMapping id="hydraulicIn02_detached" node="0>0|0|3|2|0" />
+        <i3dMapping id="hydraulicOut02" node="0>0|0|3|3" />
+        <i3dMapping id="hydraulicOut02_detached" node="0>0|0|3|3|0" />
+        <i3dMapping id="workLightStatic" node="0>0|1|0" />
+        <i3dMapping id="rearLightCircle_01Orange02" node="0>0|1|1|0" />
+        <i3dMapping id="rearLightCircle_01Orange01" node="0>0|1|1|1" />
+        <i3dMapping id="workAreaStart" node="0>0|2|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|2|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|2|2" />
+        <i3dMapping id="groundReferenceNode" node="0>0|2|3" />
+        <i3dMapping id="reelArm" node="0>0|3|0" />
+        <i3dMapping id="reelMover" node="0>0|3|0|0|0" />
+        <i3dMapping id="reel" node="0>0|3|0|0|0|0" />
+        <i3dMapping id="arm01" node="0>0|3|0|0|0|0|0|0|0" />
+        <i3dMapping id="arm02" node="0>0|3|0|0|0|0|0|1|0" />
+        <i3dMapping id="arm03" node="0>0|3|0|0|0|0|0|2|0" />
+        <i3dMapping id="arm04" node="0>0|3|0|0|0|0|0|3|0" />
+        <i3dMapping id="arm05" node="0>0|3|0|0|0|0|0|4|0" />
+        <i3dMapping id="arm06" node="0>0|3|0|0|0|0|0|5|0" />
+        <i3dMapping id="reelPart" node="0>0|3|0|0|0|1" />
+        <i3dMapping id="reelArmHydraulic01" node="0>0|3|0|0|0|2" />
+        <i3dMapping id="reelArmHydraulic01Punch" node="0>0|3|0|0|0|2|0" />
+        <i3dMapping id="reelArmHydraulic02Ref" node="0>0|3|0|0|0|4" />
+        <i3dMapping id="mainArmHydraulicRef" node="0>0|3|0|1" />
+        <i3dMapping id="middleBigHydraulicRef" node="0>0|3|0|2" />
+        <i3dMapping id="middleSmallHydraulicRef" node="0>0|3|0|3" />
+        <i3dMapping id="reelArmHydraulic01Ref" node="0>0|3|0|4" />
+        <i3dMapping id="reelArmHydraulic02" node="0>0|3|0|5" />
+        <i3dMapping id="reelArmHydraulic02Punch" node="0>0|3|0|5|0" />
+        <i3dMapping id="mainDrum" node="0>0|3|1" />
+        <i3dMapping id="rightInnerBelt" node="0>0|3|2|0" />
+        <i3dMapping id="rightOuterBelt" node="0>0|3|2|1" />
+        <i3dMapping id="leftOuterBelt" node="0>0|3|2|2" />
+        <i3dMapping id="leftInnerBelt" node="0>0|3|2|3" />
+        <i3dMapping id="middleBelt" node="0>0|3|2|4" />
+        <i3dMapping id="knifes" node="0>0|3|3" />
+        <i3dMapping id="mainArmHydraulic" node="0>0|4|0" />
+        <i3dMapping id="mainArmHydraulicPunch" node="0>0|4|0|0" />
+        <i3dMapping id="middleBigHydraulic" node="0>0|4|1" />
+        <i3dMapping id="middleBigHydraulicPunch" node="0>0|4|1|0" />
+        <i3dMapping id="middleSmallHydraulic" node="0>0|4|2" />
+        <i3dMapping id="middleSmallHydraulicPunch" node="0>0|4|2|0" />
+        <i3dMapping id="effectCenter" node="0>0|5|0|0" />
+        <i3dMapping id="effectLeft" node="0>0|5|0|1" />
+        <i3dMapping id="effectRight" node="0>0|5|0|2" />
+        <i3dMapping id="testAreaStart1" node="0>0|5|1|0" />
+        <i3dMapping id="testAreaWidth1" node="0>0|5|1|0|0" />
+        <i3dMapping id="testAreaHeight1" node="0>0|5|1|0|1" />
+        <i3dMapping id="testAreaStart2" node="0>0|5|1|1" />
+        <i3dMapping id="testAreaWidth2" node="0>0|5|1|1|0" />
+        <i3dMapping id="testAreaHeight2" node="0>0|5|1|1|1" />
+        <i3dMapping id="testAreaStart3" node="0>0|5|1|2" />
+        <i3dMapping id="testAreaWidth3" node="0>0|5|1|2|0" />
+        <i3dMapping id="testAreaHeight3" node="0>0|5|1|2|1" />
+        <i3dMapping id="testAreaStart4" node="0>0|5|1|3" />
+        <i3dMapping id="testAreaWidth4" node="0>0|5|1|3|0" />
+        <i3dMapping id="testAreaHeight4" node="0>0|5|1|3|1" />
+        <i3dMapping id="testAreaStart5" node="0>0|5|1|4" />
+        <i3dMapping id="testAreaWidth5" node="0>0|5|1|4|0" />
+        <i3dMapping id="testAreaHeight5" node="0>0|5|1|4|1" />
+        <i3dMapping id="testAreaStart6" node="0>0|5|1|5" />
+        <i3dMapping id="testAreaWidth6" node="0>0|5|1|5|0" />
+        <i3dMapping id="testAreaHeight6" node="0>0|5|1|5|1" />
+        <i3dMapping id="testAreaStart7" node="0>0|5|1|6" />
+        <i3dMapping id="testAreaWidth7" node="0>0|5|1|6|0" />
+        <i3dMapping id="testAreaHeight7" node="0>0|5|1|6|1" />
+        <i3dMapping id="testAreaStart8" node="0>0|5|1|7" />
+        <i3dMapping id="testAreaWidth8" node="0>0|5|1|7|0" />
+        <i3dMapping id="testAreaHeight8" node="0>0|5|1|7|1" />
+        <i3dMapping id="testAreaStart9" node="0>0|5|1|8" />
+        <i3dMapping id="testAreaWidth9" node="0>0|5|1|8|0" />
+        <i3dMapping id="testAreaHeight9" node="0>0|5|1|8|1" />
+        <i3dMapping id="testAreaStart10" node="0>0|5|1|9" />
+        <i3dMapping id="testAreaWidth10" node="0>0|5|1|9|0" />
+        <i3dMapping id="testAreaHeight10" node="0>0|5|1|9|1" />
+        <i3dMapping id="smokeEmitter" node="0>0|5|2" />
+        <i3dMapping id="aiMarker" node="0>0|6|0" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|6|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|6|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|6|0|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|6|1" />
+        <i3dMapping id="sizeMarkerLeft" node="0>0|6|2|0" />
+        <i3dMapping id="sizeMarkerRight" node="0>0|6|2|1" />
+        <i3dMapping id="sizeMarkerBack" node="0>0|6|2|2" />
+    </i3dMappings>
+</vehicle>

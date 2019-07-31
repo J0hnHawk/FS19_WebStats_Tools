@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable>
+    <storeData>
+        <name>$l10n_shopItem_farmStorageBarn</name>
+        <functions>
+            <function>$l10n_function_decoration</function>
+        </functions>
+        <image>$data/placeables/mapDE/farmBuildings/store_farmStorageBarn.png</image>
+        <price>30000</price>
+        <dailyUpkeep>50</dailyUpkeep>
+        <lifetime>1000</lifetime>
+        <rotation>0</rotation>
+        <brand>LIZARD</brand>
+        <species>placeable</species>
+        <category>decoration</category>
+        <vertexBufferMemoryUsage>1152</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>144</indexBufferMemoryUsage>
+        <textureMemoryUsage>128</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <placeableType>placeable</placeableType>
+    <filename>data/placeables/mapDE/farmBuildings/farmStorageBarn.i3d</filename>
+    <placement testSizeX="31" testSizeZ="31" sizeX="25" sizeZ="25" useRandomYRotation="false" useManualYRotation="true" />
+	
+	<dayNightObjects>
+        <dayNightObject node="1|0|0|0" intensityDay="0" intensityNight="1" />
+        <dayNightObject node="1|0|0|1" visibleDay="false" visibleNight="true" />
+        <dayNightObject node="1|1|0|0" intensityDay="0" intensityNight="1" />
+        <dayNightObject node="1|1|0|1" visibleDay="false" visibleNight="true" />
+    </dayNightObjects>
+	
+    <tipOcclusionUpdateArea sizeX="25" sizeZ="25" />
+
+    <clearAreas>
+        <clearArea startNode="3|0" widthNode="3|0|0" heightNode="3|0|1"/>
+    </clearAreas>
+
+    <leveling requireLeveling="true" maxSmoothDistance="10" maxSlope="75" maxEdgeAngle="30">
+        <levelAreas>
+            <levelArea startNode="4|0" widthNode="4|0|0" heightNode="4|0|1" groundType="asphalt"/>
+        </levelAreas>
+        <rampAreas> <!-- Deprecated! no longer used in script -->
+            <rampArea maxSlope="75" rootNode="5|0" startNode="5|0" widthNode="5|0|0" heightNode="5|0|1" />
+            <rampArea maxSlope="75" rootNode="5|1" startNode="5|1" widthNode="5|1|0" heightNode="5|1|1" />
+            <rampArea maxSlope="75" rootNode="5|2" startNode="5|2" widthNode="5|2|0" heightNode="5|2|1" />
+            <rampArea maxSlope="75" rootNode="5|3" startNode="5|3" widthNode="5|3|0" heightNode="5|3|1" />
+        </rampAreas>
+    </leveling>
+</placeable>

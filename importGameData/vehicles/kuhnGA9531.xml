@@ -1,0 +1,541 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="windrower">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>GA 9531</name>
+        <specs>
+            <workingWidth>9.3</workingWidth>
+            <neededPower>75</neededPower>
+        </specs>
+        <functions>
+            <function>$l10n_function_windrower</function>
+        </functions>
+        <image>$data/vehicles/kuhn/kuhnGA9531/store_kuhnGA9531.png</image>
+        <price>30000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>KUHN</brand>
+        <category>windrowers</category>
+        <shopTranslationOffset>0 -0.025 0</shopTranslationOffset>
+        <shopRotationOffset>0.7 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>1135340</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>161874</indexBufferMemoryUsage>
+        <textureMemoryUsage>6466360</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_windrower</typeDesc>
+        <filename>$data/vehicles/kuhn/kuhnGA9531/kuhnGA9531.i3d</filename>
+        <size width="4" length="7" />
+        <speedLimit value="18" />
+        <components>
+            <component centerOfMass="0 0.6 -1"    solverIterationCount="10" mass="1750" />
+            <component centerOfMass="0 0 0"       solverIterationCount="10" mass="150" />
+            <component centerOfMass="0 -0.2 -0.2" solverIterationCount="10" mass="150" />
+            <component centerOfMass="0 -0.2 -0.2" solverIterationCount="10" mass="150" />
+            <joint component1="1" component2="2" node="componentJoint01" rotLimit="0 70 0" transLimit="0 0 0" />
+            <joint component1="1" component2="3" node="componentJoint02" rotLimit="0 0 9"  transLimit="0 0.4 0" />
+            <joint component1="1" component2="4" node="componentJoint03" rotLimit="0 0 9"  transLimit="0 0.4 0" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <powerConsumer ptoRpm="450" neededMinPtoPower="20" neededMaxPtoPower="20"/>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/trelleborg/AW305/300_80R15_3.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics restLoad="0.8" repr="wheelLeftRepr"  driveNode="driveNodeLeft"  forcePointRatio="0.3"  initialCompression="35" suspTravel="0.2" spring="10" damper="20" />
+                        <steering node="steeringBarMiddle" minTransX="0.16" maxTransX="-0.16" />
+                        <steeringAxle scale="-0.7" rotMax="40" rotMin="-40" />
+                        <wheelChock parkingNode="wheelChock01" />
+                        <wheelChock parkingNode="wheelChock02" isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/AW305/300_80R15_3.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics restLoad="0.8" repr="wheelRightRepr" driveNode="driveNodeRight" forcePointRatio="0.3"  initialCompression="35" suspTravel="0.2" spring="10" damper="20" />
+                        <steering node="steeringRotBack" nodeMinRotY="24" nodeMaxRotY="-24" />
+                        <steeringAxle scale="-0.7" rotMax="40" rotMin="-40" />
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="wheelRowerLeftFront"                       forcePointRatio="0.3" mass="0.01" radius="0.21" width="0.16" initialCompression="10" suspTravel="0.1" spring="10" damper="20" maxLongStiffness="0.01" maxLatStiffness="0.01" brakeFactor="0" isSynchronized="false" />
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="wheelRowerLeftBack1"                       forcePointRatio="0.3" mass="0.01" radius="0.21" width="0.16" initialCompression="10" suspTravel="0.1" spring="10" damper="20" maxLongStiffness="0.01" maxLatStiffness="0.01" brakeFactor="0" isSynchronized="false" />
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="wheelRowerLeftBack2"                       forcePointRatio="0.3" mass="0.01" radius="0.21" width="0.16" initialCompression="10" suspTravel="0.1" spring="10" damper="20" maxLongStiffness="0.01" maxLatStiffness="0.01" brakeFactor="0" isSynchronized="false" />
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="wheelRowerRightFront"                      forcePointRatio="0.3" mass="0.01" radius="0.21" width="0.16" initialCompression="10" suspTravel="0.1" spring="10" damper="20" maxLongStiffness="0.01" maxLatStiffness="0.01" brakeFactor="0" isSynchronized="false" />
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="wheelRowerRightBack1"                      forcePointRatio="0.3" mass="0.01" radius="0.21" width="0.16" initialCompression="10" suspTravel="0.1" spring="10" damper="20" maxLongStiffness="0.01" maxLatStiffness="0.01" brakeFactor="0" isSynchronized="false" />
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.1" repr="wheelRowerRightBack2"                      forcePointRatio="0.3" mass="0.01" radius="0.21" width="0.16" initialCompression="10" suspTravel="0.1" spring="10" damper="20" maxLongStiffness="0.01" maxLatStiffness="0.01" brakeFactor="0" isSynchronized="false" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <hubs>
+            <hub linkNode="driveNodeLeft"        filename="$data/shared/wheels/hubs/hub_n6_1.xml"      isLeft="true"  scale="0.152 0.152 0.152" >
+                <color0>KUHN_RED1</color0>
+            </hub>
+            <hub linkNode="driveNodeRight"       filename="$data/shared/wheels/hubs/hub_n6_1.xml"      isLeft="false" scale="0.152 0.152 0.152" >
+                <color0>KUHN_RED1</color0>
+            </hub>
+            <hub linkNode="wheelLeftFrontLeft"   filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.14 0.14 0.14" />
+            <hub linkNode="wheelLeftFrontRight"  filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.14 0.14 0.14" />
+            <hub linkNode="wheelLeftMiddleLeft"  filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.14 0.14 0.14" />
+            <hub linkNode="wheelLeftMiddleRight" filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.14 0.14 0.14" />
+            <hub linkNode="wheelLeftBackLeft"    filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.14 0.14 0.14" />
+            <hub linkNode="wheelLeftBackRight"   filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.14 0.14 0.14" />
+
+            <hub linkNode="wheelRightFrontLeft"    filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.14 0.14 0.14" />
+            <hub linkNode="wheelRightFrontRight"   filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.14 0.14 0.14" />
+            <hub linkNode="wheelsRightMiddleLeft"  filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.14 0.14 0.14" />
+            <hub linkNode="wheelsRightMiddleRight" filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.14 0.14 0.14" />
+            <hub linkNode="wheelsRightBackLeft"    filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="true"  scale="0.14 0.14 0.14" />
+            <hub linkNode="wheelsRightBackRight"   filename="$data/shared/wheels/hubs/hubSmall_n0_1.xml" isLeft="false" scale="0.14 0.14 0.14" />
+        </hubs>
+
+        <dynamicallyLoadedWheels>
+            <dynamicallyLoadedWheel linkNode="wheelLeftFrontLeft"   filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true" />
+            <dynamicallyLoadedWheel linkNode="wheelLeftFrontRight"  filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false" />
+            <dynamicallyLoadedWheel linkNode="wheelLeftMiddleLeft"  filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true" />
+            <dynamicallyLoadedWheel linkNode="wheelLeftMiddleRight" filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false" />
+            <dynamicallyLoadedWheel linkNode="wheelLeftBackLeft"    filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false" />
+            <dynamicallyLoadedWheel linkNode="wheelLeftBackRight"   filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true" />
+
+            <dynamicallyLoadedWheel linkNode="wheelRightFrontLeft"    filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false" />
+            <dynamicallyLoadedWheel linkNode="wheelRightFrontRight"   filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true" />
+            <dynamicallyLoadedWheel linkNode="wheelsRightMiddleLeft"  filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false" />
+            <dynamicallyLoadedWheel linkNode="wheelsRightMiddleRight" filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true" />
+            <dynamicallyLoadedWheel linkNode="wheelsRightBackLeft"    filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="true" />
+            <dynamicallyLoadedWheel linkNode="wheelsRightBackRight"   filename="$data/shared/wheels/trelleborg/T510/16x6_50R8.xml" isLeft="false" />
+        </dynamicallyLoadedWheels>
+    </wheels>
+
+    <speedRotatingParts>
+        <speedRotatingPart node="wheelsLeftFront"   radius="0.196" foldMinLimit="0" foldMaxLimit="0.1"/>
+        <speedRotatingPart node="wheelsLeftMiddle"  radius="0.196" foldMinLimit="0" foldMaxLimit="0.1"/>
+        <speedRotatingPart node="wheelsLeftBack"    radius="0.196" foldMinLimit="0" foldMaxLimit="0.1"/>
+        <speedRotatingPart node="wheelsRightFront"  radius="0.196" foldMinLimit="0" foldMaxLimit="0.1"/>
+        <speedRotatingPart node="wheelsRightMiddle" radius="0.196" foldMinLimit="0" foldMaxLimit="0.1"/>
+        <speedRotatingPart node="wheelsRightBack"   radius="0.196" foldMinLimit="0" foldMaxLimit="0.1"/>
+    </speedRotatingParts>
+
+    <lights>
+        <sharedLight linkNode="light01"       filename="$data/shared/assets/lights/lizard/frontLightRectangle_01.xml" />
+        <sharedLight linkNode="light02"       filename="$data/shared/assets/lights/lizard/frontLightRectangle_01.xml" />
+        <sharedLight linkNode="turnlightLeft"       filename="$data/shared/assets/lights/lizard/rearLightCircleOrange_01_left.xml" />
+        <sharedLight linkNode="turnlightRight"       filename="$data/shared/assets/lights/lizard/rearLightCircleOrange_01_right.xml" />
+        <sharedLight linkNode="lightLeft"       filename="$data/shared/assets/lights/lizard/rearLightCircleRed_01.xml" />
+        <sharedLight linkNode="lightRight"       filename="$data/shared/assets/lights/lizard/rearLightCircleRed_01.xml" />
+        <realLights>
+            <high>
+                <light node="backLightsHigh" lightTypes="0"/>
+                <brakeLight node="backLightsHigh"/>
+                <turnLightLeft node="turnLightLeftBack"/>
+                <turnLightRight node="turnLightRightBack"/>
+            </high>
+        </realLights>
+    </lights>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="implement" rootNode="kuhnGA9531_atacher_component2" lowerTransLimitScale="0 0 0" isDefaultLowered="true" needsLowering="false" allowsLowering="false" >
+                <distanceToGround lower="0.66" upper="0.66" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+        <steeringAxleAngleScale startSpeed="1" endSpeed="90" backwards="true" />
+        <support animationName="moveSupport" />
+        <brakeForce>0.4</brakeForce>
+    </attachable>
+
+    <powerTakeOffs>
+        <input inputAttacherJointIndices="1" inputNode="ptoInputNode" detachNode="ptoDetachNode" aboveAttacher="true" />
+    </powerTakeOffs>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundRefNodeLeft"  threshold="0.20" />
+        <groundReferenceNode node="groundRefNodeRight" threshold="0.20" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="windrower" functionName="processWindrowerArea" disableBackwards="false" >
+            <area startNode="workAreaLeftStart" widthNode="workAreaLeftWidth" heightNode="workAreaLeftHeight" />
+            <groundReferenceNode index="1" />
+            <windrower dropWindrowWorkAreaIndex="3" particleSystemIndex="1" />
+        </workArea>
+        <workArea type="windrower" functionName="processWindrowerArea" disableBackwards="false" >
+            <area startNode="workAreaRightStart" widthNode="workAreaRightWidth" heightNode="workAreaRightHeight" />
+            <groundReferenceNode index="2" />
+            <windrower dropWindrowWorkAreaIndex="3" particleSystemIndex="2" />
+        </workArea>
+
+        <workArea type="auxiliary" >
+            <area startNode="dropAreaStart" widthNode="dropAreaWidth" heightNode="dropAreaHeight" />
+        </workArea>
+    </workAreas>
+
+    <windrower>
+        <animationNodes>
+            <animationNode node="leftRower"  rotSpeed="-350" rotAxis="2" />
+            <animationNode node="rightRower" rotSpeed="350"  rotAxis="2" />
+        </animationNodes>
+
+        <effects>
+            <effect workAreaIndex="1">
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShapeLeft" particleType="WINDROWER" />
+            </effect>
+            <effect workAreaIndex="2">
+                <effectNode effectClass="ParticleEffect" effectNode="emitterShapeRight" particleType="WINDROWER" />
+            </effect>
+        </effects>
+
+        <rakes>
+            <rake node="leftRower" moveUpRange="15 90" moveDownRange="180 265" dir="-1" spikeMaxRotZ="75" >
+                <spike node="spikeLeftRot01" />
+                <spike node="spikeLeftRot02" />
+                <spike node="spikeLeftRot03" />
+                <spike node="spikeLeftRot04" />
+                <spike node="spikeLeftRot05" />
+                <spike node="spikeLeftRot06" />
+                <spike node="spikeLeftRot07" />
+                <spike node="spikeLeftRot08" />
+                <spike node="spikeLeftRot09" />
+                <spike node="spikeLeftRot10" />
+                <spike node="spikeLeftRot11" />
+                <spike node="spikeLeftRot12" />
+                <spike node="spikeLeftRot13" />
+                <spike node="spikeLeftRot14" />
+                <spike node="spikeLeftRot15" />
+            </rake>
+            <rake node="rightRower" moveUpRange="15 90" moveDownRange="180 265" dir="1" spikeMaxRotZ="75" >
+                <spike node="spikeRightRot01" dir="-1" />
+                <spike node="spikeRightRot02" dir="-1" />
+                <spike node="spikeRightRot03" dir="-1" />
+                <spike node="spikeRightRot04" dir="-1" />
+                <spike node="spikeRightRot05" dir="-1" />
+                <spike node="spikeRightRot06" dir="-1" />
+                <spike node="spikeRightRot07" dir="-1" />
+                <spike node="spikeRightRot08" dir="-1" />
+                <spike node="spikeRightRot09" dir="-1" />
+                <spike node="spikeRightRot10" dir="-1" />
+                <spike node="spikeRightRot11" dir="-1" />
+                <spike node="spikeRightRot12" dir="-1" />
+                <spike node="spikeRightRot13" dir="-1" />
+                <spike node="spikeRightRot14" dir="-1" />
+                <spike node="spikeRightRot15" dir="-1" />
+            </rake>
+        </rakes>
+
+        <sounds>
+            <work template="DEFAULT_TEDDER" linkNode="kuhnGA9531_main_component1" />
+        </sounds>
+    </windrower>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="supportRot">
+                <dependentPart node="steeringBarBack" />
+                <dependentPart node="steeringBarFront" />
+                <dependentPart node="steeringBarBackLeft" />
+                <dependentPart node="steeringBarBackRight" />
+            </movingTool>
+
+            <movingTool node="armLeftJoint" playSound="true">
+                <componentJoint index="2" anchorActor="0" />
+            </movingTool>
+            <movingTool node="armLeftJointMover" playSound="true">
+                <componentJoint index="2" anchorActor="0" />
+            </movingTool>
+            <movingTool node="armRightJoint" playSound="true">
+                <componentJoint index="3" anchorActor="0" />
+            </movingTool>
+            <movingTool node="armRightJointMover" playSound="true">
+                <componentJoint index="3" anchorActor="0" />
+            </movingTool>
+
+            <movingTool node="leftMover" playSound="true" >
+                <dependentPart node="hydraulicLeftMover" />
+                <dependentPart node="leftMoverArm" />
+            </movingTool>
+            <movingTool node="rightMover" playSound="true" >
+                <dependentPart node="hydraulicRightMover" />
+                <dependentPart node="rightMoverArm" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="armLeft" referencePoint="colLeftRotorRef" referenceFrame="colLeftRotorRef" isActiveDirty="true" limitedAxis="3">
+                <dependentPart node="hydraulicLeftArm" />
+                <dependentPart node="ptoLeft" />
+            </movingPart>
+            <movingPart node="hydraulicLeftArm" referencePoint="hydraulicLeftArmRef" referenceFrame="hydraulicLeftArmRef">
+                <translatingPart node="hydraulicLeftArmPunch" />
+            </movingPart>
+            <movingPart node="ptoLeft" referencePoint="ptoLeftRef" referenceFrame="ptoLeftRef">
+                <translatingPart node="ptoLeftPart" />
+            </movingPart>
+
+            <movingPart node="hydraulicLeftMover" referencePoint="hydraulicLeftMoverRef" referenceFrame="hydraulicLeftMoverRef">
+                <translatingPart node="hydraulicLeftMoverPunch" />
+            </movingPart>
+            <movingPart node="leftMoverArm" localReferencePoint="leftMoverArmPart" referencePoint="leftMoverArmRef" referenceFrame="leftMoverArmRefFrame">
+                <dependentPart node="leftMoverArmPart" />
+            </movingPart>
+            <movingPart node="leftMoverArmPart" referencePoint="leftMoverArmRef" referenceFrame="leftMoverArmRef" />
+
+            <movingPart node="armRight" referencePoint="colRightRotorRef" referenceFrame="colRightRotorRef" isActiveDirty="true" limitedAxis="3">
+                <dependentPart node="hydraulicRightArm" />
+                <dependentPart node="ptoRight" />
+            </movingPart>
+            <movingPart node="hydraulicRightArm" referencePoint="hydraulicRightArmRef" referenceFrame="hydraulicRightArmRef">
+                <translatingPart node="hydraulicRightArmPunch" />
+            </movingPart>
+            <movingPart node="ptoRight" referencePoint="ptoRightRef" referenceFrame="ptoRightRef">
+                <translatingPart node="ptoRightPart" />
+            </movingPart>
+
+            <movingPart node="hydraulicRightMover" referencePoint="hydraulicRightMoverRef" referenceFrame="hydraulicRightMoverRef">
+                <translatingPart node="hydraulicRightMoverPunch" />
+            </movingPart>
+            <movingPart node="rightMoverArm" localReferencePoint="rightMoverArmPart" referencePoint="rightMoverArmRef" referenceFrame="rightMoverArmRefFrame">
+                <dependentPart node="rightMoverArmPart" />
+            </movingPart>
+            <movingPart node="rightMoverArmPart" referencePoint="rightMoverArmRef" referenceFrame="rightMoverArmRef" />
+
+            <movingPart node="steeringBarBack" referencePoint="steeringBarBackRef" referenceFrame="kuhnGA9531_main_component1" isActiveDirty="true" scaleZ="true"/>
+            <movingPart node="steeringBarFront" referencePoint="steeringBarFrontRef" referenceFrame="kuhnGA9531_main_component1" isActiveDirty="true" scaleZ="true"/>
+            <movingPart node="steeringBarBackLeft" referencePoint="steeringBarBackLeftRef" referenceFrame="kuhnGA9531_main_component1" isActiveDirty="true" scaleZ="true"/>
+            <movingPart node="steeringBarBackRight" referencePoint="steeringBarBackRightRef" referenceFrame="kuhnGA9531_main_component1" isActiveDirty="true" scaleZ="true"/>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="kuhnGA9531_main_component1"/>
+        </sounds>
+    </cylindered>
+
+    <animations>
+        <!-- move support wheel down/up -->
+        <animation name="moveSupport">
+            <part node="supportRot" startTime="0" duration="0.15" startRot="110 0 0" endRot="0 0 0" />
+            <part node="supportCol" startTime="0" duration="0.15" startTrans="0 0 -0.1" endTrans="0 -0.283 -0.1" />
+            <part componentJointIndex="1" startTime="0" duration="0.2" endRotLimit="0 0 0" />
+        </animation>
+
+        <animation name="folding">
+            <part componentJointIndex="2" startTime="0" endTime="1" endTransLimit="0 0 0" endRotLimit="0 0 0" />
+            <part componentJointIndex="3" startTime="0" endTime="1" endTransLimit="0 0 0" endRotLimit="0 0 0" />
+            <part node="armLeftJoint"  startTime="0" endTime="1" startRot="0 0 0" endRot="0 0 20" />
+            <part node="armRightJoint" startTime="0" endTime="1" startRot="0 0 0" endRot="0 0 -20" />
+
+            <part node="armLeftJoint"  startTime="1" endTime="8" startRot="0 0 15" endRot="0 0 95" />
+            <part node="armRightJoint" startTime="1" endTime="8" startRot="0 0 -15" endRot="0 0 -95" />
+
+            <part node="leftMover"  startTime="1" endTime="8.5" startTrans="0 0 2.219" endTrans="0 0 1.046" />
+            <part node="rightMover" startTime="1" endTime="8.5" startTrans="0 0 2.219" endTrans="0 0 1.046" />
+            <part node="armLeftJointMover"    startTime="1" endTime="8" startTrans="2.219 0 0" endTrans="1.046 0 0" />
+            <part node="armRightJointMover"   startTime="1" endTime="8" startTrans="-2.219 0 0" endTrans="-1.046 0 0" />
+        </animation>
+    </animations>
+
+    <foldable>
+        <foldingParts startMoveDirection="1" foldMiddleAnimTime="0.125" turnOnFoldMaxLimit="0.4" turnOnFoldMinLimit="0">
+            <foldingPart animationName="folding" speedScale="1.0" />
+        </foldingParts>
+    </foldable>
+
+    <turnOnVehicle turnOffIfNotAllowed="true"/>
+
+    <ai>
+        <needsLowering value="true" />
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerback" />
+        <sizeMarkers leftNode="sizeMarkerLeft" rightNode="sizeMarkerRight" backNode="sizeMarkerBack" />
+        <collisionTrigger node="aiCollisionTrigger" />
+        <allowTurnBackward value="false" />
+        <toolReverserDirectionNode node="sizeMarkerBack" />
+        <turningRadiusLimitation rotationJointNode="componentJoint01" wheelIndices="1 2" />
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-1.4" maxX="1.4" minZ="-3.1" maxZ="2.0" yOffset="0.6" />
+        <bendingNode minX="-2.0" maxX="2.2" minZ="-1.7" maxZ="2.2" yOffset="-0.3" node="leftMover" />
+        <bendingNode minX="-2.2" maxX="2.0" minZ="-1.7" maxZ="2.2" yOffset="-0.3" node="rightMover" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="kuhnGA9531_mat" baseNode="kuhn_vis">
+            <shaderParameter name="colorMat0" value="KUHN_RED1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="kuhnGA9531_main_component1" node="0>" />
+        <i3dMapping id="ptoInputNode" node="0>0|0" />
+        <i3dMapping id="ptoDetachNode" node="0>0|1" />
+        <i3dMapping id="wheelChock01" node="0>0|2|0" />
+        <i3dMapping id="wheelChock02" node="0>0|2|1" />
+        <i3dMapping id="supportRot" node="0>0|3|0" />
+        <i3dMapping id="supportCol" node="0>0|3|1" />
+        <i3dMapping id="wheelLeftRepr" node="0>1|0|0" />
+        <i3dMapping id="driveNodeLeftRot" node="0>1|0|0|0" />
+        <i3dMapping id="driveNodeLeft" node="0>1|0|0|0|0" />
+        <i3dMapping id="steeringBarBackLeftRef" node="0>1|0|0|1" />
+        <i3dMapping id="wheelRightRepr" node="0>1|1|0" />
+        <i3dMapping id="driveNodeRightRot" node="0>1|1|0|0" />
+        <i3dMapping id="driveNodeRight" node="0>1|1|0|0|0" />
+        <i3dMapping id="steeringBarBackRightRef" node="0>1|1|0|1" />
+        <i3dMapping id="componentJoint01" node="0>2" />
+        <i3dMapping id="light01" node="0>3|0|0" />
+        <i3dMapping id="light02" node="0>3|0|1" />
+        <i3dMapping id="turnlightLeft" node="0>3|0|2" />
+        <i3dMapping id="turnlightRight" node="0>3|0|3" />
+        <i3dMapping id="lightLeft" node="0>3|0|4" />
+        <i3dMapping id="lightRight" node="0>3|0|5" />
+        <i3dMapping id="backLightsHigh" node="0>3|1" />
+        <i3dMapping id="turnLightLeftBack" node="0>3|2" />
+        <i3dMapping id="turnLightRightBack" node="0>3|3" />
+        <i3dMapping id="armLeftJoint" node="0>4" />
+        <i3dMapping id="armLeftJointMover" node="0>4|0" />
+        <i3dMapping id="componentJoint02" node="0>4|0|0" />
+        <i3dMapping id="armRightJoint" node="0>5" />
+        <i3dMapping id="armRightJointMover" node="0>5|0" />
+        <i3dMapping id="componentJoint03" node="0>5|0|0" />
+        <i3dMapping id="armLeft" node="0>6" />
+        <i3dMapping id="leftMover" node="0>6|0|0" />
+        <i3dMapping id="leftRower" node="0>6|0|0|0|0|0" />
+        <i3dMapping id="spikeLeftRot01" node="0>6|0|0|0|0|0|0|0" />
+        <i3dMapping id="spikeLeftRot02" node="0>6|0|0|0|0|0|1|0" />
+        <i3dMapping id="spikeLeftRot03" node="0>6|0|0|0|0|0|2|0" />
+        <i3dMapping id="spikeLeftRot04" node="0>6|0|0|0|0|0|3|0" />
+        <i3dMapping id="spikeLeftRot05" node="0>6|0|0|0|0|0|4|0" />
+        <i3dMapping id="spikeLeftRot06" node="0>6|0|0|0|0|0|5|0" />
+        <i3dMapping id="spikeLeftRot07" node="0>6|0|0|0|0|0|6|0" />
+        <i3dMapping id="spikeLeftRot08" node="0>6|0|0|0|0|0|7|0" />
+        <i3dMapping id="spikeLeftRot09" node="0>6|0|0|0|0|0|8|0" />
+        <i3dMapping id="spikeLeftRot10" node="0>6|0|0|0|0|0|9|0" />
+        <i3dMapping id="spikeLeftRot11" node="0>6|0|0|0|0|0|10|0" />
+        <i3dMapping id="spikeLeftRot12" node="0>6|0|0|0|0|0|11|0" />
+        <i3dMapping id="spikeLeftRot13" node="0>6|0|0|0|0|0|12|0" />
+        <i3dMapping id="spikeLeftRot14" node="0>6|0|0|0|0|0|13|0" />
+        <i3dMapping id="spikeLeftRot15" node="0>6|0|0|0|0|0|14|0" />
+        <i3dMapping id="wheelsLeftFront" node="0>6|0|0|0|0|2|0" />
+        <i3dMapping id="wheelLeftFrontLeft" node="0>6|0|0|0|0|2|0|0" />
+        <i3dMapping id="wheelLeftFrontRight" node="0>6|0|0|0|0|2|0|1" />
+        <i3dMapping id="wheelsLeftMiddle" node="0>6|0|0|0|0|2|1" />
+        <i3dMapping id="wheelLeftMiddleLeft" node="0>6|0|0|0|0|2|1|0" />
+        <i3dMapping id="wheelLeftMiddleRight" node="0>6|0|0|0|0|2|1|1" />
+        <i3dMapping id="wheelsLeftBack" node="0>6|0|0|0|0|2|2" />
+        <i3dMapping id="wheelLeftBackLeft" node="0>6|0|0|0|0|2|2|0" />
+        <i3dMapping id="wheelLeftBackRight" node="0>6|0|0|0|0|2|2|1" />
+        <i3dMapping id="ptoLeftRef" node="0>6|0|0|0|0|3" />
+        <i3dMapping id="workAreaLeftStart" node="0>6|0|0|0|0|4|0" />
+        <i3dMapping id="workAreaLeftWidth" node="0>6|0|0|0|0|4|1" />
+        <i3dMapping id="workAreaLeftHeight" node="0>6|0|0|0|0|4|2" />
+        <i3dMapping id="emitterShapeLeft" node="0>6|0|0|0|0|5" />
+        <i3dMapping id="hydraulicLeftMover" node="0>6|0|0|1" />
+        <i3dMapping id="hydraulicLeftMoverPunch" node="0>6|0|0|1|0" />
+        <i3dMapping id="leftMoverArmRef" node="0>6|0|0|3" />
+        <i3dMapping id="leftMoverArm" node="0>6|1" />
+        <i3dMapping id="leftMoverArmPart" node="0>6|1|0" />
+        <i3dMapping id="hydraulicLeftArmRef" node="0>6|2" />
+        <i3dMapping id="hydraulicLeftMoverRef" node="0>6|3" />
+        <i3dMapping id="leftMoverArmRefFrame" node="0>6|4" />
+        <i3dMapping id="armRight" node="0>7" />
+        <i3dMapping id="rightMover" node="0>7|0|0" />
+        <i3dMapping id="rightRower" node="0>7|0|0|0|0|0" />
+        <i3dMapping id="spikeRightRot01" node="0>7|0|0|0|0|0|0|0" />
+        <i3dMapping id="spikeRightRot02" node="0>7|0|0|0|0|0|1|0" />
+        <i3dMapping id="spikeRightRot03" node="0>7|0|0|0|0|0|2|0" />
+        <i3dMapping id="spikeRightRot04" node="0>7|0|0|0|0|0|3|0" />
+        <i3dMapping id="spikeRightRot05" node="0>7|0|0|0|0|0|4|0" />
+        <i3dMapping id="spikeRightRot06" node="0>7|0|0|0|0|0|5|0" />
+        <i3dMapping id="spikeRightRot07" node="0>7|0|0|0|0|0|6|0" />
+        <i3dMapping id="spikeRightRot08" node="0>7|0|0|0|0|0|7|0" />
+        <i3dMapping id="spikeRightRot09" node="0>7|0|0|0|0|0|8|0" />
+        <i3dMapping id="spikeRightRot10" node="0>7|0|0|0|0|0|9|0" />
+        <i3dMapping id="spikeRightRot11" node="0>7|0|0|0|0|0|10|0" />
+        <i3dMapping id="spikeRightRot12" node="0>7|0|0|0|0|0|11|0" />
+        <i3dMapping id="spikeRightRot13" node="0>7|0|0|0|0|0|12|0" />
+        <i3dMapping id="spikeRightRot14" node="0>7|0|0|0|0|0|13|0" />
+        <i3dMapping id="spikeRightRot15" node="0>7|0|0|0|0|0|14|0" />
+        <i3dMapping id="wheelsRightFront" node="0>7|0|0|0|0|2|0" />
+        <i3dMapping id="wheelRightFrontLeft" node="0>7|0|0|0|0|2|0|0" />
+        <i3dMapping id="wheelRightFrontRight" node="0>7|0|0|0|0|2|0|1" />
+        <i3dMapping id="wheelsRightMiddle" node="0>7|0|0|0|0|2|1" />
+        <i3dMapping id="wheelsRightMiddleLeft" node="0>7|0|0|0|0|2|1|0" />
+        <i3dMapping id="wheelsRightMiddleRight" node="0>7|0|0|0|0|2|1|1" />
+        <i3dMapping id="wheelsRightBack" node="0>7|0|0|0|0|2|2" />
+        <i3dMapping id="wheelsRightBackLeft" node="0>7|0|0|0|0|2|2|0" />
+        <i3dMapping id="wheelsRightBackRight" node="0>7|0|0|0|0|2|2|1" />
+        <i3dMapping id="ptoRightRef" node="0>7|0|0|0|0|3" />
+        <i3dMapping id="workAreaRightStart" node="0>7|0|0|0|0|4|0" />
+        <i3dMapping id="workAreaRightWidth" node="0>7|0|0|0|0|4|1" />
+        <i3dMapping id="workAreaRightHeight" node="0>7|0|0|0|0|4|2" />
+        <i3dMapping id="emitterShapeRight" node="0>7|0|0|0|0|5" />
+        <i3dMapping id="hydraulicRightMover" node="0>7|0|0|1" />
+        <i3dMapping id="hydraulicRightMoverPunch" node="0>7|0|0|1|0" />
+        <i3dMapping id="rightMoverArmRef" node="0>7|0|0|3" />
+        <i3dMapping id="rightMoverArm" node="0>7|1" />
+        <i3dMapping id="rightMoverArmPart" node="0>7|1|0" />
+        <i3dMapping id="hydraulicRightArmRef" node="0>7|2" />
+        <i3dMapping id="hydraulicRightMoverRef" node="0>7|3" />
+        <i3dMapping id="rightMoverArmRefFrame" node="0>7|4" />
+        <i3dMapping id="hydraulicLeftArm" node="0>8|0" />
+        <i3dMapping id="hydraulicLeftArmPunch" node="0>8|0|0" />
+        <i3dMapping id="hydraulicRightArm" node="0>8|1" />
+        <i3dMapping id="hydraulicRightArmPunch" node="0>8|1|0" />
+        <i3dMapping id="steeringRotBack" node="0>8|4" />
+        <i3dMapping id="steeringBarBackLeft" node="0>8|4|0" />
+        <i3dMapping id="steeringBarBackRight" node="0>8|4|1" />
+        <i3dMapping id="steeringBarBackRef" node="0>8|4|2" />
+        <i3dMapping id="steeringBarMiddle" node="0>8|5|0" />
+        <i3dMapping id="steeringBarBack" node="0>8|5|0|0" />
+        <i3dMapping id="steeringBarFront" node="0>8|5|0|1" />
+        <i3dMapping id="ptoLeft" node="0>8|6" />
+        <i3dMapping id="ptoLeftPart" node="0>8|6|0" />
+        <i3dMapping id="ptoRight" node="0>8|7" />
+        <i3dMapping id="ptoRightPart" node="0>8|7|0" />
+        <i3dMapping id="dropAreaStart" node="0>9|0" />
+        <i3dMapping id="dropAreaWidth" node="0>9|1" />
+        <i3dMapping id="dropAreaHeight" node="0>9|2" />
+        <i3dMapping id="aiMarkerLeft" node="0>10|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>10|0|1" />
+        <i3dMapping id="aiMarkerback" node="0>10|0|2" />
+        <i3dMapping id="sizeMarkerLeft" node="0>10|1|0" />
+        <i3dMapping id="sizeMarkerRight" node="0>10|1|1" />
+        <i3dMapping id="sizeMarkerBack" node="0>10|1|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>10|2" />
+        <i3dMapping id="kuhn_vis" node="0>11" />
+        <i3dMapping id="kuhnGA9531_atacher_component2" node="1>" />
+        <i3dMapping id="attacherJoint" node="1>0|0" />
+        <i3dMapping id="steeringBarFrontRef" node="1>0|1" />
+        <i3dMapping id="colLeftRotorRef" node="2>0" />
+        <i3dMapping id="groundRefNodeLeft" node="2>1" />
+        <i3dMapping id="wheelRowerLeftFront" node="2>2" />
+        <i3dMapping id="wheelRowerLeftBack1" node="2>3" />
+        <i3dMapping id="wheelRowerLeftBack2" node="2>4" />
+        <i3dMapping id="colRightRotorRef" node="3>0" />
+        <i3dMapping id="groundRefNodeRight" node="3>1" />
+        <i3dMapping id="wheelRowerRightFront" node="3>2" />
+        <i3dMapping id="wheelRowerRightBack1" node="3>3" />
+        <i3dMapping id="wheelRowerRightBack2" node="3>4" />
+    </i3dMappings>
+</vehicle>

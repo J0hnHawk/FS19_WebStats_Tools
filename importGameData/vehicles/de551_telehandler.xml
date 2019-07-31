@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle>
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>DE551 TL</name>
+        <specs>
+            <combination>9407 S, MLA-T, MLT</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_feederBale</function>
+        </functions>
+        <image>$data/vehicles/warzee/de551/store_de551_telehandler.png</image>
+        <bundleElements>
+            <bundleElement>
+                <xmlFilename>$data/vehicles/warzee/spike2/spike2.xml</xmlFilename>
+                <offset>0.519 0.194 0.434</offset>
+                <yRotation>180</yRotation>
+            </bundleElement>
+            <bundleElement>
+                <xmlFilename>$data/vehicles/warzee/de551/de551.xml</xmlFilename>
+                <offset>0 -0.167 0</offset>
+                <yRotation>0</yRotation>
+            </bundleElement>
+        </bundleElements>
+        <attacherInfo>
+            <attach bundleElement0="1" bundleElement1="2" attacherJointIndex="1" inputAttacherJointIndex="2" />
+        </attacherInfo>
+        <brand>WARZEE</brand>
+        <rotation>0</rotation>
+        <category>animals</category>
+        <vertexBufferMemoryUsage>0</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>0</indexBufferMemoryUsage>
+        <textureMemoryUsage>0</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <size width="6" length="6" />
+    </base>
+</vehicle>

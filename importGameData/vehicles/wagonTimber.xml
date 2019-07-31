@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="trainTimberTrailer">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Sugarbeet Wagon</name>
+        <image>$data/vehicles/train/wagonTimber/store_wagonTimber.png</image>
+        <price>1</price>
+        <canBeSold>false</canBeSold>
+        <showInStore>false</showInStore>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>LIZARD</brand>
+        <category>trailers</category>
+        <vertexBufferMemoryUsage>783104</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>112680</indexBufferMemoryUsage>
+        <textureMemoryUsage>27306864</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_tipper</typeDesc>
+        <filename>$data/vehicles/train/wagonTimber/wagonTimber.i3d</filename>
+        <size width="3.5" length="11" />
+        <components>
+            <component centerOfMass="0 0.7 -1" solverIterationCount="10" mass="25000" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration>
+                <wheels surfaceSoundLinkNode="surfaceSoundNode" />
+            </wheelConfiguration>
+        </wheelConfigurations>
+    </wheels>
+
+    <splineVehicle>
+        <dollies frontNode="frontNode" backNode="backNode" dolly1Node="dollyFront" dolly2Node="dollyBack" />
+    </splineVehicle>
+
+    <speedRotatingParts>
+        <speedRotatingPart node="wheel01" radius="0.44" />
+        <speedRotatingPart node="wheel02" radius="0.44" />
+        <speedRotatingPart node="wheel03"  radius="0.44" />
+        <speedRotatingPart node="wheel04"  radius="0.44" />
+    </speedRotatingParts>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="train" allowsDetaching="false"/>
+        </inputAttacherJoints>
+    </attachable>
+
+    <attacherJoints>
+        <attacherJoint node="trailerAttacherJointNode" jointType="train" allowsLowering="false">
+            <schema position="1 0" rotation="0" invertX="false" />
+            <bottomArm rotationNode="linkArm" translationNode="linkArmTrans" referenceNode="referenceNode" zScale="-1" startRotation="-17 0 0" lockDirection="false" toggleVisibility="true"/>
+        </attacherJoint>
+        <sounds>
+            <attach template="ATTACH_01" />
+        </sounds>
+    </attacherJoints>
+
+    <tensionBelts>
+        <tensionBeltsConfigurations>
+            <tensionBeltsConfiguration>
+                <tensionBelts linkNode="belts" jointNode="0>" width="0.075" maxEdgeLength="0.1" geometryBias="0.01" ratchetPosition="0.2" defaultOffset="0.1" defaultOffsetSide="0.1" defaultHeight="3.5" activationTrigger="beltActivationTrigger">
+                    <tensionBelt startNode="beltStart1" endNode="beltEnd1" offsetLeft="1.75">
+                        <intersectionNode node="belt1Intersection1" />
+                        <intersectionNode node="belt1Intersection2" />
+                    </tensionBelt>
+                    <tensionBelt startNode="beltStart2" endNode="beltEnd2" >
+                        <intersectionNode node="belt2Intersection1" />
+                        <intersectionNode node="belt2Intersection2" />
+                    </tensionBelt>
+                    <tensionBelt startNode="beltStart3" endNode="beltEnd3" >
+                        <intersectionNode node="belt3Intersection1" />
+                        <intersectionNode node="belt3Intersection2" />
+                    </tensionBelt>
+                    <tensionBelt startNode="beltStart4" endNode="beltEnd4" >
+                        <intersectionNode node="belt4Intersection1" />
+                        <intersectionNode node="belt4Intersection2" />
+                    </tensionBelt>
+                    <tensionBelt startNode="beltStart5" endNode="beltEnd5" >
+                        <intersectionNode node="belt5Intersection1" />
+                        <intersectionNode node="belt5Intersection2" />
+                    </tensionBelt>
+                    <tensionBelt startNode="beltStart6" endNode="beltEnd6" >
+                        <intersectionNode node="belt6Intersection1" />
+                        <intersectionNode node="belt6Intersection2" />
+                    </tensionBelt>
+                    <tensionBelt startNode="beltStart7" endNode="beltEnd7" >
+                        <intersectionNode node="belt7Intersection1" />
+                        <intersectionNode node="belt7Intersection2" />
+                    </tensionBelt>
+                    <tensionBelt startNode="beltStart8" endNode="beltEnd8" >
+                        <intersectionNode node="belt8Intersection1" />
+                        <intersectionNode node="belt8Intersection2" />
+                    </tensionBelt>
+                    <tensionBelt startNode="beltStart9" endNode="beltEnd9" >
+                        <intersectionNode node="belt9Intersection1" />
+                        <intersectionNode node="belt9Intersection2" />
+                    </tensionBelt>
+                    <tensionBelt startNode="beltStart10" endNode="beltEnd10" >
+                        <intersectionNode node="belt10Intersection1" />
+                        <intersectionNode node="belt10Intersection2" />
+                    </tensionBelt>
+                    <tensionBelt startNode="beltStart11" endNode="beltEnd11" offsetRight="1.75">
+                        <intersectionNode node="belt11Intersection1" />
+                        <intersectionNode node="belt11Intersection2" />
+                    </tensionBelt>
+                </tensionBelts>
+            </tensionBeltsConfiguration>
+        </tensionBeltsConfigurations>
+    </tensionBelts>
+
+    <i3dMappings>
+        <i3dMapping id="dollyFront" node="0>0" />
+        <i3dMapping id="wheel01" node="0>0|0" />
+        <i3dMapping id="wheel02" node="0>0|1" />
+        <i3dMapping id="dollyBack" node="0>1" />
+        <i3dMapping id="wheel03" node="0>1|0" />
+        <i3dMapping id="wheel04" node="0>1|1" />
+        <i3dMapping id="frontNode" node="0>2" />
+        <i3dMapping id="backNode" node="0>3" />
+        <i3dMapping id="attacherJoint" node="0>4" />
+        <i3dMapping id="inputAttacherJointNode" node="0>4|0" />
+        <i3dMapping id="trailerAttacherJoint" node="0>5" />
+        <i3dMapping id="trailerAttacherJointNode" node="0>5|0" />
+        <i3dMapping id="linkArm" node="0>5|0|0" />
+        <i3dMapping id="linkArmTrans" node="0>5|0|0|0" />
+        <i3dMapping id="referenceNode" node="0>5|0|0|0|0" />
+        <i3dMapping id="belts" node="0>6" />
+        <i3dMapping id="beltStart1" node="0>6|0" />
+        <i3dMapping id="beltEnd1" node="0>6|0|0" />
+        <i3dMapping id="belt1Intersection1" node="0>6|0|1" />
+        <i3dMapping id="belt1Intersection2" node="0>6|0|2" />
+        <i3dMapping id="beltStart2" node="0>6|1" />
+        <i3dMapping id="beltEnd2" node="0>6|1|0" />
+        <i3dMapping id="belt2Intersection1" node="0>6|1|1" />
+        <i3dMapping id="belt2Intersection2" node="0>6|1|2" />
+        <i3dMapping id="beltStart3" node="0>6|2" />
+        <i3dMapping id="beltEnd3" node="0>6|2|0" />
+        <i3dMapping id="belt3Intersection1" node="0>6|2|1" />
+        <i3dMapping id="belt3Intersection2" node="0>6|2|2" />
+        <i3dMapping id="beltStart4" node="0>6|3" />
+        <i3dMapping id="beltEnd4" node="0>6|3|0" />
+        <i3dMapping id="belt4Intersection1" node="0>6|3|1" />
+        <i3dMapping id="belt4Intersection2" node="0>6|3|2" />
+        <i3dMapping id="beltStart5" node="0>6|4" />
+        <i3dMapping id="beltEnd5" node="0>6|4|0" />
+        <i3dMapping id="belt5Intersection1" node="0>6|4|1" />
+        <i3dMapping id="belt5Intersection2" node="0>6|4|2" />
+        <i3dMapping id="beltStart6" node="0>6|5" />
+        <i3dMapping id="beltEnd6" node="0>6|5|0" />
+        <i3dMapping id="belt6Intersection1" node="0>6|5|1" />
+        <i3dMapping id="belt6Intersection2" node="0>6|5|2" />
+        <i3dMapping id="beltStart7" node="0>6|6" />
+        <i3dMapping id="beltEnd7" node="0>6|6|0" />
+        <i3dMapping id="belt7Intersection1" node="0>6|6|1" />
+        <i3dMapping id="belt7Intersection2" node="0>6|6|2" />
+        <i3dMapping id="beltStart8" node="0>6|7" />
+        <i3dMapping id="beltEnd8" node="0>6|7|0" />
+        <i3dMapping id="belt8Intersection1" node="0>6|7|1" />
+        <i3dMapping id="belt8Intersection2" node="0>6|7|2" />
+        <i3dMapping id="beltStart9" node="0>6|8" />
+        <i3dMapping id="beltEnd9" node="0>6|8|0" />
+        <i3dMapping id="belt9Intersection1" node="0>6|8|1" />
+        <i3dMapping id="belt9Intersection2" node="0>6|8|2" />
+        <i3dMapping id="beltStart10" node="0>6|9" />
+        <i3dMapping id="beltEnd10" node="0>6|9|0" />
+        <i3dMapping id="belt10Intersection1" node="0>6|9|1" />
+        <i3dMapping id="belt10Intersection2" node="0>6|9|2" />
+        <i3dMapping id="beltStart11" node="0>6|10" />
+        <i3dMapping id="beltEnd11" node="0>6|10|0" />
+        <i3dMapping id="belt11Intersection1" node="0>6|10|1" />
+        <i3dMapping id="belt11Intersection2" node="0>6|10|2" />
+        <i3dMapping id="beltActivationTrigger" node="0>6|11" />
+        <i3dMapping id="surfaceSoundNode" node="0>7" />
+    </i3dMappings>
+</vehicle>

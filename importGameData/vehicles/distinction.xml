@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="trailer">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Distinction</name>
+        <specs>
+            <combination>Truck, Dolly</combination>
+            <capacity unit="$l10n_unit_literShort">56434</capacity>
+        </specs>
+        <functions>
+            <function>$l10n_function_tipper</function>
+            <function>$l10n_function_semiTrailer</function>
+        </functions>
+        <image>$data/vehicles/lodeKing/distinction/store_distinction.png</image>
+        <price>74500</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>LODEKING</brand>
+        <category>trailers</category>
+        <shopTranslationOffset>0 -0.008 0</shopTranslationOffset>
+        <shopRotationOffset>-1.29 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>2031392</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>339528</indexBufferMemoryUsage>
+        <textureMemoryUsage>31326816</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_tipper</typeDesc>
+        <filename>$data/vehicles/lodeKing/distinction/distinction.i3d</filename>
+        <size width="3.5" length="15" lengthOffset="0.7" />
+        <components>
+            <component centerOfMass="0 0.7 -2" solverIterationCount="10" mass="7000" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" configId="truckBack3" isLeft="true" >
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.1" repr="wheelFrontLeft"   forcePointRatio="0.5"  initialCompression="24" suspTravel="0.17" spring="50" damper="50" />
+                        <additionalWheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" configId="dual" offset="-0.65" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" configId="truckBack3" isLeft="false" >
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.1" repr="wheelFrontRight"  forcePointRatio="0.5"  initialCompression="24" suspTravel="0.17" spring="50" damper="50" />
+                        <additionalWheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" configId="dual" offset="-0.65" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" configId="truckBack3" isLeft="true" >
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.1" repr="wheelMiddleLeft"  forcePointRatio="0.5"  initialCompression="17" suspTravel="0.17" spring="50" damper="50" />
+                        <additionalWheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" configId="dual" offset="-0.65" />
+                        <wheelChock/>
+                        <wheelChock isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" configId="truckBack3" isLeft="false" >
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.1" repr="wheelMiddleRight" forcePointRatio="0.5"  initialCompression="17" suspTravel="0.17" spring="50" damper="50" />
+                        <additionalWheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" configId="dual" offset="-0.65" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" configId="truckBack3" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.1" repr="wheelBackLeft"    forcePointRatio="0.5"  initialCompression="10" suspTravel="0.17" spring="50" damper="50" />
+                        <additionalWheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" configId="dual" offset="-0.65" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" configId="truckBack3" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics tipOcclusionAreaGroupId="1" restLoad="1.1" repr="wheelBackRight"   forcePointRatio="0.5"  initialCompression="10" suspTravel="0.17" spring="50" damper="50" />
+                        <additionalWheel filename="$data/shared/wheels/lizard/implement/315_80R22_5.xml" configId="dual" offset="-0.65" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+    </wheels>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="semitrailer" />
+        </inputAttacherJoints>
+        <support animationName="moveSupport" />
+        <brakeForce>0.7</brakeForce>
+    </attachable>
+
+    <lights>
+        <sharedLight linkNode="sideMarker01"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker02"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker03"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker04"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker05"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker06"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker07"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker08"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker09"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker10"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker11"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker12"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker13"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker14"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker15"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker16"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker17"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker18"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker19"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker20"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker21"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker22"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker23"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker24"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker25"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker26"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker27"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarker28"       filename="$data/shared/assets/lights/lizard/sideMarker_10Orange.xml" />
+        <sharedLight linkNode="sideMarkerRed04"       filename="$data/shared/assets/lights/lizard/sideMarker_06Red.xml" />
+        <sharedLight linkNode="sideMarkerRed05"       filename="$data/shared/assets/lights/lizard/sideMarker_06Red.xml" />
+        <sharedLight linkNode="sideMarkerRed06"       filename="$data/shared/assets/lights/lizard/sideMarker_06Red.xml" />
+        <sharedLight linkNode="sideMarkerRed07"       filename="$data/shared/assets/lights/lizard/sideMarker_06Red.xml" />
+        <sharedLight linkNode="sideMarkerRed08"       filename="$data/shared/assets/lights/lizard/sideMarker_06Red.xml" />
+        <sharedLight linkNode="sideMarkerRed09"       filename="$data/shared/assets/lights/lizard/sideMarker_06Red.xml" />
+        <sharedLight linkNode="sideMarkerRed10"       filename="$data/shared/assets/lights/lizard/sideMarker_06Red.xml" />
+        <sharedLight linkNode="sideMarkerRed11"       filename="$data/shared/assets/lights/lizard/sideMarker_06Red.xml" />
+        <sharedLight linkNode="sideMarkerRed12"       filename="$data/shared/assets/lights/lizard/sideMarker_06Red.xml" />
+        <sharedLight linkNode="sideMarkerRed13"       filename="$data/shared/assets/lights/lizard/sideMarker_06Red.xml" />
+        <sharedLight linkNode="sideMarkerRed14"       filename="$data/shared/assets/lights/lizard/sideMarker_06Red.xml" />
+        <sharedLight linkNode="sideMarkerRed15"       filename="$data/shared/assets/lights/lizard/sideMarker_06Red.xml" />
+        <sharedLight linkNode="sideMarkerRed16"       filename="$data/shared/assets/lights/lizard/sideMarker_06Red.xml" />
+        <sharedLight linkNode="sideMarkerRed17"       filename="$data/shared/assets/lights/lizard/sideMarker_06Red.xml" />
+        <sharedLight linkNode="sideMarkerRed18"       filename="$data/shared/assets/lights/lizard/sideMarker_06Red.xml" />
+        <sharedLight linkNode="sideMarkerRed19"       filename="$data/shared/assets/lights/lizard/sideMarker_06Red.xml" />
+        <sharedLight linkNode="rearlightRed01"       filename="$data/shared/assets/lights/lizard/rearLightCircleLEDRed01.xml" />
+        <sharedLight linkNode="rearlightRed02"       filename="$data/shared/assets/lights/lizard/rearLightCircleLEDRed01.xml" />
+        <sharedLight linkNode="rearlightRed03"       filename="$data/shared/assets/lights/lizard/rearLightCircleLEDRed01_right.xml" />
+        <sharedLight linkNode="rearlightRed04"       filename="$data/shared/assets/lights/lizard/rearLightCircleLEDRed01.xml" />
+        <sharedLight linkNode="rearlightRed05"       filename="$data/shared/assets/lights/lizard/rearLightCircleLEDRed01.xml" />
+        <sharedLight linkNode="rearlightRed06"       filename="$data/shared/assets/lights/lizard/rearLightCircleLEDRed01_left.xml" />
+
+        <sharedLight linkNode="worklight01"       filename="$data/shared/assets/lights/hella/hellaWorkingLightRound_01_back.xml" >
+            <rotationNode name="rotationNode1" rotation="15 0 0" />
+        </sharedLight>
+        <sharedLight linkNode="worklight02"       filename="$data/shared/assets/lights/hella/hellaWorkingLightRound_01_back.xml">
+            <rotationNode name="rotationNode1" rotation="15 0 0" />
+        </sharedLight>
+        <sharedLight linkNode="worklight03"       filename="$data/shared/assets/lights/hella/hellaWorkingLightRound_01_back.xml">
+            <rotationNode name="rotationNode1" rotation="-10 0 0" />
+        </sharedLight>
+        <sharedLight linkNode="worklight04"       filename="$data/shared/assets/lights/hella/hellaWorkingLightRound_01_back.xml">
+            <rotationNode name="rotationNode1" rotation="-10 0 0" />
+        </sharedLight>
+
+        <realLights>
+            <high>
+                <light node="backLightsHigh1" lightTypes="0"/>
+                <turnLightLeft node="turnLightLeftBack" />
+                <turnLightRight node="turnLightRightBack" />
+                <brakeLight node="backLightsHigh1" />
+            </high>
+        </realLights>
+    </lights>
+
+    <animations>
+        <animation name="tipAnimationFront">
+            <part node="doorFront"         startTime="0.0" endTime="1.5" startTrans="0 0 0" endTrans="0 0 -0.651" />
+        </animation>
+        <animation name="tipAnimationBack">
+            <part node="doorBack"           startTime="0.0" endTime="1.5" startTrans="0 0 0" endTrans="0 0 0.651" />
+        </animation>
+        <animation name="toggleCover">
+            <part node="coverClosed" startTime="0"    endTime="0.05" visibility="true" />
+            <part node="coverClosed" startTime="0.05" endTime="0.1"  visibility="false" />
+            <part node="coverOpen"   startTime="0"    endTime="0.05" visibility="false" />
+            <part node="coverOpen"   startTime="0.05" endTime="0.1"  visibility="true" />
+        </animation>
+        <animation name="moveSupport">
+            <part node="supportArm" startTime="0.0" endTime="0.25" startTrans="0 0 0" endTrans="0 -0.378 0" />
+        </animation>
+    </animations>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <fillUnit unit="$l10n_unit_literShort" fillTypeCategories="AUGERWAGON" capacity="28217" >
+                        <exactFillRootNode node="exactFillRootNodeFront" />
+                        <autoAimTargetNode node="fillAutoAimTargetFront" startZ="-7" endZ="-1" invert="false" fillUnitIndex="1" startPercentage="50" />
+                    </fillUnit>
+                    <fillUnit unit="$l10n_unit_literShort" fillTypeCategories="AUGERWAGON" capacity="28217" >
+                        <exactFillRootNode node="exactFillRootNodeBack" />
+                        <autoAimTargetNode node="fillAutoAimTargetBack" startZ="0" endZ="5" invert="false" fillUnitIndex="2" startPercentage="50" />
+                    </fillUnit>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <fillVolume>
+        <fillVolumeConfigurations>
+            <fillVolumeConfiguration>
+                <volumes>
+                    <volume node="fillVolumeFront" maxDelta="0.23" maxAllowedHeapAngle="18" fillUnitIndex="1" />
+                    <volume node="fillVolumeBack" maxDelta="0.23" maxAllowedHeapAngle="18" fillUnitIndex="2" />
+                </volumes>
+            </fillVolumeConfiguration>
+        </fillVolumeConfigurations>
+    </fillVolume>
+
+    <trailer>
+        <trailerConfigurations>
+            <trailerConfiguration>
+                <trailer>
+                    <tipSide name="$l10n_info_tipSideFront" dischargeNodeIndex="1">
+                        <animation name="tipAnimationFront" speedScale="1.0" startTipTime="0.8"/>
+                    </tipSide>
+                    <tipSide name="$l10n_info_tipSideBack" dischargeNodeIndex="2" >
+                        <animation name="tipAnimationBack" speedScale="1.0" startTipTime="0.8"/>
+                    </tipSide>
+                </trailer>
+            </trailerConfiguration>
+        </trailerConfigurations>
+    </trailer>
+
+    <dischargeable>
+        <dischargeNode node="dischargeNodeFront" emptySpeed="4000" fillUnitIndex="1" unloadInfoIndex="1" >
+            <info width="0.5" length="0.5" />
+            <effects>
+                <effectNode effectClass="PipeEffect" effectNode="pipeEffectFront"      materialType="pipe" materialTypeId="1" fadeTime="0.2" shapeScaleSpread="1 1 0 0"/>
+                <effectNode                          effectNode="pipeEffectSmokeFront" materialType="smoke" materialTypeId="1" delay="0.1" alignToWorldY="true"/>
+            </effects>
+        </dischargeNode>
+        <dischargeNode node="dischargeNodeBack" emptySpeed="4000"  fillUnitIndex="2" unloadInfoIndex="2" >
+            <info width="0.5" length="0.5" />
+            <effects>
+                <effectNode effectClass="PipeEffect" effectNode="pipeEffectBack"      materialType="pipe" materialTypeId="1" fadeTime="0.2" shapeScaleSpread="1 1 0 0"/>
+                <effectNode                          effectNode="pipeEffectSmokeBack" materialType="smoke" materialTypeId="1" delay="0.1" alignToWorldY="true"/>
+            </effects>
+        </dischargeNode>
+    </dischargeable>
+
+    <cover>
+        <coverConfigurations>
+            <coverConfiguration>
+                <cover openAnimation="toggleCover" fillUnitIndices="1" />
+            </coverConfiguration>
+        </coverConfigurations>
+    </cover>
+
+    <ai>
+        <allowTurnBackward value="false"/>
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-1.35" maxX="1.35" minZ="-6.6" maxZ="6.6 " yOffset="0.6" />
+    </foliageBending>
+
+    <rimColorConfigurations useDefaultColors="false" >
+        <rimColorConfiguration                      color="0.98 0.98 0.98" material="2" price="0"/>
+        <rimColorConfiguration                      color="SHARED_BLACK2" material="0" price="300"/>
+        <rimColorConfiguration name="Phantom black" color="SHARED_BLACK2" material="1" price="300"/>
+        <rimColorConfiguration name="Phantom white" color="SHARED_WHITE2" material="1" price="300"/>
+    </rimColorConfigurations>
+
+    <baseMaterial>
+        <material name="distinction_mat" baseNode="distinction_vis">
+            <shaderParameter name="colorMat1" value="0.7991 0.7991 0.7991 0"/>
+        </material>
+        <material name="distinctionCover_mat" baseNode="coverClosed">
+            <shaderParameter name="colorMat0" value="0.0216 0.0216 0.0216"/>
+        </material>
+        <material name="distinctionDecal1_mat" baseNode="decalsAdditional">
+            <shaderParameter name="colorMat0" value="0.01 0.01 0.01 1"/>
+        </material>
+    </baseMaterial>
+
+    <baseMaterialConfigurations price="100" useDefaultColors="false" defaultColorIndex="0">
+        <baseMaterialConfiguration color="SHARED_WHITE2"/>
+        <baseMaterialConfiguration color="SHARED_BLACK2" price="2000"/>
+        <material name="distinction_mat" shaderParameter="colorMat1" />
+        <material name="distinctionDecal1_mat" shaderParameter="colorMat0" useContrastColor="true" contrastThreshold="0.3"/>
+    </baseMaterialConfigurations>
+
+    <designMaterialConfigurations price="100" useDefaultColors="false" defaultColorIndex="0">
+        <designMaterialConfiguration color="SHARED_BLACK2"/>
+        <designMaterialConfiguration color="SHARED_WHITE2" price="1000"/>
+        <designMaterialConfiguration color="0.5906 0.5906 0.5906 1" price="1000"/>
+        <designMaterialConfiguration color="0.1413 0.1413 0.1413 1" price="1000"/>
+        <designMaterialConfiguration color="1.000 0.964 0.127 1" price="1000"/>
+        <designMaterialConfiguration color="0.776 0.156 0.041 1" price="1000"/>
+        <designMaterialConfiguration color="0.451 0.025 0.017 1" price="1000"/>
+        <designMaterialConfiguration color="0.105 0.009 0.006 1" price="1000"/>
+        <designMaterialConfiguration color="0.171 0.314 0.552 1" price="1000"/>
+        <designMaterialConfiguration color="0.001 0.006 0.117 1" price="1000"/>
+        <designMaterialConfiguration color="0.004 0.003 0.031 1" price="1000"/>
+        <designMaterialConfiguration color="0.178 0.029 0.397 1" price="1000"/>
+        <designMaterialConfiguration color="0.104 0.402 0.051 1" price="1000"/>
+        <designMaterialConfiguration color="0.035 0.125 0.048 1" price="1000"/>
+        <designMaterialConfiguration color="0.016 0.055 0.026 1" price="1000"/>
+        <designMaterialConfiguration color="0.768 0.545 0.219 1" price="1000"/>
+        <designMaterialConfiguration color="0.168 0.068 0.030 1" price="1000"/>
+        <material name="distinctionCover_mat" shaderParameter="colorMat0" />
+    </designMaterialConfigurations>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="3" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="distinction_main_component1" node="0>" />
+        <i3dMapping id="distinction_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0|0" />
+        <i3dMapping id="supportArm" node="0>0|0|1|0" />
+        <i3dMapping id="sideMarker01" node="0>0|1|0|0" />
+        <i3dMapping id="sideMarker02" node="0>0|1|0|1" />
+        <i3dMapping id="sideMarker03" node="0>0|1|0|2" />
+        <i3dMapping id="sideMarker04" node="0>0|1|0|3" />
+        <i3dMapping id="sideMarker05" node="0>0|1|0|4" />
+        <i3dMapping id="sideMarker06" node="0>0|1|0|5" />
+        <i3dMapping id="sideMarker07" node="0>0|1|0|6" />
+        <i3dMapping id="sideMarker08" node="0>0|1|0|7" />
+        <i3dMapping id="sideMarker09" node="0>0|1|0|8" />
+        <i3dMapping id="sideMarker10" node="0>0|1|0|9" />
+        <i3dMapping id="sideMarker11" node="0>0|1|0|10" />
+        <i3dMapping id="sideMarker12" node="0>0|1|0|11" />
+        <i3dMapping id="sideMarker13" node="0>0|1|0|12" />
+        <i3dMapping id="sideMarker14" node="0>0|1|0|13" />
+        <i3dMapping id="sideMarker15" node="0>0|1|0|14" />
+        <i3dMapping id="sideMarker16" node="0>0|1|0|15" />
+        <i3dMapping id="sideMarker17" node="0>0|1|0|16" />
+        <i3dMapping id="sideMarker18" node="0>0|1|0|17" />
+        <i3dMapping id="sideMarker19" node="0>0|1|0|18" />
+        <i3dMapping id="sideMarker20" node="0>0|1|0|19" />
+        <i3dMapping id="sideMarker21" node="0>0|1|0|20" />
+        <i3dMapping id="sideMarker22" node="0>0|1|0|21" />
+        <i3dMapping id="sideMarker23" node="0>0|1|0|22" />
+        <i3dMapping id="sideMarker24" node="0>0|1|0|23" />
+        <i3dMapping id="sideMarker25" node="0>0|1|0|24" />
+        <i3dMapping id="sideMarker26" node="0>0|1|0|25" />
+        <i3dMapping id="sideMarker27" node="0>0|1|0|26" />
+        <i3dMapping id="sideMarker28" node="0>0|1|0|27" />
+        <i3dMapping id="sideMarkerRed04" node="0>0|1|0|28" />
+        <i3dMapping id="sideMarkerRed05" node="0>0|1|0|29" />
+        <i3dMapping id="sideMarkerRed06" node="0>0|1|0|30" />
+        <i3dMapping id="sideMarkerRed07" node="0>0|1|0|31" />
+        <i3dMapping id="sideMarkerRed08" node="0>0|1|0|32" />
+        <i3dMapping id="sideMarkerRed09" node="0>0|1|0|33" />
+        <i3dMapping id="sideMarkerRed10" node="0>0|1|0|34" />
+        <i3dMapping id="sideMarkerRed11" node="0>0|1|0|35" />
+        <i3dMapping id="sideMarkerRed12" node="0>0|1|0|36" />
+        <i3dMapping id="sideMarkerRed13" node="0>0|1|0|37" />
+        <i3dMapping id="sideMarkerRed14" node="0>0|1|0|38" />
+        <i3dMapping id="sideMarkerRed15" node="0>0|1|0|39" />
+        <i3dMapping id="sideMarkerRed16" node="0>0|1|0|40" />
+        <i3dMapping id="sideMarkerRed17" node="0>0|1|0|41" />
+        <i3dMapping id="sideMarkerRed18" node="0>0|1|0|42" />
+        <i3dMapping id="sideMarkerRed19" node="0>0|1|0|43" />
+        <i3dMapping id="rearlightRed01" node="0>0|1|0|44" />
+        <i3dMapping id="rearlightRed02" node="0>0|1|0|45" />
+        <i3dMapping id="rearlightRed03" node="0>0|1|0|46" />
+        <i3dMapping id="rearlightRed04" node="0>0|1|0|47" />
+        <i3dMapping id="rearlightRed05" node="0>0|1|0|48" />
+        <i3dMapping id="rearlightRed06" node="0>0|1|0|49" />
+        <i3dMapping id="worklight01" node="0>0|1|0|50" />
+        <i3dMapping id="worklight02" node="0>0|1|0|51" />
+        <i3dMapping id="worklight03" node="0>0|1|0|52" />
+        <i3dMapping id="worklight04" node="0>0|1|0|53" />
+        <i3dMapping id="backLightsHigh1" node="0>0|1|1" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|1|2" />
+        <i3dMapping id="turnLightRightBack" node="0>0|1|3" />
+        <i3dMapping id="wheelFrontLeft" node="0>0|2|0" />
+        <i3dMapping id="wheelFrontRight" node="0>0|2|1" />
+        <i3dMapping id="wheelMiddleLeft" node="0>0|2|2" />
+        <i3dMapping id="wheelMiddleRight" node="0>0|2|3" />
+        <i3dMapping id="wheelBackLeft" node="0>0|2|4" />
+        <i3dMapping id="wheelBackRight" node="0>0|2|5" />
+        <i3dMapping id="doorFront" node="0>0|3|0" />
+        <i3dMapping id="doorBack" node="0>0|3|1" />
+        <i3dMapping id="coverClosed" node="0>0|4|0" />
+        <i3dMapping id="coverOpen" node="0>0|4|1" />
+        <i3dMapping id="fillVolumeFront" node="0>0|5|0" />
+        <i3dMapping id="fillVolumeBack" node="0>0|5|1" />
+        <i3dMapping id="exactFillRootNodeFront" node="0>0|5|2" />
+        <i3dMapping id="exactFillRootNodeBack" node="0>0|5|3" />
+        <i3dMapping id="fillAutoAimTargetFront" node="0>0|5|4" />
+        <i3dMapping id="fillAutoAimTargetBack" node="0>0|5|5" />
+        <i3dMapping id="dischargeNodeFront" node="0>0|6|0" />
+        <i3dMapping id="dischargeNodeBack" node="0>0|6|1" />
+        <i3dMapping id="pipeEffectFront" node="0>0|7|0" />
+        <i3dMapping id="pipeEffectSmokeFront" node="0>0|7|1" />
+        <i3dMapping id="pipeEffectBack" node="0>0|8|0" />
+        <i3dMapping id="pipeEffectSmokeBack" node="0>0|8|1" />
+        <i3dMapping id="decalsAdditional" node="0>0|9|4" />
+    </i3dMappings>
+</vehicle>

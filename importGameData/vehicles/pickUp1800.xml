@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="implement">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>PickUp 1800</name>
+        <functions>
+            <function>$l10n_function_weight</function>
+        </functions>
+        <rotation>0</rotation>
+        <image>$data/vehicles/johnDeere/pickUp1800/store_pickUp1800.png</image>
+        <price>1600</price>
+        <lifetime>600</lifetime>
+        <brand>JOHNDEERE</brand>
+        <category>weights</category>
+        <vertexBufferMemoryUsage>57376</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>12120</indexBufferMemoryUsage>
+        <textureMemoryUsage>2796304</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_weight</typeDesc>
+        <filename>$data/vehicles/johnDeere/pickUp1800/pickUp1800.i3d</filename>
+        <size width="1.5" length="1.5" />
+        <components>
+            <component centerOfMass="0 0.15 0" solverIterationCount="10" mass="1800" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <dynamicallyLoadedParts>
+        <dynamicallyLoadedPart node="0" linkNode="attacherBallLeft" filename="$data/vehicles/johnDeere/weightSetBall.i3d"/>
+        <dynamicallyLoadedPart node="1" linkNode="attacherBallRight" filename="$data/vehicles/johnDeere/weightSetBall.i3d"/>
+    </dynamicallyLoadedParts>
+
+    <attacherJoints>
+        <attacherJoint node="trailerAttacherJoint" jointType="trailer" lowerRotLimit="10 80 80" upperRotRotationOffset="0" allowsJointLimitMovement="false" >
+            <schema position="1 0" rotation="0" invertX="false" />
+        </attacherJoint>
+        <sounds>
+            <attach template="ATTACH_01" linkNode="0>" />
+        </sounds>
+    </attacherJoints>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="implement" topReferenceNode="topReferenceNode" lowerRotLimitScale="0 0 0" upperRotationOffset="2" lowerRotationOffset="0" needsLowering="false">
+                <distanceToGround lower="0" upper="1.5" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+    </attachable>
+
+    <foliageBending>
+        <bendingNode minX="-0.6" maxX="0.6" minZ="-0.5" maxZ="0.3" yOffset="0.1" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="weightSet_mat" baseNode="weight_vis">
+            <shaderParameter name="colorMat0" value="JOHNDEERE_GREEN1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="2" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="weight_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0" />
+        <i3dMapping id="topReferenceNode" node="0>0|1" />
+        <i3dMapping id="trailerAttacherJoint" node="0>0|2" />
+        <i3dMapping id="attacherBallLeft" node="0>0|3" />
+        <i3dMapping id="attacherBallRight" node="0>0|4" />
+    </i3dMappings>
+</vehicle>

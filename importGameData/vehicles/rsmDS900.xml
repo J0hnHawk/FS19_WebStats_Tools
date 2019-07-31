@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="cutter">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Draper Stream 900</name>
+        <specs>
+            <workingWidth>9.0</workingWidth>
+            <combination>RSM 161</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_cutter</function>
+        </functions>
+        <image>$data/vehicles/rostselmash/rsmDS900/store_rsmDS900.png</image>
+        <price>58500</price>
+        <lifetime>600</lifetime>
+        <rotation>-90</rotation>
+        <brand>ROSTSELMASH</brand>
+        <category>cutters</category>
+        <shopTranslationOffset>0 -0.02 0</shopTranslationOffset>
+        <shopRotationOffset>0 90 0.55</shopRotationOffset>
+        <vertexBufferMemoryUsage>3003104</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>889272</indexBufferMemoryUsage>
+        <textureMemoryUsage>15466920</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_cutter</typeDesc>
+        <filename>$data/vehicles/rostselmash/rsmDS900/rsmDS900.i3d</filename>
+        <size width="13" length="4.0" widthOffset="1.5" />
+        <speedLimit value="10" />
+        <components>
+            <component centerOfMass="-1 0.3 0" solverIterationCount="10" mass="2100" />
+            <component centerOfMass="0 0 0" solverIterationCount="10" mass="870"/>
+            <component centerOfMass="0 0 0" solverIterationCount="10" mass="350"/>
+            <joint component1="1" component2="2" node="frontAxisJoint" rotLimit="0 0 0" transLimit="0 0 0" />
+            <joint component1="2" component2="3" node="drawbarJoint"   rotLimit="0 0 0" transLimit="0 0 0" />
+            <collisionPair component1="1" component2="3" enabled="false" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels autoRotateBackSpeed="2.0">
+                    <wheel filename="$data/shared/wheels/trelleborg/T510/215_65R8.xml" isLeft="true" >
+                        <physics restLoad="0.9" repr="wheelFrontLeft"  useDriveNodeDirection="true" radius="0.287" forcePointRatio="0.2" initialCompression="45" suspTravel="0.1" spring="25" damper="10" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T510/215_65R8.xml" isLeft="false" >
+                        <physics restLoad="0.9" repr="wheelFrontRight" useDriveNodeDirection="true" radius="0.287" forcePointRatio="0.2" initialCompression="45" suspTravel="0.1" spring="25" damper="10" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T510/215_65R8.xml" isLeft="true" >
+                        <physics restLoad="0.7" repr="wheelBackLeft"   useDriveNodeDirection="true" radius="0.287" forcePointRatio="0.2" initialCompression="25" suspTravel="0.1" spring="25" damper="10" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T510/215_65R8.xml" isLeft="false" >
+                        <physics restLoad="0.7" repr="wheelBackRight"  useDriveNodeDirection="true" radius="0.287" forcePointRatio="0.2" initialCompression="25" suspTravel="0.1" spring="25" damper="10" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <rimColor>SHARED_GREY3</rimColor>
+
+        <hubs>
+            <color0>SHARED_BLACK1</color0>
+            <color1>SHARED_GREY2</color1>
+            <hub linkNode="wheelFrontLeft"  filename="$data/shared/wheels/hubs/hub_n5_1.xml" isLeft="true"  scale="0.1 0.1 0.1" />
+            <hub linkNode="wheelFrontRight" filename="$data/shared/wheels/hubs/hub_n5_1.xml" isLeft="false" scale="0.1 0.1 0.1" />
+            <hub linkNode="wheelBackLeft"   filename="$data/shared/wheels/hubs/hub_n5_1.xml" isLeft="true"  scale="0.1 0.1 0.1" />
+            <hub linkNode="wheelBackRight"  filename="$data/shared/wheels/hubs/hub_n5_1.xml" isLeft="false" scale="0.1 0.1 0.1" />
+        </hubs>
+    </wheels>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="cutter" lowerRotationOffset="-4" >
+                <heightNode node="heightNode" />
+                <distanceToGround lower="0.6" upper="2.2" />
+            </inputAttacherJoint>
+            <inputAttacherJoint node="trailerAttacherJoint" jointType="trailer" attacherHeight="0.4" rootNode="ds900_drawbar_component3" allowsLowering="false" foldMinLimit="0.99" foldMaxLimit="1"/>
+        </inputAttacherJoints>
+        <brakeForce>0.1</brakeForce>
+        <support animationName="moveSupport" />
+    </attachable>
+
+    <powerConsumer ptoRpm="540" neededMaxPtoPower="125"/>
+
+    <lights>
+        <sharedLight linkNode="backlightLeft"       filename="$data/shared/assets/lights/lizard/rear3ChamberLight_01_left.xml" />
+        <sharedLight linkNode="backlightRight"      filename="$data/shared/assets/lights/lizard/rear3ChamberLight_01_right.xml" />
+
+        <realLights>
+            <high>
+                <light node="backLightsHigh" lightTypes="0" />
+                <turnLightLeft node="turnLightLeft" />
+                <turnLightRight node="turnLightRight" />
+                <brakeLight node="backLightsHigh" />
+            </high>
+        </realLights>
+    </lights>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundReferenceNode" threshold="0.5" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="cutter" functionName="processCutterArea" disableBackwards="true">
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight" />
+            <groundReferenceNode index="1" />
+        </workArea>
+    </workAreas>
+
+    <foldable>
+        <foldingParts turnOnFoldMaxLimit="1" turnOnFoldMinLimit="0.9" unfoldWarning="warning_firstFoldUpTheTool" >
+            <foldingPart animationName="foldWheels" speedScale="1" />
+        </foldingParts>
+    </foldable>
+
+    <animations>
+        <animation name="foldWheels">
+            <part node="lock" startTime="4.9" endTime="4.95" visibility="false" />
+            <part node="lock" startTime="4.95" endTime="5" visibility="true" />
+
+            <part node="armRight"           startTime="0.0" endTime="4.0" startRot="0 0 0"  endRot="0 -180 0" />
+            <part node="axisBackRight"      startTime="1.0" endTime="3.0" startRot="0 0 0"  endRot="0 90 0" />
+            <part node="axisBackLeft"       startTime="1.0" endTime="3.0" startRot="0 0 0"  endRot="0 -90 0" />
+            <part node="armRightLock"       startTime="1.0" endTime="3.0" startRot="0 0 0"  endRot="-55 0 0" />
+            <part node="armRight2"          startTime="4.0" endTime="4.7" startRot="0 0 0"  endRot="-18 0 0" />
+            <part node="wheelBackRightRot"  startTime="4.0" endTime="4.7" startRot="0 90 0" endRot="-18 90 0" />
+            <part node="wheelBackLeftRot"   startTime="4.0" endTime="4.7" startRot="0 90 0" endRot="-18 90 0" />
+            <part node="armLeft"            startTime="4.0" endTime="4.7" startRot="0 0 0"  endRot="18 0 0" />
+            <part node="damperBackLeft"     startTime="4.0" endTime="4.7" startRot="0 0 0"  endRot="-10.5 0 0" />
+
+            <part node="drawbarPart"        startTime="0"   endTime="1.0" startTrans="0 0 0" endTrans="0 0 -2" />
+            <part node="drawbarPartColPart" startTime="0"   endTime="1.0" startTrans="0 0 0" endTrans="-2.75 0 0" />
+            <part node="frontAxisJoint"     startTime="1.0" endTime="2.0" startRot="0 0 0"   endRot="0 90 0" />
+            <part node="frontAxisRot"       startTime="2.0" endTime="4.0" startRot="0 0 0"   endRot="117 0 0" />
+            <part node="wheelFrontRot"      startTime="2.0" endTime="4.0"   startRot="0 90 0" endRot="80 90 0" />
+            <part node="drawbarJoint"       startTime="2.0" endTime="4.0"   startRot="0 0 0" endRot="0 80 20" />
+            <part node="drawbar"            startTime="1.0" endTime="1.05" visibility="true" />
+            <part node="drawbar"            startTime="1.05" endTime="1.1" visibility="false" />
+            <part node="fruitParts"         startTime="3.0" endTime="3.05" visibility="false" />
+            <part node="fruitParts"         startTime="3.05" endTime="3.1" visibility="true" />
+
+            <part node="lightFrame"         startTime="3.00" endTime="3.05" visibility="true" />
+            <part node="lightFrame"         startTime="3.05" endTime="3.10" visibility="false" />
+
+            <part componentJointIndex="1" startTime="0" endTime="0.5" startRotLimit="0 120 0" endRotLimit="0 0 0"/>
+            <part componentJointIndex="2" startTime="0" endTime="0.5" startRotLimit="0 0 20"  endRotLimit="0 0 0"/>
+        </animation>
+
+        <animation name="knifeAnimation" looping="true">
+            <part node="blades" startTime="0" endTime="0.5" shaderParameter="offsetUV" shaderStartValues="0 0 0 0" shaderEndValues="0.17 0 0 0"/>
+            <part node="blades" startTime="0.5" endTime="1" shaderParameter="offsetUV" shaderStartValues="0.17 0 0 0" shaderEndValues="0 0 0 0"/>
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="reelMover" foldMinLimit="0.01" foldMaxLimit="1" playSound="true">
+                <controls axis="AXIS_CUTTER_REEL" invertAxis="true" mouseSpeedFactor="0.9" iconName="REEL_TRANSLATE_X" />
+                <translation translationAxis="3" transSpeed="0.1" transAcceleration="10" transMax="1.380" transMin="1.022" startTrans="1.022" />
+                <dependentPart node="hydraulicReelMover" />
+            </movingTool>
+            <movingTool node="reelArm" foldMinLimit="0.01" foldMaxLimit="1" playSound="true">
+                <controls axis="AXIS_CUTTER_REEL2" invertAxis="true" mouseSpeedFactor="0.9" iconName="REEL_TRANSLATE_Y" />
+                <rotation rotationAxis="1" rotSpeed="20" rotAcceleration="50" rotMax="2" rotMin="-30" startRot="-30" />
+                <dependentPart node="hydraulicReelArm" />
+            </movingTool>
+            <movingTool node="frontAxisRot">
+                <componentJoint index="1" />
+            </movingTool>
+            <movingTool node="frontAxisJoint">
+                <componentJoint index="1" />
+            </movingTool>
+            <movingTool node="drawbarJoint">
+                <componentJoint index="2" />
+            </movingTool>
+            <movingTool node="armRight"          wheelIndices="3 4" />
+            <movingTool node="wheelBackRightRot" wheelIndices="3 4" />
+            <movingTool node="wheelFrontRot"     wheelIndices="1 2" />
+            <movingTool node="reel">
+                <dependentPart node="spike01" />
+                <dependentPart node="spike02" />
+                <dependentPart node="spike03" />
+                <dependentPart node="spike04" />
+                <dependentPart node="spike05" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts isActiveDirtyTimeOffset="3" >
+            <movingPart node="hydraulicReelArm" referencePoint="hydraulicReelArmRef" referenceFrame="hydraulicReelArmRef">
+                <translatingPart node="hydraulicReelArmPunch" />
+            </movingPart>
+            <movingPart node="hydraulicReelMover" referencePoint="hydraulicReelMoverRef" referenceFrame="hydraulicReelMoverRef">
+                <translatingPart node="hydraulicReelMoverPunch" />
+            </movingPart>
+            <movingPart node="spike01" referenceFrame="spikesRefFrame" />
+            <movingPart node="spike02" referenceFrame="spikesRefFrame" />
+            <movingPart node="spike03" referenceFrame="spikesRefFrame" />
+            <movingPart node="spike04" referenceFrame="spikesRefFrame" />
+            <movingPart node="spike05" referenceFrame="spikesRefFrame" />
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <cutter fruitTypeCategories="grainHeader">
+        <testAreas>
+            <testArea startNode="testArea01Start" widthNode="testArea01Width" heightNode="testArea01Height" />
+            <testArea startNode="testArea02Start" widthNode="testArea02Width" heightNode="testArea02Height" />
+            <testArea startNode="testArea03Start" widthNode="testArea03Width" heightNode="testArea03Height" />
+            <testArea startNode="testArea04Start" widthNode="testArea04Width" heightNode="testArea04Height" />
+            <testArea startNode="testArea05Start" widthNode="testArea05Width" heightNode="testArea05Height" />
+            <testArea startNode="testArea06Start" widthNode="testArea06Width" heightNode="testArea06Height" />
+            <testArea startNode="testArea07Start" widthNode="testArea07Width" heightNode="testArea07Height" />
+            <testArea startNode="testArea08Start" widthNode="testArea08Width" heightNode="testArea08Height" />
+        </testAreas>
+        <fillEffect>
+            <effectNode effectClass="ParticleEffect" effectNode="smokeEmitter" particleType="SMOKE" emitCountScale="0.1" worldSpace="false" useCuttingWidth="false"/>
+        </fillEffect>
+        <effect>
+            <effectNode linkNode="effectCenter" speedScale="0.0018" lengthAndRadius="0 0 -0.5 0.25" effectType="CENTER" changeSpeedScale="0.01" />
+            <effectNode linkNode="effectLeft"   speedScale="0.0017" lengthAndRadius="3 1 1 1"       effectType="LEFT"  useInterpolation="true" minOffset="5.3" />
+            <effectNode linkNode="effectRight"  speedScale="0.0017" lengthAndRadius="3 1 1 1"       effectType="RIGHT" useInterpolation="true" minOffset="5.3" useMaxValue="true" />
+        </effect>
+        <animationNodes>
+            <animationNode node="reel" rotAxis="1" rotSpeed="200"  turnOnFadeTime="2" turnOffFadeTime="3"/>
+            <animationNode node="reel2" rotAxis="1" rotSpeed="200"  turnOnFadeTime="2" turnOffFadeTime="3"/>
+            <animationNode node="mainDrum" rotAxis="1" rotSpeed="800"  turnOnFadeTime="2" turnOffFadeTime="3"/>
+            <animationNode class="ScrollingAnimation" node="belt" scrollSpeed="1.7" turnOnFadeTime="2" turnOffFadeTime="2"/>
+        </animationNodes>
+    </cutter>
+
+    <turnOnVehicle turnedOnByAttacherVehicle="true">
+        <turnedOnAnimation name="turnedOnAnimation" speedScale="1.75" turnOnFadeTime="2" turnOffFadeTime="3"/>
+        <turnedOnAnimation name="knifeAnimation" speedScale="6" turnOnFadeTime="2" turnOffFadeTime="2"/>
+    </turnOnVehicle>
+
+    <ai>
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack" />
+        <sizeMarkers leftNode="aiSizeLeft" rightNode="aiSizeRight" backNode="aiSizeBack" />
+        <collisionTrigger node="aiCollisionTrigger" />
+    </ai>
+
+    <dynamicMount forceLimitScale="1" />
+
+    <baseMaterial>
+        <material name="rsmDS900_mat" baseNode="rostelmash_vis">
+            <shaderParameter name="colorMat0" value="ROSTSELMASH_RED1"/>
+            <shaderParameter name="colorMat2" value="ROSTSELMASH_ORANGE2"/>
+        </material>
+    </baseMaterial>
+
+    <foliageBending>
+        <bendingNode minX="-4.7" maxX="4.7" minZ="-0.7" maxZ="0.8" yOffset="1.1" />
+    </foliageBending>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="ds900_main_component1" node="0>" />
+        <i3dMapping id="rostelmash_vis" node="0>0" />
+        <i3dMapping id="frontAxisRot" node="0>0|0|0" />
+        <i3dMapping id="frontAxisJoint" node="0>0|0|0|0" />
+        <i3dMapping id="backAxis" node="0>0|0|1" />
+        <i3dMapping id="armLeft" node="0>0|0|1|0" />
+        <i3dMapping id="axisBackLeft" node="0>0|0|1|0|0" />
+        <i3dMapping id="wheelBackLeftRot" node="0>0|0|1|0|0|0" />
+        <i3dMapping id="wheelBackLeft" node="0>0|0|1|0|0|0|0" />
+        <i3dMapping id="damperBackLeft" node="0>0|0|1|0|1" />
+        <i3dMapping id="armRight" node="0>0|0|1|1" />
+        <i3dMapping id="armRight2" node="0>0|0|1|1|0" />
+        <i3dMapping id="axisBackRight" node="0>0|0|1|1|0|0" />
+        <i3dMapping id="wheelBackRightRot" node="0>0|0|1|1|0|0|0" />
+        <i3dMapping id="wheelBackRight" node="0>0|0|1|1|0|0|0|0" />
+        <i3dMapping id="armRightLock" node="0>0|0|1|1|0|1" />
+        <i3dMapping id="lock" node="0>0|0|1|2" />
+        <i3dMapping id="attacherJoint" node="0>0|1" />
+        <i3dMapping id="heightNode" node="0>0|1|0" />
+        <i3dMapping id="pto" node="0>0|2" />
+        <i3dMapping id="reelArm" node="0>0|3" />
+        <i3dMapping id="reelMover" node="0>0|3|0" />
+        <i3dMapping id="reel" node="0>0|3|0|0" />
+        <i3dMapping id="spike01" node="0>0|3|0|0|0|0" />
+        <i3dMapping id="spike02" node="0>0|3|0|0|0|1" />
+        <i3dMapping id="spike03" node="0>0|3|0|0|0|2" />
+        <i3dMapping id="spike04" node="0>0|3|0|0|0|3" />
+        <i3dMapping id="spike05" node="0>0|3|0|0|0|4" />
+        <i3dMapping id="reel2" node="0>0|3|0|1" />
+        <i3dMapping id="reelMotor" node="0>0|3|0|2" />
+        <i3dMapping id="reelMotorChain" node="0>0|3|0|3" />
+        <i3dMapping id="hydraulicReelMoverRef" node="0>0|3|0|4" />
+        <i3dMapping id="spikesRefFrame" node="0>0|3|0|5" />
+        <i3dMapping id="hydraulicReelMover" node="0>0|3|1" />
+        <i3dMapping id="hydraulicReelMoverPunch" node="0>0|3|1|0" />
+        <i3dMapping id="hydraulicReelArmRef" node="0>0|3|2" />
+        <i3dMapping id="lightFrame" node="0>0|3|3" />
+        <i3dMapping id="backlightRight" node="0>0|3|3|0|0" />
+        <i3dMapping id="turnLightRight" node="0>0|3|3|0|1" />
+        <i3dMapping id="hydraulicReelArm" node="0>0|4" />
+        <i3dMapping id="hydraulicReelArmPunch" node="0>0|4|0" />
+        <i3dMapping id="backLightsHigh" node="0>0|5|0" />
+        <i3dMapping id="turnLightLeft" node="0>0|5|1" />
+        <i3dMapping id="backlightLeft" node="0>0|5|2" />
+        <i3dMapping id="workAreaStart" node="0>0|6|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|6|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|6|2" />
+        <i3dMapping id="groundReferenceNode" node="0>0|6|3" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|7|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|7|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|7|0|2" />
+        <i3dMapping id="aiSizeLeft" node="0>0|7|1|0" />
+        <i3dMapping id="aiSizeRight" node="0>0|7|1|1" />
+        <i3dMapping id="aiSizeBack" node="0>0|7|1|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|7|2" />
+        <i3dMapping id="testArea01Start" node="0>0|8|0|0|0" />
+        <i3dMapping id="testArea01Width" node="0>0|8|0|0|1" />
+        <i3dMapping id="testArea01Height" node="0>0|8|0|0|2" />
+        <i3dMapping id="testArea02Start" node="0>0|8|0|1|0" />
+        <i3dMapping id="testArea02Width" node="0>0|8|0|1|1" />
+        <i3dMapping id="testArea02Height" node="0>0|8|0|1|2" />
+        <i3dMapping id="testArea03Start" node="0>0|8|0|2|0" />
+        <i3dMapping id="testArea03Width" node="0>0|8|0|2|1" />
+        <i3dMapping id="testArea03Height" node="0>0|8|0|2|2" />
+        <i3dMapping id="testArea04Start" node="0>0|8|0|3|0" />
+        <i3dMapping id="testArea04Width" node="0>0|8|0|3|1" />
+        <i3dMapping id="testArea04Height" node="0>0|8|0|3|2" />
+        <i3dMapping id="testArea05Start" node="0>0|8|0|4|0" />
+        <i3dMapping id="testArea05Width" node="0>0|8|0|4|1" />
+        <i3dMapping id="testArea05Height" node="0>0|8|0|4|2" />
+        <i3dMapping id="testArea06Start" node="0>0|8|0|5|0" />
+        <i3dMapping id="testArea06Width" node="0>0|8|0|5|1" />
+        <i3dMapping id="testArea06Height" node="0>0|8|0|5|2" />
+        <i3dMapping id="testArea07Start" node="0>0|8|0|6|0" />
+        <i3dMapping id="testArea07Width" node="0>0|8|0|6|1" />
+        <i3dMapping id="testArea07Height" node="0>0|8|0|6|2" />
+        <i3dMapping id="testArea08Start" node="0>0|8|0|7|0" />
+        <i3dMapping id="testArea08Width" node="0>0|8|0|7|1" />
+        <i3dMapping id="testArea08Height" node="0>0|8|0|7|2" />
+        <i3dMapping id="effectCenter" node="0>0|8|1|0" />
+        <i3dMapping id="effectLeft" node="0>0|8|1|1" />
+        <i3dMapping id="effectRight" node="0>0|8|1|2" />
+        <i3dMapping id="smokeEmitter" node="0>0|8|1|3" />
+        <i3dMapping id="belt" node="0>0|9|0" />
+        <i3dMapping id="chain" node="0>0|9|1" />
+        <i3dMapping id="blades" node="0>0|9|2" />
+        <i3dMapping id="mainDrum" node="0>0|9|3" />
+        <i3dMapping id="fruitParts" node="0>0|11" />
+        <i3dMapping id="wheelFrontRot" node="1>0" />
+        <i3dMapping id="wheelFrontLeft" node="1>0|0" />
+        <i3dMapping id="wheelFrontRight" node="1>0|1" />
+        <i3dMapping id="drawbarJoint" node="1>1" />
+        <i3dMapping id="frontAxis" node="1>2" />
+        <i3dMapping id="ds900_drawbar_component3" node="2>" />
+        <i3dMapping id="drawbarPartColPart" node="2>0" />
+        <i3dMapping id="trailerAttacherJoint" node="2>1" />
+        <i3dMapping id="drawbar" node="2>2" />
+        <i3dMapping id="drawbarPart" node="2>2|0" />
+    </i3dMappings>
+</vehicle>

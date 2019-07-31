@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="logGrab">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Long Neck Combi Plus</name>
+        <specs>
+            <combination>AGCO 1500, SB 1600</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_forestryTransport</function>
+        </functions>
+        <image>$data/vehicles/fliegl/longNeckCombiPlus/store_longNeckCombiPlus.png</image>
+        <price>3500</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>FLIEGL</brand>
+        <category>wood</category>
+        <shopTranslationOffset>0 0.04 0</shopTranslationOffset>
+        <shopRotationOffset>-7.15 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>471040</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>80946</indexBufferMemoryUsage>
+        <textureMemoryUsage>3844920</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_frontloaderTool</typeDesc>
+        <filename>$data/vehicles/fliegl/longNeckCombiPlus/longNeckCombiPlus.i3d</filename>
+        <size width="2" length="2.5" lengthOffset="0.5"/>
+        <components>
+            <component centerOfMass="0 0.6 0" solverIterationCount="20" mass="500" /> <!-- main -->
+            <component centerOfMass="0 0 0" solverIterationCount="200" mass="350" /> <!-- claw arm 1-->
+            <component centerOfMass="0 -0.434 0" solverIterationCount="200" mass="240" /> <!-- claw arm 2-->
+            <component centerOfMass="0 0 0" solverIterationCount="200" mass="150" /> <!-- claw left -->
+            <component centerOfMass="0 0 0" solverIterationCount="200" mass="150" /> <!-- claw right -->
+            <joint component1="1" component2="2" node="componentJoint01" rotLimit="0 50 0" transLimit="0 0 0" rotDriveVelocity="0 0 0" maxRotDriveForce="0.4 0.4 0.4" transLimitSpring="500 500 500" transLimitDamping="2 2 2"/>
+            <joint component1="2" component2="3" node="componentJoint02" zRotationNode="zRotationNode02" rotLimit="0 120 45" transLimit="0 0 0" rotDriveVelocity="0 0 0" maxRotDriveForce="0.4 0.4 0.4" transLimitSpring="500 500 500" transLimitDamping="2 2 2"/>
+            <joint component1="3" component2="4" node="componentJoint03" enableCollision="false" rotLimit="0 0 0" transLimit="0 0 0" rotLimitSpring="0 0 300" rotLimitDamping="0 0 20" rotLimitForceLimit="-1 -1 80" />
+            <joint component1="3" component2="5" node="componentJoint04" enableCollision="false" rotLimit="0 0 0" transLimit="0 0 0" rotLimitSpring="0 0 300" rotLimitDamping="0 0 20" rotLimitForceLimit="-1 -1 80" />
+
+            <collisionPair component1="4" component2="5" enabled="false" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJointImplement" jointType="implement" topReferenceNode="topReferenceNode" lowerRotLimitScale="0 0 0" upperRotationOffset="3" lowerRotationOffset="0" needsLowering="false">
+                <distanceToGround lower="0.55" upper="1.5" />
+            </inputAttacherJoint>
+            <inputAttacherJoint node="attacherJointFrontloader" jointType="frontloader" />
+        </inputAttacherJoints>
+        <support animationName="moveSupport" />
+    </attachable>
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn01"  length="0.8" diameter="0.02">
+            <objectChange node="hydraulicIn01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut01" length="0.8" diameter="0.02">
+            <objectChange node="hydraulicOut01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+    </connectionHoses>
+
+    <logGrab jointNode="flieglLongNeckCombiPlus_clawArm02_component3" jointRoot="flieglLongNeckCombiPlus_clawArm02_component3">
+        <trigger node="logGrabTrigger" />
+        <grab componentJoint="3" axis="1" rotationOffsetThreshold="10" rotationOffsetTime="1000"/>
+        <grab componentJoint="4" axis="1" rotationOffsetThreshold="10" rotationOffsetTime="1000"/>
+    </logGrab>
+
+    <animations>
+        <animation name="moveSupport">
+            <part node="supportFeet" startTime="0" endTime="0.3" startTrans="0 0.328 -0.082" endTrans="0 0.237 -0.082" />
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="armTrans" playSound="true" >
+                <controls axis="AXIS_FRONTLOADER_ARM2" invertAxis="false" mouseSpeedFactor="0.7" iconName="CRANE_ARM2_TRANSLATE" />
+                <translation transSpeed="0.4" transAcceleration="0.8" transMax="0.329" transMin="0" translationAxis="3" />
+                <componentJoint index="1" anchorActor="0" />
+            </movingTool>
+
+            <movingTool node="componentJoint03" playSound="true" >
+                <controls axis="AXIS_FRONTLOADER_TOOL2" invertAxis="true" mouseSpeedFactor="1.0" iconName="GRABBER_OPEN_CLOSE" />
+                <rotation rotSpeed="50" rotAcceleration="350" rotMax="100" rotMin="0" rotationAxis="1"/>
+                <componentJoint index="3" anchorActor="0" />
+                <dependentMovingTool node="componentJoint04" speedScale="1" />
+            </movingTool>
+            <movingTool node="componentJoint04" >
+                <rotation rotSpeed="50" rotAcceleration="350" rotMax="100" rotMin="0" rotationAxis="1"/>
+                <componentJoint index="4" anchorActor="0" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="clawArm01" referencePoint="clawArm01Ref" referenceFrame="clawArm01Rot" isActiveDirty="true" />
+            <movingPart node="clawArm02" referencePoint="clawArmRef"   referenceFrame="clawArm02Rot" isActiveDirty="true" limitedAxis="1"/>
+            <movingPart node="clawArm03" referencePoint="clawArmRef"   referenceFrame="clawArm03Rot" isActiveDirty="true" />
+
+            <movingPart node="clawLeft"  referencePoint="clawLeftRef"    referenceFrame="clawLeftRefFrame" isActiveDirty="true" limitedAxis="1"/>
+            <movingPart node="clawRight" referencePoint="clawRightRef"   referenceFrame="clawRightRefFrame" isActiveDirty="true" limitedAxis="1"/>
+
+            <movingPart node="clawRightReferenceBar" referencePoint="clawRightReferenceBarRef" referenceFrame="clawRightReferenceBarRef" isActiveDirty="true" scaleZ="true"/>
+            <movingPart node="clawLeftHydraulic" referencePoint="clawLeftHydraulicRef" referenceFrame="clawLeftHydraulicRef" isActiveDirty="true">
+                <translatingPart node="clawLeftHydraulicPunch" />
+            </movingPart>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <foliageBending>
+        <bendingNode minX="-0.6" maxX="0.6" minZ="-0.2" maxZ="0.2" yOffset="0.1" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="flieglLongNeckCombiPlus_mat" baseNode="hydraulicIn01_detached">
+            <shaderParameter name="colorMat0" value="FLIEGL_RED1"/>
+            <shaderParameter name="colorMat1" value="FLIEGL_GREEN1"/>
+            <shaderParameter name="colorMat2" value="FLIEGL_BLUE1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="3" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="flieglLongNeckCombiPlus_vis" node="0>0" />
+        <i3dMapping id="attacherJointFrontloader" node="0>0|0|0" />
+        <i3dMapping id="attacherJointImplement" node="0>0|0|1" />
+        <i3dMapping id="topReferenceNode" node="0>0|0|2" />
+        <i3dMapping id="supportFeet" node="0>0|0|3" />
+        <i3dMapping id="armTrans" node="0>0|1|0|0" />
+        <i3dMapping id="componentJoint01" node="0>0|1|0|0|0" />
+        <i3dMapping id="clawArm01Rot" node="0>0|1|0|0|1" />
+        <i3dMapping id="clawArm01" node="0>0|1|0|0|1|0" />
+        <i3dMapping id="clawArm02Rot" node="0>0|1|0|0|1|0|0" />
+        <i3dMapping id="clawArm02" node="0>0|1|0|0|1|0|0|0" />
+        <i3dMapping id="clawArm03Rot" node="0>0|1|0|0|1|0|0|0|0" />
+        <i3dMapping id="clawArm03" node="0>0|1|0|0|1|0|0|0|0|0" />
+        <i3dMapping id="clawLeft" node="0>0|1|0|0|1|0|0|0|0|0|0" />
+        <i3dMapping id="clawLeftHydraulic" node="0>0|1|0|0|1|0|0|0|0|0|0|0" />
+        <i3dMapping id="clawLeftHydraulicPunch" node="0>0|1|0|0|1|0|0|0|0|0|0|0|0" />
+        <i3dMapping id="clawRightReferenceBarRef" node="0>0|1|0|0|1|0|0|0|0|0|0|1" />
+        <i3dMapping id="clawRight" node="0>0|1|0|0|1|0|0|0|0|0|1" />
+        <i3dMapping id="clawRightReferenceBar" node="0>0|1|0|0|1|0|0|0|0|0|1|0" />
+        <i3dMapping id="clawLeftHydraulicRef" node="0>0|1|0|0|1|0|0|0|0|0|1|1" />
+        <i3dMapping id="clawLeftRefFrame" node="0>0|1|0|0|1|0|0|0|0|0|2" />
+        <i3dMapping id="clawRightRefFrame" node="0>0|1|0|0|1|0|0|0|0|0|3" />
+        <i3dMapping id="hydraulicIn01" node="0>0|2|0" />
+        <i3dMapping id="hydraulicIn01_detached" node="0>0|2|0|0" />
+        <i3dMapping id="hydraulicOut01" node="0>0|2|1" />
+        <i3dMapping id="hydraulicOut01_detached" node="0>0|2|1|0" />
+        <i3dMapping id="componentJoint02" node="1>0" />
+        <i3dMapping id="zRotationNode02" node="1>0|0" />
+        <i3dMapping id="clawArm01Ref" node="1>1" />
+        <i3dMapping id="flieglLongNeckCombiPlus_clawArm02_component3" node="2>" />
+        <i3dMapping id="componentJoint03" node="2>0" />
+        <i3dMapping id="componentJoint04" node="2>1" />
+        <i3dMapping id="clawArmRef" node="2>2" />
+        <i3dMapping id="logGrabTrigger" node="2>3" />
+        <i3dMapping id="clawLeftRef" node="3>0" />
+        <i3dMapping id="clawRightRef" node="4>0" />
+    </i3dMappings>
+</vehicle>

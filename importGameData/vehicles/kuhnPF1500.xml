@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="fillableImplement">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>PF 1500</name>
+        <specs>
+            <combination>Deltis 1302</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_additionalTank</function>
+        </functions>
+        <image>$data/vehicles/kuhn/kuhnPF1500/store_kuhnPF1500.png</image>
+        <price>8000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>KUHN</brand>
+        <category>sprayers</category>
+        <vertexBufferMemoryUsage>450812</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>73992</indexBufferMemoryUsage>
+        <textureMemoryUsage>12757816</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_sprayerTank</typeDesc>
+        <filename>$data/vehicles/kuhn/kuhnPF1500/kuhnPF1500.i3d</filename>
+        <size width="3" length="1.5"/>
+        <components>
+            <component centerOfMass="0 0.25 0" solverIterationCount="10" mass="350" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="implement" topReferenceNode="topReferenceNode" needsLowering="false" allowsLowering="true" lowerRotLimitScale="0 0 0" lowerTransLimitScale="0 0 0" upperRotationOffset="0" lowerRotationOffset="0"   >
+                <distanceToGround lower="0.7" upper="1.2" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+    </attachable>
+
+    <lights>
+        <sharedLight linkNode="light01" lightTypes="0" filename="$data/shared/assets/lights/lizard/workingLightOval_01_right.xml" />
+        <sharedLight linkNode="light02" filename="$data/shared/assets/lights/lizard/rear2ChamberLight_02_right.xml" />
+        <sharedLight linkNode="light03" filename="$data/shared/assets/lights/lizard/rear2ChamberLight_02_left.xml" />
+        <sharedLight linkNode="light04" lightTypes="0" filename="$data/shared/assets/lights/lizard/workingLightOval_01_left.xml" />
+        <sharedLight linkNode="reflector01" filename="$data/shared/assets/reflectors/lizard/yellowRound_01.xml" />
+        <sharedLight linkNode="reflector02" filename="$data/shared/assets/reflectors/lizard/yellowRound_01.xml" />
+        <realLights>
+            <high>
+                <light node="frontLightHigh" lightTypes="0" />
+                <light node="workLightFrontHigh" lightTypes="2" />
+                <turnLightLeft node="turnLightLeftFront" />
+                <turnLightRight node="turnLightRightFront" />
+            </high>
+        </realLights>
+    </lights>
+
+    <animations>
+        <animation name="fillLevelDisplay">
+            <part node="fillLevelIndicator" startTime="0.0" endTime="0.1"  startRot="0 0 -2.5" endRot="0 0 16.6" />
+            <part node="fillLevelIndicator" startTime="0.1" endTime="0.2"  startRot="0 0 16.6" endRot="0 0 25.1" />
+            <part node="fillLevelIndicator" startTime="0.2" endTime="1.5"  startRot="0 0 25.1" endRot="0 0 65" />
+        </animation>
+    </animations>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <unloading width="7" offset="0 0 0" />
+                    <fillUnit unit="$l10n_unit_literShort" fillTypeCategories="sprayer" capacity="1500" >
+                        <dashboard displayType="ANIMATION" valueType="fillLevel" animName="fillLevelDisplay" />
+                    </fillUnit>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <sprayer allowsSpraying="false"/>
+
+    <foliageBending>
+        <bendingNode minX="-1.2" maxX="1.2" minZ="-0.7" maxZ="0.7" yOffset="0.2" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="kuhnPF1500_mat" baseNode="kuhnPF1500_vis">
+            <shaderParameter name="colorMat0" value="KUHN_RED1"/>
+            <shaderParameter name="colorMat1" value="KUHN_RED2"/>
+            <shaderParameter name="colorMat2" value="KUHN_WHITE1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="2" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="kuhnPF1500_main_component1" node="0>" />
+        <i3dMapping id="kuhnPF1500_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0|0" />
+        <i3dMapping id="topReferenceNode" node="0>0|0|1" />
+        <i3dMapping id="light01" node="0>0|1|0|0" />
+        <i3dMapping id="light03" node="0>0|1|0|1" />
+        <i3dMapping id="light02" node="0>0|1|0|2" />
+        <i3dMapping id="light04" node="0>0|1|0|3" />
+        <i3dMapping id="reflector01" node="0>0|1|0|4" />
+        <i3dMapping id="reflector02" node="0>0|1|0|5" />
+        <i3dMapping id="frontLightHigh" node="0>0|1|1" />
+        <i3dMapping id="workLightFrontHigh" node="0>0|1|2" />
+        <i3dMapping id="turnLightLeftFront" node="0>0|1|3" />
+        <i3dMapping id="turnLightRightFront" node="0>0|1|4" />
+        <i3dMapping id="fillLevelIndicator" node="0>0|2" />
+    </i3dMappings>
+</vehicle>

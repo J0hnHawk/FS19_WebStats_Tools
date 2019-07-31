@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="strawBlower">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>PRIMOR 15070</name>
+        <specs>
+            <neededPower>100</neededPower>
+        </specs>
+        <functions>
+            <function>$l10n_function_feederBale</function>
+        </functions>
+        <image>data/vehicles/kuhn/kuhnPrimor15070/store_kuhnPrimor15070.png</image>
+        <price>25000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>KUHN</brand>
+        <category>animals</category>
+        <vertexBufferMemoryUsage>1423360</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>231564</indexBufferMemoryUsage>
+        <textureMemoryUsage>7864504</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_strawBlower</typeDesc>
+        <filename>data/vehicles/kuhn/kuhnPrimor15070/kuhnPrimor15070.i3d</filename>
+        <size width="3" length="8.5" />
+        <components>
+            <component centerOfMass="0 0.6 -0.6" solverIterationCount="10" mass="5020" />
+            <component centerOfMass="0 1.0 -0.6" solverIterationCount="10" mass="200" />
+            <joint component1="1" component2="2" node="componentJoint" rotLimit="0 0 0" transLimit="0 0 0" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <powerConsumer ptoRpm="540" neededMinPtoPower="50" neededMaxPtoPower="50"/>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/400_55R22_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true" >
+                        <physics restLoad="2.0" repr="wheelLeft" forcePointRatio="0.5"   initialCompression="10" suspTravel="0.25" spring="50" damper="50" />
+                        <wheelChock/>
+                        <wheelChock isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/400_55R22_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics restLoad="2.0" repr="wheelRight" forcePointRatio="0.5"  initialCompression="10" suspTravel="0.25" spring="50" damper="50" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <hubs>
+            <color0>KUHN_RED1</color0>
+            <hub linkNode="wheelLeft"  filename="$data/shared/wheels/hubs/hub_n8_6.xml" isLeft="true"  scale="0.285 0.285 0.285" />
+            <hub linkNode="wheelRight" filename="$data/shared/wheels/hubs/hub_n8_6.xml" isLeft="false" scale="0.285 0.285 0.285" />
+        </hubs>
+    </wheels>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="trailerLow"/>
+        </inputAttacherJoints>
+        <support animationName="moveSupport" />
+        <brakeForce>0.5</brakeForce>
+    </attachable>
+
+    <powerTakeOffs>
+        <input inputAttacherJointIndices="1" detachNode="ptoDetachNode" inputNode="ptoInputNode" aboveAttacher="true" />
+    </powerTakeOffs>
+
+    <lights>
+        <sharedLight linkNode="redLightBack01"  filename="$data/shared/assets/lights/lizard/rearLightCircleRed_02.xml" />
+        <sharedLight linkNode="redLightBack02"  filename="$data/shared/assets/lights/lizard/rearLightCircleRed_02.xml" />
+        <sharedLight linkNode="yellowLightBack01"  filename="$data/shared/assets/lights/lizard/rearLightCircleOrange_02_left.xml" />
+        <sharedLight linkNode="yellowLightBack02"  filename="$data/shared/assets/lights/lizard/rearLightCircleOrange_02_right.xml" />
+        <sharedLight linkNode="redTriangle01" filename="$data/shared/assets/reflectors/lizard/redTriangle_01.xml" />
+        <sharedLight linkNode="redTriangle01" filename="$data/shared/assets/reflectors/lizard/redTriangle_01.xml" />
+        <sharedLight linkNode="yellowRectangle01" filename="$data/shared/assets/reflectors/lizard/yellowRectangle_01.xml" />
+        <sharedLight linkNode="yellowRectangle02" filename="$data/shared/assets/reflectors/lizard/yellowRectangle_01.xml" />
+        <sharedLight linkNode="yellowRectangle03" filename="$data/shared/assets/reflectors/lizard/yellowRectangle_01.xml" />
+        <sharedLight linkNode="yellowRectangle04" filename="$data/shared/assets/reflectors/lizard/yellowRectangle_01.xml" />
+        <sharedLight linkNode="yellowRectangle05" filename="$data/shared/assets/reflectors/lizard/yellowRectangle_01.xml" />
+        <sharedLight linkNode="yellowRectangle06" filename="$data/shared/assets/reflectors/lizard/yellowRectangle_01.xml" />
+
+        <realLights>
+            <high>
+                <light node="backLightsHigh" lightTypes="0"/>
+                <turnLightLeft node="turnLightLeftBack"/>
+                <turnLightRight node="turnLightRightBack"/>
+                <brakeLight node="backLightsHigh"/>
+            </high>
+        </realLights>
+    </lights>
+
+    <foldable>
+        <foldingParts posDirectionText="action_closeDoor" negDirectionText="action_openDoor">
+            <foldingPart animationName="openDoor" speedScale="1" />
+        </foldingParts>
+    </foldable>
+
+    <animations>
+        <!-- move support wheel down/up -->
+        <animation name="moveSupport">
+            <part node="support" startTime="0" endTime="0.6" startTrans="0.278 0.365 2.833" endTrans="0.278 0 2.833" />
+        </animation>
+        <!-- open the door -->
+        <animation name="openDoor">
+            <part node="backDoor"  startTime="0.0" endTime="3" startRot="106.878 0 180" endRot="125 0 180" />
+            <part                  startTime="0.0" endTime="3" componentJointIndex="1" startRotMinLimit="0 0 0" startRotMaxLimit="0 0 0" endRotMinLimit="-120 0 0" endRotMaxLimit="0 0 0"/>
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="pipe">
+                <controls axis="AXIS_CRANE_ARM" invertAxis="true" mouseSpeedFactor="0.9" iconName="CRANE_ARM1_ROTATE_Y" />
+                <rotation rotSpeed="35" rotAcceleration="60" rotMax="15" rotMin="-3" startRot="7.5" rotationAxis="3" rotSendNumBits="11" />
+                <dependentPart node="pipePart" />
+                <dependentPart node="hydraulicPipe" />
+            </movingTool>
+
+            <movingTool node="backDoor" playSound="true" >
+                <componentJoint index="1"/>
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="backDoor" referencePoint="backDoorRef" referenceFrame="backDoorRef" isActiveDirty="true" >
+                <dependentPart node="hydraulicBackDoor" />
+            </movingPart>
+            <movingPart node="hydraulicBackDoor" referencePoint="hydraulicBackDoorRef" referenceFrame="hydraulicBackDoorRef" >
+                <translatingPart node="hydraulicBackDoorPunch" />
+            </movingPart>
+            <movingPart node="hydraulicPipe" referencePoint="hydraulicPipeRef" referenceFrame="hydraulicPipeRef">
+                <translatingPart node="hydraulicPipePunch" />
+                <dependentPart node="pipeHydraulic1" />
+                <dependentPart node="pipeHydraulic2" />
+            </movingPart>
+            <movingPart node="pipeHydraulic1" referencePoint="pipeHydraulic1Ref" referenceFrame="pipeHydraulic1Ref" scaleZ="true" />
+            <movingPart node="pipeHydraulic2" referencePoint="pipeHydraulic2Ref" referenceFrame="pipeHydraulic2Ref" scaleZ="true" />
+
+            <movingPart node="pipePart" referencePoint="pipePartArmRef" localReferencePoint="pipePartArm" referenceFrame="pipePartArmRefFrame" >
+                <dependentPart node="pipePartArm" />
+                <dependentPart node="pipeEffect1" />
+            </movingPart>
+            <movingPart node="pipePartArm" referencePoint="pipePartArmRef" referenceFrame="pipePartArmRef" />
+
+            <movingPart node="pipeEffect1" referencePoint="pipeEffect1Ref" referenceFrame="pipeEffect1Ref" scaleZ="true"/>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <fillUnit unit="$l10n_unit_bale" fillTypes="straw" capacity="1"/>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <strawBlower>
+        <baleTrigger node="baleTrigger" />
+        <animationNodes>
+            <animationNode node="drum1" rotSpeed="-250" rotAxis="1" turnOnFadeTime="3" turnOffFadeTime="4"/>
+            <animationNode node="drum2" rotSpeed="250"  rotAxis="1" turnOnFadeTime="3" turnOffFadeTime="4"/>
+            <animationNode node="drum3" rotSpeed="500"  rotAxis="3" turnOnFadeTime="4" turnOffFadeTime="6"/>
+            <animationNode node="chainDecal"         rotSpeed="5"  rotAxis="1" shaderComponentScale="1 0 0 0" shaderParameterName="offsetUV" />
+        </animationNodes>
+        <sounds>
+            <start template="STRAWBLOWER_START" linkNode="primor15070_main_component1" />
+            <stop template="STRAWBLOWER_STOP" linkNode="primor15070_main_component1" />
+            <work template="STRAWBLOWER_WORK" linkNode="primor15070_main_component1" />
+        </sounds>
+    </strawBlower>
+
+    <dynamicMountAttacher triggerNode="dynamicMountTrigger" rootNode="primor15070_main_component1" jointNode="primor15070_main_component1" />
+
+    <dischargeable requiresTipOcclusionArea="false">
+        <dischargeNode node="dischargeNode" emptySpeed="200" fillUnitIndex="1" unloadInfoIndex="3" >
+            <raycast node="dischargeNode" maxDistance="30"/>
+            <info node="dischargeInfoNode" width="1.0" length="0.5" zOffset="0.4" useRaycastHitPosition="true"/>
+            <effects>
+                <effectNode effectNode="pipeEffect1" materialType="pipe" materialTypeId="1" fadeTime="0.5" useDistance="false" fadeScale="0"/>
+                <effectNode effectClass="PipeEffect" effectNode="pipeEffect2" materialType="pipe" materialTypeId="1" fadeTime="0.5" delay="0.2" shapeScaleSpread="1 1 10 0" uvScaleSpeedFreqAmp="1 16 3 0.1" controlPoint="10 0.3 0 0" extraDistance="2"/>
+                <effectNode effectClass="ParticleEffect" effectNode="pipeEffect3" particleType="SMOKE"/>
+            </effects>
+        </dischargeNode>
+    </dischargeable>
+
+    <foliageBending>
+        <bendingNode minX="-1.25" maxX="1.25" minZ="-3.8" maxZ="2.4 " yOffset="0.6" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="kuhnPrimor15070_mat" baseNode="kuhn_vis">
+            <shaderParameter name="colorMat0" value="KUHN_RED1"/>
+            <shaderParameter name="colorMat1" value="KUHN_RED2"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="primor15070_main_component1" node="0>" />
+        <i3dMapping id="wheelLeft" node="0>0|0" />
+        <i3dMapping id="wheelRight" node="0>0|1" />
+        <i3dMapping id="kuhn_vis" node="0>1" />
+        <i3dMapping id="attacherJoint" node="0>1|0" />
+        <i3dMapping id="ptoInputNode" node="0>1|1" />
+        <i3dMapping id="ptoDetachNode" node="0>1|2" />
+        <i3dMapping id="support" node="0>1|3" />
+        <i3dMapping id="redTriangle01" node="0>1|4|0|0" />
+        <i3dMapping id="redTriangle02" node="0>1|4|0|1" />
+        <i3dMapping id="redLightBack02" node="0>1|4|0|2" />
+        <i3dMapping id="yellowLightBack02" node="0>1|4|0|3" />
+        <i3dMapping id="redLightBack01" node="0>1|4|0|4" />
+        <i3dMapping id="yellowLightBack01" node="0>1|4|0|5" />
+        <i3dMapping id="yellowRectangle01" node="0>1|4|0|6" />
+        <i3dMapping id="yellowRectangle02" node="0>1|4|0|7" />
+        <i3dMapping id="yellowRectangle03" node="0>1|4|0|8" />
+        <i3dMapping id="yellowRectangle04" node="0>1|4|0|9" />
+        <i3dMapping id="yellowRectangle05" node="0>1|4|0|10" />
+        <i3dMapping id="yellowRectangle06" node="0>1|4|0|11" />
+        <i3dMapping id="backLightsHigh" node="0>1|4|1" />
+        <i3dMapping id="turnLightLeftBack" node="0>1|4|2" />
+        <i3dMapping id="turnLightRightBack" node="0>1|4|3" />
+        <i3dMapping id="backDoor" node="0>1|5" />
+        <i3dMapping id="hydraulicBackDoorRef" node="0>1|5|0" />
+        <i3dMapping id="drum1" node="0>1|6|0" />
+        <i3dMapping id="drum2" node="0>1|6|1" />
+        <i3dMapping id="drum3" node="0>1|6|2" />
+        <i3dMapping id="drum4" node="0>1|6|3" />
+        <i3dMapping id="pipe" node="0>1|7" />
+        <i3dMapping id="pipePart" node="0>1|7|0" />
+        <i3dMapping id="pipePartArm" node="0>1|7|0|0" />
+        <i3dMapping id="dischargeNode" node="0>1|7|0|1" />
+        <i3dMapping id="pipeEffect2" node="0>1|7|0|2|0" />
+        <i3dMapping id="pipeEffect3" node="0>1|7|0|2|1" />
+        <i3dMapping id="pipeEffect1Ref" node="0>1|7|0|3" />
+        <i3dMapping id="hydraulicPipeRef" node="0>1|7|1" />
+        <i3dMapping id="pipePartArmRefFrame" node="0>1|7|2" />
+        <i3dMapping id="baleTrigger" node="0>1|8" />
+        <i3dMapping id="dynamicMountTrigger" node="0>1|9" />
+        <i3dMapping id="dischargeInfoNode" node="0>1|10" />
+        <i3dMapping id="hydraulicPipe" node="0>1|11|0" />
+        <i3dMapping id="hydraulicPipePunch" node="0>1|11|0|0" />
+        <i3dMapping id="pipeHydraulic1Ref" node="0>1|11|0|1" />
+        <i3dMapping id="pipeHydraulic2Ref" node="0>1|11|0|2" />
+        <i3dMapping id="pipeHydraulic1" node="0>1|11|1" />
+        <i3dMapping id="pipeHydraulic2" node="0>1|11|2" />
+        <i3dMapping id="hydraulicBackDoor" node="0>1|11|3" />
+        <i3dMapping id="hydraulicBackDoorPunch" node="0>1|11|3|0" />
+        <i3dMapping id="pipePartArmRef" node="0>1|11|4" />
+        <i3dMapping id="chainDecal" node="0>1|12" />
+        <i3dMapping id="tipOcclusionStart" node="0>1|13|0" />
+        <i3dMapping id="tipOcclusionWidth" node="0>1|13|1" />
+        <i3dMapping id="tipOcclusionHeight" node="0>1|13|2" />
+        <i3dMapping id="componentJoint" node="0>1|14" />
+        <i3dMapping id="pipeEffect1" node="0>1|15|0" />
+        <i3dMapping id="primor15070_backDoor_component2" node="1>" />
+        <i3dMapping id="backDoorRef" node="1>0" />
+    </i3dMappings>
+</vehicle>

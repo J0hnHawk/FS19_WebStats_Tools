@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<vehicle type="cultivator">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>PERFORMER 4000</name>
+        <specs>
+            <neededPower>240</neededPower>
+            <workingWidth>4</workingWidth>
+            <combination>AGCO 650, SB 700</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_cultivator</function>
+        </functions>
+        <image>$data/vehicles/kuhn/kuhnPerformer4000/store_kuhnPerformer4000.png</image>
+        <price>69000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>KUHN</brand>
+        <category>discHarrows</category>
+        <shopTranslationOffset>0 -0.105 0</shopTranslationOffset>
+        <shopRotationOffset>2.706 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>4346004</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>1212486</indexBufferMemoryUsage>
+        <textureMemoryUsage>11884280</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_cultivator</typeDesc>
+        <filename>$data/vehicles/kuhn/kuhnPerformer4000/kuhnPerformer4000.i3d</filename>
+        <size width="3.5" length="10"/>
+        <speedLimit value="17"/>
+        <components>
+            <component centerOfMass="0 0.6 0.6" solverIterationCount="10" mass="5000"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinRadial/560_60R22_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                        <physics restLoad="2.4" repr="wheelLeft" forcePointRatio="0.3" initialCompression="40" suspTravel="0.15" spring="37" damper="20"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TwinRadial/560_60R22_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true">
+                        <physics restLoad="2.4" repr="wheelRight" forcePointRatio="0.3" initialCompression="40" suspTravel="0.15" spring="37" damper="20"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.3" repr="wheelDrumLeft"  forcePointRatio="0.3" radius="0.3" width="0.3" mass="0.2" initialCompression="54" suspTravel="0.1" spring="5" damper="5" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics restLoad="0.3" repr="wheelDrumRight" forcePointRatio="0.3" radius="0.3" width="0.3" mass="0.2" initialCompression="54" suspTravel="0.1" spring="5" damper="5" isSynchronized="false"/>
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+        <hubs>
+            <color0>KUHN_RED1</color0>
+            <color1>SHARED_BLACK2</color1>
+            <hub linkNode="wheelLeft"  filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="true"  scale="0.335 0.335 0.335" />
+            <hub linkNode="wheelRight" filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="false" scale="0.335 0.335 0.335" />
+        </hubs>
+    </wheels>
+
+    <speedRotatingParts>
+        <speedRotatingPart node="drumLeft" radius="0.32" groundReferenceNodeIndex="1" foldMinLimit="0" foldMaxLimit="0.1"/>
+        <speedRotatingPart node="drumRight" radius="0.32" groundReferenceNodeIndex="1" foldMinLimit="0" foldMaxLimit="0.1"/>
+        <speedRotatingPart shaderNode="discsFront1" radius="-0.2" groundReferenceNodeIndex="1" foldMinLimit="0" foldMaxLimit="0.1"/>
+        <speedRotatingPart shaderNode="discsFront2" radius="-0.2" groundReferenceNodeIndex="1" foldMinLimit="0" foldMaxLimit="0.1"/>
+        <speedRotatingPart shaderNode="discsFront3" radius="-0.2" groundReferenceNodeIndex="1" foldMinLimit="0" foldMaxLimit="0.1"/>
+        <speedRotatingPart shaderNode="discsFront4" radius="-0.2" groundReferenceNodeIndex="1" foldMinLimit="0" foldMaxLimit="0.1"/>
+        <speedRotatingPart shaderNode="discs1" radius="-0.2" groundReferenceNodeIndex="1" foldMinLimit="0" foldMaxLimit="0.1"/>
+        <speedRotatingPart shaderNode="discs2" radius="-0.2" groundReferenceNodeIndex="1" foldMinLimit="0" foldMaxLimit="0.1"/>
+        <speedRotatingPart shaderNode="discs3" radius="-0.2" groundReferenceNodeIndex="1" foldMinLimit="0" foldMaxLimit="0.1"/>
+        <speedRotatingPart shaderNode="discs4" radius="-0.2" groundReferenceNodeIndex="1" foldMinLimit="0" foldMaxLimit="0.1"/>
+    </speedRotatingParts>
+
+    <lights>
+        <sharedLight linkNode="backlightLeft"  filename="$data/shared/assets/lights/lizard/rear4ChamberLight_01_left.xml" />
+        <sharedLight linkNode="backlightRight"  filename="$data/shared/assets/lights/lizard/rear4ChamberLight_01_right.xml" />
+        <sharedLight linkNode="yellowRectangle04" filename="$data/shared/assets/reflectors/lizard/yellowRectangle_01.xml" />
+        <sharedLight linkNode="yellowRectangle03" filename="$data/shared/assets/reflectors/lizard/yellowRectangle_01.xml" />
+        <sharedLight linkNode="yellowRectangle02" filename="$data/shared/assets/reflectors/lizard/yellowRectangle_01.xml" />
+        <sharedLight linkNode="yellowRectangle01" filename="$data/shared/assets/reflectors/lizard/yellowRectangle_01.xml" />
+        <sharedLight linkNode="whiteRectangle02" lightTypes="0" filename="$data/shared/assets/lights/lizard/rearLightOvalLEDWhite_01.xml" />
+        <sharedLight linkNode="whiteRectangle01" lightTypes="0" filename="$data/shared/assets/lights/lizard/rearLightOvalLEDWhite_01.xml" />
+
+        <realLights>
+            <high>
+                <light node="backLightsHigh" lightTypes="0" />
+                <light node="backLightsHigh1" lightTypes="0" />
+                <turnLightLeft node="turnLightLeftBack" />
+                <turnLightRight node="turnLightRightBack" />
+                <brakeLight node="backLightsHigh" />
+                <brakeLight node="backLightsHigh1" />
+            </high>
+        </realLights>
+    </lights>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="trailerLow" attacherHeight="0.6"/>
+        </inputAttacherJoints>
+        <support animationName="moveSupport"/>
+        <brakeForce>1.5</brakeForce>
+    </attachable>
+
+    <powerConsumer forceNode="performer4000_main_component1" maxForce="34" neededMaxPtoPower="0"/>
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundRefNode" threshold="0.05" depthNode="groundRefNode"/>
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="cultivator" functionName="processCultivatorArea" needsSetIsTurnedOn="false">
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight"/>
+            <groundReferenceNode index="1"/>
+            <folding minLimit="0" maxLimit="0.1"/>
+        </workArea>
+    </workAreas>
+
+    <workParticles>
+        <particleAnimation>
+            <node node="centerAnimation1" refNodeIndex="1" materialType="SOIL"/>
+            <node node="centerAnimation5" refNodeIndex="1" materialType="SOIL"/>
+            <node node="centerAnimation2" refNodeIndex="1" materialType="SOIL"/>
+            <node node="centerAnimation6" refNodeIndex="1" materialType="SOIL"/>
+            <node node="centerAnimation3" refNodeIndex="1" materialType="SOIL"/>
+            <node node="centerAnimation7" refNodeIndex="1" materialType="SOIL"/>
+            <node node="centerAnimation4" refNodeIndex="1" materialType="SOIL"/>
+        </particleAnimation>
+        <particle>
+            <node node="soilEmitShape1" refNodeIndex="1" particleType="SOIL"/>
+            <node node="smokeEmitterShape1" refNodeIndex="1" particleType="SOIL_SMOKE" emitCountScale="2.0"/>
+            <node node="chunkEmitterShape11" refNodeIndex="1" particleType="SOIL_CHUNKS" worldSpace="false"/>
+            <node node="chunkEmitterShape211" refNodeIndex="1" particleType="SOIL_BIG_CHUNKS" worldSpace="false"/>
+            <node node="soilEmitShape5" refNodeIndex="1" particleType="SOIL"/>
+            <node node="smokeEmitterShape5" refNodeIndex="1" particleType="SOIL_SMOKE" emitCountScale="2.0"/>
+            <node node="chunkEmitterShape15" refNodeIndex="1" particleType="SOIL_CHUNKS" worldSpace="false"/>
+            <node node="chunkEmitterShape25" refNodeIndex="1" particleType="SOIL_BIG_CHUNKS" worldSpace="false"/>
+            <node node="soilEmitShape2" refNodeIndex="1" particleType="SOIL"/>
+            <node node="smokeEmitterShape2" refNodeIndex="1" particleType="SOIL_SMOKE" emitCountScale="2.0"/>
+            <node node="chunkEmitterShape12" refNodeIndex="1" particleType="SOIL_CHUNKS" worldSpace="false"/>
+            <node node="chunkEmitterShape22" refNodeIndex="1" particleType="SOIL_BIG_CHUNKS" worldSpace="false"/>
+            <node node="soilEmitShape6" refNodeIndex="1" particleType="SOIL"/>
+            <node node="chunkEmitterShape6" refNodeIndex="1" particleType="SOIL_CHUNKS" worldSpace="false"/>
+            <node node="soilEmitShape3" refNodeIndex="1" particleType="SOIL"/>
+            <node node="chunkEmitterShape3" refNodeIndex="1" particleType="SOIL_CHUNKS" worldSpace="false"/>
+            <node node="soilEmitShape7" refNodeIndex="1" particleType="SOIL"/>
+            <node node="chunkEmitterShape8" refNodeIndex="1" particleType="SOIL_CHUNKS" worldSpace="false"/>
+            <node node="soilEmitShape4" refNodeIndex="1" particleType="SOIL"/>
+            <node node="chunkEmitterShape4" refNodeIndex="1" particleType="SOIL_CHUNKS" worldSpace="false"/>
+        </particle>
+    </workParticles>
+
+    <foldable>
+        <foldingParts startMoveDirection="1" foldMiddleAnimTime="0.1648">
+            <foldingPart animationName="folding" speedScale="1"/>
+        </foldingParts>
+    </foldable>
+
+    <animations>
+        <animation name="moveSupport">
+            <part node="supportArms" startTime="0" endTime="1" startTrans="0 1.469 2.474" endTrans="0 0.775 2.474"/>
+            <part node="axis"         requiredAnimation="folding" requiredAnimationRange="0.16 1" startTime="0" endTime="1" startRot="0 0 0" endRot="0 0 0"/>
+            <part node="attacherBar"  requiredAnimation="folding" requiredAnimationRange="0.16 1" startTime="0" endTime="1" startRot="0 0 0" endRot="-10 0 0"/>
+        </animation>
+        <animation name="folding">
+            <part node="axis" startTime="0" endTime="1.5" startRot="-40 0 0" endRot="0 0 0"/>
+            <part node="wheels" startTime="0" endTime="1.5" startRot="40 0 0" endRot="0 0 0"/>
+            <part node="attacherBar" startTime="0" endTime="1.5" startRot="-10 0 0" endRot="0 0 0"/>
+            <part node="armDiscsFront1Left" startTime="0" endTime="1" startRot="4 0 0" endRot="-15 0 0"/>
+            <part node="armDiscsFront2Left" startTime="0" endTime="1" startRot="4 0 0" endRot="-15 0 0"/>
+            <part node="armDiscsFrontLeft" startTime="0" endTime="1" startRot="-4 0 0" endRot="15 0 0"/>
+            <part node="armDiscsFront1Right" startTime="0" endTime="1" startRot="4 0 0" endRot="-15 0 0"/>
+            <part node="armDiscsFront2Right" startTime="0" endTime="1" startRot="4 0 0" endRot="-15 0 0"/>
+            <part node="armDiscsFrontRight" startTime="0" endTime="1" startRot="-4 0 0" endRot="15 0 0"/>
+            <part node="armDiscsFront1Left" startTime="1.5" endTime="2.5" startRot="-15 0 0" endRot="10 0 0"/>
+            <part node="armDiscsFront2Left" startTime="1.5" endTime="2.5" startRot="-15 0 0" endRot="10 0 0"/>
+            <part node="armDiscsFrontLeft" startTime="1.5" endTime="2.5" startRot="15 0 0" endRot="-10 0 0"/>
+            <part node="armDiscsFront1Right" startTime="1.5" endTime="2.5" startRot="-15 0 0" endRot="10 0 0"/>
+            <part node="armDiscsFront2Right" startTime="1.5" endTime="2.5" startRot="-15 0 0" endRot="10 0 0"/>
+            <part node="armDiscsFrontRight" startTime="1.5" endTime="2.5" startRot="15 0 0" endRot="-10 0 0"/>
+            <part node="armDrumBackLeft" startTime="1.5" endTime="2.5" startRot="0 0 0" endRot="-7 0 0"/>
+            <part node="armDiscsBackLeft" startTime="1.5" endTime="2.5" startRot="0 0 0" endRot="-7 0 0"/>
+            <part node="armDrumBackRight" startTime="1.5" endTime="2.5" startRot="0 0 0" endRot="-7 0 0"/>
+            <part node="armDiscsBackRight" startTime="1.5" endTime="2.5" startRot="0 0 0" endRot="-7 0 0"/>
+            <part node="groundRefNode" startTime="2.5" endTime="4.5" startTrans="0 -0.688 0.145" endTrans="0 0 0.145"/>
+            <part node="armLeft" startTime="2.5" endTime="8.3" startRot="0 0 0" endRot="0 0 90"/>
+            <part node="lightArmLeft" startTime="2.5" endTime="8.3" startRot="0 0 0" endRot="0 0 -90"/>
+            <part node="armRight" startTime="3.2" endTime="9.0" startRot="0 0 0" endRot="0 0 -90"/>
+            <part node="lightArmRight" startTime="3.2" endTime="9.0" startRot="0 0 0" endRot="0 0 90"/>
+            <part node="lockArm" startTime="8.5" endTime="8.8" startRot="0 0 0" endRot="0 0 -20"/>
+            <part node="lockArm" startTime="9.0" endTime="9.1" startRot="0 0 -20" endRot="0 0 0"/>
+            <part node="rearFixJointRight" startTime="4.0" endTime="9.1" startTrans="-0.397 0.697 -2.343" endTrans="-0.031 0.741 -2.346" startRot="0 0 0" endRot="2.922 -2.096 -23.88"/>
+            <part node="rearFixJointLeft" startTime="4.0" endTime="9.1" startTrans="0.397 0.697 -2.343" endTrans="0.031 0.741 -2.346" startRot="0 0 0" endRot="2.922 -2.096 23.88"/>
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="armLeft" wheelIndices="3">
+                <dependentPart node="hydraulicLeft"/>
+            </movingTool>
+            <movingTool node="armRight" wheelIndices="3">
+                <dependentPart node="hydraulicRight"/>
+            </movingTool>
+            <movingTool node="axis" wheelIndices="1 2">
+                <dependentPart node="hydraulicAxis"/>
+            </movingTool>
+            <movingTool node="armDiscsFront1Left">
+                <dependentPart node="hydraulicArmDiscsFrontLeft"/>
+            </movingTool>
+            <movingTool node="armDrumBackLeft" wheelIndices="3">
+                <dependentPart node="hydraulicArmDrumBackLeft"/>
+            </movingTool>
+            <movingTool node="armDiscsBackLeft">
+                <dependentPart node="discArmBackLeftHydraulic"/>
+            </movingTool>
+            <movingTool node="armDiscsFront1Right">
+                <dependentPart node="hydraulicArmDiscsFrontRight"/>
+            </movingTool>
+            <movingTool node="armDrumBackRight" wheelIndices="4">
+                <dependentPart node="hydraulicArmDrumBackRight"/>
+            </movingTool>
+            <movingTool node="armDiscsBackRight">
+                <dependentPart node="discArmBackRightHydraulic"/>
+            </movingTool>
+            <movingTool node="lockArm">
+                <dependentPart node="lockHydraulic"/>
+                <dependentPart node="lockSpring"/>
+            </movingTool>
+            <movingTool node="attacherBar">
+                <inputAttacherJoint value="true"/>
+                <dependentPart node="hydraulicAttacherBar"/>
+            </movingTool>
+        </movingTools>
+        <movingParts>
+            <movingPart node="hydraulicLeft" referencePoint="hydraulicLeftRef" referenceFrame="armLeft" playSound="true">
+                <translatingPart node="hydraulicLeftPunch"/>
+            </movingPart>
+            <movingPart node="hydraulicRight" referencePoint="hydraulicRightRef" referenceFrame="armRight" playSound="true">
+                <translatingPart node="hydraulicRightPunch"/>
+            </movingPart>
+            <movingPart node="hydraulicAxis" referencePoint="hydraulicAxisRef" referenceFrame="hydraulicAxisRef" playSound="true">
+                <translatingPart node="hydraulicAxisPunch"/>
+            </movingPart>
+            <movingPart node="hydraulicAttacherBar" referencePoint="hydraulicAttacherBarRef" referenceFrame="hydraulicAttacherBarRef" playSound="true">
+                <translatingPart node="hydraulicAttacherBarPunch"/>
+            </movingPart>
+            <movingPart node="hydraulicArmDiscsFrontLeft" referencePoint="hydraulicArmDiscsFrontLeftRef" referenceFrame="hydraulicArmDiscsFrontLeftRef" playSound="true">
+                <translatingPart node="hydraulicArmDiscsFrontLeftPunch"/>
+            </movingPart>
+            <movingPart node="hydraulicArmDrumBackLeft" referencePoint="hydraulicArmDiscsBackLeftRef" referenceFrame="hydraulicArmDiscsBackLeftRef" playSound="true">
+                <translatingPart node="hydraulicArmDrumBackLeftPunch"/>
+            </movingPart>
+            <movingPart node="discArmBackLeftHydraulic" referencePoint="discArmBackLeftHydraulicRef" referenceFrame="discArmBackLeftHydraulicRef" useLocalOffset="true" playSound="true">
+                <translatingPart node="discArmBackLeftHydraulicPunch"/>
+            </movingPart>
+            <movingPart node="hydraulicArmDiscsFrontRight" referencePoint="hydraulicArmDiscsFrontRightRef" referenceFrame="hydraulicArmDiscsFrontRightRef" playSound="true">
+                <translatingPart node="hydraulicArmDiscsFrontRightPunch"/>
+            </movingPart>
+            <movingPart node="hydraulicArmDrumBackRight" referencePoint="hydraulicArmDrumBackRightRef" referenceFrame="hydraulicArmDrumBackRightRef" playSound="true">
+                <translatingPart node="hydraulicArmDrumBackRightPunch"/>
+            </movingPart>
+            <movingPart node="discArmBackRightHydraulic" referencePoint="hydraulicArmDiscsBackRightRef" referenceFrame="hydraulicArmDiscsBackRightRef" useLocalOffset="true" playSound="true">
+                <translatingPart node="hydraulicArmDiscsBackRightPunch"/>
+            </movingPart>
+            <movingPart node="lockHydraulic" referencePoint="referencePoint1" referenceFrame="referencePoint1" playSound="true">
+                <translatingPart node="lockHydraulicPart2"/>
+            </movingPart>
+            <movingPart node="lockSpring" referencePoint="referencePoint2" referenceFrame="referencePoint2" scaleZ="true"/>
+        </movingParts>
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="performer4000_main_component1"/>
+        </sounds>
+    </cylindered>
+
+    <cultivator>
+        <onlyActiveWhenLowered value="true"/>
+        <sounds>
+            <work template="DEFAULT_CULTIVATOR_WORK" linkNode="performer4000_main_component1" />
+        </sounds>
+    </cultivator>
+
+    <ai>
+        <needsLowering value="true"/>
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack"/>
+        <sizeMarkers leftNode="sizeMarkerLeft" rightNode="sizeMarkerRight" backNode="sizeMarkerBack"/>
+        <collisionTrigger node="aiCollisionTrigger"/>
+        <allowTurnBackward value="false"/>
+        <turningRadiusLimitation rotationJointNode="attacherJoint" wheelIndices="0 2"/>
+        <toolReverserDirectionNode node="sizeMarkerBack"/>
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-1.5" maxX="1.5" minZ="-4.5" maxZ="2.7" yOffset="0.6" />
+        <bendingNode minX="-0.0" maxX="1.6" minZ="-3.7" maxZ="3.0" yOffset="-0.5" node="armLeft" />
+        <bendingNode minX="-1.6" maxX="0.0" minZ="-3.7" maxZ="3.0" yOffset="-0.5" node="armRight" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="kuhnPerformer4000_mat" baseNode="kuhn_vis">
+            <shaderParameter name="colorMat0" value="KUHN_RED1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="performer4000_main_component1" node="0>" />
+        <i3dMapping id="kuhn_vis" node="0>0" />
+        <i3dMapping id="attacherBar" node="0>0|0|0" />
+        <i3dMapping id="attacherJoint" node="0>0|0|0|0" />
+        <i3dMapping id="hydraulicAttacherBar" node="0>0|0|0|1" />
+        <i3dMapping id="hydraulicAttacherBarPunch" node="0>0|0|0|1|0" />
+        <i3dMapping id="supportArms" node="0>0|0|1" />
+        <i3dMapping id="whiteRectangle02" node="0>0|1|0" />
+        <i3dMapping id="whiteRectangle01" node="0>0|1|1" />
+        <i3dMapping id="yellowRectangle02" node="0>0|1|2" />
+        <i3dMapping id="yellowRectangle01" node="0>0|1|3" />
+        <i3dMapping id="axis" node="0>0|2|0" />
+        <i3dMapping id="wheels" node="0>0|2|0|0" />
+        <i3dMapping id="wheelLeft" node="0>0|2|0|0|0" />
+        <i3dMapping id="wheelRight" node="0>0|2|0|0|1" />
+        <i3dMapping id="hydraulicAxis" node="0>0|2|0|1" />
+        <i3dMapping id="hydraulicAxisPunch" node="0>0|2|0|1|0" />
+        <i3dMapping id="armLeft" node="0>0|2|1" />
+        <i3dMapping id="hydraulicLeftRef" node="0>0|2|1|0" />
+        <i3dMapping id="armDiscsFront1Left" node="0>0|2|1|1" />
+        <i3dMapping id="armDiscsFrontLeft" node="0>0|2|1|1|0" />
+        <i3dMapping id="discsFront1" node="0>0|2|1|1|0|0" />
+        <i3dMapping id="discsFront2" node="0>0|2|1|1|0|1" />
+        <i3dMapping id="centerAnimation7" node="0>0|2|1|1|0|2|0" />
+        <i3dMapping id="soilEmitShape7" node="0>0|2|1|1|0|2|1" />
+        <i3dMapping id="chunkEmitterShape8" node="0>0|2|1|1|0|2|2" />
+        <i3dMapping id="hydraulicArmDiscsFrontLeftRef" node="0>0|2|1|1|1" />
+        <i3dMapping id="armDiscsFront2Left" node="0>0|2|1|2" />
+        <i3dMapping id="armDrumBackLeft" node="0>0|2|1|3" />
+        <i3dMapping id="drums" node="0>0|2|1|3|0" />
+        <i3dMapping id="wheelDrumLeft" node="0>0|2|1|3|0|0" />
+        <i3dMapping id="drumLeft" node="0>0|2|1|3|0|1" />
+        <i3dMapping id="hydraulicArmDiscsBackLeftRef" node="0>0|2|1|3|1" />
+        <i3dMapping id="discArmBackLeftHydraulic" node="0>0|2|1|3|2" />
+        <i3dMapping id="discArmBackLeftHydraulicPunch" node="0>0|2|1|3|2|0" />
+        <i3dMapping id="lightArmRotLeft" node="0>0|2|1|3|3" />
+        <i3dMapping id="lightArmLeft" node="0>0|2|1|3|3|0" />
+        <i3dMapping id="backlightLeft" node="0>0|2|1|3|3|0|0|0" />
+        <i3dMapping id="yellowRectangle03" node="0>0|2|1|3|3|0|0|1" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|2|1|3|3|0|0|2" />
+        <i3dMapping id="backLightsHigh" node="0>0|2|1|3|3|0|0|3" />
+        <i3dMapping id="armDiscsBackLeft" node="0>0|2|1|4" />
+        <i3dMapping id="discArmBackLeftHydraulicRef" node="0>0|2|1|4|0" />
+        <i3dMapping id="discs1" node="0>0|2|1|4|1" />
+        <i3dMapping id="discs2" node="0>0|2|1|4|2" />
+        <i3dMapping id="centerAnimation6" node="0>0|2|1|4|3|0" />
+        <i3dMapping id="soilEmitShape6" node="0>0|2|1|4|3|1" />
+        <i3dMapping id="chunkEmitterShape6" node="0>0|2|1|4|3|2" />
+        <i3dMapping id="hydraulicArmDiscsFrontLeft" node="0>0|2|1|5" />
+        <i3dMapping id="hydraulicArmDiscsFrontLeftPunch" node="0>0|2|1|5|0" />
+        <i3dMapping id="hydraulicArmDrumBackLeft" node="0>0|2|1|6" />
+        <i3dMapping id="hydraulicArmDrumBackLeftPunch" node="0>0|2|1|6|0" />
+        <i3dMapping id="centerAnimation5" node="0>0|2|1|7|0" />
+        <i3dMapping id="soilEmitShape5" node="0>0|2|1|7|1" />
+        <i3dMapping id="smokeEmitterShape5" node="0>0|2|1|7|2" />
+        <i3dMapping id="chunkEmitterShape15" node="0>0|2|1|7|3" />
+        <i3dMapping id="chunkEmitterShape25" node="0>0|2|1|7|4" />
+        <i3dMapping id="lockMechanism" node="0>0|2|1|8" />
+        <i3dMapping id="lockArm" node="0>0|2|1|8|0" />
+        <i3dMapping id="lockHydraulic" node="0>0|2|1|8|0|0" />
+        <i3dMapping id="lockHydraulicPart2" node="0>0|2|1|8|0|0|0" />
+        <i3dMapping id="lockSpring" node="0>0|2|1|8|0|1" />
+        <i3dMapping id="referencePoint1" node="0>0|2|1|8|1" />
+        <i3dMapping id="referencePoint2" node="0>0|2|1|8|2" />
+        <i3dMapping id="armRight" node="0>0|2|2" />
+        <i3dMapping id="hydraulicRightRef" node="0>0|2|2|0" />
+        <i3dMapping id="armDiscsFront1Right" node="0>0|2|2|1" />
+        <i3dMapping id="armDiscsFrontRight" node="0>0|2|2|1|0" />
+        <i3dMapping id="discsFront3" node="0>0|2|2|1|0|0" />
+        <i3dMapping id="discsFront4" node="0>0|2|2|1|0|1" />
+        <i3dMapping id="centerAnimation4" node="0>0|2|2|1|0|2|0" />
+        <i3dMapping id="soilEmitShape4" node="0>0|2|2|1|0|2|1" />
+        <i3dMapping id="chunkEmitterShape4" node="0>0|2|2|1|0|2|2" />
+        <i3dMapping id="hydraulicArmDiscsFrontRightRef" node="0>0|2|2|1|1" />
+        <i3dMapping id="armDiscsFront2Right" node="0>0|2|2|2" />
+        <i3dMapping id="armDrumBackRight" node="0>0|2|2|3" />
+        <i3dMapping id="wheelDrumRight" node="0>0|2|2|3|0|0" />
+        <i3dMapping id="drumRight" node="0>0|2|2|3|0|1" />
+        <i3dMapping id="hydraulicArmDrumBackRightRef" node="0>0|2|2|3|1" />
+        <i3dMapping id="discArmBackRightHydraulic" node="0>0|2|2|3|2" />
+        <i3dMapping id="hydraulicArmDiscsBackRightPunch" node="0>0|2|2|3|2|0" />
+        <i3dMapping id="lightArmRotRight" node="0>0|2|2|3|3" />
+        <i3dMapping id="lightArmRight" node="0>0|2|2|3|3|0" />
+        <i3dMapping id="backLightsHigh1" node="0>0|2|2|3|3|0|0|0" />
+        <i3dMapping id="turnLightRightBack" node="0>0|2|2|3|3|0|0|1" />
+        <i3dMapping id="backlightRight" node="0>0|2|2|3|3|0|0|2" />
+        <i3dMapping id="yellowRectangle04" node="0>0|2|2|3|3|0|0|3" />
+        <i3dMapping id="armDiscsBackRight" node="0>0|2|2|4" />
+        <i3dMapping id="hydraulicArmDiscsBackRightRef" node="0>0|2|2|4|0" />
+        <i3dMapping id="discs3" node="0>0|2|2|4|1" />
+        <i3dMapping id="discs4" node="0>0|2|2|4|2" />
+        <i3dMapping id="centerAnimation3" node="0>0|2|2|4|3|0" />
+        <i3dMapping id="soilEmitShape3" node="0>0|2|2|4|3|1" />
+        <i3dMapping id="chunkEmitterShape3" node="0>0|2|2|4|3|2" />
+        <i3dMapping id="hydraulicArmDiscsFrontRight" node="0>0|2|2|5" />
+        <i3dMapping id="hydraulicArmDiscsFrontRightPunch" node="0>0|2|2|5|0" />
+        <i3dMapping id="hydraulicArmDrumBackRight" node="0>0|2|2|6" />
+        <i3dMapping id="hydraulicArmDrumBackRightPunch" node="0>0|2|2|6|0" />
+        <i3dMapping id="lock" node="0>0|2|2|7" />
+        <i3dMapping id="centerAnimation2" node="0>0|2|2|8|0" />
+        <i3dMapping id="soilEmitShape2" node="0>0|2|2|8|1" />
+        <i3dMapping id="smokeEmitterShape2" node="0>0|2|2|8|2" />
+        <i3dMapping id="chunkEmitterShape12" node="0>0|2|2|8|3" />
+        <i3dMapping id="chunkEmitterShape22" node="0>0|2|2|8|4" />
+        <i3dMapping id="hydraulicLeft" node="0>0|3|0" />
+        <i3dMapping id="hydraulicLeftPunch" node="0>0|3|0|0" />
+        <i3dMapping id="hydraulicRight" node="0>0|3|1" />
+        <i3dMapping id="hydraulicRightPunch" node="0>0|3|1|0" />
+        <i3dMapping id="hydraulicAxisRef" node="0>0|3|2" />
+        <i3dMapping id="hydraulicAttacherBarRef" node="0>0|3|3" />
+        <i3dMapping id="workAreaStart" node="0>0|4|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|4|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|4|2" />
+        <i3dMapping id="groundRefNode" node="0>0|4|3" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|5|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|5|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|5|0|2" />
+        <i3dMapping id="sizeMarkerLeft" node="0>0|5|1|0" />
+        <i3dMapping id="sizeMarkerRight" node="0>0|5|1|1" />
+        <i3dMapping id="sizeMarkerBack" node="0>0|5|1|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|5|2" />
+        <i3dMapping id="centerAnimation1" node="0>0|6|0" />
+        <i3dMapping id="soilEmitShape1" node="0>0|6|1" />
+        <i3dMapping id="smokeEmitterShape1" node="0>0|6|2" />
+        <i3dMapping id="chunkEmitterShape11" node="0>0|6|3" />
+        <i3dMapping id="chunkEmitterShape211" node="0>0|6|4" />
+        <i3dMapping id="pipesFront" node="0>0|8" />
+        <i3dMapping id="rearFixJointRight" node="0>0|9" />
+        <i3dMapping id="rearFixJointLeft" node="0>0|10" />
+    </i3dMappings>
+</vehicle>

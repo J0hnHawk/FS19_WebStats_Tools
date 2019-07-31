@@ -1,0 +1,664 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="spreader">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>K105</name>
+        <specs>
+            <combination>AGCO 1100</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_fertilizer</function>
+        </functions>
+        <image>$data/vehicles/bredal/K105/store_bredalK105.png</image>
+        <price>39000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>BREDAL</brand>
+        <category>fertilizerSpreaders</category>
+        <vertexBufferMemoryUsage>2506912</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>490722</indexBufferMemoryUsage>
+        <textureMemoryUsage>43210320</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_fertilizerSpreader</typeDesc>
+        <filename>$data/vehicles/bredal/K105/k105.i3d</filename>
+        <size width="3.5" length="7.5" lengthOffset="-0.5" />
+        <speedLimit value="20" />
+        <components>
+            <component centerOfMass="0 1 -0.5" solverIterationCount="10" mass="2675"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <configurationSets title="$l10n_configuration_extension">
+        <configurationSet name="$l10n_configuration_valueNone">
+            <configuration name="fillVolume"   index="1" />
+            <configuration name="fillUnit"     index="1" />
+            <configuration name="cover"        index="1" />
+        </configurationSet>
+        <configurationSet name="$l10n_configuration_valueSmall">
+            <configuration name="fillVolume"   index="2" />
+            <configuration name="fillUnit"     index="2" />
+        </configurationSet>
+        <configurationSet name="$l10n_configuration_valueBig">
+            <configuration name="fillVolume"   index="3" />
+            <configuration name="fillUnit"     index="3" />
+            <configuration name="cover"        index="2" />
+        </configurationSet>
+    </configurationSets>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/750_60R30_5.xml" isLeft="true" >
+                        <physics restLoad="1.2" repr="wheelLeft"  forcePointRatio="0.5" initialCompression="12" suspTravel="0.25" spring="30" damper="50" />
+                        <wheelChock parkingNode="wheelChock01" />
+                        <wheelChock parkingNode="wheelChock02" isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/T404/750_60R30_5.xml" isLeft="false" >
+                        <physics restLoad="1.2" repr="wheelRight" forcePointRatio="0.5" initialCompression="12" suspTravel="0.25" spring="30" damper="50" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+            <wheelConfiguration name="$l10n_configuration_valueWheelNarrow" price="500">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/trelleborg/TM100/270_95R44.xml" isLeft="true" >
+                        <physics restLoad="1.1" repr="wheelLeft"  forcePointRatio="0.5" initialCompression="12" suspTravel="0.25" spring="30" damper="50" />
+                        <wheelChock parkingNode="wheelChock01" />
+                        <wheelChock parkingNode="wheelChock02" isInverted="true" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/trelleborg/TM100/270_95R44.xml" isLeft="false" >
+                        <physics restLoad="1.1" repr="wheelRight" forcePointRatio="0.5" initialCompression="12" suspTravel="0.25" spring="30" damper="50" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+        <hubs>
+            <color0>BREDAL_RED1</color0>
+            <color1>SHARED_BLACK1</color1>
+            <hub linkNode="wheelLeft"  filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="true"  scale="0.335 0.335 0.335" />
+            <hub linkNode="wheelRight" filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="false" scale="0.335 0.335 0.335" />
+        </hubs>
+    </wheels>
+
+    <dynamicallyLoadedParts>
+        <dynamicallyLoadedPart node="0" linkNode="chockSupport01" filename="$data/shared/assets/wheelChocks/wheelChockSupport01.i3d"/>
+        <dynamicallyLoadedPart node="0" linkNode="chockSupport02" filename="$data/shared/assets/wheelChocks/wheelChockSupport01.i3d"/>
+    </dynamicallyLoadedParts>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="trailerLow" attacherHeight="0.64" />
+        </inputAttacherJoints>
+        <steeringAxleAngleScale startSpeed="0" endSpeed="90" />
+        <support animationName="moveSupport" />
+        <brakeForce>1.7</brakeForce>
+        <airConsume usage="0.3" />
+    </attachable>
+
+    <powerTakeOffs>
+        <input inputAttacherJointIndices="1" detachNode="ptoDetachNode" inputNode="ptoInputNode" aboveAttacher="true" />
+    </powerTakeOffs>
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn01"  length="1.5" diameter="0.02" straighteningFactor="2">
+            <objectChange node="hydraulicIn01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut01" length="1.5" diameter="0.02" straighteningFactor="2">
+            <objectChange node="hydraulicOut01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn02"  length="1.5" diameter="0.02" straighteningFactor="2">
+            <objectChange node="hydraulicIn02_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut02" length="1.5" diameter="0.02" straighteningFactor="2">
+            <objectChange node="hydraulicOut02_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn03"  length="1.5" diameter="0.02" straighteningFactor="2">
+            <objectChange node="hydraulicIn03_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+    </connectionHoses>
+
+    <powerConsumer ptoRpm="450" neededMaxPtoPower="10"/>
+
+    <lights>
+        <!-- small -->
+        <sharedLight linkNode="backlightLeft"     filename="$data/shared/assets/lights/lizard/rear3ChamberLight_03_left.xml" />
+        <sharedLight linkNode="backlightRight"    filename="$data/shared/assets/lights/lizard/rear3ChamberLight_03_right.xml" />
+        <sharedLight linkNode="markerLeft"        filename="$data/shared/assets/reflectors/lizard/yellowRectangle_01.xml" />
+        <sharedLight linkNode="markerRight"       filename="$data/shared/assets/reflectors/lizard/yellowRectangle_01.xml" />
+        <sharedLight linkNode="bigTriangle"       filename="$data/shared/assets/reflectors/lizard/bigTriangle.xml" />
+        <sharedLight linkNode="triangle01"        filename="$data/shared/assets/reflectors/lizard/redTriangle_01.xml" />
+        <sharedLight linkNode="triangle02"        filename="$data/shared/assets/reflectors/lizard/redTriangle_01.xml" />
+        <!-- big -->
+        <sharedLight linkNode="backlightLeftBig"  filename="$data/shared/assets/lights/lizard/rear3ChamberLight_03_left.xml" />
+        <sharedLight linkNode="backlightRightBig" filename="$data/shared/assets/lights/lizard/rear3ChamberLight_03_right.xml" />
+        <sharedLight linkNode="markerLeftBig"     filename="$data/shared/assets/reflectors/lizard/yellowRectangle_01.xml" />
+        <sharedLight linkNode="markerRightBig"    filename="$data/shared/assets/reflectors/lizard/yellowRectangle_01.xml" />
+        <sharedLight linkNode="bigTriangleBig"    filename="$data/shared/assets/reflectors/lizard/bigTriangle.xml" />
+        <sharedLight linkNode="triangle01Big"     filename="$data/shared/assets/reflectors/lizard/redTriangle_01.xml" />
+        <sharedLight linkNode="triangle02Big"     filename="$data/shared/assets/reflectors/lizard/redTriangle_01.xml" />
+
+        <sharedLight linkNode="rearLightOvalOrange_01_01"    lightTypes="0" filename="$data/shared/assets/lights/lizard/rearLightOvalOrange_01.xml" />
+        <sharedLight linkNode="rearLightOvalOrange_01_02"   lightTypes="0"  filename="$data/shared/assets/lights/lizard/rearLightOvalOrange_01.xml" />
+        <sharedLight linkNode="rearLightOvalWhite_01_01"  lightTypes="0"   filename="$data/shared/assets/lights/lizard/rearLightOvalWhite_01.xml" />
+        <sharedLight linkNode="rearLightOvalWhite_01_02"    lightTypes="0" filename="$data/shared/assets/lights/lizard/rearLightOvalWhite_01.xml" />
+
+        <realLights>
+            <high>
+                <!-- small -->
+                <light node="backLightsHigh1" lightTypes="0"/>
+                <turnLightLeft node="turnLightLeftBack"/>
+                <turnLightRight node="turnLightRightBack"/>
+                <brakeLight node="backLightsHigh1"/>
+                <!-- big -->
+                <light node="backLightsHigh1_ws" lightTypes="0"/>
+                <turnLightLeft node="turnLightLeftBack_ws"/>
+                <turnLightRight node="turnLightRightBack_ws"/>
+                <brakeLight node="backLightsHigh1_ws"/>
+            </high>
+        </realLights>
+    </lights>
+
+    <sprayer fillUnitIndex="1" unloadInfoIndex="1" loadInfoIndex="1">
+        <usageScales workingWidth="24" scale="1" />
+
+        <effects>
+            <!-- unloading spreader -->
+            <effectNode effectNode="effectUnloadLeft"  delay="0" materialType="unloading" fadeTime="1" materialTypeId="1" />
+            <effectNode effectNode="effectUnloadRight" delay="0" materialType="unloading" fadeTime="1" materialTypeId="1" />
+
+            <!-- unloading big spreader -->
+            <effectNode effectNode="effectRight" delay="0.3" materialType="unloading" fadeTime="1" materialTypeId="1" />
+            <effectNode effectNode="effectLeft"  delay="0.3" materialType="unloading" fadeTime="1" materialTypeId="1" />
+        </effects>
+
+        <animationNodes>
+            <animationNode node="diskSmallDesign01Left"   rotSpeed="900"  turnOnFadeTime="1" turnOffFadeTime="2" />
+            <animationNode node="diskSmallDesign01Right"  rotSpeed="-900" turnOnFadeTime="1" turnOffFadeTime="2" />
+            <animationNode node="diskSmallDesign02Left"   rotSpeed="900"  turnOnFadeTime="1" turnOffFadeTime="2" />
+            <animationNode node="diskSmallDesign02Right"  rotSpeed="-900" turnOnFadeTime="1" turnOffFadeTime="2" />
+            <animationNode node="diskWideDesign01Left"    rotSpeed="900"  turnOnFadeTime="1" turnOffFadeTime="2" />
+            <animationNode node="diskWideDesign01Right"   rotSpeed="-900" turnOnFadeTime="1" turnOffFadeTime="2" />
+            <animationNode node="diskWideDesign02Left"    rotSpeed="900"  turnOnFadeTime="1" turnOffFadeTime="2" />
+            <animationNode node="diskWideDesign02Right"   rotSpeed="-900" turnOnFadeTime="1" turnOffFadeTime="2" />
+            <animationNode node="roller01"    rotAxis="1" rotSpeed="15"   turnOnFadeTime="1" turnOffFadeTime="2" />
+            <animationNode node="roller02"    rotAxis="1" rotSpeed="-40"  turnOnFadeTime="1" turnOffFadeTime="2" />
+            <animationNode node="roller03"    rotAxis="3" rotSpeed="400"  turnOnFadeTime="1" turnOffFadeTime="2" />
+            <animationNode node="roller04"    rotAxis="1" rotSpeed="-40"  turnOnFadeTime="1" turnOffFadeTime="2" />
+            <animationNode node="roller06"    rotAxis="3" rotSpeed="-40"  turnOnFadeTime="1" turnOffFadeTime="2" />
+            <animationNode node="roller07"    rotAxis="3" rotSpeed="-40"  turnOnFadeTime="1" turnOffFadeTime="2" />
+            <animationNode node="roller08"    rotAxis="3" rotSpeed="40"   turnOnFadeTime="1" turnOffFadeTime="2" />
+            <animationNode node="roller09"    rotAxis="3" rotSpeed="40"   turnOnFadeTime="1" turnOffFadeTime="2" />
+            <animationNode class="ScrollingAnimation" node="belt"      shaderParameterComponent="2" scrollSpeed="-0.05" turnOnFadeTime="2" turnOffFadeTime="2"/>
+            <animationNode class="ScrollingAnimation" node="beltLeft"  shaderParameterComponent="2" scrollSpeed="-0.05" turnOnFadeTime="2" turnOffFadeTime="2"/>
+            <animationNode class="ScrollingAnimation" node="beltRight" shaderParameterComponent="2" scrollSpeed="-0.05" turnOnFadeTime="2" turnOffFadeTime="2"/>
+        </animationNodes>
+
+        <!-- different spray type depending on the current folding configuration and fill type (lime can only be spreaded up to 18m and fertilizer up to 30m) -->
+        <sprayTypes>
+            <!-- small fertilizer -->
+            <sprayType foldingConfigurationIndex="1" fillTypes="fertilizer unknown">
+                <usageScales workingWidth="24" />
+
+                <effects>
+                    <effectNode effectNode="effectNodeSmallFertilizer" delay="0" materialType="spreader" fadeTime="2" materialTypeId="1" />
+                </effects>
+
+                <ai>
+                    <areaMarkers leftNode="aiMarkerSmallFertilizerLeft" rightNode="aiMarkerSmallFertilizerRight" backNode="aiMarkerSmallFertilizerBack" />
+                    <sizeMarkers leftNode="sizeMarkerSmallLeft" rightNode="sizeMarkerSmallRight" backNode="sizeMarkerSmallBack" />
+                    <collisionTrigger node="aiCollisionTriggerSmall"/>
+                </ai>
+
+                <objectChange node="diskSmallDesign02Left" visibilityActive="true" visibilityInactive="false"/>
+                <objectChange node="diskSmallDesign02Right" visibilityActive="true" visibilityInactive="false"/>
+            </sprayType>
+
+            <!-- small lime -->
+            <sprayType foldingConfigurationIndex="1" fillTypes="lime">
+                <usageScales workingWidth="12" />
+
+                <effects>
+                    <effectNode effectNode="effectNodeSmallLime" delay="0" materialType="spreader" fadeTime="2" materialTypeId="1" />
+                    <effectNode effectNode="effectNodeSmallLimeParticleSmoke" effectClass="ParticleEffect" particleType="smoke" worldSpace="true"/>
+                </effects>
+
+                <ai>
+                    <areaMarkers leftNode="aiMarkerSmallLimeLeft" rightNode="aiMarkerSmallLimeRight" backNode="aiMarkerSmallLimeBack" />
+                    <sizeMarkers leftNode="sizeMarkerSmallLeft" rightNode="sizeMarkerSmallRight" backNode="sizeMarkerSmallBack" />
+                    <collisionTrigger node="aiCollisionTriggerSmall"/>
+                </ai>
+
+                <objectChange node="diskSmallDesign01Left" visibilityActive="true" visibilityInactive="false"/>
+                <objectChange node="diskSmallDesign01Right" visibilityActive="true" visibilityInactive="false"/>
+            </sprayType>
+
+            <!-- big fertilizer -->
+            <sprayType foldingConfigurationIndex="2" fillTypes="fertilizer unknown">
+                <usageScales workingWidth="30" />
+
+                <effects>
+                    <effectNode effectNode="effectNodeBigLeftFertilizer" delay="0" materialType="spreader" fadeTime="2" materialTypeId="1" />
+                    <effectNode effectNode="effectNodeBigRightFertilizer" delay="0" materialType="spreader" fadeTime="2" materialTypeId="1" />
+                </effects>
+
+                <ai>
+                    <areaMarkers leftNode="aiMarkerBigFertilizerLeft" rightNode="aiMarkerBigFertilizerRight" backNode="aiMarkerBigFertilizerBack" />
+                    <sizeMarkers leftNode="sizeMarkerBigLeft" rightNode="sizeMarkerBigRight" backNode="sizeMarkerBigBack" />
+                    <collisionTrigger node="aiCollisionTriggerBig"/>
+                </ai>
+
+                <objectChange node="diskWideDesign02Left" visibilityActive="true" visibilityInactive="false"/>
+                <objectChange node="diskWideDesign02Right" visibilityActive="true" visibilityInactive="false"/>
+            </sprayType>
+
+            <!-- big lime -->
+            <sprayType foldingConfigurationIndex="2" fillTypes="lime">
+                <usageScales workingWidth="18" />
+
+                <effects>
+                    <effectNode effectNode="effectNodeBigLeftLime" delay="0" materialType="spreader" fadeTime="2" materialTypeId="1" />
+                    <effectNode effectNode="effectNodeBigRightLime" delay="0" materialType="spreader" fadeTime="2" materialTypeId="1" />
+                    <effectNode effectNode="effectNodeBigLeftLimeParticleSmoke" effectClass="ParticleEffect" particleType="smoke" worldSpace="true"/>
+                    <effectNode effectNode="effectNodeBigRightLimeParticleSmoke" effectClass="ParticleEffect" particleType="smoke" worldSpace="true"/>
+                </effects>
+
+                <ai>
+                    <areaMarkers leftNode="aiMarkerBigLimeLeft" rightNode="aiMarkerBigLimeRight" backNode="aiMarkerBigLimeBack" />
+                    <sizeMarkers leftNode="sizeMarkerBigLeft" rightNode="sizeMarkerBigRight" backNode="sizeMarkerBigBack" />
+                    <collisionTrigger node="aiCollisionTriggerBig"/>
+                </ai>
+
+                <objectChange node="diskWideDesign01Left" visibilityActive="true" visibilityInactive="false"/>
+                <objectChange node="diskWideDesign01Right" visibilityActive="true" visibilityInactive="false"/>
+            </sprayType>
+        </sprayTypes>
+    </sprayer>
+
+    <workAreas>
+        <workArea type="sprayer" functionName="processSprayerArea" disableBackwards="false" requiresGroundContact="false" sprayType="1">
+            <area startNode="workAreaStartSmallFertilizer" widthNode="workAreaWidthSmallFertilizer" heightNode="workAreaHeightSmallFertilizer" />
+        </workArea>
+        <workArea type="sprayer" functionName="processSprayerArea" disableBackwards="false" requiresGroundContact="false" sprayType="2">
+            <area startNode="workAreaStartSmallLime" widthNode="workAreaWidthSmallLime" heightNode="workAreaHeightSmallLime" />
+        </workArea>
+        <workArea type="sprayer" functionName="processSprayerArea" disableBackwards="false" requiresGroundContact="false" sprayType="3">
+            <area startNode="workAreaStartBigFertilizer" widthNode="workAreaWidthBigFertilizer" heightNode="workAreaHeightBigFertilizer" />
+        </workArea>
+        <workArea type="sprayer" functionName="processSprayerArea" disableBackwards="false" requiresGroundContact="false" sprayType="4">
+            <area startNode="workAreaStartBigLime" widthNode="workAreaWidthBigLime" heightNode="workAreaHeightBigLime" />
+        </workArea>
+    </workAreas>
+
+    <foldable>
+        <foldingConfigurations title="$l10n_configuration_spreaderSystem">
+            <foldingConfiguration name="$l10n_configuration_valueSpreadingDiscs" price="0" workingWidth="12"/>
+            <foldingConfiguration name="$l10n_configuration_value6mSpreadingUnit" price="8000" workingWidth="18">
+                <foldingParts startMoveDirection="1" turnOnFoldMaxLimit="0.1" turnOnFoldMinLimit="0" turnOffIfNotAllowed="true">
+                    <foldingPart animationName="folding" speedScale="0.4"/>
+                </foldingParts>
+
+                <objectChange node="smallSpreader" visibilityInactive="true" visibilityActive="false" />
+                <objectChange node="wideSpreader"  visibilityInactive="false" visibilityActive="true" />
+
+                <objectChange node="colPartBigLeft"   compoundChildInactive="false" compoundChildActive="true" />
+                <objectChange node="colPartBigRight"  compoundChildInactive="false" compoundChildActive="true" />
+            </foldingConfiguration>
+        </foldingConfigurations>
+    </foldable>
+
+    <animations>
+        <animation name="toggleCover">
+            <part node="bigCoverRot" startTime="0" endTime="3" startRot="0 0 0" endRot="0 0 90" />
+            <part node="smallCoverRot" startTime="0" endTime="3" startRot="0 0 0" endRot="0 0 90" />
+        </animation>
+        <animation name="turnOnAnimation">
+            <part node="flapArm" startTime="0" endTime="1" startRot="0 0 0" endRot="0 0 30" />
+            <part node="flap" startTime="0" endTime="1" startRot="0 0 0" endRot="0 0 -30" />
+        </animation>
+        <animation name="moveSupport">
+            <part node="supportArm" startTime="0" endTime="0.2" startTrans="0.104 0.458 -0.297" endTrans="0.104 0 -0.297" />
+            <part node="ladder" startTime="0.2" endTime="0.5" startRot="30 0 0" endRot="0 0 0" />
+            <part node="ladderPart" startTime="0.2" endTime="0.5" startRot="-100 0 0" endRot="0 0 0" />
+        </animation>
+        <animation name="folding">
+            <part node="hookLeft" startTime="2" endTime="2.2" startRot="0 0 40" endRot="0 0 0" />
+            <part node="hookRight" startTime="2" endTime="2.2" startRot="0 0 -40" endRot="0 0 0" />
+            <part node="wideSpreaderLeftArm" startTime="0" endTime="2" startRot="0 0 0" endRot="0 0 90" />
+            <part node="wideSpreaderRightArm" startTime="0" endTime="2" startRot="0 0 0" endRot="0 0 -90" />
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="wideSpreaderLeftArm" playSound="true">
+                <dependentPart node="wideSpreaderLeftArmHydraulic" />
+            </movingTool>
+            <movingTool node="wideSpreaderRightArm">
+                <dependentPart node="wideSpreaderRightArmHydraulic" />
+            </movingTool>
+            <movingTool node="bigCoverRot" playSound="true">
+                <dependentPart node="bigCoverRotHydraulic" />
+            </movingTool>
+            <movingTool node="smallCoverRot">
+                <dependentPart node="smallCoverRotHydraulic" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="wideSpreaderLeftArmHydraulic" referencePoint="wideSpreaderLeftArmHydraulicRef" referenceFrame="wideSpreaderLeftArmHydraulicRef" >
+                <translatingPart node="wideSpreaderLeftArmHydraulicPunch" />
+            </movingPart>
+            <movingPart node="wideSpreaderRightArmHydraulic" referencePoint="wideSpreaderRightArmHydraulicRef" referenceFrame="wideSpreaderRightArmHydraulicRef" >
+                <translatingPart node="wideSpreaderRightArmHydraulicPunch" />
+            </movingPart>
+            <movingPart node="bigCoverRotHydraulic" referencePoint="bigCoverRotHydraulicRef" referenceFrame="bigCoverRotHydraulicRef" >
+                <translatingPart node="bigCoverRotHydraulicPunch" />
+            </movingPart>
+            <movingPart node="smallCoverRotHydraulic" referencePoint="smallCoverRotHydraulicRef" referenceFrame="smallCoverRotHydraulicRef" >
+                <translatingPart node="smallCoverRotHydraulicPunch" />
+            </movingPart>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="k105_main_component1"/>
+        </sounds>
+    </cylindered>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <unloading width="24" offset="0 0 0" />
+                    <fillUnit unit="$l10n_unit_literShort" fillTypes="fertilizer lime" capacity="9000" >
+                        <exactFillRootNode node="exactFillRootNodeDefault" />
+                    </fillUnit>
+                </fillUnits>
+                <objectChange node="exactFillRootNodeSmall" rigidBodyTypeActive="NoRigidBody" />
+                <objectChange node="exactFillRootNodeBig" rigidBodyTypeActive="NoRigidBody" />
+            </fillUnitConfiguration>
+            <fillUnitConfiguration price="250">
+                <fillUnits>
+                    <unloading width="28" offset="0 0 0" />
+                    <fillUnit unit="$l10n_unit_literShort" fillTypes="fertilizer lime" capacity="11000" >
+                        <exactFillRootNode node="exactFillRootNodeSmall" />
+                    </fillUnit>
+                </fillUnits>
+                <objectChange node="extensionSmall" visibilityActive="true" visibilityInactive="false"/>
+                <objectChange node="smallCoverHoses" visibilityActive="true" visibilityInactive="false"/>
+                <objectChange node="extensionSmallCol01" compoundChildInactive="false" compoundChildActive="true" />
+                <objectChange node="extensionSmallCol02" compoundChildInactive="false" compoundChildActive="true" />
+                <objectChange node="extensionSmallCol03" compoundChildInactive="false" compoundChildActive="true" />
+                <objectChange node="extensionSmallCol04" compoundChildInactive="false" compoundChildActive="true" />
+                <objectChange node="exactFillRootNodeDefault" rigidBodyTypeActive="NoRigidBody"/>
+                <objectChange node="exactFillRootNodeBig" rigidBodyTypeActive="NoRigidBody" />
+            </fillUnitConfiguration>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <unloading width="32" offset="0 0 0" />
+                    <fillUnit unit="$l10n_unit_literShort" fillTypes="fertilizer lime" capacity="14000" >
+                        <exactFillRootNode node="exactFillRootNodeBig" />
+                    </fillUnit>
+                </fillUnits>
+                <objectChange node="extensionBig" visibilityActive="true" visibilityInactive="false"/>
+                <objectChange node="bigCoverHoses" visibilityActive="true" visibilityInactive="false"/>
+                <objectChange node="extensionBigCol01" compoundChildInactive="false" compoundChildActive="true" />
+                <objectChange node="extensionBigCol02" compoundChildInactive="false" compoundChildActive="true" />
+                <objectChange node="extensionBigCol03" compoundChildInactive="false" compoundChildActive="true" />
+                <objectChange node="extensionBigCol04" compoundChildInactive="false" compoundChildActive="true" />
+                <objectChange node="exactFillRootNodeDefault" compoundChildInactive="false" rigidBodyTypeActive="NoRigidBody" />
+                <objectChange node="exactFillRootNodeSmall" compoundChildInactive="false" rigidBodyTypeActive="NoRigidBody" />
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <fillVolume>
+        <fillVolumeConfigurations>
+            <fillVolumeConfiguration>
+                <volumes>
+                    <volume node="fillVolumeDefault" maxDelta="0.2" maxAllowedHeapAngle="18" fillUnitIndex="1" />
+                </volumes>
+            </fillVolumeConfiguration>
+            <fillVolumeConfiguration>
+                <volumes>
+                    <volume node="fillVolumeSmall" maxDelta="0.2" maxAllowedHeapAngle="18" fillUnitIndex="1" />
+                </volumes>
+            </fillVolumeConfiguration>
+            <fillVolumeConfiguration>
+                <volumes>
+                    <volume node="fillVolumeBig" maxDelta="0.2" maxAllowedHeapAngle="18" fillUnitIndex="1" />
+                </volumes>
+            </fillVolumeConfiguration>
+        </fillVolumeConfigurations>
+
+        <unloadInfos>
+            <unloadInfo>
+                <node node="unloadInfo" width="2" length="4.0" />
+            </unloadInfo>
+        </unloadInfos>
+    </fillVolume>
+
+    <turnOnVehicle turnOffIfNotAllowed="true">
+        <turnedAnimation name="turnOnAnimation" turnOnSpeedScale="1" turnOffSpeedScale="-1" />
+        <sounds>
+            <work template="DEFAULT_SPREADER" linkNode="k105_main_component1" />
+        </sounds>
+    </turnOnVehicle>
+
+    <cover>
+        <coverConfigurations>
+            <coverConfiguration name="$l10n_configuration_valueNo" price="0"/>
+            <coverConfiguration name="$l10n_configuration_valueYes" price="750">
+                <cover openAnimation="toggleCover" fillUnitIndices="1" />
+
+                <objectChange node="coverHoses" visibilityActive="true" visibilityInactive="false"/>
+                <objectChange node="smallCoverMounting" visibilityActive="true" visibilityInactive="false"/>
+                <objectChange node="bigCoverMounting" visibilityActive="true" visibilityInactive="false"/>
+            </coverConfiguration>
+        </coverConfigurations>
+    </cover>
+
+    <ai>
+        <toolReverserDirectionNode node="sizeMarkerSmallBack" />
+        <allowTurnBackward value="false"/>
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-0.5" maxX="0.5" minZ="-1" maxZ="2.8 " yOffset="0.6" />
+        <bendingNode minX="-1.5" maxX="1.5" minZ="-4.2" maxZ="-1 " yOffset="0.6" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="bredalExterior_mat" baseNode="k105_vis">
+            <shaderParameter name="colorMat0" value="BREDAL_RED1"/>
+            <shaderParameter name="colorMat1" value="DOBLETT_GRAY1"/>
+            <shaderParameter name="colorMat2" value="BREDAL_YELLOW1"/>
+        </material>
+        <material name="bredalExterior1_mat" baseNode="bredalExterior1_vis">
+            <shaderParameter name="colorMat0" value="BREDAL_RED1"/>
+            <shaderParameter name="colorMat1" value="DOBLETT_GRAY1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="k105_main_component1" node="0>" />
+        <i3dMapping id="k105_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0|0" />
+        <i3dMapping id="ptoInputNode" node="0>0|0|1" />
+        <i3dMapping id="ptoDetachNode" node="0>0|0|2" />
+        <i3dMapping id="supportArm" node="0>0|0|3|0" />
+        <i3dMapping id="hydraulicIn01" node="0>0|0|4|0" />
+        <i3dMapping id="hydraulicIn01_detached" node="0>0|0|4|0|0" />
+        <i3dMapping id="hydraulicOut01" node="0>0|0|4|1" />
+        <i3dMapping id="hydraulicOut01_detached" node="0>0|0|4|1|0" />
+        <i3dMapping id="hydraulicIn02" node="0>0|0|4|2" />
+        <i3dMapping id="hydraulicIn02_detached" node="0>0|0|4|2|0" />
+        <i3dMapping id="hydraulicOut02" node="0>0|0|4|3" />
+        <i3dMapping id="hydraulicOut02_detached" node="0>0|0|4|3|0" />
+        <i3dMapping id="hydraulicIn03" node="0>0|0|4|4" />
+        <i3dMapping id="hydraulicIn03_detached" node="0>0|0|4|4|0" />
+        <i3dMapping id="wheelChock01" node="0>0|0|5|0" />
+        <i3dMapping id="wheelChock02" node="0>0|0|5|1" />
+        <i3dMapping id="chockSupport01" node="0>0|0|5|2" />
+        <i3dMapping id="chockSupport02" node="0>0|0|5|3" />
+        <i3dMapping id="wheelLeft" node="0>0|1|0" />
+        <i3dMapping id="wheelRight" node="0>0|1|1" />
+        <i3dMapping id="rearLightOvalOrange_01_01" node="0>0|2|0|0" />
+        <i3dMapping id="rearLightOvalOrange_01_02" node="0>0|2|0|1" />
+        <i3dMapping id="rearLightOvalWhite_01_01" node="0>0|2|0|2" />
+        <i3dMapping id="rearLightOvalWhite_01_02" node="0>0|2|0|3" />
+        <i3dMapping id="roller01" node="0>0|3|0" />
+        <i3dMapping id="roller02" node="0>0|3|1" />
+        <i3dMapping id="roller03" node="0>0|3|2" />
+        <i3dMapping id="roller04" node="0>0|3|3" />
+        <i3dMapping id="belt" node="0>0|3|4" />
+        <i3dMapping id="flapArm" node="0>0|3|5" />
+        <i3dMapping id="flap" node="0>0|3|5|0" />
+        <i3dMapping id="ladder" node="0>0|3|6" />
+        <i3dMapping id="ladderPart" node="0>0|3|6|0" />
+        <i3dMapping id="fillUnit" node="0>0|4" />
+        <i3dMapping id="fillVolumeDefault" node="0>0|4|0|0" />
+        <i3dMapping id="exactFillRootNodeDefault" node="0>0|4|0|1" />
+        <i3dMapping id="fillVolumeSmall" node="0>0|4|1|0" />
+        <i3dMapping id="exactFillRootNodeSmall" node="0>0|4|1|1" />
+        <i3dMapping id="fillVolumeBig" node="0>0|4|2|0" />
+        <i3dMapping id="exactFillRootNodeBig" node="0>0|4|2|1" />
+        <i3dMapping id="unloadInfo" node="0>0|4|3" />
+        <i3dMapping id="workAreaStartSmallLime" node="0>0|5|0|0" />
+        <i3dMapping id="workAreaWidthSmallLime" node="0>0|5|0|1" />
+        <i3dMapping id="workAreaHeightSmallLime" node="0>0|5|0|2" />
+        <i3dMapping id="workAreaStartSmallFertilizer" node="0>0|5|1|0" />
+        <i3dMapping id="workAreaWidthSmallFertilizer" node="0>0|5|1|1" />
+        <i3dMapping id="workAreaHeightSmallFertilizer" node="0>0|5|1|2" />
+        <i3dMapping id="workAreaStartBigLime" node="0>0|5|2|0" />
+        <i3dMapping id="workAreaWidthBigLime" node="0>0|5|2|1" />
+        <i3dMapping id="workAreaHeightBigLime" node="0>0|5|2|2" />
+        <i3dMapping id="workAreaStartBigFertilizer" node="0>0|5|3|0" />
+        <i3dMapping id="workAreaWidthBigFertilizer" node="0>0|5|3|1" />
+        <i3dMapping id="workAreaHeightBigFertilizer" node="0>0|5|3|2" />
+        <i3dMapping id="effectUnloadLeft" node="0>0|6|0" />
+        <i3dMapping id="effectUnloadRight" node="0>0|6|1" />
+        <i3dMapping id="aiMarkerSmallLime" node="0>0|7|0" />
+        <i3dMapping id="aiMarkerSmallLimeLeft" node="0>0|7|0|0" />
+        <i3dMapping id="aiMarkerSmallLimeRight" node="0>0|7|0|1" />
+        <i3dMapping id="aiMarkerSmallLimeBack" node="0>0|7|0|2" />
+        <i3dMapping id="aiMarkerSmallFertilizerLeft" node="0>0|7|1|0" />
+        <i3dMapping id="aiMarkerSmallFertilizerRight" node="0>0|7|1|1" />
+        <i3dMapping id="aiMarkerSmallFertilizerBack" node="0>0|7|1|2" />
+        <i3dMapping id="aiMarkerBigLimeLeft" node="0>0|7|2|0" />
+        <i3dMapping id="aiMarkerBigLimeRight" node="0>0|7|2|1" />
+        <i3dMapping id="aiMarkerBigLimeBack" node="0>0|7|2|2" />
+        <i3dMapping id="aiMarkerBigFertilizerLeft" node="0>0|7|3|0" />
+        <i3dMapping id="aiMarkerBigFertilizerRight" node="0>0|7|3|1" />
+        <i3dMapping id="aiMarkerBigFertilizerBack" node="0>0|7|3|2" />
+        <i3dMapping id="sizeMarkerSmall" node="0>0|7|4" />
+        <i3dMapping id="sizeMarkerSmallLeft" node="0>0|7|4|0" />
+        <i3dMapping id="sizeMarkerSmallRight" node="0>0|7|4|1" />
+        <i3dMapping id="sizeMarkerSmallBack" node="0>0|7|4|2" />
+        <i3dMapping id="sizeMarkerBigLeft" node="0>0|7|5|0" />
+        <i3dMapping id="sizeMarkerBigRight" node="0>0|7|5|1" />
+        <i3dMapping id="sizeMarkerBigBack" node="0>0|7|5|2" />
+        <i3dMapping id="aiCollisionTriggerSmall" node="0>0|7|6" />
+        <i3dMapping id="aiCollisionTriggerBig" node="0>0|7|7" />
+        <i3dMapping id="extensionSmall" node="0>0|8|0" />
+        <i3dMapping id="smallCoverMounting" node="0>0|8|0|0" />
+        <i3dMapping id="smallCoverRot" node="0>0|8|0|0|0" />
+        <i3dMapping id="smallCoverFoil" node="0>0|8|0|0|0|0" />
+        <i3dMapping id="smallCoverRotHydraulicRef" node="0>0|8|0|0|0|1" />
+        <i3dMapping id="smallCoverRotHydraulic" node="0>0|8|0|0|1" />
+        <i3dMapping id="smallCoverRotHydraulicPunch" node="0>0|8|0|0|1|0" />
+        <i3dMapping id="extensionSmallCol01" node="0>0|8|0|2|0" />
+        <i3dMapping id="extensionSmallCol02" node="0>0|8|0|2|1" />
+        <i3dMapping id="extensionSmallCol03" node="0>0|8|0|2|2" />
+        <i3dMapping id="extensionSmallCol04" node="0>0|8|0|2|3" />
+        <i3dMapping id="extensionBig" node="0>0|8|1" />
+        <i3dMapping id="bigCoverMounting" node="0>0|8|1|0" />
+        <i3dMapping id="bigCoverRot" node="0>0|8|1|0|0" />
+        <i3dMapping id="bigCoverFoil" node="0>0|8|1|0|0|0" />
+        <i3dMapping id="bigCoverRotHydraulicRef" node="0>0|8|1|0|0|1" />
+        <i3dMapping id="bigCoverRotHydraulic" node="0>0|8|1|0|1" />
+        <i3dMapping id="bigCoverRotHydraulicPunch" node="0>0|8|1|0|1|0" />
+        <i3dMapping id="extensionBigCol01" node="0>0|8|1|2|0" />
+        <i3dMapping id="extensionBigCol02" node="0>0|8|1|2|1" />
+        <i3dMapping id="extensionBigCol03" node="0>0|8|1|2|2" />
+        <i3dMapping id="extensionBigCol04" node="0>0|8|1|2|3" />
+        <i3dMapping id="smallSpreader" node="0>0|8|2" />
+        <i3dMapping id="backLightsHigh1" node="0>0|8|2|0|0|0" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|8|2|0|0|1" />
+        <i3dMapping id="turnLightRightBack" node="0>0|8|2|0|0|2" />
+        <i3dMapping id="discSmallDesign01" node="0>0|8|2|0|1" />
+        <i3dMapping id="diskSmallDesign01Left" node="0>0|8|2|0|1|0" />
+        <i3dMapping id="diskSmallDesign01Right" node="0>0|8|2|0|1|1" />
+        <i3dMapping id="discSmallDesign02" node="0>0|8|2|0|2" />
+        <i3dMapping id="diskSmallDesign02Left" node="0>0|8|2|0|2|0" />
+        <i3dMapping id="diskSmallDesign02Right" node="0>0|8|2|0|2|1" />
+        <i3dMapping id="backlightLeft" node="0>0|8|2|1|0" />
+        <i3dMapping id="backlightRight" node="0>0|8|2|1|1" />
+        <i3dMapping id="markerLeft" node="0>0|8|2|1|2" />
+        <i3dMapping id="markerRight" node="0>0|8|2|1|3" />
+        <i3dMapping id="bigTriangle" node="0>0|8|2|1|4" />
+        <i3dMapping id="triangle01" node="0>0|8|2|1|5" />
+        <i3dMapping id="triangle02" node="0>0|8|2|1|6" />
+        <i3dMapping id="effectNodeSmallLime" node="0>0|8|2|2" />
+        <i3dMapping id="effectNodeSmallLimeParticleSmoke" node="0>0|8|2|3" />
+        <i3dMapping id="effectNodeSmallFertilizer" node="0>0|8|2|4" />
+        <i3dMapping id="wideSpreader" node="0>0|8|3" />
+        <i3dMapping id="wideSpreaderLeftArm" node="0>0|8|3|0|0" />
+        <i3dMapping id="diskWideDesign01Left" node="0>0|8|3|0|0|0" />
+        <i3dMapping id="diskWideDesign02Left" node="0>0|8|3|0|0|1" />
+        <i3dMapping id="beltLeft" node="0>0|8|3|0|0|2" />
+        <i3dMapping id="wideSpreaderLeftArmHydraulicRef" node="0>0|8|3|0|0|3" />
+        <i3dMapping id="roller06" node="0>0|8|3|0|0|4" />
+        <i3dMapping id="roller07" node="0>0|8|3|0|0|5" />
+        <i3dMapping id="effectLeft" node="0>0|8|3|0|0|6|0" />
+        <i3dMapping id="effectNodeBigLeftLime" node="0>0|8|3|0|0|6|1" />
+        <i3dMapping id="effectNodeBigLeftLimeParticleSmoke" node="0>0|8|3|0|0|6|2" />
+        <i3dMapping id="effectNodeBigLeftFertilizer" node="0>0|8|3|0|0|6|3" />
+        <i3dMapping id="colPartBigLeft" node="0>0|8|3|0|0|7" />
+        <i3dMapping id="wideSpreaderRightArm" node="0>0|8|3|0|1" />
+        <i3dMapping id="diskWideDesign01Right" node="0>0|8|3|0|1|0" />
+        <i3dMapping id="diskWideDesign02Right" node="0>0|8|3|0|1|1" />
+        <i3dMapping id="beltRight" node="0>0|8|3|0|1|2" />
+        <i3dMapping id="wideSpreaderRightArmHydraulicRef" node="0>0|8|3|0|1|3" />
+        <i3dMapping id="roller08" node="0>0|8|3|0|1|4" />
+        <i3dMapping id="roller09" node="0>0|8|3|0|1|5" />
+        <i3dMapping id="effectRight" node="0>0|8|3|0|1|6|0" />
+        <i3dMapping id="effectNodeBigRightLime" node="0>0|8|3|0|1|6|1" />
+        <i3dMapping id="effectNodeBigRightLimeParticleSmoke" node="0>0|8|3|0|1|6|2" />
+        <i3dMapping id="effectNodeBigRightFertilizer" node="0>0|8|3|0|1|6|3" />
+        <i3dMapping id="colPartBigRight" node="0>0|8|3|0|1|7" />
+        <i3dMapping id="wideSpreaderLeftArmHydraulic" node="0>0|8|3|0|2" />
+        <i3dMapping id="wideSpreaderLeftArmHydraulicPunch" node="0>0|8|3|0|2|0" />
+        <i3dMapping id="wideSpreaderRightArmHydraulic" node="0>0|8|3|0|3" />
+        <i3dMapping id="wideSpreaderRightArmHydraulicPunch" node="0>0|8|3|0|3|0" />
+        <i3dMapping id="hookLeft" node="0>0|8|3|0|4" />
+        <i3dMapping id="hookRight" node="0>0|8|3|0|5" />
+        <i3dMapping id="backlightLeftBig" node="0>0|8|3|1|0" />
+        <i3dMapping id="backlightRightBig" node="0>0|8|3|1|1" />
+        <i3dMapping id="markerLeftBig" node="0>0|8|3|1|2" />
+        <i3dMapping id="markerRightBig" node="0>0|8|3|1|3" />
+        <i3dMapping id="bigTriangleBig" node="0>0|8|3|1|4" />
+        <i3dMapping id="triangle01Big" node="0>0|8|3|1|5" />
+        <i3dMapping id="triangle02Big" node="0>0|8|3|1|6" />
+        <i3dMapping id="backLightsHigh1_ws" node="0>0|8|3|2|0" />
+        <i3dMapping id="turnLightLeftBack_ws" node="0>0|8|3|2|1" />
+        <i3dMapping id="turnLightRightBack_ws" node="0>0|8|3|2|2" />
+        <i3dMapping id="bredalExterior1_vis" node="0>0|9|0" />
+        <i3dMapping id="coverHoses" node="0>1|1" />
+        <i3dMapping id="bigCoverHoses" node="0>1|1|0" />
+        <i3dMapping id="smallCoverHoses" node="0>1|1|1" />
+    </i3dMappings>
+</vehicle>

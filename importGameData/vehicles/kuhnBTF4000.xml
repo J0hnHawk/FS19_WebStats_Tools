@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="sowingMachine">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>BTF 4000</name>
+        <specs>
+            <neededPower>100</neededPower>
+            <workingWidth>4</workingWidth>
+            <combination>TF 1512</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_sowingMachine</function>
+        </functions>
+        <image>$data/vehicles/kuhn/kuhnBTF4000/store_kuhnBTF4000.png</image>
+        <price>14000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>KUHN</brand>
+        <category>seeders</category>
+        <vertexBufferMemoryUsage>3794680</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>1133604</indexBufferMemoryUsage>
+        <textureMemoryUsage>3686720</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_sowingMachine</typeDesc>
+        <filename>$data/vehicles/kuhn/kuhnBTF4000/kuhnBTF4000.i3d</filename>
+        <size width="4.5" length="2.3" lengthOffset="0"/>
+        <speedLimit value="15" />
+        <components>
+            <component centerOfMass="0 0.4 -0.5" solverIterationCount="10" mass="820" />
+            <component centerOfMass="0 0.2 0" solverIterationCount="10" mass="120" />
+            <joint component1="1" component2="2" node="componentJoint0" rotLimit="0 0 0" transLimit="0 0.1 0" breakable="false"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <powerConsumer ptoRpm="470" neededMinPtoPower="10" neededMaxPtoPower="10" forceNode="kuhnBTF4000_main_component1" maxForce="8" />
+
+    <lights>
+        <sharedLight linkNode="backlightLeft"     filename="$data/shared/assets/lights/lizard/rear2ChamberLight_01_left.xml" />
+        <sharedLight linkNode="backlightRight"     filename="$data/shared/assets/lights/lizard/rear2ChamberLight_01_right.xml" />
+        <realLights>
+            <high>
+                <light node="backLightsHigh01" lightTypes="0"/>
+                <brakeLight node="backLightsHigh01"/>
+                <turnLightLeft node="turnLightLeftBack"/>
+                <turnLightRight node="turnLightRightBack"/>
+            </high>
+        </realLights>
+    </lights>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="implement" topReferenceNode="topReferenceNode">
+                <distanceToGround lower="0.57" upper="1" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+        <support animationName="moveSupport" />
+    </attachable>
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1" type="TOOL_CONNECTOR_TOP_RIGHT" node="topRightPipe" length="1.5" diameter="0.14" isTwoPointHose="true"/>
+    </connectionHoses>
+
+    <sowingMachine fillUnitIndex="1">
+        <seedFruitTypeCategories>sowingMachine</seedFruitTypeCategories>
+        <needsActivation value="true" />
+
+        <sounds>
+            <work template="DEFAULT_SOWING_WORK" linkNode="kuhnBTF4000_main_component1" />
+            <airBlower template="DEFAULT_SOWING_AIR_BLOWER" linkNode="kuhnBTF4000_main_component1" />
+        </sounds>
+    </sowingMachine>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <fillUnit unit="$l10n_unit_literShort" fillTypes="seeds" capacity="0"/>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundReferenceNode" threshold="0.15" depthNode="depthNode"/>
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="sowingMachine" functionName="processSowingMachineArea" needsSetIsTurnedOn="false" >
+            <area startNode="start" widthNode="width" heightNode="height" />
+            <groundReferenceNode index="1" />
+        </workArea>
+    </workAreas>
+
+    <workParticles>
+        <particleAnimation>
+            <node node="soilAnimation" refNodeIndex="1" materialType="SOIL" maxDepth="-0.01"/>
+        </particleAnimation>
+
+        <particle>
+            <node node="soilEmitterShape2" refNodeIndex="1" particleType="SOIL" />
+            <node node="dustEmitterShape" refNodeIndex="1" particleType="SOIL_SMOKE" />
+            <node node="soilEmitterShape1" refNodeIndex="1" particleType="SOIL_CHUNKS" worldSpace="false"/>
+        </particle>
+    </workParticles>
+
+    <speedRotatingParts>
+        <speedRotatingPart shaderNode="frontDiscs" radius="-0.18" groundReferenceNodeIndex="1" />
+
+        <speedRotatingPart node="middleDiscs"   radius="0.17" groundReferenceNodeIndex="1" />
+        <speedRotatingPart node="backDiscs"     radius="0.17" groundReferenceNodeIndex="1" />
+    </speedRotatingParts>
+
+    <cylindered>
+        <movingParts isActiveDirtyTimeOffset="2">
+            <movingPart node="backArm" referencePoint="backArmRef" referenceFrame="referenceFrame" isActiveDirty="true"/>
+            <movingPart node="weeder" referencePoint="weederRef" referenceFrame="referenceFrame" isActiveDirty="true"/>
+
+            <movingPart node="weederHydraulics" referencePoint="weederHydraulicsRef" referenceFrame="weederHydraulicsRef" isActiveDirty="true">
+                <translatingPart node="weederHydraulicsTrans" />
+            </movingPart>
+
+            <movingPart node="springDirection" referencePoint="springDirectionRef" referenceFrame="springDirectionRef" isActiveDirty="true" doDirectionAlignment="false">
+                <translatingPart node="springTranslation" />
+            </movingPart>
+
+            <movingPart node="springScale" referencePoint="springScaleRef" referenceFrame="springScaleRef" scaleZ="true" isActiveDirty="true" doDirectionAlignment="false"/>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="kuhnBTF4000_main_component1"/>
+        </sounds>
+    </cylindered>
+
+    <animations>
+        <animation name="moveSupport">
+            <part node="support" startTime="0" duration="0.5" startTrans="0 0.79 0.62" endTrans="0 0.315 0.62" />
+        </animation>
+    </animations>
+
+    <ai>
+        <needsLowering value="true" />
+        <areaMarkers leftNode="left" rightNode="right" backNode="back" />
+        <collisionTrigger node="aiCollisionTrigger" />
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-2.1" maxX="2.1" minZ="-1.0" maxZ="0.7" yOffset="0.6" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="kuhnBTF4000_mat" baseNode="kuhnBTF4000_vis">
+            <shaderParameter name="colorMat0" value="KUHN_RED1"/>
+        </material>
+        <material name="kuhnBTF4000Pipe_mat" baseNode="pipes">
+            <shaderParameter name="colorMat0" value="KUHN_WHITE1"/>
+            <shaderParameter name="colorMat1" value="KUHN_WHITE1"/>
+            <shaderParameter name="colorMat2" value="KUHN_WHITE1"/>
+            <shaderParameter name="colorMat3" value="KUHN_WHITE1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="kuhnBTF4000_main_component1" node="0>" />
+        <i3dMapping id="kuhnBTF4000_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0" />
+        <i3dMapping id="topReferenceNode" node="0>0|0|0" />
+        <i3dMapping id="topRightPipe" node="0>0|0|1" />
+        <i3dMapping id="support" node="0>0|1|0" />
+        <i3dMapping id="weederHydraulics" node="0>0|1|1" />
+        <i3dMapping id="weederHydraulicsTrans" node="0>0|1|1|0" />
+        <i3dMapping id="springDirection" node="0>0|1|1|1" />
+        <i3dMapping id="springTranslation" node="0>0|1|1|1|0" />
+        <i3dMapping id="springScale" node="0>0|1|1|1|0|0" />
+        <i3dMapping id="backArm" node="0>0|1|2" />
+        <i3dMapping id="weeder" node="0>0|1|2|0" />
+        <i3dMapping id="weederHydraulicsRef" node="0>0|1|2|0|0" />
+        <i3dMapping id="backlightLeft" node="0>0|1|2|0|1|0|0" />
+        <i3dMapping id="backlightRight" node="0>0|1|2|0|1|0|1" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|1|2|0|1|1" />
+        <i3dMapping id="turnLightRightBack" node="0>0|1|2|0|1|2" />
+        <i3dMapping id="backLightsHigh01" node="0>0|1|2|0|1|3" />
+        <i3dMapping id="springDirectionRef" node="0>0|1|2|1" />
+        <i3dMapping id="springScaleRef" node="0>0|1|2|2" />
+        <i3dMapping id="componentJoint0" node="0>0|1|3" />
+        <i3dMapping id="referenceFrame" node="0>0|1|4" />
+        <i3dMapping id="frontDiscs" node="0>0|2|0" />
+        <i3dMapping id="middleDiscs" node="0>0|2|1" />
+        <i3dMapping id="backDiscs" node="0>0|2|2" />
+        <i3dMapping id="start" node="0>0|3|0" />
+        <i3dMapping id="width" node="0>0|3|1" />
+        <i3dMapping id="height" node="0>0|3|2" />
+        <i3dMapping id="groundReferenceNode" node="0>0|3|3" />
+        <i3dMapping id="left" node="0>0|4|0|0" />
+        <i3dMapping id="right" node="0>0|4|0|1" />
+        <i3dMapping id="back" node="0>0|4|0|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|4|1" />
+        <i3dMapping id="soilAnimation" node="0>0|5|0|0" />
+        <i3dMapping id="dustEmitterShape" node="0>0|5|0|1" />
+        <i3dMapping id="soilEmitterShape1" node="0>0|5|0|2" />
+        <i3dMapping id="soilEmitterShape2" node="0>0|5|0|3" />
+        <i3dMapping id="depthNode" node="0>0|5|1" />
+        <i3dMapping id="pipes" node="0>0|6|0" />
+        <i3dMapping id="backArmRef" node="1>0" />
+        <i3dMapping id="weederRef" node="1>1" />
+    </i3dMappings>
+</vehicle>

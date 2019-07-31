@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="attachableFrontloader">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>FZ 30</name>
+        <specs>
+            <combination>>90HP</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_frontloader</function>
+        </functions>
+        <image>$data/vehicles/stoll/stollFrontLoaderFZ/store_stollFrontLoaderFZ.png</image>
+        <price>5400</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>STOLL</brand>
+        <category>frontLoaders</category>
+        <shopTranslationOffset>0 -0.25 0</shopTranslationOffset>
+        <shopRotationOffset>8 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>286940</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>46188</indexBufferMemoryUsage>
+        <textureMemoryUsage>4369208</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_frontloader</typeDesc>
+        <filename>$data/vehicles/stoll/stollFrontLoaderFZ/stollFrontLoaderFZ.i3d</filename>
+        <size width="3" length="3" />
+        <components>
+            <component centerOfMass="0 0.2 0.9" solverIterationCount="10" mass="540" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <attacherJoints>
+        <attacherJoint jointType="frontloader" node="attacherJointTools" nodeVisual="attacherJointTools_visuals" allowsJointLimitMovement="false" allowsLowering="false" rotLimitSpring="7500 7500 7500" rotLimitDamping="1 1 1" transLimitSpring="7500 7500 7500" transLimitDamping="1 1 1" >
+            <schema position="1 0" rotation="0" invertX="false" />
+        </attacherJoint>
+        <sounds>
+            <attach template="ATTACH_01" linkNode="stollFZ_main_component1" />
+        </sounds>
+    </attacherJoints>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" hardAttach="true" jointType="attachableFrontloader" />
+        </inputAttacherJoints>
+        <support animationName="moveSupport" />
+    </attachable>
+
+    <animations>
+        <animation name="moveSupport">
+            <part node="supportCol"   startTime="0" endTime="1" startRot="70 0 0" endRot="0 0 0" />
+            <part node="supportArm1" startTime="0" endTime="1" startRot="0 0 0"  endRot="-70 0 0" />
+            <part node="supportArm2" startTime="0" endTime="1" startRot="0 0 0"  endRot="-88 0 0" />
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="armDummy" delayedNode="arm">
+                <controls axis="AXIS_FRONTLOADER_ARM" invertAxis="true" mouseSpeedFactor="1.2" iconName="FRONTLOADER_ARM_ROTATE" />
+                <attacherJoint jointIndices="1" />
+                <rotation rotSpeed="20" rotAcceleration="150" rotMax="0" rotMin="-100" startRot="-10" detachingRotMinLimit="-10" />
+                <dependentPart node="attacherRotDummy" />
+                <dependentMovingTool node="attacherDummy" minRotLimits="-55 -65" maxRotLimits="100 50" />
+            </movingTool>
+            <movingTool node="attacherDummy" delayedNode="attacher">
+                <controls axis="AXIS_FRONTLOADER_TOOL" invertAxis="true" mouseSpeedFactor="0.7" iconName="FRONTLOADER_ARM_ROTATE_TOOL" />
+                <attacherJoint jointIndices="1" />
+                <rotation rotSpeed="100" rotAcceleration="300" rotMax="53" rotMin="-65" startRot="-20" syncMaxRotLimits="true" />
+            </movingTool>
+
+            <movingTool node="arm">
+                <dependentPart node="hydraulicMain" />
+                <dependentPart node="attacherRot" />
+            </movingTool>
+
+            <movingTool node="attacher">
+                <dependentPart node="wingFront" />
+            </movingTool>
+
+            <movingTool node="supportArm1" >
+                <dependentPart node="supportArmSpring" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="hydraulicMain" referencePoint="hydraulicMainRef" referenceFrame="arm" playSound="true">
+                <translatingPart node="hydraulicMainPunch" />
+                <dependentPart node="pipes1" />
+                <dependentPart node="wingMiddle" />
+            </movingPart>
+            <movingPart node="pipes1" referencePoint="pipes1Ref" referenceFrame="pipes1Ref" scaleZ="true" />
+
+            <movingPart node="wingMiddle" localReferencePoint="wingArm" referencePoint="wingArmRef" referenceFrame="wingMiddleRefFrame" >
+                <dependentPart node="wingArm" />
+                <dependentPart node="hydraulicFront" />
+            </movingPart>
+            <movingPart node="wingArm" referencePoint="wingArmRef" referenceFrame="arm" />
+
+            <movingPart node="wingFront" localReferencePoint="wingPart" referencePoint="wingPartRef" referenceFrame="wingFrontRefFrame" >
+                <dependentPart node="wingPart" />
+                <dependentPart node="hydraulicFront" />
+            </movingPart>
+            <movingPart node="wingPart" referencePoint="wingPartRef" referenceFrame="wingPartRefFrame" />
+
+            <movingPart node="hydraulicFront" referencePoint="hydraulicFrontRef" referenceFrame="wingMiddleRefFrame" playSound="true">
+                <translatingPart node="hydraulicFrontPunch" />
+                <dependentPart node="angleDisplay" />
+                <dependentPart node="joint2" />
+            </movingPart>
+            <movingPart node="angleDisplay" referencePoint="angleDisplayRef" referenceFrame="hydraulicFrontAngleRefFrame">
+                <translatingPart node="angleDisplayPunch" />
+            </movingPart>
+
+
+            <movingPart node="attacherRotDummy" referenceFrame="attacherRootDummy">
+                <attacherJoint jointIndices="1" />
+            </movingPart>
+            <movingPart node="attacherRot" referenceFrame="stoll_vis">
+                <attacherJoint jointIndices="1" />
+                <dependentPart node="wingFront" />
+            </movingPart>
+
+            <movingPart node="joint2" referencePoint="jointFixPoint" referenceFrame="jointTargetPosPoint" moveToReferenceFrame="true" />
+            <movingPart node="supportArmSpring" referencePoint="supportArmSpringRef" referenceFrame="supportArmSpringFrame" scaleZ="true" />
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="stollFZ_main_component1"/>
+        </sounds>
+    </cylindered>
+
+    <foliageBending>
+        <bendingNode minX="-0.55" maxX="0.55" minZ="-0.2" maxZ="1.9" yOffset="-0.2" node="hydraulicFront" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="stollFrontLoaderFZ_mat" baseNode="arm">
+            <shaderParameter name="colorMat0" value="STOLL_GREY1"/>
+        </material>
+    </baseMaterial>
+
+    <baseMaterialConfigurations price="200" useDefaultColors="true">
+        <baseMaterialConfiguration color="STOLL_GREY1"/>
+        <material name="stollFrontLoaderFZ_mat" shaderParameter="colorMat0" />
+    </baseMaterialConfigurations>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="3" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="stollFZ_main_component1" node="0>" />
+        <i3dMapping id="stoll_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0" />
+        <i3dMapping id="hydraulicMainRef" node="0>0|1" />
+        <i3dMapping id="wingArmRef" node="0>0|2" />
+        <i3dMapping id="arm" node="0>1" />
+        <i3dMapping id="hydraulicMain" node="0>1|0" />
+        <i3dMapping id="hydraulicMainPunch" node="0>1|0|0" />
+        <i3dMapping id="pipes1" node="0>1|0|1" />
+        <i3dMapping id="attacherRot" node="0>1|1" />
+        <i3dMapping id="attacher" node="0>1|1|0" />
+        <i3dMapping id="wingPartRef" node="0>1|1|0|0" />
+        <i3dMapping id="wingFrontRefFrame" node="0>1|1|0|1" />
+        <i3dMapping id="attacherJointTools_visuals" node="0>1|1|0|2" />
+        <i3dMapping id="wingFront" node="0>1|2" />
+        <i3dMapping id="wingPart" node="0>1|2|0" />
+        <i3dMapping id="hydraulicFrontRef" node="0>1|2|1" />
+        <i3dMapping id="wingPartRefFrame" node="0>1|2|2" />
+        <i3dMapping id="angleDisplayRef" node="0>1|2|3" />
+        <i3dMapping id="wingMiddle" node="0>1|3" />
+        <i3dMapping id="wingArm" node="0>1|3|0" />
+        <i3dMapping id="hydraulicFront" node="0>1|3|1" />
+        <i3dMapping id="hydraulicFrontPunch" node="0>1|3|1|0" />
+        <i3dMapping id="jointTargetPosPoint" node="0>1|3|1|1" />
+        <i3dMapping id="jointFixPoint" node="0>1|3|1|2" />
+        <i3dMapping id="angleDisplay" node="0>1|3|2" />
+        <i3dMapping id="angleDisplayPunch" node="0>1|3|2|0" />
+        <i3dMapping id="supportArm1" node="0>1|4|0" />
+        <i3dMapping id="supportArmSpringRef" node="0>1|4|0|0" />
+        <i3dMapping id="supportArm2" node="0>1|4|1" />
+        <i3dMapping id="supportArmSpring" node="0>1|4|1|0" />
+        <i3dMapping id="supportArmSpringFrame" node="0>1|4|2" />
+        <i3dMapping id="pipes1Ref" node="0>1|5" />
+        <i3dMapping id="pipes2Ref" node="0>1|6" />
+        <i3dMapping id="pipes3Ref" node="0>1|7" />
+        <i3dMapping id="wingMiddleRefFrame" node="0>1|8" />
+        <i3dMapping id="joint2" node="0>1|10|0" />
+        <i3dMapping id="hydraulicFrontAngleRefFrame" node="0>1|12" />
+        <i3dMapping id="attacherRootDummy" node="0>2" />
+        <i3dMapping id="attacherJointDummy" node="0>2|0" />
+        <i3dMapping id="wingArmRefDummy" node="0>2|0|0" />
+        <i3dMapping id="armDummy" node="0>3" />
+        <i3dMapping id="attacherRotDummy" node="0>3|0" />
+        <i3dMapping id="attacherDummy" node="0>3|0|0" />
+        <i3dMapping id="attacherJointTools" node="0>3|0|0|0" />
+        <i3dMapping id="supportCol" node="0>3|1" />
+    </i3dMappings>
+</vehicle>

@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="cutter">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>XDisc 620</name>
+        <specs>
+            <workingWidth>6.2</workingWidth>
+            <combination>BiG X 1180</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_cutterForage</function>
+        </functions>
+        <image>$data/vehicles/krone/kroneXDisc620/store_kroneXDisc620.png</image>
+        <price>38000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>KRONE</brand>
+        <category>forageHarvesterCutters</category>
+        <shopRotationOffset>-3 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>883272</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>133182</indexBufferMemoryUsage>
+        <textureMemoryUsage>9961640</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_cutter</typeDesc>
+        <filename>$data/vehicles/krone/kroneXDisc620/kroneXDisc620.i3d</filename>
+        <size width="7" length="2.5" />
+        <speedLimit value="15" />
+        <components>
+            <component centerOfMass="0 0.3 0" solverIterationCount="10" mass="2800" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <powerConsumer ptoRpm="540" neededMinPtoPower="100" neededMaxPtoPower="100"/>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="kroneXDisc620_main_component1" threshold="0.2" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="cutter" functionName="processCutterArea" disableBackwards="true" >
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight" />
+            <groundReferenceNode index="1" />
+        </workArea>
+    </workAreas>
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="cutterHarvester" forceSelectionOnAttach="false" upperRotationOffset="0">
+                <distanceToGround lower="1.6" upper="2.5" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+        <support animationName="moveSupport" />
+    </attachable>
+
+    <powerTakeOffs>
+        <local startNode="localPowerTakeOff01Start" endNode="localPowerTakeOff01End" />
+        <local startNode="localPowerTakeOff02Start" endNode="localPowerTakeOff02End" />
+    </powerTakeOffs>
+
+    <dynamicMount forceLimitScale="20" />
+
+    <animations>
+        <animation name="moveSupport">
+            <part node="support" startTime="0" endTime="1" startTrans="0 0.617 -0.847" endTrans="0 0.425 -0.853" />
+        </animation>
+    </animations>
+
+    <cutter allowsForageGrowthState="true" fruitTypeCategories="directCutter" fruitTypeConverter="forageHarvester">
+        <animationNodes>
+            <animationNode node="drum"  rotAxis="1" rotSpeed="1300"  turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="disc01"  rotAxis="2" rotSpeed="-1300" turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="disc02"  rotAxis="2" rotSpeed="1300"  turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="disc03"  rotAxis="2" rotSpeed="-1300" turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="disc04"  rotAxis="2" rotSpeed="1300"  turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="disc05"  rotAxis="2" rotSpeed="-1300" turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="disc06"  rotAxis="2" rotSpeed="1300"  turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="disc07"  rotAxis="2" rotSpeed="-1300" turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="disc08"  rotAxis="2" rotSpeed="1300"  turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="disc09"  rotAxis="2" rotSpeed="-1300" turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="disc10" rotAxis="2" rotSpeed="1300"  turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="disc11" rotAxis="2" rotSpeed="-1300" turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="disc12" rotAxis="2" rotSpeed="1300"  turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="disc13" rotAxis="2" rotSpeed="-1300" turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+            <animationNode node="disc14" rotAxis="2" rotSpeed="1300" turnOnFadeTime="2.5" turnOffFadeTime="4"/>
+        </animationNodes>
+    </cutter>
+
+    <turnOnVehicle turnedOnByAttacherVehicle="true"/>
+
+    <ai>
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack" />
+        <collisionTrigger node="aiCollisionTrigger" />
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-3.2" maxX="3.2" minZ="-0.9" maxZ="1.1" yOffset="0.2" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="kroneXDisc620_mat" baseNode="krone_vis">
+            <shaderParameter name="colorMat0" value="KRONE_GREEN1"/>
+            <shaderParameter name="colorMat1" value="KRONE_YELLOW1"/>
+            <shaderParameter name="colorMat2" value="KRONE_YELLOW1"/>
+            <shaderParameter name="colorMat3" value="KRONE_BLACK2"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="kroneXDisc620_main_component1" node="0>" />
+        <i3dMapping id="krone_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0|0" />
+        <i3dMapping id="localPowerTakeOff01Start" node="0>0|0|1|0" />
+        <i3dMapping id="localPowerTakeOff01End" node="0>0|0|1|1" />
+        <i3dMapping id="localPowerTakeOff02Start" node="0>0|0|1|2" />
+        <i3dMapping id="localPowerTakeOff02End" node="0>0|0|1|3" />
+        <i3dMapping id="support" node="0>0|1" />
+        <i3dMapping id="drum" node="0>0|2|0" />
+        <i3dMapping id="disc01" node="0>0|2|1" />
+        <i3dMapping id="disc02" node="0>0|2|2" />
+        <i3dMapping id="disc03" node="0>0|2|3" />
+        <i3dMapping id="disc04" node="0>0|2|4" />
+        <i3dMapping id="disc05" node="0>0|2|5" />
+        <i3dMapping id="disc06" node="0>0|2|6" />
+        <i3dMapping id="disc07" node="0>0|2|7" />
+        <i3dMapping id="disc08" node="0>0|2|8" />
+        <i3dMapping id="disc09" node="0>0|2|9" />
+        <i3dMapping id="disc10" node="0>0|2|10" />
+        <i3dMapping id="disc11" node="0>0|2|11" />
+        <i3dMapping id="disc12" node="0>0|2|12" />
+        <i3dMapping id="disc13" node="0>0|2|13" />
+        <i3dMapping id="disc14" node="0>0|2|14" />
+        <i3dMapping id="workAreaStart" node="0>0|3|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|3|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|3|2" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|4|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|4|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|4|0|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|4|1" />
+    </i3dMappings>
+</vehicle>

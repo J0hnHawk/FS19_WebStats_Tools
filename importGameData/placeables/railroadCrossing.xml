@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable>
+    <storeData>
+        <name>Railroad crossing</name>
+        <image>data/placeables/railroadCrossing/store_railroadCrossing.png</image>
+        <price>28000</price>
+        <canBeSold>false</canBeSold>
+        <showInStore>false</showInStore>
+        <lifetime>1000</lifetime>
+        <rotation>0</rotation>
+        <brand>LIZARD</brand>
+        <species>placeable</species>
+        <category>placeableMisc</category>
+        <vertexBufferMemoryUsage>0</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>0</indexBufferMemoryUsage>
+        <textureMemoryUsage>0</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <placeableType>railroadCrossing</placeableType>
+    <filename>data/placeables/railroadCrossing/railroadCrossing.i3d</filename>
+    <placement testSizeX="7.5" testSizeZ="10" sizeX="3" sizeZ="3" useRandomYRotation="false" useManualYRotation="true" />
+
+    <activation startDistance="125" endDistance="125" />
+
+    <gates>
+        <gate node="0|0" startRot="0 0 0" endRot="90 0 0" duration="3" closingOffset="1.5" />
+        <gate node="1|0" startRot="0 0 0" endRot="90 0 0" duration="3" closingOffset="1.5"/>
+    </gates>
+
+    <signals>
+        <signal node="0|1" alternatingLights="true" />
+        <signal node="1|1" alternatingLights="true" />
+    </signals>
+
+    <sounds>
+        <crossing template="TRAIN_CROSSING_BELL_01" linkNode="0>" />
+    </sounds>
+
+</placeable>

@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<vehicle type="cutter">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>PowerStream500</name>
+        <specs>
+            <workingWidth>5.0</workingWidth>
+            <combination>Nova 330</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_cutter</function>
+        </functions>
+        <image>$data/vehicles/rostselmash/powerStream500/store_powerStream500.png</image>
+        <price>32000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>ROSTSELMASH</brand>
+        <category>cutters</category>
+        <shopTranslationOffset>0 -0.29 0</shopTranslationOffset>
+        <shopRotationOffset>0 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>1809120</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>287652</indexBufferMemoryUsage>
+        <textureMemoryUsage>15073792</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_cutter</typeDesc>
+        <filename>$data/vehicles/rostselmash/powerStream500/powerStream500.i3d</filename>
+        <size width="6" length="2.8"/>
+        <speedLimit value="10"/>
+        <components>
+            <component centerOfMass="0 0.2 -0.5" mass="1200" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="cutter">
+                <heightNode node="heightNode"/>
+                <distanceToGround lower="0.4" upper="2.1"/>
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+        <!-- <support animationName="moveSupport" /> -->
+    </attachable>
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn01"  length="0.5" diameter="0.02" straighteningFactor="0.2" adapterType="NONE"/>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut01" length="0.5" diameter="0.02" straighteningFactor="0.2" adapterType="NONE"/>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn" node="hydraulicIn02" length="0.5" diameter="0.02" straighteningFactor="0.2" adapterType="NONE"/>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn" node="hydraulicOut02" length="0.5" diameter="0.02" straighteningFactor="0.2" adapterType="NONE"/>
+    </connectionHoses>
+
+    <powerConsumer ptoRpm="540" neededMaxPtoPower="60"/>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundReferenceNode" threshold="0.4" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="cutter" functionName="processCutterArea" >
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight" />
+            <groundReferenceNode index="1" />
+        </workArea>
+    </workAreas>
+
+    <animations>
+        <animation name="moveSupport">
+            <part node="support01" startTime="0.0" endTime="1.0"  startTrans="0 0 0.35" endTrans="0 0 0" />
+            <part node="support02" startTime="0.0" endTime="1.0"  startTrans="0 0.30 0" endTrans="0 0 0" />
+        </animation>
+
+        <animation name="turnedOnAnimation" looping="true">
+            <part node="blades" startTime="0.0" endTime="0.5"  startTrans="0.03 0 0"  endTrans="-0.03 0 0" />
+            <part node="blades" startTime="0.5" endTime="1"  startTrans="-0.03 0 0" endTrans="0.03 0 0" />
+
+            <part node="canolaExtension_lowKnifes" startTime="0" endTime="0.5" startTrans="0 0 0" endTrans="0.1 0 0"/>
+            <part node="canolaExtension_lowKnifes" startTime="0.5" endTime="1" startTrans="0.1 0 0" endTrans="0 0 0"/>
+
+            <part node="canolaExtension_sideKnifesRight01" startTime="0" endTime="0.5" startTrans="0 0 0" endTrans="0 -0.06 0"/>
+            <part node="canolaExtension_sideKnifesRight01" startTime="0.5" endTime="1" startTrans="0 -0.06 0" endTrans="0 0 0"/>
+            <part node="canolaExtension_sideKnifesRight02" startTime="0" endTime="0.5" startTrans="0 0 0" endTrans="0 0.06 0"/>
+            <part node="canolaExtension_sideKnifesRight02" startTime="0.5" endTime="1" startTrans="0 0.06 0" endTrans="0 0 0"/>
+
+            <part node="canolaExtension_sideKnifesLeft01" startTime="0" endTime="0.5" startTrans="0 0 0" endTrans="0 -0.06 0"/>
+            <part node="canolaExtension_sideKnifesLeft01" startTime="0.5" endTime="1" startTrans="0 -0.06 0" endTrans="0 0 0"/>
+            <part node="canolaExtension_sideKnifesLeft02" startTime="0" endTime="0.5" startTrans="0 0 0" endTrans="0 0.06 0"/>
+            <part node="canolaExtension_sideKnifesLeft02" startTime="0.5" endTime="1" startTrans="0 0.06 0" endTrans="0 0 0"/>
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="reelArm" playSound="true">
+                <controls axis="AXIS_CUTTER_REEL2" invertAxis="true" mouseSpeedFactor="0.9" iconName="REEL_TRANSLATE_Y"/>
+                <rotation rotSpeed="20" rotAcceleration="50" rotMax="-10" rotMin="-22" startRot="-22"/>
+                <dependentMovingTool node="reelMover" speedScale="-1.5" requiresMovement="true" minTransLimits="0 0.1" maxTransLimits="0.1 0.27"/>
+            </movingTool>
+            <movingTool node="reelMover" playSound="true" >
+                <controls axis="AXIS_CUTTER_REEL" invertAxis="false" mouseSpeedFactor="0.9" iconName="REEL_TRANSLATE_X" />
+                <translation transSpeed="0.1" transAcceleration="10" transMax="0.1" transMin="-0.1" translationAxis="3" startTrans="0.05"/>
+                <dependentPart node="reelMoverHydraulic" />
+            </movingTool>
+            <movingTool node="reel">
+                <dependentPart node="spike01"/>
+                <dependentPart node="spike02"/>
+                <dependentPart node="spike03"/>
+                <dependentPart node="spike04"/>
+                <dependentPart node="spike05"/>
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="cutterBar" referencePoint="cutterBarRef" referenceFrame="cutterBarRef" isActiveDirty="true"/>
+
+            <movingPart node="reelMoverHydraulic" referencePoint="reelMoverHydraulicRef" referenceFrame="reelArm" isActiveDirty="true">
+                <translatingPart node="reelMoverHydraulicPunch"/>
+            </movingPart>
+
+            <movingPart node="reelArmHydraulic" referencePoint="reelArmHydraulicRef" referenceFrame="reelArmHydraulicRefFrame" isActiveDirty="true">
+                <translatingPart node="reelArmHydraulicPunch"/>
+            </movingPart>
+
+            <movingPart node="reelMoverOrientationArm" referencePoint="reelMoverOrientationArmRef" localReferencePoint="reelMoverOrientationArmPart" referenceFrame="reelMoverHydraulicOrientationArmPartRefFrame"  isActiveDirty="true" >
+                <dependentPart node="reelMoverOrientationArmPart" />
+                <dependentPart node="reelArmHydraulic" />
+                <dependentPart node="reelMoverHydraulic" />
+                <dependentPart node="reelMover" />
+            </movingPart>
+            <movingPart node="reelMoverOrientationArmPart" referencePoint="reelMoverOrientationArmRef" referenceFrame="reelMoverOrientationArmRef" />
+
+            <movingPart node="spike01" referenceFrame="powerStream500_main_component1"/>
+            <movingPart node="spike02" referenceFrame="powerStream500_main_component1"/>
+            <movingPart node="spike03" referenceFrame="powerStream500_main_component1"/>
+            <movingPart node="spike04" referenceFrame="powerStream500_main_component1"/>
+            <movingPart node="spike05" referenceFrame="powerStream500_main_component1"/>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND"/>
+        </sounds>
+    </cylindered>
+
+    <cutter fruitTypeCategories="grainHeader">
+        <fruitExtraObjects>
+             <fruitExtraObject fruitType="canola" node="zieglerRapeseedModule"/>
+             <fruitExtraObject fruitType="wheat" node="grainExtensions" isDefault="true"/>
+             <fruitExtraObject fruitType="barley" node="grainExtensions"/>
+             <fruitExtraObject fruitType="soybean" node="grainExtensions"/>
+             <fruitExtraObject fruitType="oat" node="grainExtensions"/>
+         </fruitExtraObjects>
+
+        <testAreas>
+            <testArea startNode="testAreaStart1" widthNode="testAreaWidth1" heightNode="testAreaHeight1"/>
+            <testArea startNode="testAreaStart2" widthNode="testAreaWidth2" heightNode="testAreaHeight2"/>
+            <testArea startNode="testAreaStart3" widthNode="testAreaWidth3" heightNode="testAreaHeight3"/>
+            <testArea startNode="testAreaStart4" widthNode="testAreaWidth4" heightNode="testAreaHeight4"/>
+        </testAreas>
+
+        <effect>
+            <effectNode linkNode="effectCenter" speedScale="0.0018" effectType="CENTER" changeSpeedScale="0.01"/>
+            <effectNode linkNode="effectLeft" speedScale="0.0013" lengthAndRadius="0.3 1 0.2 2.1" effectType="LEFT" useInterpolation="true" minOffset="3"/>
+            <effectNode linkNode="effectRight" speedScale="0.0013" lengthAndRadius="0.3 1 0.2 2.1" effectType="RIGHT" useInterpolation="true" minOffset="3" useMaxValue="true"/>
+        </effect>
+
+        <fillEffect>
+            <effectNode effectClass="ParticleEffect" effectNode="smokeEmitter" particleType="SMOKE" emitCountScale="0.1" worldSpace="false" useCuttingWidth="false"/>
+        </fillEffect>
+
+        <animationNodes>
+            <animationNode node="mainDrum"       rotSpeed="400" rotAxis="1" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotatingPart02" rotSpeed="400" rotAxis="1" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotatingPart03" rotSpeed="400" rotAxis="1" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotatingPart04" rotSpeed="400" rotAxis="1" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotatingPart05" rotSpeed="400" rotAxis="1" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="rotatingPart06" rotSpeed="400" rotAxis="1" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="reel" rotSpeed="200" rotAxis="1" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="outerReel" rotSpeed="200" rotAxis="1" turnOnFadeTime="1" turnOffFadeTime="1"/>
+        </animationNodes>
+    </cutter>
+
+    <powerTakeOffs>
+        <input inputNode="ptoLeft" inputAttacherJointIndices="1" aboveAttacher="true" ptoName="LEFT_PTO"/>
+    </powerTakeOffs>
+
+    <turnOnVehicle turnedOnByAttacherVehicle="true">
+        <turnedOnAnimation name="turnedOnAnimation" speedScale="6" turnOnFadeTime="2" turnOffFadeTime="3"/>
+    </turnOnVehicle>
+
+    <dynamicMount forceLimitScale="1"/>
+
+    <ai>
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack"/>
+        <sizeMarkers leftNode="sizeMarkerLeft" rightNode="sizeMarkerRight" backNode="sizeMarkerBack"/>
+        <collisionTrigger node="aiCollisionTrigger"/>
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-2.55" maxX="2.8" minZ="-1.3" maxZ="0.3" yOffset="0.45" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="powerStream500_mat" baseNode="powerStream500_vis">
+            <shaderParameter name="colorMat0" value="ROSTSELMASH_RED1"/>
+        </material>
+        <material name="canolaModules_mat" baseNode="zieglerRapeseedModule_vis">
+            <shaderParameter name="colorMat0" value="ROSTSELMASH_RED1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="powerStream500_main_component1" node="0>" />
+        <i3dMapping id="powerStream500_vis" node="0>0" />
+        <i3dMapping id="attachable" node="0>0|0" />
+        <i3dMapping id="attacherJoint" node="0>0|0|0" />
+        <i3dMapping id="support01" node="0>0|0|1|0|0" />
+        <i3dMapping id="support02" node="0>0|0|1|1" />
+        <i3dMapping id="ptoLeft" node="0>0|0|2" />
+        <i3dMapping id="hydraulicIn01" node="0>0|0|3|0" />
+        <i3dMapping id="hydraulicOut01" node="0>0|0|3|1" />
+        <i3dMapping id="hydraulicIn02" node="0>0|0|3|2" />
+        <i3dMapping id="hydraulicOut02" node="0>0|0|3|3" />
+        <i3dMapping id="reelArmHydraulic" node="0>0|1|0" />
+        <i3dMapping id="reelArmHydraulicPunch" node="0>0|1|0|0" />
+        <i3dMapping id="reelMoverOrientationArmRef" node="0>0|1|1" />
+        <i3dMapping id="reelArmHydraulicRefFrame" node="0>0|1|2" />
+        <i3dMapping id="reelArm" node="0>0|2|0" />
+        <i3dMapping id="reelMoverTrans" node="0>0|2|0|0|0" />
+        <i3dMapping id="reelMover" node="0>0|2|0|0|0|0" />
+        <i3dMapping id="reel" node="0>0|2|0|0|0|0|0" />
+        <i3dMapping id="spike01" node="0>0|2|0|0|0|0|0|0" />
+        <i3dMapping id="spike03" node="0>0|2|0|0|0|0|0|1" />
+        <i3dMapping id="spike02" node="0>0|2|0|0|0|0|0|2" />
+        <i3dMapping id="spike04" node="0>0|2|0|0|0|0|0|3" />
+        <i3dMapping id="spike05" node="0>0|2|0|0|0|0|0|4" />
+        <i3dMapping id="rotatingPart05" node="0>0|2|0|0|0|0|1" />
+        <i3dMapping id="belts1" node="0>0|2|0|0|0|0|3" />
+        <i3dMapping id="reelMoverHydraulicRef" node="0>0|2|0|0|0|0|4" />
+        <i3dMapping id="outerReel" node="0>0|2|0|0|0|0|6" />
+        <i3dMapping id="reelMoverOrientationArm" node="0>0|2|0|1" />
+        <i3dMapping id="reelMoverHydraulic" node="0>0|2|0|1|0" />
+        <i3dMapping id="reelMoverHydraulicPunch" node="0>0|2|0|1|0|0" />
+        <i3dMapping id="reelMoverOrientationArmPart" node="0>0|2|0|1|1" />
+        <i3dMapping id="reelArmHydraulicRef" node="0>0|2|0|2" />
+        <i3dMapping id="reelMoverHydraulicOrientationArmPartRefFrame" node="0>0|2|0|4" />
+        <i3dMapping id="mainDrum" node="0>0|2|1" />
+        <i3dMapping id="cutterBar" node="0>0|2|2|0" />
+        <i3dMapping id="blades" node="0>0|2|3" />
+        <i3dMapping id="cutterBarRef" node="0>0|2|3|1" />
+        <i3dMapping id="rotatingPart02" node="0>0|3|0" />
+        <i3dMapping id="rotatingPart03" node="0>0|3|1" />
+        <i3dMapping id="rotatingPart04" node="0>0|3|2" />
+        <i3dMapping id="rotatingPart06" node="0>0|3|3" />
+        <i3dMapping id="aiMarker" node="0>0|4|0" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|4|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|4|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|4|0|2" />
+        <i3dMapping id="sizeMarker" node="0>0|4|1" />
+        <i3dMapping id="sizeMarkerLeft" node="0>0|4|1|0" />
+        <i3dMapping id="sizeMarkerRight" node="0>0|4|1|1" />
+        <i3dMapping id="sizeMarkerBack" node="0>0|4|1|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|4|2" />
+        <i3dMapping id="workAreas" node="0>0|5" />
+        <i3dMapping id="workAreaStart" node="0>0|5|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|5|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|5|2" />
+        <i3dMapping id="groundReferenceNode" node="0>0|5|3" />
+        <i3dMapping id="heightNode" node="0>0|5|4" />
+        <i3dMapping id="testAreas" node="0>0|6" />
+        <i3dMapping id="testArea1" node="0>0|6|0" />
+        <i3dMapping id="testAreaStart1" node="0>0|6|0|0" />
+        <i3dMapping id="testAreaWidth1" node="0>0|6|0|1" />
+        <i3dMapping id="testAreaHeight1" node="0>0|6|0|2" />
+        <i3dMapping id="testArea2" node="0>0|6|1" />
+        <i3dMapping id="testAreaStart2" node="0>0|6|1|0" />
+        <i3dMapping id="testAreaWidth2" node="0>0|6|1|1" />
+        <i3dMapping id="testAreaHeight2" node="0>0|6|1|2" />
+        <i3dMapping id="testArea3" node="0>0|6|2" />
+        <i3dMapping id="testAreaStart3" node="0>0|6|2|0" />
+        <i3dMapping id="testAreaWidth3" node="0>0|6|2|1" />
+        <i3dMapping id="testAreaHeight3" node="0>0|6|2|2" />
+        <i3dMapping id="testArea4" node="0>0|6|3" />
+        <i3dMapping id="testAreaStart4" node="0>0|6|3|0" />
+        <i3dMapping id="testAreaWidth4" node="0>0|6|3|1" />
+        <i3dMapping id="testAreaHeight4" node="0>0|6|3|2" />
+        <i3dMapping id="effectNodes" node="0>0|7" />
+        <i3dMapping id="effectCenter" node="0>0|7|0" />
+        <i3dMapping id="effectLeft" node="0>0|7|1" />
+        <i3dMapping id="effectRight" node="0>0|7|2" />
+        <i3dMapping id="smokeEmitter" node="0>0|7|3" />
+        <i3dMapping id="grainExtensions" node="0>0|8|0" />
+        <i3dMapping id="zieglerRapeseedModule" node="0>0|8|1" />
+        <i3dMapping id="canolaExtension_lowKnifes" node="0>0|8|1|0" />
+        <i3dMapping id="canolaExtension_sideKnifesLeft01" node="0>0|8|1|1|0" />
+        <i3dMapping id="canolaExtension_sideKnifesLeft02" node="0>0|8|1|1|1" />
+        <i3dMapping id="canolaExtension_sideKnifesRight01" node="0>0|8|1|2|0" />
+        <i3dMapping id="canolaExtension_sideKnifesRight02" node="0>0|8|1|2|1" />
+        <i3dMapping id="zieglerRapeseedModule_vis" node="0>0|8|1|3" />
+        <i3dMapping id="belts" node="0>0|9|0" />
+    </i3dMappings>
+</vehicle>

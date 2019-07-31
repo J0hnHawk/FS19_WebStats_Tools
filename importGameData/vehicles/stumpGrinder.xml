@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="stumpCutter">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>$l10n_shopItem_skidSteerStumpCutter</name>
+        <specs>
+            <combination>L218, C232</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_stumpCutter</function>
+        </functions>
+        <image>$data/vehicles/paladin/stumpGrinder/store_stumpGrinder.png</image>
+        <price>2500</price>
+        <lifetime>600</lifetime>
+        <rotation>180</rotation>
+        <brand>PALADIN</brand>
+        <category>skidSteers</category>
+        <vertexBufferMemoryUsage>318864</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>49728</indexBufferMemoryUsage>
+        <textureMemoryUsage>2840024</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_stumpCutter</typeDesc>
+        <filename>$data/vehicles/paladin/stumpGrinder/stumpGrinder.i3d</filename>
+        <size width="2" length="2.2" />
+        <components>
+            <component centerOfMass="0 0.2 0.4" solverIterationCount="10" mass="930" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <powerConsumer ptoRpm="540" neededMinPtoPower="15" neededMaxPtoPower="25"/>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="skidSteer" />
+        </inputAttacherJoints>
+    </attachable>
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn01"  length="1.0" diameter="0.02" straighteningFactor="2"/>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut01" length="1.0" diameter="0.02" straighteningFactor="2"/>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn" node="hydraulicIn02" length="1.0" diameter="0.035" straighteningFactor="2"/>
+    </connectionHoses>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="armYRot">
+                <controls axis="AXIS_FRONTLOADER_TOOL2" invertAxis="true" mouseSpeedFactor="0.7" iconName="FRONTLOADER_ARM_ROTATE" />
+                <rotation rotSpeed="15" rotAcceleration="100" rotMax="35" rotMin="-35" rotationAxis="2" />
+                <dependentPart node="hydraulic02" />
+            </movingTool>
+            <movingTool node="armRotX" >
+                <controls axis="AXIS_FRONTLOADER_ARM2" invertAxis="false" mouseSpeedFactor="0.7" iconName="TOOL_OPEN_CLOSE" />
+                <rotation rotSpeed="20" rotAcceleration="170" rotMax="45" rotMin="-10" rotationAxis="3" />
+                <dependentPart node="hydraulic" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="hydraulic02" referencePoint="hydraulic02Ref" referenceFrame="hydraulic02Ref" playSound="true" >
+                <translatingPart node="hydraulic02Punch" />
+            </movingPart>
+            <movingPart node="hydraulic" referencePoint="hydraulicRef" referenceFrame="hydraulicRef" playSound="true" >
+                <translatingPart node="hydraulicPunch" />
+            </movingPart>
+
+            <movingPart node="cutNodeRot" referenceFrame="cutNodeRefFrame" isActiveDirty="true" alignToWorldY="true" />
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <stumpCutter cutNode="cutNode" cutSizeY="1.2" cutSizeZ="1.2" cutPartThreshold="0.05">
+        <effects>
+            <effectNode effectClass="ParticleEffect" effectNode="emitterShapeWood" particleType="CRUSHER_WOOD" emitCountScale="10"/>
+            <effectNode effectClass="ParticleEffect" effectNode="emitterShapeDust" particleType="CRUSHER_WOOD" emitCountScale="2"/>
+        </effects>
+        <animationNodes>
+            <animationNode node="cutterWheel" rotSpeed="1100" rotAxis="3" turnOnFadeTime="2" turnOffFadeTime="5"/>
+        </animationNodes>
+        <sounds>
+            <start template="STUMP_CUTTER_START" linkNode="stumGrinder_main_component1" />
+            <idle template="STUMP_CUTTER_IDLE" linkNode="stumGrinder_main_component1" />
+            <work template="STUMP_CUTTER_WORK" linkNode="stumGrinder_main_component1" />
+            <stop template="STUMP_CUTTER_STOP" linkNode="stumGrinder_main_component1" />
+        </sounds>
+    </stumpCutter>
+
+    <baseMaterial>
+        <material name="stumpGrinder_mat" baseNode="stumpGrinder_vis">
+            <shaderParameter name="colorMat0" value="PALADIN_GREY"/>
+        </material>
+    </baseMaterial>
+
+    <baseMaterialConfigurations price="200" useDefaultColors="false">
+        <baseMaterialConfiguration color="PALADIN_GREY"/>
+        <baseMaterialConfiguration color="PALADIN_RED"/>
+        <material name="stumpGrinder_mat" shaderParameter="colorMat0" />
+    </baseMaterialConfigurations>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="stumGrinder_main_component1" node="0>" />
+        <i3dMapping id="stumpGrinder_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0" />
+        <i3dMapping id="armYRot" node="0>0|1" />
+        <i3dMapping id="armRotX" node="0>0|1|0|0" />
+        <i3dMapping id="cutNodeRot" node="0>0|1|0|0|0" />
+        <i3dMapping id="cutNode" node="0>0|1|0|0|0|0" />
+        <i3dMapping id="cutterWheel" node="0>0|1|0|0|1" />
+        <i3dMapping id="cutNodeRefFrame" node="0>0|1|0|0|2" />
+        <i3dMapping id="emitterShapeWood" node="0>0|1|0|0|3|0" />
+        <i3dMapping id="emitterShapeDust" node="0>0|1|0|0|3|1" />
+        <i3dMapping id="hydraulicRef" node="0>0|1|0|0|5" />
+        <i3dMapping id="hydraulic" node="0>0|1|2" />
+        <i3dMapping id="hydraulicPunch" node="0>0|1|2|0" />
+        <i3dMapping id="hydraulic02Ref" node="0>0|1|3" />
+        <i3dMapping id="hydraulic02" node="0>0|2" />
+        <i3dMapping id="hydraulic02Punch" node="0>0|2|0" />
+        <i3dMapping id="hydraulicIn01" node="0>0|3|0" />
+        <i3dMapping id="hydraulicOut01" node="0>0|3|1" />
+        <i3dMapping id="hydraulicIn02" node="0>0|3|2" />
+    </i3dMappings>
+</vehicle>

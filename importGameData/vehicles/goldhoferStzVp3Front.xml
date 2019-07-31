@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="semiTrailerFront">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>STZ VP 3 Front</name>
+        <specs>
+            <combination>Truck, Dolly</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_lowLoader</function>
+            <function>$l10n_function_semiTrailer</function>
+        </functions>
+        <image>$data/vehicles/goldhofer/goldhoferStzVp3/store_goldhoferStzVp3Front.png</image>
+        <price>10000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>GOLDHOFER</brand>
+        <category>lowloaders</category>
+        <vertexBufferMemoryUsage>0</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>0</indexBufferMemoryUsage>
+        <textureMemoryUsage>0</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_lowLoader</typeDesc>
+        <filename>$data/vehicles/goldhofer/goldhoferStzVp3/goldhoferStzVp3Front.i3d</filename>
+        <size width="3" length="4.5" />
+        <components>
+            <component centerOfMass="0 0.1 -1.5" solverIterationCount="10" mass="950"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="semitrailer" upperRotationOffset="0"/>
+        </inputAttacherJoints>
+        <support animationName="moveSupport" />
+    </attachable>
+
+    <attacherJoints>
+        <attacherJoint node="attacherJointBack" jointType="semitrailerHook" lowerRotLimit="0 0 0" allowsJointLimitMovement="false" enableCollision="false" >
+            <schema position="1 0" rotation="0" invertX="false" />
+            <attachSound template="HEADER_ATTACH_01" linkNode="0>" />
+        </attacherJoint>
+        <sounds>
+            <attach template="ATTACH_01" />
+        </sounds>
+    </attacherJoints>
+
+    <lights>
+        <sharedLight linkNode="sideMarker_09White_1" filename="$data/shared/assets/lights/lizard/sideMarker_09White.xml" />
+        <sharedLight linkNode="sideMarker_09White_2" filename="$data/shared/assets/lights/lizard/sideMarker_09White.xml" />
+        <sharedLight linkNode="sideMarker_09Orange_1" filename="$data/shared/assets/lights/lizard/sideMarker_09Orange.xml" />
+        <sharedLight linkNode="sideMarker_09Orange_2" filename="$data/shared/assets/lights/lizard/sideMarker_09Orange.xml" />
+        <sharedLight linkNode="rearLightOvalWhite01_01" filename="$data/shared/assets/lights/lizard/rearLightOvalWhite_01.xml" />
+        <sharedLight linkNode="rearLightOvalWhite01_02" filename="$data/shared/assets/lights/lizard/rearLightOvalWhite_01.xml" />
+        <sharedLight linkNode="rearLightOvalWhite01_03" filename="$data/shared/assets/lights/lizard/rearLightOvalWhite_01.xml" />
+        <sharedLight linkNode="rearLightOvalWhite01_04" filename="$data/shared/assets/lights/lizard/rearLightOvalWhite_01.xml" />
+        <sharedLight linkNode="rearLightOvalWhite01_05" filename="$data/shared/assets/lights/lizard/rearLightOvalWhite_01.xml" />
+        <sharedLight linkNode="rearLightOvalWhite01_06" filename="$data/shared/assets/lights/lizard/rearLightOvalWhite_01.xml" />
+        <sharedLight linkNode="rearLightOvalWhite01_07" filename="$data/shared/assets/lights/lizard/rearLightOvalWhite_01.xml" />
+        <sharedLight linkNode="rearLightOvalWhite01_08" filename="$data/shared/assets/lights/lizard/rearLightOvalWhite_01.xml" />
+        <sharedLight linkNode="rearLightOvalOrange01_01" filename="$data/shared/assets/lights/lizard/rearLightOvalOrange_01.xml" />
+        <sharedLight linkNode="rearLightOvalOrange01_02" filename="$data/shared/assets/lights/lizard/rearLightOvalOrange_01.xml" />
+
+        <realLights>
+            <high>
+                <turnLightLeft node="turnLightLeftFront" />
+                <turnLightRight node="turnLightRightFront" />
+            </high>
+        </realLights>
+    </lights>
+
+    <animations>
+        <animation name="moveSupport">
+            <part node="supportBoxes" startTime="0"    endTime="0.7"  startTrans="0 0.55 -1.496"  endTrans="0 0.194 -1.496" />
+            <part node="supportBoxes" startTime="0.6"  endTime="0.65" visibility="false" />
+            <part node="supportBoxes" startTime="0.65" endTime="0.7"  visibility="true" />
+        </animation>
+    </animations>
+
+    <baseMaterial>
+        <material name="goldhoferStzVp3_mat" baseNode="goldhoferFront_vis">
+            <shaderParameter name="colorMat0" value="GOLDHOFER_BLUE"/>
+        </material>
+    </baseMaterial>
+
+    <baseMaterialConfigurations useDefaultColors="true" price="1200">
+        <baseMaterialConfiguration color="GOLDHOFER_BLUE"/>
+        <material name="goldhoferStzVp3_mat" shaderParameter="colorMat0" />
+    </baseMaterialConfigurations>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="3" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="goldhoferFront_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0" />
+        <i3dMapping id="attacherJointBack" node="0>0|1" />
+        <i3dMapping id="sideMarker_09White_1" node="0>0|2|0|0" />
+        <i3dMapping id="sideMarker_09White_2" node="0>0|2|0|1" />
+        <i3dMapping id="sideMarker_09Orange_1" node="0>0|2|0|2" />
+        <i3dMapping id="sideMarker_09Orange_2" node="0>0|2|0|3" />
+        <i3dMapping id="rearLightOvalWhite01_01" node="0>0|2|0|4" />
+        <i3dMapping id="rearLightOvalWhite01_02" node="0>0|2|0|5" />
+        <i3dMapping id="rearLightOvalWhite01_03" node="0>0|2|0|6" />
+        <i3dMapping id="rearLightOvalWhite01_04" node="0>0|2|0|7" />
+        <i3dMapping id="rearLightOvalWhite01_05" node="0>0|2|0|8" />
+        <i3dMapping id="rearLightOvalWhite01_06" node="0>0|2|0|9" />
+        <i3dMapping id="rearLightOvalWhite01_07" node="0>0|2|0|10" />
+        <i3dMapping id="rearLightOvalWhite01_08" node="0>0|2|0|11" />
+        <i3dMapping id="rearLightOvalOrange01_01" node="0>0|2|0|12" />
+        <i3dMapping id="rearLightOvalOrange01_02" node="0>0|2|0|13" />
+        <i3dMapping id="turnLightLeftFront" node="0>0|2|1|0|0" />
+        <i3dMapping id="turnLightRightFront" node="0>0|2|1|1|0" />
+        <i3dMapping id="wheelDummy" node="0>0|3" />
+        <i3dMapping id="supportBoxes" node="0>0|4|2" />
+    </i3dMappings>
+</vehicle>

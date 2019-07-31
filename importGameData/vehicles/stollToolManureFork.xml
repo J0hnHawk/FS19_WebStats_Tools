@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="dynamicMountAttacherShovel">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>$l10n_shopItem_frontloaderManureFork</name>
+        <specs>
+            <combination>FZ 30 / FZ 60</combination>
+        </specs>
+        <image>data/vehicles/stoll/stollToolManureFork/store_stollToolManureFork.png</image>
+        <price>1000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>STOLL</brand>
+        <category>frontLoaders</category>
+        <vertexBufferMemoryUsage>69624</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>14520</indexBufferMemoryUsage>
+        <textureMemoryUsage>8563512</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_frontloaderTool</typeDesc>
+        <filename>data/vehicles/stoll/stollToolManureFork/stollToolManureFork.i3d</filename>
+        <size width="2.5" length="2"/>
+        <supportsPickUp>false</supportsPickUp>
+        <components>
+            <component centerOfMass="0 0.2 -0.1" solverIterationCount="10" mass="165" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="frontloader" />
+        </inputAttacherJoints>
+    </attachable>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <fillUnit unit="$l10n_unit_literShort" fillTypeCategories="fork" capacity="750">
+                        <exactFillRootNode node="exactFillRootNode" />
+                    </fillUnit>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <fillVolume>
+        <fillVolumeConfigurations>
+            <fillVolumeConfiguration>
+                <volumes>
+                    <volume node="fillVolume" maxAllowedHeapAngle="10" fillUnitIndex="1" />
+                </volumes>
+            </fillVolumeConfiguration>
+        </fillVolumeConfigurations>
+
+        <loadInfos>
+            <loadInfo>
+                <node node="fillVolumeLoadNode" width="0.9" length="0.2" />
+            </loadInfo>
+        </loadInfos>
+
+        <unloadInfos>
+            <unloadInfo>
+                <node node="fillVolumeUnloadNode" width="0.9" length="0.2" />
+            </unloadInfo>
+        </unloadInfos>
+    </fillVolume>
+
+    <dischargeable requiresTipOcclusionArea="false">
+        <dischargeNode node="dischargeNode" fillUnitIndex="1" emptySpeed="1400">
+            <raycast node="dischargeNode" maxDistance="30" useWorldNegYDirection="true" yOffset="2"/>
+            <info width="1.8" length="1" zOffset="0.5"/>
+
+            <effects>
+                <effectNode effectClass="TipEffect">
+                    <effectNode effectNode="emitterShape" effectClass="ParticleEffect" />
+                    <effectNode effectNode="grainEffect" materialType="unloading" materialTypeId="3" fadeTime="0.5" alignXAxisToWorldY="true" />
+                </effectNode>
+                <effectNode effectNode="smokeEffect" materialType="smoke" materialTypeId="1" fadeTime="0.5" />
+            </effects>
+        </dischargeNode>
+    </dischargeable>
+
+    <shovel>
+        <shovelNode node="pickUpNode" fillUnitIndex="1" loadInfoIndex="1" width="1.2" length="0.4" needsMovement="true" maxPickupAngle="105"/>
+        <dischargeInfo node="dischargeNode" minSpeedAngle="105" maxSpeedAngle="180" />
+    </shovel>
+
+    <dynamicMountAttacher node="0>">
+        <mountCollisionMask node="backCollision" collisionMask="134225920" />
+    </dynamicMountAttacher>
+
+    <baseMaterial>
+        <material name="stollFrontLoaderImplements_mat" baseNode="stollManureFork">
+            <shaderParameter name="colorMat0" value="STOLL_GREY1"/>
+        </material>
+    </baseMaterial>
+
+    <baseMaterialConfigurations price="200" useDefaultColors="true">
+        <baseMaterialConfiguration color="STOLL_GREY1"/>
+        <material name="stollFrontLoaderImplements_mat" shaderParameter="colorMat0" />
+    </baseMaterialConfigurations>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="stollToolManureFork_main_component1" node="0>" />
+        <i3dMapping id="attacherJoint" node="0>0" />
+        <i3dMapping id="stollManureFork" node="0>1" />
+        <i3dMapping id="dischargeNode" node="0>1|0" />
+        <i3dMapping id="exactFillRootNode" node="0>1|1" />
+        <i3dMapping id="fillVolume" node="0>1|2|0" />
+        <i3dMapping id="fillVolumeLoadNode" node="0>1|2|1" />
+        <i3dMapping id="fillVolumeUnloadNode" node="0>1|2|2" />
+        <i3dMapping id="emitterShape" node="0>1|3" />
+        <i3dMapping id="grainEffect" node="0>1|4|0" />
+        <i3dMapping id="smokeEffect" node="0>1|4|1" />
+        <i3dMapping id="pickUpNode" node="0>1|5" />
+        <i3dMapping id="backCollision" node="0>3" />
+    </i3dMappings>
+</vehicle>

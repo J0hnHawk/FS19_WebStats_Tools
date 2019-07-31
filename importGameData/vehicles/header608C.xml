@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<vehicle type="cutter">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>608C</name>
+        <specs>
+            <workingWidth>6.0</workingWidth>
+            <combination>T560</combination>
+        </specs>
+        <functions>
+            <function>$l10n_function_cutter</function>
+        </functions>
+        <image>$data/vehicles/johnDeere/header608C/store_header608C.png</image>
+        <price>38000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>JOHNDEERE</brand>
+        <category>cornHeaders</category>
+        <shopTranslationOffset>0 0 0</shopTranslationOffset>
+        <shopRotationOffset>-2 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>2160704</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>343212</indexBufferMemoryUsage>
+        <textureMemoryUsage>7755480</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_cutter</typeDesc>
+        <filename>$data/vehicles/johnDeere/header608C/header608C.i3d</filename>
+        <size width="7" length="3.5"/>
+        <speedLimit value="10"/>
+        <components>
+            <component solverIterationCount="10" mass="2635"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+        </schemaOverlay>
+    </base>
+
+    <lights>
+        <defaultLights>
+            <defaultLight shaderNode="backLightGlass_static" lightTypes="2" />
+        </defaultLights>
+        <turnLights>
+            <turnLightLeft shaderNode="turnLight_static2" />
+            <turnLightRight shaderNode="turnLight_static1" />
+        </turnLights>
+    </lights>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="cutter">
+                <heightNode node="heightNode"/>
+                <distanceToGround lower="0.6" upper="2"/>
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+        <support animationName="moveSupport"/>
+    </attachable>
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn"  node="hydraulicIn01"  length="1.2" diameter="0.015" straighteningFactor="1.5">
+            <objectChange node="hydraulicIn01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut01" length="1.2" diameter="0.015" straighteningFactor="1.5">
+            <objectChange node="hydraulicOut01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+    </connectionHoses>
+
+    <powerTakeOffs>
+        <input inputNode="ptoLeft" detachNode="ptoDetachNodeLeft" inputAttacherJointIndices="1" aboveAttacher="true" ptoName="LEFT_PTO" color="SHARED_BLACK1"/>
+        <input inputNode="ptoRight" detachNode="ptoDetachNodeRight" inputAttacherJointIndices="1" aboveAttacher="true" ptoName="RIGHT_PTO" color="SHARED_BLACK1"/>
+    </powerTakeOffs>
+
+    <powerConsumer ptoRpm="540" neededMaxPtoPower="115"/>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundReferenceNode" threshold="0.65" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="cutter" functionName="processCutterArea" >
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight" />
+            <groundReferenceNode index="1" />
+            <chopperArea index="2" />
+        </workArea>
+        <workArea type="auxiliary" >
+            <area startNode="workAreaStrawStart" widthNode="workAreaStrawWidth" heightNode="workAreaStrawHeight" />
+        </workArea>
+    </workAreas>
+
+    <cutter fruitTypeCategories="maizeHeader">
+        <testAreas>
+            <testArea startNode="testAreaStart1" widthNode="testAreaWidth1" heightNode="testAreaHeight1"/>
+            <testArea startNode="testAreaStart2" widthNode="testAreaWidth2" heightNode="testAreaHeight2"/>
+            <testArea startNode="testAreaStart3" widthNode="testAreaWidth3" heightNode="testAreaHeight3"/>
+            <testArea startNode="testAreaStart4" widthNode="testAreaWidth4" heightNode="testAreaHeight4"/>
+            <testArea startNode="testAreaStart5" widthNode="testAreaWidth5" heightNode="testAreaHeight5"/>
+            <testArea startNode="testAreaStart6" widthNode="testAreaWidth6" heightNode="testAreaHeight6"/>
+        </testAreas>
+        <effect>
+            <effectNode linkNode="effectCenter" inverted="true" speedScale="0.0018" lengthAndRadius="1 3.8 1 3" effectType="CENTER" changeSpeedScale="0.01"/>
+            <effectNode linkNode="effectLeft"   inverted="true" speedScale="0.0012" lengthAndRadius="1 1 1 1"   effectType="LEFT"   useInterpolation="true" minOffset="3"/>
+            <effectNode linkNode="effectRight"  inverted="true" speedScale="0.0012" lengthAndRadius="1 1 1 1"   effectType="RIGHT"  useInterpolation="true" minOffset="3" useMaxValue="true"/>
+        </effect>
+        <fillEffect>
+            <effectNode effectNode="emitEffectParticles" effectClass="ParticleEffect" particleType="CUTTER_CHOPPER"/>
+            <effectNode effectClass="ParticleEffect" effectNode="smokeEmitter" particleType="SMOKE" emitCountScale="0.1" worldSpace="false" useCuttingWidth="false"/>
+        </fillEffect>
+        <animationNodes>
+            <animationNode node="chain" rotSpeed="-100" rotAxis="1" turnOnFadeTime="1" turnOffFadeTime="1" shaderComponentScale="0 1 0 0" shaderParameterName="offsetUV" />
+            <animationNode node="rotor" rotSpeed="800" rotAxis="1" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="smallGear" rotSpeed="800" rotAxis="1" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="roller01" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="roller02" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="roller03" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="roller04" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="roller05" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="roller06" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="roller07" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="roller08" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="roller09" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="roller10" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="roller11" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="roller12" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="roller13" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="roller14" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="roller15" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="roller16" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="gear01" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="gear02" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="gear03" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="gear04" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="gear05" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="gear06" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="gear07" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="gear08" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="gear09" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="gear10" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="gear11" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="gear12" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="gear13" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="gear14" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="gear15" rotSpeed="-800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+            <animationNode node="gear16" rotSpeed="800" rotAxis="3" turnOnFadeTime="1" turnOffFadeTime="1"/>
+        </animationNodes>
+    </cutter>
+
+    <turnOnVehicle turnedOnByAttacherVehicle="true"/>
+
+    <dynamicMount forceLimitScale="1"/>
+
+    <ai>
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack"/>
+        <sizeMarkers leftNode="sizeMarkerLeft" rightNode="sizeMarkerRight" backNode="sizeMarkerBack"/>
+        <collisionTrigger node="aiCollisionTrigger"/>
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-3" maxX="3" minZ="-1.2" maxZ="0" yOffset="0.1" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="header608C_mat" baseNode="hydraulicOut01_detached">
+            <shaderParameter name="colorMat0" value="JOHNDEERE_GREEN1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="c608_main_component1" node="0>" />
+        <i3dMapping id="c608_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0|0" />
+        <i3dMapping id="ptoLeft" node="0>0|0|1" />
+        <i3dMapping id="ptoRight" node="0>0|0|2" />
+        <i3dMapping id="ptoDetachNodeRight" node="0>0|0|3" />
+        <i3dMapping id="ptoDetachNodeLeft" node="0>0|0|4" />
+        <i3dMapping id="heightNode" node="0>0|0|5" />
+        <i3dMapping id="hydraulicIn01" node="0>0|0|6|0" />
+        <i3dMapping id="hydraulicIn01_detached" node="0>0|0|6|0|0" />
+        <i3dMapping id="hydraulicOut01" node="0>0|0|6|1" />
+        <i3dMapping id="hydraulicOut01_detached" node="0>0|0|6|1|0" />
+        <i3dMapping id="turnLight_static1" node="0>0|1|0" />
+        <i3dMapping id="turnLight_static2" node="0>0|1|1" />
+        <i3dMapping id="backLightGlass_static" node="0>0|1|2" />
+        <i3dMapping id="smallGear" node="0>0|2|0" />
+        <i3dMapping id="rotor" node="0>0|2|1" />
+        <i3dMapping id="chain" node="0>0|2|2" />
+        <i3dMapping id="roller01" node="0>0|2|3|0" />
+        <i3dMapping id="roller02" node="0>0|2|3|1" />
+        <i3dMapping id="roller03" node="0>0|2|3|2" />
+        <i3dMapping id="roller04" node="0>0|2|3|3" />
+        <i3dMapping id="roller05" node="0>0|2|3|4" />
+        <i3dMapping id="roller06" node="0>0|2|3|5" />
+        <i3dMapping id="roller07" node="0>0|2|3|6" />
+        <i3dMapping id="roller08" node="0>0|2|3|7" />
+        <i3dMapping id="roller09" node="0>0|2|3|8" />
+        <i3dMapping id="roller10" node="0>0|2|3|9" />
+        <i3dMapping id="roller11" node="0>0|2|3|10" />
+        <i3dMapping id="roller12" node="0>0|2|3|11" />
+        <i3dMapping id="roller13" node="0>0|2|3|12" />
+        <i3dMapping id="roller14" node="0>0|2|3|13" />
+        <i3dMapping id="roller15" node="0>0|2|3|14" />
+        <i3dMapping id="roller16" node="0>0|2|3|15" />
+        <i3dMapping id="gear01" node="0>0|2|4|0" />
+        <i3dMapping id="gear02" node="0>0|2|4|1" />
+        <i3dMapping id="gear03" node="0>0|2|4|2" />
+        <i3dMapping id="gear04" node="0>0|2|4|3" />
+        <i3dMapping id="gear05" node="0>0|2|4|4" />
+        <i3dMapping id="gear06" node="0>0|2|4|5" />
+        <i3dMapping id="gear07" node="0>0|2|4|6" />
+        <i3dMapping id="gear08" node="0>0|2|4|7" />
+        <i3dMapping id="gear09" node="0>0|2|4|8" />
+        <i3dMapping id="gear10" node="0>0|2|4|9" />
+        <i3dMapping id="gear11" node="0>0|2|4|10" />
+        <i3dMapping id="gear12" node="0>0|2|4|11" />
+        <i3dMapping id="gear13" node="0>0|2|4|12" />
+        <i3dMapping id="gear14" node="0>0|2|4|13" />
+        <i3dMapping id="gear15" node="0>0|2|4|14" />
+        <i3dMapping id="gear16" node="0>0|2|4|15" />
+        <i3dMapping id="workAreaStart" node="0>0|3|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|3|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|3|2" />
+        <i3dMapping id="groundReferenceNode" node="0>0|3|3" />
+        <i3dMapping id="workAreaStrawStart" node="0>0|4|0" />
+        <i3dMapping id="workAreaStrawWidth" node="0>0|4|1" />
+        <i3dMapping id="workAreaStrawHeight" node="0>0|4|2" />
+        <i3dMapping id="effectCenter" node="0>0|5|0" />
+        <i3dMapping id="effectLeft" node="0>0|5|1" />
+        <i3dMapping id="effectRight" node="0>0|5|2" />
+        <i3dMapping id="emitEffectParticles" node="0>0|5|3" />
+        <i3dMapping id="smokeEmitter" node="0>0|5|4" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|6|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|6|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|6|0|2" />
+        <i3dMapping id="sizeMarkerLeft" node="0>0|6|1|0" />
+        <i3dMapping id="sizeMarkerRight" node="0>0|6|1|1" />
+        <i3dMapping id="sizeMarkerBack" node="0>0|6|1|2" />
+        <i3dMapping id="aiCollisionTrigger" node="0>0|6|2" />
+        <i3dMapping id="testAreaStart1" node="0>0|7|0" />
+        <i3dMapping id="testAreaWidth1" node="0>0|7|0|0" />
+        <i3dMapping id="testAreaHeight1" node="0>0|7|0|1" />
+        <i3dMapping id="testAreaStart2" node="0>0|7|1" />
+        <i3dMapping id="testAreaWidth2" node="0>0|7|1|0" />
+        <i3dMapping id="testAreaHeight2" node="0>0|7|1|1" />
+        <i3dMapping id="testAreaStart3" node="0>0|7|2" />
+        <i3dMapping id="testAreaWidth3" node="0>0|7|2|0" />
+        <i3dMapping id="testAreaHeight3" node="0>0|7|2|1" />
+        <i3dMapping id="testAreaStart4" node="0>0|7|3" />
+        <i3dMapping id="testAreaWidth4" node="0>0|7|3|0" />
+        <i3dMapping id="testAreaHeight4" node="0>0|7|3|1" />
+        <i3dMapping id="testAreaStart5" node="0>0|7|4" />
+        <i3dMapping id="testAreaWidth5" node="0>0|7|4|0" />
+        <i3dMapping id="testAreaHeight5" node="0>0|7|4|1" />
+        <i3dMapping id="testAreaStart6" node="0>0|7|5" />
+        <i3dMapping id="testAreaWidth6" node="0>0|7|5|0" />
+        <i3dMapping id="testAreaHeight6" node="0>0|7|5|1" />
+    </i3dMappings>
+</vehicle>
+

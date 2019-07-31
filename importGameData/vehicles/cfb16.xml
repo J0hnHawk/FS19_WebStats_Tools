@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="treeSaw">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>CFB-16</name>
+        <specs>
+            <combination>L218, C232</combination>
+            <neededPower>60</neededPower>
+        </specs>
+        <functions>
+            <function>$l10n_function_treeSaw</function>
+        </functions>
+        <image>$data/vehicles/dfm/cfb16/store_cfb16.png</image>
+        <price>12000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>DFM</brand>
+        <category>skidSteers</category>
+        <shopHeight>2</shopHeight>
+        <vertexBufferMemoryUsage>233588</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>34404</indexBufferMemoryUsage>
+        <textureMemoryUsage>6815888</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_treeSaw</typeDesc>
+        <filename>$data/vehicles/dfm/cfb16/cfb16.i3d</filename>
+        <size width="2" length="2" />
+        <components>
+            <component centerOfMass="0 0.2 0" solverIterationCount="20" mass="400"/>
+            <component solverIterationCount="20" mass="50"/>
+            <component solverIterationCount="20" mass="50"/>
+            <component solverIterationCount="20" mass="50"/>
+            <joint component1="1" component2="2" node="jointLeft" rotLimit="0 0 0" transLimit="0 0 0" />
+            <joint component1="1" component2="3" node="jointRight" rotLimit="0 0 0" transLimit="0 0 0" />
+            <joint component1="1" component2="4" node="jointAccum" rotLimit="0 0 0" transLimit="0 0 0" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <powerConsumer ptoRpm="540" neededMaxPtoPower="15" />
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="skidSteer" />
+        </inputAttacherJoints>
+    </attachable>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="jointLeft" playSound="true" >
+                <controls axis="AXIS_FRONTLOADER_TOOL2" invertAxis="false" mouseSpeedFactor="0.5" iconName="GRABBER_OPEN_CLOSE" />
+                <rotation rotationAxis="2" rotSpeed="70" rotAcceleration="250" rotMax="10" rotMin="-70"/>
+                <dependentMovingTool node="jointRight" speedScale="-1"/>
+                <componentJoint index="1" anchorActor="0" />
+            </movingTool>
+            <movingTool node="jointRight">
+                <rotation rotationAxis="2" rotSpeed="70" rotAcceleration="250" rotMax="70" rotMin="-10"/>
+                <componentJoint index="2" anchorActor="0" />
+            </movingTool>
+            <movingTool node="push" playSound="true" >
+                <controls axis="AXIS_FRONTLOADER_TOOL3" invertAxis="false" mouseSpeedFactor="0.5" iconName="TOOL_OPEN_CLOSE"/>
+                <componentJoint index="3" anchorActor="0" />
+                <rotation rotationAxis="2" rotSpeed="70" rotAcceleration="100" rotMax="20" rotMin="-30"/>
+                <dependentPart node="hydraulicPush" />
+                <dependentMovingTool node="jointAccum" speedScale="-1"/>
+            </movingTool>
+            <movingTool node="jointAccum">
+                <componentJoint index="3" anchorActor="0" />
+                <animation animName="accumulatorArm" animSpeed="1" animAcceleration="1" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="pushPart" referencePoint="refPointAccum" referenceFrame="jointAccum" isActiveDirty="true" limitedAxis="2"/>
+
+            <movingPart node="armRight" referencePoint="armRightRefPoint" referenceFrame="cfb16_main_component1" isActiveDirty="true" limitedAxis="2">
+                <dependentPart node="hydraulicArmRight" />
+            </movingPart>
+            <movingPart node="armLeft" referencePoint="armLeftRefPoint" referenceFrame="cfb16_main_component1" isActiveDirty="true" limitedAxis="2">
+                <dependentPart node="hydraulicArmLeft" />
+            </movingPart>
+
+            <movingPart node="hydraulicPush" referencePoint="hydraulicPushref" referenceFrame="cfb16_main_component1" >
+                <translatingPart node="hydraulicPushPunch" />
+            </movingPart>
+            <movingPart node="hydraulicArmLeft" referencePoint="hydraulicArmLeftRef" referenceFrame="cfb16_main_component1">
+                <translatingPart node="hydraulicArmLeftPunch" />
+            </movingPart>
+            <movingPart node="hydraulicArmRight" referencePoint="hydraulicArmRightRef" referenceFrame="cfb16_main_component1">
+                <translatingPart node="hydraulicArmRightPunch" />
+            </movingPart>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="cfb16_main_component1"/>
+        </sounds>
+    </cylindered>
+
+    <animations>
+        <animation name="accumulatorArm">
+            <part componentJointIndex="3" startTime="0" endTime="1" startRotMinLimit="0 -20 0" startRotMaxLimit="0 10 0" endRotMinLimit="0 0 0" endRotMaxLimit="0 0 0"/>
+            <part node="jointAccum" startTime="0" endTime="1" startRot="0 90 0" endRot="0 50 0"/>
+        </animation>
+    </animations>
+
+    <treeSaw>
+        <cutNode node="cutNode" sizeY="1.2" sizeZ="0.8" />
+
+        <effects>
+            <effectNode effectClass="ParticleEffect" effectNode="woodChipsEmitter" particleType="CRUSHER_WOOD" emitCountScale="100"/>
+            <effectNode effectClass="ParticleEffect" effectNode="woodDustEmitter" particleType="CRUSHER_WOOD" emitCountScale="20"/>
+        </effects>
+
+        <animationNodes>
+            <animationNode node="saw" rotAxis="2" rotSpeed="800" turnOnFadeTime="2" turnOffFadeTime="5" />
+        </animationNodes>
+
+        <sounds>
+            <cut template="DEFAULT_HYDRAULIC_SAW_CUT" linkNode="cfb16_main_component1" />
+        </sounds>
+    </treeSaw>
+
+    <turnOnVehicle>
+        <sounds>
+            <start template="DEFAULT_HYDRAULIC_SAW_START" linkNode="cfb16_main_component1" />
+            <work template="DEFAULT_HYDRAULIC_SAW_IDLE" linkNode="cfb16_main_component1" />
+            <stop template="DEFAULT_HYDRAULIC_SAW_STOP" linkNode="cfb16_main_component1" />
+        </sounds>
+    </turnOnVehicle>
+
+    <foliageBending>
+        <bendingNode minX="-0.6" maxX="0.6" minZ="-0.6" maxZ="0.4" yOffset="0" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="dfmTools_mat" baseNode="dfm_vis">
+            <shaderParameter name="colorMat0" value="DFM_YELLOW1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="cfb16_main_component1" node="0>" />
+        <i3dMapping id="dfm_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0" />
+        <i3dMapping id="jointLeft" node="0>0|1" />
+        <i3dMapping id="jointRight" node="0>0|2" />
+        <i3dMapping id="saw" node="0>0|3" />
+        <i3dMapping id="push" node="0>0|4" />
+        <i3dMapping id="pushPart" node="0>0|4|0" />
+        <i3dMapping id="hydraulicPushref" node="0>0|4|1" />
+        <i3dMapping id="jointAccum" node="0>0|4|2" />
+        <i3dMapping id="hydraulicPush" node="0>0|5|0" />
+        <i3dMapping id="hydraulicPushPunch" node="0>0|5|0|0" />
+        <i3dMapping id="hydraulicArmLeft" node="0>0|5|1" />
+        <i3dMapping id="hydraulicArmLeftPunch" node="0>0|5|1|0" />
+        <i3dMapping id="hydraulicArmRight" node="0>0|5|2" />
+        <i3dMapping id="hydraulicArmRightPunch" node="0>0|5|2|0" />
+        <i3dMapping id="armRight" node="0>0|5|3" />
+        <i3dMapping id="hydraulicArmRightRef" node="0>0|5|3|0" />
+        <i3dMapping id="armLeft" node="0>0|5|4" />
+        <i3dMapping id="hydraulicArmLeftRef" node="0>0|5|4|0" />
+        <i3dMapping id="cutNode" node="0>0|6" />
+        <i3dMapping id="woodChipsEmitter" node="0>0|7|0" />
+        <i3dMapping id="woodDustEmitter" node="0>0|7|1" />
+        <i3dMapping id="armLeftRefPoint" node="1>0" />
+        <i3dMapping id="armRightRefPoint" node="2>0" />
+        <i3dMapping id="refPointAccum" node="3>0" />
+    </i3dMappings>
+</vehicle>

@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="conveyorBelt">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>TC 80-16</name>
+        <functions>
+            <function>$l10n_function_beltSystemConnection</function>
+        </functions>
+        <image>$data/vehicles/grimme/grimmeTC8016/store_grimmeTC8016.png</image>
+        <price>18000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>GRIMME</brand>
+        <category>belts</category>
+        <vertexBufferMemoryUsage>745248</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>118890</indexBufferMemoryUsage>
+        <textureMemoryUsage>9961656</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_belt</typeDesc>
+        <filename>$data/vehicles/grimme/grimmeTC8016/grimmeTC8016.i3d</filename>
+        <size width="2" length="12" />
+        <components>
+            <component centerOfMass="0 0 0" solverIterationCount="10" mass="325" />
+            <component centerOfMass="0 -0.6 0" solverIterationCount="4" mass="325" />
+            <joint component1="1" component2="2" node="beltPart2Joint" rotLimit="40 0 2" transLimit="0 0 0" maxRotDriveForce="0 0 10" rotDriveRotation="- - 0" rotDriveSpring="0 0 1" rotDriveDamping="0 0 1" enableCollision="true" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0">
+            <default name="DEFAULT_IMPLEMENT"/>
+            <turnedOn name="DEFAULT_IMPLEMENT_ON"/>
+            <selected name="DEFAULT_IMPLEMENT_SELECTED"/>
+            <turnedOnSelected name="DEFAULT_IMPLEMENT_SELECTED_ON"/>
+        </schemaOverlay>
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="implement" needsToolbar="true" needsLowering="false" lowerRotLimitScale="1 7 2" upperRotLimitScale="1 7 2" >
+                <distanceToGround lower="0.632" upper="0.8" />
+            </inputAttacherJoint>
+            <inputAttacherJoint node="conveyorAttacherInput" jointType="conveyor" allowsJointTransLimitMovement="true" forceSelectionOnAttach="false"/>
+        </inputAttacherJoints>
+        <brakeForce>0.1</brakeForce>
+        <support animationName="moveSupport" />
+    </attachable>
+
+    <attacherJoints>
+        <attacherJoint node="conveyorAttacher" jointType="conveyor" lowerRotLimit="40 120 120" upperRotationOffset="0" allowsLowering="false">
+            <schema position="1 0" rotation="0" invertX="false" />
+        </attacherJoint>
+        <sounds>
+            <attach template="ATTACH_01" linkNode="0>" />
+        </sounds>
+    </attacherJoints>
+
+    <wheels>
+        <ackermannSteeringConfigurations>
+            <ackermannSteering rotSpeed="65" rotMax="80" rotCenterWheel1="1" rotCenterWheel2="2" />
+        </ackermannSteeringConfigurations>
+
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel>
+                        <physics tipOcclusionAreaGroupId="1" rotSpeed="0" repr="wheelBackLeft"                                    radius="0.209" width="0.15" deltaY="0.05" suspTravel="0.05" spring="40" damper="10" mass="0.2" />
+                    </wheel>
+                    <wheel>
+                        <physics tipOcclusionAreaGroupId="1" rotSpeed="0" repr="wheelBackRight"                                   radius="0.209" width="0.15" deltaY="0.05" suspTravel="0.05" spring="40" damper="10" mass="0.2" />
+                    </wheel>
+                    <wheel>
+                        <physics tipOcclusionAreaGroupId="1" rotSpeed="1" repr="wheelMiddleLeftRot"  driveNode="wheelMiddleLeft"  radius="0.124" width="0.1"  deltaY="0.05" suspTravel="0.05" spring="40" damper="10" mass="0.2" />
+                    </wheel>
+                    <wheel>
+                        <physics tipOcclusionAreaGroupId="1" rotSpeed="1" repr="wheelMiddleRightRot" driveNode="wheelMiddleRight" radius="0.124" width="0.1"  deltaY="0.05" suspTravel="0.05" spring="40" damper="10" mass="0.2" />
+                    </wheel>
+                    <wheel>
+                        <physics tipOcclusionAreaGroupId="1" rotSpeed="1" repr="wheelFrontLeftRot"   driveNode="wheelFrontLeft"   radius="0.124" width="0.1"  deltaY="0.05" suspTravel="0.05" spring="40" damper="10" mass="0.2" />
+                    </wheel>
+                    <wheel>
+                        <physics tipOcclusionAreaGroupId="1" rotSpeed="1" repr="wheelFrontRightRot"  driveNode="wheelFrontRight"  radius="0.124" width="0.1"  deltaY="0.05" suspTravel="0.05" spring="40" damper="10" mass="0.2" />
+                    </wheel>
+                    <wheel>
+                        <physics tipOcclusionAreaGroupId="1" rotSpeed="0" repr="wheelLeftPart2"                                   radius="0.30"  width="0.1"  deltaY="0.05" suspTravel="0.05" spring="40" damper="10" mass="0.1" versatileYRot="true" frictionScale="0.01" isSynchronized="false" />
+                    </wheel>
+                    <wheel>
+                        <physics tipOcclusionAreaGroupId="1" rotSpeed="0" repr="wheelRightPart2"                                  radius="0.30"  width="0.1"  deltaY="0.05" suspTravel="0.05" spring="40" damper="10" mass="0.1" versatileYRot="true" frictionScale="0.01" isSynchronized="false" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+    </wheels>
+
+    <enterable isTabbable="false" >
+        <enterReferenceNode node="exitPoint" />
+        <exitPoint node="exitPoint" />
+        <cameras>
+            <camera node="camera" rotatable="true" rotateNode="cameraRot" limit="true" useWorldXZRotation="true" rotMinX="-1.4" rotMaxX="1" transMin="4" transMax="40" />
+        </cameras>
+         <forceSelectionOnEnter>true</forceSelectionOnEnter>
+    </enterable>
+
+    <motorized>
+        <differentialConfigurations>
+            <differentialConfiguration>
+                <differentials>
+                    <differential torqueRatio="0.5" maxSpeedRatio="3.0" wheelIndex1="1" wheelIndex2="2" />
+                </differentials>
+            </differentialConfiguration>
+        </differentialConfigurations>
+
+        <motorConfigurations>
+            <motorConfiguration name="TC 80-16" hp="5" price="0">
+                <motor torqueScale="0.2" minRpm="1000" maxRpm="2200" maxForwardSpeed="5" maxBackwardSpeed="5" brakeForce="0.1" lowBrakeForceScale="0.22">
+                    <torque normRpm="0.45" torque="0.9"/>
+                    <torque normRpm="0.5"  torque="0.97"/>
+                    <torque normRpm="0.59" torque="1"/>
+                    <torque normRpm="0.72" torque="1"/>
+                    <torque normRpm="0.86" torque="0.88"/>
+                    <torque normRpm="1"    torque="0.72"/>
+                </motor>
+                <transmission minForwardGearRatio="110" maxForwardGearRatio="150" minBackwardGearRatio="110" maxBackwardGearRatio="150" />
+            </motorConfiguration>
+        </motorConfigurations>
+    </motorized>
+
+    <drivable>
+        <sounds>
+            <waterSplash template="WATER_SPLASH_01" />
+        </sounds>
+        <cruiseControl minSpeed="0.01"/>
+    </drivable>
+
+    <conveyorBelt dischargeNodeIndex="1" >
+        <offset movingToolNode="beltPart2Mover">
+            <effect index="2" minOffset="0.25" maxOffset="2.3" inverted="true" />
+        </offset>
+
+        <animationNodes>
+            <animationNode class="ScrollingAnimation" node="belt1" shaderParameterComponent="2" scrollSpeed="-0.3" turnOnFadeTime="0.1" turnOffFadeTime="0.1"/>
+            <animationNode class="ScrollingAnimation" node="belt2" shaderParameterComponent="2" scrollSpeed="-0.3" turnOnFadeTime="0.1" turnOffFadeTime="0.1"/>
+        </animationNodes>
+        <effects>
+            <effectNode effectClass="ConveyorBeltEffect" effectNode="effectBelt2" materialType="belt" delay="0" fadeTime="3" speed="0.9" scrollLength="9" scrollSpeed="0.8" />
+            <effectNode effectClass="ConveyorBeltEffect" effectNode="effectBelt1" materialType="belt" delay="3" fadeTime="3" speed="0.9" scrollLength="9" scrollSpeed="0.8" />
+        </effects>
+    </conveyorBelt>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration name="$l10n_configuration_valueDefault" price="0" >
+                <fillUnits>
+                    <fillUnit unit="$l10n_unit_literShort" fillTypeCategories="bulk" capacity="1200" showOnHud="false" showInShop="false" updateMass="false" >
+                        <exactFillRootNode node="exactFillRootNode" />
+                        <autoAimTargetNode node="fillAutoAimTargetNode" />
+                    </fillUnit>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <dischargeable stopDischargeOnDeactivate="false">
+        <dischargeNode node="dischargeNode" emptySpeed="175" fillUnitIndex="1" canStartDischargeAutomatically="true" >
+            <info width="0.4" length="0.4" />
+        </dischargeNode>
+    </dischargeable>
+
+    <animations>
+        <animation name="moveSupport">
+             <part startTime="0" endTime="0.2" componentJointIndex="1" startRotLimit="1 0 1" endRotLimit="40 0 2" />
+        </animation>
+        <animation name="frontWheels">
+             <part startTime="0" endTime="1" node="belt2WheelsDummy" startTrans="0.006 -0.73 7.361" endTrans="0.006 -1.265 7.35" />
+             <part startTime="0" endTime="1" node="belt2Wheels" startTrans="0 -0.387 3.099" endTrans="0 -0.916 3.094" />
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="beltPart1" playSound="true">
+                <controls axis="AXIS_CRANE_ARM2" invertAxis="false" mouseSpeedFactor="0.5" iconName="CRANE_ARM1_ROTATE_Y" />
+                <rotation rotSpeed="2" rotAcceleration="10" rotMax="2.5" rotMin="0" rotationAxis="1" />
+                <componentJoint index="1" anchorActor="0" />
+                <inputAttacherJoint value="true"/>
+                <attacherJoint jointIndices="0"/>
+                <dependentPart node="beltPart1Arm" />
+                <dependentPart node="hydraulicBeltPart1" />
+            </movingTool>
+            <movingTool node="beltPart2Joint" >
+                <controls axis="AXIS_CRANE_ARM" invertAxis="true" mouseSpeedFactor="0.7" iconName="CRANE_ARM1_ROTATE_Y" />
+                <rotation rotSpeed="10" rotAcceleration="20" rotMax="95" rotMin="-95" rotationAxis="2" />
+                <componentJoint index="1" anchorActor="0" />
+                <attacherJoint jointIndices="1"/>
+            </movingTool>
+            <movingTool node="beltPart2Mover">
+                <controls axis="AXIS_CRANE_ARM4" invertAxis="true" mouseSpeedFactor="0.6" iconName="CRANE_ARM2_TRANSLATE" />
+                <translation transSpeed="0.6" transAcceleration="2" transMax="6.15" transMin="0" translationAxis="3" />
+                <componentJoint index="1" anchorActor="0" />
+                <attacherJoint jointIndices="1"/>
+            </movingTool>
+            <movingTool node="belt2Wheels" wheelIndices="7 8">
+                <controls axis="AXIS_CRANE_ARM3" invertAxis="false" mouseSpeedFactor="0.6" iconName="SUPPORT_ARM_TRANSLATE_Y" />
+                <animation animName="frontWheels" animAcceleration="5" animSpeed="0.7" />
+                <attacherJoint jointIndices="1"/>
+            </movingTool>
+        </movingTools>
+
+        <movingParts isActiveDirtyTimeOffset="2000">
+            <movingPart node="beltPart2" referencePoint="beltPart2Ref" referenceFrame="beltPart2Ref" isActiveDirty="true" />
+            <movingPart node="dischargeNodeRot" referenceFrame="dischargeNodeRotRefFrame" alignToWorldY="true" isActiveDirty="true" />
+            <movingPart node="beltPart1Arm" referencePoint="beltPart1ArmRef" referenceFrame="beltPart1ArmRef" >
+                <translatingPart node="beltPart1ArmPunch" />
+            </movingPart>
+            <movingPart node="hydraulicBeltPart1" referencePoint="hydraulicBeltPart1Ref" referenceFrame="hydraulicBeltPart1Ref" >
+                <translatingPart node="hydraulicBeltPart1Punch" />
+            </movingPart>
+        </movingParts>
+
+        <sounds>
+            <hydraulic template="DEFAULT_HYDRAULIC_SOUND" linkNode="0>"/>
+        </sounds>
+    </cylindered>
+
+    <speedRotatingParts>
+        <speedRotatingPart node="belt2WheelsDummyLeftRot"  driveNode="belt2WheelsDummyLeft"  versatileYRot="true" radius="0.124" refComponentIndex="3" activationSpeed="0" />
+        <speedRotatingPart node="belt2WheelsDummyRightRot" driveNode="belt2WheelsDummyRight" versatileYRot="true" radius="0.124" refComponentIndex="3" activationSpeed="0" />
+    </speedRotatingParts>
+
+    <foliageBending>
+        <bendingNode minX="-0.6" maxX="0.6" minZ="-8.2" maxZ="0.5" yOffset="0.4" node="beltPart1" />
+        <bendingNode minX="-0.6" maxX="0.6" minZ="-4.8" maxZ="4.3" yOffset="-0.1" node="belt2" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="grimmeBeltSystem_mat" baseNode="grimme_vis">
+            <shaderParameter name="colorMat0" value="GRIMME_RED1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="wheelBackLeft" node="0>0|0|0" />
+        <i3dMapping id="wheelBackRight" node="0>0|0|1" />
+        <i3dMapping id="wheelMiddleLeftRot" node="0>0|1|0" />
+        <i3dMapping id="wheelMiddleLeft" node="0>0|1|0|0" />
+        <i3dMapping id="wheelMiddleRightRot" node="0>0|1|1" />
+        <i3dMapping id="wheelMiddleRight" node="0>0|1|1|0" />
+        <i3dMapping id="wheelFrontLeftRot" node="0>0|1|2" />
+        <i3dMapping id="wheelFrontLeft" node="0>0|1|2|0" />
+        <i3dMapping id="wheelFrontRightRot" node="0>0|1|3" />
+        <i3dMapping id="wheelFrontRight" node="0>0|1|3|0" />
+        <i3dMapping id="attacherJoint" node="0>1" />
+        <i3dMapping id="grimme_vis" node="0>2" />
+        <i3dMapping id="beltPart1" node="0>2|0" />
+        <i3dMapping id="beltPart2Mover" node="0>2|0|0|0" />
+        <i3dMapping id="beltPart2Joint" node="0>2|0|0|0|0|0" />
+        <i3dMapping id="beltPart2" node="0>2|0|0|0|1" />
+        <i3dMapping id="conveyorAttacher" node="0>2|0|0|0|1|0" />
+        <i3dMapping id="belt2WheelsDummy" node="0>2|0|0|0|1|1" />
+        <i3dMapping id="belt2WheelsDummyLeftRot" node="0>2|0|0|0|1|1|0|0" />
+        <i3dMapping id="belt2WheelsDummyLeft" node="0>2|0|0|0|1|1|0|0|0" />
+        <i3dMapping id="belt2WheelsDummyRightRot" node="0>2|0|0|0|1|1|1|0" />
+        <i3dMapping id="belt2WheelsDummyRight" node="0>2|0|0|0|1|1|1|0|0" />
+        <i3dMapping id="exactFillRootNode" node="0>2|0|0|0|1|2" />
+        <i3dMapping id="fillAutoAimTargetNode" node="0>2|0|0|0|1|2|0" />
+        <i3dMapping id="belt2" node="0>2|0|0|0|1|3" />
+        <i3dMapping id="effectBelt2" node="0>2|0|0|0|1|3|0|0" />
+        <i3dMapping id="dischargeNodeRot" node="0>2|0|1" />
+        <i3dMapping id="dischargeNode" node="0>2|0|1|0" />
+        <i3dMapping id="beltPart1ArmRef" node="0>2|0|2" />
+        <i3dMapping id="hydraulicBeltPart1Ref" node="0>2|0|3" />
+        <i3dMapping id="belt1" node="0>2|0|4" />
+        <i3dMapping id="effectBelt1" node="0>2|0|4|0|0" />
+        <i3dMapping id="conveyorAttacherInput" node="0>2|0|5" />
+        <i3dMapping id="dischargeNodeRotRefFrame" node="0>2|0|6" />
+        <i3dMapping id="cameraRot" node="0>2|1" />
+        <i3dMapping id="camera" node="0>2|1|0" />
+        <i3dMapping id="exitPoint" node="0>2|2" />
+        <i3dMapping id="beltPart1Arm" node="0>2|3" />
+        <i3dMapping id="beltPart1ArmPunch" node="0>2|3|0" />
+        <i3dMapping id="hydraulicBeltPart1" node="0>2|4" />
+        <i3dMapping id="hydraulicBeltPart1Punch" node="0>2|4|0" />
+        <i3dMapping id="belt2Wheels" node="1>0" />
+        <i3dMapping id="wheelLeftPart2" node="1>0|0" />
+        <i3dMapping id="wheelRightPart2" node="1>0|1" />
+        <i3dMapping id="beltPart2Ref" node="1>1" />
+    </i3dMappings>
+</vehicle>
