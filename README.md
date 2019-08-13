@@ -1,6 +1,6 @@
 # FS19 Web Stats Tools
 
-To use these tools create a subfolder "tools" in your FS19 Web Stats folder.
+To use these tools create a subfolder "tools" in your FS19 Web Stats folder and put these files in.
 
 ## siteTranslation.php
 This script analyzes the template cache and searches for these ##TAGS##. So be sure you aready opend all pages including the install process once. If translations already exist, they can be imported.
