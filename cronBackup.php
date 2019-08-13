@@ -56,7 +56,7 @@ if (! file_exists ( $backupPath )) {
 }
 // Find last backup file
 $backupFiles = array ();
-$lastBackupFile = $newBackupFile = 'backup_' . $webStatsConfig->savegame_slot . date ( '_Ymd_Hi' ) . '.zip';
+$lastBackupFile = $newBackupFile = $backupPath . 'backup_' . $webStatsConfig->savegame_slot . date ( '_Ymd_Hi' ) . '.zip';
 foreach ( glob ( $backupPath . 'backup_' . $webStatsConfig->savegame_slot . '*.zip' ) as $filename ) {
 	$backupFiles [filemtime ( $filename )] = $filename;
 }
@@ -76,7 +76,7 @@ if (is_array ( $backupFiles )) {
 	}
 	$lastBackupFile = end ( $backupFiles );
 }
-logEntry ( 1, $newBackupFile );
+logEntry ( 1, "Last backup: " . $lastBackupFile );
 if (file_exists ( $lastBackupFile ) && filemtime ( $lastBackupFile ) > (time () - ($cacheTimeout) + rand ( 0, 10 ))) {
 	logEntry ( 1, "Nothing to do. End of savegame backup." );
 	exit ( 0 );
