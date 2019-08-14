@@ -23,14 +23,11 @@ ini_set ( 'error_log', 'error.log' );
 
 // -----------------------------------------------------------------------------
 // Settings
-$backupPath = '../savegame_backup/'; // Directory for backups
-$cacheTimeout = 20000; // Time in seconds until next backup
-$retainBackups = 30; // Number of backups to keep before deleting
+$logFile = './onlineHistory.xml/';
+$configFile = '../fs19webstats/config/webStatsConfig.xml';
 $logLevel = 2; // 0 = quiet; 1 = default; 2 = extra
                
 // -----------------------------------------------------------------------------
-
-$configFile = '../config/webStatsConfig.xml';
 function logEntry($level, $entry) {
 	global $logLevel;
 	$nl = (PHP_SAPI == 'cli') ? "\n" : "<br>\n";
@@ -69,24 +66,37 @@ if ($http_code != 200) {
 }
 logEntry ( 1, "Online status downloaded from server." );
 $stats = simplexml_load_string ( $xmlStr );
-$online = array ();
+$onlineUser = array ();
 foreach ( $stats->Slots->Player as $player ) {
 	if ($player ["isUsed"] == "true") {
 		$minutesOnline = floor ( $player ["uptime"] );
-		$online [$player] = $minutesOnline;
+		$onlineUser [strval ( $player )] = $minutesOnline;
 	}
 }
-$saved = array (
-		"Test User" => date ( "Y-m-d H:i", time () - 4 * 60 ) 
-);
-$log = array (
-		0 => array (
-				'name' => 'Test User',
-				'online' => date ( "Y-m-d H:i", time () - 4 * 60 ) 
-		) 
-);
+if (file_exists ( $logFile )) {
+	$logFileXML = simplexml_load_file ( $logFile );
+	$lastRunOnlineUser = $logFileXML->onlineUser;
+	$logEnties = $logFileXML->logEntries;
+} else {
+	$logFileXML = new SimpleXMLElement ( '<?xml version="1.0" encoding="UTF-8"?>' );
+	$lastRunOnlineUser = $logFileXML->addChild ( 'onlineUser' );
+	$logEnties = $logFileXML->addChild ( 'logEntries' );
+	// While development
+	$user = $lastRunOnlineUser->addChild ( 'user' );
+	$user->addAttribute ( 'name', 'MisterX' );
+	$user->addAttribute ( 'onlineSince', date ( "Y-m-d H:i", time () - 4 * 60 ) );
+	$entry = $logEnties->addChild ( 'entry' );
+	$entry->addAttribute ( 'name', 'MisterX' );
+	$entry->addAttribute ( 'type', 'online' );
+	$entry->addAttribute ( 'since', date ( "Y-m-d H:i", time () - 4 * 60 ) );
+	// End while development
+}
 
-foreach ( $saved as $name => $onlineSince ) {
+foreach ( $onlineUser->user as $user ) {
+	$lastRunOnlineUser [strval ( $user ['name'] )] = strval ( $user ['onlineSince'] );
+}
+
+foreach ( $lastRunOnlineUser as $name => $onlineSince ) {
 	if (! isset ( $online [$name] )) {
 		$log [] = array (
 				'name' => $name,
