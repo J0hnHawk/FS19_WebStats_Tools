@@ -17,17 +17,22 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 ini_set ( 'error_reporting', E_ALL );
-ini_set ( 'display_errors', 1 );
+ini_set ( 'display_errors', 0 );
 ini_set ( 'log_errors', 1 );
 ini_set ( 'error_log', 'error.log' );
 
 // -----------------------------------------------------------------------------
 // Settings
-$logFile = './onlineHistory.xml/';
-$configFile = '../fs19webstats/config/webStatsConfig.xml';
+$logFile = './onlineHistory.xml';
+$configFile = '../config/webStatsConfig.xml';
 $logLevel = 2; // 0 = quiet; 1 = default; 2 = extra
                
 // -----------------------------------------------------------------------------
+
+// Variables
+$changeFound = false;
+$onlineUser = array ();
+
 function logEntry($level, $entry) {
 	global $logLevel;
 	$nl = (PHP_SAPI == 'cli') ? "\n" : "<br>\n";
@@ -35,7 +40,9 @@ function logEntry($level, $entry) {
 		echo (date ( 'Y-m-d H:i:s - ' ) . $entry . $nl);
 	}
 }
-logEntry ( 1, "Start of user history." );
+
+// Read FS19 Web Stats config file 
+logEntry ( 1, "Start user logging." );
 if (file_exists ( $configFile )) {
 	$webStatsConfig = simplexml_load_file ( $configFile );
 	if (! isset ( $webStatsConfig->webStatsVersion )) {
@@ -43,7 +50,7 @@ if (file_exists ( $configFile )) {
 		exit ( 1 );
 	}
 	if ($webStatsConfig->savegame_type == 'local') {
-		logEntry ( 1, "No user history for local savegames." );
+		logEntry ( 1, "No user logging for local savegames." );
 		exit ( 1 );
 	}
 } else {
@@ -51,6 +58,7 @@ if (file_exists ( $configFile )) {
 	exit ( 1 );
 }
 
+// Get online user from dedicated server
 $ch = curl_init ();
 curl_setopt_array ( $ch, array (
 		CURLOPT_URL => $webStatsConfig->link_xml,
@@ -66,55 +74,72 @@ if ($http_code != 200) {
 }
 logEntry ( 1, "Online status downloaded from server." );
 $stats = simplexml_load_string ( $xmlStr );
-$onlineUser = array ();
 foreach ( $stats->Slots->Player as $player ) {
 	if ($player ["isUsed"] == "true") {
 		$minutesOnline = floor ( $player ["uptime"] );
 		$onlineUser [strval ( $player )] = $minutesOnline;
 	}
 }
+
+// Read log file or create a new one
 if (file_exists ( $logFile )) {
 	$logFileXML = simplexml_load_file ( $logFile );
-	$lastRunOnlineUser = $logFileXML->onlineUser;
+	$storedOnlineUser = $logFileXML->onlineUser;
 	$logEnties = $logFileXML->logEntries;
+	logEntry ( 2, "Log file loaded." );
 } else {
-	$logFileXML = new SimpleXMLElement ( '<?xml version="1.0" encoding="UTF-8"?>' );
-	$lastRunOnlineUser = $logFileXML->addChild ( 'onlineUser' );
+	$logFileXML = new SimpleXMLElement ( '<?xml version="1.0" encoding="UTF-8"?><log></log>' );
+	$storedOnlineUser = $logFileXML->addChild ( 'onlineUser' );
 	$logEnties = $logFileXML->addChild ( 'logEntries' );
-	// While development
-	$user = $lastRunOnlineUser->addChild ( 'user' );
-	$user->addAttribute ( 'name', 'MisterX' );
-	$user->addAttribute ( 'onlineSince', date ( "Y-m-d H:i", time () - 4 * 60 ) );
-	$entry = $logEnties->addChild ( 'entry' );
-	$entry->addAttribute ( 'name', 'MisterX' );
-	$entry->addAttribute ( 'type', 'online' );
-	$entry->addAttribute ( 'since', date ( "Y-m-d H:i", time () - 4 * 60 ) );
-	// End while development
+	logEntry ( 2, "New log file created." );
+	$changeFound = true;
 }
 
-foreach ( $onlineUser->user as $user ) {
-	$lastRunOnlineUser [strval ( $user ['name'] )] = strval ( $user ['onlineSince'] );
-}
-
-foreach ( $lastRunOnlineUser as $name => $onlineSince ) {
-	if (! isset ( $online [$name] )) {
-		$log [] = array (
-				'name' => $name,
-				'offline' => date ( "Y-m-d H:i", time () ) 
-		);
-		unset ( $saved [$name] );
+// User still online?
+foreach ( $storedOnlineUser->user as $user ) {
+	$name = strval ( $user ['name'] );
+	if (! isset ( $onlineUser [$name] )) {
+		$logEntry = $logEnties->addChild ( 'logEntry' );
+		$logEntry->addAttribute ( 'name', $name );
+		$logEntry->addAttribute ( 'type', 'offline' );
+		$logEntry->addAttribute ( 'since', date ( "Y-m-d H:i", time () ) );
+		$dom = dom_import_simplexml ( $user );
+		$dom->parentNode->removeChild ( $dom );
+		logEntry ( 2, "The user '$name' is no longer online." );
+		$changeFound = true;
+	} else {
+		$lastRunOnlineUser [$name] = strval ( $user ['onlineSince'] );
 	}
 }
 
-foreach ( $online as $name => $minutesOnline ) {
-	if (! isset ( $saved [$name] )) {
+// New user online? 
+foreach ( $onlineUser as $name => $minutesOnline ) {
+	if (! isset ( $lastRunOnlineUser [$name] )) {
 		$onlineSince = date ( "Y-m-d H:i", time () - $minutesOnline * 60 );
-		$log [] = array (
-				'name' => $name,
-				'online' => $onlineSince 
-		);
-		$saved [$name] = $onlineSince;
+		$logEntry = $logEnties->addChild ( 'logEntry' );
+		$logEntry->addAttribute ( 'name', $name );
+		$logEntry->addAttribute ( 'type', 'online' );
+		$logEntry->addAttribute ( 'since', $onlineSince );
+		$user = $storedOnlineUser->addChild ( 'user' );
+		$user->addAttribute ( 'name', $name );
+		$user->addAttribute ( 'onlineSince', $onlineSince );
+		logEntry ( 2, "User '$name' is online since: " . $onlineSince );
+		$changeFound = true;
 	}
 }
 
-var_dump ( $saved, $log );
+// Save if changes found
+if ($changeFound) {
+	$dom = new DOMDocument ( '1.0' );
+	$dom->preserveWhiteSpace = false;
+	$dom->formatOutput = true;
+	$dom->loadXML ( $logFileXML->asXML () );
+	if ($dom->save ( $logFile )) {
+		logEntry ( 1, "Log file saved." );
+	} else {
+		logEntry ( 1, "Log file could not saved." );
+	}
+} else {
+	logEntry ( 1, "No change found." );
+}
+
